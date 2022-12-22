@@ -18,7 +18,7 @@ import {
   UpdateIAMPolicyAssignmentRequestFilterSensitiveLog,
   UpdateIAMPolicyAssignmentResponse,
   UpdateIAMPolicyAssignmentResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand,
   serializeAws_restJson1UpdateIAMPolicyAssignmentCommand,

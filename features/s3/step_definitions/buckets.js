@@ -6,11 +6,15 @@ Before({ tags: "@buckets" }, function () {
 });
 
 After({ tags: "@buckets" }, function (callback) {
+  const _callback = typeof callback === "function" ? callback : () => {};
   if (this.bucket) {
-    this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
+    this.s3
+      .deleteBucket({ Bucket: this.bucket })
+      .catch(() => {})
+      .then(_callback);
     this.bucket = undefined;
   } else {
-    callback();
+    _callback();
   }
 });
 
@@ -33,7 +37,7 @@ Given(
 );
 
 When("I create a bucket with the location constraint {string}", function (location, callback) {
-  const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
+  this.bucket = this.uniqueName("aws-sdk-js-integration");
   const params = {
     Bucket: this.bucket,
     CreateBucketConfiguration: {

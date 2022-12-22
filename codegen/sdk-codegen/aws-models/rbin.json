@@ -49,7 +49,13 @@
           "target": "com.amazonaws.rbin#ListTagsForResource"
         },
         {
+          "target": "com.amazonaws.rbin#LockRule"
+        },
+        {
           "target": "com.amazonaws.rbin#TagResource"
+        },
+        {
+          "target": "com.amazonaws.rbin#UnlockRule"
         },
         {
           "target": "com.amazonaws.rbin#UntagResource"
@@ -77,7 +83,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -398,8 +404,8 @@
               },
               "params": {
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -411,8 +417,8 @@
               },
               "params": {
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -424,8 +430,8 @@
               },
               "params": {
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -437,8 +443,8 @@
               },
               "params": {
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -450,8 +456,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -463,8 +469,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -476,8 +482,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -489,8 +495,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -502,8 +508,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -515,8 +521,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -528,8 +534,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -541,8 +547,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -554,8 +560,8 @@
               },
               "params": {
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -567,8 +573,8 @@
               },
               "params": {
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -580,8 +586,8 @@
               },
               "params": {
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -593,8 +599,8 @@
               },
               "params": {
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -606,8 +612,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -619,8 +625,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -632,8 +638,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -645,8 +651,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -658,8 +664,8 @@
               },
               "params": {
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -671,8 +677,8 @@
               },
               "params": {
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -684,8 +690,8 @@
               },
               "params": {
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -697,8 +703,8 @@
               },
               "params": {
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -710,8 +716,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -723,8 +729,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -736,8 +742,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -749,8 +755,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -762,8 +768,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -775,8 +781,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -788,8 +794,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -801,8 +807,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -814,8 +820,8 @@
               },
               "params": {
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -827,8 +833,8 @@
               },
               "params": {
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -840,8 +846,8 @@
               },
               "params": {
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -853,8 +859,8 @@
               },
               "params": {
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -866,8 +872,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -879,8 +885,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -892,8 +898,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -905,8 +911,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -918,8 +924,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -931,8 +937,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -944,8 +950,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -957,8 +963,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -970,8 +976,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -983,8 +989,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -996,8 +1002,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1009,8 +1015,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1022,8 +1028,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1035,8 +1041,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1048,8 +1054,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1061,8 +1067,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1074,8 +1080,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1087,8 +1093,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1100,8 +1106,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1113,8 +1119,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1126,8 +1132,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1139,8 +1145,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1152,8 +1158,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1165,8 +1171,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1178,8 +1184,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1191,8 +1197,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1204,8 +1210,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1217,8 +1223,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1230,8 +1236,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1243,8 +1249,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1256,8 +1262,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1269,8 +1275,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1282,8 +1288,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1295,8 +1301,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1308,8 +1314,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1321,8 +1327,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1334,8 +1340,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1347,8 +1353,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1360,8 +1366,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1373,8 +1379,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1386,8 +1392,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1399,8 +1405,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1412,8 +1418,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1425,8 +1431,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1438,8 +1444,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1451,8 +1457,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1464,8 +1470,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1477,8 +1483,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1490,8 +1496,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1503,8 +1509,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1516,8 +1522,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1529,8 +1535,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1542,8 +1548,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1555,8 +1561,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1568,8 +1574,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1581,8 +1587,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1594,8 +1600,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1607,8 +1613,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1620,8 +1626,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1633,8 +1639,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1646,8 +1652,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1659,8 +1665,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1672,8 +1678,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1685,8 +1691,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1698,8 +1704,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1711,8 +1717,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1724,8 +1730,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1737,8 +1743,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1750,8 +1756,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1763,8 +1769,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1776,8 +1782,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1789,8 +1795,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1802,8 +1808,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1815,8 +1821,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1828,8 +1834,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1841,8 +1847,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1854,8 +1860,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1867,8 +1873,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1880,8 +1886,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1893,8 +1899,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1906,8 +1912,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1919,8 +1925,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1932,8 +1938,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1945,8 +1951,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1958,8 +1964,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1970,8 +1976,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1982,13 +1988,43 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
           ],
           "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.rbin#ConflictException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.rbin#ErrorMessage"
+        },
+        "Reason": {
+          "target": "com.amazonaws.rbin#ConflictExceptionReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified retention rule lock request can't be completed.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.rbin#ConflictExceptionReason": {
+      "type": "enum",
+      "members": {
+        "INVALID_RULE_STATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_RULE_STATE"
+          }
         }
       }
     },
@@ -2054,6 +2090,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the resource tags to use to identify resources that are to be retained by a \n  tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that \n  have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have \n  any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p>\n         <p>You can add the same tag key and value pair to a maximum or five retention rules.</p>\n         <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule \n      does not have any resource tags specified. It retains all deleted resources of the specified \n      resource type in the Region in which the rule is created, even if the resources are not tagged.</p>"
           }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>"
+          }
         }
       }
     },
@@ -2098,6 +2140,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The state of the retention rule. Only retention rules that are in the <code>available</code> \n      state retain resources.</p>"
           }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
+          }
         }
       }
     },
@@ -2110,6 +2164,9 @@
         "target": "com.amazonaws.rbin#DeleteRuleResponse"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.rbin#ConflictException"
+        },
         {
           "target": "com.amazonaws.rbin#InternalServerException"
         },
@@ -2234,6 +2291,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The state of the retention rule. Only retention rules that are in the <code>available</code> \n      state retain resources.</p>"
           }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "LockEndTime": {
+          "target": "com.amazonaws.rbin#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time at which the unlock delay is set to expire. Only returned \n      for retention rules that have been unlocked and that are still within the unlock \n      delay period.</p>"
+          }
         }
       }
     },
@@ -2276,6 +2351,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "Rules",
           "pageSize": "MaxResults"
         }
       }
@@ -2306,6 +2382,12 @@
           "target": "com.amazonaws.rbin#ResourceTags",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resource tags used to identify resources that are retained by the retention \n      rule.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state of the retention rules to list. Only retention rules with the specified \n      lock state are returned.</p>"
           }
         }
       }
@@ -2379,6 +2461,145 @@
         }
       }
     },
+    "com.amazonaws.rbin#LockConfiguration": {
+      "type": "structure",
+      "members": {
+        "UnlockDelay": {
+          "target": "com.amazonaws.rbin#UnlockDelay",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule unlock delay.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a retention rule lock configuration.</p>"
+      }
+    },
+    "com.amazonaws.rbin#LockRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rbin#LockRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rbin#LockRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rbin#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.rbin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.rbin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.rbin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/rules/{Identifier}/lock",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.rbin#LockRuleRequest": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.rbin#RuleIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the retention rule.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.rbin#LockRuleResponse": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.rbin#RuleIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the retention rule.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.rbin#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention rule description.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.rbin#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type retained by the retention rule.</p>"
+          }
+        },
+        "RetentionPeriod": {
+          "target": "com.amazonaws.rbin#RetentionPeriod"
+        },
+        "ResourceTags": {
+          "target": "com.amazonaws.rbin#ResourceTags",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the resource tags used to identify resources that are retained by the retention \n      rule.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.rbin#RuleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the retention rule. Only retention rules that are in the <code>available</code> \n      state retain resources.</p>"
+          }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.rbin#LockState": {
+      "type": "enum",
+      "members": {
+        "LOCKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "locked"
+          }
+        },
+        "PENDING_UNLOCK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending_unlock"
+          }
+        },
+        "UNLOCKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unlocked"
+          }
+        }
+      }
+    },
     "com.amazonaws.rbin#MaxResults": {
       "type": "integer",
       "traits": {
@@ -2414,14 +2635,14 @@
       }
     },
     "com.amazonaws.rbin#ResourceNotFoundExceptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RULE_NOT_FOUND",
-            "name": "RULE_NOT_FOUND"
+      "type": "enum",
+      "members": {
+        "RULE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RULE_NOT_FOUND"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.rbin#ResourceTag": {
@@ -2470,18 +2691,20 @@
       }
     },
     "com.amazonaws.rbin#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EBS_SNAPSHOT",
-            "name": "EBS_SNAPSHOT"
-          },
-          {
-            "value": "EC2_IMAGE",
-            "name": "EC2_IMAGE"
+      "type": "enum",
+      "members": {
+        "EBS_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS_SNAPSHOT"
           }
-        ]
+        },
+        "EC2_IMAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC2_IMAGE"
+          }
+        }
       }
     },
     "com.amazonaws.rbin#RetentionPeriod": {
@@ -2507,14 +2730,14 @@
       }
     },
     "com.amazonaws.rbin#RetentionPeriodUnit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAYS",
-            "name": "DAYS"
+      "type": "enum",
+      "members": {
+        "DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.rbin#RetentionPeriodValue": {
@@ -2543,18 +2766,20 @@
       }
     },
     "com.amazonaws.rbin#RuleStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "pending",
-            "name": "PENDING"
-          },
-          {
-            "value": "available",
-            "name": "AVAILABLE"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending"
           }
-        ]
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "available"
+          }
+        }
       }
     },
     "com.amazonaws.rbin#RuleSummary": {
@@ -2576,6 +2801,12 @@
           "target": "com.amazonaws.rbin#RetentionPeriod",
           "traits": {
             "smithy.api#documentation": "<p>Information about the retention period for which the retention rule is to retain resources.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2609,14 +2840,14 @@
       }
     },
     "com.amazonaws.rbin#ServiceQuotaExceededExceptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SERVICE_QUOTA_EXCEEDED",
-            "name": "SERVICE_QUOTA_EXCEEDED"
+      "type": "enum",
+      "members": {
+        "SERVICE_QUOTA_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SERVICE_QUOTA_EXCEEDED"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.rbin#Tag": {
@@ -2740,6 +2971,151 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
+    "com.amazonaws.rbin#TimeStamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.rbin#UnlockDelay": {
+      "type": "structure",
+      "members": {
+        "UnlockDelayValue": {
+          "target": "com.amazonaws.rbin#UnlockDelayValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The unlock delay period, measured in the unit specified for <b>\n      UnlockDelayUnit</b>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UnlockDelayUnit": {
+          "target": "com.amazonaws.rbin#UnlockDelayUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of time in which to measure the unlock delay. Currently, the unlock delay can \n      be measure only in days.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the retention rule unlock delay. The unlock delay is the period after which \n      a retention rule can be modified or edited after it has been unlocked by a user with the required \n      permissions. The retention rule can't be modified or deleted during the unlock delay.</p>"
+      }
+    },
+    "com.amazonaws.rbin#UnlockDelayUnit": {
+      "type": "enum",
+      "members": {
+        "DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.rbin#UnlockDelayValue": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 7,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.rbin#UnlockRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rbin#UnlockRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rbin#UnlockRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rbin#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.rbin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.rbin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.rbin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted \n      only after the unlock delay period expires.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/rules/{Identifier}/unlock",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.rbin#UnlockRuleRequest": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.rbin#RuleIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the retention rule.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.rbin#UnlockRuleResponse": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.rbin#RuleIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the retention rule.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.rbin#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention rule description.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.rbin#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type retained by the retention rule.</p>"
+          }
+        },
+        "RetentionPeriod": {
+          "target": "com.amazonaws.rbin#RetentionPeriod"
+        },
+        "ResourceTags": {
+          "target": "com.amazonaws.rbin#ResourceTags",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the resource tags used to identify resources that are retained by the retention \n      rule.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.rbin#RuleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the retention rule. Only retention rules that are in the <code>available</code> \n      state retain resources.</p>"
+          }
+        },
+        "LockConfiguration": {
+          "target": "com.amazonaws.rbin#LockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the retention rule lock configuration.</p>"
+          }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "LockEndTime": {
+          "target": "com.amazonaws.rbin#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time at which the unlock delay is set to expire. Only returned \n      for retention rules that have been unlocked and that are still within the unlock \n      delay period.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.rbin#UntagResource": {
       "type": "operation",
       "input": {
@@ -2803,6 +3179,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.rbin#ConflictException"
+        },
+        {
           "target": "com.amazonaws.rbin#InternalServerException"
         },
         {
@@ -2813,7 +3192,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing Recycle Bin retention rule. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule\">\n      Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description, \n      resource tags, and retention period at any time after creation. You can't update a retention rule's \n      resource type after creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule\">\n      Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/rules/{Identifier}",
@@ -2847,7 +3226,7 @@
         "ResourceType": {
           "target": "com.amazonaws.rbin#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots \n      and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To \n      retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>"
+            "smithy.api#documentation": "<note>\n            <p>This parameter is currently not supported. You can't update a retention rule's resource type \n      after creation.</p>\n         </note>"
           }
         },
         "ResourceTags": {
@@ -2893,6 +3272,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The state of the retention rule. Only retention rules that are in the <code>available</code> \n      state retain resources.</p>"
           }
+        },
+        "LockState": {
+          "target": "com.amazonaws.rbin#LockState",
+          "traits": {
+            "smithy.api#documentation": "<p>The lock state for the retention rule.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending_unlock</code> - The retention rule has been unlocked but it is still within \n          the unlock delay period. The retention rule can be modified or deleted only after the unlock \n          delay period has expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by \n          any user with the required permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>null</code> - The retention rule has never been locked. Once a retention rule has \n        been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states \n        only; it can never transition back to <code>null</code>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "LockEndTime": {
+          "target": "com.amazonaws.rbin#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time at which the unlock delay is set to expire. Only returned \n      for retention rules that have been unlocked and that are still within the unlock \n      delay period.</p>"
+          }
         }
       }
     },
@@ -2916,18 +3307,20 @@
       }
     },
     "com.amazonaws.rbin#ValidationExceptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INVALID_PAGE_TOKEN",
-            "name": "INVALID_PAGE_TOKEN"
-          },
-          {
-            "value": "INVALID_PARAMETER_VALUE",
-            "name": "INVALID_PARAMETER_VALUE"
+      "type": "enum",
+      "members": {
+        "INVALID_PAGE_TOKEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_PAGE_TOKEN"
           }
-        ]
+        },
+        "INVALID_PARAMETER_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_PARAMETER_VALUE"
+          }
+        }
       }
     }
   }

@@ -17,7 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyNetworkInterfaceAttributeRequest,
   ModifyNetworkInterfaceAttributeRequestFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
   serializeAws_ec2ModifyNetworkInterfaceAttributeCommand,

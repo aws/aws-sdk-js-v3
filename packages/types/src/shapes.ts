@@ -13,7 +13,7 @@ export type DocumentType = null | boolean | number | string | DocumentType[] | {
 
 /**
  * A structure shape with the error trait.
- * https://awslabs.github.io/smithy/spec/core.html#retryable-trait
+ * https://smithy.io/2.0/spec/behavior-traits.html#smithy-api-retryable-trait
  */
 export interface RetryableTrait {
   /**

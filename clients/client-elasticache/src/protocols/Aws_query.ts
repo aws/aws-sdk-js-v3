@@ -224,6 +224,7 @@ import {
   AllowedNodeTypeModificationsMessage,
   APICallRateForCustomerExceededFault,
   Authentication,
+  AuthenticationMode,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressMessage,
@@ -382,6 +383,7 @@ import {
   ModifyReplicationGroupShardConfigurationResult,
   ModifyUserGroupMessage,
   ModifyUserMessage,
+  NetworkType,
   NodeGroup,
   NodeGroupConfiguration,
   NodeGroupMember,
@@ -5960,8 +5962,29 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryAuthenticationMode = (input: AuthenticationMode, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Type != null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Passwords != null) {
+    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Passwords.${key}`;
       entries[loc] = value;
     });
   }
@@ -6005,6 +6028,9 @@ const serializeAws_queryBatchApplyUpdateActionMessage = (
   const entries: any = {};
   if (input.ReplicationGroupIds != null) {
     const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
@@ -6012,6 +6038,9 @@ const serializeAws_queryBatchApplyUpdateActionMessage = (
   }
   if (input.CacheClusterIds != null) {
     const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
@@ -6030,6 +6059,9 @@ const serializeAws_queryBatchStopUpdateActionMessage = (
   const entries: any = {};
   if (input.ReplicationGroupIds != null) {
     const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
@@ -6037,6 +6069,9 @@ const serializeAws_queryBatchStopUpdateActionMessage = (
   }
   if (input.CacheClusterIds != null) {
     const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
@@ -6119,6 +6154,9 @@ const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __Serd
   }
   if (input.PreferredAvailabilityZones != null) {
     const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -6126,6 +6164,9 @@ const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __Serd
   }
   if (input.PreferredOutpostArns != null) {
     const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+    if (input.PreferredOutpostArns?.length === 0) {
+      entries.PreferredOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredOutpostArns.${key}`;
       entries[loc] = value;
@@ -6150,6 +6191,9 @@ const serializeAws_queryCopySnapshotMessage = (input: CopySnapshotMessage, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6177,6 +6221,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.PreferredAvailabilityZones != null) {
     const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -6202,6 +6249,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.CacheSecurityGroupNames != null) {
     const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
@@ -6209,6 +6259,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -6216,6 +6269,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6223,6 +6279,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.SnapshotArns != null) {
     const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
+    if (input.SnapshotArns?.length === 0) {
+      entries.SnapshotArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotArns.${key}`;
       entries[loc] = value;
@@ -6260,6 +6319,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.PreferredOutpostArns != null) {
     const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+    if (input.PreferredOutpostArns?.length === 0) {
+      entries.PreferredOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredOutpostArns.${key}`;
       entries[loc] = value;
@@ -6270,6 +6332,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
       input.LogDeliveryConfigurations,
       context
     );
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
@@ -6277,6 +6342,12 @@ const serializeAws_queryCreateCacheClusterMessage = (
   }
   if (input.TransitEncryptionEnabled != null) {
     entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -6297,6 +6368,9 @@ const serializeAws_queryCreateCacheParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6318,6 +6392,9 @@ const serializeAws_queryCreateCacheSecurityGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6339,6 +6416,9 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -6346,6 +6426,9 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6399,6 +6482,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.PreferredCacheClusterAZs != null) {
     const memberEntries = serializeAws_queryAvailabilityZonesList(input.PreferredCacheClusterAZs, context);
+    if (input.PreferredCacheClusterAZs?.length === 0) {
+      entries.PreferredCacheClusterAZs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredCacheClusterAZs.${key}`;
       entries[loc] = value;
@@ -6412,6 +6498,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.NodeGroupConfiguration != null) {
     const memberEntries = serializeAws_queryNodeGroupConfigurationList(input.NodeGroupConfiguration, context);
+    if (input.NodeGroupConfiguration?.length === 0) {
+      entries.NodeGroupConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupConfiguration.${key}`;
       entries[loc] = value;
@@ -6434,6 +6523,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.CacheSecurityGroupNames != null) {
     const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
@@ -6441,6 +6533,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -6448,6 +6543,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6455,6 +6553,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.SnapshotArns != null) {
     const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
+    if (input.SnapshotArns?.length === 0) {
+      entries.SnapshotArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotArns.${key}`;
       entries[loc] = value;
@@ -6495,6 +6596,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.UserGroupIds != null) {
     const memberEntries = serializeAws_queryUserGroupIdListInput(input.UserGroupIds, context);
+    if (input.UserGroupIds?.length === 0) {
+      entries.UserGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIds.${key}`;
       entries[loc] = value;
@@ -6505,6 +6609,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       input.LogDeliveryConfigurations,
       context
     );
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
@@ -6512,6 +6619,12 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.DataTieringEnabled != null) {
     entries["DataTieringEnabled"] = input.DataTieringEnabled;
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -6532,6 +6645,9 @@ const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, c
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6550,6 +6666,9 @@ const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage,
   }
   if (input.UserIds != null) {
     const memberEntries = serializeAws_queryUserIdListInput(input.UserIds, context);
+    if (input.UserIds?.length === 0) {
+      entries.UserIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIds.${key}`;
       entries[loc] = value;
@@ -6557,6 +6676,9 @@ const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6578,6 +6700,9 @@ const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: 
   }
   if (input.Passwords != null) {
     const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Passwords.${key}`;
       entries[loc] = value;
@@ -6591,8 +6716,18 @@ const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = serializeAws_queryAuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
   }
@@ -6639,6 +6774,9 @@ const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage = (
   }
   if (input.GlobalNodeGroupsToRemove != null) {
     const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRemove, context);
+    if (input.GlobalNodeGroupsToRemove?.length === 0) {
+      entries.GlobalNodeGroupsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GlobalNodeGroupsToRemove.${key}`;
       entries[loc] = value;
@@ -6646,6 +6784,9 @@ const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage = (
   }
   if (input.GlobalNodeGroupsToRetain != null) {
     const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRetain, context);
+    if (input.GlobalNodeGroupsToRetain?.length === 0) {
+      entries.GlobalNodeGroupsToRetain = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GlobalNodeGroupsToRetain.${key}`;
       entries[loc] = value;
@@ -6670,6 +6811,9 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
   }
   if (input.ReplicaConfiguration != null) {
     const memberEntries = serializeAws_queryReplicaConfigurationList(input.ReplicaConfiguration, context);
+    if (input.ReplicaConfiguration?.length === 0) {
+      entries.ReplicaConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = value;
@@ -6677,6 +6821,9 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
   }
   if (input.ReplicasToRemove != null) {
     const memberEntries = serializeAws_queryRemoveReplicasList(input.ReplicasToRemove, context);
+    if (input.ReplicasToRemove?.length === 0) {
+      entries.ReplicasToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicasToRemove.${key}`;
       entries[loc] = value;
@@ -7061,6 +7208,9 @@ const serializeAws_queryDescribeServiceUpdatesMessage = (
   }
   if (input.ServiceUpdateStatus != null) {
     const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+    if (input.ServiceUpdateStatus?.length === 0) {
+      entries.ServiceUpdateStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = value;
@@ -7111,6 +7261,9 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
   }
   if (input.ReplicationGroupIds != null) {
     const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
@@ -7118,6 +7271,9 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
   }
   if (input.CacheClusterIds != null) {
     const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
@@ -7128,6 +7284,9 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
   }
   if (input.ServiceUpdateStatus != null) {
     const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+    if (input.ServiceUpdateStatus?.length === 0) {
+      entries.ServiceUpdateStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = value;
@@ -7142,6 +7301,9 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
   }
   if (input.UpdateActionStatus != null) {
     const memberEntries = serializeAws_queryUpdateActionStatusList(input.UpdateActionStatus, context);
+    if (input.UpdateActionStatus?.length === 0) {
+      entries.UpdateActionStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UpdateActionStatus.${key}`;
       entries[loc] = value;
@@ -7186,6 +7348,9 @@ const serializeAws_queryDescribeUsersMessage = (input: DescribeUsersMessage, con
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -7260,6 +7425,9 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -7323,6 +7491,9 @@ const serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage = (
   }
   if (input.RegionalConfigurations != null) {
     const memberEntries = serializeAws_queryRegionalConfigurationList(input.RegionalConfigurations, context);
+    if (input.RegionalConfigurations?.length === 0) {
+      entries.RegionalConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionalConfigurations.${key}`;
       entries[loc] = value;
@@ -7347,6 +7518,9 @@ const serializeAws_queryIncreaseReplicaCountMessage = (
   }
   if (input.ReplicaConfiguration != null) {
     const memberEntries = serializeAws_queryReplicaConfigurationList(input.ReplicaConfiguration, context);
+    if (input.ReplicaConfiguration?.length === 0) {
+      entries.ReplicaConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = value;
@@ -7466,6 +7640,9 @@ const serializeAws_queryModifyCacheClusterMessage = (
   }
   if (input.CacheNodeIdsToRemove != null) {
     const memberEntries = serializeAws_queryCacheNodeIdsList(input.CacheNodeIdsToRemove, context);
+    if (input.CacheNodeIdsToRemove?.length === 0) {
+      entries.CacheNodeIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheNodeIdsToRemove.${key}`;
       entries[loc] = value;
@@ -7476,6 +7653,9 @@ const serializeAws_queryModifyCacheClusterMessage = (
   }
   if (input.NewAvailabilityZones != null) {
     const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
+    if (input.NewAvailabilityZones?.length === 0) {
+      entries.NewAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NewAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -7483,6 +7663,9 @@ const serializeAws_queryModifyCacheClusterMessage = (
   }
   if (input.CacheSecurityGroupNames != null) {
     const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
@@ -7490,6 +7673,9 @@ const serializeAws_queryModifyCacheClusterMessage = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -7536,10 +7722,16 @@ const serializeAws_queryModifyCacheClusterMessage = (
       input.LogDeliveryConfigurations,
       context
     );
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -7554,6 +7746,9 @@ const serializeAws_queryModifyCacheParameterGroupMessage = (
   }
   if (input.ParameterNameValues != null) {
     const memberEntries = serializeAws_queryParameterNameValueList(input.ParameterNameValues, context);
+    if (input.ParameterNameValues?.length === 0) {
+      entries.ParameterNameValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterNameValues.${key}`;
       entries[loc] = value;
@@ -7575,6 +7770,9 @@ const serializeAws_queryModifyCacheSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -7640,6 +7838,9 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   }
   if (input.CacheSecurityGroupNames != null) {
     const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
@@ -7647,6 +7848,9 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -7690,6 +7894,9 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   }
   if (input.UserGroupIdsToAdd != null) {
     const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToAdd, context);
+    if (input.UserGroupIdsToAdd?.length === 0) {
+      entries.UserGroupIdsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIdsToAdd.${key}`;
       entries[loc] = value;
@@ -7697,6 +7904,9 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   }
   if (input.UserGroupIdsToRemove != null) {
     const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToRemove, context);
+    if (input.UserGroupIdsToRemove?.length === 0) {
+      entries.UserGroupIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIdsToRemove.${key}`;
       entries[loc] = value;
@@ -7710,10 +7920,16 @@ const serializeAws_queryModifyReplicationGroupMessage = (
       input.LogDeliveryConfigurations,
       context
     );
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -7734,6 +7950,9 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
   }
   if (input.ReshardingConfiguration != null) {
     const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+    if (input.ReshardingConfiguration?.length === 0) {
+      entries.ReshardingConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = value;
@@ -7741,6 +7960,9 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
   }
   if (input.NodeGroupsToRemove != null) {
     const memberEntries = serializeAws_queryNodeGroupsToRemoveList(input.NodeGroupsToRemove, context);
+    if (input.NodeGroupsToRemove?.length === 0) {
+      entries.NodeGroupsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupsToRemove.${key}`;
       entries[loc] = value;
@@ -7748,6 +7970,9 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
   }
   if (input.NodeGroupsToRetain != null) {
     const memberEntries = serializeAws_queryNodeGroupsToRetainList(input.NodeGroupsToRetain, context);
+    if (input.NodeGroupsToRetain?.length === 0) {
+      entries.NodeGroupsToRetain = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupsToRetain.${key}`;
       entries[loc] = value;
@@ -7763,6 +7988,9 @@ const serializeAws_queryModifyUserGroupMessage = (input: ModifyUserGroupMessage,
   }
   if (input.UserIdsToAdd != null) {
     const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToAdd, context);
+    if (input.UserIdsToAdd?.length === 0) {
+      entries.UserIdsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIdsToAdd.${key}`;
       entries[loc] = value;
@@ -7770,6 +7998,9 @@ const serializeAws_queryModifyUserGroupMessage = (input: ModifyUserGroupMessage,
   }
   if (input.UserIdsToRemove != null) {
     const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToRemove, context);
+    if (input.UserIdsToRemove?.length === 0) {
+      entries.UserIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIdsToRemove.${key}`;
       entries[loc] = value;
@@ -7791,6 +8022,9 @@ const serializeAws_queryModifyUserMessage = (input: ModifyUserMessage, context: 
   }
   if (input.Passwords != null) {
     const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Passwords.${key}`;
       entries[loc] = value;
@@ -7798,6 +8032,13 @@ const serializeAws_queryModifyUserMessage = (input: ModifyUserMessage, context: 
   }
   if (input.NoPasswordRequired != null) {
     entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = serializeAws_queryAuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -7818,6 +8059,9 @@ const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration,
   }
   if (input.ReplicaAvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZonesList(input.ReplicaAvailabilityZones, context);
+    if (input.ReplicaAvailabilityZones?.length === 0) {
+      entries.ReplicaAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -7828,6 +8072,9 @@ const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration,
   }
   if (input.ReplicaOutpostArns != null) {
     const memberEntries = serializeAws_queryOutpostArnsList(input.ReplicaOutpostArns, context);
+    if (input.ReplicaOutpostArns?.length === 0) {
+      entries.ReplicaOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaOutpostArns.${key}`;
       entries[loc] = value;
@@ -7976,6 +8223,9 @@ const serializeAws_queryPurchaseReservedCacheNodesOfferingMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8008,6 +8258,9 @@ const serializeAws_queryRebootCacheClusterMessage = (
   }
   if (input.CacheNodeIdsToReboot != null) {
     const memberEntries = serializeAws_queryCacheNodeIdsList(input.CacheNodeIdsToReboot, context);
+    if (input.CacheNodeIdsToReboot?.length === 0) {
+      entries.CacheNodeIdsToReboot = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheNodeIdsToReboot.${key}`;
       entries[loc] = value;
@@ -8026,6 +8279,9 @@ const serializeAws_queryRegionalConfiguration = (input: RegionalConfiguration, c
   }
   if (input.ReshardingConfiguration != null) {
     const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+    if (input.ReshardingConfiguration?.length === 0) {
+      entries.ReshardingConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = value;
@@ -8073,6 +8329,9 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -8123,6 +8382,9 @@ const serializeAws_queryResetCacheParameterGroupMessage = (
   }
   if (input.ParameterNameValues != null) {
     const memberEntries = serializeAws_queryParameterNameValueList(input.ParameterNameValues, context);
+    if (input.ParameterNameValues?.length === 0) {
+      entries.ParameterNameValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterNameValues.${key}`;
       entries[loc] = value;
@@ -8138,6 +8400,9 @@ const serializeAws_queryReshardingConfiguration = (input: ReshardingConfiguratio
   }
   if (input.PreferredAvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZonesList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -8231,6 +8496,9 @@ const serializeAws_queryStartMigrationMessage = (input: StartMigrationMessage, c
   }
   if (input.CustomerNodeEndpointList != null) {
     const memberEntries = serializeAws_queryCustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
+    if (input.CustomerNodeEndpointList?.length === 0) {
+      entries.CustomerNodeEndpointList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomerNodeEndpointList.${key}`;
       entries[loc] = value;
@@ -8502,6 +8770,8 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     ARN: undefined,
     ReplicationGroupLogDeliveryEnabled: undefined,
     LogDeliveryConfigurations: undefined,
+    NetworkType: undefined,
+    IpDiscovery: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
@@ -8627,6 +8897,12 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
       context
     );
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
   }
   return contents;
 };
@@ -9255,6 +9531,7 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
     VpcId: undefined,
     Subnets: undefined,
     ARN: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
@@ -9272,6 +9549,14 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryNetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -10422,6 +10707,14 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
   return contents;
 };
 
+const deserializeAws_queryNetworkTypeList = (output: any, context: __SerdeContext): (NetworkType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
   const contents: any = {
     NodeGroupId: undefined,
@@ -11036,6 +11329,8 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     ReplicationGroupCreateTime: undefined,
     DataTiering: undefined,
     AutoMinorVersionUpgrade: undefined,
+    NetworkType: undefined,
+    IpDiscovery: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -11154,6 +11449,12 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
     contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
   }
   return contents;
 };
@@ -11881,6 +12182,7 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
     SubnetIdentifier: undefined,
     SubnetAvailabilityZone: undefined,
     SubnetOutpost: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["SubnetIdentifier"] !== undefined) {
     contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
@@ -11890,6 +12192,14 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
   }
   if (output["SubnetOutpost"] !== undefined) {
     contents.SubnetOutpost = deserializeAws_querySubnetOutpost(output["SubnetOutpost"], context);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryNetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };

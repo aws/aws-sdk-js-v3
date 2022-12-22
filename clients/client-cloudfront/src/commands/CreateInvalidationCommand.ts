@@ -29,7 +29,7 @@ export interface CreateInvalidationCommandInput extends CreateInvalidationReques
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
- * <p>Create a new invalidation. </p>
+ * <p>Create a new invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

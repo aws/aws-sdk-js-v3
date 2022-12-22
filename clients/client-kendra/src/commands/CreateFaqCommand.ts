@@ -27,8 +27,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
 
 /**
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
- *         <p>Adding FAQs to an index is an asynchronous operation.</p>
- *         <p>For an example of adding an FAQ to an index using Python and Java SDKs,
+ *          <p>Adding FAQs to an index is an asynchronous operation.</p>
+ *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
  *                 FAQ file</a>.</p>
  * @example

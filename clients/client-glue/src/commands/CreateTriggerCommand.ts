@@ -19,7 +19,7 @@ import {
   CreateTriggerRequestFilterSensitiveLog,
   CreateTriggerResponse,
   CreateTriggerResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateTriggerCommand,
   serializeAws_json1_1CreateTriggerCommand,

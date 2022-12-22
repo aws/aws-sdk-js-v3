@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateThesaurusRequest, UpdateThesaurusRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateThesaurusRequest, UpdateThesaurusRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateThesaurusCommand,
   serializeAws_json1_1UpdateThesaurusCommand,

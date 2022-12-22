@@ -44,9 +44,9 @@ Given("I attempt to copy an encrypted snapshot across regions", function (callba
   const dstEc2 = new EC2({ region: destRegion });
 
   function teardown() {
-    if (volId) srcEc2.deleteVolume({ VolumeId: volId }).send();
-    if (srcSnapId) srcEc2.deleteSnapshot({ SnapshotId: srcSnapId }).send();
-    if (dstSnapId) dstEc2.deleteSnapshot({ SnapshotId: dstSnapId }).send();
+    if (volId) srcEc2.deleteVolume({ VolumeId: volId });
+    if (srcSnapId) srcEc2.deleteSnapshot({ SnapshotId: srcSnapId });
+    if (dstSnapId) dstEc2.deleteSnapshot({ SnapshotId: dstSnapId });
   }
 
   params = {

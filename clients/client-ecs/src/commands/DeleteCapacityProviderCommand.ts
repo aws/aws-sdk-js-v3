@@ -30,13 +30,13 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
 
 /**
  * <p>Deletes the specified capacity provider.</p>
- * 		       <note>
- * 			         <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
+ *          <note>
+ *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
  * 				reserved and can't be deleted. You can disassociate them from a cluster using either
  * 				the <a>PutClusterCapacityProviders</a> API or by deleting the
  * 				cluster.</p>
- * 		       </note>
- * 		       <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
+ *          </note>
+ *          <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
  * 			the capacity provider strategy from all services. The <a>UpdateService</a>
  * 			API can be used to remove a capacity provider from a service's capacity provider
  * 			strategy. When updating a service, the <code>forceNewDeployment</code> option can be

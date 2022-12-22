@@ -31,9 +31,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
 /**
  * <p>Imports key material into an existing symmetric encryption KMS key that was created
  *       without key material. After you successfully import key material into a KMS key, you can
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
- *         the same key material</a> into that KMS key, but you cannot import different key
- *       material. </p>
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
+ *       key material. </p>
  *          <p>You cannot perform this operation on an asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon Web Services account. For more information about creating KMS keys with no key material
  *       and then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
@@ -59,11 +58,12 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *           a public key and token from the same <code>GetParametersForImport</code> response.</p>
  *             </li>
  *             <li>
- *                <p>Whether the key material expires and if so, when. If you set an expiration date, KMS
- *           deletes the key material from the KMS key on the specified date, and the KMS key becomes
- *           unusable. To use the KMS key again, you must reimport the same key material. The only way
- *           to change an expiration date is by reimporting the same key material and specifying a new
- *           expiration date. </p>
+ *                <p>Whether the key material expires (<code>ExpirationModel</code>) and, if so, when
+ *             (<code>ValidTo</code>). If you set an expiration date, on the specified date, KMS
+ *           deletes the key material from the KMS key, making the KMS key unusable. To use the KMS key
+ *           in cryptographic operations again, you must reimport the same key material. The only way
+ *           to change the expiration model or expiration date is by reimporting the same key material
+ *           and specifying a new expiration date. </p>
  *             </li>
  *          </ul>
  *          <p>When this operation is successful, the key state of the KMS key changes from

@@ -346,7 +346,7 @@ export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfig
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *         <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
+ *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
  *             processing of streaming big data.</p>
  */
 export class KinesisClient extends __Client<

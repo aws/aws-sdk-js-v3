@@ -29,11 +29,11 @@ export interface ListThingsCommandInput extends ListThingsRequest {}
 export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your things. Use the <b>attributeName</b> and
- * 				<b>attributeValue</b> parameters to filter your things.
- * 			For example, calling <code>ListThings</code> with attributeName=Color and
- * 			attributeValue=Red retrieves all things in the registry that contain an attribute
- * 				<b>Color</b> with the value <b>Red</b>. </p>
+ * <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example,
+ * 			calling <code>ListThings</code> with attributeName=Color and attributeValue=Red
+ * 			retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things">List Things</a> from the <i>Amazon Web Services IoT Core Developer
+ * 				Guide</i>.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p>
  *
  * 		       <note>

@@ -4,18 +4,43 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisServiceException as __BaseException } from "./KinesisServiceException";
 
 /**
+ * <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * <p>Represents the input for <code>AddTagsToStream</code>.</p>
  */
 export interface AddTagsToStreamInput {
   /**
    * <p>The name of the stream.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
    */
   Tags: Record<string, string> | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -156,7 +181,7 @@ export interface Consumer {
   /**
    * <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need
    *             this ARN to be able to call <a>SubscribeToShard</a>.</p>
-   *         <p>If you delete a consumer and then create a new one with the same name, it won't have
+   *          <p>If you delete a consumer and then create a new one with the same name, it won't have
    *             the same ARN. That's because consumer ARNs contain the creation timestamp. This is
    *             important to keep in mind if you have IAM policies that reference consumer ARNs.</p>
    */
@@ -188,7 +213,7 @@ export interface ConsumerDescription {
   /**
    * <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need
    *             this ARN to be able to call <a>SubscribeToShard</a>.</p>
-   *         <p>If you delete a consumer and then create a new one with the same name, it won't have
+   *          <p>If you delete a consumer and then create a new one with the same name, it won't have
    *             the same ARN. That's because consumer ARNs contain the creation timestamp. This is
    *             important to keep in mind if you have IAM policies that reference consumer ARNs.</p>
    */
@@ -263,13 +288,18 @@ export interface DecreaseStreamRetentionPeriodInput {
   /**
    * <p>The name of the stream to modify.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The new retention period of the stream, in hours. Must be less than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -279,7 +309,7 @@ export interface DeleteStreamInput {
   /**
    * <p>The name of the stream to delete.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
@@ -287,6 +317,11 @@ export interface DeleteStreamInput {
    *             with a <code>ResourceInUseException</code>. </p>
    */
   EnforceConsumerDeletion?: boolean;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface DeregisterStreamConsumerInput {
@@ -343,7 +378,7 @@ export interface DescribeStreamInput {
   /**
    * <p>The name of the stream to describe.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The maximum number of shards to return in a single call. The default value is 100. If
@@ -353,13 +388,18 @@ export interface DescribeStreamInput {
 
   /**
    * <p>The shard ID of the shard to start with.</p>
-   *         <p>Specify this parameter to indicate that you want to describe the stream starting with
+   *          <p>Specify this parameter to indicate that you want to describe the stream starting with
    *             the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
-   *         <p>If you don't specify this parameter, the default behavior for
+   *          <p>If you don't specify this parameter, the default behavior for
    *                 <code>DescribeStream</code> is to describe the stream starting with the first shard
    *             in the stream.</p>
    */
   ExclusiveStartShardId?: string;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export enum EncryptionType {
@@ -384,51 +424,51 @@ export enum MetricsName {
 export interface EnhancedMetrics {
   /**
    * <p>List of shard-level metrics.</p>
-   *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances
+   *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances
    *             every metric.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>WriteProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>WriteProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ReadProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ReadProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IteratorAgeMilliseconds</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IteratorAgeMilliseconds</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ALL</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
@@ -506,28 +546,28 @@ export interface StreamDescription {
   /**
    * <p>The current status of the stream being described. The stream status is one of the
    *             following states:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CREATING</code> - The stream is being created. Kinesis Data Streams
+   *                <p>
+   *                   <code>CREATING</code> - The stream is being created. Kinesis Data Streams
    *                     immediately returns and sets <code>StreamStatus</code> to
    *                     <code>CREATING</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DELETING</code> - The stream is being deleted. The specified stream is in
+   *                <p>
+   *                   <code>DELETING</code> - The stream is being deleted. The specified stream is in
    *                     the <code>DELETING</code> state until Kinesis Data Streams completes the
    *                     deletion.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code> - The stream exists and is ready for read and write
+   *                <p>
+   *                   <code>ACTIVE</code> - The stream exists and is ready for read and write
    *                     operations or deletion. You should perform read and write operations only on an
    *                         <code>ACTIVE</code> stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>UPDATING</code> - Shards in the stream are being merged or split. Read and
+   *                <p>
+   *                   <code>UPDATING</code> - Shards in the stream are being merged or split. Read and
    *                     write operations continue to work while the stream is in the
    *                         <code>UPDATING</code> state.</p>
    *             </li>
@@ -571,13 +611,13 @@ export interface StreamDescription {
   /**
    * <p>The server-side encryption type used on the stream. This parameter can be one of the
    *             following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code>: Do not encrypt the records in the stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KMS</code>: Use server-side encryption on the records in the stream
    *                     using a customer-managed Amazon Web Services KMS key.</p>
    *             </li>
@@ -590,28 +630,28 @@ export interface StreamDescription {
    *             This value can be a globally unique identifier, a fully specified ARN to either an alias
    *             or a key, or an alias name prefixed by "alias/".You can also use a master key owned by
    *             Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ARN example:
+   *                <p>Key ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias ARN example:
+   *                <p>Alias ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Globally unique key ID example:
+   *                <p>Globally unique key ID example:
    *                         <code>12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                <p>Alias name example: <code>alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
+   *                <p>Master key owned by Kinesis Data Streams:
    *                     <code>alias/aws/kinesis</code>
    *                </p>
    *             </li>
@@ -662,7 +702,12 @@ export interface DescribeStreamSummaryInput {
   /**
    * <p>The name of the stream to describe.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -683,28 +728,28 @@ export interface StreamDescriptionSummary {
   /**
    * <p>The current status of the stream being described. The stream status is one of the
    *             following states:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CREATING</code> - The stream is being created. Kinesis Data Streams
+   *                <p>
+   *                   <code>CREATING</code> - The stream is being created. Kinesis Data Streams
    *                     immediately returns and sets <code>StreamStatus</code> to
    *                     <code>CREATING</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DELETING</code> - The stream is being deleted. The specified stream is in
+   *                <p>
+   *                   <code>DELETING</code> - The stream is being deleted. The specified stream is in
    *                     the <code>DELETING</code> state until Kinesis Data Streams completes the
    *                     deletion.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code> - The stream exists and is ready for read and write
+   *                <p>
+   *                   <code>ACTIVE</code> - The stream exists and is ready for read and write
    *                     operations or deletion. You should perform read and write operations only on an
    *                         <code>ACTIVE</code> stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>UPDATING</code> - Shards in the stream are being merged or split. Read and
+   *                <p>
+   *                   <code>UPDATING</code> - Shards in the stream are being merged or split. Read and
    *                     write operations continue to work while the stream is in the
    *                         <code>UPDATING</code> state.</p>
    *             </li>
@@ -735,14 +780,14 @@ export interface StreamDescriptionSummary {
 
   /**
    * <p>The encryption type used. This value is one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KMS</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code>
    *                </p>
    *             </li>
@@ -755,28 +800,28 @@ export interface StreamDescriptionSummary {
    *             This value can be a globally unique identifier, a fully specified ARN to either an alias
    *             or a key, or an alias name prefixed by "alias/".You can also use a master key owned by
    *             Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ARN example:
+   *                <p>Key ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias ARN example: <code>
+   *                <p>Alias ARN example: <code>
    *                         arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Globally unique key ID example:
+   *                <p>Globally unique key ID example:
    *                         <code>12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                <p>Alias name example: <code>alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
+   *                <p>Master key owned by Kinesis Data Streams:
    *                     <code>alias/aws/kinesis</code>
    *                </p>
    *             </li>
@@ -810,59 +855,64 @@ export interface DisableEnhancedMonitoringInput {
   /**
    * <p>The name of the Kinesis data stream for which to disable enhanced monitoring.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>List of shard-level metrics to disable.</p>
-   *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
+   *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
    *             every metric.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>WriteProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>WriteProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ReadProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ReadProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IteratorAgeMilliseconds</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IteratorAgeMilliseconds</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ALL</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -885,6 +935,11 @@ export interface EnhancedMonitoringOutput {
    *             operation.</p>
    */
   DesiredShardLevelMetrics?: (MetricsName | string)[];
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -894,59 +949,64 @@ export interface EnableEnhancedMonitoringInput {
   /**
    * <p>The name of the stream for which to enable enhanced monitoring.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>List of shard-level metrics to enable.</p>
-   *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
+   *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
    *             every metric.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IncomingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IncomingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingBytes</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingBytes</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OutgoingRecords</code>
-   *                 </p>
+   *                <p>
+   *                   <code>OutgoingRecords</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>WriteProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>WriteProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ReadProvisionedThroughputExceeded</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ReadProvisionedThroughputExceeded</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>IteratorAgeMilliseconds</code>
-   *                 </p>
+   *                <p>
+   *                   <code>IteratorAgeMilliseconds</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ALL</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1004,6 +1064,11 @@ export interface GetRecordsInput {
    *                 <code>InvalidArgumentException</code>. The default value is 10,000.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1037,13 +1102,13 @@ export interface _Record {
   /**
    * <p>The encryption type used on the record. This parameter can be one of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code>: Do not encrypt the records in the stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KMS</code>: Use server-side encryption on the records in the stream
    *                     using a customer-managed Amazon Web Services KMS key.</p>
    *             </li>
@@ -1244,7 +1309,7 @@ export interface GetShardIteratorInput {
   /**
    * <p>The name of the Amazon Kinesis data stream.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
@@ -1254,33 +1319,28 @@ export interface GetShardIteratorInput {
   /**
    * <p>Determines how the shard iterator is used to start reading data records from the
    *             shard.</p>
-   *         <p>The following are the valid Amazon Kinesis shard iterator types:</p>
-   *         <ul>
+   *          <p>The following are the valid Amazon Kinesis shard iterator types:</p>
+   *          <ul>
    *             <li>
-   *
-   *                 <p>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
+   *                <p>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
    *                     sequence number, provided in the value
    *                     <code>StartingSequenceNumber</code>.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
+   *                <p>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
    *                     specific sequence number, provided in the value
    *                         <code>StartingSequenceNumber</code>.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>AT_TIMESTAMP - Start reading from the position denoted by a specific time
+   *                <p>AT_TIMESTAMP - Start reading from the position denoted by a specific time
    *                     stamp, provided in the value <code>Timestamp</code>.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
+   *                <p>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
    *                     system, which is the oldest data record in the shard.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>LATEST - Start reading just after the most recent record in the shard, so that
+   *                <p>LATEST - Start reading just after the most recent record in the shard, so that
    *                     you always read the most recent data in the shard.</p>
    *             </li>
    *          </ul>
@@ -1303,6 +1363,11 @@ export interface GetShardIteratorInput {
    *             (TRIM_HORIZON).</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1324,13 +1389,18 @@ export interface IncreaseStreamRetentionPeriodInput {
   /**
    * <p>The name of the stream to modify.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The new retention period of the stream, in hours. Must be more than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1370,37 +1440,37 @@ export interface ShardFilter {
   /**
    * <p>The shard type specified in the <code>ShardFilter</code> parameter. This is a required
    *             property of the <code>ShardFilter</code> parameter.</p>
-   *         <p>You can specify the following valid values: </p>
-   *         <ul>
+   *          <p>You can specify the following valid values: </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AFTER_SHARD_ID</code> - the response includes all the shards, starting
    *                     with the shard whose ID immediately follows the <code>ShardId</code> that you
    *                     provided. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AT_TRIM_HORIZON</code> - the response includes all the shards that were
    *                     open at <code>TRIM_HORIZON</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FROM_TRIM_HORIZON</code> - (default), the response includes all the
    *                     shards within the retention period of the data stream (trim to tip).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AT_LATEST</code> - the response includes only the currently open shards
    *                     of the data stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AT_TIMESTAMP</code> - the response includes all shards whose start
    *                     timestamp is less than or equal to the given timestamp and end timestamp is
    *                     greater than or equal to the given timestamp or still open. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FROM_TIMESTAMP</code> - the response incldues all closed shards whose
    *                     end timestamp is greater than or equal to the given timestamp and also all open
    *                     shards. Corrected to <code>TRIM_HORIZON</code> of the data stream if
@@ -1431,7 +1501,7 @@ export interface ShardFilter {
 export interface ListShardsInput {
   /**
    * <p>The name of the data stream whose shards you want to list. </p>
-   *         <p>You cannot specify this parameter if you specify the <code>NextToken</code>
+   *          <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
    */
   StreamName?: string;
@@ -1443,31 +1513,31 @@ export interface ListShardsInput {
    *             the response includes a pagination token named <code>NextToken</code>. You can specify
    *             this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to
    *             list the next set of shards.</p>
-   *         <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
+   *          <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
    *             specify <code>NextToken</code> because the latter unambiguously identifies the
    *             stream.</p>
-   *         <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you
+   *          <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you
    *             specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is
    *             less than the number of shards that the operation returns if you don't specify
    *                 <code>MaxResults</code>, the response will contain a new <code>NextToken</code>
    *             value. You can use the new <code>NextToken</code> value in a subsequent call to the
    *                 <code>ListShards</code> operation.</p>
-   *         <important>
+   *          <important>
    *             <p>Tokens expire after 300 seconds. When you obtain a value for
    *                     <code>NextToken</code> in the response to a call to <code>ListShards</code>, you
    *                 have 300 seconds to use that value. If you specify an expired token in a call to
    *                     <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p>
-   *         </important>
+   *          </important>
    */
   NextToken?: string;
 
   /**
    * <p>Specify this parameter to indicate that you want to list the shards starting with the
    *             shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
-   *         <p>If you don't specify this parameter, the default behavior is for
+   *          <p>If you don't specify this parameter, the default behavior is for
    *                 <code>ListShards</code> to list the shards starting with the first one in the
    *             stream.</p>
-   *         <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
+   *          <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
    */
   ExclusiveStartShardId?: string;
 
@@ -1475,7 +1545,7 @@ export interface ListShardsInput {
    * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
    *             The maximum number of shards to return in a single call. The default value is 1000. If
    *             you specify a value greater than 1000, at most 1000 results are returned. </p>
-   *         <p>When the number of shards to be listed is greater than the value of
+   *          <p>When the number of shards to be listed is greater than the value of
    *                 <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
    *             you can use in a subsequent call to <code>ListShards</code> to list the next set of
    *             shards.</p>
@@ -1487,7 +1557,7 @@ export interface ListShardsInput {
    *             example, if you create a data stream and then delete it, and you later create another
    *             data stream with the same name, you can use this input parameter to specify which of the
    *             two streams you want to list the shards for.</p>
-   *         <p>You cannot specify this parameter if you specify the <code>NextToken</code>
+   *          <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
    */
   StreamCreationTimestamp?: Date;
@@ -1495,24 +1565,29 @@ export interface ListShardsInput {
   /**
    * <p>Enables you to filter out the response of the <code>ListShards</code> API. You can
    *             only specify one filter at a time. </p>
-   *         <p>If you use the <code>ShardFilter</code> parameter when invoking the ListShards API,
+   *          <p>If you use the <code>ShardFilter</code> parameter when invoking the ListShards API,
    *             the <code>Type</code> is the required property and must be specified. If you specify the
    *                 <code>AT_TRIM_HORIZON</code>, <code>FROM_TRIM_HORIZON</code>, or
    *                 <code>AT_LATEST</code> types, you do not need to specify either the
    *                 <code>ShardId</code> or the <code>Timestamp</code> optional properties. </p>
-   *         <p>If you specify the <code>AFTER_SHARD_ID</code> type, you must also provide the value
+   *          <p>If you specify the <code>AFTER_SHARD_ID</code> type, you must also provide the value
    *             for the optional <code>ShardId</code> property. The <code>ShardId</code> property is
    *             identical in fuctionality to the <code>ExclusiveStartShardId</code> parameter of the
    *                 <code>ListShards</code> API. When <code>ShardId</code> property is specified, the
    *             response includes the shards starting with the shard whose ID immediately follows the
    *                 <code>ShardId</code> that you provided. </p>
-   *         <p>If you specify the <code>AT_TIMESTAMP</code> or <code>FROM_TIMESTAMP_ID</code> type,
+   *          <p>If you specify the <code>AT_TIMESTAMP</code> or <code>FROM_TIMESTAMP_ID</code> type,
    *             you must also provide the value for the optional <code>Timestamp</code> property. If you
    *             specify the AT_TIMESTAMP type, then all shards that were open at the provided timestamp
    *             are returned. If you specify the FROM_TIMESTAMP type, then all shards starting from the
    *             provided timestamp to TIP are returned. </p>
    */
   ShardFilter?: ShardFilter;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface ListShardsOutput {
@@ -1532,12 +1607,12 @@ export interface ListShardsOutput {
    *             this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to
    *             list the next set of shards. For more information about the use of this pagination token
    *             when calling the <code>ListShards</code> operation, see <a>ListShardsInput$NextToken</a>.</p>
-   *         <important>
+   *          <important>
    *             <p>Tokens expire after 300 seconds. When you obtain a value for
    *                     <code>NextToken</code> in the response to a call to <code>ListShards</code>, you
    *                 have 300 seconds to use that value. If you specify an expired token in a call to
    *                     <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p>
-   *         </important>
+   *          </important>
    */
   NextToken?: string;
 }
@@ -1558,22 +1633,22 @@ export interface ListStreamConsumersInput {
    *                 <code>NextToken</code>. You can specify this <code>NextToken</code> value in a
    *             subsequent call to <code>ListStreamConsumers</code> to list the next set of registered
    *             consumers.</p>
-   *         <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
+   *          <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
    *             specify <code>NextToken</code> because the latter unambiguously identifies the
    *             stream.</p>
-   *         <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you
+   *          <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you
    *             specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is
    *             less than the number of consumers that the operation returns if you don't specify
    *                 <code>MaxResults</code>, the response will contain a new <code>NextToken</code>
    *             value. You can use the new <code>NextToken</code> value in a subsequent call to the
    *                 <code>ListStreamConsumers</code> operation to list the next set of consumers.</p>
-   *         <important>
+   *          <important>
    *             <p>Tokens expire after 300 seconds. When you obtain a value for
    *                     <code>NextToken</code> in the response to a call to
    *                     <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you
    *                 specify an expired token in a call to <code>ListStreamConsumers</code>, you get
    *                     <code>ExpiredNextTokenException</code>.</p>
-   *         </important>
+   *          </important>
    */
   NextToken?: string;
 
@@ -1589,7 +1664,7 @@ export interface ListStreamConsumersInput {
    *             example, if you create a data stream and then delete it, and you later create another
    *             data stream with the same name, you can use this input parameter to specify which of the
    *             two streams you want to list the consumers for. </p>
-   *         <p>You can't specify this parameter if you specify the NextToken parameter. </p>
+   *          <p>You can't specify this parameter if you specify the NextToken parameter. </p>
    */
   StreamCreationTimestamp?: Date;
 }
@@ -1609,13 +1684,13 @@ export interface ListStreamConsumersOutput {
    *                 <code>ListStreamConsumers</code> to list the next set of registered consumers. For
    *             more information about the use of this pagination token when calling the
    *                 <code>ListStreamConsumers</code> operation, see <a>ListStreamConsumersInput$NextToken</a>.</p>
-   *         <important>
+   *          <important>
    *             <p>Tokens expire after 300 seconds. When you obtain a value for
    *                     <code>NextToken</code> in the response to a call to
    *                     <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you
    *                 specify an expired token in a call to <code>ListStreamConsumers</code>, you get
    *                     <code>ExpiredNextTokenException</code>.</p>
-   *         </important>
+   *          </important>
    */
   NextToken?: string;
 }
@@ -1634,6 +1709,42 @@ export interface ListStreamsInput {
    * <p>The name of the stream to start the list with.</p>
    */
   ExclusiveStartStreamName?: string;
+
+  /**
+   * <p></p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The summary of a stream.</p>
+ */
+export interface StreamSummary {
+  /**
+   * <p>The name of a stream.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The status of the stream.</p>
+   */
+  StreamStatus: StreamStatus | string | undefined;
+
+  /**
+   * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
+   *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
+   */
+  StreamModeDetails?: StreamModeDetails;
+
+  /**
+   * <p>The timestamp at which the stream was created.</p>
+   */
+  StreamCreationTimestamp?: Date;
 }
 
 /**
@@ -1650,6 +1761,16 @@ export interface ListStreamsOutput {
    * <p>If set to <code>true</code>, there are more streams available to list.</p>
    */
   HasMoreStreams: boolean | undefined;
+
+  /**
+   * <p></p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p></p>
+   */
+  StreamSummaries?: StreamSummary[];
 }
 
 /**
@@ -1659,7 +1780,7 @@ export interface ListTagsForStreamInput {
   /**
    * <p>The name of the stream.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The key to use as the starting point for the list of tags. If this parameter is set,
@@ -1675,6 +1796,11 @@ export interface ListTagsForStreamInput {
    *             response.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1720,7 +1846,7 @@ export interface MergeShardsInput {
   /**
    * <p>The name of the stream for the merge.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The shard ID of the shard to combine with the adjacent shard for the merge.</p>
@@ -1731,12 +1857,17 @@ export interface MergeShardsInput {
    * <p>The shard ID of the adjacent shard for the merge.</p>
    */
   AdjacentShardToMerge: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
- * <p>
- *
- *         </p>
+ * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -1761,7 +1892,7 @@ export interface PutRecordInput {
   /**
    * <p>The name of the stream to put the data record into.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
@@ -1796,6 +1927,11 @@ export interface PutRecordInput {
    *             is not set, records are coarsely ordered based on arrival time.</p>
    */
   SequenceNumberForOrdering?: string;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1817,13 +1953,13 @@ export interface PutRecordOutput {
   /**
    * <p>The encryption type to use on the record. This parameter can be one of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code>: Do not encrypt the records in the stream.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KMS</code>: Use server-side encryption on the records in the stream
    *                     using a customer-managed Amazon Web Services KMS key.</p>
    *             </li>
@@ -1874,7 +2010,12 @@ export interface PutRecordsInput {
   /**
    * <p>The stream name associated with the request.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1933,13 +2074,13 @@ export interface PutRecordsOutput {
   /**
    * <p>The encryption type used on the records. This parameter can be one of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code>: Do not encrypt the records.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KMS</code>: Use server-side encryption on the records using a
    *                     customer-managed Amazon Web Services KMS key.</p>
    *             </li>
@@ -1978,12 +2119,17 @@ export interface RemoveTagsFromStreamInput {
   /**
    * <p>The name of the stream.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -1993,7 +2139,7 @@ export interface SplitShardInput {
   /**
    * <p>The name of the stream for the shard split.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The shard ID of the shard to split.</p>
@@ -2010,13 +2156,18 @@ export interface SplitShardInput {
    *             child shard.</p>
    */
   NewStartingHashKey: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface StartStreamEncryptionInput {
   /**
    * <p>The name of the stream for which to start encrypting records.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
@@ -2029,41 +2180,46 @@ export interface StartStreamEncryptionInput {
    *             (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also
    *             use a master key owned by Kinesis Data Streams by specifying the alias
    *                 <code>aws/kinesis</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ARN example:
+   *                <p>Key ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias ARN example:
+   *                <p>Alias ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Globally unique key ID example:
+   *                <p>Globally unique key ID example:
    *                         <code>12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                <p>Alias name example: <code>alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
+   *                <p>Master key owned by Kinesis Data Streams:
    *                     <code>alias/aws/kinesis</code>
    *                </p>
    *             </li>
    *          </ul>
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface StopStreamEncryptionInput {
   /**
    * <p>The name of the stream on which to stop encrypting records.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
@@ -2076,34 +2232,39 @@ export interface StopStreamEncryptionInput {
    *             (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also
    *             use a master key owned by Kinesis Data Streams by specifying the alias
    *                 <code>aws/kinesis</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ARN example:
+   *                <p>Key ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias ARN example:
+   *                <p>Alias ARN example:
    *                         <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Globally unique key ID example:
+   *                <p>Globally unique key ID example:
    *                         <code>12345678-1234-1234-1234-123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                <p>Alias name example: <code>alias/MyAliasName</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
+   *                <p>Master key owned by Kinesis Data Streams:
    *                     <code>alias/aws/kinesis</code>
    *                </p>
    *             </li>
    *          </ul>
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 /**
@@ -2112,19 +2273,19 @@ export interface StopStreamEncryptionInput {
 export interface StartingPosition {
   /**
    * <p>You can set the starting position to one of the following values:</p>
-   *         <p>
+   *          <p>
    *             <code>AT_SEQUENCE_NUMBER</code>: Start streaming from the position denoted by the
    *             sequence number specified in the <code>SequenceNumber</code> field.</p>
-   *         <p>
+   *          <p>
    *             <code>AFTER_SEQUENCE_NUMBER</code>: Start streaming right after the position denoted
    *             by the sequence number specified in the <code>SequenceNumber</code> field.</p>
-   *         <p>
+   *          <p>
    *             <code>AT_TIMESTAMP</code>: Start streaming from the position denoted by the time stamp
    *             specified in the <code>Timestamp</code> field.</p>
-   *         <p>
+   *          <p>
    *             <code>TRIM_HORIZON</code>: Start streaming at the last untrimmed record in the shard,
    *             which is the oldest data record in the shard.</p>
-   *         <p>
+   *          <p>
    *             <code>LATEST</code>: Start streaming just after the most recent record in the shard,
    *             so that you always read the most recent data in the shard.</p>
    */
@@ -2463,26 +2624,26 @@ export interface UpdateShardCountInput {
   /**
    * <p>The name of the stream.</p>
    */
-  StreamName: string | undefined;
+  StreamName?: string;
 
   /**
    * <p>The new number of shards. This value has the following default limits. By default, you
    *             cannot do the following: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Set this value to more than double your current shard count for a
+   *                <p>Set this value to more than double your current shard count for a
    *                     stream.</p>
    *             </li>
    *             <li>
-   *                 <p>Set this value below half your current shard count for a stream.</p>
+   *                <p>Set this value below half your current shard count for a stream.</p>
    *             </li>
    *             <li>
-   *                 <p>Set this value to more than 10000 shards in a stream (the default limit for
+   *                <p>Set this value to more than 10000 shards in a stream (the default limit for
    *                     shard count per stream is 10000 per account per region), unless you request a
    *                     limit increase.</p>
    *             </li>
    *             <li>
-   *                 <p>Scale a stream with more than 10000 shards down unless you set this value to
+   *                <p>Scale a stream with more than 10000 shards down unless you set this value to
    *                     less than 10000 shards.</p>
    *             </li>
    *          </ul>
@@ -2493,6 +2654,11 @@ export interface UpdateShardCountInput {
    * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
    */
   ScalingType: ScalingType | string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface UpdateShardCountOutput {
@@ -2510,6 +2676,11 @@ export interface UpdateShardCountOutput {
    * <p>The updated number of shards.</p>
    */
   TargetShardCount?: number;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   */
+  StreamARN?: string;
 }
 
 export interface UpdateStreamModeInput {
@@ -2788,6 +2959,13 @@ export const ListStreamConsumersOutputFilterSensitiveLog = (obj: ListStreamConsu
  * @internal
  */
 export const ListStreamsInputFilterSensitiveLog = (obj: ListStreamsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
   ...obj,
 });
 

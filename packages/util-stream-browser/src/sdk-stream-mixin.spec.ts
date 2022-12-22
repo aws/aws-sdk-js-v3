@@ -1,14 +1,14 @@
 // @jest-environment jsdom
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { SdkStreamMixin } from "@aws-sdk/types";
-import { toBase64 } from "@aws-sdk/util-base64-browser";
+import { toBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toUtf8 } from "@aws-sdk/util-utf8-browser";
 
 import { sdkStreamMixin } from "./sdk-stream-mixin";
 
 jest.mock("@aws-sdk/fetch-http-handler");
-jest.mock("@aws-sdk/util-base64-browser");
+jest.mock("@aws-sdk/util-base64");
 jest.mock("@aws-sdk/util-hex-encoding");
 jest.mock("@aws-sdk/util-utf8-browser");
 

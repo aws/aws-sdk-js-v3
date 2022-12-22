@@ -81,6 +81,7 @@ import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
 } from "../commands/CreateFlowDefinitionCommand";
+import { CreateHubCommandInput, CreateHubCommandOutput } from "../commands/CreateHubCommand";
 import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "../commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
@@ -88,6 +89,10 @@ import {
 } from "../commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "../commands/CreateImageVersionCommand";
+import {
+  CreateInferenceExperimentCommandInput,
+  CreateInferenceExperimentCommandOutput,
+} from "../commands/CreateInferenceExperimentCommand";
 import {
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
@@ -97,6 +102,11 @@ import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "../commands/CreateModelBiasJobDefinitionCommand";
+import { CreateModelCardCommandInput, CreateModelCardCommandOutput } from "../commands/CreateModelCardCommand";
+import {
+  CreateModelCardExportJobCommandInput,
+  CreateModelCardExportJobCommandOutput,
+} from "../commands/CreateModelCardExportJobCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
 import {
   CreateModelExplainabilityJobDefinitionCommandInput,
@@ -137,6 +147,7 @@ import {
   CreateProcessingJobCommandOutput,
 } from "../commands/CreateProcessingJobCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "../commands/CreateSpaceCommand";
 import {
   CreateStudioLifecycleConfigCommandInput,
   CreateStudioLifecycleConfigCommandOutput,
@@ -190,13 +201,20 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "../commands/DeleteFlowDefinitionCommand";
+import { DeleteHubCommandInput, DeleteHubCommandOutput } from "../commands/DeleteHubCommand";
+import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "../commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "../commands/DeleteImageVersionCommand";
 import {
+  DeleteInferenceExperimentCommandInput,
+  DeleteInferenceExperimentCommandOutput,
+} from "../commands/DeleteInferenceExperimentCommand";
+import {
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
 } from "../commands/DeleteModelBiasJobDefinitionCommand";
+import { DeleteModelCardCommandInput, DeleteModelCardCommandOutput } from "../commands/DeleteModelCardCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import {
   DeleteModelExplainabilityJobDefinitionCommandInput,
@@ -229,6 +247,7 @@ import {
 } from "../commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "../commands/DeleteSpaceCommand";
 import {
   DeleteStudioLifecycleConfigCommandInput,
   DeleteStudioLifecycleConfigCommandOutput,
@@ -297,6 +316,8 @@ import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "../commands/DescribeFlowDefinitionCommand";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "../commands/DescribeHubCommand";
+import { DescribeHubContentCommandInput, DescribeHubContentCommandOutput } from "../commands/DescribeHubContentCommand";
 import {
   DescribeHumanTaskUiCommandInput,
   DescribeHumanTaskUiCommandOutput,
@@ -310,6 +331,10 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "../commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceExperimentCommandInput,
+  DescribeInferenceExperimentCommandOutput,
+} from "../commands/DescribeInferenceExperimentCommand";
 import {
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
@@ -326,6 +351,11 @@ import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
 } from "../commands/DescribeModelBiasJobDefinitionCommand";
+import { DescribeModelCardCommandInput, DescribeModelCardCommandOutput } from "../commands/DescribeModelCardCommand";
+import {
+  DescribeModelCardExportJobCommandInput,
+  DescribeModelCardExportJobCommandOutput,
+} from "../commands/DescribeModelCardExportJobCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "../commands/DescribeModelCommand";
 import {
   DescribeModelExplainabilityJobDefinitionCommandInput,
@@ -369,6 +399,7 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "../commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "../commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommandInput,
   DescribeStudioLifecycleConfigCommandOutput,
@@ -428,8 +459,10 @@ import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "../commands/GetSearchSuggestionsCommand";
+import { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "../commands/ImportHubContentCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "../commands/ListAlgorithmsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -477,6 +510,12 @@ import {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
 } from "../commands/ListFlowDefinitionsCommand";
+import { ListHubContentsCommandInput, ListHubContentsCommandOutput } from "../commands/ListHubContentsCommand";
+import {
+  ListHubContentVersionsCommandInput,
+  ListHubContentVersionsCommandOutput,
+} from "../commands/ListHubContentVersionsCommand";
+import { ListHubsCommandInput, ListHubsCommandOutput } from "../commands/ListHubsCommand";
 import { ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput } from "../commands/ListHumanTaskUisCommand";
 import {
   ListHyperParameterTuningJobsCommandInput,
@@ -484,6 +523,10 @@ import {
 } from "../commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "../commands/ListImageVersionsCommand";
+import {
+  ListInferenceExperimentsCommandInput,
+  ListInferenceExperimentsCommandOutput,
+} from "../commands/ListInferenceExperimentsCommand";
 import {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
@@ -503,6 +546,15 @@ import {
   ListModelBiasJobDefinitionsCommandOutput,
 } from "../commands/ListModelBiasJobDefinitionsCommand";
 import {
+  ListModelCardExportJobsCommandInput,
+  ListModelCardExportJobsCommandOutput,
+} from "../commands/ListModelCardExportJobsCommand";
+import { ListModelCardsCommandInput, ListModelCardsCommandOutput } from "../commands/ListModelCardsCommand";
+import {
+  ListModelCardVersionsCommandInput,
+  ListModelCardVersionsCommandOutput,
+} from "../commands/ListModelCardVersionsCommand";
+import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
 } from "../commands/ListModelExplainabilityJobDefinitionsCommand";
@@ -517,6 +569,14 @@ import {
   ListModelQualityJobDefinitionsCommandOutput,
 } from "../commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
+import {
+  ListMonitoringAlertHistoryCommandInput,
+  ListMonitoringAlertHistoryCommandOutput,
+} from "../commands/ListMonitoringAlertHistoryCommand";
+import {
+  ListMonitoringAlertsCommandInput,
+  ListMonitoringAlertsCommandOutput,
+} from "../commands/ListMonitoringAlertsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput,
@@ -548,6 +608,7 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import { ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
 import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "../commands/ListStageDevicesCommand";
 import {
   ListStudioLifecycleConfigsCommandInput,
@@ -597,6 +658,10 @@ import {
   StartEdgeDeploymentStageCommandOutput,
 } from "../commands/StartEdgeDeploymentStageCommand";
 import {
+  StartInferenceExperimentCommandInput,
+  StartInferenceExperimentCommandOutput,
+} from "../commands/StartInferenceExperimentCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "../commands/StartMonitoringScheduleCommand";
@@ -622,6 +687,10 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "../commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceExperimentCommandInput,
+  StopInferenceExperimentCommandOutput,
+} from "../commands/StopInferenceExperimentCommand";
 import {
   StopInferenceRecommendationsJobCommandInput,
   StopInferenceRecommendationsJobCommandOutput,
@@ -667,8 +736,19 @@ import {
   UpdateFeatureMetadataCommandInput,
   UpdateFeatureMetadataCommandOutput,
 } from "../commands/UpdateFeatureMetadataCommand";
+import { UpdateHubCommandInput, UpdateHubCommandOutput } from "../commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
+import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "../commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceExperimentCommandInput,
+  UpdateInferenceExperimentCommandOutput,
+} from "../commands/UpdateInferenceExperimentCommand";
+import { UpdateModelCardCommandInput, UpdateModelCardCommandOutput } from "../commands/UpdateModelCardCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "../commands/UpdateModelPackageCommand";
+import {
+  UpdateMonitoringAlertCommandInput,
+  UpdateMonitoringAlertCommandOutput,
+} from "../commands/UpdateMonitoringAlertCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -687,6 +767,7 @@ import {
   UpdatePipelineExecutionCommandOutput,
 } from "../commands/UpdatePipelineExecutionCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
+import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "../commands/UpdateSpaceCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "../commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "../commands/UpdateTrialCommand";
 import {
@@ -738,6 +819,7 @@ import {
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
+  AutoMLJobStepMetadata,
   AutoMLJobSummary,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
@@ -773,6 +855,7 @@ import {
   ClarifyShapBaselineConfig,
   ClarifyShapConfig,
   ClarifyTextConfig,
+  CodeRepository,
   CodeRepositorySummary,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -827,6 +910,7 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
+  DefaultSpaceSettings,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -874,9 +958,6 @@ import {
   MonitoringStoppingCondition,
   MultiModelConfig,
   NeoVpcConfig,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
-  OnlineStoreSecurityConfig,
   OutputConfig,
   OutputDataConfig,
   OutputParameter,
@@ -924,6 +1005,8 @@ import {
   CreateFeatureGroupResponse,
   CreateFlowDefinitionRequest,
   CreateFlowDefinitionResponse,
+  CreateHubRequest,
+  CreateHubResponse,
   CreateHumanTaskUiRequest,
   CreateHumanTaskUiResponse,
   CreateHyperParameterTuningJobRequest,
@@ -932,12 +1015,18 @@ import {
   CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
+  CreateInferenceExperimentRequest,
+  CreateInferenceExperimentResponse,
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
+  CreateModelCardExportJobRequest,
+  CreateModelCardExportJobResponse,
+  CreateModelCardRequest,
+  CreateModelCardResponse,
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
   CreateModelInput,
@@ -964,6 +1053,8 @@ import {
   CreateProcessingJobResponse,
   CreateProjectInput,
   CreateProjectOutput,
+  CreateSpaceRequest,
+  CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
@@ -1010,13 +1101,18 @@ import {
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
   DeleteFlowDefinitionResponse,
+  DeleteHubContentRequest,
+  DeleteHubRequest,
   DeleteHumanTaskUiRequest,
   DeleteHumanTaskUiResponse,
   DeleteImageRequest,
   DeleteImageResponse,
   DeleteImageVersionRequest,
   DeleteImageVersionResponse,
+  DeleteInferenceExperimentRequest,
+  DeleteInferenceExperimentResponse,
   DeleteModelBiasJobDefinitionRequest,
+  DeleteModelCardRequest,
   DeleteModelExplainabilityJobDefinitionRequest,
   DeleteModelInput,
   DeleteModelPackageGroupInput,
@@ -1029,6 +1125,7 @@ import {
   DeletePipelineRequest,
   DeletePipelineResponse,
   DeleteProjectInput,
+  DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTagsOutput,
@@ -1046,6 +1143,134 @@ import {
   DeregisterDevicesRequest,
   DescribeActionRequest,
   DescribeActionResponse,
+  DriftCheckBaselines,
+  DriftCheckBias,
+  DriftCheckExplainability,
+  DriftCheckModelDataQuality,
+  DriftCheckModelQuality,
+  EdgeDeploymentStatus,
+  EndpointInfo,
+  EndpointInputConfiguration,
+  EnvironmentParameterRanges,
+  ExperimentConfig,
+  Explainability,
+  FileSource,
+  FlowDefinitionOutputConfig,
+  HubS3StorageConfig,
+  HumanLoopActivationConditionsConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
+  HumanTaskConfig,
+  HyperbandStrategyConfig,
+  HyperParameterAlgorithmSpecification,
+  HyperParameterTrainingJobDefinition,
+  HyperParameterTuningInstanceConfig,
+  HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyConfig,
+  HyperParameterTuningJobWarmStartConfig,
+  HyperParameterTuningResourceConfig,
+  InferenceExecutionConfig,
+  InferenceExperimentDataStorageConfig,
+  InferenceExperimentSchedule,
+  InstanceMetadataServiceConfiguration,
+  IntegerParameterRange,
+  LabelingJobAlgorithmsConfig,
+  LabelingJobDataAttributes,
+  LabelingJobDataSource,
+  LabelingJobInputConfig,
+  LabelingJobOutputConfig,
+  LabelingJobResourceConfig,
+  LabelingJobS3DataSource,
+  LabelingJobSnsDataSource,
+  LabelingJobStoppingConditions,
+  MemberDefinition,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
+  ModelBiasJobInput,
+  ModelCardExportOutputConfig,
+  ModelCardSecurityConfig,
+  ModelClientConfig,
+  ModelDataQuality,
+  ModelExplainabilityAppSpecification,
+  ModelExplainabilityBaselineConfig,
+  ModelExplainabilityJobInput,
+  ModelInfrastructureConfig,
+  ModelLatencyThreshold,
+  ModelMetrics,
+  ModelPackageValidationProfile,
+  ModelPackageValidationSpecification,
+  ModelQuality,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
+  ModelVariantConfig,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
+  MonitoringGroundTruthS3Input,
+  MonitoringInput,
+  MonitoringJobDefinition,
+  MonitoringScheduleConfig,
+  NetworkConfig,
+  NotebookInstanceAcceleratorType,
+  NotebookInstanceLifecycleHook,
+  NotificationConfiguration,
+  OfflineStoreConfig,
+  OidcConfig,
+  OidcMemberDefinition,
+  OnlineStoreConfig,
+  OnlineStoreSecurityConfig,
+  ParallelismConfiguration,
+  ParameterRanges,
+  ParentHyperParameterTuningJob,
+  Phase,
+  PipelineDefinitionS3Location,
+  ProcessingClusterConfig,
+  ProcessingFeatureStoreOutput,
+  ProcessingInput,
+  ProcessingOutput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingS3Input,
+  ProcessingS3Output,
+  ProcessingStoppingCondition,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
+  ProvisioningParameter,
+  PublicWorkforceTaskPrice,
+  RealTimeInferenceConfig,
+  RecommendationJobCompiledOutputConfig,
+  RecommendationJobContainerConfig,
+  RecommendationJobInputConfig,
+  RecommendationJobOutputConfig,
+  RecommendationJobPayloadConfig,
+  RecommendationJobResourceLimit,
+  RecommendationJobStoppingConditions,
+  RecommendationJobVpcConfig,
+  RedshiftDatasetDefinition,
+  ResourceLimits,
+  RetentionPolicy,
+  RetryStrategy,
+  ScheduleConfig,
+  ServiceCatalogProvisioningDetails,
+  ShadowModeConfig,
+  ShadowModelVariantConfig,
+  SourceAlgorithm,
+  SourceAlgorithmSpecification,
+  SourceIpConfig,
+  SpaceSettings,
+  TensorBoardOutputConfig,
+  TrafficPattern,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
+  TuningJobCompletionCriteria,
+  UiConfig,
+  UiTemplate,
+  USD,
+  WorkforceVpcConfigRequest,
+} from "../models/models_1";
+import {
   DescribeAlgorithmInput,
   DescribeAlgorithmOutput,
   DescribeAppImageConfigRequest,
@@ -1074,128 +1299,9 @@ import {
   DescribeEdgeDeploymentPlanResponse,
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
-  DescribeEndpointInput,
-  DriftCheckBaselines,
-  DriftCheckBias,
-  DriftCheckExplainability,
-  DriftCheckModelDataQuality,
-  DriftCheckModelQuality,
-  EdgeDeploymentStatus,
-  EdgeModel,
-  EdgePresetDeploymentOutput,
-  EndpointInfo,
-  EndpointInputConfiguration,
-  EnvironmentParameterRanges,
-  ExperimentConfig,
-  Explainability,
-  FileSource,
-  FlowDefinitionOutputConfig,
-  HumanLoopActivationConditionsConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
-  HumanTaskConfig,
-  HyperbandStrategyConfig,
-  HyperParameterAlgorithmSpecification,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningInstanceConfig,
-  HyperParameterTuningJobConfig,
-  HyperParameterTuningJobStrategyConfig,
-  HyperParameterTuningJobWarmStartConfig,
-  HyperParameterTuningResourceConfig,
-  InferenceExecutionConfig,
-  InstanceMetadataServiceConfiguration,
-  IntegerParameterRange,
-  LabelingJobAlgorithmsConfig,
-  LabelingJobDataAttributes,
-  LabelingJobDataSource,
-  LabelingJobInputConfig,
-  LabelingJobOutputConfig,
-  LabelingJobResourceConfig,
-  LabelingJobS3DataSource,
-  LabelingJobSnsDataSource,
-  LabelingJobStoppingConditions,
-  MemberDefinition,
-  ModelArtifacts,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
-  ModelBiasJobInput,
-  ModelClientConfig,
-  ModelDataQuality,
-  ModelDeployResult,
-  ModelDigests,
-  ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
-  ModelLatencyThreshold,
-  ModelMetrics,
-  ModelPackageValidationProfile,
-  ModelPackageValidationSpecification,
-  ModelQuality,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
-  MonitoringGroundTruthS3Input,
-  MonitoringInput,
-  MonitoringJobDefinition,
-  MonitoringScheduleConfig,
-  NetworkConfig,
-  NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
-  NotificationConfiguration,
-  OidcConfig,
-  OidcMemberDefinition,
-  ParallelismConfiguration,
-  ParameterRanges,
-  ParentHyperParameterTuningJob,
-  Phase,
-  PipelineDefinitionS3Location,
-  ProcessingClusterConfig,
-  ProcessingFeatureStoreOutput,
-  ProcessingInput,
-  ProcessingOutput,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingS3Input,
-  ProcessingS3Output,
-  ProcessingStoppingCondition,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
-  ProvisioningParameter,
-  PublicWorkforceTaskPrice,
-  RecommendationJobCompiledOutputConfig,
-  RecommendationJobContainerConfig,
-  RecommendationJobInputConfig,
-  RecommendationJobOutputConfig,
-  RecommendationJobPayloadConfig,
-  RecommendationJobResourceLimit,
-  RecommendationJobStoppingConditions,
-  RedshiftDatasetDefinition,
-  ResolvedAttributes,
-  ResourceLimits,
-  RetentionPolicy,
-  RetryStrategy,
-  ScheduleConfig,
-  ServiceCatalogProvisioningDetails,
-  SourceAlgorithm,
-  SourceAlgorithmSpecification,
-  SourceIpConfig,
-  TensorBoardOutputConfig,
-  TrafficPattern,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
-  TuningJobCompletionCriteria,
-  UiConfig,
-  UiTemplate,
-  USD,
-  WorkforceVpcConfigRequest,
-} from "../models/models_1";
-import {
   DescribeEndpointConfigInput,
   DescribeEndpointConfigOutput,
+  DescribeEndpointInput,
   DescribeEndpointOutput,
   DescribeExperimentRequest,
   DescribeExperimentResponse,
@@ -1205,6 +1311,10 @@ import {
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
+  DescribeHubContentRequest,
+  DescribeHubContentResponse,
+  DescribeHubRequest,
+  DescribeHubResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
@@ -1213,6 +1323,8 @@ import {
   DescribeImageResponse,
   DescribeImageVersionRequest,
   DescribeImageVersionResponse,
+  DescribeInferenceExperimentRequest,
+  DescribeInferenceExperimentResponse,
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
@@ -1221,6 +1333,10 @@ import {
   DescribeLineageGroupResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
+  DescribeModelCardExportJobRequest,
+  DescribeModelCardExportJobResponse,
+  DescribeModelCardRequest,
+  DescribeModelCardResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
   DescribeModelInput,
@@ -1247,6 +1363,8 @@ import {
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
+  DescribeSpaceRequest,
+  DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
@@ -1279,14 +1397,17 @@ import {
   DomainSettingsForUpdate,
   Edge,
   EdgeDeploymentPlanSummary,
+  EdgeModel,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
+  EdgePresetDeploymentOutput,
   EMRStepMetadata,
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
   Endpoint,
   EndpointConfigSummary,
+  EndpointMetadata,
   EndpointOutputConfiguration,
   EndpointPerformance,
   EndpointSummary,
@@ -1313,12 +1434,18 @@ import {
   GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
+  HubContentDependency,
+  HubContentInfo,
+  HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
+  ImportHubContentRequest,
+  ImportHubContentResponse,
+  InferenceExperimentSummary,
   InferenceMetrics,
   InferenceRecommendation,
   InferenceRecommendationsJob,
@@ -1336,6 +1463,8 @@ import {
   ListActionsResponse,
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
+  ListAliasesRequest,
+  ListAliasesResponse,
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
@@ -1343,6 +1472,47 @@ import {
   ListArtifactsRequest,
   ListArtifactsResponse,
   ListAssociationsRequest,
+  MetricData,
+  ModelArtifacts,
+  ModelCardExportArtifacts,
+  ModelConfiguration,
+  ModelDeployResult,
+  ModelDigests,
+  ModelPackageStatusDetails,
+  ModelPackageStatusItem,
+  ModelVariantConfigSummary,
+  MonitoringExecutionSummary,
+  MonitoringSchedule,
+  ObjectiveStatusCounters,
+  OfflineStoreStatus,
+  OidcConfigForResponse,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
+  PipelineExperimentConfig,
+  ProductionVariantStatus,
+  ProductionVariantSummary,
+  ProfilerRuleEvaluationStatus,
+  PropertyNameQuery,
+  PropertyNameSuggestion,
+  RecommendationJobInferenceBenchmark,
+  RecommendationMetrics,
+  ResolvedAttributes,
+  RStudioServerProDomainSettingsForUpdate,
+  SecondaryStatusTransition,
+  ServiceCatalogProvisionedProductDetails,
+  SubscribedWorkteam,
+  SuggestionQuery,
+  TrainingJobStatusCounters,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
+  UiTemplateInfo,
+  WarmPoolStatus,
+  Workforce,
+  WorkforceVpcConfigResponse,
+  Workteam,
+} from "../models/models_2";
+import {
   ListAssociationsResponse,
   ListAutoMLJobsRequest,
   ListAutoMLJobsResponse,
@@ -1376,6 +1546,12 @@ import {
   ListFeatureGroupsResponse,
   ListFlowDefinitionsRequest,
   ListFlowDefinitionsResponse,
+  ListHubContentsRequest,
+  ListHubContentsResponse,
+  ListHubContentVersionsRequest,
+  ListHubContentVersionsResponse,
+  ListHubsRequest,
+  ListHubsResponse,
   ListHumanTaskUisRequest,
   ListHumanTaskUisResponse,
   ListHyperParameterTuningJobsRequest,
@@ -1384,6 +1560,8 @@ import {
   ListImagesResponse,
   ListImageVersionsRequest,
   ListImageVersionsResponse,
+  ListInferenceExperimentsRequest,
+  ListInferenceExperimentsResponse,
   ListInferenceRecommendationsJobsRequest,
   ListInferenceRecommendationsJobsResponse,
   ListInferenceRecommendationsJobStepsRequest,
@@ -1396,47 +1574,15 @@ import {
   ListLineageGroupsResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
+  ListModelCardExportJobsRequest,
+  ListModelCardExportJobsResponse,
+  ListModelCardsRequest,
+  ListModelCardsResponse,
+  ListModelCardVersionsRequest,
+  ListModelCardVersionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
   ListModelMetadataRequest,
-  MetricData,
-  ModelConfiguration,
-  ModelMetadataFilter,
-  ModelMetadataSearchExpression,
-  ModelPackageStatusDetails,
-  ModelPackageStatusItem,
-  MonitoringExecutionSummary,
-  MonitoringJobDefinitionSummary,
-  MonitoringSchedule,
-  ObjectiveStatusCounters,
-  OfflineStoreStatus,
-  OidcConfigForResponse,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
-  PipelineExperimentConfig,
-  ProductionVariantStatus,
-  ProductionVariantSummary,
-  ProfilerRuleEvaluationStatus,
-  PropertyNameQuery,
-  PropertyNameSuggestion,
-  RecommendationJobInferenceBenchmark,
-  RecommendationMetrics,
-  RStudioServerProDomainSettingsForUpdate,
-  SecondaryStatusTransition,
-  ServiceCatalogProvisionedProductDetails,
-  SubscribedWorkteam,
-  SuggestionQuery,
-  TrainingJobStatusCounters,
-  TrialComponentMetricSummary,
-  TrialComponentSource,
-  TrialSource,
-  UiTemplateInfo,
-  WarmPoolStatus,
-  Workforce,
-  WorkforceVpcConfigResponse,
-  Workteam,
-} from "../models/models_2";
-import {
   ListModelMetadataResponse,
   ListModelPackageGroupsInput,
   ListModelPackageGroupsOutput,
@@ -1446,6 +1592,10 @@ import {
   ListModelQualityJobDefinitionsResponse,
   ListModelsInput,
   ListModelsOutput,
+  ListMonitoringAlertHistoryRequest,
+  ListMonitoringAlertHistoryResponse,
+  ListMonitoringAlertsRequest,
+  ListMonitoringAlertsResponse,
   ListMonitoringExecutionsRequest,
   ListMonitoringExecutionsResponse,
   ListMonitoringSchedulesRequest,
@@ -1466,6 +1616,8 @@ import {
   ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  ListSpacesRequest,
+  ListSpacesResponse,
   ListStageDevicesRequest,
   ListStageDevicesResponse,
   ListStudioLifecycleConfigsRequest,
@@ -1490,6 +1642,18 @@ import {
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
+  Model,
+  ModelCard,
+  ModelCardExportJobSummary,
+  ModelCardSummary,
+  ModelCardVersionSummary,
+  ModelDashboardEndpoint,
+  ModelDashboardIndicatorAction,
+  ModelDashboardModel,
+  ModelDashboardModelCard,
+  ModelDashboardMonitoringSchedule,
+  ModelMetadataFilter,
+  ModelMetadataSearchExpression,
   ModelMetadataSummary,
   ModelPackage,
   ModelPackageGroup,
@@ -1497,6 +1661,11 @@ import {
   ModelPackageSummary,
   ModelStepMetadata,
   ModelSummary,
+  ModelVariantAction,
+  MonitoringAlertActions,
+  MonitoringAlertHistorySummary,
+  MonitoringAlertSummary,
+  MonitoringJobDefinitionSummary,
   MonitoringScheduleSummary,
   NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
@@ -1530,16 +1699,16 @@ import {
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
-  SearchExpression,
   SearchRecord,
-  SearchRequest,
   SearchResponse,
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
-  ServiceCatalogProvisioningUpdateDetails,
+  SpaceDetails,
   StartEdgeDeploymentStageRequest,
+  StartInferenceExperimentRequest,
+  StartInferenceExperimentResponse,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -1549,6 +1718,8 @@ import {
   StopEdgeDeploymentStageRequest,
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
+  StopInferenceExperimentRequest,
+  StopInferenceExperimentResponse,
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
@@ -1593,12 +1764,30 @@ import {
   UpdateExperimentRequest,
   UpdateExperimentResponse,
   UpdateFeatureGroupRequest,
+  UserProfileDetails,
+  VariantProperty,
+  Vertex,
+} from "../models/models_3";
+import {
+  SearchExpression,
+  SearchRequest,
+  ServiceCatalogProvisioningUpdateDetails,
   UpdateFeatureGroupResponse,
   UpdateFeatureMetadataRequest,
+  UpdateHubRequest,
+  UpdateHubResponse,
   UpdateImageRequest,
   UpdateImageResponse,
+  UpdateImageVersionRequest,
+  UpdateImageVersionResponse,
+  UpdateInferenceExperimentRequest,
+  UpdateInferenceExperimentResponse,
+  UpdateModelCardRequest,
+  UpdateModelCardResponse,
   UpdateModelPackageInput,
   UpdateModelPackageOutput,
+  UpdateMonitoringAlertRequest,
+  UpdateMonitoringAlertResponse,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
   UpdateNotebookInstanceInput,
@@ -1611,6 +1800,8 @@ import {
   UpdatePipelineResponse,
   UpdateProjectInput,
   UpdateProjectOutput,
+  UpdateSpaceRequest,
+  UpdateSpaceResponse,
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
@@ -1623,10 +1814,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
-  UserProfileDetails,
-  VariantProperty,
-  Vertex,
-} from "../models/models_3";
+} from "../models/models_4";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 export const serializeAws_json1_1AddAssociationCommand = async (
@@ -1941,6 +2129,19 @@ export const serializeAws_json1_1CreateFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateHubCommand = async (
+  input: CreateHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateHumanTaskUiCommand = async (
   input: CreateHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -1993,6 +2194,19 @@ export const serializeAws_json1_1CreateImageVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateInferenceExperimentCommand = async (
+  input: CreateInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateInferenceRecommendationsJobCommand = async (
   input: CreateInferenceRecommendationsJobCommandInput,
   context: __SerdeContext
@@ -2042,6 +2256,32 @@ export const serializeAws_json1_1CreateModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateModelCardCommand = async (
+  input: CreateModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateModelCardExportJobCommand = async (
+  input: CreateModelCardExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateModelCardExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2198,6 +2438,19 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateSpaceCommand = async (
+  input: CreateSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2539,6 +2792,32 @@ export const serializeAws_json1_1DeleteFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteHubCommand = async (
+  input: DeleteHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteHubContentCommand = async (
+  input: DeleteHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteHumanTaskUiCommand = async (
   input: DeleteHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -2578,6 +2857,19 @@ export const serializeAws_json1_1DeleteImageVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteInferenceExperimentCommand = async (
+  input: DeleteInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
@@ -2601,6 +2893,19 @@ export const serializeAws_json1_1DeleteModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteModelCardCommand = async (
+  input: DeleteModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2731,6 +3036,19 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSpaceCommand = async (
+  input: DeleteSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3111,6 +3429,32 @@ export const serializeAws_json1_1DescribeFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeHubCommand = async (
+  input: DescribeHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeHubContentCommand = async (
+  input: DescribeHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeHumanTaskUiCommand = async (
   input: DescribeHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -3160,6 +3504,19 @@ export const serializeAws_json1_1DescribeImageVersionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeInferenceExperimentCommand = async (
+  input: DescribeInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3225,6 +3582,32 @@ export const serializeAws_json1_1DescribeModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeModelCardCommand = async (
+  input: DescribeModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeModelCardExportJobCommand = async (
+  input: DescribeModelCardExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeModelCardExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3381,6 +3764,19 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeSpaceCommand = async (
+  input: DescribeSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3605,6 +4001,19 @@ export const serializeAws_json1_1GetSearchSuggestionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ImportHubContentCommand = async (
+  input: ImportHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ImportHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
@@ -3628,6 +4037,19 @@ export const serializeAws_json1_1ListAlgorithmsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAlgorithmsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListAliasesCommand = async (
+  input: ListAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3891,6 +4313,45 @@ export const serializeAws_json1_1ListFlowDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListHubContentsCommand = async (
+  input: ListHubContentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubContents",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubContentsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHubContentVersionsCommand = async (
+  input: ListHubContentVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubContentVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubContentVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHubsCommand = async (
+  input: ListHubsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListHumanTaskUisCommand = async (
   input: ListHumanTaskUisCommandInput,
   context: __SerdeContext
@@ -3940,6 +4401,19 @@ export const serializeAws_json1_1ListImageVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListImageVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListInferenceExperimentsCommand = async (
+  input: ListInferenceExperimentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListInferenceExperiments",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListInferenceExperimentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4021,6 +4495,45 @@ export const serializeAws_json1_1ListModelBiasJobDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListModelCardExportJobsCommand = async (
+  input: ListModelCardExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCardExportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardExportJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelCardsCommand = async (
+  input: ListModelCardsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCards",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelCardVersionsCommand = async (
+  input: ListModelCardVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCardVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand = async (
   input: ListModelExplainabilityJobDefinitionsCommandInput,
   context: __SerdeContext
@@ -4096,6 +4609,32 @@ export const serializeAws_json1_1ListModelsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListModelsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMonitoringAlertHistoryCommand = async (
+  input: ListMonitoringAlertHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListMonitoringAlertHistory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMonitoringAlertHistoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMonitoringAlertsCommand = async (
+  input: ListMonitoringAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListMonitoringAlerts",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMonitoringAlertsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4226,6 +4765,19 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSpacesCommand = async (
+  input: ListSpacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListSpaces",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSpacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4502,6 +5054,19 @@ export const serializeAws_json1_1StartEdgeDeploymentStageCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartInferenceExperimentCommand = async (
+  input: StartInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StartInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartMonitoringScheduleCommand = async (
   input: StartMonitoringScheduleCommandInput,
   context: __SerdeContext
@@ -4603,6 +5168,19 @@ export const serializeAws_json1_1StopHyperParameterTuningJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopHyperParameterTuningJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopInferenceExperimentCommand = async (
+  input: StopInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StopInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4879,6 +5457,19 @@ export const serializeAws_json1_1UpdateFeatureMetadataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateHubCommand = async (
+  input: UpdateHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateImageCommand = async (
   input: UpdateImageCommandInput,
   context: __SerdeContext
@@ -4892,6 +5483,45 @@ export const serializeAws_json1_1UpdateImageCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateImageVersionCommand = async (
+  input: UpdateImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateInferenceExperimentCommand = async (
+  input: UpdateInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateModelCardCommand = async (
+  input: UpdateModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateModelPackageCommand = async (
   input: UpdateModelPackageCommandInput,
   context: __SerdeContext
@@ -4902,6 +5532,19 @@ export const serializeAws_json1_1UpdateModelPackageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateModelPackageInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateMonitoringAlertCommand = async (
+  input: UpdateMonitoringAlertCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateMonitoringAlert",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateMonitoringAlertRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4980,6 +5623,19 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSpaceCommand = async (
+  input: UpdateSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6042,6 +6698,50 @@ const deserializeAws_json1_1CreateFlowDefinitionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateHubResponse(data, context);
+  const response: CreateHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6221,6 +6921,50 @@ const deserializeAws_json1_1CreateImageVersionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateInferenceExperimentResponse(data, context);
+  const response: CreateInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateInferenceRecommendationsJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6383,6 +7127,97 @@ const deserializeAws_json1_1CreateModelBiasJobDefinitionCommandError = async (
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateModelCardResponse(data, context);
+  const response: CreateModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateModelCardExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateModelCardExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateModelCardExportJobResponse(data, context);
+  const response: CreateModelCardExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateModelCardExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6887,6 +7722,50 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateSpaceResponse(data, context);
+  const response: CreateSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -7931,6 +8810,88 @@ const deserializeAws_json1_1DeleteFlowDefinitionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHubCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHubContentCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8060,6 +9021,50 @@ const deserializeAws_json1_1DeleteImageVersionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteInferenceExperimentResponse(data, context);
+  const response: DeleteInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8116,6 +9121,47 @@ const deserializeAws_json1_1DeleteModelBiasJobDefinitionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteModelCardCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -8484,6 +9530,47 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "ConflictException":
     case "com.amazonaws.sagemaker#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSpaceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -9639,6 +10726,88 @@ const deserializeAws_json1_1DescribeFlowDefinitionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DescribeHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHubResponse(data, context);
+  const response: DescribeHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHubContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHubContentResponse(data, context);
+  const response: DescribeHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DescribeHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9783,6 +10952,47 @@ const deserializeAws_json1_1DescribeImageVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInferenceExperimentResponse(data, context);
+  const response: DescribeInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -9982,6 +11192,88 @@ const deserializeAws_json1_1DescribeModelBiasJobDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeModelBiasJobDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeModelCardResponse(data, context);
+  const response: DescribeModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeModelCardExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeModelCardExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeModelCardExportJobResponse(data, context);
+  const response: DescribeModelCardExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeModelCardExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -10462,6 +11754,47 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1DescribeSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeSpaceResponse(data, context);
+  const response: DescribeSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1DescribeStudioLifecycleConfigCommand = async (
@@ -11107,6 +12440,53 @@ const deserializeAws_json1_1GetSearchSuggestionsCommandError = async (
   });
 };
 
+export const deserializeAws_json1_1ImportHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportHubContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportHubContentResponse(data, context);
+  const response: ImportHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11181,6 +12561,47 @@ const deserializeAws_json1_1ListAlgorithmsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
+  const response: ListAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListAppImageConfigsCommand = async (
@@ -11907,6 +13328,123 @@ const deserializeAws_json1_1ListFlowDefinitionsCommandError = async (
   });
 };
 
+export const deserializeAws_json1_1ListHubContentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubContentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubContentsResponse(data, context);
+  const response: ListHubContentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubContentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHubContentVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubContentVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubContentVersionsResponse(data, context);
+  const response: ListHubContentVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubContentVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHubsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubsResponse(data, context);
+  const response: ListHubsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_json1_1ListHumanTaskUisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12051,6 +13589,41 @@ const deserializeAws_json1_1ListImageVersionsCommandError = async (
         errorCode,
       });
   }
+};
+
+export const deserializeAws_json1_1ListInferenceExperimentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceExperimentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListInferenceExperimentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListInferenceExperimentsResponse(data, context);
+  const response: ListInferenceExperimentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListInferenceExperimentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceExperimentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_json1_1ListInferenceRecommendationsJobsCommand = async (
@@ -12269,6 +13842,117 @@ const deserializeAws_json1_1ListModelBiasJobDefinitionsCommandError = async (
   });
 };
 
+export const deserializeAws_json1_1ListModelCardExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardExportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardExportJobsResponse(data, context);
+  const response: ListModelCardExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardExportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListModelCardsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardsResponse(data, context);
+  const response: ListModelCardsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListModelCardVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardVersionsResponse(data, context);
+  const response: ListModelCardVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12477,6 +14161,88 @@ const deserializeAws_json1_1ListModelsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListMonitoringAlertHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMonitoringAlertHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMonitoringAlertHistoryResponse(data, context);
+  const response: ListMonitoringAlertHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMonitoringAlertHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListMonitoringAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMonitoringAlertsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMonitoringAlertsResponse(data, context);
+  const response: ListMonitoringAlertsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMonitoringAlertsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListMonitoringExecutionsCommand = async (
@@ -12833,6 +14599,41 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListSpacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSpacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSpacesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSpacesResponse(data, context);
+  const response: ListSpacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSpacesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSpacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -13648,6 +15449,50 @@ const deserializeAws_json1_1StartEdgeDeploymentStageCommandError = async (
   });
 };
 
+export const deserializeAws_json1_1StartInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartInferenceExperimentResponse(data, context);
+  const response: StartInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StartMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13932,6 +15777,50 @@ const deserializeAws_json1_1StopHyperParameterTuningJobCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StopInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopInferenceExperimentResponse(data, context);
+  const response: StopInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -14777,6 +16666,47 @@ const deserializeAws_json1_1UpdateFeatureMetadataCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateHubResponse(data, context);
+  const response: UpdateHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14807,6 +16737,141 @@ const deserializeAws_json1_1UpdateImageCommandError = async (
     case "ResourceInUse":
     case "com.amazonaws.sagemaker#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateImageVersionResponse(data, context);
+  const response: UpdateImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateInferenceExperimentResponse(data, context);
+  const response: UpdateInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateModelCardResponse(data, context);
+  const response: UpdateModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -14854,6 +16919,50 @@ const deserializeAws_json1_1UpdateModelPackageCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1UpdateMonitoringAlertCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringAlertCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateMonitoringAlertCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateMonitoringAlertResponse(data, context);
+  const response: UpdateMonitoringAlertCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateMonitoringAlertCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringAlertCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1UpdateMonitoringScheduleCommand = async (
@@ -15097,6 +17206,53 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1UpdateSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSpaceResponse(data, context);
+  const response: UpdateSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1UpdateTrainingJobCommand = async (
@@ -16097,6 +18253,20 @@ const serializeAws_json1_1ClarifyTextConfig = (input: ClarifyTextConfig, context
   };
 };
 
+const serializeAws_json1_1CodeRepositories = (input: CodeRepository[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1CodeRepository(entry, context);
+    });
+};
+
+const serializeAws_json1_1CodeRepository = (input: CodeRepository, context: __SerdeContext): any => {
+  return {
+    ...(input.RepositoryUrl != null && { RepositoryUrl: input.RepositoryUrl }),
+  };
+};
+
 const serializeAws_json1_1CognitoConfig = (input: CognitoConfig, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
@@ -16137,10 +18307,8 @@ const serializeAws_json1_1CollectionParameters = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16309,6 +18477,7 @@ const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: 
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
     ...(input.ResourceSpec != null && { ResourceSpec: serializeAws_json1_1ResourceSpec(input.ResourceSpec, context) }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
@@ -16457,6 +18626,9 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
     ...(input.AppNetworkAccessType != null && { AppNetworkAccessType: input.AppNetworkAccessType }),
     ...(input.AppSecurityGroupManagement != null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
     ...(input.AuthMode != null && { AuthMode: input.AuthMode }),
+    ...(input.DefaultSpaceSettings != null && {
+      DefaultSpaceSettings: serializeAws_json1_1DefaultSpaceSettings(input.DefaultSpaceSettings, context),
+    }),
     ...(input.DefaultUserSettings != null && {
       DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
     }),
@@ -16534,6 +18706,9 @@ const serializeAws_json1_1CreateEndpointConfigInput = (
     ...(input.ProductionVariants != null && {
       ProductionVariants: serializeAws_json1_1ProductionVariantList(input.ProductionVariants, context),
     }),
+    ...(input.ShadowProductionVariants != null && {
+      ShadowProductionVariants: serializeAws_json1_1ProductionVariantList(input.ShadowProductionVariants, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
@@ -16609,6 +18784,21 @@ const serializeAws_json1_1CreateFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1CreateHubRequest = (input: CreateHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubDescription != null && { HubDescription: input.HubDescription }),
+    ...(input.HubDisplayName != null && { HubDisplayName: input.HubDisplayName }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.HubSearchKeywords != null && {
+      HubSearchKeywords: serializeAws_json1_1HubSearchKeywordList(input.HubSearchKeywords, context),
+    }),
+    ...(input.S3StorageConfig != null && {
+      S3StorageConfig: serializeAws_json1_1HubS3StorageConfig(input.S3StorageConfig, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateHumanTaskUiRequest = (
   input: CreateHumanTaskUiRequest,
   context: __SerdeContext
@@ -16668,9 +18858,44 @@ const serializeAws_json1_1CreateImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1SageMakerImageVersionAliases(input.Aliases, context) }),
     ...(input.BaseImage != null && { BaseImage: input.BaseImage }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
+  };
+};
+
+const serializeAws_json1_1CreateInferenceExperimentRequest = (
+  input: CreateInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataStorageConfig != null && {
+      DataStorageConfig: serializeAws_json1_1InferenceExperimentDataStorageConfig(input.DataStorageConfig, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+    ...(input.ModelVariants != null && {
+      ModelVariants: serializeAws_json1_1ModelVariantConfigList(input.ModelVariants, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.Schedule != null && {
+      Schedule: serializeAws_json1_1InferenceExperimentSchedule(input.Schedule, context),
+    }),
+    ...(input.ShadowModeConfig != null && {
+      ShadowModeConfig: serializeAws_json1_1ShadowModeConfig(input.ShadowModeConfig, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -16757,6 +18982,32 @@ const serializeAws_json1_1CreateModelBiasJobDefinitionRequest = (
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.StoppingCondition != null && {
       StoppingCondition: serializeAws_json1_1MonitoringStoppingCondition(input.StoppingCondition, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateModelCardExportJobRequest = (
+  input: CreateModelCardExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardExportJobName != null && { ModelCardExportJobName: input.ModelCardExportJobName }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
+    ...(input.OutputConfig != null && {
+      OutputConfig: serializeAws_json1_1ModelCardExportOutputConfig(input.OutputConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CreateModelCardRequest = (input: CreateModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
+    ...(input.SecurityConfig != null && {
+      SecurityConfig: serializeAws_json1_1ModelCardSecurityConfig(input.SecurityConfig, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -17024,6 +19275,7 @@ const serializeAws_json1_1CreatePresignedDomainUrlRequest = (
     ...(input.SessionExpirationDurationInSeconds != null && {
       SessionExpirationDurationInSeconds: input.SessionExpirationDurationInSeconds,
     }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -17084,6 +19336,17 @@ const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, conte
         input.ServiceCatalogProvisioningDetails,
         context
       ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateSpaceRequest = (input: CreateSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
+    ...(input.SpaceSettings != null && {
+      SpaceSettings: serializeAws_json1_1SpaceSettings(input.SpaceSettings, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -17316,10 +19579,8 @@ const serializeAws_json1_1CustomerMetadataMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -17481,6 +19742,21 @@ const serializeAws_json1_1DebugRuleConfigurations = (input: DebugRuleConfigurati
     });
 };
 
+const serializeAws_json1_1DefaultSpaceSettings = (input: DefaultSpaceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
+    ...(input.JupyterServerAppSettings != null && {
+      JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
+    }),
+    ...(input.KernelGatewayAppSettings != null && {
+      KernelGatewayAppSettings: serializeAws_json1_1KernelGatewayAppSettings(input.KernelGatewayAppSettings, context),
+    }),
+    ...(input.SecurityGroups != null && {
+      SecurityGroups: serializeAws_json1_1SecurityGroupIds(input.SecurityGroups, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1DeleteActionRequest = (input: DeleteActionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ActionName != null && { ActionName: input.ActionName }),
@@ -17507,6 +19783,7 @@ const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: 
     ...(input.AppName != null && { AppName: input.AppName }),
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -17628,6 +19905,21 @@ const serializeAws_json1_1DeleteFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteHubContentRequest = (input: DeleteHubContentRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
+const serializeAws_json1_1DeleteHubRequest = (input: DeleteHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
 const serializeAws_json1_1DeleteHumanTaskUiRequest = (
   input: DeleteHumanTaskUiRequest,
   context: __SerdeContext
@@ -17648,8 +19940,18 @@ const serializeAws_json1_1DeleteImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1DeleteInferenceExperimentRequest = (
+  input: DeleteInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -17659,6 +19961,12 @@ const serializeAws_json1_1DeleteModelBiasJobDefinitionRequest = (
 ): any => {
   return {
     ...(input.JobDefinitionName != null && { JobDefinitionName: input.JobDefinitionName }),
+  };
+};
+
+const serializeAws_json1_1DeleteModelCardRequest = (input: DeleteModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
   };
 };
 
@@ -17749,6 +20057,13 @@ const serializeAws_json1_1DeletePipelineRequest = (input: DeletePipelineRequest,
 const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, context: __SerdeContext): any => {
   return {
     ...(input.ProjectName != null && { ProjectName: input.ProjectName }),
+  };
+};
+
+const serializeAws_json1_1DeleteSpaceRequest = (input: DeleteSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
   };
 };
 
@@ -17872,6 +20187,7 @@ const serializeAws_json1_1DescribeAppRequest = (input: DescribeAppRequest, conte
     ...(input.AppName != null && { AppName: input.AppName }),
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -18020,6 +20336,24 @@ const serializeAws_json1_1DescribeFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeHubContentRequest = (
+  input: DescribeHubContentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
+const serializeAws_json1_1DescribeHubRequest = (input: DescribeHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
 const serializeAws_json1_1DescribeHumanTaskUiRequest = (
   input: DescribeHumanTaskUiRequest,
   context: __SerdeContext
@@ -18051,8 +20385,18 @@ const serializeAws_json1_1DescribeImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1DescribeInferenceExperimentRequest = (
+  input: DescribeInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -18089,6 +20433,25 @@ const serializeAws_json1_1DescribeModelBiasJobDefinitionRequest = (
 ): any => {
   return {
     ...(input.JobDefinitionName != null && { JobDefinitionName: input.JobDefinitionName }),
+  };
+};
+
+const serializeAws_json1_1DescribeModelCardExportJobRequest = (
+  input: DescribeModelCardExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardExportJobArn != null && { ModelCardExportJobArn: input.ModelCardExportJobArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeModelCardRequest = (
+  input: DescribeModelCardRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
   };
 };
 
@@ -18199,6 +20562,13 @@ const serializeAws_json1_1DescribeProcessingJobRequest = (
 const serializeAws_json1_1DescribeProjectInput = (input: DescribeProjectInput, context: __SerdeContext): any => {
   return {
     ...(input.ProjectName != null && { ProjectName: input.ProjectName }),
+  };
+};
+
+const serializeAws_json1_1DescribeSpaceRequest = (input: DescribeSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
   };
 };
 
@@ -18386,6 +20756,9 @@ const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpd
         context
       ),
     }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1DomainSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
   };
 };
 
@@ -18549,10 +20922,8 @@ const serializeAws_json1_1EnvironmentMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18570,6 +20941,7 @@ const serializeAws_json1_1EnvironmentParameterRanges = (
 const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: __SerdeContext): any => {
   return {
     ...(input.ExperimentName != null && { ExperimentName: input.ExperimentName }),
+    ...(input.RunName != null && { RunName: input.RunName }),
     ...(input.TrialComponentDisplayName != null && { TrialComponentDisplayName: input.TrialComponentDisplayName }),
     ...(input.TrialName != null && { TrialName: input.TrialName }),
   };
@@ -18767,11 +21139,31 @@ const serializeAws_json1_1HookParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_json1_1HubContentSearchKeywordList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1HubS3StorageConfig = (input: HubS3StorageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
+const serializeAws_json1_1HubSearchKeywordList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -18881,10 +21273,8 @@ const serializeAws_json1_1HyperParameters = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -19016,6 +21406,7 @@ const serializeAws_json1_1HyperParameterTuningJobConfig = (
     ...(input.ParameterRanges != null && {
       ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
     }),
+    ...(input.RandomSeed != null && { RandomSeed: input.RandomSeed }),
     ...(input.ResourceLimits != null && {
       ResourceLimits: serializeAws_json1_1ResourceLimits(input.ResourceLimits, context),
     }),
@@ -19115,12 +21506,56 @@ const serializeAws_json1_1ImageDeletePropertyList = (input: string[], context: _
     });
 };
 
+const serializeAws_json1_1ImportHubContentRequest = (input: ImportHubContentRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentSchemaVersion != null && { DocumentSchemaVersion: input.DocumentSchemaVersion }),
+    ...(input.HubContentDescription != null && { HubContentDescription: input.HubContentDescription }),
+    ...(input.HubContentDisplayName != null && { HubContentDisplayName: input.HubContentDisplayName }),
+    ...(input.HubContentDocument != null && { HubContentDocument: input.HubContentDocument }),
+    ...(input.HubContentMarkdown != null && { HubContentMarkdown: input.HubContentMarkdown }),
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentSearchKeywords != null && {
+      HubContentSearchKeywords: serializeAws_json1_1HubContentSearchKeywordList(
+        input.HubContentSearchKeywords,
+        context
+      ),
+    }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1InferenceExecutionConfig = (
   input: InferenceExecutionConfig,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Mode != null && { Mode: input.Mode }),
+  };
+};
+
+const serializeAws_json1_1InferenceExperimentDataStorageConfig = (
+  input: InferenceExperimentDataStorageConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContentType != null && {
+      ContentType: serializeAws_json1_1CaptureContentTypeHeader(input.ContentType, context),
+    }),
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+  };
+};
+
+const serializeAws_json1_1InferenceExperimentSchedule = (
+  input: InferenceExperimentSchedule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -19250,6 +21685,9 @@ const serializeAws_json1_1JupyterServerAppSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CodeRepositories != null && {
+      CodeRepositories: serializeAws_json1_1CodeRepositories(input.CodeRepositories, context),
+    }),
     ...(input.DefaultResourceSpec != null && {
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
@@ -19412,10 +21850,8 @@ const serializeAws_json1_1LineageEntityParameters = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -19443,6 +21879,16 @@ const serializeAws_json1_1ListAlgorithmsInput = (input: ListAlgorithmsInput, con
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -19474,6 +21920,7 @@ const serializeAws_json1_1ListAppsRequest = (input: ListAppsRequest, context: __
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.SpaceNameEquals != null && { SpaceNameEquals: input.SpaceNameEquals }),
     ...(input.UserProfileNameEquals != null && { UserProfileNameEquals: input.UserProfileNameEquals }),
   };
 };
@@ -19792,6 +22239,64 @@ const serializeAws_json1_1ListFlowDefinitionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListHubContentsRequest = (input: ListHubContentsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MaxSchemaVersion != null && { MaxSchemaVersion: input.MaxSchemaVersion }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListHubContentVersionsRequest = (
+  input: ListHubContentVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MaxSchemaVersion != null && { MaxSchemaVersion: input.MaxSchemaVersion }),
+    ...(input.MinVersion != null && { MinVersion: input.MinVersion }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListHubsRequest = (input: ListHubsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeAfter != null && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore != null && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
 const serializeAws_json1_1ListHumanTaskUisRequest = (input: ListHumanTaskUisRequest, context: __SerdeContext): any => {
   return {
     ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
@@ -19868,6 +22373,31 @@ const serializeAws_json1_1ListImageVersionsRequest = (
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListInferenceExperimentsRequest = (
+  input: ListInferenceExperimentsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeAfter != null && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore != null && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -19987,6 +22517,61 @@ const serializeAws_json1_1ListModelBiasJobDefinitionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListModelCardExportJobsRequest = (
+  input: ListModelCardExportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardExportJobNameContains != null && {
+      ModelCardExportJobNameContains: input.ModelCardExportJobNameContains,
+    }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListModelCardsRequest = (input: ListModelCardsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListModelCardVersionsRequest = (
+  input: ListModelCardVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
 const serializeAws_json1_1ListModelExplainabilityJobDefinitionsRequest = (
   input: ListModelExplainabilityJobDefinitionsRequest,
   context: __SerdeContext
@@ -20081,6 +22666,36 @@ const serializeAws_json1_1ListModelsInput = (input: ListModelsInput, context: __
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListMonitoringAlertHistoryRequest = (
+  input: ListMonitoringAlertHistoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MonitoringAlertName != null && { MonitoringAlertName: input.MonitoringAlertName }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListMonitoringAlertsRequest = (
+  input: ListMonitoringAlertsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -20289,6 +22904,17 @@ const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListSpacesRequest = (input: ListSpacesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainIdEquals != null && { DomainIdEquals: input.DomainIdEquals }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.SpaceNameContains != null && { SpaceNameContains: input.SpaceNameContains }),
   };
 };
 
@@ -20563,6 +23189,21 @@ const serializeAws_json1_1ModelBiasJobInput = (input: ModelBiasJobInput, context
   };
 };
 
+const serializeAws_json1_1ModelCardExportOutputConfig = (
+  input: ModelCardExportOutputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
+const serializeAws_json1_1ModelCardSecurityConfig = (input: ModelCardSecurityConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+  };
+};
+
 const serializeAws_json1_1ModelClientConfig = (input: ModelClientConfig, context: __SerdeContext): any => {
   return {
     ...(input.InvocationsMaxRetries != null && { InvocationsMaxRetries: input.InvocationsMaxRetries }),
@@ -20621,6 +23262,18 @@ const serializeAws_json1_1ModelExplainabilityJobInput = (
     }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ModelInfrastructureConfig = (
+  input: ModelInfrastructureConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InfrastructureType != null && { InfrastructureType: input.InfrastructureType }),
+    ...(input.RealTimeInferenceConfig != null && {
+      RealTimeInferenceConfig: serializeAws_json1_1RealTimeInferenceConfig(input.RealTimeInferenceConfig, context),
     }),
   };
 };
@@ -20813,6 +23466,37 @@ const serializeAws_json1_1ModelQualityJobInput = (input: ModelQualityJobInput, c
   };
 };
 
+const serializeAws_json1_1ModelVariantActionMap = (
+  input: Record<string, ModelVariantAction | string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_json1_1ModelVariantConfig = (input: ModelVariantConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.InfrastructureConfig != null && {
+      InfrastructureConfig: serializeAws_json1_1ModelInfrastructureConfig(input.InfrastructureConfig, context),
+    }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.VariantName != null && { VariantName: input.VariantName }),
+  };
+};
+
+const serializeAws_json1_1ModelVariantConfigList = (input: ModelVariantConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ModelVariantConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1MonitoringAppSpecification = (
   input: MonitoringAppSpecification,
   context: __SerdeContext
@@ -20899,10 +23583,8 @@ const serializeAws_json1_1MonitoringEnvironmentMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21173,6 +23855,7 @@ const serializeAws_json1_1OfflineStoreConfig = (input: OfflineStoreConfig, conte
     ...(input.S3StorageConfig != null && {
       S3StorageConfig: serializeAws_json1_1S3StorageConfig(input.S3StorageConfig, context),
     }),
+    ...(input.TableFormat != null && { TableFormat: input.TableFormat }),
   };
 };
 
@@ -21385,10 +24068,8 @@ const serializeAws_json1_1ProcessingEnvironmentMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21536,6 +24217,7 @@ const serializeAws_json1_1ProductionVariantServerlessConfig = (
 
 const serializeAws_json1_1ProfilerConfig = (input: ProfilerConfig, context: __SerdeContext): any => {
   return {
+    ...(input.DisableProfiler != null && { DisableProfiler: input.DisableProfiler }),
     ...(input.ProfilingIntervalInMilliseconds != null && {
       ProfilingIntervalInMilliseconds: input.ProfilingIntervalInMilliseconds,
     }),
@@ -21592,10 +24274,8 @@ const serializeAws_json1_1ProfilingParameters = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21686,10 +24366,8 @@ const serializeAws_json1_1QueryProperties = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21699,6 +24377,13 @@ const serializeAws_json1_1QueryTypes = (input: string[], context: __SerdeContext
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1RealTimeInferenceConfig = (input: RealTimeInferenceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+  };
 };
 
 const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
@@ -21764,6 +24449,9 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
       TrafficPattern: serializeAws_json1_1TrafficPattern(input.TrafficPattern, context),
     }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig != null && {
+      VpcConfig: serializeAws_json1_1RecommendationJobVpcConfig(input.VpcConfig, context),
+    }),
   };
 };
 
@@ -21828,6 +24516,34 @@ const serializeAws_json1_1RecommendationJobSupportedContentTypes = (input: strin
 };
 
 const serializeAws_json1_1RecommendationJobSupportedInstanceTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcConfig = (
+  input: RecommendationJobVpcConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1RecommendationJobVpcSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.Subnets != null && { Subnets: serializeAws_json1_1RecommendationJobVpcSubnets(input.Subnets, context) }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcSubnets = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -21993,6 +24709,8 @@ const serializeAws_json1_1RStudioServerProDomainSettingsForUpdate = (
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
     ...(input.DomainExecutionRoleArn != null && { DomainExecutionRoleArn: input.DomainExecutionRoleArn }),
+    ...(input.RStudioConnectUrl != null && { RStudioConnectUrl: input.RStudioConnectUrl }),
+    ...(input.RStudioPackageManagerUrl != null && { RStudioPackageManagerUrl: input.RStudioPackageManagerUrl }),
   };
 };
 
@@ -22001,10 +24719,8 @@ const serializeAws_json1_1RuleParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22028,6 +24744,14 @@ const serializeAws_json1_1S3StorageConfig = (input: S3StorageConfig, context: __
     ...(input.ResolvedOutputS3Uri != null && { ResolvedOutputS3Uri: input.ResolvedOutputS3Uri }),
     ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
+};
+
+const serializeAws_json1_1SageMakerImageVersionAliases = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ScheduleConfig = (input: ScheduleConfig, context: __SerdeContext): any => {
@@ -22128,6 +24852,36 @@ const serializeAws_json1_1ServiceCatalogProvisioningUpdateDetails = (
   };
 };
 
+const serializeAws_json1_1ShadowModeConfig = (input: ShadowModeConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ShadowModelVariants != null && {
+      ShadowModelVariants: serializeAws_json1_1ShadowModelVariantConfigList(input.ShadowModelVariants, context),
+    }),
+    ...(input.SourceModelVariantName != null && { SourceModelVariantName: input.SourceModelVariantName }),
+  };
+};
+
+const serializeAws_json1_1ShadowModelVariantConfig = (
+  input: ShadowModelVariantConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SamplingPercentage != null && { SamplingPercentage: input.SamplingPercentage }),
+    ...(input.ShadowModelVariantName != null && { ShadowModelVariantName: input.ShadowModelVariantName }),
+  };
+};
+
+const serializeAws_json1_1ShadowModelVariantConfigList = (
+  input: ShadowModelVariantConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ShadowModelVariantConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1SharingSettings = (input: SharingSettings, context: __SerdeContext): any => {
   return {
     ...(input.NotebookOutputOption != null && { NotebookOutputOption: input.NotebookOutputOption }),
@@ -22174,6 +24928,17 @@ const serializeAws_json1_1SourceIpConfig = (input: SourceIpConfig, context: __Se
   };
 };
 
+const serializeAws_json1_1SpaceSettings = (input: SpaceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.JupyterServerAppSettings != null && {
+      JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
+    }),
+    ...(input.KernelGatewayAppSettings != null && {
+      KernelGatewayAppSettings: serializeAws_json1_1KernelGatewayAppSettings(input.KernelGatewayAppSettings, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StartEdgeDeploymentStageRequest = (
   input: StartEdgeDeploymentStageRequest,
   context: __SerdeContext
@@ -22181,6 +24946,15 @@ const serializeAws_json1_1StartEdgeDeploymentStageRequest = (
   return {
     ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
     ...(input.StageName != null && { StageName: input.StageName }),
+  };
+};
+
+const serializeAws_json1_1StartInferenceExperimentRequest = (
+  input: StartInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -22266,6 +25040,23 @@ const serializeAws_json1_1StopHyperParameterTuningJobRequest = (
     ...(input.HyperParameterTuningJobName != null && {
       HyperParameterTuningJobName: input.HyperParameterTuningJobName,
     }),
+  };
+};
+
+const serializeAws_json1_1StopInferenceExperimentRequest = (
+  input: StopInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DesiredModelVariants != null && {
+      DesiredModelVariants: serializeAws_json1_1ModelVariantConfigList(input.DesiredModelVariants, context),
+    }),
+    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
+    ...(input.ModelVariantActions != null && {
+      ModelVariantActions: serializeAws_json1_1ModelVariantActionMap(input.ModelVariantActions, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Reason != null && { Reason: input.Reason }),
   };
 };
 
@@ -22459,10 +25250,8 @@ const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22545,10 +25334,8 @@ const serializeAws_json1_1TransformEnvironmentMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22631,10 +25418,8 @@ const serializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -22646,10 +25431,8 @@ const serializeAws_json1_1TrialComponentParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -22781,6 +25564,10 @@ const serializeAws_json1_1UpdateDevicesRequest = (input: UpdateDevicesRequest, c
 
 const serializeAws_json1_1UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AppSecurityGroupManagement != null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
+    ...(input.DefaultSpaceSettings != null && {
+      DefaultSpaceSettings: serializeAws_json1_1DefaultSpaceSettings(input.DefaultSpaceSettings, context),
+    }),
     ...(input.DefaultUserSettings != null && {
       DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
     }),
@@ -22861,6 +25648,17 @@ const serializeAws_json1_1UpdateFeatureMetadataRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateHubRequest = (input: UpdateHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubDescription != null && { HubDescription: input.HubDescription }),
+    ...(input.HubDisplayName != null && { HubDisplayName: input.HubDisplayName }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.HubSearchKeywords != null && {
+      HubSearchKeywords: serializeAws_json1_1HubSearchKeywordList(input.HubSearchKeywords, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeleteProperties != null && {
@@ -22870,6 +25668,60 @@ const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, conte
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateImageVersionRequest = (
+  input: UpdateImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.AliasesToAdd != null && {
+      AliasesToAdd: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToAdd, context),
+    }),
+    ...(input.AliasesToDelete != null && {
+      AliasesToDelete: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToDelete, context),
+    }),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
+    ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1UpdateInferenceExperimentRequest = (
+  input: UpdateInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataStorageConfig != null && {
+      DataStorageConfig: serializeAws_json1_1InferenceExperimentDataStorageConfig(input.DataStorageConfig, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ModelVariants != null && {
+      ModelVariants: serializeAws_json1_1ModelVariantConfigList(input.ModelVariants, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Schedule != null && {
+      Schedule: serializeAws_json1_1InferenceExperimentSchedule(input.Schedule, context),
+    }),
+    ...(input.ShadowModeConfig != null && {
+      ShadowModeConfig: serializeAws_json1_1ShadowModeConfig(input.ShadowModeConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1UpdateModelCardRequest = (input: UpdateModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
   };
 };
 
@@ -22893,6 +25745,18 @@ const serializeAws_json1_1UpdateModelPackageInput = (input: UpdateModelPackageIn
     }),
     ...(input.ModelApprovalStatus != null && { ModelApprovalStatus: input.ModelApprovalStatus }),
     ...(input.ModelPackageArn != null && { ModelPackageArn: input.ModelPackageArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateMonitoringAlertRequest = (
+  input: UpdateMonitoringAlertRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatapointsToAlert != null && { DatapointsToAlert: input.DatapointsToAlert }),
+    ...(input.EvaluationPeriod != null && { EvaluationPeriod: input.EvaluationPeriod }),
+    ...(input.MonitoringAlertName != null && { MonitoringAlertName: input.MonitoringAlertName }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
   };
 };
 
@@ -23015,6 +25879,16 @@ const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, conte
       ),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateSpaceRequest = (input: UpdateSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
+    ...(input.SpaceSettings != null && {
+      SpaceSettings: serializeAws_json1_1SpaceSettings(input.SpaceSettings, context),
+    }),
   };
 };
 
@@ -23505,6 +26379,7 @@ const deserializeAws_json1_1AppDetails = (output: any, context: __SerdeContext):
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DomainId: __expectString(output.DomainId),
+    SpaceName: __expectString(output.SpaceName),
     Status: __expectString(output.Status),
     UserProfileName: __expectString(output.UserProfileName),
   } as any;
@@ -23907,6 +26782,12 @@ const deserializeAws_json1_1AutoMLJobObjective = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1AutoMLJobStepMetadata = (output: any, context: __SerdeContext): AutoMLJobStepMetadata => {
+  return {
+    Arn: __expectString(output.Arn),
+  } as any;
+};
+
 const deserializeAws_json1_1AutoMLJobSummaries = (output: any, context: __SerdeContext): AutoMLJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -24022,10 +26903,8 @@ const deserializeAws_json1_1BatchDescribeModelPackageErrorMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageError(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageError(value, context);
+      return acc;
     },
     {}
   );
@@ -24465,6 +27344,24 @@ const deserializeAws_json1_1ClarifyTextConfig = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1CodeRepositories = (output: any, context: __SerdeContext): CodeRepository[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CodeRepository(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1CodeRepository = (output: any, context: __SerdeContext): CodeRepository => {
+  return {
+    RepositoryUrl: __expectString(output.RepositoryUrl),
+  } as any;
+};
+
 const deserializeAws_json1_1CodeRepositorySummary = (output: any, context: __SerdeContext): CodeRepositorySummary => {
   return {
     CodeRepositoryArn: __expectString(output.CodeRepositoryArn),
@@ -24547,10 +27444,8 @@ const deserializeAws_json1_1CollectionParameters = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24910,6 +27805,12 @@ const deserializeAws_json1_1CreateFlowDefinitionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateHubResponse = (output: any, context: __SerdeContext): CreateHubResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateHumanTaskUiResponse = (
   output: any,
   context: __SerdeContext
@@ -24943,6 +27844,15 @@ const deserializeAws_json1_1CreateImageVersionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateInferenceRecommendationsJobResponse = (
   output: any,
   context: __SerdeContext
@@ -24967,6 +27877,24 @@ const deserializeAws_json1_1CreateModelBiasJobDefinitionResponse = (
 ): CreateModelBiasJobDefinitionResponse => {
   return {
     JobDefinitionArn: __expectString(output.JobDefinitionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateModelCardExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateModelCardExportJobResponse => {
+  return {
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateModelCardResponse => {
+  return {
+    ModelCardArn: __expectString(output.ModelCardArn),
   } as any;
 };
 
@@ -25079,6 +28007,12 @@ const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CreateSpaceResponse = (output: any, context: __SerdeContext): CreateSpaceResponse => {
+  return {
+    SpaceArn: __expectString(output.SpaceArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateStudioLifecycleConfigResponse = (
   output: any,
   context: __SerdeContext
@@ -25162,10 +28096,8 @@ const deserializeAws_json1_1CustomerMetadataMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25385,6 +28317,24 @@ const deserializeAws_json1_1DebugRuleEvaluationStatuses = (
   return retVal;
 };
 
+const deserializeAws_json1_1DefaultSpaceSettings = (output: any, context: __SerdeContext): DefaultSpaceSettings => {
+  return {
+    ExecutionRole: __expectString(output.ExecutionRole),
+    JupyterServerAppSettings:
+      output.JupyterServerAppSettings != null
+        ? deserializeAws_json1_1JupyterServerAppSettings(output.JupyterServerAppSettings, context)
+        : undefined,
+    KernelGatewayAppSettings:
+      output.KernelGatewayAppSettings != null
+        ? deserializeAws_json1_1KernelGatewayAppSettings(output.KernelGatewayAppSettings, context)
+        : undefined,
+    SecurityGroups:
+      output.SecurityGroups != null
+        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroups, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteActionResponse = (output: any, context: __SerdeContext): DeleteActionResponse => {
   return {
     ActionArn: __expectString(output.ActionArn),
@@ -25445,6 +28395,15 @@ const deserializeAws_json1_1DeleteImageVersionResponse = (
   context: __SerdeContext
 ): DeleteImageVersionResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
 };
 
 const deserializeAws_json1_1DeletePipelineResponse = (output: any, context: __SerdeContext): DeletePipelineResponse => {
@@ -25663,6 +28622,7 @@ const deserializeAws_json1_1DescribeAppResponse = (output: any, context: __Serde
         : undefined,
     ResourceSpec:
       output.ResourceSpec != null ? deserializeAws_json1_1ResourceSpec(output.ResourceSpec, context) : undefined,
+    SpaceName: __expectString(output.SpaceName),
     Status: __expectString(output.Status),
     UserProfileName: __expectString(output.UserProfileName),
   } as any;
@@ -25947,6 +28907,10 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    DefaultSpaceSettings:
+      output.DefaultSpaceSettings != null
+        ? deserializeAws_json1_1DefaultSpaceSettings(output.DefaultSpaceSettings, context)
+        : undefined,
     DefaultUserSettings:
       output.DefaultUserSettings != null
         ? deserializeAws_json1_1UserSettings(output.DefaultUserSettings, context)
@@ -26063,6 +29027,10 @@ const deserializeAws_json1_1DescribeEndpointConfigOutput = (
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantList(output.ProductionVariants, context)
         : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantList(output.ShadowProductionVariants, context)
+        : undefined,
   } as any;
 };
 
@@ -26104,6 +29072,10 @@ const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __Se
     ProductionVariants:
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantSummaryList(output.ProductionVariants, context)
+        : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantSummaryList(output.ShadowProductionVariants, context)
         : undefined,
   } as any;
 };
@@ -26234,6 +29206,66 @@ const deserializeAws_json1_1DescribeFlowDefinitionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeHubContentResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeHubContentResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DocumentSchemaVersion: __expectString(output.DocumentSchemaVersion),
+    FailureReason: __expectString(output.FailureReason),
+    HubArn: __expectString(output.HubArn),
+    HubContentArn: __expectString(output.HubContentArn),
+    HubContentDependencies:
+      output.HubContentDependencies != null
+        ? deserializeAws_json1_1HubContentDependencyList(output.HubContentDependencies, context)
+        : undefined,
+    HubContentDescription: __expectString(output.HubContentDescription),
+    HubContentDisplayName: __expectString(output.HubContentDisplayName),
+    HubContentDocument: __expectString(output.HubContentDocument),
+    HubContentMarkdown: __expectString(output.HubContentMarkdown),
+    HubContentName: __expectString(output.HubContentName),
+    HubContentSearchKeywords:
+      output.HubContentSearchKeywords != null
+        ? deserializeAws_json1_1HubContentSearchKeywordList(output.HubContentSearchKeywords, context)
+        : undefined,
+    HubContentStatus: __expectString(output.HubContentStatus),
+    HubContentType: __expectString(output.HubContentType),
+    HubContentVersion: __expectString(output.HubContentVersion),
+    HubName: __expectString(output.HubName),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeHubResponse = (output: any, context: __SerdeContext): DescribeHubResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    HubArn: __expectString(output.HubArn),
+    HubDescription: __expectString(output.HubDescription),
+    HubDisplayName: __expectString(output.HubDisplayName),
+    HubName: __expectString(output.HubName),
+    HubSearchKeywords:
+      output.HubSearchKeywords != null
+        ? deserializeAws_json1_1HubSearchKeywordList(output.HubSearchKeywords, context)
+        : undefined,
+    HubStatus: __expectString(output.HubStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    S3StorageConfig:
+      output.S3StorageConfig != null
+        ? deserializeAws_json1_1HubS3StorageConfig(output.S3StorageConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeHumanTaskUiResponse = (
   output: any,
   context: __SerdeContext
@@ -26339,14 +29371,67 @@ const deserializeAws_json1_1DescribeImageVersionResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
+    Horovod: __expectBoolean(output.Horovod),
     ImageArn: __expectString(output.ImageArn),
     ImageVersionArn: __expectString(output.ImageVersionArn),
     ImageVersionStatus: __expectString(output.ImageVersionStatus),
+    JobType: __expectString(output.JobType),
     LastModifiedTime:
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    MLFramework: __expectString(output.MLFramework),
+    Processor: __expectString(output.Processor),
+    ProgrammingLang: __expectString(output.ProgrammingLang),
+    ReleaseNotes: __expectString(output.ReleaseNotes),
+    VendorGuidance: __expectString(output.VendorGuidance),
     Version: __expectInt32(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInferenceExperimentResponse => {
+  return {
+    Arn: __expectString(output.Arn),
+    CompletionTime:
+      output.CompletionTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataStorageConfig:
+      output.DataStorageConfig != null
+        ? deserializeAws_json1_1InferenceExperimentDataStorageConfig(output.DataStorageConfig, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    EndpointMetadata:
+      output.EndpointMetadata != null
+        ? deserializeAws_json1_1EndpointMetadata(output.EndpointMetadata, context)
+        : undefined,
+    KmsKey: __expectString(output.KmsKey),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelVariants:
+      output.ModelVariants != null
+        ? deserializeAws_json1_1ModelVariantConfigSummaryList(output.ModelVariants, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    RoleArn: __expectString(output.RoleArn),
+    Schedule:
+      output.Schedule != null ? deserializeAws_json1_1InferenceExperimentSchedule(output.Schedule, context) : undefined,
+    ShadowModeConfig:
+      output.ShadowModeConfig != null
+        ? deserializeAws_json1_1ShadowModeConfig(output.ShadowModeConfig, context)
+        : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -26504,6 +29589,63 @@ const deserializeAws_json1_1DescribeModelBiasJobDefinitionResponse = (
     StoppingCondition:
       output.StoppingCondition != null
         ? deserializeAws_json1_1MonitoringStoppingCondition(output.StoppingCondition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeModelCardExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeModelCardExportJobResponse => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    ExportArtifacts:
+      output.ExportArtifacts != null
+        ? deserializeAws_json1_1ModelCardExportArtifacts(output.ExportArtifacts, context)
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    LastModifiedAt:
+      output.LastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedAt)))
+        : undefined,
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+    ModelCardExportJobName: __expectString(output.ModelCardExportJobName),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    OutputConfig:
+      output.OutputConfig != null
+        ? deserializeAws_json1_1ModelCardExportOutputConfig(output.OutputConfig, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeModelCardResponse => {
+  return {
+    Content: __expectString(output.Content),
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardProcessingStatus: __expectString(output.ModelCardProcessingStatus),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
         : undefined,
   } as any;
 };
@@ -26978,6 +30120,27 @@ const deserializeAws_json1_1DescribeProjectOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DescribeSpaceResponse = (output: any, context: __SerdeContext): DescribeSpaceResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DomainId: __expectString(output.DomainId),
+    FailureReason: __expectString(output.FailureReason),
+    HomeEfsFileSystemUid: __expectString(output.HomeEfsFileSystemUid),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    SpaceArn: __expectString(output.SpaceArn),
+    SpaceName: __expectString(output.SpaceName),
+    SpaceSettings:
+      output.SpaceSettings != null ? deserializeAws_json1_1SpaceSettings(output.SpaceSettings, context) : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeStudioLifecycleConfigResponse = (
   output: any,
   context: __SerdeContext
@@ -27221,6 +30384,7 @@ const deserializeAws_json1_1DescribeTrialComponentResponse = (
         ? deserializeAws_json1_1TrialComponentParameters(output.Parameters, context)
         : undefined,
     Source: output.Source != null ? deserializeAws_json1_1TrialComponentSource(output.Source, context) : undefined,
+    Sources: output.Sources != null ? deserializeAws_json1_1TrialComponentSources(output.Sources, context) : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: output.Status != null ? deserializeAws_json1_1TrialComponentStatus(output.Status, context) : undefined,
@@ -27830,6 +30994,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantSummaryList(output.ProductionVariants, context)
         : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantSummaryList(output.ShadowProductionVariants, context)
+        : undefined,
     Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
@@ -27910,6 +31078,15 @@ const deserializeAws_json1_1EndpointInputConfigurations = (
   return retVal;
 };
 
+const deserializeAws_json1_1EndpointMetadata = (output: any, context: __SerdeContext): EndpointMetadata => {
+  return {
+    EndpointConfigName: __expectString(output.EndpointConfigName),
+    EndpointName: __expectString(output.EndpointName),
+    EndpointStatus: __expectString(output.EndpointStatus),
+    FailureReason: __expectString(output.FailureReason),
+  } as any;
+};
+
 const deserializeAws_json1_1EndpointOutputConfiguration = (
   output: any,
   context: __SerdeContext
@@ -27987,10 +31164,8 @@ const deserializeAws_json1_1EnvironmentMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -28051,6 +31226,7 @@ const deserializeAws_json1_1Experiment = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1ExperimentConfig = (output: any, context: __SerdeContext): ExperimentConfig => {
   return {
     ExperimentName: __expectString(output.ExperimentName),
+    RunName: __expectString(output.RunName),
     TrialComponentDisplayName: __expectString(output.TrialComponentDisplayName),
     TrialName: __expectString(output.TrialName),
   } as any;
@@ -28441,11 +31617,128 @@ const deserializeAws_json1_1HookParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_json1_1HubContentDependency = (output: any, context: __SerdeContext): HubContentDependency => {
+  return {
+    DependencyCopyPath: __expectString(output.DependencyCopyPath),
+    DependencyOriginPath: __expectString(output.DependencyOriginPath),
+  } as any;
+};
+
+const deserializeAws_json1_1HubContentDependencyList = (
+  output: any,
+  context: __SerdeContext
+): HubContentDependency[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubContentDependency(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubContentInfo = (output: any, context: __SerdeContext): HubContentInfo => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DocumentSchemaVersion: __expectString(output.DocumentSchemaVersion),
+    HubContentArn: __expectString(output.HubContentArn),
+    HubContentDescription: __expectString(output.HubContentDescription),
+    HubContentDisplayName: __expectString(output.HubContentDisplayName),
+    HubContentName: __expectString(output.HubContentName),
+    HubContentSearchKeywords:
+      output.HubContentSearchKeywords != null
+        ? deserializeAws_json1_1HubContentSearchKeywordList(output.HubContentSearchKeywords, context)
+        : undefined,
+    HubContentStatus: __expectString(output.HubContentStatus),
+    HubContentType: __expectString(output.HubContentType),
+    HubContentVersion: __expectString(output.HubContentVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1HubContentInfoList = (output: any, context: __SerdeContext): HubContentInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubContentInfo(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubContentSearchKeywordList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubInfo = (output: any, context: __SerdeContext): HubInfo => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    HubArn: __expectString(output.HubArn),
+    HubDescription: __expectString(output.HubDescription),
+    HubDisplayName: __expectString(output.HubDisplayName),
+    HubName: __expectString(output.HubName),
+    HubSearchKeywords:
+      output.HubSearchKeywords != null
+        ? deserializeAws_json1_1HubSearchKeywordList(output.HubSearchKeywords, context)
+        : undefined,
+    HubStatus: __expectString(output.HubStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HubInfoList = (output: any, context: __SerdeContext): HubInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubInfo(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubS3StorageConfig = (output: any, context: __SerdeContext): HubS3StorageConfig => {
+  return {
+    S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
+const deserializeAws_json1_1HubSearchKeywordList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -28575,10 +31868,8 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -28773,6 +32064,7 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
       output.ParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.ParameterRanges, context)
         : undefined,
+    RandomSeed: __expectInt32(output.RandomSeed),
     ResourceLimits:
       output.ResourceLimits != null ? deserializeAws_json1_1ResourceLimits(output.ResourceLimits, context) : undefined,
     Strategy: __expectString(output.Strategy),
@@ -29032,12 +32324,91 @@ const deserializeAws_json1_1ImageVersions = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_json1_1ImportHubContentResponse = (
+  output: any,
+  context: __SerdeContext
+): ImportHubContentResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+    HubContentArn: __expectString(output.HubContentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1InferenceExecutionConfig = (
   output: any,
   context: __SerdeContext
 ): InferenceExecutionConfig => {
   return {
     Mode: __expectString(output.Mode),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentDataStorageConfig = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentDataStorageConfig => {
+  return {
+    ContentType:
+      output.ContentType != null
+        ? deserializeAws_json1_1CaptureContentTypeHeader(output.ContentType, context)
+        : undefined,
+    Destination: __expectString(output.Destination),
+    KmsKey: __expectString(output.KmsKey),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentList = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceExperimentSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1InferenceExperimentSchedule = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSchedule => {
+  return {
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSummary => {
+  return {
+    CompletionTime:
+      output.CompletionTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    RoleArn: __expectString(output.RoleArn),
+    Schedule:
+      output.Schedule != null ? deserializeAws_json1_1InferenceExperimentSchedule(output.Schedule, context) : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -29302,6 +32673,10 @@ const deserializeAws_json1_1JupyterServerAppSettings = (
   context: __SerdeContext
 ): JupyterServerAppSettings => {
   return {
+    CodeRepositories:
+      output.CodeRepositories != null
+        ? deserializeAws_json1_1CodeRepositories(output.CodeRepositories, context)
+        : undefined,
     DefaultResourceSpec:
       output.DefaultResourceSpec != null
         ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
@@ -29605,10 +32980,8 @@ const deserializeAws_json1_1LineageEntityParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -29657,6 +33030,16 @@ const deserializeAws_json1_1ListAlgorithmsOutput = (output: any, context: __Serd
         ? deserializeAws_json1_1AlgorithmSummaryList(output.AlgorithmSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    SageMakerImageVersionAliases:
+      output.SageMakerImageVersionAliases != null
+        ? deserializeAws_json1_1SageMakerImageVersionAliases(output.SageMakerImageVersionAliases, context)
+        : undefined,
   } as any;
 };
 
@@ -29889,6 +33272,40 @@ const deserializeAws_json1_1ListFlowDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListHubContentsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListHubContentsResponse => {
+  return {
+    HubContentSummaries:
+      output.HubContentSummaries != null
+        ? deserializeAws_json1_1HubContentInfoList(output.HubContentSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListHubContentVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListHubContentVersionsResponse => {
+  return {
+    HubContentSummaries:
+      output.HubContentSummaries != null
+        ? deserializeAws_json1_1HubContentInfoList(output.HubContentSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListHubsResponse = (output: any, context: __SerdeContext): ListHubsResponse => {
+  return {
+    HubSummaries:
+      output.HubSummaries != null ? deserializeAws_json1_1HubInfoList(output.HubSummaries, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListHumanTaskUisResponse = (
   output: any,
   context: __SerdeContext
@@ -29929,6 +33346,19 @@ const deserializeAws_json1_1ListImageVersionsResponse = (
   return {
     ImageVersions:
       output.ImageVersions != null ? deserializeAws_json1_1ImageVersions(output.ImageVersions, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListInferenceExperimentsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceExperimentsResponse => {
+  return {
+    InferenceExperiments:
+      output.InferenceExperiments != null
+        ? deserializeAws_json1_1InferenceExperimentList(output.InferenceExperiments, context)
+        : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -30009,6 +33439,42 @@ const deserializeAws_json1_1ListModelBiasJobDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListModelCardExportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListModelCardExportJobsResponse => {
+  return {
+    ModelCardExportJobSummaries:
+      output.ModelCardExportJobSummaries != null
+        ? deserializeAws_json1_1ModelCardExportJobSummaryList(output.ModelCardExportJobSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelCardsResponse = (output: any, context: __SerdeContext): ListModelCardsResponse => {
+  return {
+    ModelCardSummaries:
+      output.ModelCardSummaries != null
+        ? deserializeAws_json1_1ModelCardSummaryList(output.ModelCardSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelCardVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListModelCardVersionsResponse => {
+  return {
+    ModelCardVersionSummaryList:
+      output.ModelCardVersionSummaryList != null
+        ? deserializeAws_json1_1ModelCardVersionSummaryList(output.ModelCardVersionSummaryList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsResponse = (
   output: any,
   context: __SerdeContext
@@ -30077,6 +33543,32 @@ const deserializeAws_json1_1ListModelQualityJobDefinitionsResponse = (
 const deserializeAws_json1_1ListModelsOutput = (output: any, context: __SerdeContext): ListModelsOutput => {
   return {
     Models: output.Models != null ? deserializeAws_json1_1ModelSummaryList(output.Models, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListMonitoringAlertHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMonitoringAlertHistoryResponse => {
+  return {
+    MonitoringAlertHistory:
+      output.MonitoringAlertHistory != null
+        ? deserializeAws_json1_1MonitoringAlertHistoryList(output.MonitoringAlertHistory, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListMonitoringAlertsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMonitoringAlertsResponse => {
+  return {
+    MonitoringAlertSummaries:
+      output.MonitoringAlertSummaries != null
+        ? deserializeAws_json1_1MonitoringAlertSummaryList(output.MonitoringAlertSummaries, context)
+        : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -30205,6 +33697,13 @@ const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeC
       output.ProjectSummaryList != null
         ? deserializeAws_json1_1ProjectSummaryList(output.ProjectSummaryList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListSpacesResponse = (output: any, context: __SerdeContext): ListSpacesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Spaces: output.Spaces != null ? deserializeAws_json1_1SpaceList(output.Spaces, context) : undefined,
   } as any;
 };
 
@@ -30430,6 +33929,31 @@ const deserializeAws_json1_1MetricsSource = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1Model = (output: any, context: __SerdeContext): Model => {
+  return {
+    Containers:
+      output.Containers != null ? deserializeAws_json1_1ContainerDefinitionList(output.Containers, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EnableNetworkIsolation: __expectBoolean(output.EnableNetworkIsolation),
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    InferenceExecutionConfig:
+      output.InferenceExecutionConfig != null
+        ? deserializeAws_json1_1InferenceExecutionConfig(output.InferenceExecutionConfig, context)
+        : undefined,
+    ModelArn: __expectString(output.ModelArn),
+    ModelName: __expectString(output.ModelName),
+    PrimaryContainer:
+      output.PrimaryContainer != null
+        ? deserializeAws_json1_1ContainerDefinition(output.PrimaryContainer, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ModelArtifacts = (output: any, context: __SerdeContext): ModelArtifacts => {
   return {
     S3ModelArtifacts: __expectString(output.S3ModelArtifacts),
@@ -30478,6 +34002,158 @@ const deserializeAws_json1_1ModelBiasJobInput = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ModelCard = (output: any, context: __SerdeContext): ModelCard => {
+  return {
+    Content: __expectString(output.Content),
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    ModelId: __expectString(output.ModelId),
+    RiskRating: __expectString(output.RiskRating),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportArtifacts = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportArtifacts => {
+  return {
+    S3ExportArtifacts: __expectString(output.S3ExportArtifacts),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportJobSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportJobSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    LastModifiedAt:
+      output.LastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedAt)))
+        : undefined,
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+    ModelCardExportJobName: __expectString(output.ModelCardExportJobName),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportJobSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardExportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelCardExportOutputConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportOutputConfig => {
+  return {
+    S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSecurityConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelCardSecurityConfig => {
+  return {
+    KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSummary = (output: any, context: __SerdeContext): ModelCardSummary => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSummaryList = (output: any, context: __SerdeContext): ModelCardSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelCardVersionSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelCardVersionSummary => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardVersionSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelCardVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeContext): ModelClientConfig => {
   return {
     InvocationsMaxRetries: __expectInt32(output.InvocationsMaxRetries),
@@ -30493,6 +34169,143 @@ const deserializeAws_json1_1ModelConfiguration = (output: any, context: __SerdeC
         : undefined,
     InferenceSpecificationName: __expectString(output.InferenceSpecificationName),
   } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardEndpoint = (output: any, context: __SerdeContext): ModelDashboardEndpoint => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndpointArn: __expectString(output.EndpointArn),
+    EndpointName: __expectString(output.EndpointName),
+    EndpointStatus: __expectString(output.EndpointStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardEndpoints = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelDashboardEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelDashboardIndicatorAction = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardIndicatorAction => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardModel = (output: any, context: __SerdeContext): ModelDashboardModel => {
+  return {
+    Endpoints:
+      output.Endpoints != null ? deserializeAws_json1_1ModelDashboardEndpoints(output.Endpoints, context) : undefined,
+    LastBatchTransformJob:
+      output.LastBatchTransformJob != null
+        ? deserializeAws_json1_1TransformJob(output.LastBatchTransformJob, context)
+        : undefined,
+    Model: output.Model != null ? deserializeAws_json1_1Model(output.Model, context) : undefined,
+    ModelCard:
+      output.ModelCard != null ? deserializeAws_json1_1ModelDashboardModelCard(output.ModelCard, context) : undefined,
+    MonitoringSchedules:
+      output.MonitoringSchedules != null
+        ? deserializeAws_json1_1ModelDashboardMonitoringSchedules(output.MonitoringSchedules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardModelCard = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardModelCard => {
+  return {
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    ModelId: __expectString(output.ModelId),
+    RiskRating: __expectString(output.RiskRating),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardMonitoringSchedule = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardMonitoringSchedule => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndpointName: __expectString(output.EndpointName),
+    FailureReason: __expectString(output.FailureReason),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LastMonitoringExecutionSummary:
+      output.LastMonitoringExecutionSummary != null
+        ? deserializeAws_json1_1MonitoringExecutionSummary(output.LastMonitoringExecutionSummary, context)
+        : undefined,
+    MonitoringAlertSummaries:
+      output.MonitoringAlertSummaries != null
+        ? deserializeAws_json1_1MonitoringAlertSummaryList(output.MonitoringAlertSummaries, context)
+        : undefined,
+    MonitoringScheduleArn: __expectString(output.MonitoringScheduleArn),
+    MonitoringScheduleConfig:
+      output.MonitoringScheduleConfig != null
+        ? deserializeAws_json1_1MonitoringScheduleConfig(output.MonitoringScheduleConfig, context)
+        : undefined,
+    MonitoringScheduleName: __expectString(output.MonitoringScheduleName),
+    MonitoringScheduleStatus: __expectString(output.MonitoringScheduleStatus),
+    MonitoringType: __expectString(output.MonitoringType),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardMonitoringSchedules = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardMonitoringSchedule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelDashboardMonitoringSchedule(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ModelDataQuality = (output: any, context: __SerdeContext): ModelDataQuality => {
@@ -30560,6 +34373,19 @@ const deserializeAws_json1_1ModelExplainabilityJobInput = (
         : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelInfrastructureConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelInfrastructureConfig => {
+  return {
+    InfrastructureType: __expectString(output.InfrastructureType),
+    RealTimeInferenceConfig:
+      output.RealTimeInferenceConfig != null
+        ? deserializeAws_json1_1RealTimeInferenceConfig(output.RealTimeInferenceConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -30818,10 +34644,8 @@ const deserializeAws_json1_1ModelPackageSummaries = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context);
+      return acc;
     },
     {}
   );
@@ -30985,6 +34809,108 @@ const deserializeAws_json1_1ModelSummaryList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1ModelVariantConfigSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelVariantConfigSummary => {
+  return {
+    InfrastructureConfig:
+      output.InfrastructureConfig != null
+        ? deserializeAws_json1_1ModelInfrastructureConfig(output.InfrastructureConfig, context)
+        : undefined,
+    ModelName: __expectString(output.ModelName),
+    Status: __expectString(output.Status),
+    VariantName: __expectString(output.VariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelVariantConfigSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelVariantConfigSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelVariantConfigSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MonitoringAlertActions = (output: any, context: __SerdeContext): MonitoringAlertActions => {
+  return {
+    ModelDashboardIndicator:
+      output.ModelDashboardIndicator != null
+        ? deserializeAws_json1_1ModelDashboardIndicatorAction(output.ModelDashboardIndicator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertHistoryList = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertHistorySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MonitoringAlertHistorySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MonitoringAlertHistorySummary = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertHistorySummary => {
+  return {
+    AlertStatus: __expectString(output.AlertStatus),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+    MonitoringScheduleName: __expectString(output.MonitoringScheduleName),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertSummary = (output: any, context: __SerdeContext): MonitoringAlertSummary => {
+  return {
+    Actions: output.Actions != null ? deserializeAws_json1_1MonitoringAlertActions(output.Actions, context) : undefined,
+    AlertStatus: __expectString(output.AlertStatus),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DatapointsToAlert: __expectInt32(output.DatapointsToAlert),
+    EvaluationPeriod: __expectInt32(output.EvaluationPeriod),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertSummaryList = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MonitoringAlertSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1MonitoringAppSpecification = (
   output: any,
   context: __SerdeContext
@@ -31085,10 +35011,8 @@ const deserializeAws_json1_1MonitoringEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -31611,6 +35535,7 @@ const deserializeAws_json1_1OfflineStoreConfig = (output: any, context: __SerdeC
       output.S3StorageConfig != null
         ? deserializeAws_json1_1S3StorageConfig(output.S3StorageConfig, context)
         : undefined,
+    TableFormat: __expectString(output.TableFormat),
   } as any;
 };
 
@@ -31828,6 +35753,10 @@ const deserializeAws_json1_1PendingDeploymentSummary = (
       output.ProductionVariants != null
         ? deserializeAws_json1_1PendingProductionVariantSummaryList(output.ProductionVariants, context)
         : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1PendingProductionVariantSummaryList(output.ShadowProductionVariants, context)
+        : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
@@ -32003,6 +35932,8 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
   context: __SerdeContext
 ): PipelineExecutionStepMetadata => {
   return {
+    AutoMLJob:
+      output.AutoMLJob != null ? deserializeAws_json1_1AutoMLJobStepMetadata(output.AutoMLJob, context) : undefined,
     Callback:
       output.Callback != null ? deserializeAws_json1_1CallbackStepMetadata(output.Callback, context) : undefined,
     ClarifyCheck:
@@ -32134,10 +36065,8 @@ const deserializeAws_json1_1ProcessingEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32483,6 +36412,7 @@ const deserializeAws_json1_1ProductListings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ProfilerConfig = (output: any, context: __SerdeContext): ProfilerConfig => {
   return {
+    DisableProfiler: __expectBoolean(output.DisableProfiler),
     ProfilingIntervalInMilliseconds: __expectLong(output.ProfilingIntervalInMilliseconds),
     ProfilingParameters:
       output.ProfilingParameters != null
@@ -32559,10 +36489,8 @@ const deserializeAws_json1_1ProfilingParameters = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32712,6 +36640,16 @@ const deserializeAws_json1_1QueryLineageResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1RealTimeInferenceConfig = (
+  output: any,
+  context: __SerdeContext
+): RealTimeInferenceConfig => {
+  return {
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+  } as any;
+};
+
 const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   output: any,
   context: __SerdeContext
@@ -32789,6 +36727,10 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
     TrafficPattern:
       output.TrafficPattern != null ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context) : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig:
+      output.VpcConfig != null
+        ? deserializeAws_json1_1RecommendationJobVpcConfig(output.VpcConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -32847,6 +36789,44 @@ const deserializeAws_json1_1RecommendationJobSupportedInstanceTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobVpcConfig => {
+  return {
+    SecurityGroupIds:
+      output.SecurityGroupIds != null
+        ? deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    Subnets:
+      output.Subnets != null ? deserializeAws_json1_1RecommendationJobVpcSubnets(output.Subnets, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSubnets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -33056,10 +37036,8 @@ const deserializeAws_json1_1RuleParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33085,6 +37063,18 @@ const deserializeAws_json1_1S3StorageConfig = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1SageMakerImageVersionAliases = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ScheduleConfig = (output: any, context: __SerdeContext): ScheduleConfig => {
   return {
     ScheduleExpression: __expectString(output.ScheduleExpression),
@@ -33105,6 +37095,8 @@ const deserializeAws_json1_1SearchRecord = (output: any, context: __SerdeContext
       output.HyperParameterTuningJob != null
         ? deserializeAws_json1_1HyperParameterTuningJobSearchEntity(output.HyperParameterTuningJob, context)
         : undefined,
+    Model: output.Model != null ? deserializeAws_json1_1ModelDashboardModel(output.Model, context) : undefined,
+    ModelCard: output.ModelCard != null ? deserializeAws_json1_1ModelCard(output.ModelCard, context) : undefined,
     ModelPackage:
       output.ModelPackage != null ? deserializeAws_json1_1ModelPackage(output.ModelPackage, context) : undefined,
     ModelPackageGroup:
@@ -33228,6 +37220,41 @@ const deserializeAws_json1_1ServiceCatalogProvisioningDetails = (
   } as any;
 };
 
+const deserializeAws_json1_1ShadowModeConfig = (output: any, context: __SerdeContext): ShadowModeConfig => {
+  return {
+    ShadowModelVariants:
+      output.ShadowModelVariants != null
+        ? deserializeAws_json1_1ShadowModelVariantConfigList(output.ShadowModelVariants, context)
+        : undefined,
+    SourceModelVariantName: __expectString(output.SourceModelVariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ShadowModelVariantConfig = (
+  output: any,
+  context: __SerdeContext
+): ShadowModelVariantConfig => {
+  return {
+    SamplingPercentage: __expectInt32(output.SamplingPercentage),
+    ShadowModelVariantName: __expectString(output.ShadowModelVariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ShadowModelVariantConfigList = (
+  output: any,
+  context: __SerdeContext
+): ShadowModelVariantConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ShadowModelVariantConfig(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SharingSettings = (output: any, context: __SerdeContext): SharingSettings => {
   return {
     NotebookOutputOption: __expectString(output.NotebookOutputOption),
@@ -33279,12 +37306,71 @@ const deserializeAws_json1_1SourceIpConfig = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1SpaceDetails = (output: any, context: __SerdeContext): SpaceDetails => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DomainId: __expectString(output.DomainId),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    SpaceName: __expectString(output.SpaceName),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1SpaceList = (output: any, context: __SerdeContext): SpaceDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SpaceDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings => {
+  return {
+    JupyterServerAppSettings:
+      output.JupyterServerAppSettings != null
+        ? deserializeAws_json1_1JupyterServerAppSettings(output.JupyterServerAppSettings, context)
+        : undefined,
+    KernelGatewayAppSettings:
+      output.KernelGatewayAppSettings != null
+        ? deserializeAws_json1_1KernelGatewayAppSettings(output.KernelGatewayAppSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): StartInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1StartPipelineExecutionResponse = (
   output: any,
   context: __SerdeContext
 ): StartPipelineExecutionResponse => {
   return {
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1StopInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): StopInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
   } as any;
 };
 
@@ -33486,10 +37572,8 @@ const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33732,10 +37816,8 @@ const deserializeAws_json1_1TransformEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33970,6 +38052,7 @@ const deserializeAws_json1_1TrialComponent = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1TrialComponentParameters(output.Parameters, context)
         : undefined,
     Parents: output.Parents != null ? deserializeAws_json1_1Parents(output.Parents, context) : undefined,
+    RunName: __expectString(output.RunName),
     Source: output.Source != null ? deserializeAws_json1_1TrialComponentSource(output.Source, context) : undefined,
     SourceDetail:
       output.SourceDetail != null
@@ -33999,10 +38082,8 @@ const deserializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = deserializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -34048,10 +38129,8 @@ const deserializeAws_json1_1TrialComponentParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context),
-      };
+      acc[key] = deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context);
+      return acc;
     },
     {}
   );
@@ -34124,6 +38203,18 @@ const deserializeAws_json1_1TrialComponentSourceDetail = (
     TransformJob:
       output.TransformJob != null ? deserializeAws_json1_1TransformJob(output.TransformJob, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TrialComponentSources = (output: any, context: __SerdeContext): TrialComponentSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TrialComponentSource(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TrialComponentStatus = (output: any, context: __SerdeContext): TrialComponentStatus => {
@@ -34317,9 +38408,42 @@ const deserializeAws_json1_1UpdateFeatureGroupResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateHubResponse = (output: any, context: __SerdeContext): UpdateHubResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateImageResponse = (output: any, context: __SerdeContext): UpdateImageResponse => {
   return {
     ImageArn: __expectString(output.ImageArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateImageVersionResponse => {
+  return {
+    ImageVersionArn: __expectString(output.ImageVersionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateModelCardResponse => {
+  return {
+    ModelCardArn: __expectString(output.ModelCardArn),
   } as any;
 };
 
@@ -34329,6 +38453,16 @@ const deserializeAws_json1_1UpdateModelPackageOutput = (
 ): UpdateModelPackageOutput => {
   return {
     ModelPackageArn: __expectString(output.ModelPackageArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateMonitoringAlertResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateMonitoringAlertResponse => {
+  return {
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+    MonitoringScheduleArn: __expectString(output.MonitoringScheduleArn),
   } as any;
 };
 
@@ -34373,6 +38507,12 @@ const deserializeAws_json1_1UpdatePipelineResponse = (output: any, context: __Se
 const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
   return {
     ProjectArn: __expectString(output.ProjectArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSpaceResponse = (output: any, context: __SerdeContext): UpdateSpaceResponse => {
+  return {
+    SpaceArn: __expectString(output.SpaceArn),
   } as any;
 };
 

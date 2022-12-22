@@ -1664,10 +1664,7 @@ export const CreateRowDataFilterSensitiveLog = (obj: CreateRowData): any => ({
   ...obj,
   ...(obj.cellsToCreate && {
     cellsToCreate: Object.entries(obj.cellsToCreate).reduce(
-      (acc: any, [key, value]: [string, CellInput]) => ({
-        ...acc,
-        [key]: CellInputFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, CellInput]) => ((acc[key] = CellInputFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -1716,10 +1713,7 @@ export const UpdateRowDataFilterSensitiveLog = (obj: UpdateRowData): any => ({
   ...obj,
   ...(obj.cellsToUpdate && {
     cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
-      (acc: any, [key, value]: [string, CellInput]) => ({
-        ...acc,
-        [key]: CellInputFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, CellInput]) => ((acc[key] = CellInputFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -1756,10 +1750,7 @@ export const UpsertRowDataFilterSensitiveLog = (obj: UpsertRowData): any => ({
   ...(obj.filter && { filter: FilterFilterSensitiveLog(obj.filter) }),
   ...(obj.cellsToUpdate && {
     cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
-      (acc: any, [key, value]: [string, CellInput]) => ({
-        ...acc,
-        [key]: CellInputFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, CellInput]) => ((acc[key] = CellInputFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -1925,10 +1916,7 @@ export const GetScreenDataResultFilterSensitiveLog = (obj: GetScreenDataResult):
   ...obj,
   ...(obj.results && {
     results: Object.entries(obj.results).reduce(
-      (acc: any, [key, value]: [string, ResultSet]) => ({
-        ...acc,
-        [key]: ResultSetFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ResultSet]) => ((acc[key] = ResultSetFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

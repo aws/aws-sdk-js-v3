@@ -18,7 +18,7 @@ import {
   UpdateTrainingJobRequestFilterSensitiveLog,
   UpdateTrainingJobResponse,
   UpdateTrainingJobResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateTrainingJobCommand,
   serializeAws_json1_1UpdateTrainingJobCommand,

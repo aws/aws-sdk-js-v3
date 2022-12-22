@@ -25,7 +25,8 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a lens share.</p>
- *         <p>After the lens share is deleted,  Amazon Web Services accounts and IAM users
+ *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
+ *             and organizational units (OUs)
  *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
  *         <note>
  *             <p>

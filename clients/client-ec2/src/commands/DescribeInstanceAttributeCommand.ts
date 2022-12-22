@@ -36,7 +36,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *             | <code>rootDeviceName</code> | <code>blockDeviceMapping</code> |
  *                 <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
  *                 <code>ebsOptimized</code> | <code>sriovNetSupport</code>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

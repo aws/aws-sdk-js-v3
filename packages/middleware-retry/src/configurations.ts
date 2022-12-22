@@ -1,10 +1,13 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
-import { Provider, RetryStrategy } from "@aws-sdk/types";
+import { Provider, RetryStrategy, RetryStrategyV2 } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
-
-import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE, RETRY_MODES } from "./config";
-import { StandardRetryStrategy } from "./StandardRetryStrategy";
+import {
+  AdaptiveRetryStrategy,
+  DEFAULT_MAX_ATTEMPTS,
+  DEFAULT_RETRY_MODE,
+  RETRY_MODES,
+  StandardRetryStrategy,
+} from "@aws-sdk/util-retry";
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 export const CONFIG_MAX_ATTEMPTS = "max_attempts";
@@ -39,7 +42,7 @@ export interface RetryInputConfig {
   /**
    * The strategy to retry the request. Using built-in exponential backoff strategy by default.
    */
-  retryStrategy?: RetryStrategy;
+  retryStrategy?: RetryStrategy | RetryStrategyV2;
 }
 
 interface PreviouslyResolved {
@@ -58,17 +61,18 @@ export interface RetryResolvedConfig {
   /**
    * Resolved value for input config {@link RetryInputConfig.retryStrategy}
    */
-  retryStrategy: Provider<RetryStrategy>;
+  retryStrategy: Provider<RetryStrategyV2 | RetryStrategy>;
 }
 
 export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInputConfig): T & RetryResolvedConfig => {
+  const { retryStrategy } = input;
   const maxAttempts = normalizeProvider(input.maxAttempts ?? DEFAULT_MAX_ATTEMPTS);
   return {
     ...input,
     maxAttempts,
     retryStrategy: async () => {
-      if (input.retryStrategy) {
-        return input.retryStrategy;
+      if (retryStrategy) {
+        return retryStrategy;
       }
       const retryMode = await normalizeProvider(input.retryMode)();
       if (retryMode === RETRY_MODES.ADAPTIVE) {

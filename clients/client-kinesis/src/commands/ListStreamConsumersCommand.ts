@@ -31,7 +31,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
 /**
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
  *             and provides information about each consumer.</p>
- *         <p>This operation has a limit of 5 transactions per second per stream.</p>
+ *          <p>This operation has a limit of 5 transactions per second per stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,8 @@ export class ListStreamConsumersCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

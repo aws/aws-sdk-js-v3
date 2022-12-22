@@ -53,6 +53,7 @@ import {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
+import { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "./commands/CreateEphemerisCommand";
 import {
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput,
@@ -62,11 +63,13 @@ import {
   DeleteDataflowEndpointGroupCommandInput,
   DeleteDataflowEndpointGroupCommandOutput,
 } from "./commands/DeleteDataflowEndpointGroupCommand";
+import { DeleteEphemerisCommandInput, DeleteEphemerisCommandOutput } from "./commands/DeleteEphemerisCommand";
 import {
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput,
 } from "./commands/DeleteMissionProfileCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
+import { DescribeEphemerisCommandInput, DescribeEphemerisCommandOutput } from "./commands/DescribeEphemerisCommand";
 import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
@@ -81,6 +84,7 @@ import {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
+import { ListEphemeridesCommandInput, ListEphemeridesCommandOutput } from "./commands/ListEphemeridesCommand";
 import { ListGroundStationsCommandInput, ListGroundStationsCommandOutput } from "./commands/ListGroundStationsCommand";
 import {
   ListMissionProfilesCommandInput,
@@ -95,6 +99,7 @@ import { ReserveContactCommandInput, ReserveContactCommandOutput } from "./comma
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
+import { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "./commands/UpdateEphemerisCommand";
 import {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
@@ -111,11 +116,14 @@ export type ServiceInputTypes =
   | CancelContactCommandInput
   | CreateConfigCommandInput
   | CreateDataflowEndpointGroupCommandInput
+  | CreateEphemerisCommandInput
   | CreateMissionProfileCommandInput
   | DeleteConfigCommandInput
   | DeleteDataflowEndpointGroupCommandInput
+  | DeleteEphemerisCommandInput
   | DeleteMissionProfileCommandInput
   | DescribeContactCommandInput
+  | DescribeEphemerisCommandInput
   | GetConfigCommandInput
   | GetDataflowEndpointGroupCommandInput
   | GetMinuteUsageCommandInput
@@ -124,6 +132,7 @@ export type ServiceInputTypes =
   | ListConfigsCommandInput
   | ListContactsCommandInput
   | ListDataflowEndpointGroupsCommandInput
+  | ListEphemeridesCommandInput
   | ListGroundStationsCommandInput
   | ListMissionProfilesCommandInput
   | ListSatellitesCommandInput
@@ -132,17 +141,21 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfigCommandInput
+  | UpdateEphemerisCommandInput
   | UpdateMissionProfileCommandInput;
 
 export type ServiceOutputTypes =
   | CancelContactCommandOutput
   | CreateConfigCommandOutput
   | CreateDataflowEndpointGroupCommandOutput
+  | CreateEphemerisCommandOutput
   | CreateMissionProfileCommandOutput
   | DeleteConfigCommandOutput
   | DeleteDataflowEndpointGroupCommandOutput
+  | DeleteEphemerisCommandOutput
   | DeleteMissionProfileCommandOutput
   | DescribeContactCommandOutput
+  | DescribeEphemerisCommandOutput
   | GetConfigCommandOutput
   | GetDataflowEndpointGroupCommandOutput
   | GetMinuteUsageCommandOutput
@@ -151,6 +164,7 @@ export type ServiceOutputTypes =
   | ListConfigsCommandOutput
   | ListContactsCommandOutput
   | ListDataflowEndpointGroupsCommandOutput
+  | ListEphemeridesCommandOutput
   | ListGroundStationsCommandOutput
   | ListMissionProfilesCommandOutput
   | ListSatellitesCommandOutput
@@ -159,6 +173,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfigCommandOutput
+  | UpdateEphemerisCommandOutput
   | UpdateMissionProfileCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

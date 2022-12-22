@@ -48,6 +48,7 @@ import {
   GetAssociatedResourceCommandOutput,
 } from "../commands/GetAssociatedResourceCommand";
 import { GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput } from "../commands/GetAttributeGroupCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListAssociatedAttributeGroupsCommandInput,
@@ -69,6 +70,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutConfigurationCommandInput, PutConfigurationCommandOutput } from "../commands/PutConfigurationCommand";
 import { SyncResourceCommandInput, SyncResourceCommandOutput } from "../commands/SyncResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -80,6 +82,7 @@ import {
 import {
   Application,
   ApplicationSummary,
+  AppRegistryConfiguration,
   AttributeGroup,
   AttributeGroupDetails,
   AttributeGroupSummary,
@@ -87,11 +90,13 @@ import {
   Integrations,
   InternalServerException,
   Resource,
+  ResourceDetails,
   ResourceGroup,
   ResourceInfo,
   ResourceIntegrations,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  TagQueryConfiguration,
   ValidationException,
 } from "../models/models_0";
 import { ServiceCatalogAppRegistryServiceException as __BaseException } from "../models/ServiceCatalogAppRegistryServiceException";
@@ -402,6 +407,28 @@ export const serializeAws_restJson1GetAttributeGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetConfigurationCommand = async (
+  input: GetConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
@@ -550,6 +577,32 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1PutConfigurationCommand = async (
+  input: PutConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.configuration != null && {
+      configuration: serializeAws_restJson1AppRegistryConfiguration(input.configuration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SyncResourceCommand = async (
   input: SyncResourceCommandInput,
   context: __SerdeContext
@@ -613,7 +666,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1288,6 +1344,47 @@ const deserializeAws_restJson1GetAttributeGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.configuration != null) {
+    contents.configuration = deserializeAws_restJson1AppRegistryConfiguration(data.configuration, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1568,6 +1665,50 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1904,15 +2045,30 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AppRegistryConfiguration = (
+  input: AppRegistryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.tagQueryConfiguration != null && {
+      tagQueryConfiguration: serializeAws_restJson1TagQueryConfiguration(input.tagQueryConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TagQueryConfiguration = (input: TagQueryConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.tagKey != null && { tagKey: input.tagKey }),
+  };
+};
+
 const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1952,6 +2108,18 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
     lastUpdateTime:
       output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
     name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1AppRegistryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AppRegistryConfiguration => {
+  return {
+    tagQueryConfiguration:
+      output.tagQueryConfiguration != null
+        ? deserializeAws_restJson1TagQueryConfiguration(output.tagQueryConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -2052,6 +2220,12 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return {
+    tagValue: __expectString(output.tagValue),
+  } as any;
+};
+
 const deserializeAws_restJson1ResourceGroup = (output: any, context: __SerdeContext): ResourceGroup => {
   return {
     arn: __expectString(output.arn),
@@ -2064,6 +2238,11 @@ const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeConte
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
+    resourceDetails:
+      output.resourceDetails != null
+        ? deserializeAws_restJson1ResourceDetails(output.resourceDetails, context)
+        : undefined,
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -2086,15 +2265,19 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_restJson1TagQueryConfiguration = (output: any, context: __SerdeContext): TagQueryConfiguration => {
+  return {
+    tagKey: __expectString(output.tagKey),
+  } as any;
+};
+
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

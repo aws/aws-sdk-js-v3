@@ -1,4 +1,7 @@
 // smithy-typescript generated code
+export * from "./BatchCreateCustomVocabularyItemCommand";
+export * from "./BatchDeleteCustomVocabularyItemCommand";
+export * from "./BatchUpdateCustomVocabularyItemCommand";
 export * from "./BuildBotLocaleCommand";
 export * from "./CreateBotAliasCommand";
 export * from "./CreateBotCommand";
@@ -44,6 +47,7 @@ export * from "./ListBotVersionsCommand";
 export * from "./ListBotsCommand";
 export * from "./ListBuiltInIntentsCommand";
 export * from "./ListBuiltInSlotTypesCommand";
+export * from "./ListCustomVocabularyItemsCommand";
 export * from "./ListExportsCommand";
 export * from "./ListImportsCommand";
 export * from "./ListIntentsCommand";

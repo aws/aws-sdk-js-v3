@@ -9,17 +9,13 @@
 
 AWS SDK for JavaScript Rekognition Client for Node.js, Browser and React Native.
 
-<p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored Video</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>.
-It provides descriptions of actions, data types, common parameters,
-and common errors.</p>
-
+<p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
+<a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored
+Video</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common
+parameters, and common errors.</p>
 <p>
 <b>Amazon Rekognition Image</b>
 </p>
-
 <ul>
 <li>
 <p>
@@ -107,7 +103,6 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Custom Labels</b>
 </p>
@@ -213,11 +208,9 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Video Stored Video</b>
 </p>
-
 <ul>
 <li>
 <p>
@@ -300,11 +293,9 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Video Streaming Video</b>
 </p>
-
 <ul>
 <li>
 <p>

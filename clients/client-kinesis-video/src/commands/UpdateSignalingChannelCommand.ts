@@ -31,7 +31,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
 /**
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
  *             time to complete. </p>
- *         <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
+ *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
  *             it only applies to new messages sent via this channel after it's been updated. Existing
  *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
  *             value.</p>

@@ -12,6 +12,7 @@ import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
 import {
+  getHostPrefixDeduplicationPlugin,
   resolveS3ControlConfig,
   S3ControlInputConfig,
   S3ControlResolvedConfig,
@@ -160,6 +161,10 @@ import {
   GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyStatusCommand";
 import {
+  GetMultiRegionAccessPointRoutesCommandInput,
+  GetMultiRegionAccessPointRoutesCommandOutput,
+} from "./commands/GetMultiRegionAccessPointRoutesCommand";
+import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
@@ -228,6 +233,10 @@ import {
   PutStorageLensConfigurationTaggingCommandInput,
   PutStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/PutStorageLensConfigurationTaggingCommand";
+import {
+  SubmitMultiRegionAccessPointRoutesCommandInput,
+  SubmitMultiRegionAccessPointRoutesCommandOutput,
+} from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
 import {
@@ -275,6 +284,7 @@ export type ServiceInputTypes =
   | GetMultiRegionAccessPointCommandInput
   | GetMultiRegionAccessPointPolicyCommandInput
   | GetMultiRegionAccessPointPolicyStatusCommandInput
+  | GetMultiRegionAccessPointRoutesCommandInput
   | GetPublicAccessBlockCommandInput
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
@@ -296,6 +306,7 @@ export type ServiceInputTypes =
   | PutPublicAccessBlockCommandInput
   | PutStorageLensConfigurationCommandInput
   | PutStorageLensConfigurationTaggingCommandInput
+  | SubmitMultiRegionAccessPointRoutesCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
 
@@ -336,6 +347,7 @@ export type ServiceOutputTypes =
   | GetMultiRegionAccessPointCommandOutput
   | GetMultiRegionAccessPointPolicyCommandOutput
   | GetMultiRegionAccessPointPolicyStatusCommandOutput
+  | GetMultiRegionAccessPointRoutesCommandOutput
   | GetPublicAccessBlockCommandOutput
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
@@ -357,6 +369,7 @@ export type ServiceOutputTypes =
   | PutPublicAccessBlockCommandOutput
   | PutStorageLensConfigurationCommandOutput
   | PutStorageLensConfigurationTaggingCommandOutput
+  | SubmitMultiRegionAccessPointRoutesCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
@@ -557,6 +570,7 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    this.middlewareStack.use(getHostPrefixDeduplicationPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

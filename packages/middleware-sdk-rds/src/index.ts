@@ -2,7 +2,7 @@ import { toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
+  AwsCredentialIdentity,
   Endpoint,
   HandlerExecutionContext,
   HashConstructor,
@@ -32,7 +32,7 @@ const sourceIdToCommandKeyMap: Record<string, string> = {
 const version = "2014-10-31";
 
 interface PreviouslyResolved {
-  credentials: MemoizedProvider<Credentials>;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
   endpoint?: Provider<Endpoint>;
   region: Provider<string>;
   sha256: HashConstructor;

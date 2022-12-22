@@ -31,9 +31,9 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset properties.
- *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
- *     aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
+ *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
+ *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

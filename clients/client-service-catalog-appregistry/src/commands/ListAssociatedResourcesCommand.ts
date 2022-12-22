@@ -33,7 +33,27 @@ export interface ListAssociatedResourcesCommandInput extends ListAssociatedResou
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all resources that are associated with specified application. Results are paginated.</p>
+ * <p>
+ *        Lists all
+ *        of the resources
+ *        that are associated
+ *        with the specified application.
+ *        Results are paginated.
+ *      </p>
+ *          <note>
+ *             <p>
+ *          If you share an application,
+ *          and a consumer account associates a tag query
+ *          to the application,
+ *          all of the users
+ *          who can access the application
+ *          can also view the tag values
+ *          in all accounts
+ *          that are associated
+ *          with it
+ *          using this API.
+ *        </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,8 +37,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             account. To check the status of the request, do one of the following:</p>
  *         <ul>
  *             <li>
- *                 <p>Use the <code>Id</code> member of the <code>CreateAccountStatus</code>
- *                     response element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
+ *                 <p>Use the <code>Id</code> value of the <code>CreateAccountStatus</code> response
+ *                     element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
  *             </li>
  *             <li>
  *                 <p>Check the CloudTrail log for the <code>CreateAccountResult</code> event. For

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_1";
+import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
 
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
@@ -25,7 +25,6 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *          resources. When you specify an existing tag key, the value is overwritten with
  *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
  *          optional value. Tag keys must be unique per resource.</p>
- *
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
  *             <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
  *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported

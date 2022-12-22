@@ -367,6 +367,7 @@ import {
   ListServiceInstanceOutputsOutput,
   ListServiceInstanceProvisionedResourcesInput,
   ListServiceInstanceProvisionedResourcesOutput,
+  ListServiceInstancesFilter,
   ListServiceInstancesInput,
   ListServiceInstancesOutput,
   ListServicePipelineOutputsInput,
@@ -5700,6 +5701,7 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.environmentName != null && { environmentName: input.environmentName }),
     ...(input.managementAccountId != null && { managementAccountId: input.managementAccountId }),
@@ -5710,6 +5712,7 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.description != null && { description: input.description }),
     ...(input.environmentAccountConnectionId != null && {
@@ -6204,14 +6207,40 @@ const serializeAws_json1_0ListServiceInstanceProvisionedResourcesInput = (
   };
 };
 
+const serializeAws_json1_0ListServiceInstancesFilter = (
+  input: ListServiceInstancesFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_0ListServiceInstancesFilterList = (
+  input: ListServiceInstancesFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ListServiceInstancesFilter(entry, context);
+    });
+};
+
 const serializeAws_json1_0ListServiceInstancesInput = (
   input: ListServiceInstancesInput,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.filters != null && {
+      filters: serializeAws_json1_0ListServiceInstancesFilterList(input.filters, context),
+    }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -6393,6 +6422,7 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
     ...(input.deletePipelineProvisioningRepository != null && {
       deletePipelineProvisioningRepository: input.deletePipelineProvisioningRepository,
     }),
+    ...(input.pipelineCodebuildRoleArn != null && { pipelineCodebuildRoleArn: input.pipelineCodebuildRoleArn }),
     ...(input.pipelineProvisioningRepository != null && {
       pipelineProvisioningRepository: serializeAws_json1_0RepositoryBranchInput(
         input.pipelineProvisioningRepository,
@@ -6420,6 +6450,7 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.id != null && { id: input.id }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
@@ -6428,6 +6459,7 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
     ...(input.description != null && { description: input.description }),
@@ -6574,6 +6606,7 @@ const deserializeAws_json1_0AccessDeniedException = (output: any, context: __Ser
 
 const deserializeAws_json1_0AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
+    pipelineCodebuildRoleArn: __expectString(output.pipelineCodebuildRoleArn),
     pipelineProvisioningRepository:
       output.pipelineProvisioningRepository != null
         ? deserializeAws_json1_0RepositoryBranch(output.pipelineProvisioningRepository, context)
@@ -6922,6 +6955,7 @@ const deserializeAws_json1_0DeleteTemplateSyncConfigOutput = (
 const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     arn: __expectString(output.arn),
+    codebuildRoleArn: __expectString(output.codebuildRoleArn),
     componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -6958,6 +6992,7 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
 ): EnvironmentAccountConnection => {
   return {
     arn: __expectString(output.arn),
+    codebuildRoleArn: __expectString(output.codebuildRoleArn),
     componentRoleArn: __expectString(output.componentRoleArn),
     environmentAccountId: __expectString(output.environmentAccountId),
     environmentName: __expectString(output.environmentName),

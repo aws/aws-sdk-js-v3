@@ -33,8 +33,8 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
 /**
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
  *             transit gateway and an appliance.</p>
- *         <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+ *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

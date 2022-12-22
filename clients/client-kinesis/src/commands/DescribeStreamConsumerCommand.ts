@@ -36,7 +36,7 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *             that you want to describe, you can use the <a>ListStreamConsumers</a>
  *             operation to get a list of the descriptions of all the consumers that are currently
  *             registered with a given data stream.</p>
- *         <p>This operation has a limit of 20 transactions per second per stream.</p>
+ *          <p>This operation has a limit of 20 transactions per second per stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +62,9 @@ export class DescribeStreamConsumerCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

@@ -55,7 +55,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { LockRuleCommandInput, LockRuleCommandOutput } from "./commands/LockRuleCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnlockRuleCommandInput, UnlockRuleCommandOutput } from "./commands/UnlockRuleCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
@@ -72,7 +74,9 @@ export type ServiceInputTypes =
   | GetRuleCommandInput
   | ListRulesCommandInput
   | ListTagsForResourceCommandInput
+  | LockRuleCommandInput
   | TagResourceCommandInput
+  | UnlockRuleCommandInput
   | UntagResourceCommandInput
   | UpdateRuleCommandInput;
 
@@ -82,7 +86,9 @@ export type ServiceOutputTypes =
   | GetRuleCommandOutput
   | ListRulesCommandOutput
   | ListTagsForResourceCommandOutput
+  | LockRuleCommandOutput
   | TagResourceCommandOutput
+  | UnlockRuleCommandOutput
   | UntagResourceCommandOutput
   | UpdateRuleCommandOutput;
 

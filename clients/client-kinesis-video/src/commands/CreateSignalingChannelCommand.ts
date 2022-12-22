@@ -30,7 +30,7 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
 
 /**
  * <p>Creates a signaling channel. </p>
- *         <p>
+ *          <p>
  *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -2896,7 +2896,7 @@ export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCo
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     scope: [, "app-instance-user-membership"],
-    "app-instance-user-arn": [, input.AppInstanceUserArn!],
+    "app-instance-user-arn": [, __expectNonNull(input.AppInstanceUserArn!, `AppInstanceUserArn`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2930,7 +2930,7 @@ export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserComm
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     scope: [, "app-instance-user-moderated-channel"],
-    "app-instance-user-arn": [, input.AppInstanceUserArn!],
+    "app-instance-user-arn": [, __expectNonNull(input.AppInstanceUserArn!, `AppInstanceUserArn`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -4113,7 +4113,7 @@ export const serializeAws_restJson1ListAppInstanceUsersCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users";
   const query: any = map({
-    "app-instance-arn": [, input.AppInstanceArn!],
+    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     "next-token": [, input.NextToken!],
   });
@@ -4407,7 +4407,7 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   const query: any = map({
-    "app-instance-arn": [, input.AppInstanceArn!],
+    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
     privacy: [, input.Privacy!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     "next-token": [, input.NextToken!],
@@ -4738,7 +4738,7 @@ export const serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand = as
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-countries";
   const query: any = map({
-    "product-type": [, input.ProductType!],
+    "product-type": [, __expectNonNull(input.ProductType!, `ProductType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -4761,7 +4761,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    arn: [, input.ResourceARN!],
+    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -18597,10 +18597,8 @@ const serializeAws_restJson1SipHeadersMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18665,10 +18663,8 @@ const serializeAws_restJson1SMAUpdateCallArgumentsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 

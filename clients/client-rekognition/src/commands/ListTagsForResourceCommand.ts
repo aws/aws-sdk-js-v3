@@ -29,11 +29,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels model.
- *     </p>
+ * <p> Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels
+ *       model. </p>
  *          <p>This operation requires permissions to perform the
- *       <code>rekognition:ListTagsForResource</code> action. </p>
+ *         <code>rekognition:ListTagsForResource</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

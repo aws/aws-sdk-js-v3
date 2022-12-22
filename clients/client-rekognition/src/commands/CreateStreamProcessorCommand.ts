@@ -30,8 +30,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
 
 /**
  * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p>
- *         <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
- *         <ul>
+ *          <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
+ *          <ul>
  *             <li>
  *                <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the
  *                 face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
@@ -44,12 +44,11 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *                 When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p>
  *             </li>
  *          </ul>
- *
- *         <p>
+ *          <p>
  *             Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code>
  *             to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with
  *             the <code>Name</code> field. </p>
- *         <p>This operation requires permissions to perform the
+ *          <p>This operation requires permissions to perform the
  *             <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -3,6 +3,7 @@ export * from "./GetApplicationComponentDetailsCommand";
 export * from "./GetApplicationComponentStrategiesCommand";
 export * from "./GetAssessmentCommand";
 export * from "./GetImportFileTaskCommand";
+export * from "./GetLatestAssessmentIdCommand";
 export * from "./GetPortfolioPreferencesCommand";
 export * from "./GetPortfolioSummaryCommand";
 export * from "./GetRecommendationReportDetailsCommand";

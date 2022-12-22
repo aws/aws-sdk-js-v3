@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateAddressRequest, DisassociateAddressRequestFilterSensitiveLog } from "../models/models_4";
+import { DisassociateAddressRequest, DisassociateAddressRequestFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateAddressCommand,
   serializeAws_ec2DisassociateAddressCommand,
@@ -25,10 +25,9 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
- * 			      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
+ *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
  * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>

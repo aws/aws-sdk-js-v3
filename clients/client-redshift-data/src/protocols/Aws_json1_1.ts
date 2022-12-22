@@ -19,6 +19,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   BatchExecuteStatementCommandInput,
@@ -766,6 +767,7 @@ const serializeAws_json1_1BatchExecuteStatementInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.Database != null && { Database: input.Database }),
     ...(input.DbUser != null && { DbUser: input.DbUser }),
@@ -809,6 +811,7 @@ const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, c
 
 const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.Database != null && { Database: input.Database }),
     ...(input.DbUser != null && { DbUser: input.DbUser }),

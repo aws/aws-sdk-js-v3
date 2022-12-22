@@ -29,7 +29,7 @@ export interface DeletePricingRuleCommandInput extends DeletePricingRuleInput {}
 export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput, __MetadataBearer {}
 
 /**
- * <p> Deletes the pricing rule identified by the input Amazon Resource Name (ARN). </p>
+ * <p> Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

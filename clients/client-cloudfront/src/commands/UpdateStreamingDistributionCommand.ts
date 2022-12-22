@@ -29,7 +29,7 @@ export interface UpdateStreamingDistributionCommandInput extends UpdateStreaming
 export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Update a streaming distribution. </p>
+ * <p>Update a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

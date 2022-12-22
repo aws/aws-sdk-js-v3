@@ -31,10 +31,10 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  *             host ID of Dedicated Hosts that have been released can no longer be specified in another
  *             request, for example, to modify the host. You must stop or terminate all instances on a
  *             host before it can be released.</p>
- *         <p>When Dedicated Hosts are released, it may take some time for them to stop counting
+ *          <p>When Dedicated Hosts are released, it may take some time for them to stop counting
  *             toward your limit and you may receive capacity errors when trying to allocate new
  *             Dedicated Hosts. Wait a few minutes and then try again.</p>
- *         <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
+ *          <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

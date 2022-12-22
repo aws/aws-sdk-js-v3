@@ -23,6 +23,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import {
+  BatchCreateCustomVocabularyItemCommandInput,
+  BatchCreateCustomVocabularyItemCommandOutput,
+} from "../commands/BatchCreateCustomVocabularyItemCommand";
+import {
+  BatchDeleteCustomVocabularyItemCommandInput,
+  BatchDeleteCustomVocabularyItemCommandOutput,
+} from "../commands/BatchDeleteCustomVocabularyItemCommand";
+import {
+  BatchUpdateCustomVocabularyItemCommandInput,
+  BatchUpdateCustomVocabularyItemCommandOutput,
+} from "../commands/BatchUpdateCustomVocabularyItemCommand";
 import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "../commands/BuildBotLocaleCommand";
 import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "../commands/CreateBotAliasCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "../commands/CreateBotCommand";
@@ -101,6 +113,10 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "../commands/ListBuiltInSlotTypesCommand";
+import {
+  ListCustomVocabularyItemsCommandInput,
+  ListCustomVocabularyItemsCommandOutput,
+} from "../commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "../commands/ListIntentsCommand";
@@ -189,8 +205,10 @@ import {
   ConflictException,
   ConversationLogSettings,
   CustomPayload,
+  CustomVocabularyEntryId,
   CustomVocabularyExportSpecification,
   CustomVocabularyImportSpecification,
+  CustomVocabularyItem,
   DataPrivacy,
   DateRangeFilter,
   DialogAction,
@@ -203,6 +221,7 @@ import {
   ExportSortBy,
   ExportSummary,
   ExternalSourceSetting,
+  FailedCustomVocabularyItem,
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
@@ -225,6 +244,7 @@ import {
   Message,
   MessageGroup,
   MultipleValuesSetting,
+  NewCustomVocabularyItem,
   ObfuscationSetting,
   OutputContext,
   PathFormat,
@@ -292,6 +312,108 @@ import {
   SlotValueElicitationSetting,
   SlotValueOverride,
 } from "../models/models_1";
+
+export const serializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+  input: BatchCreateCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1CreateCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+  input: BatchDeleteCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1DeleteCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+  input: BatchUpdateCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1UpdateCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
@@ -1563,6 +1685,36 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+  input: ListCustomVocabularyItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
@@ -1949,7 +2101,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2317,6 +2472,201 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_restJson1BuildBotLocaleCommand = async (
@@ -5524,6 +5874,71 @@ const deserializeAws_restJson1ListBuiltInSlotTypesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomVocabularyItemsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCustomVocabularyItemsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.customVocabularyItems != null) {
+    contents.customVocabularyItems = deserializeAws_restJson1CustomVocabularyItems(data.customVocabularyItems, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCustomVocabularyItemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomVocabularyItemsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7389,10 +7804,8 @@ const serializeAws_restJson1BotAliasLocaleSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BotAliasLocaleSettings(value, context),
-    };
+    acc[key] = serializeAws_restJson1BotAliasLocaleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7507,10 +7920,8 @@ const serializeAws_restJson1BotVersionLocaleSpecification = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BotVersionLocaleDetails(value, context),
-    };
+    acc[key] = serializeAws_restJson1BotVersionLocaleDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -7620,10 +8031,8 @@ const serializeAws_restJson1ConditionKeyValueMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7635,10 +8044,8 @@ const serializeAws_restJson1ConditionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ConditionKeyValueMap(value, context),
-    };
+    acc[key] = serializeAws_restJson1ConditionKeyValueMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -7656,9 +8063,29 @@ const serializeAws_restJson1ConversationLogSettings = (
   };
 };
 
+const serializeAws_restJson1CreateCustomVocabularyItemsList = (
+  input: NewCustomVocabularyItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1NewCustomVocabularyItem(entry, context);
+    });
+};
+
 const serializeAws_restJson1CustomPayload = (input: CustomPayload, context: __SerdeContext): any => {
   return {
     ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1CustomVocabularyEntryId = (
+  input: CustomVocabularyEntryId,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.itemId != null && { itemId: input.itemId }),
   };
 };
 
@@ -7684,6 +8111,15 @@ const serializeAws_restJson1CustomVocabularyImportSpecification = (
   };
 };
 
+const serializeAws_restJson1CustomVocabularyItem = (input: CustomVocabularyItem, context: __SerdeContext): any => {
+  return {
+    ...(input.displayAs != null && { displayAs: input.displayAs }),
+    ...(input.itemId != null && { itemId: input.itemId }),
+    ...(input.phrase != null && { phrase: input.phrase }),
+    ...(input.weight != null && { weight: input.weight }),
+  };
+};
+
 const serializeAws_restJson1DataPrivacy = (input: DataPrivacy, context: __SerdeContext): any => {
   return {
     ...(input.childDirected != null && { childDirected: input.childDirected }),
@@ -7705,6 +8141,17 @@ const serializeAws_restJson1DefaultConditionalBranch = (
     ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
     ...(input.response != null && { response: serializeAws_restJson1ResponseSpecification(input.response, context) }),
   };
+};
+
+const serializeAws_restJson1DeleteCustomVocabularyItemsList = (
+  input: CustomVocabularyEntryId[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CustomVocabularyEntryId(entry, context);
+    });
 };
 
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
@@ -8163,6 +8610,17 @@ const serializeAws_restJson1MultipleValuesSetting = (input: MultipleValuesSettin
   };
 };
 
+const serializeAws_restJson1NewCustomVocabularyItem = (
+  input: NewCustomVocabularyItem,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.displayAs != null && { displayAs: input.displayAs }),
+    ...(input.phrase != null && { phrase: input.phrase }),
+    ...(input.weight != null && { weight: input.weight }),
+  };
+};
+
 const serializeAws_restJson1ObfuscationSetting = (input: ObfuscationSetting, context: __SerdeContext): any => {
   return {
     ...(input.obfuscationSettingType != null && { obfuscationSettingType: input.obfuscationSettingType }),
@@ -8329,10 +8787,8 @@ const serializeAws_restJson1PromptAttemptsSpecificationMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1PromptAttemptSpecification(value, context),
-    };
+    acc[key] = serializeAws_restJson1PromptAttemptSpecification(value, context);
+    return acc;
   }, {});
 };
 
@@ -8609,10 +9065,8 @@ const serializeAws_restJson1SlotValueOverrideMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SlotValueOverride(value, context),
-    };
+    acc[key] = serializeAws_restJson1SlotValueOverride(value, context);
+    return acc;
   }, {});
 };
 
@@ -8685,10 +9139,8 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8709,10 +9161,8 @@ const serializeAws_restJson1SubSlotSpecificationMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Specifications(value, context),
-    };
+    acc[key] = serializeAws_restJson1Specifications(value, context);
+    return acc;
   }, {});
 };
 
@@ -8770,10 +9220,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8825,6 +9273,17 @@ const serializeAws_restJson1TranscriptSourceSetting = (
       s3BucketTranscriptSource: serializeAws_restJson1S3BucketTranscriptSource(input.s3BucketTranscriptSource, context),
     }),
   };
+};
+
+const serializeAws_restJson1UpdateCustomVocabularyItemsList = (
+  input: CustomVocabularyItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CustomVocabularyItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1UtteranceAggregationDuration = (
@@ -9038,10 +9497,8 @@ const deserializeAws_restJson1BotAliasLocaleSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BotAliasLocaleSettings(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BotAliasLocaleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -9279,10 +9736,8 @@ const deserializeAws_restJson1BotVersionLocaleSpecification = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BotVersionLocaleDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BotVersionLocaleDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -9494,6 +9949,30 @@ const deserializeAws_restJson1CustomVocabularyImportSpecification = (
   } as any;
 };
 
+const deserializeAws_restJson1CustomVocabularyItem = (output: any, context: __SerdeContext): CustomVocabularyItem => {
+  return {
+    displayAs: __expectString(output.displayAs),
+    itemId: __expectString(output.itemId),
+    phrase: __expectString(output.phrase),
+    weight: __expectInt32(output.weight),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomVocabularyItems = (
+  output: any,
+  context: __SerdeContext
+): CustomVocabularyItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomVocabularyItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DataPrivacy = (output: any, context: __SerdeContext): DataPrivacy => {
   return {
     childDirected: __expectBoolean(output.childDirected),
@@ -9657,6 +10136,32 @@ const deserializeAws_restJson1ExternalSourceSetting = (output: any, context: __S
         ? deserializeAws_restJson1GrammarSlotTypeSetting(output.grammarSlotTypeSetting, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1FailedCustomVocabularyItem = (
+  output: any,
+  context: __SerdeContext
+): FailedCustomVocabularyItem => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    itemId: __expectString(output.itemId),
+  } as any;
+};
+
+const deserializeAws_restJson1FailedCustomVocabularyItems = (
+  output: any,
+  context: __SerdeContext
+): FailedCustomVocabularyItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FailedCustomVocabularyItem(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1FailureReasons = (output: any, context: __SerdeContext): string[] => {
@@ -10208,10 +10713,8 @@ const deserializeAws_restJson1PromptAttemptsSpecificationMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1PromptAttemptSpecification(value, context),
-      };
+      acc[key] = deserializeAws_restJson1PromptAttemptSpecification(value, context);
+      return acc;
     },
     {}
   );
@@ -10566,10 +11069,8 @@ const deserializeAws_restJson1SlotValueOverrideMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1SlotValueOverride(value, context),
-    };
+    acc[key] = deserializeAws_restJson1SlotValueOverride(value, context);
+    return acc;
   }, {});
 };
 
@@ -10644,10 +11145,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -10669,10 +11168,8 @@ const deserializeAws_restJson1SubSlotSpecificationMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Specifications(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Specifications(value, context);
+    return acc;
   }, {});
 };
 
@@ -10739,10 +11236,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -162,8 +162,14 @@ export enum ResourceType {
   transit_gateway_policy_table = "transit-gateway-policy-table",
   transit_gateway_route_table = "transit-gateway-route-table",
   transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
+  verified_access_endpoint = "verified-access-endpoint",
+  verified_access_group = "verified-access-group",
+  verified_access_instance = "verified-access-instance",
+  verified_access_policy = "verified-access-policy",
+  verified_access_trust_provider = "verified-access-trust-provider",
   volume = "volume",
   vpc = "vpc",
+  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
   vpc_endpoint = "vpc-endpoint",
   vpc_endpoint_connection = "vpc-endpoint-connection",
   vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
@@ -431,7 +437,7 @@ export interface TransitGatewayMulticastDomainAssociations {
 
 export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   /**
-   * <p>Describes the multicast domain associations.</p>
+   * <p>Information about the multicast domain associations.</p>
    */
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
@@ -1949,7 +1955,7 @@ export interface AddPrefixListEntry {
 
   /**
    * <p>A description for the entry.</p>
-   *         <p>Constraints: Up to 255 characters in length.</p>
+   *          <p>Constraints: Up to 255 characters in length.</p>
    */
   Description?: string;
 }
@@ -2179,7 +2185,6 @@ export interface AllocateAddressRequest {
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
-   *
    *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
    *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
@@ -2262,13 +2267,11 @@ export enum HostRecovery {
 
 export interface AllocateHostsRequest {
   /**
-   * <p>Indicates whether the host accepts any untargeted instance launches that
-   *     		match its instance type configuration, or if it only accepts Host tenancy
-   *     		instance launches that specify its unique host ID. For more information,
-   *     		see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding">
-   *         	Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
-   *         <p>Default: <code>on</code>
+   * <p>Indicates whether the host accepts any untargeted instance launches that match its
+   *             instance type configuration, or if it only accepts Host tenancy instance launches that
+   *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>on</code>
    *          </p>
    */
   AutoPlacement?: AutoPlacement | string;
@@ -2284,31 +2287,28 @@ export interface AllocateHostsRequest {
   ClientToken?: string;
 
   /**
-   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you
-   * 		specify an instance type, the Dedicated Hosts support instances of the
-   * 		specified instance type only.</p>
-   *
-   *     	    <p>If you want the Dedicated Hosts to support multiple instance types in a specific
-   *     		instance family, omit this parameter and specify <b>InstanceFamily</b>
-   *     		instead. You cannot specify <b>InstanceType</b> and
-   *     		<b>InstanceFamily</b> in the same request.</p>
+   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
+   *             instance type, the Dedicated Hosts support instances of the specified instance type
+   *             only.</p>
+   *          <p>If you want the Dedicated Hosts to support multiple instance types in a specific
+   *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
+   *             same request.</p>
    */
   InstanceType?: string;
 
   /**
    * <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
-   * 			an instance family, the Dedicated Hosts support multiple instance types within that
-   * 			instance family.</p>
-   *
-   * 		       <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
-   * 			parameter and specify <b>InstanceType</b>
-   * 			instead. You cannot specify <b>InstanceFamily</b> and
-   * 			<b>InstanceType</b> in the same request.</p>
+   *             an instance family, the Dedicated Hosts support multiple instance types within that
+   *             instance family.</p>
+   *          <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
+   *             parameter and specify <b>InstanceType</b> instead. You cannot
+   *             specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
   InstanceFamily?: string;
 
   /**
-   * <p>The number of Dedicated Hosts to allocate to your account with these parameters.</p>
+   * <p>The number of Dedicated Hosts to allocate to your account with these
+   *             parameters.</p>
    */
   Quantity: number | undefined;
 
@@ -2318,17 +2318,17 @@ export interface AllocateHostsRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host.
-   * 			Host recovery is disabled by default. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-   * 			Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * 		       <p>Default: <code>off</code>
+   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host
+   *             recovery is disabled by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>off</code>
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
+   *             the Dedicated Host.</p>
    */
   OutpostArn?: string;
 }
@@ -2339,7 +2339,7 @@ export interface AllocateHostsRequest {
 export interface AllocateHostsResult {
   /**
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
-   * 			specific host.</p>
+   *             specific host.</p>
    */
   HostIds?: string[];
 }
@@ -2475,6 +2475,7 @@ export enum AllocationStrategy {
   CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
   DIVERSIFIED = "diversified",
   LOWEST_PRICE = "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
 }
 
 export enum AllocationType {
@@ -2628,7 +2629,7 @@ export interface AssignPrivateIpAddressesRequest {
 
   /**
    * <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
-   *         <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
+   *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    */
   PrivateIpAddresses?: string[];
 
@@ -2721,7 +2722,7 @@ export interface AssociateAddressRequest {
 
   /**
    * <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p>
-   *    	     <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
+   *          <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
    */
   NetworkInterfaceId?: string;
 
@@ -3415,8 +3416,8 @@ export enum InterfaceProtocolType {
  * <note>
  *             <p>Currently available in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *         <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ *          </note>
+ *          <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -3500,7 +3501,7 @@ export interface AssociateVpcCidrBlockRequest {
 
   /**
    * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
-   *         <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -3669,6 +3670,42 @@ export interface AttachInternetGatewayRequest {
 }
 
 /**
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface EnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface EnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecification;
+}
+
+/**
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
@@ -3700,6 +3737,11 @@ export interface AttachNetworkInterfaceRequest {
    *             The default is network card index 0.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecification;
 }
 
 /**
@@ -3715,6 +3757,233 @@ export interface AttachNetworkInterfaceResult {
    * <p>The index of the network card.</p>
    */
   NetworkCardIndex?: number;
+}
+
+export interface AttachVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum DeviceTrustProviderType {
+  crowdstrike = "crowdstrike",
+  jamf = "jamf",
+}
+
+export enum TrustProviderType {
+  device = "device",
+  user = "user",
+}
+
+export enum UserTrustProviderType {
+  iam_identity_center = "iam-identity-center",
+  oidc = "oidc",
+}
+
+/**
+ * <p>Condensed information about a trust provider.</p>
+ */
+export interface VerifiedAccessTrustProviderCondensed {
+  /**
+   * <p>The ID of the trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>The description of trust provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of trust provider (user- or device-based).</p>
+   */
+  TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
+  UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+}
+
+/**
+ * <p>Describes a Verified Access instance.</p>
+ */
+export interface VerifiedAccessInstance {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   */
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[];
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
+ */
+export interface DeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   */
+  TenantId?: string;
+}
+
+/**
+ * <p>Options for OIDC-based, user-identity type trust provider.</p>
+ */
+export interface OidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
+  ClientSecret?: string;
+
+  /**
+   * <p>The OpenID Connect (OIDC) scope specified.</p>
+   */
+  Scope?: string;
+}
+
+/**
+ * <p>Describes a Verified Access trust provider.</p>
+ */
+export interface VerifiedAccessTrustProvider {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of Verified Access trust provider.</p>
+   */
+  TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
+  UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
+  OidcOptions?: OidcOptions;
+
+  /**
+   * <p>The options for device-identity type trust provider.</p>
+   */
+  DeviceOptions?: DeviceOptions;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   */
+  PolicyReferenceName?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AttachVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
 export interface AttachVolumeRequest {
@@ -3964,7 +4233,7 @@ export interface PrefixListId {
 /**
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
- *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  */
 export interface UserIdGroupPair {
@@ -3985,7 +4254,7 @@ export interface UserIdGroupPair {
    * <p>The name of the security group. In a request, use this parameter for a security group
    *             in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the
    *             security group ID. </p>
-   *         <p>For a referenced security group in another VPC, this value is not returned if the
+   *          <p>For a referenced security group in another VPC, this value is not returned if the
    *             referenced security group is deleted.</p>
    */
   GroupName?: string;
@@ -3997,7 +4266,7 @@ export interface UserIdGroupPair {
 
   /**
    * <p>The ID of an Amazon Web Services account.</p>
-   *         <p>For a referenced security group in another VPC, the account ID of the referenced
+   *          <p>For a referenced security group in another VPC, the account ID of the referenced
    *             security group is returned in the response. If the referenced security group is deleted,
    *             this value is not returned.</p>
    *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
@@ -4182,7 +4451,7 @@ export interface SecurityGroupRule {
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
    *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
-   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   *          <p>Use <code>-1</code> to specify all protocols.</p>
    */
   IpProtocol?: string;
 
@@ -4342,8 +4611,9 @@ export interface AuthorizeSecurityGroupIngressResult {
  */
 export interface S3Storage {
   /**
-   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance
-   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing Amazon Web Services Access Keys</a>.</p>
+   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
+   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing
+   *         Amazon Web Services access keys</a>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -4639,6 +4909,27 @@ export interface CancelExportTaskRequest {
    * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
    */
   ExportTaskId: string | undefined;
+}
+
+export interface CancelImageLaunchPermissionRequest {
+  /**
+   * <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CancelImageLaunchPermissionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
 }
 
 export interface CancelImportTaskRequest {
@@ -5062,10 +5353,11 @@ export interface CopyImageRequest {
   Description?: string;
 
   /**
-   * <p>Specifies whether the destination snapshots of the copied image should be encrypted.
-   *        You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
-   *        copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *        Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
+   *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
+   *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
+   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
@@ -5073,25 +5365,25 @@ export interface CopyImageRequest {
    * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
    *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
    *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
-   *    	     <p>You can specify a KMS key using any of the following:</p>
-   *    	     <ul>
+   *          <p>You can specify a KMS key using any of the following:</p>
+   *          <ul>
    *             <li>
-   *    			         <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key alias. For example, alias/ExampleAlias.</p>
-   *    	        </li>
+   *                <p>Key alias. For example, alias/ExampleAlias.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    		          <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *    		       </li>
+   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
+   *             </li>
    *          </ul>
-   *    	     <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
-   *    	     <p>The specified KMS key must exist in the destination Region.</p>
-   *    	     <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   *          <p>The specified KMS key must exist in the destination Region.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
@@ -5116,10 +5408,8 @@ export interface CopyImageRequest {
    *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
-   *
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-   *   		Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
+   *         Region to an Outpost</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 
@@ -5129,6 +5419,22 @@ export interface CopyImageRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
+   *          <p>The following tags will not be copied:</p>
+   *          <ul>
+   *             <li>
+   *                <p>System tags (prefixed with <code>aws:</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>For public and shared AMIs, user-defined tags that are attached by other Amazon Web Services
+   *           accounts</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Your user-defined AMI tags are not copied.</p>
+   */
+  CopyImageTags?: boolean;
 }
 
 /**
@@ -5153,7 +5459,7 @@ export interface CopySnapshotRequest {
    * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
    * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
    * 		Outpost.</p>
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
    *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -5163,7 +5469,6 @@ export interface CopySnapshotRequest {
    * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
    *       copy operation. This parameter is only valid for specifying the destination Region in a
    *         <code>PresignedUrl</code> parameter, where it is required.</p>
-   *
    *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
    *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
    *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
@@ -5319,7 +5624,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -5334,7 +5639,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
-   * 	  	     <p>Valid range: 1 - 1000</p>
+   *          <p>Valid range: 1 - 1000</p>
    */
   InstanceCount: number | undefined;
 
@@ -5357,11 +5662,10 @@ export interface CreateCapacityReservationRequest {
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
    * 				<code>expired</code> when it reaches its end date and time.</p>
-   * 		       <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
-   *
-   * 		       <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
+   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
    * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
    */
   EndDate?: Date;
@@ -5369,7 +5673,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
@@ -5389,7 +5693,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform,
@@ -5403,7 +5707,7 @@ export interface CreateCapacityReservationRequest {
    * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
    *             </li>
    *          </ul>
-   * 		       <p>Default: <code>open</code>
+   *          <p>Default: <code>open</code>
    *          </p>
    */
   InstanceMatchCriteria?: InstanceMatchCriteria | string;
@@ -5499,7 +5803,7 @@ export interface CapacityReservation {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -5539,7 +5843,7 @@ export interface CapacityReservation {
 
   /**
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
@@ -5584,7 +5888,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
@@ -5600,7 +5904,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform,
@@ -5850,6 +6154,7 @@ export enum _InstanceType {
   h1_8xlarge = "h1.8xlarge",
   hi1_4xlarge = "hi1.4xlarge",
   hpc6a_48xlarge = "hpc6a.48xlarge",
+  hpc6id_32xlarge = "hpc6id.32xlarge",
   hs1_8xlarge = "hs1.8xlarge",
   i2_2xlarge = "i2.2xlarge",
   i2_4xlarge = "i2.4xlarge",
@@ -6180,9 +6485,13 @@ export enum _InstanceType {
   t4g_nano = "t4g.nano",
   t4g_small = "t4g.small",
   t4g_xlarge = "t4g.xlarge",
+  trn1_2xlarge = "trn1.2xlarge",
+  trn1_32xlarge = "trn1.32xlarge",
   u_12tb1_112xlarge = "u-12tb1.112xlarge",
   u_12tb1_metal = "u-12tb1.metal",
+  u_18tb1_112xlarge = "u-18tb1.112xlarge",
   u_18tb1_metal = "u-18tb1.metal",
+  u_24tb1_112xlarge = "u-24tb1.112xlarge",
   u_24tb1_metal = "u-24tb1.metal",
   u_3tb1_56xlarge = "u-3tb1.56xlarge",
   u_6tb1_112xlarge = "u-6tb1.112xlarge",
@@ -6301,7 +6610,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			specified instance types to use. Currently, only the <code>prioritized</code>
    * 			allocation strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
    * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
-   * 		       <p>Valid values: <code>prioritized</code>
+   *          <p>Valid values: <code>prioritized</code>
    *          </p>
    */
   AllocationStrategy?: string;
@@ -6320,17 +6629,17 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
    * 			in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
    * 			the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
    * 					that is shared with other Amazon Web Services accounts.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>dedicated</code> - The Capacity Reservations are created on single-tenant
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservations are created on single-tenant
    * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tenancy?: FleetCapacityReservationTenancy | string;
@@ -6348,7 +6657,7 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
    * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity
    * 			Reservations in the Fleet expire.</p>
-   * 		       <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
    * 			if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet
    * 			is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on
    * 			<code>5/31/2019</code>.
@@ -6359,7 +6668,7 @@ export interface CreateCapacityReservationFleetRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
    * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   * 		       <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
    * 			only. This means that instances that have matching attributes (instance type, platform, and
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
@@ -6662,9 +6971,9 @@ export interface ClientLoginBannerOptions {
   /**
    * <p>Enable or disable a customizable text banner that will be displayed on
    * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   * 		       <p>Valid values: <code>true | false</code>
+   *          <p>Valid values: <code>true | false</code>
    *          </p>
-   * 		       <p>Default value: <code>false</code>
+   *          <p>Default value: <code>false</code>
    *          </p>
    */
   Enabled?: boolean;
@@ -6726,9 +7035,9 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Information about the client connection logging options.</p>
-   * 		       <p>If you enable client connection logging, data about client connections is sent to a
+   *          <p>If you enable client connection logging, data about client connections is sent to a
    * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>Client connection requests</p>
    *             </li>
@@ -6753,16 +7062,16 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>The transport protocol to be used by the VPN session.</p>
-   * 		       <p>Default value: <code>udp</code>
+   *          <p>Default value: <code>udp</code>
    *          </p>
    */
   TransportProtocol?: TransportProtocol | string;
 
   /**
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   * 	        <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
    *          </p>
-   * 	        <p>Default Value: <code>443</code>
+   *          <p>Default Value: <code>443</code>
    *          </p>
    */
   VpnPort?: number;
@@ -6774,8 +7083,8 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   * 		       <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
    * 			<i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
@@ -6807,7 +7116,7 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *         <p>Default Value: <code>enabled</code>
+   *          <p>Default Value: <code>enabled</code>
    *          </p>
    */
   SelfServicePortal?: SelfServicePortal | string;
@@ -6819,9 +7128,9 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>The maximum VPN session duration time in hours.</p>
-   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
    *          </p>
-   * 		       <p>Default value: <code>24</code>
+   *          <p>Default value: <code>24</code>
    *          </p>
    */
   SessionTimeoutHours?: number;
@@ -6846,27 +7155,27 @@ export enum ClientVpnEndpointStatusCode {
 export interface ClientVpnEndpointStatus {
   /**
    * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
    * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
    * 					associated. The Client VPN endpoint can accept connections.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
    * 					connections.</p>
    *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
    * 					connections.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Code?: ClientVpnEndpointStatusCode | string;
@@ -6902,7 +7211,7 @@ export interface CreateClientVpnRouteRequest {
 
   /**
    * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
    *                </p>
@@ -6923,7 +7232,7 @@ export interface CreateClientVpnRouteRequest {
   /**
    * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
    * 			an existing target network of the Client VPN endpoint.</p>
-   * 	        <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
+   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
    */
   TargetVpcSubnetId: string | undefined;
 
@@ -7021,373 +7330,6 @@ export interface CoipCidr {
    *       </p>
    */
   LocalGatewayRouteTableId?: string;
-}
-
-export interface CreateCoipCidrResult {
-  /**
-   * <p>
-   *          Information about a range of customer-owned IP addresses.
-   *       </p>
-   */
-  CoipCidr?: CoipCidr;
-}
-
-export interface CreateCoipPoolRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *       The tags to assign to the CoIP address pool.
-   *       </p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a customer-owned address pool.</p>
- */
-export interface CoipPool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The address ranges of the address pool.</p>
-   */
-  PoolCidrs?: string[];
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN of the address pool.</p>
-   */
-  PoolArn?: string;
-}
-
-export interface CreateCoipPoolResult {
-  /**
-   * <p>Describes a customer-owned address pool.</p>
-   */
-  CoipPool?: CoipPool;
-}
-
-export enum GatewayType {
-  ipsec_1 = "ipsec.1",
-}
-
-/**
- * <p>Contains the parameters for CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayRequest {
-  /**
-   * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
-   *         <p>Default: 65000</p>
-   */
-  BgpAsn: number | undefined;
-
-  /**
-   * <p>
-   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
-   *             address must be static.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The type of VPN connection that this customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type: GatewayType | string | undefined;
-
-  /**
-   * <p>The tags to apply to the customer gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>A name for the customer gateway device.</p>
-   *         <p>Length Constraints: Up to 255 characters.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>
-   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
-   *         </p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a customer gateway.</p>
- */
-export interface CustomerGateway {
-  /**
-   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   */
-  BgpAsn?: string;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The IP address of the customer gateway device's outside interface.</p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *                 deleted</code>).</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The type of VPN connection the customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The name of customer gateway device.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Any tags assigned to the customer gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * <p>Contains the output of CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayResult {
-  /**
-   * <p>Information about the customer gateway.</p>
-   */
-  CustomerGateway?: CustomerGateway;
-}
-
-export interface CreateDefaultSubnetRequest {
-  /**
-   * <p>The Availability Zone in which to create the default subnet.</p>
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
-   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-}
-
-export enum HostnameType {
-  ip_name = "ip-name",
-  resource_name = "resource-name",
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- */
-export interface PrivateDnsNameOptionsOnLaunch {
-  /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
-   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
-   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
-   */
-  HostnameType?: HostnameType | string;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   */
-  EnableResourceNameDnsARecord?: boolean;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
-   *             records.</p>
-   */
-  EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export enum SubnetState {
-  available = "available",
-  pending = "pending",
-}
-
-/**
- * <p>Describes a subnet.</p>
- */
-export interface Subnet {
-  /**
-   * <p>The Availability Zone of the subnet.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The AZ ID of the subnet.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
-   * 			stopped instances are considered unavailable.</p>
-   */
-  AvailableIpAddressCount?: number;
-
-  /**
-   * <p>The IPv4 CIDR block assigned to the subnet.</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
-   */
-  DefaultForAz?: boolean;
-
-  /**
-   * <p>
-   *             Indicates the device position for local network interfaces in this subnet. For example,
-   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
-   *             network interface (eth1).
-   *         </p>
-   */
-  EnableLniAtDeviceIndex?: number;
-
-  /**
-   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
-   */
-  MapPublicIpOnLaunch?: boolean;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
-   */
-  MapCustomerOwnedIpOnLaunch?: boolean;
-
-  /**
-   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
-   */
-  CustomerOwnedIpv4Pool?: string;
-
-  /**
-   * <p>The current state of the subnet.</p>
-   */
-  State?: SubnetState | string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC the subnet is in.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives an IPv6 address.</p>
-   */
-  AssignIpv6AddressOnCreation?: boolean;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
-   */
-  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[];
-
-  /**
-   * <p>Any tags assigned to the subnet.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the subnet.</p>
-   */
-  SubnetArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
-   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   */
-  EnableDns64?: boolean;
-
-  /**
-   * <p>Indicates whether this is an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-
-  /**
-   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
-   *             is based on the IPv4 address or ID of the instance.</p>
-   */
-  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
-}
-
-export interface CreateDefaultSubnetResult {
-  /**
-   * <p>Information about the subnet.</p>
-   */
-  Subnet?: Subnet;
 }
 
 /**
@@ -8394,6 +8336,20 @@ export const AttachInternetGatewayRequestFilterSensitiveLog = (obj: AttachIntern
 /**
  * @internal
  */
+export const EnaSrdUdpSpecificationFilterSensitiveLog = (obj: EnaSrdUdpSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnaSrdSpecificationFilterSensitiveLog = (obj: EnaSrdSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
   ...obj,
 });
@@ -8402,6 +8358,61 @@ export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetwo
  * @internal
  */
 export const AttachNetworkInterfaceResultFilterSensitiveLog = (obj: AttachNetworkInterfaceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderCondensedFilterSensitiveLog = (
+  obj: VerifiedAccessTrustProviderCondensed
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessInstanceFilterSensitiveLog = (obj: VerifiedAccessInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceOptionsFilterSensitiveLog = (obj: DeviceOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderResult
+): any => ({
   ...obj,
 });
 
@@ -8670,6 +8681,20 @@ export const CancelConversionRequestFilterSensitiveLog = (obj: CancelConversionR
  * @internal
  */
 export const CancelExportTaskRequestFilterSensitiveLog = (obj: CancelExportTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelImageLaunchPermissionRequestFilterSensitiveLog = (obj: CancelImageLaunchPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelImageLaunchPermissionResultFilterSensitiveLog = (obj: CancelImageLaunchPermissionResult): any => ({
   ...obj,
 });
 
@@ -9025,82 +9050,5 @@ export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrReque
  * @internal
  */
 export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrResultFilterSensitiveLog = (obj: CreateCoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolRequestFilterSensitiveLog = (obj: CreateCoipPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipPoolFilterSensitiveLog = (obj: CoipPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolResultFilterSensitiveLog = (obj: CreateCoipPoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerGatewayFilterSensitiveLog = (obj: CustomerGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsOnLaunchFilterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetResultFilterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
   ...obj,
 });

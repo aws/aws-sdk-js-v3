@@ -142,6 +142,9 @@
           "target": "com.amazonaws.s3control#GetMultiRegionAccessPointPolicyStatus"
         },
         {
+          "target": "com.amazonaws.s3control#GetMultiRegionAccessPointRoutes"
+        },
+        {
           "target": "com.amazonaws.s3control#GetPublicAccessBlock"
         },
         {
@@ -203,6 +206,9 @@
         },
         {
           "target": "com.amazonaws.s3control#PutStorageLensConfigurationTagging"
+        },
+        {
+          "target": "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutes"
         },
         {
           "target": "com.amazonaws.s3control#UpdateJobPriority"
@@ -2592,12 +2598,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2638,7 +2640,6 @@
                 "AccountId": "123456789012",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": false,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -2648,12 +2649,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2694,7 +2691,6 @@
                 "AccountId": "123456789012",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -2704,12 +2700,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2759,12 +2751,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2814,12 +2802,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2869,12 +2853,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2926,12 +2906,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2974,7 +2950,6 @@
                 "AccountId": "123456789012",
                 "Region": "us-gov-west-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": true
               }
@@ -2984,12 +2959,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3039,12 +3010,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3096,12 +3063,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3144,7 +3107,6 @@
                 "AccountId": "123456789012",
                 "Region": "us-gov-west-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": true
               }
@@ -3154,12 +3116,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3209,12 +3167,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3266,12 +3220,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3314,7 +3264,6 @@
                 "AccountId": "123456789012",
                 "Region": "us-gov-west-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": true
               }
@@ -3664,12 +3613,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3781,12 +3726,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3888,12 +3829,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4091,12 +4028,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4137,12 +4070,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4172,7 +4101,6 @@
                 "Bucket": "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4182,12 +4110,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4217,7 +4141,6 @@
                 "Bucket": "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-gov-east-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4227,12 +4150,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4272,12 +4191,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4330,12 +4245,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4376,12 +4287,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4411,7 +4318,6 @@
                 "Bucket": "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4421,12 +4327,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4456,7 +4358,6 @@
                 "Bucket": "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-gov-east-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4466,12 +4367,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4511,12 +4408,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4569,12 +4462,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4615,12 +4504,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4650,7 +4535,6 @@
                 "Bucket": "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4660,12 +4544,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4695,7 +4575,6 @@
                 "Bucket": "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-gov-east-1",
                 "RequiresAccountId": true,
-                "S3Control::UseArnRegion": true,
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -4705,12 +4584,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4750,12 +4625,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5543,12 +5414,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5812,12 +5679,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5867,12 +5730,8 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": [
-                      "123456789012"
-                    ],
-                    "x-amz-outpost-id": [
-                      "op-01234567890123456"
-                    ]
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
                   },
                   "properties": {
                     "authSchemes": [
@@ -6047,6 +5906,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name or alias of the access point.</p>"
           }
+        },
+        "BucketAccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>"
+          }
         }
       },
       "traits": {
@@ -6087,7 +5952,7 @@
         "ActivityMetrics": {
           "target": "com.amazonaws.s3control#ActivityMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>A container for the S3 Storage Lens activity metrics.</p>"
+            "smithy.api#documentation": "<p>A container for S3 Storage Lens activity metrics.</p>"
           }
         },
         "BucketLevel": {
@@ -6096,10 +5961,28 @@
             "smithy.api#documentation": "<p>A container for the S3 Storage Lens bucket-level configuration.</p>",
             "smithy.api#required": {}
           }
+        },
+        "AdvancedCostOptimizationMetrics": {
+          "target": "com.amazonaws.s3control#AdvancedCostOptimizationMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for S3 Storage Lens advanced cost-optimization metrics.</p>"
+          }
+        },
+        "AdvancedDataProtectionMetrics": {
+          "target": "com.amazonaws.s3control#AdvancedDataProtectionMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for S3 Storage Lens advanced data-protection metrics.</p>"
+          }
+        },
+        "DetailedStatusCodesMetrics": {
+          "target": "com.amazonaws.s3control#DetailedStatusCodesMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for detailed status code metrics. </p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A container for the account level Amazon S3 Storage Lens configuration.</p>"
+        "smithy.api#documentation": "<p>A container for the account-level Amazon S3 Storage Lens configuration.</p>\n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.s3control#ActivityMetrics": {
@@ -6109,12 +5992,42 @@
           "target": "com.amazonaws.s3control#IsEnabled",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>A container for whether the activity metrics are enabled.</p>"
+            "smithy.api#documentation": "<p>A container that indicates whether activity metrics are enabled.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A container for the activity metrics.</p>"
+        "smithy.api#documentation": "<p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details about \n         how your storage is requested, such as requests (for example, All requests, Get requests, \n         Put requests), bytes uploaded or downloaded, and errors.</p>\n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.s3control#AdvancedCostOptimizationMetrics": {
+      "type": "structure",
+      "members": {
+        "IsEnabled": {
+          "target": "com.amazonaws.s3control#IsEnabled",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A container that indicates whether advanced cost-optimization metrics are\n         enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container element for Amazon S3 Storage Lens advanced cost-optimization metrics. Advanced\n         cost-optimization metrics provide insights that you can use to manage and optimize your\n         storage costs, for example, lifecycle rule counts for transitions, expirations, and\n         incomplete multipart uploads.</p> \n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.s3control#AdvancedDataProtectionMetrics": {
+      "type": "structure",
+      "members": {
+        "IsEnabled": {
+          "target": "com.amazonaws.s3control#IsEnabled",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A container that indicates whether advanced data-protection metrics are enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container element for Amazon S3 Storage Lens advanced data-protection metrics. Advanced\n         data-protection metrics provide insights that you can use to perform audits and protect\n         your data, for example replication rule counts within and across Regions.</p> \n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.s3control#Alias": {
@@ -6391,18 +6304,36 @@
         "ActivityMetrics": {
           "target": "com.amazonaws.s3control#ActivityMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>A container for the bucket-level activity metrics for Amazon S3 Storage Lens</p>"
+            "smithy.api#documentation": "<p>A container for the bucket-level activity metrics for S3 Storage Lens.</p>"
           }
         },
         "PrefixLevel": {
           "target": "com.amazonaws.s3control#PrefixLevel",
           "traits": {
-            "smithy.api#documentation": "<p>A container for the bucket-level prefix-level metrics for S3 Storage Lens</p>"
+            "smithy.api#documentation": "<p>A container for the prefix-level metrics for S3 Storage Lens. </p>"
+          }
+        },
+        "AdvancedCostOptimizationMetrics": {
+          "target": "com.amazonaws.s3control#AdvancedCostOptimizationMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for bucket-level advanced cost-optimization metrics for S3 Storage Lens.</p>"
+          }
+        },
+        "AdvancedDataProtectionMetrics": {
+          "target": "com.amazonaws.s3control#AdvancedDataProtectionMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for bucket-level advanced data-protection metrics for S3 Storage Lens.</p>"
+          }
+        },
+        "DetailedStatusCodesMetrics": {
+          "target": "com.amazonaws.s3control#DetailedStatusCodesMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>A container for bucket-level detailed status code metrics for S3 Storage Lens.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A container for the bucket-level configuration.</p>"
+        "smithy.api#documentation": "<p>A container for the bucket-level configuration for Amazon S3 Storage Lens.</p> \n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.s3control#BucketLocationConstraint": {
@@ -6651,7 +6582,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the owner of the bucket for which you want to create an\n         access point.</p>",
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the account that owns the specified access point.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {},
@@ -6688,6 +6619,12 @@
           "target": "com.amazonaws.s3control#PublicAccessBlockConfiguration",
           "traits": {
             "smithy.api#documentation": "<p> The <code>PublicAccessBlock</code> configuration that you want to apply to the access point.\n      </p>"
+          }
+        },
+        "BucketAccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>"
           }
         }
       }
@@ -7285,7 +7222,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The account ID for the account that owns the specified access point.</p>",
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the account that owns the specified access point.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {},
@@ -7951,6 +7888,21 @@
         }
       }
     },
+    "com.amazonaws.s3control#DetailedStatusCodesMetrics": {
+      "type": "structure",
+      "members": {
+        "IsEnabled": {
+          "target": "com.amazonaws.s3control#IsEnabled",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A container that indicates whether detailed status code metrics are enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container element for Amazon S3 Storage Lens detailed status code metrics. Detailed status\n         code metrics generate metrics for HTTP status codes, such as <code>200 OK</code>, <code>403\n            Forbidden</code>, <code>503 Service Unavailable</code> and others. </p> \n         <p>For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html\">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>"
+      }
+    },
     "com.amazonaws.s3control#Endpoints": {
       "type": "map",
       "key": {
@@ -8498,7 +8450,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The account ID for the account that owns the specified access point.</p>",
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the account that owns the specified access point.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {},
@@ -8572,6 +8524,12 @@
           "target": "com.amazonaws.s3control#Endpoints",
           "traits": {
             "smithy.api#documentation": "<p>The VPC endpoint for the access point.</p>"
+          }
+        },
+        "BucketAccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>"
           }
         }
       }
@@ -8855,7 +8813,7 @@
         "target": "com.amazonaws.s3control#GetBucketVersioningResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>This operation returns the versioning state only for S3 on Outposts buckets. To return the versioning\n            state for an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html\">GetBucketVersioning</a> in\n            the <i>Amazon S3 API Reference</i>. </p>\n         </note>\n         <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save multiple\n         distinct copies of your data and recover from unintended user actions and\n         application failures.</p>         \n         <p>If you've never set versioning on your bucket, it has no versioning state. In that case,\n         the <code>GetBucketVersioning</code> request does not return a versioning state\n         value.</p>\n         <p>For more information about versioning, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html\">Versioning</a> in the <i>Amazon S3\n            User Guide</i>.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html#API_control_GetBucketVersioning_Examples\">Examples</a> section.</p>\n         <p>The following operations are related to <code>GetBucketVersioning</code> for S3 on Outposts.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html\">PutBucketVersioning</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<note>\n            <p>This operation returns the versioning state only for S3 on Outposts buckets. To return\n            the versioning state for an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html\">GetBucketVersioning</a> in\n            the <i>Amazon S3 API Reference</i>. </p>\n         </note>\n         <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save\n         multiple distinct copies of your data and recover from unintended user actions and\n         application failures.</p>\n         <p>If you've never set versioning on your bucket, it has no versioning state. In that case,\n         the <code>GetBucketVersioning</code> request does not return a versioning state\n         value.</p>\n         <p>For more information about versioning, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html\">Versioning</a> in the <i>Amazon S3\n            User Guide</i>.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html#API_control_GetBucketVersioning_Examples\">Examples</a> section.</p>\n         <p>The following operations are related to <code>GetBucketVersioning</code> for\n         S3 on Outposts.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html\">PutBucketVersioning</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -8993,7 +8951,7 @@
         },
         "smithy.api#http": {
           "method": "GET",
-          "uri": "/v20180820/mrap/instances/{Name}",
+          "uri": "/v20180820/mrap/instances/{Name+}",
           "code": 200
         },
         "smithy.api#httpChecksumRequired": {},
@@ -9019,7 +8977,7 @@
         },
         "smithy.api#http": {
           "method": "GET",
-          "uri": "/v20180820/mrap/instances/{Name}/policy",
+          "uri": "/v20180820/mrap/instances/{Name+}/policy",
           "code": 200
         },
         "smithy.api#httpChecksumRequired": {},
@@ -9081,7 +9039,7 @@
         },
         "smithy.api#http": {
           "method": "GET",
-          "uri": "/v20180820/mrap/instances/{Name}/policystatus",
+          "uri": "/v20180820/mrap/instances/{Name+}/policystatus",
           "code": 200
         },
         "smithy.api#httpChecksumRequired": {},
@@ -9161,6 +9119,74 @@
         }
       }
     },
+    "com.amazonaws.s3control#GetMultiRegionAccessPointRoutes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.s3control#GetMultiRegionAccessPointRoutesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.s3control#GetMultiRegionAccessPointRoutesResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or\n         passive.</p>\n         <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control\n         infrastructure endpoints in these five Amazon Web Services Regions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>us-east-1</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>us-west-2</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ap-southeast-2</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ap-northeast-1</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>eu-west-1</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>Your Amazon S3 bucket does not need to be in these five Regions.</p>\n         </note>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v20180820/mrap/instances/{Mrap+}/routes",
+          "code": 200
+        },
+        "smithy.api#httpChecksumRequired": {},
+        "smithy.rules#staticContextParams": {
+          "RequiresAccountId": {
+            "value": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.s3control#GetMultiRegionAccessPointRoutesRequest": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {},
+            "smithy.rules#contextParam": {
+              "name": "AccountId"
+            }
+          }
+        },
+        "Mrap": {
+          "target": "com.amazonaws.s3control#MultiRegionAccessPointId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Multi-Region Access Point ARN.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.s3control#GetMultiRegionAccessPointRoutesResult": {
+      "type": "structure",
+      "members": {
+        "Mrap": {
+          "target": "com.amazonaws.s3control#MultiRegionAccessPointId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Multi-Region Access Point ARN.</p>"
+          }
+        },
+        "Routes": {
+          "target": "com.amazonaws.s3control#RouteList",
+          "traits": {
+            "smithy.api#documentation": "<p>The different routes that make up the route configuration. Active routes return a value\n         of <code>100</code>, and passive routes return a value of <code>0</code>.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.s3control#GetPublicAccessBlock": {
       "type": "operation",
       "input": {
@@ -9229,7 +9255,7 @@
         "target": "com.amazonaws.s3control#GetStorageLensConfigurationResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html\">Assessing your storage\n            activity and usage with Amazon S3 Storage Lens </a> in the\n            <i>Amazon S3 User Guide</i>.</p>\n         <note>\n            <p>To use this action, you must have permission to perform the\n               <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html\">Setting permissions to use Amazon S3 Storage Lens</a> in the\n               <i>Amazon S3 User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html\">Assessing your storage\n            activity and usage with Amazon S3 Storage Lens </a> in the\n         <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <note>\n            <p>To use this action, you must have permission to perform the\n               <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html\">Setting permissions to use Amazon S3 Storage Lens</a> in the\n               <i>Amazon S3 User Guide</i>.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -9911,7 +9937,7 @@
         "S3PutObjectAcl": {
           "target": "com.amazonaws.s3control#S3SetObjectAclOperation",
           "traits": {
-            "smithy.api#documentation": "<p>Directs the specified job to run a PUT Object acl call on every object in the\n         manifest.</p>"
+            "smithy.api#documentation": "<p>Directs the specified job to run a <code>PutObjectAcl</code> call on every object in the\n         manifest.</p>"
           }
         },
         "S3PutObjectTagging": {
@@ -10316,7 +10342,7 @@
         "NoncurrentVersionExpiration": {
           "target": "com.amazonaws.s3control#NoncurrentVersionExpiration",
           "traits": {
-            "smithy.api#documentation": "<p>The noncurrent version expiration of the lifecycle rule.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The noncurrent version expiration of the lifecycle rule.</p>"
           }
         },
         "AbortIncompleteMultipartUpload": {
@@ -10344,6 +10370,20 @@
           "traits": {
             "smithy.api#documentation": "<p>All of these tags must exist in the object's tag set in order for the rule to\n         apply.</p>"
           }
+        },
+        "ObjectSizeGreaterThan": {
+          "target": "com.amazonaws.s3control#ObjectSizeGreaterThanBytes",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Minimum object size to which the rule applies.</p>"
+          }
+        },
+        "ObjectSizeLessThan": {
+          "target": "com.amazonaws.s3control#ObjectSizeLessThanBytes",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Maximum object size to which the rule applies.</p>"
+          }
         }
       },
       "traits": {
@@ -10366,6 +10406,20 @@
           "target": "com.amazonaws.s3control#LifecycleRuleAndOperator",
           "traits": {
             "smithy.api#documentation": "<p>The container for the <code>AND</code> condition for the lifecycle rule.</p>"
+          }
+        },
+        "ObjectSizeGreaterThan": {
+          "target": "com.amazonaws.s3control#ObjectSizeGreaterThanBytes",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Minimum object size to which the rule applies.</p>"
+          }
+        },
+        "ObjectSizeLessThan": {
+          "target": "com.amazonaws.s3control#ObjectSizeLessThanBytes",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Maximum object size to which the rule applies.</p>"
           }
         }
       },
@@ -10391,7 +10445,7 @@
         "target": "com.amazonaws.s3control#ListAccessPointsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of the access points currently associated with the specified bucket. You can\n         retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or\n         the number specified in <code>maxResults</code>, whichever is less), the response will\n         include a continuation token that you can use to list the additional access points.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples\">Examples</a> section.</p>\n         <p>The following actions are related to <code>ListAccessPoints</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html\">DeleteAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html\">GetAccessPoint</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Returns a list of the access points owned by the current account associated with the specified bucket. You can\n         retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or\n         the number specified in <code>maxResults</code>, whichever is less), the response will\n         include a continuation token that you can use to list the additional access points.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples\">Examples</a> section.</p>\n         <p>The following actions are related to <code>ListAccessPoints</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html\">DeleteAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html\">GetAccessPoint</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -10498,7 +10552,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID for owner of the bucket whose access points you want to list.</p>",
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the account that owns the specified access points.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {},
@@ -11022,6 +11076,16 @@
         "smithy.api#pattern": "^\\S+$"
       }
     },
+    "com.amazonaws.s3control#MultiRegionAccessPointId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\:.-]{3,200}$"
+      }
+    },
     "com.amazonaws.s3control#MultiRegionAccessPointName": {
       "type": "string",
       "traits": {
@@ -11129,6 +11193,33 @@
         "traits": {
           "smithy.api#xmlName": "AccessPoint"
         }
+      }
+    },
+    "com.amazonaws.s3control#MultiRegionAccessPointRoute": {
+      "type": "structure",
+      "members": {
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket for which you'll submit a routing configuration change.\n         Either the <code>Bucket</code> or the <code>Region</code> value must be provided. If both\n         are provided, the bucket must be in the specified Region.</p>"
+          }
+        },
+        "Region": {
+          "target": "com.amazonaws.s3control#RegionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services Region to which you'll be submitting a routing configuration change. Either\n         the <code>Bucket</code> or the <code>Region</code> value must be provided. If both are\n         provided, the bucket must be in the specified Region.</p>"
+          }
+        },
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.s3control#TrafficDialPercentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The traffic state for the specified bucket or Amazon Web Services Region. </p>\n         <p>A value of <code>0</code> indicates a passive state, which means that no new traffic\n         will be routed to the\n         Region. </p>\n         <p>A value of <code>100</code> indicates an active state, which means that traffic will be\n         routed to the specified Region. </p>\n         <p>When\n         the routing configuration for a Region is changed from active to passive, any in-progress\n         operations (uploads, copies, deletes, and so on) to the formerly active Region will\n         continue to run to until a final success or failure status is reached.</p>\n         <p>If all Regions in the routing configuration are designated as passive, you'll receive an\n            <code>InvalidRequest</code> error. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure for a Multi-Region Access Point that indicates where Amazon S3 traffic can be routed. Routes can be\n         either active or passive. Active routes can process Amazon S3 requests through the Multi-Region Access Point, but\n         passive routes are not eligible to process Amazon S3 requests. </p>\n         <p>Each route contains the Amazon S3 bucket name and the Amazon Web Services Region that the bucket is located\n         in. The route also includes the <code>TrafficDialPercentage</code> value, which shows\n         whether the bucket and Region are active (indicated by a value of <code>100</code>) or\n         passive (indicated by a value of <code>0</code>).</p>"
       }
     },
     "com.amazonaws.s3control#MultiRegionAccessPointStatus": {
@@ -11255,6 +11346,12 @@
         }
       }
     },
+    "com.amazonaws.s3control#NoncurrentVersionCount": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
     "com.amazonaws.s3control#NoncurrentVersionExpiration": {
       "type": "structure",
       "members": {
@@ -11263,6 +11360,13 @@
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the\n         associated action. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations\">How\n            Amazon S3 Calculates When an Object Became Noncurrent</a> in the\n            <i>Amazon S3 User Guide</i>.</p>"
+          }
+        },
+        "NewerNoncurrentVersions": {
+          "target": "com.amazonaws.s3control#NoncurrentVersionCount",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Specifies how many noncurrent versions S3 on Outposts will retain. If there are this many more\n         recent noncurrent versions, S3 on Outposts will take the associated action. For more information\n         about noncurrent versions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html\">Lifecycle configuration\n            elements</a> in the <i>Amazon S3 User Guide</i>.</p>"
           }
         }
       },
@@ -11423,7 +11527,7 @@
         "AllowedFeatures": {
           "target": "com.amazonaws.s3control#ObjectLambdaAllowedFeaturesList",
           "traits": {
-            "smithy.api#documentation": "<p>A container for allowed features. Valid inputs are <code>GetObject-Range</code> and\n            <code>GetObject-PartNumber</code>.</p>"
+            "smithy.api#documentation": "<p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>,\n            <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and\n            <code>HeadObject-PartNumber</code>.</p>"
           }
         },
         "TransformationConfigurations": {
@@ -11471,7 +11575,7 @@
         "Actions": {
           "target": "com.amazonaws.s3control#ObjectLambdaTransformationConfigurationActionsList",
           "traits": {
-            "smithy.api#documentation": "<p>A container for the action of an Object Lambda Access Point configuration. Valid input is\n            <code>GetObject</code>.</p>",
+            "smithy.api#documentation": "<p>A container for the action of an Object Lambda Access Point configuration. Valid inputs are\n            <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and\n            <code>ListObjectsV2</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -11538,6 +11642,18 @@
       "type": "boolean",
       "traits": {
         "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.s3control#ObjectSizeGreaterThanBytes": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.s3control#ObjectSizeLessThanBytes": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
       }
     },
     "com.amazonaws.s3control#OperationName": {
@@ -11686,7 +11802,7 @@
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets\n         in this account. Setting this element to <code>TRUE</code> causes the following\n         behavior:</p>\n         <ul>\n            <li>\n               <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is\n               public.</p>\n            </li>\n            <li>\n               <p>PUT Object calls fail if the request includes a public ACL.</p>\n            </li>\n            <li>\n               <p>PUT Bucket calls fail if the request includes a public ACL.</p>\n            </li>\n         </ul>\n         <p>Enabling this setting doesn't affect existing policies or ACLs.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in\n         this account. Setting this element to <code>TRUE</code> causes the following\n         behavior:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PutBucketAcl</code> and <code>PutObjectAcl</code> calls fail if the\n               specified ACL is public.</p>\n            </li>\n            <li>\n               <p>PUT Object calls fail if the request includes a public ACL.</p>\n            </li>\n            <li>\n               <p>PUT Bucket calls fail if the request includes a public ACL.</p>\n            </li>\n         </ul>\n         <p>Enabling this setting doesn't affect existing policies or ACLs.</p>\n         <p>This property is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "BlockPublicAcls"
           }
         },
@@ -11694,7 +11810,7 @@
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting\n         this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in\n         this account and any objects that they contain. </p>\n         <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't\n         prevent new public ACLs from being set.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting\n         this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this\n         account and any objects that they contain. </p>\n         <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't\n         prevent new public ACLs from being set.</p>\n         <p>This property is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "IgnorePublicAcls"
           }
         },
@@ -11702,7 +11818,7 @@
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket\n         policy if the specified bucket policy allows public access. </p>\n         <p>Enabling this setting doesn't affect existing bucket policies.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy\n         if the specified bucket policy allows public access. </p>\n         <p>Enabling this setting doesn't affect existing bucket policies.</p>\n         <p>This property is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "BlockPublicPolicy"
           }
         },
@@ -11710,13 +11826,13 @@
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this\n         account. Setting this element to <code>TRUE</code> restricts access to buckets with public\n         policies to only Amazon Web Service principals and authorized users within this\n         account.</p>\n         <p>Enabling this setting doesn't affect previously stored bucket policies, except that\n         public and cross-account access within any public bucket policy, including non-public\n         delegation to specific accounts, is blocked.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this\n         account. Setting this element to <code>TRUE</code> restricts access to buckets with public\n         policies to only Amazon Web Service principals and authorized users within this\n         account.</p>\n         <p>Enabling this setting doesn't affect previously stored bucket policies, except that\n         public and cross-account access within any public bucket policy, including non-public\n         delegation to specific accounts, is blocked.</p>\n         <p>This property is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "RestrictPublicBuckets"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3\n         account. You can enable the configuration options in any combination. For more information\n         about when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>"
+        "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3\n         account. You can enable the configuration options in any combination. For more information\n         about when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <p>This data type is not supported for Amazon S3 on Outposts.</p>"
       }
     },
     "com.amazonaws.s3control#PublicAccessBlockEnabled": {
@@ -12102,7 +12218,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>This operation sets the versioning state only for S3 on Outposts buckets. To set the\n            versioning state for an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html\">PutBucketVersioning</a> in\n            the <i>Amazon S3 API Reference</i>. </p>\n         </note>\n         <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save multiple\n         distinct copies of your data and recover from unintended user actions and\n         application failures.</p>         \n         <p>You can set the versioning state to one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Enabled</b> - Enables versioning for the objects in the bucket. \n               All objects added to the bucket receive a unique version ID.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Suspended</b> - Suspends versioning for the objects\n               in the bucket. All objects added to the bucket receive the version ID\n                  <code>null</code>.</p>\n            </li>\n         </ul>\n         <p>If you've never set versioning on your bucket, it has no versioning state. In that\n         case, a <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html\">\n            GetBucketVersioning</a> request does not return a versioning state value.</p>\n         <p>When you enable S3 Versioning, for each object in your bucket, you have a current\n         version and zero or more noncurrent versions. You can configure your bucket S3 Lifecycle\n         rules to expire noncurrent versions after a specified time period. For more information,\n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html\"> Creating and managing\n            a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3\n            User Guide</i>.</p>  \n         <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you want to maintain the same \n            permanent delete behavior when you enable versioning, you must add a noncurrent expiration policy. \n            The noncurrent expiration lifecycle policy will manage the deletes of the noncurrent object versions \n            in the version-enabled bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html\">Versioning</a> in the <i>Amazon S3 User Guide</i>.</p> \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples\">Examples</a> section.</p>\n         <p>The following operations are related to <code>PutBucketVersioning</code> for S3 on Outposts.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html\">GetBucketVersioning</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<note>\n            <p>This operation sets the versioning state only for S3 on Outposts buckets. To set the\n            versioning state for an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html\">PutBucketVersioning</a> in\n            the <i>Amazon S3 API Reference</i>. </p>\n         </note>\n         <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save\n         multiple distinct copies of your data and recover from unintended user actions and\n         application failures.</p>\n         <p>You can set the versioning state to one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Enabled</b> - Enables versioning for the objects in\n               the bucket. All objects added to the bucket receive a unique version ID.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Suspended</b> - Suspends versioning for the objects\n               in the bucket. All objects added to the bucket receive the version ID\n                  <code>null</code>.</p>\n            </li>\n         </ul>\n         <p>If you've never set versioning on your bucket, it has no versioning state. In that case,\n         a <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html\">\n            GetBucketVersioning</a> request does not return a versioning state value.</p>\n         <p>When you enable S3 Versioning, for each object in your bucket, you have a current\n         version and zero or more noncurrent versions. You can configure your bucket S3 Lifecycle\n         rules to expire noncurrent versions after a specified time period. For more information,\n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html\"> Creating and managing\n            a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3\n            User Guide</i>.</p>\n         <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you\n         want to maintain the same permanent delete behavior when you enable versioning, you must\n         add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage\n         the deletes of the noncurrent object versions in the version-enabled bucket. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html\">Versioning</a> in the <i>Amazon S3\n            User Guide</i>.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples\">Examples</a> section.</p>\n         <p>The following operations are related to <code>PutBucketVersioning</code> for\n         S3 on Outposts.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html\">GetBucketVersioning</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -12378,7 +12494,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html\">Working with\n            Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <note>\n            <p>To use this action, you must have permission to perform the\n               <code>s3:PutStorageLensConfiguration</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html\">Setting permissions to use Amazon S3 Storage Lens</a> in the\n               <i>Amazon S3 User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html\">Working with\n         Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html\">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <note>\n            <p>To use this action, you must have permission to perform the\n               <code>s3:PutStorageLensConfiguration</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html\">Setting permissions to use Amazon S3 Storage Lens</a> in the\n               <i>Amazon S3 User Guide</i>.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -12676,6 +12792,15 @@
         }
       }
     },
+    "com.amazonaws.s3control#RouteList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.s3control#MultiRegionAccessPointRoute",
+        "traits": {
+          "smithy.api#xmlName": "Route"
+        }
+      }
+    },
     "com.amazonaws.s3control#S3AWSRegion": {
       "type": "string",
       "traits": {
@@ -12885,7 +13010,7 @@
         "TargetResource": {
           "target": "com.amazonaws.s3control#S3BucketArnString",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy\n         objects to a bucket named \"destinationBucket\", set the TargetResource to\n         \"arn:aws:s3:::destinationBucket\".</p>"
+            "smithy.api#documentation": "<p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy\n         objects to a bucket named <code>destinationBucket</code>, set the\n            <code>TargetResource</code> property to\n         <code>arn:aws:s3:::destinationBucket</code>.</p>"
           }
         },
         "CannedAccessControlList": {
@@ -12958,7 +13083,7 @@
         "TargetKeyPrefix": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the folder prefix into which you would like the objects to be copied. For\n         example, to copy objects into a folder named <code>Folder1</code> in the destination bucket, set the\n         TargetKeyPrefix to <code>Folder1</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the folder prefix into which you would like the objects to be copied. For\n         example, to copy objects into a folder named <code>Folder1</code> in the destination\n         bucket, set the TargetKeyPrefix to <code>Folder1</code>.</p>"
           }
         },
         "ObjectLockLegalHoldStatus": {
@@ -12989,7 +13114,7 @@
         "ChecksumAlgorithm": {
           "target": "com.amazonaws.s3control#S3ChecksumAlgorithm",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more information\n            see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml\">\n                Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more\n         information see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml\"> Checking object\n            integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"
           }
         }
       },
@@ -13470,7 +13595,7 @@
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the job's\n         manifest.</p>"
+        "smithy.api#documentation": "<p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the\n         job's manifest.</p>"
       }
     },
     "com.amazonaws.s3control#S3Retention": {
@@ -13521,7 +13646,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations\n         passes every object to the underlying PUT Object acl API. For more information about the\n         parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html\">PUT Object acl</a>.</p>"
+        "smithy.api#documentation": "<p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations\n         passes every object to the underlying <code>PutObjectAcl</code> API. For more information\n         about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html\">\n               <code>PutObjectAcl</code>\n            </a>.</p>"
       }
     },
     "com.amazonaws.s3control#S3SetObjectLegalHoldOperation": {
@@ -13628,20 +13753,20 @@
         "Key": {
           "target": "com.amazonaws.s3control#TagKeyString",
           "traits": {
-            "smithy.api#documentation": "<p></p>",
+            "smithy.api#documentation": "<p>Key of the tag</p>",
             "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.s3control#TagValueString",
           "traits": {
-            "smithy.api#documentation": "<p></p>",
+            "smithy.api#documentation": "<p>Value of the tag</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p></p>"
+        "smithy.api#documentation": "<p>A container for a key-value name pair.</p>"
       }
     },
     "com.amazonaws.s3control#S3TagSet": {
@@ -13687,7 +13812,7 @@
         "KeyId": {
           "target": "com.amazonaws.s3control#KmsKeyArnString",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption customer managed\n         key to use for encrypting generated manifest objects.</p>",
+            "smithy.api#documentation": "<p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption\n         customer managed key to use for encrypting generated manifest objects.</p>",
             "smithy.api#required": {}
           }
         }
@@ -13946,6 +14071,68 @@
         "smithy.api#pattern": "^[A-Za-z0-9\\+\\:\\/\\=\\?\\#-_]+$"
       }
     },
+    "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutesResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the\n         routing status for the specified Regions from active to passive, or from passive to active.\n         A value of <code>0</code> indicates a passive status, which means that traffic won't be\n         routed to the specified Region. A value of <code>100</code> indicates an active status,\n         which means that traffic will be routed to the specified Region. At least one Region must be active at all times.</p>\n         <p>When\n         the routing configuration is changed, any in-progress operations (uploads, copies, deletes,\n         and so on) to formerly active Regions will continue to run to their\n         final completion state (success or failure). The routing configurations of any Regions that\n         aren’t specified remain unchanged.</p>\n         <note>\n            <p>Updated routing configurations might not be immediately applied.\n            It\n            can take up to 2 minutes for your changes to take effect.</p>\n         </note>\n         <p>To submit routing control changes and failover requests, use the Amazon S3 failover control\n         infrastructure endpoints in these five Amazon Web Services Regions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>us-east-1</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>us-west-2</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ap-southeast-2</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ap-northeast-1</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>eu-west-1</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>Your Amazon S3 bucket does not need to be in these five Regions.</p>\n         </note>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/v20180820/mrap/instances/{Mrap+}/routes",
+          "code": 200
+        },
+        "smithy.api#httpChecksumRequired": {},
+        "smithy.rules#staticContextParams": {
+          "RequiresAccountId": {
+            "value": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutesRequest": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {},
+            "smithy.rules#contextParam": {
+              "name": "AccountId"
+            }
+          }
+        },
+        "Mrap": {
+          "target": "com.amazonaws.s3control#MultiRegionAccessPointId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Multi-Region Access Point ARN.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "RouteUpdates": {
+          "target": "com.amazonaws.s3control#RouteList",
+          "traits": {
+            "smithy.api#documentation": "<p>The different routes that make up the new route configuration. Active routes return a\n         value of <code>100</code>, and passive routes return a value of <code>0</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutesResult": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.s3control#SuspendedCause": {
       "type": "string",
       "traits": {
@@ -14018,6 +14205,15 @@
       "traits": {
         "smithy.api#documentation": "<p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.s3control#TrafficDialPercentage": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
       }
     },
     "com.amazonaws.s3control#Transition": {
@@ -14295,7 +14491,7 @@
         "MFADelete": {
           "target": "com.amazonaws.s3control#MFADelete",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether MFA delete is enabled or disabled in the bucket versioning configuration\n         for the S3 on Outposts bucket.</p>",
+            "smithy.api#documentation": "<p>Specifies whether MFA delete is enabled or disabled in the bucket versioning\n         configuration for the S3 on Outposts bucket.</p>",
             "smithy.api#xmlName": "MfaDelete"
           }
         },

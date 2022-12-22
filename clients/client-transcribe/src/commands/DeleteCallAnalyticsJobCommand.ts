@@ -29,8 +29,9 @@ export interface DeleteCallAnalyticsJobCommandInput extends DeleteCallAnalyticsJ
 export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Call Analytics job. To use this operation, specify the name of the job you want to
- *             delete using <code>CallAnalyticsJobName</code>. Job names are case sensitive.</p>
+ * <p>Deletes a Call Analytics job. To use this operation, specify the name of the job you
+ *             want to delete using <code>CallAnalyticsJobName</code>. Job names are case
+ *             sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

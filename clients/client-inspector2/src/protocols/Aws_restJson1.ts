@@ -117,11 +117,13 @@ import {
   AggregationResponse,
   AmiAggregation,
   AmiAggregationResponse,
+  Architecture,
   AutoEnable,
   AwsEc2InstanceDetails,
   AwsEcrContainerAggregation,
   AwsEcrContainerAggregationResponse,
   AwsEcrContainerImageDetails,
+  AwsLambdaFunctionDetails,
   BadRequestException,
   ConflictException,
   Counts,
@@ -144,6 +146,7 @@ import {
   EcrContainerImageMetadata,
   EcrRepositoryMetadata,
   EcrRescanDurationState,
+  ExploitabilityDetails,
   FailedAccount,
   Filter,
   FilterCriteria,
@@ -157,6 +160,12 @@ import {
   ImageLayerAggregationResponse,
   InspectorScoreDetails,
   InternalServerException,
+  LambdaFunctionAggregation,
+  LambdaFunctionAggregationResponse,
+  LambdaFunctionMetadata,
+  LambdaLayerAggregation,
+  LambdaLayerAggregationResponse,
+  LambdaVpcConfig,
   MapFilter,
   Member,
   NetworkPath,
@@ -934,7 +943,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2839,7 +2851,12 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    retryAfterSeconds: [
+      () => void 0 !== parsedOutput.headers["retry-after"],
+      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
+    ],
+  });
   const data: any = parsedOutput.body;
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -2906,6 +2923,12 @@ const serializeAws_restJson1AggregationRequest = (input: AggregationRequest, con
     imageLayerAggregation: (value) => ({
       imageLayerAggregation: serializeAws_restJson1ImageLayerAggregation(value, context),
     }),
+    lambdaFunctionAggregation: (value) => ({
+      lambdaFunctionAggregation: serializeAws_restJson1LambdaFunctionAggregation(value, context),
+    }),
+    lambdaLayerAggregation: (value) => ({
+      lambdaLayerAggregation: serializeAws_restJson1LambdaLayerAggregation(value, context),
+    }),
     packageAggregation: (value) => ({ packageAggregation: serializeAws_restJson1PackageAggregation(value, context) }),
     repositoryAggregation: (value) => ({
       repositoryAggregation: serializeAws_restJson1RepositoryAggregation(value, context),
@@ -2927,6 +2950,7 @@ const serializeAws_restJson1AutoEnable = (input: AutoEnable, context: __SerdeCon
   return {
     ...(input.ec2 != null && { ec2: input.ec2 }),
     ...(input.ecr != null && { ecr: input.ecr }),
+    ...(input.lambda != null && { lambda: input.lambda }),
   };
 };
 
@@ -2964,6 +2988,15 @@ const serializeAws_restJson1CoverageFilterCriteria = (input: CoverageFilterCrite
     }),
     ...(input.ecrRepositoryName != null && {
       ecrRepositoryName: serializeAws_restJson1CoverageStringFilterList(input.ecrRepositoryName, context),
+    }),
+    ...(input.lambdaFunctionName != null && {
+      lambdaFunctionName: serializeAws_restJson1CoverageStringFilterList(input.lambdaFunctionName, context),
+    }),
+    ...(input.lambdaFunctionRuntime != null && {
+      lambdaFunctionRuntime: serializeAws_restJson1CoverageStringFilterList(input.lambdaFunctionRuntime, context),
+    }),
+    ...(input.lambdaFunctionTags != null && {
+      lambdaFunctionTags: serializeAws_restJson1CoverageMapFilterList(input.lambdaFunctionTags, context),
     }),
     ...(input.resourceId != null && {
       resourceId: serializeAws_restJson1CoverageStringFilterList(input.resourceId, context),
@@ -3131,6 +3164,9 @@ const serializeAws_restJson1FilterCriteria = (input: FilterCriteria, context: __
     ...(input.ecrImageTags != null && {
       ecrImageTags: serializeAws_restJson1StringFilterList(input.ecrImageTags, context),
     }),
+    ...(input.exploitAvailable != null && {
+      exploitAvailable: serializeAws_restJson1StringFilterList(input.exploitAvailable, context),
+    }),
     ...(input.findingArn != null && { findingArn: serializeAws_restJson1StringFilterList(input.findingArn, context) }),
     ...(input.findingStatus != null && {
       findingStatus: serializeAws_restJson1StringFilterList(input.findingStatus, context),
@@ -3146,6 +3182,24 @@ const serializeAws_restJson1FilterCriteria = (input: FilterCriteria, context: __
     }),
     ...(input.inspectorScore != null && {
       inspectorScore: serializeAws_restJson1NumberFilterList(input.inspectorScore, context),
+    }),
+    ...(input.lambdaFunctionExecutionRoleArn != null && {
+      lambdaFunctionExecutionRoleArn: serializeAws_restJson1StringFilterList(
+        input.lambdaFunctionExecutionRoleArn,
+        context
+      ),
+    }),
+    ...(input.lambdaFunctionLastModifiedAt != null && {
+      lambdaFunctionLastModifiedAt: serializeAws_restJson1DateFilterList(input.lambdaFunctionLastModifiedAt, context),
+    }),
+    ...(input.lambdaFunctionLayers != null && {
+      lambdaFunctionLayers: serializeAws_restJson1StringFilterList(input.lambdaFunctionLayers, context),
+    }),
+    ...(input.lambdaFunctionName != null && {
+      lambdaFunctionName: serializeAws_restJson1StringFilterList(input.lambdaFunctionName, context),
+    }),
+    ...(input.lambdaFunctionRuntime != null && {
+      lambdaFunctionRuntime: serializeAws_restJson1StringFilterList(input.lambdaFunctionRuntime, context),
     }),
     ...(input.lastObservedAt != null && {
       lastObservedAt: serializeAws_restJson1DateFilterList(input.lastObservedAt, context),
@@ -3199,6 +3253,40 @@ const serializeAws_restJson1ImageLayerAggregation = (input: ImageLayerAggregatio
     ...(input.repositories != null && {
       repositories: serializeAws_restJson1StringFilterList(input.repositories, context),
     }),
+    ...(input.resourceIds != null && {
+      resourceIds: serializeAws_restJson1StringFilterList(input.resourceIds, context),
+    }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
+  };
+};
+
+const serializeAws_restJson1LambdaFunctionAggregation = (
+  input: LambdaFunctionAggregation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.functionNames != null && {
+      functionNames: serializeAws_restJson1StringFilterList(input.functionNames, context),
+    }),
+    ...(input.functionTags != null && {
+      functionTags: serializeAws_restJson1MapFilterList(input.functionTags, context),
+    }),
+    ...(input.resourceIds != null && {
+      resourceIds: serializeAws_restJson1StringFilterList(input.resourceIds, context),
+    }),
+    ...(input.runtimes != null && { runtimes: serializeAws_restJson1StringFilterList(input.runtimes, context) }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
+  };
+};
+
+const serializeAws_restJson1LambdaLayerAggregation = (input: LambdaLayerAggregation, context: __SerdeContext): any => {
+  return {
+    ...(input.functionNames != null && {
+      functionNames: serializeAws_restJson1StringFilterList(input.functionNames, context),
+    }),
+    ...(input.layerArns != null && { layerArns: serializeAws_restJson1StringFilterList(input.layerArns, context) }),
     ...(input.resourceIds != null && {
       resourceIds: serializeAws_restJson1StringFilterList(input.resourceIds, context),
     }),
@@ -3264,6 +3352,9 @@ const serializeAws_restJson1PackageFilter = (input: PackageFilter, context: __Se
     ...(input.epoch != null && { epoch: serializeAws_restJson1NumberFilter(input.epoch, context) }),
     ...(input.name != null && { name: serializeAws_restJson1StringFilter(input.name, context) }),
     ...(input.release != null && { release: serializeAws_restJson1StringFilter(input.release, context) }),
+    ...(input.sourceLambdaLayerArn != null && {
+      sourceLambdaLayerArn: serializeAws_restJson1StringFilter(input.sourceLambdaLayerArn, context),
+    }),
     ...(input.sourceLayerHash != null && {
       sourceLayerHash: serializeAws_restJson1StringFilter(input.sourceLayerHash, context),
     }),
@@ -3331,10 +3422,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3458,6 +3547,22 @@ const deserializeAws_restJson1AggregationResponse = (output: any, context: __Ser
       ),
     };
   }
+  if (output.lambdaFunctionAggregation != null) {
+    return {
+      lambdaFunctionAggregation: deserializeAws_restJson1LambdaFunctionAggregationResponse(
+        output.lambdaFunctionAggregation,
+        context
+      ),
+    };
+  }
+  if (output.lambdaLayerAggregation != null) {
+    return {
+      lambdaLayerAggregation: deserializeAws_restJson1LambdaLayerAggregationResponse(
+        output.lambdaLayerAggregation,
+        context
+      ),
+    };
+  }
   if (output.packageAggregation != null) {
     return {
       packageAggregation: deserializeAws_restJson1PackageAggregationResponse(output.packageAggregation, context),
@@ -3509,10 +3614,23 @@ const deserializeAws_restJson1AmiAggregationResponse = (
   } as any;
 };
 
+const deserializeAws_restJson1ArchitectureList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1AutoEnable = (output: any, context: __SerdeContext): AutoEnable => {
   return {
     ec2: __expectBoolean(output.ec2),
     ecr: __expectBoolean(output.ecr),
+    lambda: __expectBoolean(output.lambda),
   } as any;
 };
 
@@ -3566,6 +3684,31 @@ const deserializeAws_restJson1AwsEcrContainerImageDetails = (
       output.pushedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.pushedAt))) : undefined,
     registry: __expectString(output.registry),
     repositoryName: __expectString(output.repositoryName),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsLambdaFunctionDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionDetails => {
+  return {
+    architectures:
+      output.architectures != null
+        ? deserializeAws_restJson1ArchitectureList(output.architectures, context)
+        : undefined,
+    codeSha256: __expectString(output.codeSha256),
+    executionRoleArn: __expectString(output.executionRoleArn),
+    functionName: __expectString(output.functionName),
+    lastModifiedAt:
+      output.lastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
+        : undefined,
+    layers: output.layers != null ? deserializeAws_restJson1LayerList(output.layers, context) : undefined,
+    packageType: __expectString(output.packageType),
+    runtime: __expectString(output.runtime),
+    version: __expectString(output.version),
+    vpcConfig:
+      output.vpcConfig != null ? deserializeAws_restJson1LambdaVpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -3797,6 +3940,15 @@ const deserializeAws_restJson1EcrRescanDurationState = (
   } as any;
 };
 
+const deserializeAws_restJson1ExploitabilityDetails = (output: any, context: __SerdeContext): ExploitabilityDetails => {
+  return {
+    lastKnownExploitAt:
+      output.lastKnownExploitAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastKnownExploitAt)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FailedAccount = (output: any, context: __SerdeContext): FailedAccount => {
   return {
     accountId: __expectString(output.accountId),
@@ -3881,6 +4033,10 @@ const deserializeAws_restJson1FilterCriteria = (output: any, context: __SerdeCon
         : undefined,
     ecrImageTags:
       output.ecrImageTags != null ? deserializeAws_restJson1StringFilterList(output.ecrImageTags, context) : undefined,
+    exploitAvailable:
+      output.exploitAvailable != null
+        ? deserializeAws_restJson1StringFilterList(output.exploitAvailable, context)
+        : undefined,
     findingArn:
       output.findingArn != null ? deserializeAws_restJson1StringFilterList(output.findingArn, context) : undefined,
     findingStatus:
@@ -3898,6 +4054,26 @@ const deserializeAws_restJson1FilterCriteria = (output: any, context: __SerdeCon
     inspectorScore:
       output.inspectorScore != null
         ? deserializeAws_restJson1NumberFilterList(output.inspectorScore, context)
+        : undefined,
+    lambdaFunctionExecutionRoleArn:
+      output.lambdaFunctionExecutionRoleArn != null
+        ? deserializeAws_restJson1StringFilterList(output.lambdaFunctionExecutionRoleArn, context)
+        : undefined,
+    lambdaFunctionLastModifiedAt:
+      output.lambdaFunctionLastModifiedAt != null
+        ? deserializeAws_restJson1DateFilterList(output.lambdaFunctionLastModifiedAt, context)
+        : undefined,
+    lambdaFunctionLayers:
+      output.lambdaFunctionLayers != null
+        ? deserializeAws_restJson1StringFilterList(output.lambdaFunctionLayers, context)
+        : undefined,
+    lambdaFunctionName:
+      output.lambdaFunctionName != null
+        ? deserializeAws_restJson1StringFilterList(output.lambdaFunctionName, context)
+        : undefined,
+    lambdaFunctionRuntime:
+      output.lambdaFunctionRuntime != null
+        ? deserializeAws_restJson1StringFilterList(output.lambdaFunctionRuntime, context)
         : undefined,
     lastObservedAt:
       output.lastObservedAt != null
@@ -3957,6 +4133,11 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
   return {
     awsAccountId: __expectString(output.awsAccountId),
     description: __expectString(output.description),
+    exploitAvailable: __expectString(output.exploitAvailable),
+    exploitabilityDetails:
+      output.exploitabilityDetails != null
+        ? deserializeAws_restJson1ExploitabilityDetails(output.exploitabilityDetails, context)
+        : undefined,
     findingArn: __expectString(output.findingArn),
     firstObservedAt:
       output.firstObservedAt != null
@@ -4142,6 +4323,91 @@ const deserializeAws_restJson1IpV6AddressList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_restJson1LambdaFunctionAggregationResponse = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionAggregationResponse => {
+  return {
+    accountId: __expectString(output.accountId),
+    functionName: __expectString(output.functionName),
+    lambdaTags: output.lambdaTags != null ? deserializeAws_restJson1TagMap(output.lambdaTags, context) : undefined,
+    lastModifiedAt:
+      output.lastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
+        : undefined,
+    resourceId: __expectString(output.resourceId),
+    runtime: __expectString(output.runtime),
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LambdaFunctionMetadata = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionMetadata => {
+  return {
+    functionName: __expectString(output.functionName),
+    functionTags:
+      output.functionTags != null ? deserializeAws_restJson1TagMap(output.functionTags, context) : undefined,
+    layers: output.layers != null ? deserializeAws_restJson1LambdaLayerList(output.layers, context) : undefined,
+    runtime: __expectString(output.runtime),
+  } as any;
+};
+
+const deserializeAws_restJson1LambdaLayerAggregationResponse = (
+  output: any,
+  context: __SerdeContext
+): LambdaLayerAggregationResponse => {
+  return {
+    accountId: __expectString(output.accountId),
+    functionName: __expectString(output.functionName),
+    layerArn: __expectString(output.layerArn),
+    resourceId: __expectString(output.resourceId),
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LambdaLayerList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LambdaVpcConfig = (output: any, context: __SerdeContext): LambdaVpcConfig => {
+  return {
+    securityGroupIds:
+      output.securityGroupIds != null
+        ? deserializeAws_restJson1SecurityGroupIdList(output.securityGroupIds, context)
+        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context) : undefined,
+    vpcId: __expectString(output.vpcId),
+  } as any;
+};
+
+const deserializeAws_restJson1LayerList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MapFilter = (output: any, context: __SerdeContext): MapFilter => {
   return {
     comparison: __expectString(output.comparison),
@@ -4255,6 +4521,10 @@ const deserializeAws_restJson1PackageFilter = (output: any, context: __SerdeCont
     epoch: output.epoch != null ? deserializeAws_restJson1NumberFilter(output.epoch, context) : undefined,
     name: output.name != null ? deserializeAws_restJson1StringFilter(output.name, context) : undefined,
     release: output.release != null ? deserializeAws_restJson1StringFilter(output.release, context) : undefined,
+    sourceLambdaLayerArn:
+      output.sourceLambdaLayerArn != null
+        ? deserializeAws_restJson1StringFilter(output.sourceLambdaLayerArn, context)
+        : undefined,
     sourceLayerHash:
       output.sourceLayerHash != null
         ? deserializeAws_restJson1StringFilter(output.sourceLayerHash, context)
@@ -4405,6 +4675,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.awsEcrContainerImage != null
         ? deserializeAws_restJson1AwsEcrContainerImageDetails(output.awsEcrContainerImage, context)
         : undefined,
+    awsLambdaFunction:
+      output.awsLambdaFunction != null
+        ? deserializeAws_restJson1AwsLambdaFunctionDetails(output.awsLambdaFunction, context)
+        : undefined,
   } as any;
 };
 
@@ -4429,6 +4703,10 @@ const deserializeAws_restJson1ResourceScanMetadata = (output: any, context: __Se
       output.ecrRepository != null
         ? deserializeAws_restJson1EcrRepositoryMetadata(output.ecrRepository, context)
         : undefined,
+    lambdaFunction:
+      output.lambdaFunction != null
+        ? deserializeAws_restJson1LambdaFunctionMetadata(output.lambdaFunction, context)
+        : undefined,
   } as any;
 };
 
@@ -4436,6 +4714,7 @@ const deserializeAws_restJson1ResourceState = (output: any, context: __SerdeCont
   return {
     ec2: output.ec2 != null ? deserializeAws_restJson1State(output.ec2, context) : undefined,
     ecr: output.ecr != null ? deserializeAws_restJson1State(output.ecr, context) : undefined,
+    lambda: output.lambda != null ? deserializeAws_restJson1State(output.lambda, context) : undefined,
   } as any;
 };
 
@@ -4443,6 +4722,7 @@ const deserializeAws_restJson1ResourceStatus = (output: any, context: __SerdeCon
   return {
     ec2: __expectString(output.ec2),
     ecr: __expectString(output.ecr),
+    lambda: __expectString(output.lambda),
   } as any;
 };
 
@@ -4451,6 +4731,18 @@ const deserializeAws_restJson1ScanStatus = (output: any, context: __SerdeContext
     reason: __expectString(output.reason),
     statusCode: __expectString(output.statusCode),
   } as any;
+};
+
+const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1SeverityCounts = (output: any, context: __SerdeContext): SeverityCounts => {
@@ -4520,6 +4812,18 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -4537,10 +4841,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4646,6 +4948,7 @@ const deserializeAws_restJson1VulnerablePackage = (output: any, context: __Serde
     packageManager: __expectString(output.packageManager),
     release: __expectString(output.release),
     remediation: __expectString(output.remediation),
+    sourceLambdaLayerArn: __expectString(output.sourceLambdaLayerArn),
     sourceLayerHash: __expectString(output.sourceLayerHash),
     version: __expectString(output.version),
   } as any;

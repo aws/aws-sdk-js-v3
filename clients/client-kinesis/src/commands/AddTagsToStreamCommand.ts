@@ -26,9 +26,13 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
  *             tags to a data stream.</p>
- *         <p>If tags have already been assigned to the stream, <code>AddTagsToStream</code>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>If tags have already been assigned to the stream, <code>AddTagsToStream</code>
  *             overwrites any existing tags that correspond to the specified tag keys.</p>
- *         <p>
+ *          <p>
  *             <a>AddTagsToStream</a> has a limit of five transactions per second per
  *             account.</p>
  * @example
@@ -56,6 +60,8 @@ export class AddTagsToStreamCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

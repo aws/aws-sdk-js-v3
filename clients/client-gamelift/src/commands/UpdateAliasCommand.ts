@@ -33,16 +33,10 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *             updated and provide the information to be changed. To reassign an alias to another
  *             fleet, provide an updated routing strategy. If successful, the updated alias record is
  *             returned.</p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateAlias</a> |
- *                     <a>ListAliases</a> |
- *                     <a>DescribeAlias</a> |
- *                     <a>UpdateAlias</a> |
- *                     <a>DeleteAlias</a> |
- *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

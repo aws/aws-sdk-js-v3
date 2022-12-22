@@ -30,23 +30,23 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
 
 /**
  * <p>Adds one or more attachments to an attachment set. </p>
- *         <p>An attachment set is a temporary container for attachments that you add to a case or
+ *          <p>An attachment set is a temporary container for attachments that you add to a case or
  *             case communication. The set is available for 1 hour after it's created. The
  *                 <code>expiryTime</code> returned in the response is when the set expires. </p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

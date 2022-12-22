@@ -29,7 +29,8 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * <p>Update public key information. Note that the only value you can change is the comment.</p>
+ * <p>Update public key information. Note that the only value you can change is the
+ * 			comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

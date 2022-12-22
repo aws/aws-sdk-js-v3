@@ -37,7 +37,6 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *             can filter this list by providing any combination of <code>entityId</code>,
  *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
  *             operation applies a logical AND between the filters.</p>
- *
  *         <p>You can describe a change during the 60-day request history retention period for API
  *             calls.</p>
  * @example

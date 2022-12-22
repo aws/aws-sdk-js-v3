@@ -30,7 +30,7 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
 
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
- *         <p>This command doesn't apply to RDS Custom.</p>
+ *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

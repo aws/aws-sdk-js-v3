@@ -31,7 +31,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *                 <a>ListStreamConsumers</a> operation to get a list of the descriptions of
  *             all the consumers that are currently registered with a given data stream. The
  *             description of a consumer contains its name and ARN.</p>
- *         <p>This operation has a limit of five transactions per second per stream.</p>
+ *          <p>This operation has a limit of five transactions per second per stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,9 @@ export class DeregisterStreamConsumerCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

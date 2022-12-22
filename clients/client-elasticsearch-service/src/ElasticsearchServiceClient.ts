@@ -54,6 +54,10 @@ import {
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import {
+  AuthorizeVpcEndpointAccessCommandInput,
+  AuthorizeVpcEndpointAccessCommandOutput,
+} from "./commands/AuthorizeVpcEndpointAccessCommand";
+import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
@@ -66,6 +70,7 @@ import {
   CreateOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/CreateOutboundCrossClusterSearchConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import {
   DeleteElasticsearchDomainCommandInput,
   DeleteElasticsearchDomainCommandOutput,
@@ -83,6 +88,7 @@ import {
   DeleteOutboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
 import {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
@@ -124,6 +130,10 @@ import {
   DescribeReservedElasticsearchInstancesCommandInput,
   DescribeReservedElasticsearchInstancesCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
+import {
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
 import {
   GetCompatibleElasticsearchVersionsCommandInput,
@@ -154,6 +164,15 @@ import {
 } from "./commands/ListPackagesForDomainCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
+  ListVpcEndpointAccessCommandInput,
+  ListVpcEndpointAccessCommandOutput,
+} from "./commands/ListVpcEndpointAccessCommand";
+import { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
+import {
+  ListVpcEndpointsForDomainCommandInput,
+  ListVpcEndpointsForDomainCommandOutput,
+} from "./commands/ListVpcEndpointsForDomainCommand";
+import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
@@ -163,6 +182,10 @@ import {
 } from "./commands/RejectInboundCrossClusterSearchConnectionCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  RevokeVpcEndpointAccessCommandInput,
+  RevokeVpcEndpointAccessCommandOutput,
+} from "./commands/RevokeVpcEndpointAccessCommand";
+import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
@@ -171,6 +194,7 @@ import {
   UpdateElasticsearchDomainConfigCommandOutput,
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
 import {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
@@ -187,15 +211,18 @@ export type ServiceInputTypes =
   | AcceptInboundCrossClusterSearchConnectionCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
+  | AuthorizeVpcEndpointAccessCommandInput
   | CancelElasticsearchServiceSoftwareUpdateCommandInput
   | CreateElasticsearchDomainCommandInput
   | CreateOutboundCrossClusterSearchConnectionCommandInput
   | CreatePackageCommandInput
+  | CreateVpcEndpointCommandInput
   | DeleteElasticsearchDomainCommandInput
   | DeleteElasticsearchServiceRoleCommandInput
   | DeleteInboundCrossClusterSearchConnectionCommandInput
   | DeleteOutboundCrossClusterSearchConnectionCommandInput
   | DeletePackageCommandInput
+  | DeleteVpcEndpointCommandInput
   | DescribeDomainAutoTunesCommandInput
   | DescribeDomainChangeProgressCommandInput
   | DescribeElasticsearchDomainCommandInput
@@ -207,6 +234,7 @@ export type ServiceInputTypes =
   | DescribePackagesCommandInput
   | DescribeReservedElasticsearchInstanceOfferingsCommandInput
   | DescribeReservedElasticsearchInstancesCommandInput
+  | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleElasticsearchVersionsCommandInput
   | GetPackageVersionHistoryCommandInput
@@ -218,27 +246,35 @@ export type ServiceInputTypes =
   | ListElasticsearchVersionsCommandInput
   | ListPackagesForDomainCommandInput
   | ListTagsCommandInput
+  | ListVpcEndpointAccessCommandInput
+  | ListVpcEndpointsCommandInput
+  | ListVpcEndpointsForDomainCommandInput
   | PurchaseReservedElasticsearchInstanceOfferingCommandInput
   | RejectInboundCrossClusterSearchConnectionCommandInput
   | RemoveTagsCommandInput
+  | RevokeVpcEndpointAccessCommandInput
   | StartElasticsearchServiceSoftwareUpdateCommandInput
   | UpdateElasticsearchDomainConfigCommandInput
   | UpdatePackageCommandInput
+  | UpdateVpcEndpointCommandInput
   | UpgradeElasticsearchDomainCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInboundCrossClusterSearchConnectionCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
+  | AuthorizeVpcEndpointAccessCommandOutput
   | CancelElasticsearchServiceSoftwareUpdateCommandOutput
   | CreateElasticsearchDomainCommandOutput
   | CreateOutboundCrossClusterSearchConnectionCommandOutput
   | CreatePackageCommandOutput
+  | CreateVpcEndpointCommandOutput
   | DeleteElasticsearchDomainCommandOutput
   | DeleteElasticsearchServiceRoleCommandOutput
   | DeleteInboundCrossClusterSearchConnectionCommandOutput
   | DeleteOutboundCrossClusterSearchConnectionCommandOutput
   | DeletePackageCommandOutput
+  | DeleteVpcEndpointCommandOutput
   | DescribeDomainAutoTunesCommandOutput
   | DescribeDomainChangeProgressCommandOutput
   | DescribeElasticsearchDomainCommandOutput
@@ -250,6 +286,7 @@ export type ServiceOutputTypes =
   | DescribePackagesCommandOutput
   | DescribeReservedElasticsearchInstanceOfferingsCommandOutput
   | DescribeReservedElasticsearchInstancesCommandOutput
+  | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleElasticsearchVersionsCommandOutput
   | GetPackageVersionHistoryCommandOutput
@@ -261,12 +298,17 @@ export type ServiceOutputTypes =
   | ListElasticsearchVersionsCommandOutput
   | ListPackagesForDomainCommandOutput
   | ListTagsCommandOutput
+  | ListVpcEndpointAccessCommandOutput
+  | ListVpcEndpointsCommandOutput
+  | ListVpcEndpointsForDomainCommandOutput
   | PurchaseReservedElasticsearchInstanceOfferingCommandOutput
   | RejectInboundCrossClusterSearchConnectionCommandOutput
   | RemoveTagsCommandOutput
+  | RevokeVpcEndpointAccessCommandOutput
   | StartElasticsearchServiceSoftwareUpdateCommandOutput
   | UpdateElasticsearchDomainConfigCommandOutput
   | UpdatePackageCommandOutput
+  | UpdateVpcEndpointCommandOutput
   | UpgradeElasticsearchDomainCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

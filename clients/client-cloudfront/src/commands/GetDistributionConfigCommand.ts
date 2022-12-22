@@ -29,7 +29,7 @@ export interface GetDistributionConfigCommandInput extends GetDistributionConfig
 export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**
- * <p>Get the configuration information about a distribution. </p>
+ * <p>Get the configuration information about a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

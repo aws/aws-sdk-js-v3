@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigRuleRequest, PutConfigRuleRequestFilterSensitiveLog } from "../models/models_0";
+import { PutConfigRuleRequest, PutConfigRuleRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1PutConfigRuleCommand,
   serializeAws_json1_1PutConfigRuleCommand,

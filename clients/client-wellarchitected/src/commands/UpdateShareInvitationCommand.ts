@@ -29,7 +29,10 @@ export interface UpdateShareInvitationCommandInput extends UpdateShareInvitation
 export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
- * <p>Update a workload invitation.</p>
+ * <p>Update a workload or custom lens share invitation.</p>
+ *         <note>
+ *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

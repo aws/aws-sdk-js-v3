@@ -19,7 +19,7 @@ import {
   CreateDefaultSubnetRequestFilterSensitiveLog,
   CreateDefaultSubnetResult,
   CreateDefaultSubnetResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultSubnetCommand,
   serializeAws_ec2CreateDefaultSubnetCommand,

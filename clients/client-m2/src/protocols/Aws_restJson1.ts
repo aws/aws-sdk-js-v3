@@ -182,6 +182,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.engineType != null && { engineType: input.engineType }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
@@ -287,6 +288,7 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
       highAvailabilityConfig: serializeAws_restJson1HighAvailabilityConfig(input.highAvailabilityConfig, context),
     }),
     ...(input.instanceType != null && { instanceType: input.instanceType }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
     ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
     ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
@@ -1070,7 +1072,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1633,6 +1638,9 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   if (data.environmentId != null) {
     contents.environmentId = __expectString(data.environmentId);
   }
+  if (data.kmsKeyId != null) {
+    contents.kmsKeyId = __expectString(data.kmsKeyId);
+  }
   if (data.lastStartTime != null) {
     contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
   }
@@ -2100,6 +2108,9 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
   }
   if (data.instanceType != null) {
     contents.instanceType = __expectString(data.instanceType);
+  }
+  if (data.kmsKeyId != null) {
+    contents.kmsKeyId = __expectString(data.kmsKeyId);
   }
   if (data.loadBalancerArn != null) {
     contents.loadBalancerArn = __expectString(data.loadBalancerArn);
@@ -3306,10 +3317,8 @@ const serializeAws_restJson1BatchJobParametersMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3471,10 +3480,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3974,10 +3981,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

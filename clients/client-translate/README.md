@@ -9,7 +9,7 @@
 
 AWS SDK for JavaScript Translate Client for Node.js, Browser and React Native.
 
-<p>Provides language translation for input text in the source language to the specified target language.</p>
+<p>Provides translation of the input content from the source language to the target language.</p>
 
 ## Installing
 

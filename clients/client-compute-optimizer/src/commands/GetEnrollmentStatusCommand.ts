@@ -31,7 +31,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
 /**
  * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
  *             service.</p>
- *         <p>If the account is the management account of an organization, this action also confirms
+ *          <p>If the account is the management account of an organization, this action also confirms
  *             the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information
  *             about the enrollment status of member accounts of an organization.</p>
  * @example

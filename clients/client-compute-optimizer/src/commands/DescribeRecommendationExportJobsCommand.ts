@@ -32,7 +32,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
 
 /**
  * <p>Describes recommendation export jobs created in the last seven days.</p>
- *         <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
+ *          <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
  *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
  *             to view your export jobs.</p>
  * @example

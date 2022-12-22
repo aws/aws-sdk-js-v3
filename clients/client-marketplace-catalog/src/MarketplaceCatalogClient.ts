@@ -52,7 +52,13 @@ import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from ".
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "./commands/StartChangeSetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -67,7 +73,10 @@ export type ServiceInputTypes =
   | DescribeEntityCommandInput
   | ListChangeSetsCommandInput
   | ListEntitiesCommandInput
-  | StartChangeSetCommandInput;
+  | ListTagsForResourceCommandInput
+  | StartChangeSetCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CancelChangeSetCommandOutput
@@ -75,7 +84,10 @@ export type ServiceOutputTypes =
   | DescribeEntityCommandOutput
   | ListChangeSetsCommandOutput
   | ListEntitiesCommandOutput
-  | StartChangeSetCommandOutput;
+  | ListTagsForResourceCommandOutput
+  | StartChangeSetCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -227,9 +239,8 @@ type MarketplaceCatalogClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface MarketplaceCatalogClientResolvedConfig extends MarketplaceCatalogClientResolvedConfigType {}
 
 /**
- * <p>Catalog API actions allow you to manage your entities through list, describe, and update
- *             capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
- *
+ * <p>Catalog API actions allow you to manage your entities through list, describe, and
+ *             update capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
  *             your own applications on top of the Catalog API to manage your products on AWS

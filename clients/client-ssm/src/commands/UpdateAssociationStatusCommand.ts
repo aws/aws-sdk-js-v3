@@ -18,7 +18,7 @@ import {
   UpdateAssociationStatusRequestFilterSensitiveLog,
   UpdateAssociationStatusResult,
   UpdateAssociationStatusResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateAssociationStatusCommand,
   serializeAws_json1_1UpdateAssociationStatusCommand,

@@ -12,6 +12,16 @@ import {
   AssociateThirdPartyFirewallCommandOutput,
 } from "./commands/AssociateThirdPartyFirewallCommand";
 import {
+  BatchAssociateResourceCommand,
+  BatchAssociateResourceCommandInput,
+  BatchAssociateResourceCommandOutput,
+} from "./commands/BatchAssociateResourceCommand";
+import {
+  BatchDisassociateResourceCommand,
+  BatchDisassociateResourceCommandInput,
+  BatchDisassociateResourceCommandOutput,
+} from "./commands/BatchDisassociateResourceCommand";
+import {
   DeleteAppsListCommand,
   DeleteAppsListCommandInput,
   DeleteAppsListCommandOutput,
@@ -31,6 +41,11 @@ import {
   DeleteProtocolsListCommandInput,
   DeleteProtocolsListCommandOutput,
 } from "./commands/DeleteProtocolsListCommand";
+import {
+  DeleteResourceSetCommand,
+  DeleteResourceSetCommandInput,
+  DeleteResourceSetCommandOutput,
+} from "./commands/DeleteResourceSetCommand";
 import {
   DisassociateAdminAccountCommand,
   DisassociateAdminAccountCommandInput,
@@ -69,6 +84,11 @@ import {
   GetProtocolsListCommandOutput,
 } from "./commands/GetProtocolsListCommand";
 import {
+  GetResourceSetCommand,
+  GetResourceSetCommandInput,
+  GetResourceSetCommandOutput,
+} from "./commands/GetResourceSetCommand";
+import {
   GetThirdPartyFirewallAssociationStatusCommand,
   GetThirdPartyFirewallAssociationStatusCommandInput,
   GetThirdPartyFirewallAssociationStatusCommandOutput,
@@ -89,6 +109,11 @@ import {
   ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
 import {
+  ListDiscoveredResourcesCommand,
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput,
+} from "./commands/ListDiscoveredResourcesCommand";
+import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
   ListMemberAccountsCommandOutput,
@@ -103,6 +128,16 @@ import {
   ListProtocolsListsCommandInput,
   ListProtocolsListsCommandOutput,
 } from "./commands/ListProtocolsListsCommand";
+import {
+  ListResourceSetResourcesCommand,
+  ListResourceSetResourcesCommandInput,
+  ListResourceSetResourcesCommandOutput,
+} from "./commands/ListResourceSetResourcesCommand";
+import {
+  ListResourceSetsCommand,
+  ListResourceSetsCommandInput,
+  ListResourceSetsCommandOutput,
+} from "./commands/ListResourceSetsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -125,6 +160,11 @@ import {
   PutProtocolsListCommandInput,
   PutProtocolsListCommandOutput,
 } from "./commands/PutProtocolsListCommand";
+import {
+  PutResourceSetCommand,
+  PutResourceSetCommandInput,
+  PutResourceSetCommandOutput,
+} from "./commands/PutResourceSetCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -200,6 +240,70 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: AssociateThirdPartyFirewallCommandOutput) => void
   ): Promise<AssociateThirdPartyFirewallCommandOutput> | void {
     const command = new AssociateThirdPartyFirewallCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate resources to a Firewall Manager resource set.</p>
+   */
+  public batchAssociateResource(
+    args: BatchAssociateResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateResourceCommandOutput>;
+  public batchAssociateResource(
+    args: BatchAssociateResourceCommandInput,
+    cb: (err: any, data?: BatchAssociateResourceCommandOutput) => void
+  ): void;
+  public batchAssociateResource(
+    args: BatchAssociateResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateResourceCommandOutput) => void
+  ): void;
+  public batchAssociateResource(
+    args: BatchAssociateResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchAssociateResourceCommandOutput) => void),
+    cb?: (err: any, data?: BatchAssociateResourceCommandOutput) => void
+  ): Promise<BatchAssociateResourceCommandOutput> | void {
+    const command = new BatchAssociateResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates resources from a Firewall Manager resource set.</p>
+   */
+  public batchDisassociateResource(
+    args: BatchDisassociateResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateResourceCommandOutput>;
+  public batchDisassociateResource(
+    args: BatchDisassociateResourceCommandInput,
+    cb: (err: any, data?: BatchDisassociateResourceCommandOutput) => void
+  ): void;
+  public batchDisassociateResource(
+    args: BatchDisassociateResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateResourceCommandOutput) => void
+  ): void;
+  public batchDisassociateResource(
+    args: BatchDisassociateResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisassociateResourceCommandOutput) => void),
+    cb?: (err: any, data?: BatchDisassociateResourceCommandOutput) => void
+  ): Promise<BatchDisassociateResourceCommandOutput> | void {
+    const command = new BatchDisassociateResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -326,6 +430,38 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: DeleteProtocolsListCommandOutput) => void
   ): Promise<DeleteProtocolsListCommandOutput> | void {
     const command = new DeleteProtocolsListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified <a>ResourceSet</a>.</p>
+   */
+  public deleteResourceSet(
+    args: DeleteResourceSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceSetCommandOutput>;
+  public deleteResourceSet(
+    args: DeleteResourceSetCommandInput,
+    cb: (err: any, data?: DeleteResourceSetCommandOutput) => void
+  ): void;
+  public deleteResourceSet(
+    args: DeleteResourceSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceSetCommandOutput) => void
+  ): void;
+  public deleteResourceSet(
+    args: DeleteResourceSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceSetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourceSetCommandOutput) => void
+  ): Promise<DeleteResourceSetCommandOutput> | void {
+    const command = new DeleteResourceSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -642,6 +778,38 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * <p>Gets information about a specific resource set.</p>
+   */
+  public getResourceSet(
+    args: GetResourceSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceSetCommandOutput>;
+  public getResourceSet(
+    args: GetResourceSetCommandInput,
+    cb: (err: any, data?: GetResourceSetCommandOutput) => void
+  ): void;
+  public getResourceSet(
+    args: GetResourceSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceSetCommandOutput) => void
+  ): void;
+  public getResourceSet(
+    args: GetResourceSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceSetCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceSetCommandOutput) => void
+  ): Promise<GetResourceSetCommandOutput> | void {
+    const command = new GetResourceSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
    */
   public getThirdPartyFirewallAssociationStatus(
@@ -774,6 +942,38 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * <p>Returns an array of resources in the organization's accounts that are available to be associated with a resource set.</p>
+   */
+  public listDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDiscoveredResourcesCommandOutput>;
+  public listDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    cb: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
+  ): void;
+  public listDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
+  ): void;
+  public listDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDiscoveredResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
+  ): Promise<ListDiscoveredResourcesCommandOutput> | void {
+    const command = new ListDiscoveredResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
    *       administrator's Amazon Web Services organization.</p>
    *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
@@ -859,6 +1059,70 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: ListProtocolsListsCommandOutput) => void
   ): Promise<ListProtocolsListsCommandOutput> | void {
     const command = new ListProtocolsListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of resources that are currently associated to a resource set.</p>
+   */
+  public listResourceSetResources(
+    args: ListResourceSetResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceSetResourcesCommandOutput>;
+  public listResourceSetResources(
+    args: ListResourceSetResourcesCommandInput,
+    cb: (err: any, data?: ListResourceSetResourcesCommandOutput) => void
+  ): void;
+  public listResourceSetResources(
+    args: ListResourceSetResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceSetResourcesCommandOutput) => void
+  ): void;
+  public listResourceSetResources(
+    args: ListResourceSetResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceSetResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceSetResourcesCommandOutput) => void
+  ): Promise<ListResourceSetResourcesCommandOutput> | void {
+    const command = new ListResourceSetResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of <code>ResourceSetSummary</code> objects.</p>
+   */
+  public listResourceSets(
+    args: ListResourceSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceSetsCommandOutput>;
+  public listResourceSets(
+    args: ListResourceSetsCommandInput,
+    cb: (err: any, data?: ListResourceSetsCommandOutput) => void
+  ): void;
+  public listResourceSets(
+    args: ListResourceSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceSetsCommandOutput) => void
+  ): void;
+  public listResourceSets(
+    args: ListResourceSetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceSetsCommandOutput) => void
+  ): Promise<ListResourceSetsCommandOutput> | void {
+    const command = new ListResourceSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1077,6 +1341,39 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: PutProtocolsListCommandOutput) => void
   ): Promise<PutProtocolsListCommandOutput> | void {
     const command = new PutProtocolsListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the resource set.</p>
+   *          <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
+   */
+  public putResourceSet(
+    args: PutResourceSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourceSetCommandOutput>;
+  public putResourceSet(
+    args: PutResourceSetCommandInput,
+    cb: (err: any, data?: PutResourceSetCommandOutput) => void
+  ): void;
+  public putResourceSet(
+    args: PutResourceSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourceSetCommandOutput) => void
+  ): void;
+  public putResourceSet(
+    args: PutResourceSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourceSetCommandOutput) => void),
+    cb?: (err: any, data?: PutResourceSetCommandOutput) => void
+  ): Promise<PutResourceSetCommandOutput> | void {
+    const command = new PutResourceSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

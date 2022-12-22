@@ -26,9 +26,9 @@ export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
 export interface AllocateHostsCommandOutput extends AllocateHostsResult, __MetadataBearer {}
 
 /**
- * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
- *         	type or instance family, the Availability Zone in which to allocate the host, and the number of
- *         	hosts to allocate.</p>
+ * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
+ *             instance type or instance family, the Availability Zone in which to allocate the host,
+ *             and the number of hosts to allocate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

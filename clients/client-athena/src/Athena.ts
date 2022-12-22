@@ -28,10 +28,20 @@ import {
   CreateNamedQueryCommandOutput,
 } from "./commands/CreateNamedQueryCommand";
 import {
+  CreateNotebookCommand,
+  CreateNotebookCommandInput,
+  CreateNotebookCommandOutput,
+} from "./commands/CreateNotebookCommand";
+import {
   CreatePreparedStatementCommand,
   CreatePreparedStatementCommandInput,
   CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
+import {
+  CreatePresignedNotebookUrlCommand,
+  CreatePresignedNotebookUrlCommandInput,
+  CreatePresignedNotebookUrlCommandOutput,
+} from "./commands/CreatePresignedNotebookUrlCommand";
 import {
   CreateWorkGroupCommand,
   CreateWorkGroupCommandInput,
@@ -48,6 +58,11 @@ import {
   DeleteNamedQueryCommandOutput,
 } from "./commands/DeleteNamedQueryCommand";
 import {
+  DeleteNotebookCommand,
+  DeleteNotebookCommandInput,
+  DeleteNotebookCommandOutput,
+} from "./commands/DeleteNotebookCommand";
+import {
   DeletePreparedStatementCommand,
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
@@ -57,6 +72,26 @@ import {
   DeleteWorkGroupCommandInput,
   DeleteWorkGroupCommandOutput,
 } from "./commands/DeleteWorkGroupCommand";
+import {
+  ExportNotebookCommand,
+  ExportNotebookCommandInput,
+  ExportNotebookCommandOutput,
+} from "./commands/ExportNotebookCommand";
+import {
+  GetCalculationExecutionCodeCommand,
+  GetCalculationExecutionCodeCommandInput,
+  GetCalculationExecutionCodeCommandOutput,
+} from "./commands/GetCalculationExecutionCodeCommand";
+import {
+  GetCalculationExecutionCommand,
+  GetCalculationExecutionCommandInput,
+  GetCalculationExecutionCommandOutput,
+} from "./commands/GetCalculationExecutionCommand";
+import {
+  GetCalculationExecutionStatusCommand,
+  GetCalculationExecutionStatusCommandInput,
+  GetCalculationExecutionStatusCommandOutput,
+} from "./commands/GetCalculationExecutionStatusCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDataCatalogCommand,
@@ -68,6 +103,11 @@ import {
   GetNamedQueryCommandInput,
   GetNamedQueryCommandOutput,
 } from "./commands/GetNamedQueryCommand";
+import {
+  GetNotebookMetadataCommand,
+  GetNotebookMetadataCommandInput,
+  GetNotebookMetadataCommandOutput,
+} from "./commands/GetNotebookMetadataCommand";
 import {
   GetPreparedStatementCommand,
   GetPreparedStatementCommandInput,
@@ -88,6 +128,12 @@ import {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import {
+  GetSessionStatusCommand,
+  GetSessionStatusCommandInput,
+  GetSessionStatusCommandOutput,
+} from "./commands/GetSessionStatusCommand";
 import {
   GetTableMetadataCommand,
   GetTableMetadataCommandInput,
@@ -98,6 +144,21 @@ import {
   GetWorkGroupCommandInput,
   GetWorkGroupCommandOutput,
 } from "./commands/GetWorkGroupCommand";
+import {
+  ImportNotebookCommand,
+  ImportNotebookCommandInput,
+  ImportNotebookCommandOutput,
+} from "./commands/ImportNotebookCommand";
+import {
+  ListApplicationDPUSizesCommand,
+  ListApplicationDPUSizesCommandInput,
+  ListApplicationDPUSizesCommandOutput,
+} from "./commands/ListApplicationDPUSizesCommand";
+import {
+  ListCalculationExecutionsCommand,
+  ListCalculationExecutionsCommandInput,
+  ListCalculationExecutionsCommandOutput,
+} from "./commands/ListCalculationExecutionsCommand";
 import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
@@ -114,10 +175,25 @@ import {
   ListEngineVersionsCommandOutput,
 } from "./commands/ListEngineVersionsCommand";
 import {
+  ListExecutorsCommand,
+  ListExecutorsCommandInput,
+  ListExecutorsCommandOutput,
+} from "./commands/ListExecutorsCommand";
+import {
   ListNamedQueriesCommand,
   ListNamedQueriesCommandInput,
   ListNamedQueriesCommandOutput,
 } from "./commands/ListNamedQueriesCommand";
+import {
+  ListNotebookMetadataCommand,
+  ListNotebookMetadataCommandInput,
+  ListNotebookMetadataCommandOutput,
+} from "./commands/ListNotebookMetadataCommand";
+import {
+  ListNotebookSessionsCommand,
+  ListNotebookSessionsCommandInput,
+  ListNotebookSessionsCommandOutput,
+} from "./commands/ListNotebookSessionsCommand";
 import {
   ListPreparedStatementsCommand,
   ListPreparedStatementsCommandInput,
@@ -128,6 +204,11 @@ import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
+import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
 import {
   ListTableMetadataCommand,
   ListTableMetadataCommandInput,
@@ -144,16 +225,36 @@ import {
   ListWorkGroupsCommandOutput,
 } from "./commands/ListWorkGroupsCommand";
 import {
+  StartCalculationExecutionCommand,
+  StartCalculationExecutionCommandInput,
+  StartCalculationExecutionCommandOutput,
+} from "./commands/StartCalculationExecutionCommand";
+import {
   StartQueryExecutionCommand,
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
+import {
+  StartSessionCommand,
+  StartSessionCommandInput,
+  StartSessionCommandOutput,
+} from "./commands/StartSessionCommand";
+import {
+  StopCalculationExecutionCommand,
+  StopCalculationExecutionCommandInput,
+  StopCalculationExecutionCommandOutput,
+} from "./commands/StopCalculationExecutionCommand";
 import {
   StopQueryExecutionCommand,
   StopQueryExecutionCommandInput,
   StopQueryExecutionCommandOutput,
 } from "./commands/StopQueryExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TerminateSessionCommand,
+  TerminateSessionCommandInput,
+  TerminateSessionCommandOutput,
+} from "./commands/TerminateSessionCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -169,6 +270,16 @@ import {
   UpdateNamedQueryCommandInput,
   UpdateNamedQueryCommandOutput,
 } from "./commands/UpdateNamedQueryCommand";
+import {
+  UpdateNotebookCommand,
+  UpdateNotebookCommandInput,
+  UpdateNotebookCommandOutput,
+} from "./commands/UpdateNotebookCommand";
+import {
+  UpdateNotebookMetadataCommand,
+  UpdateNotebookMetadataCommandInput,
+  UpdateNotebookMetadataCommandOutput,
+} from "./commands/UpdateNotebookMetadataCommand";
 import {
   UpdatePreparedStatementCommand,
   UpdatePreparedStatementCommandInput,
@@ -188,11 +299,11 @@ import {
  *             in parallel—so results are fast, even with large datasets and complex queries. For more
  *             information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User
  *                 Guide</i>.</p>
- *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
+ *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
  *             driver or later with the Amazon Athena API. Earlier version drivers do not
  *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
  *                     Amazon Athena with JDBC</a>.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  */
@@ -238,7 +349,11 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns the details of a single prepared statement or a list of up to 256 prepared statements for the array of prepared statement names that you provide. Requires you to have access to the workgroup to which the prepared statements belong. If a prepared statement cannot be retrieved for the name specified, the statement is listed in <code>UnprocessedPreparedStatementNames</code>.</p>
+   * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
+   *             statements for the array of prepared statement names that you provide. Requires you to
+   *             have access to the workgroup to which the prepared statements belong. If a prepared
+   *             statement cannot be retrieved for the name specified, the statement is listed in
+   *                 <code>UnprocessedPreparedStatementNames</code>.</p>
    */
   public batchGetPreparedStatement(
     args: BatchGetPreparedStatementCommandInput,
@@ -342,7 +457,7 @@ export class Athena extends AthenaClient {
   /**
    * <p>Creates a named query in the specified workgroup. Requires that you have access to the
    *             workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -365,6 +480,40 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: CreateNamedQueryCommandOutput) => void
   ): Promise<CreateNamedQueryCommandOutput> | void {
     const command = new CreateNamedQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled
+   *             workgroup. Throws an error if a file in the workgroup with the same name already
+   *             exists.</p>
+   */
+  public createNotebook(
+    args: CreateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNotebookCommandOutput>;
+  public createNotebook(
+    args: CreateNotebookCommandInput,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
+  public createNotebook(
+    args: CreateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
+  public createNotebook(
+    args: CreateNotebookCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotebookCommandOutput) => void),
+    cb?: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): Promise<CreateNotebookCommandOutput> | void {
+    const command = new CreateNotebookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -408,7 +557,44 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Creates a workgroup with the specified name.</p>
+   * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
+   *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
+   *             minutes to refresh the authentication token.</p>
+   */
+  public createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedNotebookUrlCommandOutput>;
+  public createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
+  ): void;
+  public createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
+  ): void;
+  public createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
+  ): Promise<CreatePresignedNotebookUrlCommandOutput> | void {
+    const command = new CreatePresignedNotebookUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a workgroup with the specified name. Only one of <code>Configurations</code>
+   *             or <code>Configuration</code> can be specified; <code>Configurations</code> for a
+   *             workgroup with multi engine support (for example, an Apache Spark enabled workgroup) or
+   *                 <code>Configuration</code> for an Athena SQL workgroup.</p>
    */
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
@@ -474,7 +660,7 @@ export class Athena extends AthenaClient {
   /**
    * <p>Deletes the named query if you have access to the workgroup in which the query was
    *             saved.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -497,6 +683,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: DeleteNamedQueryCommandOutput) => void
   ): Promise<DeleteNamedQueryCommandOutput> | void {
     const command = new DeleteNamedQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified notebook.</p>
+   */
+  public deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotebookCommandOutput>;
+  public deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): void;
+  public deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): void;
+  public deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotebookCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): Promise<DeleteNotebookCommandOutput> | void {
+    const command = new DeleteNotebookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -563,6 +781,135 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: DeleteWorkGroupCommandOutput) => void
   ): Promise<DeleteWorkGroupCommandOutput> | void {
     const command = new DeleteWorkGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Exports the specified notebook and its metadata.</p>
+   */
+  public exportNotebook(
+    args: ExportNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportNotebookCommandOutput>;
+  public exportNotebook(
+    args: ExportNotebookCommandInput,
+    cb: (err: any, data?: ExportNotebookCommandOutput) => void
+  ): void;
+  public exportNotebook(
+    args: ExportNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportNotebookCommandOutput) => void
+  ): void;
+  public exportNotebook(
+    args: ExportNotebookCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportNotebookCommandOutput) => void),
+    cb?: (err: any, data?: ExportNotebookCommandOutput) => void
+  ): Promise<ExportNotebookCommandOutput> | void {
+    const command = new ExportNotebookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a previously submitted calculation execution.</p>
+   */
+  public getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionCommandOutput>;
+  public getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionCommandOutput) => void
+  ): void;
+  public getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionCommandOutput) => void
+  ): void;
+  public getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalculationExecutionCommandOutput) => void),
+    cb?: (err: any, data?: GetCalculationExecutionCommandOutput) => void
+  ): Promise<GetCalculationExecutionCommandOutput> | void {
+    const command = new GetCalculationExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a pre-signed URL to a copy of the code that was executed for the
+   *             calculation.</p>
+   */
+  public getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionCodeCommandOutput>;
+  public getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
+  ): void;
+  public getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
+  ): void;
+  public getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalculationExecutionCodeCommandOutput) => void),
+    cb?: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
+  ): Promise<GetCalculationExecutionCodeCommandOutput> | void {
+    const command = new GetCalculationExecutionCodeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the status of a current calculation.</p>
+   */
+  public getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionStatusCommandOutput>;
+  public getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
+  ): void;
+  public getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
+  ): void;
+  public getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalculationExecutionStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
+  ): Promise<GetCalculationExecutionStatusCommandOutput> | void {
+    const command = new GetCalculationExecutionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -665,6 +1012,38 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Retrieves notebook metadata for the specified notebook ID.</p>
+   */
+  public getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotebookMetadataCommandOutput>;
+  public getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    cb: (err: any, data?: GetNotebookMetadataCommandOutput) => void
+  ): void;
+  public getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotebookMetadataCommandOutput) => void
+  ): void;
+  public getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNotebookMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetNotebookMetadataCommandOutput) => void
+  ): Promise<GetNotebookMetadataCommandOutput> | void {
+    const command = new GetNotebookMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the prepared statement with the specified name from the specified
    *             workgroup.</p>
    */
@@ -736,17 +1115,17 @@ export class Athena extends AthenaClient {
    *                 <code>QueryExecutionId</code> from the Athena query results location in
    *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
    *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
-   *         <p>To stream query results successfully, the IAM principal with permission to call
+   *          <p>To stream query results successfully, the IAM principal with permission to call
    *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
    *             <code>GetObject</code> action for the Athena query results location.</p>
-   *         <important>
+   *          <important>
    *             <p>IAM principals with permission to the Amazon S3
    *                 <code>GetObject</code> action for the query results location are able to retrieve
    *                 query results from Amazon S3 even if permission to the
    *                     <code>GetQueryResults</code> action is denied. To restrict user or role access,
    *                 ensure that Amazon S3 permissions to the Athena query location
    *                 are denied.</p>
-   *         </important>
+   *          </important>
    */
   public getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -778,10 +1157,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns query execution runtime statistics related to a single execution of a query if you
-   *             have access to the workgroup in which the query ran. The query execution runtime statistics
-   *             is returned only when <a>QueryExecutionStatus$State</a> is in a SUCCEEDED
-   *             or FAILED state.</p>
+   * <p>Returns query execution runtime statistics related to a single execution of a query if
+   *             you have access to the workgroup in which the query ran. Query execution runtime
+   *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
+   *             SUCCEEDED or FAILED state. Stage-level input and output row count and data size
+   *             statistics are not shown when a query has row-level filters defined in Lake
+   *             Formation.</p>
    */
   public getQueryRuntimeStatistics(
     args: GetQueryRuntimeStatisticsCommandInput,
@@ -802,6 +1183,65 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
   ): Promise<GetQueryRuntimeStatisticsCommandOutput> | void {
     const command = new GetQueryRuntimeStatisticsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the full details of a previously created session, including the session status
+   *             and configuration.</p>
+   */
+  public getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  public getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetSessionCommandOutput) => void
+  ): Promise<GetSessionCommandOutput> | void {
+    const command = new GetSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the current status of a session.</p>
+   */
+  public getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionStatusCommandOutput>;
+  public getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    cb: (err: any, data?: GetSessionStatusCommandOutput) => void
+  ): void;
+  public getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionStatusCommandOutput) => void
+  ): void;
+  public getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetSessionStatusCommandOutput) => void
+  ): Promise<GetSessionStatusCommandOutput> | void {
+    const command = new GetSessionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -863,6 +1303,106 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: GetWorkGroupCommandOutput) => void
   ): Promise<GetWorkGroupCommandOutput> | void {
     const command = new GetWorkGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. The maximum
+   *             file size that can be imported is 10 megabytes. If an <code>ipynb</code> file with the
+   *             same name already exists in the workgroup, throws an error.</p>
+   */
+  public importNotebook(
+    args: ImportNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportNotebookCommandOutput>;
+  public importNotebook(
+    args: ImportNotebookCommandInput,
+    cb: (err: any, data?: ImportNotebookCommandOutput) => void
+  ): void;
+  public importNotebook(
+    args: ImportNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportNotebookCommandOutput) => void
+  ): void;
+  public importNotebook(
+    args: ImportNotebookCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportNotebookCommandOutput) => void),
+    cb?: (err: any, data?: ImportNotebookCommandOutput) => void
+  ): Promise<ImportNotebookCommandOutput> | void {
+    const command = new ImportNotebookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
+   *                 <code>Jupyter 1.0</code>). </p>
+   */
+  public listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationDPUSizesCommandOutput>;
+  public listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    cb: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
+  ): void;
+  public listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
+  ): void;
+  public listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationDPUSizesCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
+  ): Promise<ListApplicationDPUSizesCommandOutput> | void {
+    const command = new ListApplicationDPUSizesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the calculations that have been submitted to a session in descending order.
+   *             Newer calculations are listed first; older calculations are listed later.</p>
+   */
+  public listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCalculationExecutionsCommandOutput>;
+  public listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    cb: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
+  ): void;
+  public listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
+  ): void;
+  public listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCalculationExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
+  ): Promise<ListCalculationExecutionsCommandOutput> | void {
+    const command = new ListCalculationExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -971,10 +1511,44 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Lists, in descending order, the executors that have been submitted to a session. Newer
+   *             executors are listed first; older executors are listed later. The result can be
+   *             optionally filtered by state.</p>
+   */
+  public listExecutors(
+    args: ListExecutorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExecutorsCommandOutput>;
+  public listExecutors(
+    args: ListExecutorsCommandInput,
+    cb: (err: any, data?: ListExecutorsCommandOutput) => void
+  ): void;
+  public listExecutors(
+    args: ListExecutorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExecutorsCommandOutput) => void
+  ): void;
+  public listExecutors(
+    args: ListExecutorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExecutorsCommandOutput) => void),
+    cb?: (err: any, data?: ListExecutorsCommandOutput) => void
+  ): Promise<ListExecutorsCommandOutput> | void {
+    const command = new ListExecutorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides a list of available query IDs only for queries saved in the specified
    *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
    *             not specified, lists the saved queries for the primary workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -997,6 +1571,73 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): Promise<ListNamedQueriesCommandOutput> | void {
     const command = new ListNamedQueriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays the notebook files for the specified workgroup in paginated format.</p>
+   */
+  public listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookMetadataCommandOutput>;
+  public listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    cb: (err: any, data?: ListNotebookMetadataCommandOutput) => void
+  ): void;
+  public listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookMetadataCommandOutput) => void
+  ): void;
+  public listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotebookMetadataCommandOutput) => void),
+    cb?: (err: any, data?: ListNotebookMetadataCommandOutput) => void
+  ): Promise<ListNotebookMetadataCommandOutput> | void {
+    const command = new ListNotebookMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists, in descending order, the sessions that have been created in a notebook that are
+   *             in an active state like <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>
+   *             or <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
+   *             later.</p>
+   */
+  public listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookSessionsCommandOutput>;
+  public listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    cb: (err: any, data?: ListNotebookSessionsCommandOutput) => void
+  ): void;
+  public listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookSessionsCommandOutput) => void
+  ): void;
+  public listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotebookSessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListNotebookSessionsCommandOutput) => void
+  ): Promise<ListNotebookSessionsCommandOutput> | void {
+    const command = new ListNotebookSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1044,7 +1685,7 @@ export class Athena extends AthenaClient {
    *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
    *             the primary workgroup. Requires you to have access to the workgroup in which the queries
    *             ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -1067,6 +1708,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: ListQueryExecutionsCommandOutput) => void
   ): Promise<ListQueryExecutionsCommandOutput> | void {
     const command = new ListQueryExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the sessions in a workgroup that are in an active state like
+   *                 <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>, or
+   *             <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
+   *             later.</p>
+   */
+  public listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  public listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  public listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  public listSessions(
+    args: ListSessionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSessionsCommandOutput) => void
+  ): Promise<ListSessionsCommandOutput> | void {
+    const command = new ListSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1175,6 +1848,39 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Submits calculations for execution within a session. You can supply the code to run as
+   *             an inline code block within the request or as an Amazon S3 URL.</p>
+   */
+  public startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCalculationExecutionCommandOutput>;
+  public startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    cb: (err: any, data?: StartCalculationExecutionCommandOutput) => void
+  ): void;
+  public startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCalculationExecutionCommandOutput) => void
+  ): void;
+  public startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCalculationExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartCalculationExecutionCommandOutput) => void
+  ): Promise<StartCalculationExecutionCommandOutput> | void {
+    const command = new StartCalculationExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
    *             have access to the workgroup in which the query ran. Running queries against an external
    *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
@@ -1212,9 +1918,80 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Creates a session for running calculations within a workgroup. The session is ready
+   *             when it reaches an <code>IDLE</code> state.</p>
+   */
+  public startSession(
+    args: StartSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSessionCommandOutput>;
+  public startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  public startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+  public startSession(
+    args: StartSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSessionCommandOutput) => void),
+    cb?: (err: any, data?: StartSessionCommandOutput) => void
+  ): Promise<StartSessionCommandOutput> | void {
+    const command = new StartSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Requests the cancellation of a calculation. A <code>StopCalculationExecution</code>
+   *             call on a calculation that is already in a terminal state (for example,
+   *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
+   *             has no effect.</p>
+   *          <note>
+   *             <p>Cancelling a calculation is done on a best effort basis. If a calculation cannot
+   *                 be cancelled, you can be charged for its completion. If you are concerned about
+   *                 being charged for a calculation that cannot be cancelled, consider terminating the
+   *                 session in which the calculation is running.</p>
+   *          </note>
+   */
+  public stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCalculationExecutionCommandOutput>;
+  public stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    cb: (err: any, data?: StopCalculationExecutionCommandOutput) => void
+  ): void;
+  public stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopCalculationExecutionCommandOutput) => void
+  ): void;
+  public stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopCalculationExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StopCalculationExecutionCommandOutput) => void
+  ): Promise<StopCalculationExecutionCommandOutput> | void {
+    const command = new StopCalculationExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops a query execution. Requires you to have access to the workgroup in which the
    *             query ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -1273,6 +2050,42 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Terminates an active session. A <code>TerminateSession</code> call on a session that
+   *             is already inactive (for example, in a <code>FAILED</code>, <code>TERMINATED</code> or
+   *                 <code>TERMINATING</code> state) succeeds but has no effect. Calculations running in
+   *             the session when <code>TerminateSession</code> is called are forcefully stopped, but may
+   *             display as <code>FAILED</code> instead of <code>STOPPED</code>.</p>
+   */
+  public terminateSession(
+    args: TerminateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateSessionCommandOutput>;
+  public terminateSession(
+    args: TerminateSessionCommandInput,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  public terminateSession(
+    args: TerminateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  public terminateSession(
+    args: TerminateSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateSessionCommandOutput) => void),
+    cb?: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): Promise<TerminateSessionCommandOutput> | void {
+    const command = new TerminateSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1381,6 +2194,70 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Updates the contents of a Spark notebook.</p>
+   */
+  public updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotebookCommandOutput>;
+  public updateNotebook(
+    args: UpdateNotebookCommandInput,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): void;
+  public updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): void;
+  public updateNotebook(
+    args: UpdateNotebookCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotebookCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): Promise<UpdateNotebookCommandOutput> | void {
+    const command = new UpdateNotebookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the metadata for a notebook.</p>
+   */
+  public updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotebookMetadataCommandOutput>;
+  public updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    cb: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
+  ): void;
+  public updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
+  ): void;
+  public updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotebookMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
+  ): Promise<UpdateNotebookMetadataCommandOutput> | void {
+    const command = new UpdateNotebookMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a prepared statement.</p>
    */
   public updatePreparedStatement(
@@ -1413,8 +2290,11 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
-   *             changed.</p>
+   * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+   *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
+   *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
+   *             support (for example, an Apache Spark enabled workgroup) or
+   *                 <code>ConfigurationUpdates</code> for an Athena SQL workgroup.</p>
    */
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,

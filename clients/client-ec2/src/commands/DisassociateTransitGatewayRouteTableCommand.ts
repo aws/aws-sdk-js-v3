@@ -19,7 +19,7 @@ import {
   DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
   DisassociateTransitGatewayRouteTableResult,
   DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
   serializeAws_ec2DisassociateTransitGatewayRouteTableCommand,

@@ -87,7 +87,7 @@ export interface SdkStreamMixin {
 export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
 
 /**
- * Indicates that the member of type T with 
+ * Indicates that the member of type T with
  * key StreamKey have been extended
  * with the SdkStreamMixin helper methods.
  */

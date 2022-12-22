@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-token",
-  "version": "3.200.0",
+  "version": "3.236.0",
   "description": "Middleware and Plugin for setting token authentication",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,13 +27,14 @@
   "dependencies": {
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-middleware": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^10.0.0",
+    "@types/node": "^14.14.31",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
@@ -56,6 +57,12 @@
   "files": [
     "dist-*"
   ],
+  "browser": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
+  },
+  "react-native": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-token",
   "repository": {
     "type": "git",

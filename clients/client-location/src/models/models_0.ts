@@ -1686,10 +1686,12 @@ export interface MapConfiguration {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast
+   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
+   *                     high contrast
    *                     detailed base map of the world that blends 3D and 2D rendering.</p>
    *                 <note>
-   *                   <p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
+   *                   <p>The <code>VectorHereContrast</code> style has been renamed from
+   *                     <code>VectorHereBerlin</code>.
    *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
    *                     applications that use it.</p>
    *                </note>
@@ -1724,6 +1726,22 @@ export interface MapConfiguration {
    *                     either vector or raster tiles alone. Your charges will include all tiles
    *                     retrieved.</p>
    *                </note>
+   *             </li>
+   *          </ul>
+   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light
+   *                     (preview) map style provides a detailed basemap for the world suitable for
+   *                     website and mobile application use. The map includes highways major roads,
+   *                     minor roads, railways, water features, cities, parks, landmarks, building
+   *                     footprints, and administrative boundaries.</p>
+   *                 <important>
+   *                   <p>Open Data maps is in preview. We may add, change, or remove
+   *                     features before announcing general availability. For more information, see
+   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p>
+   *                </important>
    *             </li>
    *          </ul>
    */
@@ -3276,7 +3294,7 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
+   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p>
    *         <ul>
    *             <li>
    *                 <p>VectorHereContrast – <code>Fira
@@ -3292,6 +3310,24 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>VectorOpenDataStandardLight –
+   *                     <code>Amazon Ember Regular,Noto Sans Regular</code> |
+   *                     <code>Amazon Ember Bold,Noto Sans Bold</code> |
+   *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
+   *                     <code>Amazon Ember Regular Italic,Noto Sans Italic</code> |
+   *                     <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> |
+   *                     <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts
+   *                 that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code>
+   *                 for glyphs unsupported by <code>Amazon Ember</code>.</p>
+   *         </note>
    */
   FontStack: string | undefined;
 

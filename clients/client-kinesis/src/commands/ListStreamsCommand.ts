@@ -30,19 +30,19 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
 
 /**
  * <p>Lists your Kinesis data streams.</p>
- *         <p>The number of streams may be too large to return from a single call to
+ *          <p>The number of streams may be too large to return from a single call to
  *                 <code>ListStreams</code>. You can limit the number of returned streams using the
  *                 <code>Limit</code> parameter. If you do not specify a value for the
  *                 <code>Limit</code> parameter, Kinesis Data Streams uses the default limit, which is
  *             currently 100.</p>
- *         <p>You can detect if there are more streams available to list by using the
+ *          <p>You can detect if there are more streams available to list by using the
  *                 <code>HasMoreStreams</code> flag from the returned output. If there are more streams
  *             available, you can request more streams by using the name of the last stream returned by
  *             the <code>ListStreams</code> request in the <code>ExclusiveStartStreamName</code>
  *             parameter in a subsequent request to <code>ListStreams</code>. The group of stream names
  *             returned by the subsequent request is then added to the list. You can continue this
  *             process until all the stream names have been collected in the list. </p>
- *         <p>
+ *          <p>
  *             <a>ListStreams</a> has a limit of five transactions per second per
  *             account.</p>
  * @example

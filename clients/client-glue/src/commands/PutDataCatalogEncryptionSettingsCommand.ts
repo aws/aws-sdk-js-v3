@@ -19,7 +19,7 @@ import {
   PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
   PutDataCatalogEncryptionSettingsResponse,
   PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
   serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,

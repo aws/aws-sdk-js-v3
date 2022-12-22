@@ -29,7 +29,8 @@ export interface GetOperationDetailCommandInput extends GetOperationDetailReques
 export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns the current status of an operation that is not completed.</p>
+ * <p>This operation returns the current status of an operation that is not
+ * 			completed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

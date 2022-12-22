@@ -6,7 +6,17 @@ import {
   CreateChatTokenCommandInput,
   CreateChatTokenCommandOutput,
 } from "./commands/CreateChatTokenCommand";
+import {
+  CreateLoggingConfigurationCommand,
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "./commands/CreateLoggingConfigurationCommand";
 import { CreateRoomCommand, CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
+import {
+  DeleteLoggingConfigurationCommand,
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "./commands/DeleteLoggingConfigurationCommand";
 import {
   DeleteMessageCommand,
   DeleteMessageCommandInput,
@@ -18,7 +28,17 @@ import {
   DisconnectUserCommandInput,
   DisconnectUserCommandOutput,
 } from "./commands/DisconnectUserCommand";
+import {
+  GetLoggingConfigurationCommand,
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput,
+} from "./commands/GetLoggingConfigurationCommand";
 import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import {
+  ListLoggingConfigurationsCommand,
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput,
+} from "./commands/ListLoggingConfigurationsCommand";
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
 import {
   ListTagsForResourceCommand,
@@ -32,6 +52,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateLoggingConfigurationCommand,
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "./commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import { IvschatClient } from "./IvschatClient";
 
@@ -61,8 +86,12 @@ import { IvschatClient } from "./IvschatClient";
  *          <p>
  *             <b>Resources</b>
  *          </p>
- *          <p>The following resource is part of Amazon IVS Chat:</p>
+ *          <p>The following resources are part of Amazon IVS Chat:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <b>Room</b> — The central Amazon IVS Chat resource through
@@ -167,10 +196,10 @@ import { IvschatClient } from "./IvschatClient";
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateChatToken</a> — Creates an encrypted token that is used to
- *           establish an individual WebSocket connection to a room. The token is valid for one minute,
- *           and a connection (session) established with the token is valid for the specified
- *           duration.</p>
+ *                   <a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
+ *           individual WebSocket chat connection to a room. When the token is used to connect to chat,
+ *           the connection is valid for the session duration specified in the request. The token
+ *           becomes invalid at the token-expiration timestamp included in the response.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -201,6 +230,34 @@ import { IvschatClient } from "./IvschatClient";
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Logging Configuration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteLoggingConfiguration</a> — Deletes the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetLoggingConfiguration</a> — Gets the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListLoggingConfigurations</a> — Gets summary information about all
+ *           your logging configurations in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
  *             <b>Tags Endpoints</b>
  *          </p>
  *          <ul>
@@ -226,9 +283,16 @@ import { IvschatClient } from "./IvschatClient";
  */
 export class Ivschat extends IvschatClient {
   /**
-   * <p>Creates an encrypted token that is used to establish an individual WebSocket connection
-   *          to a room. The token is valid for one minute, and a connection (session) established with
-   *          the token is valid for the specified duration.</p>
+   * <p>Creates an encrypted token that is used by a chat participant to establish an individual
+   *          WebSocket chat connection to a room. When the token is used to connect to chat, the
+   *          connection is valid for the session duration specified in the request. The token becomes
+   *          invalid at the token-expiration timestamp included in the response.</p>
+   *          <p>Use the <code>capabilities</code> field to permit an end user to send messages or
+   *          moderate a room.</p>
+   *          <p>The <code>attributes</code> field securely attaches structured data to the chat session; the data is
+   *          included within each message sent by the end user and received by other participants in the
+   *          room. Common use cases for attributes include passing end-user profile data like an icon,
+   *          display name, colors, badges, and other display features.</p>
    *          <p>Encryption keys are owned by Amazon IVS Chat and never used directly by your
    *          application.</p>
    */
@@ -262,6 +326,39 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * <p>Creates a logging configuration that allows clients to store and record sent
+   *          messages.</p>
+   */
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLoggingConfigurationCommandOutput>;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): Promise<CreateLoggingConfigurationCommandOutput> | void {
+    const command = new CreateLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a room that allows clients to connect and pass messages.</p>
    */
   public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
@@ -277,6 +374,38 @@ export class Ivschat extends IvschatClient {
     cb?: (err: any, data?: CreateRoomCommandOutput) => void
   ): Promise<CreateRoomCommandOutput> | void {
     const command = new CreateRoomCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified logging configuration.</p>
+   */
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLoggingConfigurationCommandOutput>;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): void;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): void;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
+    const command = new DeleteLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -383,6 +512,38 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * <p>Gets the specified logging configuration.</p>
+   */
+  public getLoggingConfiguration(
+    args: GetLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLoggingConfigurationCommandOutput>;
+  public getLoggingConfiguration(
+    args: GetLoggingConfigurationCommandInput,
+    cb: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
+  ): void;
+  public getLoggingConfiguration(
+    args: GetLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
+  ): void;
+  public getLoggingConfiguration(
+    args: GetLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
+  ): Promise<GetLoggingConfigurationCommandOutput> | void {
+    const command = new GetLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the specified room.</p>
    */
   public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
@@ -398,6 +559,39 @@ export class Ivschat extends IvschatClient {
     cb?: (err: any, data?: GetRoomCommandOutput) => void
   ): Promise<GetRoomCommandOutput> | void {
     const command = new GetRoomCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets summary information about all your logging configurations in the AWS region where
+   *          the API request is processed.</p>
+   */
+  public listLoggingConfigurations(
+    args: ListLoggingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLoggingConfigurationsCommandOutput>;
+  public listLoggingConfigurations(
+    args: ListLoggingConfigurationsCommandInput,
+    cb: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public listLoggingConfigurations(
+    args: ListLoggingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public listLoggingConfigurations(
+    args: ListLoggingConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
+  ): Promise<ListLoggingConfigurationsCommandOutput> | void {
+    const command = new ListLoggingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -543,6 +737,38 @@ export class Ivschat extends IvschatClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a specified logging configuration.</p>
+   */
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLoggingConfigurationCommandOutput>;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): Promise<UpdateLoggingConfigurationCommandOutput> | void {
+    const command = new UpdateLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

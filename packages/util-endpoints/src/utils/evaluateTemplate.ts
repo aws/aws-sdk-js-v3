@@ -1,38 +1,50 @@
 import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 
-const ATTR_SHORTHAND_REGEX = new RegExp("\\${([\\w]+)#([\\w]+)}", "g");
-
 export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
-  const templateToEvaluate = template
-    // Replace `{value}` with `${value}`
-    .replace(new RegExp(`\{([^{}]+)\}`, "g"), "${$1}")
-    // Replace `{${value}}` with `{value}`
-    .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}");
+  const evaluatedTemplateArr: string[] = [];
 
   const templateContext = {
     ...options.endpointParams,
     ...options.referenceRecord,
-  };
+  } as Record<string, string>;
 
-  const attrShortHandList = templateToEvaluate.match(ATTR_SHORTHAND_REGEX) || [];
+  let currentIndex = 0;
+  while (currentIndex < template.length) {
+    const openingBraceIndex = template.indexOf("{", currentIndex);
 
-  const attrShortHandMap = attrShortHandList.reduce((acc, attrShortHand) => {
-    const indexOfHash = attrShortHand.indexOf("#");
-    const refName = attrShortHand.substring(2, indexOfHash);
-    const attrName = attrShortHand.substring(indexOfHash + 1, attrShortHand.length - 1);
-    acc[attrShortHand] = getAttr(templateContext[refName] as Record<string, any>, attrName) as string;
-    return acc;
-  }, {} as Record<string, string>);
+    if (openingBraceIndex === -1) {
+      // No more opening braces, add the rest of the template and break.
+      evaluatedTemplateArr.push(template.slice(currentIndex));
+      break;
+    }
 
-  const templateWithAttr = Object.entries(attrShortHandMap).reduce(
-    (acc, [shortHand, value]) => acc.replace(shortHand, value),
-    templateToEvaluate
-  );
+    evaluatedTemplateArr.push(template.slice(currentIndex, openingBraceIndex));
+    const closingBraceIndex = template.indexOf("}", openingBraceIndex);
 
-  const templateContextNames = Object.keys(templateContext);
-  const templateContextValues = Object.values(templateContext);
-  const templateWithTildeEscaped = templateWithAttr.replace(/\`/g, "\\`");
+    if (closingBraceIndex === -1) {
+      // No more closing braces, add the rest of the template and break.
+      evaluatedTemplateArr.push(template.slice(openingBraceIndex));
+      break;
+    }
 
-  return new Function(...templateContextNames, `return \`${templateWithTildeEscaped}\``)(...templateContextValues);
+    if (template[openingBraceIndex + 1] === "{" && template[closingBraceIndex + 1] === "}") {
+      // Escaped expression. Do not evaluate.
+      evaluatedTemplateArr.push(template.slice(openingBraceIndex + 1, closingBraceIndex));
+      currentIndex = closingBraceIndex + 2;
+    }
+
+    const parameterName = template.substring(openingBraceIndex + 1, closingBraceIndex);
+
+    if (parameterName.includes("#")) {
+      const [refName, attrName] = parameterName.split("#");
+      evaluatedTemplateArr.push(getAttr(templateContext[refName], attrName) as string);
+    } else {
+      evaluatedTemplateArr.push(templateContext[parameterName]);
+    }
+
+    currentIndex = closingBraceIndex + 1;
+  }
+
+  return evaluatedTemplateArr.join("");
 };

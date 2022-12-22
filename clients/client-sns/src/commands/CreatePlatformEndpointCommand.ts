@@ -41,8 +41,8 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  *                 Notifications</a>. </p>
  *         <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be
  *             provided: ChannelId and UserId. The token field must also contain the ChannelId. For
- *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint
- *                 for Baidu</a>. </p>
+ *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for
+ *                 Baidu</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

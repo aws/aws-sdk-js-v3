@@ -757,6 +757,11 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    */
   importMode?: ImportMode | string;
+
+  /**
+   * <p>If you created a metric attribution, specify whether to publish metrics for this import job to Amazon S3</p>
+   */
+  publishAttributionMetricsToS3?: boolean;
 }
 
 export interface CreateDatasetImportJobResponse {
@@ -825,6 +830,73 @@ export interface CreateFilterResponse {
    * <p>The ARN of the new filter.</p>
    */
   filterArn?: string;
+}
+
+/**
+ * <p>Contains information on a metric that a metric attribution reports on. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+ */
+export interface MetricAttribute {
+  /**
+   * <p>The metric's event type.</p>
+   */
+  eventType: string | undefined;
+
+  /**
+   * <p>The metric's name. The name helps you identify the metric in Amazon CloudWatch or Amazon S3.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The attribute's expression. Available functions are <code>SUM()</code> or <code>SAMPLECOUNT()</code>. For SUM() functions, provide the
+   *       dataset type (either Interactions or Items) and column to sum as a parameter. For example SUM(Items.PRICE).</p>
+   */
+  expression: string | undefined;
+}
+
+/**
+ * <p>The output configuration details for a metric attribution.</p>
+ */
+export interface MetricAttributionOutput {
+  /**
+   * <p>The configuration details of an Amazon S3 input or output bucket.</p>
+   */
+  s3DataDestination?: S3DataConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your output Amazon S3 bucket and add metrics to Amazon CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export interface CreateMetricAttributionRequest {
+  /**
+   * <p>A name for the metric attribution.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination dataset group for the metric attribution.</p>
+   */
+  datasetGroupArn: string | undefined;
+
+  /**
+   * <p>A list of metric attributes for the metric attribution. Each metric attribute specifies an event type to track and a function.
+   *       Available functions are <code>SUM()</code> or <code>SAMPLECOUNT()</code>. For SUM() functions, provide the
+   *       dataset type (either Interactions or Items) and column to sum as a parameter. For example SUM(Items.PRICE).</p>
+   */
+  metrics: MetricAttribute[] | undefined;
+
+  /**
+   * <p>The output configuration details for the metric attribution.</p>
+   */
+  metricsOutputConfig: MetricAttributionOutput | undefined;
+}
+
+export interface CreateMetricAttributionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the new metric attribution.</p>
+   */
+  metricAttributionArn?: string;
 }
 
 /**
@@ -1211,6 +1283,11 @@ export enum TrainingMode {
 
 export interface CreateSolutionVersionRequest {
   /**
+   * <p>The name of the solution version.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
    *       information.</p>
    */
@@ -1279,6 +1356,13 @@ export interface DeleteFilterRequest {
    * <p>The ARN of the filter to delete.</p>
    */
   filterArn: string | undefined;
+}
+
+export interface DeleteMetricAttributionRequest {
+  /**
+   * <p>The metric attribution's Amazon Resource Name (ARN).</p>
+   */
+  metricAttributionArn: string | undefined;
 }
 
 export interface DeleteRecommenderRequest {
@@ -1997,6 +2081,11 @@ export interface DatasetImportJob {
    *       records.</p>
    */
   importMode?: ImportMode | string;
+
+  /**
+   * <p>Whether the job publishes metrics to Amazon S3 for a metric attribution.</p>
+   */
+  publishAttributionMetricsToS3?: boolean;
 }
 
 export interface DescribeDatasetImportJobResponse {
@@ -2206,6 +2295,67 @@ export interface DescribeFilterResponse {
    * <p>The filter's details.</p>
    */
   filter?: Filter;
+}
+
+export interface DescribeMetricAttributionRequest {
+  /**
+   * <p>The metric attribution's Amazon Resource Name (ARN).</p>
+   */
+  metricAttributionArn: string | undefined;
+}
+
+/**
+ * <p>Contains information on a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize.
+ *       Depending on how you import the data, you can view reports in Amazon CloudWatch or Amazon S3.
+ *       For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+ */
+export interface MetricAttribution {
+  /**
+   * <p>The metric attribution's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The metric attribution's Amazon Resource Name (ARN).</p>
+   */
+  metricAttributionArn?: string;
+
+  /**
+   * <p>The metric attribution's dataset group Amazon Resource Name (ARN).</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The metric attribution's output configuration.</p>
+   */
+  metricsOutputConfig?: MetricAttributionOutput;
+
+  /**
+   * <p>The metric attribution's status.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The metric attribution's creation date time.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The metric attribution's last updated date time.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The metric attribution's failure reason.</p>
+   */
+  failureReason?: string;
+}
+
+export interface DescribeMetricAttributionResponse {
+  /**
+   * <p>The details of the metric attribution.</p>
+   */
+  metricAttribution?: MetricAttribution;
 }
 
 export interface DescribeRecipeRequest {
@@ -2640,6 +2790,11 @@ export interface TunedHPOParams {
  * <p>An object that provides information about a specific version of a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html">Solution</a> in a Custom dataset group.</p>
  */
 export interface SolutionVersion {
+  /**
+   * <p>The name of the solution version.</p>
+   */
+  name?: string;
+
   /**
    * <p>The ARN of the solution version.</p>
    */
@@ -3524,6 +3679,99 @@ export interface ListFiltersResponse {
   nextToken?: string;
 }
 
+export interface ListMetricAttributionMetricsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the metric attribution to retrieve attributes for.</p>
+   */
+  metricAttributionArn?: string;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of metrics to return in one page of results.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListMetricAttributionMetricsResponse {
+  /**
+   * <p>The metrics for the specified metric attribution.</p>
+   */
+  metrics?: MetricAttribute[];
+
+  /**
+   * <p>Specify the pagination token from a previous <code>ListMetricAttributionMetricsResponse</code> request to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListMetricAttributionsRequest {
+  /**
+   * <p>The metric attributions' dataset group Amazon Resource Name (ARN).</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of metric attributions to return in one page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Provides a summary of the properties of a metric attribution. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeMetricAttribution.html">DescribeMetricAttribution</a>.</p>
+ */
+export interface MetricAttributionSummary {
+  /**
+   * <p>The name of the metric attribution.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The metric attribution's Amazon Resource Name (ARN).</p>
+   */
+  metricAttributionArn?: string;
+
+  /**
+   * <p>The metric attribution's status.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The metric attribution's creation date time.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The metric attribution's last updated date time.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The metric attribution's failure reason.</p>
+   */
+  failureReason?: string;
+}
+
+export interface ListMetricAttributionsResponse {
+  /**
+   * <p>The list of metric attributions.</p>
+   */
+  metricAttributions?: MetricAttributionSummary[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
 export enum RecipeProvider {
   SERVICE = "SERVICE",
 }
@@ -3801,6 +4049,11 @@ export interface SolutionSummary {
    * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recipe used by the solution.</p>
+   */
+  recipeArn?: string;
 }
 
 export interface ListSolutionsResponse {
@@ -3969,6 +4222,35 @@ export interface UpdateCampaignResponse {
    * <p>The same campaign ARN as given in the request.</p>
    */
   campaignArn?: string;
+}
+
+export interface UpdateMetricAttributionRequest {
+  /**
+   * <p>Add new metric attributes to the metric attribution.</p>
+   */
+  addMetrics?: MetricAttribute[];
+
+  /**
+   * <p>Remove metric attributes from the metric attribution.</p>
+   */
+  removeMetrics?: string[];
+
+  /**
+   * <p>An output config for the metric attribution.</p>
+   */
+  metricsOutputConfig?: MetricAttributionOutput;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the metric attribution to update.</p>
+   */
+  metricAttributionArn?: string;
+}
+
+export interface UpdateMetricAttributionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the metric attribution that you updated.</p>
+   */
+  metricAttributionArn?: string;
 }
 
 export interface UpdateRecommenderRequest {
@@ -4236,6 +4518,34 @@ export const CreateFilterResponseFilterSensitiveLog = (obj: CreateFilterResponse
 /**
  * @internal
  */
+export const MetricAttributeFilterSensitiveLog = (obj: MetricAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricAttributionOutputFilterSensitiveLog = (obj: MetricAttributionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMetricAttributionRequestFilterSensitiveLog = (obj: CreateMetricAttributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMetricAttributionResponseFilterSensitiveLog = (obj: CreateMetricAttributionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RecommenderConfigFilterSensitiveLog = (obj: RecommenderConfig): any => ({
   ...obj,
 });
@@ -4398,6 +4708,13 @@ export const DeleteEventTrackerRequestFilterSensitiveLog = (obj: DeleteEventTrac
  * @internal
  */
 export const DeleteFilterRequestFilterSensitiveLog = (obj: DeleteFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMetricAttributionRequestFilterSensitiveLog = (obj: DeleteMetricAttributionRequest): any => ({
   ...obj,
 });
 
@@ -4657,6 +4974,27 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
 export const DescribeFilterResponseFilterSensitiveLog = (obj: DescribeFilterResponse): any => ({
   ...obj,
   ...(obj.filter && { filter: FilterFilterSensitiveLog(obj.filter) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMetricAttributionRequestFilterSensitiveLog = (obj: DescribeMetricAttributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricAttributionFilterSensitiveLog = (obj: MetricAttribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMetricAttributionResponseFilterSensitiveLog = (obj: DescribeMetricAttributionResponse): any => ({
+  ...obj,
 });
 
 /**
@@ -4998,6 +5336,45 @@ export const ListFiltersResponseFilterSensitiveLog = (obj: ListFiltersResponse):
 /**
  * @internal
  */
+export const ListMetricAttributionMetricsRequestFilterSensitiveLog = (
+  obj: ListMetricAttributionMetricsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMetricAttributionMetricsResponseFilterSensitiveLog = (
+  obj: ListMetricAttributionMetricsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMetricAttributionsRequestFilterSensitiveLog = (obj: ListMetricAttributionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricAttributionSummaryFilterSensitiveLog = (obj: MetricAttributionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMetricAttributionsResponseFilterSensitiveLog = (obj: ListMetricAttributionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListRecipesRequestFilterSensitiveLog = (obj: ListRecipesRequest): any => ({
   ...obj,
 });
@@ -5181,6 +5558,20 @@ export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignReque
  * @internal
  */
 export const UpdateCampaignResponseFilterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMetricAttributionRequestFilterSensitiveLog = (obj: UpdateMetricAttributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMetricAttributionResponseFilterSensitiveLog = (obj: UpdateMetricAttributionResponse): any => ({
   ...obj,
 });
 

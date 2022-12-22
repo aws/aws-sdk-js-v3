@@ -106,7 +106,7 @@ export interface AddLayerVersionPermissionResponse {
 }
 
 /**
- * <p>One of the parameters in the request is invalid.</p>
+ * <p>One of the parameters in the request is not valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
   readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
@@ -131,8 +131,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
- *          </p>
+ * <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class PolicyLengthExceededException extends __BaseException {
   readonly name: "PolicyLengthExceededException" = "PolicyLengthExceededException";
@@ -153,9 +152,8 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
- *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
- *       resource.</p>
+ * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
+ *       API operation to retrieve the latest RevisionId for your resource.</p>
  */
 export class PreconditionFailedException extends __BaseException {
   readonly name: "PreconditionFailedException" = "PreconditionFailedException";
@@ -253,13 +251,14 @@ export class ServiceException extends __BaseException {
 export enum ThrottleReason {
   CallerRateLimitExceeded = "CallerRateLimitExceeded",
   ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
+  ConcurrentSnapshotCreateLimitExceeded = "ConcurrentSnapshotCreateLimitExceeded",
   FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
   ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
   ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
 }
 
 /**
- * <p>The request throughput limit was exceeded.</p>
+ * <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -301,15 +300,15 @@ export interface AddPermissionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -329,27 +328,28 @@ export interface AddPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
-   *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+   * <p>The Amazon Web Service or Amazon Web Services account that invokes the function. If you specify a
+   *       service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through
+   *       that service.</p>
    */
   Principal: string | undefined;
 
   /**
-   * <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or
-   *       Amazon SNS topic.</p>
+   * <p>For Amazon Web Services, the ARN of the Amazon Web Services resource that invokes the function. For
+   *       example, an Amazon S3 bucket or Amazon SNS topic.</p>
    *          <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
    */
   SourceArn?: string;
 
   /**
-   * <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to
-   *       ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted
-   *       by its owner and recreated by another account.</p>
+   * <p>For Amazon Web Service, the ID of the Amazon Web Services account that owns the resource. Use this
+   *       together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an
+   *         Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
    */
   SourceAccount?: string;
 
   /**
-   * <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
+   * <p>For Alexa Smart Home functions, a token that the invoker must supply.</p>
    */
   EventSourceToken?: string;
 
@@ -359,21 +359,21 @@ export interface AddPermissionRequest {
   Qualifier?: string;
 
   /**
-   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   * <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
 
   /**
-   * <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services
-   *       accounts under this organization.</p>
+   * <p>The identifier for your organization in Organizations. Use this to grant permissions to all the
+   *         Amazon Web Services accounts under this organization.</p>
    */
   PrincipalOrgID?: string;
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | string;
 }
@@ -449,7 +449,7 @@ export interface AmazonManagedKafkaEventSourceConfig {
   /**
    * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources.
    *   After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see
-   *   <a>services-msk-consumer-group-id</a>.</p>
+   *   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
    */
   ConsumerGroupId?: string;
 }
@@ -676,7 +676,7 @@ export interface SelfManagedKafkaEventSourceConfig {
   /**
    * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources.
    *   After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see
-   *   <a>services-msk-consumer-group-id</a>.</p>
+   *   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
    */
   ConsumerGroupId?: string;
 }
@@ -709,23 +709,23 @@ export interface SourceAccessConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
+   *                   <code>VPC_SUBNET</code> - (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
+   *                   <code>VPC_SECURITY_GROUP</code> - (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_256_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_512_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+   *                   <code>VIRTUAL_HOST</code> - (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
    *   This property cannot be specified in an UpdateEventSourceMapping API call.</p>
    *             </li>
    *             <li>
@@ -773,6 +773,10 @@ export interface CreateEventSourceMappingRequest {
    *             <li>
    *                <p>
    *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -845,15 +849,18 @@ export interface CreateEventSourceMappingRequest {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   * <p>An object that defines the filter criteria that
    *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
    */
   FilterCriteria?: FilterCriteria;
 
   /**
-   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
-   *          <p>Default: 0</p>
-   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+   *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
+   *   To restore the default batching window, you must create a new event source mapping.</p>
+   *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -965,9 +972,12 @@ export interface EventSourceMappingConfiguration {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
-   *          <p>Default: 0</p>
-   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+   *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
+   *   To restore the default batching window, you must create a new event source mapping.</p>
+   *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -982,7 +992,7 @@ export interface EventSourceMappingConfiguration {
   EventSourceArn?: string;
 
   /**
-   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   * <p>An object that defines the filter criteria that
    *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
    */
   FilterCriteria?: FilterCriteria;
@@ -1101,8 +1111,7 @@ export class CodeSigningConfigNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
- *          </p>
+ * <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class CodeStorageExceededException extends __BaseException {
   readonly name: "CodeStorageExceededException" = "CodeStorageExceededException";
@@ -1127,8 +1136,8 @@ export class CodeStorageExceededException extends __BaseException {
 }
 
 /**
- * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy
- *       is set to ENFORCE. Lambda blocks the deployment. </p>
+ * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
+ *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
  */
 export class CodeVerificationFailedException extends __BaseException {
   readonly name: "CodeVerificationFailedException" = "CodeVerificationFailedException";
@@ -1151,12 +1160,12 @@ export class CodeVerificationFailedException extends __BaseException {
 }
 
 /**
- * <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a .zip file archive deployment
- *       package directly, or specify the URI of a container image.</p>
+ * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a
+ *       .zip file archive deployment package directly, or specify the URI of a container image.</p>
  */
 export interface FunctionCode {
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for
    *   you.</p>
    */
   ZipFile?: Uint8Array;
@@ -1177,7 +1186,8 @@ export interface FunctionCode {
   S3ObjectVersion?: string;
 
   /**
-   * <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
+   * <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the
+   *         Amazon ECR registry.</p>
    */
   ImageUri?: string;
 }
@@ -1194,35 +1204,35 @@ export interface DeadLetterConfig {
 }
 
 /**
- * <p>A function's environment variable settings.
- *     You can use environment variables to adjust your function's behavior without updating code.
- *     An environment variable is a pair of strings that are stored in a function's version-specific configuration. </p>
+ * <p>A function's environment variable settings. You can use environment variables to adjust your function's
+ *       behavior without updating code. An environment variable is a pair of strings that are stored in a function's
+ *       version-specific configuration.</p>
  */
 export interface Environment {
   /**
-   * <p>Environment variable key-value pairs. For more information, see
-   *     <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
+   * <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
    */
   Variables?: Record<string, string>;
 }
 
 /**
- * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
+ *       whole number between 512 and 10,240 MB.</p>
  */
 export interface EphemeralStorage {
   /**
-   * <p>The size of the function’s /tmp directory.</p>
+   * <p>The size of the function's <code>/tmp</code> directory.</p>
    */
   Size: number | undefined;
 }
 
 /**
- * <p>Details about the connection between a Lambda function and an
- *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
+ * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
 export interface FileSystemConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file
+   *       system.</p>
    */
   Arn: string | undefined;
 
@@ -1233,8 +1243,8 @@ export interface FileSystemConfig {
 }
 
 /**
- * <p>Configuration values that override the container image Dockerfile settings. See
- *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container settings</a>. </p>
+ * <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image
+ *       settings</a>.</p>
  */
 export interface ImageConfig {
   /**
@@ -1244,7 +1254,7 @@ export interface ImageConfig {
   EntryPoint?: string[];
 
   /**
-   * <p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>
+   * <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
    */
   Command?: string[];
 
@@ -1274,6 +1284,7 @@ export enum Runtime {
   nodejs12x = "nodejs12.x",
   nodejs14x = "nodejs14.x",
   nodejs16x = "nodejs16.x",
+  nodejs18x = "nodejs18.x",
   nodejs43 = "nodejs4.3",
   nodejs43edge = "nodejs4.3-edge",
   nodejs610 = "nodejs6.10",
@@ -1287,6 +1298,24 @@ export enum Runtime {
   python39 = "python3.9",
   ruby25 = "ruby2.5",
   ruby27 = "ruby2.7",
+}
+
+export enum SnapStartApplyOn {
+  None = "None",
+  PublishedVersions = "PublishedVersions",
+}
+
+/**
+ * <p>The function's SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
+ *       snapshot of the initialized execution environment when you publish a function version. For more information, see
+ *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda
+ *         SnapStart</a>.</p>
+ */
+export interface SnapStart {
+  /**
+   * <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
+   */
+  ApplyOn?: SnapStartApplyOn | string;
 }
 
 export enum TracingMode {
@@ -1306,7 +1335,9 @@ export interface TracingConfig {
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information,
+ *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda
+ *         function to access resources in a VPC</a>.</p>
  */
 export interface VpcConfig {
   /**
@@ -1315,7 +1346,7 @@ export interface VpcConfig {
   SubnetIds?: string[];
 
   /**
-   * <p>A list of VPC security groups IDs.</p>
+   * <p>A list of VPC security group IDs.</p>
    */
   SecurityGroupIds?: string[];
 }
@@ -1329,15 +1360,15 @@ export interface CreateFunctionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -1357,10 +1388,10 @@ export interface CreateFunctionRequest {
   Role: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function.
+   * <p>The name of the method within your code that Lambda calls to run your function.
    * Handler is required if the deployment package is a .zip file archive. The format includes the
    *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
-   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
    */
   Handler?: string;
 
@@ -1376,12 +1407,12 @@ export interface CreateFunctionRequest {
 
   /**
    * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   *       maximum allowed value is 900 seconds. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+   * <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime.
    *       Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
@@ -1393,19 +1424,19 @@ export interface CreateFunctionRequest {
 
   /**
    * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
-   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   *       When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more
+   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
    */
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
    */
   PackageType?: PackageType | string;
 
   /**
-   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
-   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+   * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
+   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
@@ -1415,7 +1446,7 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
 
   /**
-   * <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
    *       variables. If it's not provided, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
@@ -1462,9 +1493,15 @@ export interface CreateFunctionRequest {
   Architectures?: (Architecture | string)[];
 
   /**
-   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+   *       number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+   */
+  SnapStart?: SnapStart;
 }
 
 /**
@@ -1483,12 +1520,12 @@ export interface EnvironmentError {
 }
 
 /**
- * <p>The results of an operation to update or read environment variables. If the operation is successful, the
- *       response contains the environment variables. If it failed, the response contains details about the error.</p>
+ * <p>The results of an operation to update or read environment variables. If the operation succeeds, the response
+ *       contains the environment variables. If it fails, the response contains details about the error.</p>
  */
 export interface EnvironmentResponse {
   /**
-   * <p>Environment variable key-value pairs.</p>
+   * <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
    */
   Variables?: Record<string, string>;
 
@@ -1499,7 +1536,7 @@ export interface EnvironmentResponse {
 }
 
 /**
- * <p>Error response to GetFunctionConfiguration.</p>
+ * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
  */
 export interface ImageConfigError {
   /**
@@ -1514,7 +1551,7 @@ export interface ImageConfigError {
 }
 
 /**
- * <p>Response to GetFunctionConfiguration request.</p>
+ * <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
  */
 export interface ImageConfigResponse {
   /**
@@ -1523,7 +1560,7 @@ export interface ImageConfigResponse {
   ImageConfig?: ImageConfig;
 
   /**
-   * <p>Error response to GetFunctionConfiguration.</p>
+   * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
    */
   Error?: ImageConfigError;
 }
@@ -1535,15 +1572,26 @@ export enum LastUpdateStatus {
 }
 
 export enum LastUpdateStatusReasonCode {
+  DisabledKMSKey = "DisabledKMSKey",
+  EFSIOError = "EFSIOError",
+  EFSMountConnectivityError = "EFSMountConnectivityError",
+  EFSMountFailure = "EFSMountFailure",
+  EFSMountTimeout = "EFSMountTimeout",
   EniLimitExceeded = "EniLimitExceeded",
+  FunctionError = "FunctionError",
   ImageAccessDenied = "ImageAccessDenied",
   ImageDeleted = "ImageDeleted",
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
   InvalidImage = "InvalidImage",
+  InvalidRuntime = "InvalidRuntime",
   InvalidSecurityGroup = "InvalidSecurityGroup",
+  InvalidStateKMSKey = "InvalidStateKMSKey",
   InvalidSubnet = "InvalidSubnet",
+  InvalidZipFileException = "InvalidZipFileException",
+  KMSKeyAccessDenied = "KMSKeyAccessDenied",
+  KMSKeyNotFound = "KMSKeyNotFound",
   SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
 }
 
@@ -1573,6 +1621,26 @@ export interface Layer {
   SigningJobArn?: string;
 }
 
+export enum SnapStartOptimizationStatus {
+  Off = "Off",
+  On = "On",
+}
+
+/**
+ * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+ */
+export interface SnapStartResponse {
+  /**
+   * <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
+   */
+  ApplyOn?: SnapStartApplyOn | string;
+
+  /**
+   * <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
+   */
+  OptimizationStatus?: SnapStartOptimizationStatus | string;
+}
+
 export enum State {
   Active = "Active",
   Failed = "Failed",
@@ -1582,7 +1650,13 @@ export enum State {
 
 export enum StateReasonCode {
   Creating = "Creating",
+  DisabledKMSKey = "DisabledKMSKey",
+  EFSIOError = "EFSIOError",
+  EFSMountConnectivityError = "EFSMountConnectivityError",
+  EFSMountFailure = "EFSMountFailure",
+  EFSMountTimeout = "EFSMountTimeout",
   EniLimitExceeded = "EniLimitExceeded",
+  FunctionError = "FunctionError",
   Idle = "Idle",
   ImageAccessDenied = "ImageAccessDenied",
   ImageDeleted = "ImageDeleted",
@@ -1590,8 +1664,13 @@ export enum StateReasonCode {
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
   InvalidImage = "InvalidImage",
+  InvalidRuntime = "InvalidRuntime",
   InvalidSecurityGroup = "InvalidSecurityGroup",
+  InvalidStateKMSKey = "InvalidStateKMSKey",
   InvalidSubnet = "InvalidSubnet",
+  InvalidZipFileException = "InvalidZipFileException",
+  KMSKeyAccessDenied = "KMSKeyAccessDenied",
+  KMSKeyNotFound = "KMSKeyNotFound",
   Restoring = "Restoring",
   SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
 }
@@ -1616,7 +1695,7 @@ export interface VpcConfigResponse {
   SubnetIds?: string[];
 
   /**
-   * <p>A list of VPC security groups IDs.</p>
+   * <p>A list of VPC security group IDs.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -1651,7 +1730,7 @@ export interface FunctionConfiguration {
   Role?: string;
 
   /**
-   * <p>The function that Lambda calls to begin executing your function.</p>
+   * <p>The function that Lambda calls to begin running your function.</p>
    */
   Handler?: string;
 
@@ -1671,7 +1750,7 @@ export interface FunctionConfiguration {
   Timeout?: number;
 
   /**
-   * <p>The amount of memory available to the function at runtime. </p>
+   * <p>The amount of memory available to the function at runtime.</p>
    */
   MemorySize?: number;
 
@@ -1701,13 +1780,13 @@ export interface FunctionConfiguration {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
    */
   Environment?: EnvironmentResponse;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've
-   *       configured a customer managed key.</p>
+   * <p>The KMS key that's used to encrypt the function's environment variables. This key is
+   *       returned only if you've configured a customer managed key.</p>
    */
   KMSKeyArn?: string;
 
@@ -1727,8 +1806,7 @@ export interface FunctionConfiguration {
   RevisionId?: string;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-   *       layers</a>.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
    */
   Layers?: Layer[];
 
@@ -1797,14 +1875,21 @@ export interface FunctionConfiguration {
   Architectures?: (Architecture | string)[];
 
   /**
-   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   * <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any
+   *       whole number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution
+   *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+   */
+  SnapStart?: SnapStartResponse;
 }
 
 /**
- * <p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check
- *       fails, even if code signing policy is set to WARN.</p>
+ * <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
+ *       deployment, even if the code signing policy is set to WARN.</p>
  */
 export class InvalidCodeSignatureException extends __BaseException {
   readonly name: "InvalidCodeSignatureException" = "InvalidCodeSignatureException";
@@ -1880,15 +1965,15 @@ export interface CreateFunctionUrlConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -1903,8 +1988,8 @@ export interface CreateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
 
@@ -1928,8 +2013,8 @@ export interface CreateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
 
@@ -1993,8 +2078,8 @@ export interface DeleteEventSourceMappingRequest {
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource
- *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.</p>
+ * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source
+ *       mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -2025,15 +2110,15 @@ export interface DeleteFunctionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -2042,7 +2127,7 @@ export interface DeleteFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>
+   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
    */
   Qualifier?: string;
 }
@@ -2082,15 +2167,15 @@ export interface DeleteFunctionConcurrencyRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2139,15 +2224,15 @@ export interface DeleteFunctionUrlConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2182,15 +2267,15 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2279,15 +2364,15 @@ export interface GetFunctionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -2328,7 +2413,8 @@ export interface FunctionCodeLocation {
 
 export interface Concurrency {
   /**
-   * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
+   * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved
+   *         concurrency</a>.</p>
    */
   ReservedConcurrentExecutions?: number;
 }
@@ -2422,15 +2508,15 @@ export interface GetFunctionConcurrencyRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2455,15 +2541,15 @@ export interface GetFunctionConfigurationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -2565,15 +2651,15 @@ export interface GetFunctionUrlConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2600,8 +2686,8 @@ export interface GetFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
 
@@ -2753,15 +2839,15 @@ export interface GetPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -2796,15 +2882,15 @@ export interface GetProvisionedConcurrencyConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -2836,7 +2922,7 @@ export interface GetProvisionedConcurrencyConfigResponse {
   AvailableProvisionedConcurrentExecutions?: number;
 
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
+   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
    */
   AllocatedProvisionedConcurrentExecutions?: number;
 
@@ -2901,8 +2987,8 @@ export class EC2AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
- *       for the Lambda function.</p>
+ * <p>Amazon EC2 throttled Lambda during Lambda function initialization using
+ *       the execution role provided for the function.</p>
  */
 export class EC2ThrottledException extends __BaseException {
   readonly name: "EC2ThrottledException" = "EC2ThrottledException";
@@ -2925,7 +3011,8 @@ export class EC2ThrottledException extends __BaseException {
 }
 
 /**
- * <p>Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
+ * <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the
+ *         Lambda function.</p>
  */
 export class EC2UnexpectedException extends __BaseException {
   readonly name: "EC2UnexpectedException" = "EC2UnexpectedException";
@@ -2973,7 +3060,7 @@ export class EFSIOException extends __BaseException {
 }
 
 /**
- * <p>The function couldn't make a network connection to the configured file system.</p>
+ * <p>The Lambda function couldn't make a network connection to the configured file system.</p>
  */
 export class EFSMountConnectivityException extends __BaseException {
   readonly name: "EFSMountConnectivityException" = "EFSMountConnectivityException";
@@ -2996,7 +3083,8 @@ export class EFSMountConnectivityException extends __BaseException {
 }
 
 /**
- * <p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>
+ * <p>The Lambda function couldn't mount the configured file system due to a permission or configuration
+ *       issue.</p>
  */
 export class EFSMountFailureException extends __BaseException {
   readonly name: "EFSMountFailureException" = "EFSMountFailureException";
@@ -3019,8 +3107,8 @@ export class EFSMountFailureException extends __BaseException {
 }
 
 /**
- * <p>The function was able to make a network connection to the configured file system, but the mount operation
- *       timed out.</p>
+ * <p>The Lambda function made a network connection to the configured file system, but the mount
+ *       operation timed out.</p>
  */
 export class EFSMountTimeoutException extends __BaseException {
   readonly name: "EFSMountTimeoutException" = "EFSMountTimeoutException";
@@ -3043,8 +3131,9 @@ export class EFSMountTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
- *       function configuration, because the limit for network interfaces has been reached.</p>
+ * <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more
+ *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+ *         quotas</a>.</p>
  */
 export class ENILimitReachedException extends __BaseException {
   readonly name: "ENILimitReachedException" = "ENILimitReachedException";
@@ -3115,7 +3204,7 @@ export class InvalidRuntimeException extends __BaseException {
 }
 
 /**
- * <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
+ * <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSecurityGroupIDException extends __BaseException {
   readonly name: "InvalidSecurityGroupIDException" = "InvalidSecurityGroupIDException";
@@ -3138,7 +3227,7 @@ export class InvalidSecurityGroupIDException extends __BaseException {
 }
 
 /**
- * <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
+ * <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSubnetIDException extends __BaseException {
   readonly name: "InvalidSubnetIDException" = "InvalidSubnetIDException";
@@ -3203,15 +3292,15 @@ export interface InvocationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -3224,18 +3313,18 @@ export interface InvocationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RequestResponse</code> (default) - Invoke the function synchronously. Keep the connection open until
+   *                   <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until
    *           the function returns a response or times out. The API response includes the function response and additional
    *           data.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Event</code> - Invoke the function asynchronously. Send events that fail multiple times to the
-   *           function's dead-letter queue (if it's configured). The API response only includes a status code.</p>
+   *                   <code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the
+   *           function's dead-letter queue (if one is configured). The API response only includes a status code.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DryRun</code> - Validate parameter values and verify that the user or role has permission to invoke
+   *                   <code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke
    *           the function.</p>
    *             </li>
    *          </ul>
@@ -3248,16 +3337,15 @@ export interface InvocationRequest {
   LogType?: LogType | string;
 
   /**
-   * <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
    *       object.</p>
    */
   ClientContext?: string;
 
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
-   *          <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
-   *       You can also specify a file path. For example, <code>--payload file://payload.json</code>.
-   *     </p>
+   *          <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also
+   *       specify a file path. For example, <code>--payload file://payload.json</code>.</p>
    */
   Payload?: Uint8Array;
 
@@ -3282,7 +3370,7 @@ export interface InvocationResponse {
   FunctionError?: string;
 
   /**
-   * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
+   * <p>The last 4 KB of the execution log, which is base64-encoded.</p>
    */
   LogResult?: string;
 
@@ -3299,8 +3387,8 @@ export interface InvocationResponse {
 }
 
 /**
- * <p>Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda
- *       function's KMS permissions.</p>
+ * <p>Lambda couldn't decrypt the environment variables because KMS access was denied.
+ *       Check the Lambda function's KMS permissions.</p>
  */
 export class KMSAccessDeniedException extends __BaseException {
   readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
@@ -3323,8 +3411,8 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
- *       function's KMS key settings.</p>
+ * <p>Lambda couldn't decrypt the environment variables because the KMS key used is
+ *       disabled. Check the Lambda function's KMS key settings.</p>
  */
 export class KMSDisabledException extends __BaseException {
   readonly name: "KMSDisabledException" = "KMSDisabledException";
@@ -3347,8 +3435,7 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
- * <p>Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for
- *       Decrypt. Check the function's KMS key settings.</p>
+ * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
  */
 export class KMSInvalidStateException extends __BaseException {
   readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
@@ -3371,8 +3458,8 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
- *       KMS key settings. </p>
+ * <p>Lambda couldn't decrypt the environment variables because the KMS key was not
+ *       found. Check the function's KMS key settings.</p>
  */
 export class KMSNotFoundException extends __BaseException {
   readonly name: "KMSNotFoundException" = "KMSNotFoundException";
@@ -3395,8 +3482,8 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
- *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
+ * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+ *       quotas</a>.</p>
  */
 export class RequestTooLargeException extends __BaseException {
   readonly name: "RequestTooLargeException" = "RequestTooLargeException";
@@ -3443,8 +3530,77 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
- *       has no available IP addresses.</p>
+ * <p>The runtime restore hook encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ */
+export class SnapStartException extends __BaseException {
+  readonly name: "SnapStartException" = "SnapStartException";
+  readonly $fault: "client" = "client";
+  Type?: string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapStartException, __BaseException>) {
+    super({
+      name: "SnapStartException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapStartException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+ */
+export class SnapStartNotReadyException extends __BaseException {
+  readonly name: "SnapStartNotReadyException" = "SnapStartNotReadyException";
+  readonly $fault: "client" = "client";
+  Type?: string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapStartNotReadyException, __BaseException>) {
+    super({
+      name: "SnapStartNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapStartNotReadyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The runtime restore hook failed to complete within the timeout limit (2 seconds).</p>
+ */
+export class SnapStartTimeoutException extends __BaseException {
+  readonly name: "SnapStartTimeoutException" = "SnapStartTimeoutException";
+  readonly $fault: "client" = "client";
+  Type?: string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapStartTimeoutException, __BaseException>) {
+    super({
+      name: "SnapStartTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapStartTimeoutException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't set up VPC access for the Lambda function because one or more
+ *       configured subnets has no available IP addresses.</p>
  */
 export class SubnetIPAddressLimitReachedException extends __BaseException {
   readonly name: "SubnetIPAddressLimitReachedException" = "SubnetIPAddressLimitReachedException";
@@ -3496,15 +3652,15 @@ export interface InvokeAsyncRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -3521,7 +3677,7 @@ export interface InvokeAsyncRequest {
 /**
  * @deprecated
  *
- * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
+ * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
  */
 export interface InvokeAsyncResponse {
   /**
@@ -3626,6 +3782,10 @@ export interface ListEventSourceMappingsRequest {
    *             <li>
    *                <p>
    *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -3737,9 +3897,10 @@ export enum FunctionVersion {
 
 export interface ListFunctionsRequest {
   /**
-   * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters
-   *       the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
-   *       Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+   * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example,
+   *         <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a
+   *       master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to
+   *         <code>ALL</code>.</p>
    */
   MasterRegion?: string;
 
@@ -3813,15 +3974,15 @@ export interface ListFunctionUrlConfigsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -3873,8 +4034,8 @@ export interface FunctionUrlConfig {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
 }
@@ -4038,15 +4199,15 @@ export interface ListProvisionedConcurrencyConfigsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -4085,7 +4246,7 @@ export interface ProvisionedConcurrencyConfigListItem {
   AvailableProvisionedConcurrentExecutions?: number;
 
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
+   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
    */
   AllocatedProvisionedConcurrentExecutions?: number;
 
@@ -4419,15 +4580,15 @@ export interface PutFunctionConcurrencyRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -4517,15 +4678,15 @@ export interface PutProvisionedConcurrencyConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -4556,7 +4717,7 @@ export interface PutProvisionedConcurrencyConfigResponse {
   AvailableProvisionedConcurrentExecutions?: number;
 
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
+   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
    */
   AllocatedProvisionedConcurrentExecutions?: number;
 
@@ -4608,15 +4769,15 @@ export interface RemovePermissionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *                   <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
@@ -4635,7 +4796,7 @@ export interface RemovePermissionRequest {
   Qualifier?: string;
 
   /**
-   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   * <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
@@ -4820,15 +4981,18 @@ export interface UpdateEventSourceMappingRequest {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   * <p>An object that defines the filter criteria that
    *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
    */
   FilterCriteria?: FilterCriteria;
 
   /**
-   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
-   *          <p>Default: 0</p>
-   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+   *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
+   *   To restore the default batching window, you must create a new event source mapping.</p>
+   *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -4882,15 +5046,15 @@ export interface UpdateFunctionCodeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -4899,7 +5063,7 @@ export interface UpdateFunctionCodeRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients
    * handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
    */
   ZipFile?: Uint8Array;
@@ -4921,8 +5085,8 @@ export interface UpdateFunctionCodeRequest {
   S3ObjectVersion?: string;
 
   /**
-   * <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined
-   *     with a .zip file archive.</p>
+   * <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip
+   *       file archive.</p>
    */
   ImageUri?: string;
 
@@ -4939,7 +5103,7 @@ export interface UpdateFunctionCodeRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   * <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       function that has changed since you last read it.</p>
    */
   RevisionId?: string;
@@ -4960,15 +5124,15 @@ export interface UpdateFunctionConfigurationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -4982,10 +5146,10 @@ export interface UpdateFunctionConfigurationRequest {
   Role?: string;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function.
+   * <p>The name of the method within your code that Lambda calls to run your function.
    * Handler is required if the deployment package is a .zip file archive. The format includes the
    *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
-   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
    */
   Handler?: string;
 
@@ -4996,20 +5160,20 @@ export interface UpdateFunctionConfigurationRequest {
 
   /**
    * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   *       maximum allowed value is 900 seconds. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+   * <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime.
    *       Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
 
   /**
    * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
-   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   *       When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more
+   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
    */
   VpcConfig?: VpcConfig;
 
@@ -5025,13 +5189,13 @@ export interface UpdateFunctionConfigurationRequest {
   Runtime?: Runtime | string;
 
   /**
-   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
-   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+   * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
+   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
    *       variables. If it's not provided, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
@@ -5043,7 +5207,7 @@ export interface UpdateFunctionConfigurationRequest {
   TracingConfig?: TracingConfig;
 
   /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   * <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       function that has changed since you last read it.</p>
    */
   RevisionId?: string;
@@ -5067,9 +5231,15 @@ export interface UpdateFunctionConfigurationRequest {
   ImageConfig?: ImageConfig;
 
   /**
-   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+   *       number between 512 and 10,240 MB.</p>
    */
   EphemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+   */
+  SnapStart?: SnapStart;
 }
 
 export interface UpdateFunctionEventInvokeConfigRequest {
@@ -5148,15 +5318,15 @@ export interface UpdateFunctionUrlConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
@@ -5171,8 +5341,8 @@ export interface UpdateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType?: FunctionUrlAuthType | string;
 
@@ -5196,8 +5366,8 @@ export interface UpdateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
-   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
 
@@ -5442,6 +5612,13 @@ export const ImageConfigFilterSensitiveLog = (obj: ImageConfig): any => ({
 /**
  * @internal
  */
+export const SnapStartFilterSensitiveLog = (obj: SnapStart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TracingConfigFilterSensitiveLog = (obj: TracingConfig): any => ({
   ...obj,
 });
@@ -5499,6 +5676,13 @@ export const ImageConfigResponseFilterSensitiveLog = (obj: ImageConfigResponse):
  * @internal
  */
 export const LayerFilterSensitiveLog = (obj: Layer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapStartResponseFilterSensitiveLog = (obj: SnapStartResponse): any => ({
   ...obj,
 });
 

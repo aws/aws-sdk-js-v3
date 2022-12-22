@@ -30,11 +30,11 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
 
 /**
  * <p>Deletes an Fargate profile.</p>
- *         <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
+ *          <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
  *             another Fargate profile, then they are scheduled on Fargate with that profile. If they no longer match any Fargate profiles, then
  *             they are not scheduled on Fargate and they may remain in a pending
  *             state.</p>
- *         <p>Only one Fargate profile in a cluster can be in the
+ *          <p>Only one Fargate profile in a cluster can be in the
  *                 <code>DELETING</code> status at a time. You must wait for a Fargate
  *             profile to finish deleting before you can delete any other profiles in that
  *             cluster.</p>

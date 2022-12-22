@@ -269,7 +269,7 @@
           "name": "route53"
         },
         "aws.protocols#restXml": {},
-        "smithy.api#documentation": "<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web\n\t\t\tservice.</p>",
+        "smithy.api#documentation": "<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web\n\t\t\tservice.</p>\n\t\t       <p>You can use Route 53 to:</p>\n\t\t       <ul>\n            <li>\n               <p>Register domain names.</p>\n\t\t\t\t           <p>For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-domain-registration.html\">How domain registration works</a>.</p>\n            </li>\n            <li>\n               <p>Route internet traffic to the resources for your domain</p>\n\t\t\t\t           <p>For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html\">How internet traffic is routed to your website or web application</a>.</p>\n            </li>\n            <li>\n               <p>Check the health of your resources.</p>\n\t\t\t\t           <p>For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html\">How Route 53 checks the health of your resources</a>.</p>\n            </li>\n         </ul>",
         "smithy.api#title": "Amazon Route 53",
         "smithy.api#xmlNamespace": {
           "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
@@ -279,7 +279,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -476,8 +476,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -536,8 +536,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -596,8 +596,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -622,8 +622,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-east-1"
+                              "signingRegion": "us-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -719,8 +719,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "cn-northwest-1"
+                                      "signingRegion": "cn-northwest-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -779,8 +779,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "cn-northwest-1"
+                                      "signingRegion": "cn-northwest-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -839,8 +839,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "cn-northwest-1"
+                                      "signingRegion": "cn-northwest-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -865,8 +865,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "cn-northwest-1"
+                              "signingRegion": "cn-northwest-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -962,8 +962,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1022,8 +1022,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1082,8 +1082,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1108,8 +1108,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-gov-west-1"
+                              "signingRegion": "us-gov-west-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1181,8 +1181,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-iso-east-1"
+                                      "signingRegion": "us-iso-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1207,8 +1207,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-iso-east-1"
+                              "signingRegion": "us-iso-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1280,8 +1280,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-isob-east-1"
+                                      "signingRegion": "us-isob-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1306,8 +1306,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-isob-east-1"
+                              "signingRegion": "us-isob-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1449,8 +1449,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1476,8 +1476,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "route53",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "route53"
                                     }
                                   ]
                                 },
@@ -1579,8 +1579,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-east-1"
+                              "signingRegion": "us-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1606,8 +1606,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "cn-northwest-1"
+                              "signingRegion": "cn-northwest-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1633,8 +1633,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-gov-west-1"
+                              "signingRegion": "us-gov-west-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1660,8 +1660,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-iso-east-1"
+                              "signingRegion": "us-iso-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1687,8 +1687,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53",
-                              "signingRegion": "us-isob-east-1"
+                              "signingRegion": "us-isob-east-1",
+                              "signingName": "route53"
                             }
                           ]
                         },
@@ -1730,8 +1730,8 @@
                 }
               },
               "params": {
-                "Region": "aws-cn-global",
                 "UseDualStack": false,
+                "Region": "aws-cn-global",
                 "UseFIPS": false
               }
             },
@@ -1752,8 +1752,8 @@
                 }
               },
               "params": {
-                "Region": "aws-global",
                 "UseDualStack": false,
+                "Region": "aws-global",
                 "UseFIPS": false
               }
             },
@@ -1774,8 +1774,8 @@
                 }
               },
               "params": {
-                "Region": "aws-iso-global",
                 "UseDualStack": false,
+                "Region": "aws-iso-global",
                 "UseFIPS": false
               }
             },
@@ -1796,8 +1796,8 @@
                 }
               },
               "params": {
-                "Region": "aws-iso-b-global",
                 "UseDualStack": false,
+                "Region": "aws-iso-b-global",
                 "UseFIPS": false
               }
             },
@@ -1818,8 +1818,8 @@
                 }
               },
               "params": {
-                "Region": "aws-us-gov-global",
                 "UseDualStack": false,
+                "Region": "aws-us-gov-global",
                 "UseFIPS": false
               }
             },
@@ -1831,8 +1831,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -1843,8 +1843,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
@@ -1855,8 +1855,8 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -1890,30 +1890,38 @@
       }
     },
     "com.amazonaws.route53#AccountLimitType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MAX_HEALTH_CHECKS_BY_OWNER",
-            "name": "MAX_HEALTH_CHECKS_BY_OWNER"
-          },
-          {
-            "value": "MAX_HOSTED_ZONES_BY_OWNER",
-            "name": "MAX_HOSTED_ZONES_BY_OWNER"
-          },
-          {
-            "value": "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
-            "name": "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
-          },
-          {
-            "value": "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
-            "name": "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
-          },
-          {
-            "value": "MAX_TRAFFIC_POLICIES_BY_OWNER",
-            "name": "MAX_TRAFFIC_POLICIES_BY_OWNER"
+      "type": "enum",
+      "members": {
+        "MAX_HEALTH_CHECKS_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_HEALTH_CHECKS_BY_OWNER"
           }
-        ]
+        },
+        "MAX_HOSTED_ZONES_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_HOSTED_ZONES_BY_OWNER"
+          }
+        },
+        "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+          }
+        },
+        "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
+          }
+        },
+        "MAX_TRAFFIC_POLICIES_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_TRAFFIC_POLICIES_BY_OWNER"
+          }
+        }
       }
     },
     "com.amazonaws.route53#ActivateKeySigningKey": {
@@ -2165,22 +2173,26 @@
       }
     },
     "com.amazonaws.route53#ChangeAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE",
-            "name": "CREATE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
-          },
-          {
-            "value": "UPSERT",
-            "name": "UPSERT"
+      "type": "enum",
+      "members": {
+        "CREATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE"
           }
-        ]
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        },
+        "UPSERT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPSERT"
+          }
+        }
       }
     },
     "com.amazonaws.route53#ChangeBatch": {
@@ -2233,7 +2245,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative\n\t\t\tIP information mapping blocks to one or multiple locations.</p>\n\t\t       <p>A change request can update multiple locations in a collection at a time, which is\n\t\t\thelpful if you want to move one or more CIDR blocks from one location to another in one\n\t\t\ttransaction, without downtime. </p>\n\t\t       <p>\n            <b>Limits</b>\n         </p>\n\t\t       <p>The max number of CIDR blocks included in the request is\n\t\t\t1000.\n\t\t\tAs a result, big updates require multiple API calls.</p>\n\t\t       <p>\n            <b> PUT and DELETE_IF_EXISTS</b>\n         </p>\n\t\t       <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>PUT</code>: Create a CIDR block within the specified collection.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the\n\t\t\t\t\tcollection.</p>\n\t\t\t         </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative\n\t\t\tIP information mapping blocks to one or multiple locations.</p>\n\t\t       <p>A change request can update multiple locations in a collection at a time, which is\n\t\t\thelpful if you want to move one or more CIDR blocks from one location to another in one\n\t\t\ttransaction, without downtime. </p>\n\t\t       <p>\n            <b>Limits</b>\n         </p>\n\t\t       <p>The max number of CIDR blocks included in the request is 1000. As a result, big updates\n\t\t\trequire multiple API calls.</p>\n\t\t       <p>\n            <b> PUT and DELETE_IF_EXISTS</b>\n         </p>\n\t\t       <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>PUT</code>: Create a CIDR block within the specified collection.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the\n\t\t\t\t\tcollection.</p>\n\t\t\t         </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2013-04-01/cidrcollection/{Id}",
@@ -2396,18 +2408,20 @@
       }
     },
     "com.amazonaws.route53#ChangeStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "INSYNC",
-            "name": "INSYNC"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "INSYNC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSYNC"
+          }
+        }
       }
     },
     "com.amazonaws.route53#ChangeTagsForResource": {
@@ -2645,18 +2659,20 @@
       }
     },
     "com.amazonaws.route53#CidrCollectionChangeAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PUT",
-            "name": "PUT"
-          },
-          {
-            "value": "DELETE_IF_EXISTS",
-            "name": "DELETE_IF_EXISTS"
+      "type": "enum",
+      "members": {
+        "PUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUT"
           }
-        ]
+        },
+        "DELETE_IF_EXISTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_IF_EXISTS"
+          }
+        }
       }
     },
     "com.amazonaws.route53#CidrCollectionChanges": {
@@ -2831,130 +2847,208 @@
       "type": "string"
     },
     "com.amazonaws.route53#CloudWatchRegion": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "us-east-1",
-            "name": "us_east_1"
-          },
-          {
-            "value": "us-east-2",
-            "name": "us_east_2"
-          },
-          {
-            "value": "us-west-1",
-            "name": "us_west_1"
-          },
-          {
-            "value": "us-west-2",
-            "name": "us_west_2"
-          },
-          {
-            "value": "ca-central-1",
-            "name": "ca_central_1"
-          },
-          {
-            "value": "eu-central-1",
-            "name": "eu_central_1"
-          },
-          {
-            "value": "eu-west-1",
-            "name": "eu_west_1"
-          },
-          {
-            "value": "eu-west-2",
-            "name": "eu_west_2"
-          },
-          {
-            "value": "eu-west-3",
-            "name": "eu_west_3"
-          },
-          {
-            "value": "ap-east-1",
-            "name": "ap_east_1"
-          },
-          {
-            "value": "me-south-1",
-            "name": "me_south_1"
-          },
-          {
-            "value": "me-central-1",
-            "name": "me_central_1"
-          },
-          {
-            "value": "ap-south-1",
-            "name": "ap_south_1"
-          },
-          {
-            "value": "ap-southeast-1",
-            "name": "ap_southeast_1"
-          },
-          {
-            "value": "ap-southeast-2",
-            "name": "ap_southeast_2"
-          },
-          {
-            "value": "ap-southeast-3",
-            "name": "ap_southeast_3"
-          },
-          {
-            "value": "ap-northeast-1",
-            "name": "ap_northeast_1"
-          },
-          {
-            "value": "ap-northeast-2",
-            "name": "ap_northeast_2"
-          },
-          {
-            "value": "ap-northeast-3",
-            "name": "ap_northeast_3"
-          },
-          {
-            "value": "eu-north-1",
-            "name": "eu_north_1"
-          },
-          {
-            "value": "sa-east-1",
-            "name": "sa_east_1"
-          },
-          {
-            "value": "cn-northwest-1",
-            "name": "cn_northwest_1"
-          },
-          {
-            "value": "cn-north-1",
-            "name": "cn_north_1"
-          },
-          {
-            "value": "af-south-1",
-            "name": "af_south_1"
-          },
-          {
-            "value": "eu-south-1",
-            "name": "eu_south_1"
-          },
-          {
-            "value": "us-gov-west-1",
-            "name": "us_gov_west_1"
-          },
-          {
-            "value": "us-gov-east-1",
-            "name": "us_gov_east_1"
-          },
-          {
-            "value": "us-iso-east-1",
-            "name": "us_iso_east_1"
-          },
-          {
-            "value": "us-iso-west-1",
-            "name": "us_iso_west_1"
-          },
-          {
-            "value": "us-isob-east-1",
-            "name": "us_isob_east_1"
+      "type": "enum",
+      "members": {
+        "us_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-1"
           }
-        ],
+        },
+        "us_east_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-2"
+          }
+        },
+        "us_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-1"
+          }
+        },
+        "us_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-2"
+          }
+        },
+        "ca_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ca-central-1"
+          }
+        },
+        "eu_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-1"
+          }
+        },
+        "eu_central_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-2"
+          }
+        },
+        "eu_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-1"
+          }
+        },
+        "eu_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-2"
+          }
+        },
+        "eu_west_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-3"
+          }
+        },
+        "ap_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-east-1"
+          }
+        },
+        "me_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-south-1"
+          }
+        },
+        "me_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-central-1"
+          }
+        },
+        "ap_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-1"
+          }
+        },
+        "ap_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-2"
+          }
+        },
+        "ap_southeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-1"
+          }
+        },
+        "ap_southeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-2"
+          }
+        },
+        "ap_southeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-3"
+          }
+        },
+        "ap_northeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-1"
+          }
+        },
+        "ap_northeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-2"
+          }
+        },
+        "ap_northeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-3"
+          }
+        },
+        "eu_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-north-1"
+          }
+        },
+        "sa_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sa-east-1"
+          }
+        },
+        "cn_northwest_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cn-northwest-1"
+          }
+        },
+        "cn_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cn-north-1"
+          }
+        },
+        "af_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "af-south-1"
+          }
+        },
+        "eu_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-1"
+          }
+        },
+        "eu_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-2"
+          }
+        },
+        "us_gov_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-gov-west-1"
+          }
+        },
+        "us_gov_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-gov-east-1"
+          }
+        },
+        "us_iso_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-iso-east-1"
+          }
+        },
+        "us_iso_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-iso-west-1"
+          }
+        },
+        "us_isob_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-isob-east-1"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 64
@@ -3018,26 +3112,32 @@
       }
     },
     "com.amazonaws.route53#ComparisonOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "GreaterThanOrEqualToThreshold",
-            "name": "GreaterThanOrEqualToThreshold"
-          },
-          {
-            "value": "GreaterThanThreshold",
-            "name": "GreaterThanThreshold"
-          },
-          {
-            "value": "LessThanThreshold",
-            "name": "LessThanThreshold"
-          },
-          {
-            "value": "LessThanOrEqualToThreshold",
-            "name": "LessThanOrEqualToThreshold"
+      "type": "enum",
+      "members": {
+        "GreaterThanOrEqualToThreshold": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GreaterThanOrEqualToThreshold"
           }
-        ]
+        },
+        "GreaterThanThreshold": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GreaterThanThreshold"
+          }
+        },
+        "LessThanThreshold": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LessThanThreshold"
+          }
+        },
+        "LessThanOrEqualToThreshold": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LessThanOrEqualToThreshold"
+          }
+        }
       }
     },
     "com.amazonaws.route53#ConcurrentModification": {
@@ -3107,7 +3207,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a CIDR collection in the\n\t\t\tcurrent\n\t\t\t\tAmazon Web Services account.</p>",
+        "smithy.api#documentation": "<p>Creates a CIDR collection in the current Amazon Web Services account.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2013-04-01/cidrcollection",
@@ -6456,42 +6556,58 @@
       }
     },
     "com.amazonaws.route53#HealthCheckRegion": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "us-east-1",
-            "name": "us_east_1"
-          },
-          {
-            "value": "us-west-1",
-            "name": "us_west_1"
-          },
-          {
-            "value": "us-west-2",
-            "name": "us_west_2"
-          },
-          {
-            "value": "eu-west-1",
-            "name": "eu_west_1"
-          },
-          {
-            "value": "ap-southeast-1",
-            "name": "ap_southeast_1"
-          },
-          {
-            "value": "ap-southeast-2",
-            "name": "ap_southeast_2"
-          },
-          {
-            "value": "ap-northeast-1",
-            "name": "ap_northeast_1"
-          },
-          {
-            "value": "sa-east-1",
-            "name": "sa_east_1"
+      "type": "enum",
+      "members": {
+        "us_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-1"
           }
-        ],
+        },
+        "us_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-1"
+          }
+        },
+        "us_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-2"
+          }
+        },
+        "eu_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-1"
+          }
+        },
+        "ap_southeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-1"
+          }
+        },
+        "ap_southeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-2"
+          }
+        },
+        "ap_northeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-1"
+          }
+        },
+        "sa_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sa-east-1"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 64
@@ -6514,42 +6630,56 @@
       }
     },
     "com.amazonaws.route53#HealthCheckType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "HTTP",
-            "name": "HTTP"
-          },
-          {
-            "value": "HTTPS",
-            "name": "HTTPS"
-          },
-          {
-            "value": "HTTP_STR_MATCH",
-            "name": "HTTP_STR_MATCH"
-          },
-          {
-            "value": "HTTPS_STR_MATCH",
-            "name": "HTTPS_STR_MATCH"
-          },
-          {
-            "value": "TCP",
-            "name": "TCP"
-          },
-          {
-            "value": "CALCULATED",
-            "name": "CALCULATED"
-          },
-          {
-            "value": "CLOUDWATCH_METRIC",
-            "name": "CLOUDWATCH_METRIC"
-          },
-          {
-            "value": "RECOVERY_CONTROL",
-            "name": "RECOVERY_CONTROL"
+      "type": "enum",
+      "members": {
+        "HTTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP"
           }
-        ]
+        },
+        "HTTPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTPS"
+          }
+        },
+        "HTTP_STR_MATCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP_STR_MATCH"
+          }
+        },
+        "HTTPS_STR_MATCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTPS_STR_MATCH"
+          }
+        },
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
+          }
+        },
+        "CALCULATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CALCULATED"
+          }
+        },
+        "CLOUDWATCH_METRIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOUDWATCH_METRIC"
+          }
+        },
+        "RECOVERY_CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECOVERY_CONTROL"
+          }
+        }
       }
     },
     "com.amazonaws.route53#HealthCheckVersion": {
@@ -6702,18 +6832,20 @@
       }
     },
     "com.amazonaws.route53#HostedZoneLimitType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MAX_RRSETS_BY_ZONE",
-            "name": "MAX_RRSETS_BY_ZONE"
-          },
-          {
-            "value": "MAX_VPCS_ASSOCIATED_BY_ZONE",
-            "name": "MAX_VPCS_ASSOCIATED_BY_ZONE"
+      "type": "enum",
+      "members": {
+        "MAX_RRSETS_BY_ZONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_RRSETS_BY_ZONE"
           }
-        ]
+        },
+        "MAX_VPCS_ASSOCIATED_BY_ZONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_VPCS_ASSOCIATED_BY_ZONE"
+          }
+        }
       }
     },
     "com.amazonaws.route53#HostedZoneNotEmpty": {
@@ -6887,28 +7019,32 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Amazon Route 53 doesn't have the permissions required to create log streams and send\n\t\t\tquery logs to log streams. Possible causes include the following:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>There is no resource policy that specifies the log group ARN in the value for\n\t\t\t\t\t\t<code>Resource</code>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The resource policy that includes the log group ARN in the value for\n\t\t\t\t\t\t<code>Resource</code> doesn't have the necessary permissions.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The resource policy hasn't finished propagating yet.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The Key management service (KMS) key you specified doesn’t exist or it can’t\n\t\t\t\t\tbe used with the log group associated with query log. Update or provide a\n\t\t\t\t\tresource policy to grant permissions for the KMS key.</p>\n\t\t\t         </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Amazon Route 53 doesn't have the permissions required to create log streams and send\n\t\t\tquery logs to log streams. Possible causes include the following:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>There is no resource policy that specifies the log group ARN in the value for\n\t\t\t\t\t\t<code>Resource</code>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The resource policy that includes the log group ARN in the value for\n\t\t\t\t\t\t<code>Resource</code> doesn't have the necessary permissions.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The resource policy hasn't finished propagating yet.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>The Key management service (KMS) key you specified doesn’t exist or it can’t\n\t\t\t\t\tbe used with the log group associated with query log. Update or provide a\n\t\t\t\t\tresource policy to grant permissions for the KMS key.</p>\n\t\t\t         </li>\n            <li>\n               <p>The Key management service (KMS) key you specified is marked as \n\t\t\t\tdisabled for the log group associated with query log. Update or provide \n\t\t\t\ta resource policy to grant permissions for the KMS key.</p>\n\t\t\t         </li>\n         </ul>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53#InsufficientDataHealthStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Healthy",
-            "name": "Healthy"
-          },
-          {
-            "value": "Unhealthy",
-            "name": "Unhealthy"
-          },
-          {
-            "value": "LastKnownStatus",
-            "name": "LastKnownStatus"
+      "type": "enum",
+      "members": {
+        "Healthy": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Healthy"
           }
-        ]
+        },
+        "Unhealthy": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Unhealthy"
+          }
+        },
+        "LastKnownStatus": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastKnownStatus"
+          }
+        }
       }
     },
     "com.amazonaws.route53#InvalidArgument": {
@@ -7517,7 +7653,7 @@
         "NextToken": {
           "target": "com.amazonaws.route53#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>An opaque\n\t\t\tpagination token to indicate where the service is to begin enumerating results.</p>\n\t\t       <p>If no value is provided, the listing of results starts from the beginning.</p>"
+            "smithy.api#documentation": "<p>An opaque pagination token to indicate where the service is to begin enumerating\n\t\t\tresults.</p>\n\t\t       <p>If no value is provided, the listing of results starts from the beginning.</p>"
           }
         },
         "CidrLocations": {
@@ -9456,62 +9592,86 @@
       }
     },
     "com.amazonaws.route53#RRType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SOA",
-            "name": "SOA"
-          },
-          {
-            "value": "A",
-            "name": "A"
-          },
-          {
-            "value": "TXT",
-            "name": "TXT"
-          },
-          {
-            "value": "NS",
-            "name": "NS"
-          },
-          {
-            "value": "CNAME",
-            "name": "CNAME"
-          },
-          {
-            "value": "MX",
-            "name": "MX"
-          },
-          {
-            "value": "NAPTR",
-            "name": "NAPTR"
-          },
-          {
-            "value": "PTR",
-            "name": "PTR"
-          },
-          {
-            "value": "SRV",
-            "name": "SRV"
-          },
-          {
-            "value": "SPF",
-            "name": "SPF"
-          },
-          {
-            "value": "AAAA",
-            "name": "AAAA"
-          },
-          {
-            "value": "CAA",
-            "name": "CAA"
-          },
-          {
-            "value": "DS",
-            "name": "DS"
+      "type": "enum",
+      "members": {
+        "SOA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOA"
           }
-        ]
+        },
+        "A": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "A"
+          }
+        },
+        "TXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TXT"
+          }
+        },
+        "NS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NS"
+          }
+        },
+        "CNAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CNAME"
+          }
+        },
+        "MX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MX"
+          }
+        },
+        "NAPTR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NAPTR"
+          }
+        },
+        "PTR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PTR"
+          }
+        },
+        "SRV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SRV"
+          }
+        },
+        "SPF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPF"
+          }
+        },
+        "AAAA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AAAA"
+          }
+        },
+        "CAA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CAA"
+          }
+        },
+        "DS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DS"
+          }
+        }
       }
     },
     "com.amazonaws.route53#RecordData": {
@@ -9543,26 +9703,34 @@
       }
     },
     "com.amazonaws.route53#ResettableElementName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FullyQualifiedDomainName",
-            "name": "FullyQualifiedDomainName"
-          },
-          {
-            "value": "Regions",
-            "name": "Regions"
-          },
-          {
-            "value": "ResourcePath",
-            "name": "ResourcePath"
-          },
-          {
-            "value": "ChildHealthChecks",
-            "name": "ChildHealthChecks"
+      "type": "enum",
+      "members": {
+        "FullyQualifiedDomainName": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FullyQualifiedDomainName"
           }
-        ],
+        },
+        "Regions": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Regions"
+          }
+        },
+        "ResourcePath": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourcePath"
+          }
+        },
+        "ChildHealthChecks": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildHealthChecks"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 64
@@ -9658,7 +9826,7 @@
         "Region": {
           "target": "com.amazonaws.route53#ResourceRecordSetRegion",
           "traits": {
-            "smithy.api#documentation": "<p>\n            <i>Latency-based resource record sets only:</i> The Amazon EC2 Region\n\t\t\twhere you created the resource that this resource record set refers to. The resource\n\t\t\ttypically is an Amazon Web Services resource, such as an EC2 instance or an ELB load\n\t\t\tbalancer, and is referred to by an IP address or a DNS domain name, depending on the\n\t\t\trecord type.</p>\n\t\t       <note>\n\t\t\t         <p>Although creating latency and latency alias resource record sets in a private\n\t\t\t\thosted zone is allowed, it's not supported.</p>\n\t\t       </note>\n\t\t       <p>When Amazon Route 53 receives a DNS query for a domain name and type for which you\n\t\t\thave created latency resource record sets, Route 53 selects the latency resource record\n\t\t\tset that has the lowest latency between the end user and the associated Amazon EC2\n\t\t\tRegion. Route 53 then returns the value that is associated with the selected resource\n\t\t\trecord set.</p>\n\t\t       <p>Note the following:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>You can only specify one <code>ResourceRecord</code> per latency resource\n\t\t\t\t\trecord set.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You can only create one latency resource record set for each Amazon EC2\n\t\t\t\t\tRegion.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You aren't required to create latency resource record sets for all Amazon EC2\n\t\t\t\t\tRegions. Route 53 will choose the region with the best latency from among the\n\t\t\t\t\tregions that you create latency resource record sets for.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You can't create non-latency resource record sets that have the same values\n\t\t\t\t\tfor the <code>Name</code> and <code>Type</code> elements as latency resource\n\t\t\t\t\trecord sets.</p>\n\t\t\t         </li>\n         </ul>"
+            "smithy.api#documentation": "<p>\n            <i>Latency-based resource record sets only:</i> The Amazon EC2 Region\n\t\t\twhere you created the resource that this resource record set refers to. The resource\n\t\t\ttypically is an Amazon Web Services resource, such as an EC2 instance or an ELB load\n\t\t\tbalancer, and is referred to by an IP address or a DNS domain name, depending on the\n\t\t\trecord type.</p>\n\t\n\t\t       <p>When Amazon Route 53 receives a DNS query for a domain name and type for which you\n\t\t\thave created latency resource record sets, Route 53 selects the latency resource record\n\t\t\tset that has the lowest latency between the end user and the associated Amazon EC2\n\t\t\tRegion. Route 53 then returns the value that is associated with the selected resource\n\t\t\trecord set.</p>\n\t\t       <p>Note the following:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>You can only specify one <code>ResourceRecord</code> per latency resource\n\t\t\t\t\trecord set.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You can only create one latency resource record set for each Amazon EC2\n\t\t\t\t\tRegion.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You aren't required to create latency resource record sets for all Amazon EC2\n\t\t\t\t\tRegions. Route 53 will choose the region with the best latency from among the\n\t\t\t\t\tregions that you create latency resource record sets for.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You can't create non-latency resource record sets that have the same values\n\t\t\t\t\tfor the <code>Name</code> and <code>Type</code> elements as latency resource\n\t\t\t\t\trecord sets.</p>\n\t\t\t         </li>\n         </ul>"
           }
         },
         "GeoLocation": {
@@ -9718,18 +9886,20 @@
       }
     },
     "com.amazonaws.route53#ResourceRecordSetFailover": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PRIMARY",
-            "name": "PRIMARY"
-          },
-          {
-            "value": "SECONDARY",
-            "name": "SECONDARY"
+      "type": "enum",
+      "members": {
+        "PRIMARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRIMARY"
           }
-        ]
+        },
+        "SECONDARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECONDARY"
+          }
+        }
       }
     },
     "com.amazonaws.route53#ResourceRecordSetIdentifier": {
@@ -9745,106 +9915,178 @@
       "type": "boolean"
     },
     "com.amazonaws.route53#ResourceRecordSetRegion": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "us-east-1",
-            "name": "us_east_1"
-          },
-          {
-            "value": "us-east-2",
-            "name": "us_east_2"
-          },
-          {
-            "value": "us-west-1",
-            "name": "us_west_1"
-          },
-          {
-            "value": "us-west-2",
-            "name": "us_west_2"
-          },
-          {
-            "value": "ca-central-1",
-            "name": "ca_central_1"
-          },
-          {
-            "value": "eu-west-1",
-            "name": "eu_west_1"
-          },
-          {
-            "value": "eu-west-2",
-            "name": "eu_west_2"
-          },
-          {
-            "value": "eu-west-3",
-            "name": "eu_west_3"
-          },
-          {
-            "value": "eu-central-1",
-            "name": "eu_central_1"
-          },
-          {
-            "value": "ap-southeast-1",
-            "name": "ap_southeast_1"
-          },
-          {
-            "value": "ap-southeast-2",
-            "name": "ap_southeast_2"
-          },
-          {
-            "value": "ap-southeast-3",
-            "name": "ap_southeast_3"
-          },
-          {
-            "value": "ap-northeast-1",
-            "name": "ap_northeast_1"
-          },
-          {
-            "value": "ap-northeast-2",
-            "name": "ap_northeast_2"
-          },
-          {
-            "value": "ap-northeast-3",
-            "name": "ap_northeast_3"
-          },
-          {
-            "value": "eu-north-1",
-            "name": "eu_north_1"
-          },
-          {
-            "value": "sa-east-1",
-            "name": "sa_east_1"
-          },
-          {
-            "value": "cn-north-1",
-            "name": "cn_north_1"
-          },
-          {
-            "value": "cn-northwest-1",
-            "name": "cn_northwest_1"
-          },
-          {
-            "value": "ap-east-1",
-            "name": "ap_east_1"
-          },
-          {
-            "value": "me-south-1",
-            "name": "me_south_1"
-          },
-          {
-            "value": "ap-south-1",
-            "name": "ap_south_1"
-          },
-          {
-            "value": "af-south-1",
-            "name": "af_south_1"
-          },
-          {
-            "value": "eu-south-1",
-            "name": "eu_south_1"
+      "type": "enum",
+      "members": {
+        "us_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-1"
           }
-        ],
+        },
+        "us_east_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-2"
+          }
+        },
+        "us_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-1"
+          }
+        },
+        "us_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-2"
+          }
+        },
+        "ca_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ca-central-1"
+          }
+        },
+        "eu_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-1"
+          }
+        },
+        "eu_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-2"
+          }
+        },
+        "eu_west_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-3"
+          }
+        },
+        "eu_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-1"
+          }
+        },
+        "eu_central_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-2"
+          }
+        },
+        "ap_southeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-1"
+          }
+        },
+        "ap_southeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-2"
+          }
+        },
+        "ap_southeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-3"
+          }
+        },
+        "ap_northeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-1"
+          }
+        },
+        "ap_northeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-2"
+          }
+        },
+        "ap_northeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-3"
+          }
+        },
+        "eu_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-north-1"
+          }
+        },
+        "sa_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sa-east-1"
+          }
+        },
+        "cn_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cn-north-1"
+          }
+        },
+        "cn_northwest_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cn-northwest-1"
+          }
+        },
+        "ap_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-east-1"
+          }
+        },
+        "me_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-south-1"
+          }
+        },
+        "me_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-central-1"
+          }
+        },
+        "ap_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-1"
+          }
+        },
+        "ap_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-2"
+          }
+        },
+        "af_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "af-south-1"
+          }
+        },
+        "eu_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-1"
+          }
+        },
+        "eu_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-2"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 64
@@ -9951,14 +10193,14 @@
       }
     },
     "com.amazonaws.route53#ReusableDelegationSetLimitType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
-            "name": "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
+      "type": "enum",
+      "members": {
+        "MAX_ZONES_BY_REUSABLE_DELEGATION_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.route53#RoutingControlArn": {
@@ -10044,30 +10286,38 @@
       }
     },
     "com.amazonaws.route53#Statistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Average",
-            "name": "Average"
-          },
-          {
-            "value": "Sum",
-            "name": "Sum"
-          },
-          {
-            "value": "SampleCount",
-            "name": "SampleCount"
-          },
-          {
-            "value": "Maximum",
-            "name": "Maximum"
-          },
-          {
-            "value": "Minimum",
-            "name": "Minimum"
+      "type": "enum",
+      "members": {
+        "Average": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Average"
           }
-        ]
+        },
+        "Sum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Sum"
+          }
+        },
+        "SampleCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SampleCount"
+          }
+        },
+        "Maximum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Maximum"
+          }
+        },
+        "Minimum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Minimum"
+          }
+        }
       }
     },
     "com.amazonaws.route53#Status": {
@@ -10195,18 +10445,20 @@
       }
     },
     "com.amazonaws.route53#TagResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "healthcheck",
-            "name": "healthcheck"
-          },
-          {
-            "value": "hostedzone",
-            "name": "hostedzone"
+      "type": "enum",
+      "members": {
+        "healthcheck": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "healthcheck"
           }
-        ]
+        },
+        "hostedzone": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "hostedzone"
+          }
+        }
       }
     },
     "com.amazonaws.route53#TagValue": {
@@ -11234,126 +11486,202 @@
       }
     },
     "com.amazonaws.route53#VPCRegion": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "us-east-1",
-            "name": "us_east_1"
-          },
-          {
-            "value": "us-east-2",
-            "name": "us_east_2"
-          },
-          {
-            "value": "us-west-1",
-            "name": "us_west_1"
-          },
-          {
-            "value": "us-west-2",
-            "name": "us_west_2"
-          },
-          {
-            "value": "eu-west-1",
-            "name": "eu_west_1"
-          },
-          {
-            "value": "eu-west-2",
-            "name": "eu_west_2"
-          },
-          {
-            "value": "eu-west-3",
-            "name": "eu_west_3"
-          },
-          {
-            "value": "eu-central-1",
-            "name": "eu_central_1"
-          },
-          {
-            "value": "ap-east-1",
-            "name": "ap_east_1"
-          },
-          {
-            "value": "me-south-1",
-            "name": "me_south_1"
-          },
-          {
-            "value": "us-gov-west-1",
-            "name": "us_gov_west_1"
-          },
-          {
-            "value": "us-gov-east-1",
-            "name": "us_gov_east_1"
-          },
-          {
-            "value": "us-iso-east-1",
-            "name": "us_iso_east_1"
-          },
-          {
-            "value": "us-iso-west-1",
-            "name": "us_iso_west_1"
-          },
-          {
-            "value": "us-isob-east-1",
-            "name": "us_isob_east_1"
-          },
-          {
-            "value": "me-central-1",
-            "name": "me_central_1"
-          },
-          {
-            "value": "ap-southeast-1",
-            "name": "ap_southeast_1"
-          },
-          {
-            "value": "ap-southeast-2",
-            "name": "ap_southeast_2"
-          },
-          {
-            "value": "ap-southeast-3",
-            "name": "ap_southeast_3"
-          },
-          {
-            "value": "ap-south-1",
-            "name": "ap_south_1"
-          },
-          {
-            "value": "ap-northeast-1",
-            "name": "ap_northeast_1"
-          },
-          {
-            "value": "ap-northeast-2",
-            "name": "ap_northeast_2"
-          },
-          {
-            "value": "ap-northeast-3",
-            "name": "ap_northeast_3"
-          },
-          {
-            "value": "eu-north-1",
-            "name": "eu_north_1"
-          },
-          {
-            "value": "sa-east-1",
-            "name": "sa_east_1"
-          },
-          {
-            "value": "ca-central-1",
-            "name": "ca_central_1"
-          },
-          {
-            "value": "cn-north-1",
-            "name": "cn_north_1"
-          },
-          {
-            "value": "af-south-1",
-            "name": "af_south_1"
-          },
-          {
-            "value": "eu-south-1",
-            "name": "eu_south_1"
+      "type": "enum",
+      "members": {
+        "us_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-1"
           }
-        ],
+        },
+        "us_east_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-east-2"
+          }
+        },
+        "us_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-1"
+          }
+        },
+        "us_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-west-2"
+          }
+        },
+        "eu_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-1"
+          }
+        },
+        "eu_west_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-2"
+          }
+        },
+        "eu_west_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-west-3"
+          }
+        },
+        "eu_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-1"
+          }
+        },
+        "eu_central_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-central-2"
+          }
+        },
+        "ap_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-east-1"
+          }
+        },
+        "me_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-south-1"
+          }
+        },
+        "us_gov_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-gov-west-1"
+          }
+        },
+        "us_gov_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-gov-east-1"
+          }
+        },
+        "us_iso_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-iso-east-1"
+          }
+        },
+        "us_iso_west_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-iso-west-1"
+          }
+        },
+        "us_isob_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "us-isob-east-1"
+          }
+        },
+        "me_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "me-central-1"
+          }
+        },
+        "ap_southeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-1"
+          }
+        },
+        "ap_southeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-2"
+          }
+        },
+        "ap_southeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-southeast-3"
+          }
+        },
+        "ap_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-1"
+          }
+        },
+        "ap_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-south-2"
+          }
+        },
+        "ap_northeast_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-1"
+          }
+        },
+        "ap_northeast_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-2"
+          }
+        },
+        "ap_northeast_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ap-northeast-3"
+          }
+        },
+        "eu_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-north-1"
+          }
+        },
+        "sa_east_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sa-east-1"
+          }
+        },
+        "ca_central_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ca-central-1"
+          }
+        },
+        "cn_north_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cn-north-1"
+          }
+        },
+        "af_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "af-south-1"
+          }
+        },
+        "eu_south_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-1"
+          }
+        },
+        "eu_south_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "eu-south-2"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 64

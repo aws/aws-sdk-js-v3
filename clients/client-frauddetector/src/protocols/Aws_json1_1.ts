@@ -5092,10 +5092,8 @@ const serializeAws_json1_1CsvIndexToVariableMap = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5246,10 +5244,8 @@ const serializeAws_json1_1EventVariableMap = (input: Record<string, string>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5268,10 +5264,8 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ModelEndpointDataBlob(value, context),
-    };
+    acc[key] = serializeAws_json1_1ModelEndpointDataBlob(value, context);
+    return acc;
   }, {});
 };
 
@@ -5474,10 +5468,8 @@ const serializeAws_json1_1JsonKeyToVariableMap = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5486,10 +5478,8 @@ const serializeAws_json1_1labelMapper = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ListOfStrings(value, context),
-    };
+    acc[key] = serializeAws_json1_1ListOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -6198,10 +6188,8 @@ const deserializeAws_json1_1CsvIndexToVariableMap = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6467,10 +6455,8 @@ const deserializeAws_json1_1EventAttributeMap = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6583,10 +6569,8 @@ const deserializeAws_json1_1ExternalModelPredictionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6907,10 +6891,8 @@ const deserializeAws_json1_1JsonKeyToVariableMap = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6947,10 +6929,8 @@ const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ListOfStrings(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ListOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7205,10 +7185,8 @@ const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7292,10 +7270,8 @@ const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseFloat32(value) as any,
-    };
+    acc[key] = __limitedParseFloat32(value) as any;
+    return acc;
   }, {});
 };
 

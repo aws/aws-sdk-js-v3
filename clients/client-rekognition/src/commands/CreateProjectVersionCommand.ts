@@ -33,13 +33,9 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *          Models are managed as part of an Amazon Rekognition Custom Labels project.
  *          The response from <code>CreateProjectVersion</code>
  *          is an Amazon Resource Name (ARN) for the version of the model. </p>
- *
- *
  *          <p>Training uses the training and test datasets associated with the project.
  *          For more information, see Creating training and test dataset in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *       </p>
- *
- *
  *          <note>
  *             <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the
  *          <code>TrainingData</code> and <code>TestingData</code> fields.
@@ -51,21 +47,15 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *             we recommend that you use the manifest
  *             files to create training and test datasets for the project.</p>
  *          </note>
- *
- *
  *          <p>Training takes a while to complete. You can get the current status by calling
  *          <a>DescribeProjectVersions</a>. Training completed successfully if
  *          the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.</p>
- *
  *          <p>If training
  *          fails, see Debugging a failed model training in the <i>Amazon Rekognition Custom Labels</i> developer guide. </p>
- *
- *
  *          <p>Once training has successfully completed, call <a>DescribeProjectVersions</a> to
  *          get the training results and evaluate the model.  For more information, see Improving a trained Amazon Rekognition Custom Labels model
  *          in the <i>Amazon Rekognition Custom Labels</i> developers guide.
  *       </p>
- *
  *          <p>After evaluating the model, you start the model
  *        by calling <a>StartProjectVersion</a>.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>

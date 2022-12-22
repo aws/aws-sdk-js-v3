@@ -19,7 +19,7 @@ import {
   UpdateBotRequestFilterSensitiveLog,
   UpdateBotResponse,
   UpdateBotResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateBotCommand,
   serializeAws_restJson1UpdateBotCommand,

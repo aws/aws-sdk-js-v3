@@ -52,7 +52,11 @@ export class BatchExecuteStatementException extends __BaseException {
 
 export interface BatchExecuteStatementInput {
   /**
-   * <p>One or more SQL statements to run. </p>
+   * <p>One or more SQL statements to run.
+   *
+   *       The SQL statements are run as a single transaction. They run serially in the order of the array.
+   *       Subsequent SQL statements don't start until the previous statement in the array completes.
+   *       If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
    */
   Sqls: string[] | undefined;
 
@@ -90,6 +94,11 @@ export interface BatchExecuteStatementInput {
    * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken?: string;
 }
 
 export interface BatchExecuteStatementOutput {
@@ -335,7 +344,7 @@ export interface SqlParameter {
 
   /**
    * <p>The value of the parameter.
-   *     Amazon Redshift implicitly converts to the proper data type. For more inforation, see
+   *     Amazon Redshift implicitly converts to the proper data type. For more information, see
    *       <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html">Data types</a> in the
    *       <i>Amazon Redshift Database Developer Guide</i>. </p>
    */
@@ -699,6 +708,11 @@ export interface ExecuteStatementInput {
    * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken?: string;
 }
 
 export interface ExecuteStatementOutput {

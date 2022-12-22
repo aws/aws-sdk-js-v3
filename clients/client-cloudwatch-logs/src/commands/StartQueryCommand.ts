@@ -33,8 +33,17 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  *
- *          <p>Queries time out after 15 minutes of execution. If your queries are timing out, reduce the
+ *          <p>Queries time out after 15 minutes of runtime. If your queries are timing out, reduce the
  *       time range being searched or partition your query into a number of queries.</p>
+ *
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a
+ *       monitoring account to start a query in a linked source account. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+ *         cross-account observability</a>. For a cross-account <code>StartQuery</code> operation,
+ *       the query definition must be defined in the monitoring account.</p>
+ *
+ *          <p>You can have up to 20 concurrent CloudWatch Logs insights queries, including queries
+ *       that have been added to dashboards. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

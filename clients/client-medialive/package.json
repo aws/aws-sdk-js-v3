@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-medialive",
   "description": "AWS SDK for JavaScript Medialive Client for Node.js, Browser and React Native",
-  "version": "3.200.0",
+  "version": "3.236.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -41,13 +41,13 @@
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",
-    "@aws-sdk/util-base64-browser": "*",
-    "@aws-sdk/util-base64-node": "*",
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/util-body-length-browser": "*",
     "@aws-sdk/util-body-length-node": "*",
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
     "@aws-sdk/util-endpoints": "*",
+    "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-stream-browser": "*",
     "@aws-sdk/util-stream-node": "*",
     "@aws-sdk/util-user-agent-browser": "*",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
     "@tsconfig/node14": "1.0.3",
-    "@types/node": "^12.7.5",
+    "@types/node": "^14.14.31",
     "@types/uuid": "^8.3.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

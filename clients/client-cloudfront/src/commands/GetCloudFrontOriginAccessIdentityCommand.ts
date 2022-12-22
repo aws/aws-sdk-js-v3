@@ -31,7 +31,7 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Get the information about an origin access identity. </p>
+ * <p>Get the information about an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

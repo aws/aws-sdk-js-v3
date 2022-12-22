@@ -18,7 +18,7 @@ import {
   DescribeCompilationJobRequestFilterSensitiveLog,
   DescribeCompilationJobResponse,
   DescribeCompilationJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand,
@@ -30,7 +30,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
 
 /**
  * <p>Returns information about a model compilation job.</p>
- *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+ *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

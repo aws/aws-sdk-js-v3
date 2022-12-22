@@ -30,8 +30,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>The <code>ListTagsForResource</code> operation returns the tags that
- *          are associated with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>.
- *          Currently, the only resource that can be tagged is a workspace. </p>
+ *             are associated with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>.
+ *             Currently, the only resource that can be tagged is a workspace. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

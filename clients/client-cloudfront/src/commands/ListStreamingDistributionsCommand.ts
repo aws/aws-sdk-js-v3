@@ -29,7 +29,7 @@ export interface ListStreamingDistributionsCommandInput extends ListStreamingDis
 export interface ListStreamingDistributionsCommandOutput extends ListStreamingDistributionsResult, __MetadataBearer {}
 
 /**
- * <p>List streaming distributions. </p>
+ * <p>List streaming distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

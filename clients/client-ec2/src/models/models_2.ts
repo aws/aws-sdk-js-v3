@@ -1,15 +1,13 @@
 // smithy-typescript generated code
 import {
   ApplianceModeSupportValue,
-  ByoipCidr,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
-  CoipPool,
+  DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
-  GatewayType,
   InstanceEventWindowState,
   Ipv6SupportValue,
   Tag,
@@ -18,12 +16,18 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
+  TrustProviderType,
   UnsuccessfulItem,
+  UserTrustProviderType,
+  VerifiedAccessInstance,
+  VerifiedAccessTrustProvider,
   VolumeAttachment,
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  CoipPool,
+  GatewayType,
   Ipam,
   IpamPool,
   IpamScope,
@@ -33,11 +37,445 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  SubnetCidrReservation,
+  SnapshotState,
+  Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Information about a snapshot.</p>
+ */
+export interface SnapshotInfo {
+  /**
+   * <p>Description specified by the CreateSnapshotRequest that has been applied to all
+   *     snapshots.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags associated with this snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Source volume from which this snapshot was created.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>Current state of the snapshot.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>Size of the volume from which this snapshot was created.</p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>Time this snapshot was started. This is the same for all snapshots initiated by the
+   *     same request.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Progress this snapshot has made towards completing.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Account id used when creating this snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Snapshot id that can be used to describe this snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+}
+
+export interface CreateSnapshotsResult {
+  /**
+   * <p>List of snapshots.</p>
+   */
+  Snapshots?: SnapshotInfo[];
+}
+
+/**
+ * <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
+ */
+export interface CreateSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
+   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket
+   *                 naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The prefix for the data feed file names.</p>
+   */
+  Prefix?: string;
+}
+
+/**
+ * <p>Describes a Spot Instance state change.</p>
+ */
+export interface SpotInstanceStateFault {
+  /**
+   * <p>The reason code for the Spot Instance state change.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The message for the Spot Instance state change.</p>
+   */
+  Message?: string;
+}
+
+export enum DatafeedSubscriptionState {
+  Active = "Active",
+  Inactive = "Inactive",
+}
+
+/**
+ * <p>Describes the data feed for a Spot Instance.</p>
+ */
+export interface SpotDatafeedSubscription {
+  /**
+   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The fault codes for the Spot Instance request, if any.</p>
+   */
+  Fault?: SpotInstanceStateFault;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The prefix for the data feed files.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The state of the Spot Instance data feed subscription.</p>
+   */
+  State?: DatafeedSubscriptionState | string;
+}
+
+/**
+ * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
+ */
+export interface CreateSpotDatafeedSubscriptionResult {
+  /**
+   * <p>The Spot Instance data feed subscription.</p>
+   */
+  SpotDatafeedSubscription?: SpotDatafeedSubscription;
+}
+
+/**
+ * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
+ *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ */
+export interface S3ObjectTag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
+   *       length. May not begin with <code>aws</code>:.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
+   *       length.</p>
+   */
+  Value?: string;
+}
+
+export interface CreateStoreImageTaskRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in
+   *       the Region in which the request is being made. The AMI object appears in the bucket only after
+   *       the upload task has completed. </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
+   */
+  S3ObjectTags?: S3ObjectTag[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateStoreImageTaskResult {
+  /**
+   * <p>The name of the stored AMI object in the S3 bucket.</p>
+   */
+  ObjectKey?: string;
+}
+
+export interface CreateSubnetRequest {
+  /**
+   * <p>The tags to assign to the subnet.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The Availability Zone or Local Zone for the subnet.</p>
+   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
+   *           do not necessarily select a different zone for each subnet.</p>
+   *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
+   *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
+   *            see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
+   *            Outpost and specify the Outpost ARN.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The AZ ID or the Local Zone ID of the subnet.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
+   *            We modify the specified CIDR block to its canonical form; for example, if you specify
+   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
+   *             /64 prefix length.</p>
+   *          <p>This parameter is required for an IPv6 only subnet.</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also
+   *         specify the Availability Zone of the Outpost subnet.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
+}
+
+export interface CreateSubnetResult {
+  /**
+   * <p>Information about the subnet.</p>
+   */
+  Subnet?: Subnet;
+}
+
+export enum SubnetCidrReservationType {
+  explicit = "explicit",
+  prefix = "prefix",
+}
+
+export interface CreateSubnetCidrReservationRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The type of reservation.</p>
+   *          <p>The following are valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>prefix</code>: The Amazon EC2
+   *                     Prefix
+   *                     Delegation feature assigns the IP addresses to network interfaces that are
+   *                     associated with an instance. For information about Prefix
+   *                     Delegation,
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation
+   *                         for Amazon EC2 network interfaces</a> in the
+   *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>explicit</code>: You manually assign the IP addresses to resources that
+   *                     reside in your subnet. </p>
+   *             </li>
+   *          </ul>
+   */
+  ReservationType: SubnetCidrReservationType | string | undefined;
+
+  /**
+   * <p>The
+   *             description
+   *             to assign to the subnet CIDR reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * <p>Describes a subnet CIDR reservation.</p>
+ */
+export interface SubnetCidrReservation {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservationId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The CIDR that has been reserved.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The type of reservation. </p>
+   */
+  ReservationType?: SubnetCidrReservationType | string;
+
+  /**
+   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The
+   *             description
+   *             assigned to the subnet CIDR
+   *             reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags assigned to the subnet CIDR reservation.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateSubnetCidrReservationResult {
+  /**
+   * <p>Information about the created subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservation?: SubnetCidrReservation;
+}
+
+export interface CreateTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the resources, separated by spaces.</p>
+   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The tags. The <code>value</code> parameter is required, but if you don't want the tag to have a value,
+   *         specify the parameter with no value, and we set the value to an empty string.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface CreateTrafficMirrorFilterRequest {
+  /**
+   * <p>The description of the Traffic Mirror filter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to a Traffic Mirror filter.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
 
 /**
  * <p>Describes the Traffic Mirror port range.</p>
@@ -1677,6 +2115,558 @@ export interface CreateTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+export enum VerifiedAccessEndpointAttachmentType {
+  vpc = "vpc",
+}
+
+export enum VerifiedAccessEndpointType {
+  load_balancer = "load-balancer",
+  network_interface = "network-interface",
+}
+
+export enum VerifiedAccessEndpointProtocol {
+  http = "http",
+  https = "https",
+}
+
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ */
+export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IP protocol.</p>
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The ARN of the load balancer.</p>
+   */
+  LoadBalancerArn?: string;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   */
+  SubnetIds?: string[];
+}
+
+/**
+ * <p>Options for a network interface-type endpoint.</p>
+ */
+export interface CreateVerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The IP protocol.</p>
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
+  Port?: number;
+}
+
+export interface CreateVerifiedAccessEndpointRequest {
+  /**
+   * <p>The ID of the Verified Access group to associate the endpoint with.</p>
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services Verified Access endpoint to create.</p>
+   */
+  EndpointType: VerifiedAccessEndpointType | string | undefined;
+
+  /**
+   * <p>The Amazon Web Services network component Verified Access attaches to.</p>
+   */
+  AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
+
+  /**
+   * <p>The ARN of the public TLS/SSL certificate in Amazon Web Services Certificate Manager to associate with the endpoint.
+   *          The CN in the certificate must match the DNS name your end users will use to reach your
+   *          application.</p>
+   */
+  DomainCertificateArn: string | undefined;
+
+  /**
+   * <p>The DNS name for users to reach your application.</p>
+   */
+  ApplicationDomain: string | undefined;
+
+  /**
+   * <p>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</p>
+   */
+  EndpointDomainPrefix: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 security groups to associate with the Amazon Web Services Verified Access endpoint.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   */
+  LoadBalancerOptions?: CreateVerifiedAccessEndpointLoadBalancerOptions;
+
+  /**
+   * <p>The network interface details if creating the Amazon Web Services Verified Access endpoint as
+   *             <code>network-interface</code>type.</p>
+   */
+  NetworkInterfaceOptions?: CreateVerifiedAccessEndpointEniOptions;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access endpoint.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ */
+export interface VerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IP protocol.</p>
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The ARN of the load balancer.</p>
+   */
+  LoadBalancerArn?: string;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   */
+  SubnetIds?: string[];
+}
+
+/**
+ * <p>Options for a network-interface type endpoint.</p>
+ */
+export interface VerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The IP protocol.</p>
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
+  Port?: number;
+}
+
+export enum VerifiedAccessEndpointStatusCode {
+  active = "active",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+  updating = "updating",
+}
+
+/**
+ * <p>Describes the status of a Verified Access endpoint.</p>
+ */
+export interface VerifiedAccessEndpointStatus {
+  /**
+   * <p>The status code of the Verified Access endpoint.</p>
+   */
+  Code?: VerifiedAccessEndpointStatusCode | string;
+
+  /**
+   * <p>The status message of the Verified Access endpoint.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>An Amazon Web Services Verified Access endpoint specifies the application that Amazon Web Services Verified Access provides access to. It must be
+ *          attached to an Amazon Web Services Verified Access group. An Amazon Web Services Verified Access endpoint must also have an attached access policy
+ *          before you attached it to a group.</p>
+ */
+export interface VerifiedAccessEndpoint {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
+  VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
+  VerifiedAccessEndpointId?: string;
+
+  /**
+   * <p>The DNS name for users to reach your application.</p>
+   */
+  ApplicationDomain?: string;
+
+  /**
+   * <p>The type of Amazon Web Services Verified Access endpoint. Incoming application requests will be sent to an IP
+   *          address, load balancer or a network interface depending on the endpoint type
+   *          specified.</p>
+   */
+  EndpointType?: VerifiedAccessEndpointType | string;
+
+  /**
+   * <p>The type of attachment used to provide connectivity between the Amazon Web Services Verified Access endpoint and the
+   *          application.</p>
+   */
+  AttachmentType?: VerifiedAccessEndpointAttachmentType | string;
+
+  /**
+   * <p>The ARN of a public TLS/SSL certificate imported into or created with ACM.</p>
+   */
+  DomainCertificateArn?: string;
+
+  /**
+   * <p>A DNS name that is generated for the endpoint.</p>
+   */
+  EndpointDomain?: string;
+
+  /**
+   * <p>Returned if endpoint has a device trust provider attached.</p>
+   */
+  DeviceValidationDomain?: string;
+
+  /**
+   * <p>The IDs of the security groups for the endpoint.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   */
+  LoadBalancerOptions?: VerifiedAccessEndpointLoadBalancerOptions;
+
+  /**
+   * <p>The options for network-interface type endpoint.</p>
+   */
+  NetworkInterfaceOptions?: VerifiedAccessEndpointEniOptions;
+
+  /**
+   * <p>The endpoint status.</p>
+   */
+  Status?: VerifiedAccessEndpointStatus;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The deletion time.</p>
+   */
+  DeletionTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateVerifiedAccessEndpointResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
+  VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
+}
+
+export interface CreateVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access group.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a Verified Access group.</p>
+ */
+export interface VerifiedAccessGroup {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   */
+  VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the group.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The ARN of the Verified Access group.</p>
+   */
+  VerifiedAccessGroupArn?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The deletion time.</p>
+   */
+  DeletionTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateVerifiedAccessGroupResult {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   */
+  VerifiedAccessGroup?: VerifiedAccessGroup;
+}
+
+export interface CreateVerifiedAccessInstanceRequest {
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access instance.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateVerifiedAccessInstanceResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstance?: VerifiedAccessInstance;
+}
+
+/**
+ * <p>Options for a device-identity type trust provider.</p>
+ */
+export interface CreateVerifiedAccessTrustProviderDeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   */
+  TenantId?: string;
+}
+
+/**
+ * <p>Options for an OIDC-based, user-identity type trust provider.</p>
+ */
+export interface CreateVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
+  ClientSecret?: string;
+
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   */
+  Scope?: string;
+}
+
+export interface CreateVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The type of trust provider can be either user or device-based.</p>
+   */
+  TrustProviderType: TrustProviderType | string | undefined;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
+  UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
+  OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions;
+
+  /**
+   * <p>The options for device identity based trust providers.</p>
+   */
+  DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   */
+  PolicyReferenceName: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access trust provider.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+}
+
 export interface CreateVolumeRequest {
   /**
    * <p>The Availability Zone in which to create the volume.</p>
@@ -1839,7 +2829,7 @@ export interface CreateVolumeRequest {
   /**
    * <p>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *   	      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
    */
   Throughput?: number;
 
@@ -1968,7 +2958,7 @@ export interface CreateVpcRequest {
 
   /**
    * <p>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
-   *         <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -2075,7 +3065,7 @@ export interface CreateVpcEndpointRequest {
 
   /**
    * <p>The type of endpoint.</p>
-   *         <p>Default: Gateway</p>
+   *          <p>Default: Gateway</p>
    */
   VpcEndpointType?: VpcEndpointType | string;
 
@@ -2139,11 +3129,11 @@ export interface CreateVpcEndpointRequest {
    *             addresses of the endpoint network interfaces in the VPC. This enables you to make
    *             requests to the default public DNS name for the service instead of the public DNS names
    *             that are automatically generated by the VPC endpoint service.</p>
-   *         <p>To use a private hosted zone, you must set the following VPC attributes to
+   *          <p>To use a private hosted zone, you must set the following VPC attributes to
    *             <code>true</code>: <code>enableDnsHostnames</code> and
    *             <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
    *             attributes.</p>
-   *         <p>Default: <code>true</code>
+   *          <p>Default: <code>true</code>
    *          </p>
    */
   PrivateDnsEnabled?: boolean;
@@ -2503,7 +3493,7 @@ export enum DnsNameState {
 export interface PrivateDnsNameConfiguration {
   /**
    * <p>The verification state of the VPC endpoint service.</p>
-   *         <p>>Consumers
+   *          <p>>Consumers
    *             of the endpoint service can use the private name only when the state is
    *                 <code>verified</code>.</p>
    */
@@ -2677,7 +3667,7 @@ export interface CreateVpcPeeringConnectionRequest {
   /**
    * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
    *             other than the Region in which you make the request.</p>
-   * 		       <p>Default: The Region in which you make the request.</p>
+   *          <p>Default: The Region in which you make the request.</p>
    */
   PeerRegion?: string;
 
@@ -2715,7 +3705,7 @@ export interface IKEVersionsRequestListValue {
 export interface CloudWatchLogOptionsSpecification {
   /**
    * <p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p>
-   *         <p>Valid values: <code>True</code> | <code>False</code>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
    *          </p>
    */
   LogEnabled?: boolean;
@@ -2727,7 +3717,7 @@ export interface CloudWatchLogOptionsSpecification {
 
   /**
    * <p>Set log format. Default format is <code>json</code>.</p>
-   * 	        <p>Valid values: <code>json</code> | <code>text</code>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
    *          </p>
    */
   LogOutputFormat?: string;
@@ -2816,41 +3806,41 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
    *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
    *             following CIDR blocks are reserved and cannot be used:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.0.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.1.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.2.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.3.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.4.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.5.0/30</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>169.254.169.252/30</code>
    *                </p>
    *             </li>
@@ -2861,14 +3851,14 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
    *             unique across all VPN connections that use the same transit gateway.</p>
-   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
    */
   TunnelInsideIpv6Cidr?: string;
 
   /**
    * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
    *             private gateway and customer gateway.</p>
-   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
    *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
    *             zero (0).</p>
    */
@@ -2876,17 +3866,17 @@ export interface VpnTunnelOptionsSpecification {
 
   /**
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 28,800.</p>
-   *         <p>Default: <code>28800</code>
+   *          <p>Constraints: A value between 900 and 28,800.</p>
+   *          <p>Default: <code>28800</code>
    *          </p>
    */
   Phase1LifetimeSeconds?: number;
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
    *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>3600</code>
+   *          <p>Default: <code>3600</code>
    *          </p>
    */
   Phase2LifetimeSeconds?: number;
@@ -2896,8 +3886,8 @@ export interface VpnTunnelOptionsSpecification {
    *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
    *             of the rekey is randomly selected based on the value for
    *                 <code>RekeyFuzzPercentage</code>.</p>
-   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>540</code>
+   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>540</code>
    *          </p>
    */
   RekeyMarginTimeSeconds?: number;
@@ -2905,24 +3895,24 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
    *             during which the rekey time is randomly selected.</p>
-   *         <p>Constraints: A value between 0 and 100.</p>
-   *         <p>Default: <code>100</code>
+   *          <p>Constraints: A value between 0 and 100.</p>
+   *          <p>Default: <code>100</code>
    *          </p>
    */
   RekeyFuzzPercentage?: number;
 
   /**
    * <p>The number of packets in an IKE replay window.</p>
-   *         <p>Constraints: A value between 64 and 2048.</p>
-   *         <p>Default: <code>1024</code>
+   *          <p>Constraints: A value between 64 and 2048.</p>
+   *          <p>Default: <code>1024</code>
    *          </p>
    */
   ReplayWindowSize?: number;
 
   /**
    * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value greater than or equal to 30.</p>
-   *         <p>Default: <code>30</code>
+   *          <p>Constraints: A value greater than or equal to 30.</p>
+   *          <p>Default: <code>30</code>
    *          </p>
    */
   DPDTimeoutSeconds?: number;
@@ -2930,9 +3920,9 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
    *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
    *          </p>
-   *         <p>Default: <code>clear</code>
+   *          <p>Default: <code>clear</code>
    *          </p>
    */
   DPDTimeoutAction?: string;
@@ -2940,7 +3930,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
    *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
    *                 <code>AES256-GCM-16</code>
    *          </p>
    */
@@ -2949,7 +3939,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
    *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
    *                 <code>AES256-GCM-16</code>
    *          </p>
    */
@@ -2958,7 +3948,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
    *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
    *                 <code>SHA2-512</code>
    *          </p>
    */
@@ -2967,7 +3957,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
    *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
    *                 <code>SHA2-512</code>
    *          </p>
    */
@@ -2976,7 +3966,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
    *             phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
    *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
    *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
@@ -2986,7 +3976,7 @@ export interface VpnTunnelOptionsSpecification {
   /**
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
    *             phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
    *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
    *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
    *                 <code>24</code>
@@ -2996,7 +3986,7 @@ export interface VpnTunnelOptionsSpecification {
 
   /**
    * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
    *          </p>
    */
   IKEVersions?: IKEVersionsRequestListValue[];
@@ -3006,9 +3996,9 @@ export interface VpnTunnelOptionsSpecification {
    *             default, your customer gateway device must initiate the IKE negotiation and bring up the
    *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
    *             negotiation.</p>
-   *         <p>Valid Values: <code>add</code> | <code>start</code>
+   *          <p>Valid Values: <code>add</code> | <code>start</code>
    *          </p>
-   *         <p>Default: <code>add</code>
+   *          <p>Default: <code>add</code>
    *          </p>
    */
   StartupAction?: string;
@@ -3025,7 +4015,7 @@ export interface VpnTunnelOptionsSpecification {
 export interface VpnConnectionOptionsSpecification {
   /**
    * <p>Indicate whether to enable acceleration for the VPN connection.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   EnableAcceleration?: boolean;
@@ -3034,14 +4024,14 @@ export interface VpnConnectionOptionsSpecification {
    * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
    *             connection for a device that does not support BGP, you must specify <code>true</code>.
    *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   StaticRoutesOnly?: boolean;
 
   /**
    * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
-   *         <p>Default: <code>ipv4</code>
+   *          <p>Default: <code>ipv4</code>
    *          </p>
    */
   TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
@@ -3053,44 +4043,44 @@ export interface VpnConnectionOptionsSpecification {
 
   /**
    * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
+   *          <p>Default: <code>0.0.0.0/0</code>
    *          </p>
    */
   LocalIpv4NetworkCidr?: string;
 
   /**
    * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
+   *          <p>Default: <code>0.0.0.0/0</code>
    *          </p>
    */
   RemoteIpv4NetworkCidr?: string;
 
   /**
    * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
+   *          <p>Default: <code>::/0</code>
    *          </p>
    */
   LocalIpv6NetworkCidr?: string;
 
   /**
    * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
+   *          <p>Default: <code>::/0</code>
    *          </p>
    */
   RemoteIpv6NetworkCidr?: string;
 
   /**
    * <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>
-   *         <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
    *          </p>
-   *         <p>Default: <code>PublicIpv4</code>
+   *          <p>Default: <code>PublicIpv4</code>
    *          </p>
    */
   OutsideIpAddressType?: string;
 
   /**
    * <p>The transit gateway attachment ID to use for the VPN tunnel.</p>
-   *         <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
+   *          <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
    */
   TransportTransitGatewayAttachmentId?: string;
 }
@@ -3163,7 +4153,7 @@ export interface IKEVersionsListValue {
 export interface CloudWatchLogOptions {
   /**
    * <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
-   *         <p>Valid values: <code>True</code> | <code>False</code>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
    *          </p>
    */
   LogEnabled?: boolean;
@@ -3175,7 +4165,7 @@ export interface CloudWatchLogOptions {
 
   /**
    * <p>Configured log format. Default format is <code>json</code>.</p>
-   *         <p>Valid values: <code>json</code> | <code>text</code>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
    *          </p>
    */
   LogOutputFormat?: string;
@@ -3402,9 +4392,9 @@ export interface VpnConnectionOptions {
 
   /**
    * <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>
-   *         <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
    *          </p>
-   *         <p>Default: <code>PublicIpv4</code>
+   *          <p>Default: <code>PublicIpv4</code>
    *          </p>
    */
   OutsideIpAddressType?: string;
@@ -3630,7 +4620,7 @@ export interface CreateVpnGatewayRequest {
    * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
    *             you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a
    *             32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
-   *         <p>Default: 64512</p>
+   *          <p>Default: 64512</p>
    */
   AmazonSideAsn?: number;
 
@@ -3810,7 +4800,7 @@ export interface DeleteCoipPoolRequest {
 
 export interface DeleteCoipPoolResult {
   /**
-   * <p>Describes a customer-owned address pool.</p>
+   * <p>Information about the CoIP address pool.</p>
    */
   CoipPool?: CoipPool;
 }
@@ -3982,7 +4972,7 @@ export interface DeleteFlowLogsRequest {
 
   /**
    * <p>One or more flow log IDs.</p>
-   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   *          <p>Constraint: Maximum of 1000 flow log IDs.</p>
    */
   FlowLogIds: string[] | undefined;
 }
@@ -4190,13 +5180,15 @@ export interface DeleteLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 }
@@ -4219,13 +5211,15 @@ export interface DeleteLaunchTemplateVersionsRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -4361,7 +5355,7 @@ export interface DeleteLocalGatewayRouteTableRequest {
 
 export interface DeleteLocalGatewayRouteTableResult {
   /**
-   * <p>Describes a local gateway route table.</p>
+   * <p>Information about the local gateway route table.</p>
    */
   LocalGatewayRouteTable?: LocalGatewayRouteTable;
 }
@@ -4384,7 +5378,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationReq
 
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
   /**
-   * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+   * <p>Information about the association.</p>
    */
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
@@ -4817,7 +5811,7 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -4867,7 +5861,7 @@ export interface DeleteTagsRequest {
 
   /**
    * <p>The IDs of the resources, separated by spaces.</p>
-   *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
    */
   Resources: string[] | undefined;
 
@@ -4876,7 +5870,7 @@ export interface DeleteTagsRequest {
    *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
    *             key regardless of its value. If you specify a tag key with an empty string as the tag
    *             value, we delete the tag only if its value is an empty string.</p>
-   *         <p>If you omit this parameter, we delete all user-defined tags for the specified
+   *          <p>If you omit this parameter, we delete all user-defined tags for the specified
    *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
    *             prefix).</p>
    *          <p>Constraints: Up to 1000 tags.</p>
@@ -5139,523 +6133,121 @@ export interface DeleteTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
-export interface DeleteTransitGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   */
-  Route?: TransitGatewayRoute;
-}
-
-export interface DeleteTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the deleted transit gateway route table.</p>
-   */
-  TransitGatewayRouteTable?: TransitGatewayRouteTable;
-}
-
-export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
-  /**
-   * <p>The transit gateway route table ID that's being deleted. </p>
-   */
-  TransitGatewayRouteTableAnnouncementId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayRouteTableAnnouncementResult {
-  /**
-   * <p>Provides details about a deleted transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
-}
-
-export interface DeleteTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the deleted VPC attachment.</p>
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
-}
-
-export interface DeleteVolumeRequest {
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteVpcRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteVpcEndpointConnectionNotificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more notification IDs.</p>
-   */
-  ConnectionNotificationIds: string[] | undefined;
-}
-
-export interface DeleteVpcEndpointConnectionNotificationsResult {
-  /**
-   * <p>Information about the notifications that could not be deleted
-   *             successfully.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
+/**
+ * @internal
+ */
+export const SnapshotInfoFilterSensitiveLog = (obj: SnapshotInfo): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpcEndpoints.</p>
+ * @internal
  */
-export interface DeleteVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more VPC endpoint IDs.</p>
-   */
-  VpcEndpointIds: string[] | undefined;
-}
+export const CreateSnapshotsResultFilterSensitiveLog = (obj: CreateSnapshotsResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of DeleteVpcEndpoints.</p>
+ * @internal
  */
-export interface DeleteVpcEndpointsResult {
-  /**
-   * <p>Information about the VPC endpoints that were not successfully deleted.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export interface DeleteVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds: string[] | undefined;
-}
-
-export interface DeleteVpcEndpointServiceConfigurationsResult {
-  /**
-   * <p>Information about the service configurations that were not deleted, if
-   *             applicable.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export interface DeleteVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-export interface DeleteVpcPeeringConnectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
+export const CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog = (
+  obj: CreateSpotDatafeedSubscriptionRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnConnection.</p>
+ * @internal
  */
-export interface DeleteVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const SpotInstanceStateFaultFilterSensitiveLog = (obj: SpotInstanceStateFault): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
+ * @internal
  */
-export interface DeleteVpnConnectionRouteRequest {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer network.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-}
+export const SpotDatafeedSubscriptionFilterSensitiveLog = (obj: SpotDatafeedSubscription): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnGateway.</p>
+ * @internal
  */
-export interface DeleteVpnGatewayRequest {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeprovisionByoipCidrRequest {
-  /**
-   * <p>The address range, in CIDR notation. The prefix must be the same prefix
-   *          that you specified when you provisioned the address range.</p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeprovisionByoipCidrResult {
-  /**
-   * <p>Information about the address range.</p>
-   */
-  ByoipCidr?: ByoipCidr;
-}
-
-export interface DeprovisionIpamPoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the pool that has the CIDR you want to deprovision.</p>
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR which you want to deprovision from the pool.</p>
-   */
-  Cidr?: string;
-}
-
-export enum IpamPoolCidrFailureCode {
-  cidr_not_available = "cidr-not-available",
-}
+export const CreateSpotDatafeedSubscriptionResultFilterSensitiveLog = (
+  obj: CreateSpotDatafeedSubscriptionResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
+ * @internal
  */
-export interface IpamPoolCidrFailureReason {
-  /**
-   * <p>An error code related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  Code?: IpamPoolCidrFailureCode | string;
-
-  /**
-   * <p>A message related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  Message?: string;
-}
-
-export enum IpamPoolCidrState {
-  deprovisioned = "deprovisioned",
-  failed_deprovision = "failed-deprovision",
-  failed_import = "failed-import",
-  failed_provision = "failed-provision",
-  pending_deprovision = "pending-deprovision",
-  pending_import = "pending-import",
-  pending_provision = "pending-provision",
-  provisioned = "provisioned",
-}
+export const S3ObjectTagFilterSensitiveLog = (obj: S3ObjectTag): any => ({
+  ...obj,
+});
 
 /**
- * <p>A CIDR provisioned to an IPAM pool.</p>
+ * @internal
  */
-export interface IpamPoolCidr {
-  /**
-   * <p>The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask)
-   *          and refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>The state of the CIDR.</p>
-   */
-  State?: IpamPoolCidrState | string;
-
-  /**
-   * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  FailureReason?: IpamPoolCidrFailureReason;
-}
-
-export interface DeprovisionIpamPoolCidrResult {
-  /**
-   * <p>The deprovisioned pool CIDR.</p>
-   */
-  IpamPoolCidr?: IpamPoolCidr;
-}
-
-export interface DeprovisionPublicIpv4PoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the pool that you want to deprovision the CIDR from.</p>
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The CIDR you want to deprovision from the pool.</p>
-   */
-  Cidr: string | undefined;
-}
-
-export interface DeprovisionPublicIpv4PoolCidrResult {
-  /**
-   * <p>The ID of the pool that you deprovisioned the CIDR from.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The deprovisioned CIDRs.</p>
-   */
-  DeprovisionedAddresses?: string[];
-}
+export const CreateStoreImageTaskRequestFilterSensitiveLog = (obj: CreateStoreImageTaskRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeregisterImage.</p>
+ * @internal
  */
-export interface DeregisterImageRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const CreateStoreImageTaskResultFilterSensitiveLog = (obj: CreateStoreImageTaskResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about the tag keys to deregister for the current Region. You can either specify
- *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
- *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ * @internal
  */
-export interface DeregisterInstanceTagAttributeRequest {
-  /**
-   * <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
-   *    		to deregister all tag keys.</p>
-   */
-  IncludeAllTagsOfInstance?: boolean;
-
-  /**
-   * <p>Information about the tag keys to deregister.</p>
-   */
-  InstanceTagKeys?: string[];
-}
-
-export interface DeregisterInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Information about the tag keys to deregister.</p>
-   */
-  InstanceTagAttribute?: DeregisterInstanceTagAttributeRequest;
-}
+export const CreateSubnetRequestFilterSensitiveLog = (obj: CreateSubnetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the registered tag keys for the current Region.</p>
+ * @internal
  */
-export interface InstanceTagNotificationAttribute {
-  /**
-   * <p>The registered tag keys.</p>
-   */
-  InstanceTagKeys?: string[];
-
-  /**
-   * <p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications.
-   *       	<code>true</code> indicates that all tag keys in the current Region are registered.</p>
-   */
-  IncludeAllTagsOfInstance?: boolean;
-}
-
-export interface DeregisterInstanceEventNotificationAttributesResult {
-  /**
-   * <p>The resulting set of tag keys.</p>
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The IDs of the group members' network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const CreateSubnetResultFilterSensitiveLog = (obj: CreateSubnetResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the deregistered  transit gateway multicast group members.</p>
+ * @internal
  */
-export interface TransitGatewayMulticastDeregisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
+export const CreateSubnetCidrReservationRequestFilterSensitiveLog = (obj: CreateSubnetCidrReservationRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The network interface IDs of the deregistered members.</p>
-   */
-  DeregisteredNetworkInterfaceIds?: string[];
+/**
+ * @internal
+ */
+export const SubnetCidrReservationFilterSensitiveLog = (obj: SubnetCidrReservation): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
+/**
+ * @internal
+ */
+export const CreateSubnetCidrReservationResultFilterSensitiveLog = (obj: CreateSubnetCidrReservationResult): any => ({
+  ...obj,
+});
 
-export interface DeregisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the deregistered members.</p>
-   */
-  DeregisteredMulticastGroupMembers?: TransitGatewayMulticastDeregisteredGroupMembers;
-}
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
 
-export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The IDs of the group sources' network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorFilterRequestFilterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6106,6 +6698,143 @@ export const CreateTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
  */
 export const CreateTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
   obj: CreateTransitGatewayVpcAttachmentResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointLoadBalancerOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointLoadBalancerOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointEniOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointEniOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointLoadBalancerOptionsFilterSensitiveLog = (
+  obj: VerifiedAccessEndpointLoadBalancerOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointEniOptionsFilterSensitiveLog = (obj: VerifiedAccessEndpointEniOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointStatusFilterSensitiveLog = (obj: VerifiedAccessEndpointStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointFilterSensitiveLog = (obj: VerifiedAccessEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointResultFilterSensitiveLog = (obj: CreateVerifiedAccessEndpointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessGroupRequestFilterSensitiveLog = (obj: CreateVerifiedAccessGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessGroupFilterSensitiveLog = (obj: VerifiedAccessGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessGroupResultFilterSensitiveLog = (obj: CreateVerifiedAccessGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessInstanceRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessInstanceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessInstanceResultFilterSensitiveLog = (obj: CreateVerifiedAccessInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderDeviceOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderDeviceOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderResult
 ): any => ({
   ...obj,
 });
@@ -7310,302 +8039,5 @@ export const DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog = (
  * @internal
  */
 export const DeleteTransitGatewayRouteRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteResultFilterSensitiveLog = (obj: DeleteTransitGatewayRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableAnnouncementRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableAnnouncementResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayVpcAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayVpcAttachmentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVolumeRequestFilterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcRequestFilterSensitiveLog = (obj: DeleteVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
-  obj: DeleteVpcEndpointConnectionNotificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
-  obj: DeleteVpcEndpointConnectionNotificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointsRequestFilterSensitiveLog = (obj: DeleteVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointsResultFilterSensitiveLog = (obj: DeleteVpcEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
-  obj: DeleteVpcEndpointServiceConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog = (
-  obj: DeleteVpcEndpointServiceConfigurationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionRequestFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionResultFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnConnectionRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnConnectionRouteRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnGatewayRequestFilterSensitiveLog = (obj: DeleteVpnGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionByoipCidrRequestFilterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionByoipCidrResultFilterSensitiveLog = (obj: DeprovisionByoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionIpamPoolCidrRequestFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolCidrFailureReasonFilterSensitiveLog = (obj: IpamPoolCidrFailureReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolCidrFilterSensitiveLog = (obj: IpamPoolCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionIpamPoolCidrResultFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionPublicIpv4PoolCidrRequestFilterSensitiveLog = (
-  obj: DeprovisionPublicIpv4PoolCidrRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionPublicIpv4PoolCidrResultFilterSensitiveLog = (
-  obj: DeprovisionPublicIpv4PoolCidrResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterImageRequestFilterSensitiveLog = (obj: DeregisterImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceTagAttributeRequestFilterSensitiveLog = (
-  obj: DeregisterInstanceTagAttributeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog = (
-  obj: DeregisterInstanceEventNotificationAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTagNotificationAttributeFilterSensitiveLog = (obj: InstanceTagNotificationAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog = (
-  obj: DeregisterInstanceEventNotificationAttributesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupMembersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayMulticastDeregisteredGroupMembersFilterSensitiveLog = (
-  obj: TransitGatewayMulticastDeregisteredGroupMembers
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupMembersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupSourcesRequest
-): any => ({
   ...obj,
 });

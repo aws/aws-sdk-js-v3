@@ -452,7 +452,7 @@ export const serializeAws_restJson1UpdateConnectorCommand = async (
     false
   );
   const query: any = map({
-    currentVersion: [, input.currentVersion!],
+    currentVersion: [, __expectNonNull(input.currentVersion!, `currentVersion`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1478,10 +1478,8 @@ const serializeAws_restJson1__sensitive__mapOf__string = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1772,10 +1770,8 @@ const deserializeAws_restJson1__sensitive__mapOf__string = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

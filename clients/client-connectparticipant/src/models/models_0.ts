@@ -162,7 +162,7 @@ export interface CreateParticipantConnectionRequest {
 
   /**
    * <p>This is a header parameter.</p>
-   *         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+   *          <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
    *             API response.</p>
    */
   ParticipantToken: string | undefined;
@@ -185,7 +185,7 @@ export interface ConnectionCredentials {
 
   /**
    * <p>The expiration of the token.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   Expiry?: string;
@@ -202,7 +202,7 @@ export interface Websocket {
 
   /**
    * <p>The URL expiration timestamp in ISO date format.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   ConnectionExpiry?: string;
@@ -283,7 +283,7 @@ export interface StartPosition {
 
   /**
    * <p>The time in ISO format where to start.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -390,7 +390,7 @@ export enum ChatItemType {
 export interface Item {
   /**
    * <p>The time when the message or event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -457,13 +457,12 @@ export interface GetTranscriptResponse {
 export interface SendEventRequest {
   /**
    * <p>The content type of the request. Supported types are:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>application/vnd.amazonaws.connect.event.typing</p>
+   *                <p>application/vnd.amazonaws.connect.event.typing</p>
    *             </li>
    *             <li>
-   *                 <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
+   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
    *             </li>
    *          </ul>
    */
@@ -495,7 +494,7 @@ export interface SendEventResponse {
 
   /**
    * <p>The time when the event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -532,7 +531,7 @@ export interface SendMessageResponse {
 
   /**
    * <p>The time when the message was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;

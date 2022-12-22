@@ -34,8 +34,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
 /**
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
- *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
- *         <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
+ *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
+ *          <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

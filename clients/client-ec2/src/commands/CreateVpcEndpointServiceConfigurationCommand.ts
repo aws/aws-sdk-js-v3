@@ -34,20 +34,20 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
 /**
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
  *             IAM users, and IAM roles) can connect.</p>
- *         <p>Before you create an endpoint service, you must create one of the following for your service:</p>
- *         <ul>
+ *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
+ *          <ul>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
+ *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
  *                     Service consumers connect to your service using an interface endpoint.</p>
  *             </li>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
+ *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
  *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
  *             </li>
  *          </ul>
- *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
+ *          <p>If you set the private DNS name, you must prove that you own the private DNS domain
  *             name.</p>
- * 	        <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
  * 	        Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

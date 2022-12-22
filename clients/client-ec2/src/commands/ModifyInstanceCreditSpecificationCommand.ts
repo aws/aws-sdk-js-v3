@@ -19,7 +19,7 @@ import {
   ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceCreditSpecificationCommand,
   serializeAws_ec2ModifyInstanceCreditSpecificationCommand,
@@ -34,7 +34,7 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
  *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,7 +32,7 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * <p>Returns a list of task definition families that are registered to your account. This
  * 			list includes task definition families that no longer have any <code>ACTIVE</code> task
  * 			definition revisions.</p>
- * 		       <p>You can filter out task definition families that don't contain any <code>ACTIVE</code>
+ *          <p>You can filter out task definition families that don't contain any <code>ACTIVE</code>
  * 			task definition revisions by setting the <code>status</code> parameter to
  * 				<code>ACTIVE</code>. You can also filter the results with the
  * 				<code>familyPrefix</code> parameter.</p>

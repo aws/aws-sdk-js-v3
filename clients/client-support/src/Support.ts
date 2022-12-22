@@ -67,100 +67,70 @@ import { SupportClient } from "./SupportClient";
 
 /**
  * <fullname>Amazon Web Services Support</fullname>
- *         <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
+ *          <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
  *             information about the Amazon Web Services Support operations and data types. You can use the API to manage
  *             your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return
  *             results in JSON format.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
- *         <p>The Amazon Web Services Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a> features. You can
- *             retrieve a list of checks and their descriptions, get check results, specify checks to
- *             refresh, and get the refresh status of checks.</p>
- *         <p>The following list describes the Amazon Web Services Support case management operations:</p>
- *         <ul>
+ *          </note>
+ *          <p>You can also use the Amazon Web Services Support API to access features for <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a>. You can return a list of
+ *             checks and their descriptions, get check results, specify checks to refresh, and get the
+ *             refresh status of checks.</p>
+ *          <p>You can manage your support cases with the following Amazon Web Services Support API operations:</p>
+ *          <ul>
  *             <li>
- *                 <p> Service names, issue categories, and available severity levels  - The
- *                         <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names,
- *                     service codes, service categories, and problem severity levels. You use these
- *                     values when you call the <a>CreateCase</a> operation.</p>
- *             </li>
- *             <li>
- *                 <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
+ *                <p>The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
  *                     create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>
  *             </li>
  *             <li>
- *                 <p> Case communication - The <a>DescribeCommunications</a>,
- *                         <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications
- *                     and attachments to Amazon Web Services Support cases.</p>
+ *                <p>The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications and attachments to Amazon Web Services Support
+ *                     cases.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Service names, service codes, service categories, and problem
+ *                     severity levels. You use these values when you call the <a>CreateCase</a> operation.</p>
  *             </li>
  *          </ul>
- *         <p>The following list describes the operations available from the Amazon Web Services Support service for
- *             Trusted Advisor:</p>
- *         <ul>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that
- *                     run against your Amazon Web Services resources.</p>
- *             </li>
- *             <li>
- *                 <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the
- *                     check that you specified.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized
- *                     results for one or more Trusted Advisor checks.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a
- *                     specified check.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh
- *                     status of one or more checks.</p>
- *             </li>
- *          </ul>
- *         <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
+ *          <p>You can also use the Amazon Web Services Support API to call the  Trusted Advisor operations. For more
+ *             information, see <a href="https://docs.aws.amazon.com/">Trusted Advisor</a> in the
+ *                 <i>Amazon Web Services Support User Guide</i>.</p>
+ *          <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *                 Process</a>.</p>
- *         <p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the
- *             Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i> for
- *             information about how to use this service to create and manage your support cases, and
- *             how to call Trusted Advisor for results of checks on your resources.</p>
+ *          <p>For more information about this service and the endpoints to use, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html">About the
+ *                 Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  */
 export class Support extends SupportClient {
   /**
    * <p>Adds one or more attachments to an attachment set. </p>
-   *         <p>An attachment set is a temporary container for attachments that you add to a case or
+   *          <p>An attachment set is a temporary container for attachments that you add to a case or
    *             case communication. The set is available for 1 hour after it's created. The
    *                 <code>expiryTime</code> returned in the response is when the set expires. </p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public addAttachmentsToSet(
     args: AddAttachmentsToSetCommandInput,
@@ -197,21 +167,20 @@ export class Support extends SupportClient {
    *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
    *             parameter. The <code>communicationBody</code> value contains the text of the
    *             communication.</p>
-   *
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public addCommunicationToCase(
     args: AddCommunicationToCaseCommandInput,
@@ -246,36 +215,36 @@ export class Support extends SupportClient {
    * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
    *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
    *                 Case</a> page.</p>
-   *         <p>The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a
+   *          <p>The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a
    *             service limit increase in the following ways: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Submit a request from the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   *                <p>Submit a request from the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    *             </li>
    *             <li>
-   *                 <p>Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a> operation.</p>
+   *                <p>Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a> operation.</p>
    *             </li>
    *          </ul>
-   *         <p>A successful <code>CreateCase</code> request returns an Amazon Web Services Support case number. You can use
+   *          <p>A successful <code>CreateCase</code> request returns an Amazon Web Services Support case number. You can use
    *             the <a>DescribeCases</a> operation and specify the case number to get
    *             existing Amazon Web Services Support cases. After you create a case, use the <a>AddCommunicationToCase</a> operation to add additional communication or
    *             attachments to an existing case.</p>
-   *         <p>The <code>caseId</code> is separate from the <code>displayId</code> that appears in
+   *          <p>The <code>caseId</code> is separate from the <code>displayId</code> that appears in
    *             the <a href="https://console.aws.amazon.com/support">Amazon Web Services Support Center</a>. Use the <a>DescribeCases</a> operation to get the <code>displayId</code>.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public createCase(args: CreateCaseCommandInput, options?: __HttpHandlerOptions): Promise<CreateCaseCommandOutput>;
   public createCase(args: CreateCaseCommandInput, cb: (err: any, data?: CreateCaseCommandOutput) => void): void;
@@ -306,20 +275,20 @@ export class Support extends SupportClient {
    *             case management system when you add an attachment to a case or case communication.
    *             Attachment IDs are returned in the <a>AttachmentDetails</a> objects that are
    *             returned by the <a>DescribeCommunications</a> operation.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public describeAttachment(
     args: DescribeAttachmentCommandInput,
@@ -356,32 +325,32 @@ export class Support extends SupportClient {
    *             date. You can set values for the <code>includeResolvedCases</code> and
    *                 <code>includeCommunications</code> parameters to specify how much information to
    *             return.</p>
-   *         <p>The response returns the following in JSON format:</p>
-   *         <ul>
+   *          <p>The response returns the following in JSON format:</p>
+   *          <ul>
    *             <li>
-   *                 <p>One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> data types.</p>
+   *                <p>One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> data types.</p>
    *             </li>
    *             <li>
-   *                 <p>One or more <code>nextToken</code> values, which specify where to paginate the
+   *                <p>One or more <code>nextToken</code> values, which specify where to paginate the
    *                     returned records represented by the <code>CaseDetails</code> objects.</p>
    *             </li>
    *          </ul>
-   *         <p>Case data is available for 12 months after creation. If a case was created more than
+   *          <p>Case data is available for 12 months after creation. If a case was created more than
    *             12 months ago, a request might return an error.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public describeCases(
     args: DescribeCasesCommandInput,
@@ -417,26 +386,26 @@ export class Support extends SupportClient {
    *                 <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date. You
    *             can use the <code>caseId</code> parameter to restrict the results to a specific
    *             case.</p>
-   *         <p>Case data is available for 12 months after creation. If a case was created more than
+   *          <p>Case data is available for 12 months after creation. If a case was created more than
    *             12 months ago, a request for data might cause an error.</p>
-   *         <p>You can use the <code>maxResults</code> and <code>nextToken</code> parameters to
+   *          <p>You can use the <code>maxResults</code> and <code>nextToken</code> parameters to
    *             control the pagination of the results. Set <code>maxResults</code> to the number of
    *             cases that you want to display on each page, and use <code>nextToken</code> to specify
    *             the resumption of pagination.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public describeCommunications(
     args: DescribeCommunicationsCommandInput,
@@ -471,26 +440,26 @@ export class Support extends SupportClient {
    * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
    *             service. You then use service names and categories in your <a>CreateCase</a>
    *             requests. Each Amazon Web Services service has its own set of categories.</p>
-   *         <p>The service codes and category codes correspond to the values that appear in the
+   *          <p>The service codes and category codes correspond to the values that appear in the
    *                 <b>Service</b> and <b>Category</b> lists on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page. The values in those fields
    *             don't necessarily match the service codes and categories returned by the
    *                 <code>DescribeServices</code> operation. Always use the service codes and categories
    *             that the <code>DescribeServices</code> operation returns, so that you have the most
    *             recent set of service and category codes.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public describeServices(
     args: DescribeServicesCommandInput,
@@ -522,23 +491,23 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns the list of severity levels that you can assign to a support case. The severity
-   *             level for a case is also a field in the <a>CaseDetails</a> data type that you
-   *             include for a <a>CreateCase</a> request.</p>
-   *         <note>
+   * <p>Returns the list of severity levels that you can assign to a support case. The
+   *             severity level for a case is also a field in the <a>CaseDetails</a> data type
+   *             that you include for a <a>CreateCase</a> request.</p>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
@@ -572,24 +541,28 @@ export class Support extends SupportClient {
   /**
    * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
    *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
-   *         <p>Some checks are refreshed automatically, and you can't return their refresh statuses
+   *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
    *             by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If you
    *             call this operation for these checks, you might see an
    *                 <code>InvalidParameterValue</code> error.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
+   *          <p>To call the Trusted Advisor operations in
+   * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+   * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+   * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
@@ -626,59 +599,62 @@ export class Support extends SupportClient {
    * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
    *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
    *             operation.</p>
-   *         <p>The response contains a <a>TrustedAdvisorCheckResult</a> object, which
+   *          <p>The response contains a <a>TrustedAdvisorCheckResult</a> object, which
    *             contains these three objects:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <a>TrustedAdvisorCategorySpecificSummary</a>
-   *                 </p>
+   *                <p>
+   *                   <a>TrustedAdvisorCategorySpecificSummary</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <a>TrustedAdvisorResourceDetail</a>
-   *                 </p>
+   *                <p>
+   *                   <a>TrustedAdvisorResourceDetail</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <a>TrustedAdvisorResourcesSummary</a>
-   *                 </p>
+   *                <p>
+   *                   <a>TrustedAdvisorResourcesSummary</a>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>In addition, the response contains these fields:</p>
-   *         <ul>
+   *          <p>In addition, the response contains these fields:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <b>status</b> - The alert status of the check
+   *                <p>
+   *                   <b>status</b> - The alert status of the check
    *                     can be <code>ok</code> (green), <code>warning</code> (yellow),
    *                         <code>error</code> (red), or <code>not_available</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>timestamp</b> - The time of the last refresh
+   *                <p>
+   *                   <b>timestamp</b> - The time of the last refresh
    *                     of the check.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>checkId</b> - The unique identifier for the
+   *                <p>
+   *                   <b>checkId</b> - The unique identifier for the
    *                     check.</p>
    *             </li>
    *          </ul>
-   *
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
+   *          <p>To call the Trusted Advisor operations in
+   * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+   * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+   * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
@@ -711,29 +687,31 @@ export class Support extends SupportClient {
 
   /**
    * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
-   *             category, description, and metadata. You must specify a language code. The Amazon Web Services Support API
-   *             currently supports English ("en") and Japanese ("ja"). The response contains a <a>TrustedAdvisorCheckDescription</a> object for each check. You must set the
-   *             Amazon Web Services Region to us-east-1.</p>
-   *
-   *
-   *         <note>
+   *             category, description, and metadata. You must specify a language code.</p>
+   *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
+   *             each check. You must set the Amazon Web Services Region to us-east-1.</p>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
-   *                         API. </p>
-   *                 </li>
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API. </p>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
-   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
-   *                         <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code> error
+   *                         message appears. For information about changing your support plan, see
+   *                             <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
+   *                </li>
    *                <li>
-   *                     <p>The names and descriptions for Trusted Advisor checks are subject to change. We recommend
-   *                         that you specify the check ID in your code to uniquely identify a check.</p>
-   *                 </li>
+   *                   <p>The names and descriptions for Trusted Advisor checks are subject to change. We
+   *                         recommend that you specify the check ID in your code to uniquely identify a
+   *                         check.</p>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
+   *          <p>To call the Trusted Advisor operations in
+   * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+   * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+   * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   public describeTrustedAdvisorChecks(
     args: DescribeTrustedAdvisorChecksCommandInput,
@@ -767,22 +745,26 @@ export class Support extends SupportClient {
   /**
    * <p>Returns the results for the Trusted Advisor check summaries for the check IDs that you
    *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
-   *         <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
+   *          <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
    *             objects.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
+   *          <p>To call the Trusted Advisor operations in
+   * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+   * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+   * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
@@ -817,27 +799,29 @@ export class Support extends SupportClient {
    * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
    *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
    *             operation.</p>
-   *         <note>
-   *             <p>Some checks are refreshed automatically. If you call the
-   *                     <code>RefreshTrustedAdvisorCheck</code> operation to refresh them, you might see
-   *                 the <code>InvalidParameterValue</code> error.</p>
-   *         </note>
-   *         <p>The response contains a <a>TrustedAdvisorCheckRefreshStatus</a>
+   *          <p>Some checks are refreshed automatically. If you call the
+   *             <code>RefreshTrustedAdvisorCheck</code> operation to refresh them, you might see
+   *             the <code>InvalidParameterValue</code> error.</p>
+   *          <p>The response contains a <a>TrustedAdvisorCheckRefreshStatus</a>
    *             object.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
+   *          <p>To call the Trusted Advisor operations in
+   * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+   * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+   * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   public refreshTrustedAdvisorCheck(
     args: RefreshTrustedAdvisorCheckCommandInput,
@@ -871,20 +855,20 @@ export class Support extends SupportClient {
   /**
    * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
    *             initial and final state of the case.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
    *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
    *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public resolveCase(args: ResolveCaseCommandInput, options?: __HttpHandlerOptions): Promise<ResolveCaseCommandOutput>;
   public resolveCase(args: ResolveCaseCommandInput, cb: (err: any, data?: ResolveCaseCommandOutput) => void): void;

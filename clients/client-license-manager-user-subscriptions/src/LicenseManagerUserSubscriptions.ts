@@ -51,14 +51,25 @@ import {
   StopProductSubscriptionCommandInput,
   StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
+import {
+  UpdateIdentityProviderSettingsCommand,
+  UpdateIdentityProviderSettingsCommandInput,
+  UpdateIdentityProviderSettingsCommandOutput,
+} from "./commands/UpdateIdentityProviderSettingsCommand";
 import { LicenseManagerUserSubscriptionsClient } from "./LicenseManagerUserSubscriptionsClient";
 
 /**
- * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>
+ * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
+ *       a per user subscription fee on Amazon EC2 instances.</p>
  */
 export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscriptionsClient {
   /**
    * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
+   *          <note>
+   *             <p>Your estimated bill for charges on the number of users and related costs will take 48
+   *         hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
+   *           monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
+   *          </note>
    */
   public associateUser(
     args: AssociateUserCommandInput,
@@ -315,6 +326,11 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
 
   /**
    * <p>Starts a product subscription for a user with the specified identity provider.</p>
+   *          <note>
+   *             <p>Your estimated bill for charges on the number of users and related costs will take 48
+   *         hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
+   *           monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
+   *          </note>
    */
   public startProductSubscription(
     args: StartProductSubscriptionCommandInput,
@@ -367,6 +383,39 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
     cb?: (err: any, data?: StopProductSubscriptionCommandOutput) => void
   ): Promise<StopProductSubscriptionCommandOutput> | void {
     const command = new StopProductSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates additional product configuration settings for the registered identity
+   *       provider.</p>
+   */
+  public updateIdentityProviderSettings(
+    args: UpdateIdentityProviderSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIdentityProviderSettingsCommandOutput>;
+  public updateIdentityProviderSettings(
+    args: UpdateIdentityProviderSettingsCommandInput,
+    cb: (err: any, data?: UpdateIdentityProviderSettingsCommandOutput) => void
+  ): void;
+  public updateIdentityProviderSettings(
+    args: UpdateIdentityProviderSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIdentityProviderSettingsCommandOutput) => void
+  ): void;
+  public updateIdentityProviderSettings(
+    args: UpdateIdentityProviderSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIdentityProviderSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIdentityProviderSettingsCommandOutput) => void
+  ): Promise<UpdateIdentityProviderSettingsCommandOutput> | void {
+    const command = new UpdateIdentityProviderSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -80,6 +80,8 @@ import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
+import { ListCheckDetailsCommandInput, ListCheckDetailsCommandOutput } from "./commands/ListCheckDetailsCommand";
+import { ListCheckSummariesCommandInput, ListCheckSummariesCommandOutput } from "./commands/ListCheckSummariesCommand";
 import { ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
   ListLensReviewImprovementsCommandInput,
@@ -147,6 +149,8 @@ export type ServiceInputTypes =
   | GetWorkloadCommandInput
   | ImportLensCommandInput
   | ListAnswersCommandInput
+  | ListCheckDetailsCommandInput
+  | ListCheckSummariesCommandInput
   | ListLensReviewImprovementsCommandInput
   | ListLensReviewsCommandInput
   | ListLensSharesCommandInput
@@ -189,6 +193,8 @@ export type ServiceOutputTypes =
   | GetWorkloadCommandOutput
   | ImportLensCommandOutput
   | ListAnswersCommandOutput
+  | ListCheckDetailsCommandOutput
+  | ListCheckSummariesCommandOutput
   | ListLensReviewImprovementsCommandOutput
   | ListLensReviewsCommandOutput
   | ListLensSharesCommandOutput

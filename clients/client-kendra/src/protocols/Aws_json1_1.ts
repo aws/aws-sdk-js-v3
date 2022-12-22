@@ -273,7 +273,6 @@ import {
   DocumentAttributeCondition,
   DocumentAttributeTarget,
   DocumentAttributeValue,
-  DocumentAttributeValueCountPair,
   DocumentInfo,
   DocumentMetadataConfiguration,
   DocumentRelevanceConfiguration,
@@ -285,7 +284,6 @@ import {
   ExperienceEndpoint,
   ExperienceEntitiesSummary,
   ExperiencesSummary,
-  Facet,
   FailedEntity,
   FaqStatistics,
   FaqSummary,
@@ -391,6 +389,9 @@ import {
   SuggestionHighlight,
   SuggestionTextWithHighlights,
   SuggestionValue,
+  TableCell,
+  TableExcerpt,
+  TableRow,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -408,8 +409,6 @@ import {
   UpdateExperienceRequest,
   UpdateIndexRequest,
   UpdateQuerySuggestionsBlockListRequest,
-  UpdateQuerySuggestionsConfigRequest,
-  UpdateThesaurusRequest,
   Urls,
   UserContext,
   UserGroupResolutionConfiguration,
@@ -420,7 +419,16 @@ import {
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
-import { AttributeFilter, FacetResult, QueryRequest, QueryResult } from "../models/models_1";
+import {
+  AttributeFilter,
+  DocumentAttributeValueCountPair,
+  Facet,
+  FacetResult,
+  QueryRequest,
+  QueryResult,
+  UpdateQuerySuggestionsConfigRequest,
+  UpdateThesaurusRequest,
+} from "../models/models_1";
 
 export const serializeAws_json1_1AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
@@ -7386,10 +7394,8 @@ const serializeAws_json1_1ValueImportanceMap = (input: Record<string, number>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -9915,11 +9921,14 @@ const deserializeAws_json1_1QueryResultItem = (output: any, context: __SerdeCont
         : undefined,
     DocumentURI: __expectString(output.DocumentURI),
     FeedbackToken: __expectString(output.FeedbackToken),
+    Format: __expectString(output.Format),
     Id: __expectString(output.Id),
     ScoreAttributes:
       output.ScoreAttributes != null
         ? deserializeAws_json1_1ScoreAttributes(output.ScoreAttributes, context)
         : undefined,
+    TableExcerpt:
+      output.TableExcerpt != null ? deserializeAws_json1_1TableExcerpt(output.TableExcerpt, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -10714,6 +10723,52 @@ const deserializeAws_json1_1SuggestionValue = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1TableCell = (output: any, context: __SerdeContext): TableCell => {
+  return {
+    Header: __expectBoolean(output.Header),
+    Highlighted: __expectBoolean(output.Highlighted),
+    TopAnswer: __expectBoolean(output.TopAnswer),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1TableCellList = (output: any, context: __SerdeContext): TableCell[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TableCell(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TableExcerpt = (output: any, context: __SerdeContext): TableExcerpt => {
+  return {
+    Rows: output.Rows != null ? deserializeAws_json1_1TableRowList(output.Rows, context) : undefined,
+    TotalNumberOfRows: __expectInt32(output.TotalNumberOfRows),
+  } as any;
+};
+
+const deserializeAws_json1_1TableRow = (output: any, context: __SerdeContext): TableRow => {
+  return {
+    Cells: output.Cells != null ? deserializeAws_json1_1TableCellList(output.Cells, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TableRowList = (output: any, context: __SerdeContext): TableRow[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TableRow(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
@@ -10881,10 +10936,8 @@ const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 

@@ -2,10 +2,9 @@
 import { AccelerationSettings, HopDestination } from "./models_0";
 import {
   Job,
+  JobStatus,
   JobTemplate,
-  JobTemplateListBy,
   JobTemplateSettings,
-  Order,
   Policy,
   Preset,
   PresetSettings,
@@ -14,6 +13,79 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface GetPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy?: Policy;
+}
+
+export interface GetPresetRequest {
+  /**
+   * The name of the preset.
+   */
+  Name: string | undefined;
+}
+
+export interface GetPresetResponse {
+  /**
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   */
+  Preset?: Preset;
+}
+
+export interface GetQueueRequest {
+  /**
+   * The name of the queue that you want information about.
+   */
+  Name: string | undefined;
+}
+
+export interface GetQueueResponse {
+  /**
+   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+   */
+  Queue?: Queue;
+}
+
+export enum JobTemplateListBy {
+  CREATION_DATE = "CREATION_DATE",
+  NAME = "NAME",
+  SYSTEM = "SYSTEM",
+}
+
+export enum Order {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+export interface ListJobsRequest {
+  /**
+   * Optional. Number of jobs, up to twenty, that will be returned at one time.
+   */
+  MaxResults?: number;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
+   */
+  NextToken?: string;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   */
+  Order?: Order | string;
+
+  /**
+   * Optional. Provide a queue name to get back only jobs from that queue.
+   */
+  Queue?: string;
+
+  /**
+   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+   */
+  Status?: JobStatus | string;
+}
 
 export interface ListJobsResponse {
   /**
@@ -332,6 +404,48 @@ export interface UpdateQueueResponse {
    */
   Queue?: Queue;
 }
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPresetRequestFilterSensitiveLog = (obj: GetPresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPresetResponseFilterSensitiveLog = (obj: GetPresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueRequestFilterSensitiveLog = (obj: GetQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

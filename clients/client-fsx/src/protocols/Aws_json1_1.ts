@@ -2900,6 +2900,9 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.fsx#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidNetworkSettings":
+    case "com.amazonaws.fsx#InvalidNetworkSettings":
+      throw await deserializeAws_json1_1InvalidNetworkSettingsResponse(parsedOutput, context);
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.fsx#MissingFileSystemConfiguration":
       throw await deserializeAws_json1_1MissingFileSystemConfigurationResponse(parsedOutput, context);
@@ -3886,9 +3889,12 @@ const serializeAws_json1_1CreateOntapVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
     ...(input.JunctionPath != null && { JunctionPath: input.JunctionPath }),
+    ...(input.OntapVolumeType != null && { OntapVolumeType: input.OntapVolumeType }),
     ...(input.SecurityStyle != null && { SecurityStyle: input.SecurityStyle }),
     ...(input.SizeInMegabytes != null && { SizeInMegabytes: input.SizeInMegabytes }),
+    ...(input.SnapshotPolicy != null && { SnapshotPolicy: input.SnapshotPolicy }),
     ...(input.StorageEfficiencyEnabled != null && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
     ...(input.StorageVirtualMachineId != null && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
     ...(input.TieringPolicy != null && {
@@ -4837,6 +4843,9 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AddRouteTableIds != null && {
+      AddRouteTableIds: serializeAws_json1_1RouteTableIds(input.AddRouteTableIds, context),
+    }),
     ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
@@ -4847,6 +4856,9 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
       DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
     }),
     ...(input.FsxAdminPassword != null && { FsxAdminPassword: input.FsxAdminPassword }),
+    ...(input.RemoveRouteTableIds != null && {
+      RemoveRouteTableIds: serializeAws_json1_1RouteTableIds(input.RemoveRouteTableIds, context),
+    }),
     ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
     ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
@@ -4932,9 +4944,11 @@ const serializeAws_json1_1UpdateOntapVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
     ...(input.JunctionPath != null && { JunctionPath: input.JunctionPath }),
     ...(input.SecurityStyle != null && { SecurityStyle: input.SecurityStyle }),
     ...(input.SizeInMegabytes != null && { SizeInMegabytes: input.SizeInMegabytes }),
+    ...(input.SnapshotPolicy != null && { SnapshotPolicy: input.SnapshotPolicy }),
     ...(input.StorageEfficiencyEnabled != null && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
     ...(input.TieringPolicy != null && {
       TieringPolicy: serializeAws_json1_1TieringPolicy(input.TieringPolicy, context),
@@ -6328,11 +6342,13 @@ const deserializeAws_json1_1OntapVolumeConfiguration = (
   context: __SerdeContext
 ): OntapVolumeConfiguration => {
   return {
+    CopyTagsToBackups: __expectBoolean(output.CopyTagsToBackups),
     FlexCacheEndpointType: __expectString(output.FlexCacheEndpointType),
     JunctionPath: __expectString(output.JunctionPath),
     OntapVolumeType: __expectString(output.OntapVolumeType),
     SecurityStyle: __expectString(output.SecurityStyle),
     SizeInMegabytes: __expectInt32(output.SizeInMegabytes),
+    SnapshotPolicy: __expectString(output.SnapshotPolicy),
     StorageEfficiencyEnabled: __expectBoolean(output.StorageEfficiencyEnabled),
     StorageVirtualMachineId: __expectString(output.StorageVirtualMachineId),
     StorageVirtualMachineRoot: __expectBoolean(output.StorageVirtualMachineRoot),
@@ -6464,6 +6480,8 @@ const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
   return {
     CopyTagsToSnapshots: __expectBoolean(output.CopyTagsToSnapshots),
     DataCompressionType: __expectString(output.DataCompressionType),
+    DeleteClonedVolumes: __expectBoolean(output.DeleteClonedVolumes),
+    DeleteIntermediateSnaphots: __expectBoolean(output.DeleteIntermediateSnaphots),
     NfsExports:
       output.NfsExports != null ? deserializeAws_json1_1OpenZFSNfsExports(output.NfsExports, context) : undefined,
     OriginSnapshot:
@@ -6473,6 +6491,7 @@ const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
     ParentVolumeId: __expectString(output.ParentVolumeId),
     ReadOnly: __expectBoolean(output.ReadOnly),
     RecordSizeKiB: __expectInt32(output.RecordSizeKiB),
+    RestoreToSnapshot: __expectString(output.RestoreToSnapshot),
     StorageCapacityQuotaGiB: __expectInt32(output.StorageCapacityQuotaGiB),
     StorageCapacityReservationGiB: __expectInt32(output.StorageCapacityReservationGiB),
     UserAndGroupQuotas:
@@ -6526,6 +6545,10 @@ const deserializeAws_json1_1RestoreVolumeFromSnapshotResponse = (
   context: __SerdeContext
 ): RestoreVolumeFromSnapshotResponse => {
   return {
+    AdministrativeActions:
+      output.AdministrativeActions != null
+        ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
+        : undefined,
     Lifecycle: __expectString(output.Lifecycle),
     VolumeId: __expectString(output.VolumeId),
   } as any;
@@ -6651,7 +6674,6 @@ const deserializeAws_json1_1StorageVirtualMachine = (output: any, context: __Ser
     ResourceARN: __expectString(output.ResourceARN),
     RootVolumeSecurityStyle: __expectString(output.RootVolumeSecurityStyle),
     StorageVirtualMachineId: __expectString(output.StorageVirtualMachineId),
-    Subtype: __expectString(output.Subtype),
     Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     UUID: __expectString(output.UUID),
   } as any;

@@ -32,6 +32,22 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
 
 /**
  * <p>Associates the specified principal ARN with the specified portfolio.</p>
+ *          <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is
+ *          included in the share. </p>
+ *          <p>The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code> parameters are
+ *       required. </p>
+ *          <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>
+ *          </p>
+ *
+ *          <note>
+ *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
+ *          but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ *          name association for the portfolio. Although this user may not know which principal names are associated through
+ *          Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ *          Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration,
+ *          the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

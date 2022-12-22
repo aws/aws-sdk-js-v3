@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AcceptDomainTransferFromAnotherAwsAccountCommand";
+export * from "./AssociateDelegationSignerToDomainCommand";
 export * from "./CancelDomainTransferToAnotherAwsAccountCommand";
 export * from "./CheckDomainAvailabilityCommand";
 export * from "./CheckDomainTransferabilityCommand";
@@ -7,6 +8,7 @@ export * from "./DeleteDomainCommand";
 export * from "./DeleteTagsForDomainCommand";
 export * from "./DisableDomainAutoRenewCommand";
 export * from "./DisableDomainTransferLockCommand";
+export * from "./DisassociateDelegationSignerFromDomainCommand";
 export * from "./EnableDomainAutoRenewCommand";
 export * from "./EnableDomainTransferLockCommand";
 export * from "./GetContactReachabilityStatusCommand";
@@ -17,10 +19,12 @@ export * from "./ListDomainsCommand";
 export * from "./ListOperationsCommand";
 export * from "./ListPricesCommand";
 export * from "./ListTagsForDomainCommand";
+export * from "./PushDomainCommand";
 export * from "./RegisterDomainCommand";
 export * from "./RejectDomainTransferFromAnotherAwsAccountCommand";
 export * from "./RenewDomainCommand";
 export * from "./ResendContactReachabilityEmailCommand";
+export * from "./ResendOperationAuthorizationCommand";
 export * from "./RetrieveDomainAuthCodeCommand";
 export * from "./TransferDomainCommand";
 export * from "./TransferDomainToAnotherAwsAccountCommand";

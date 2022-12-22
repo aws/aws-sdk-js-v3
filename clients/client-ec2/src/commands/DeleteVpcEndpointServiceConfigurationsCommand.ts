@@ -19,7 +19,7 @@ import {
   DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
   DeleteVpcEndpointServiceConfigurationsResult,
   DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
   serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,

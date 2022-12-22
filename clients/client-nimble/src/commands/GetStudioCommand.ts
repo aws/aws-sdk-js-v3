@@ -29,7 +29,7 @@ export interface GetStudioCommandInput extends GetStudioRequest {}
 export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBearer {}
 
 /**
- * <p>Get a Studio resource.</p>
+ * <p>Get a studio resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

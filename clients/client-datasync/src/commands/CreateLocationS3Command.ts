@@ -30,8 +30,6 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
 
 /**
  * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.</p>
- *
- *
  *          <p>For
  *       more information, see
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>

@@ -32,7 +32,7 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
- * 		       <p>Returns an endpoint for the Amazon ECS agent to poll for updates.</p>
+ *          <p>Returns an endpoint for the Amazon ECS agent to poll for updates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

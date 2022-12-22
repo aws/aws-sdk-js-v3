@@ -19,7 +19,7 @@ import {
   PutClassificationExportConfigurationRequestFilterSensitiveLog,
   PutClassificationExportConfigurationResponse,
   PutClassificationExportConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1PutClassificationExportConfigurationCommand,
   serializeAws_restJson1PutClassificationExportConfigurationCommand,

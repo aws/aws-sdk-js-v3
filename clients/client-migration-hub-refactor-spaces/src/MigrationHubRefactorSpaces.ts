@@ -97,7 +97,6 @@ import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesCl
 
 /**
  * <fullname>Amazon Web Services Migration Hub Refactor Spaces</fullname>
- *
  *          <p>This API reference provides descriptions, syntax, and other details about each of the
  *       actions and data types for Amazon Web Services Migration Hub Refactor Spaces (Refactor Spaces). The topic for each action shows the API
  *       request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
@@ -219,6 +218,10 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    *       specified ARN exists. If it does not exist, the health check fails. For public URLs, a
    *       connection is opened to the public endpoint. If the URL is not reachable, the health check
    *       fails. </p>
+   *          <p>Refactor Spaces automatically resolves the public Domain Name System (DNS) names that are set in
+   *         <a>CreateServiceRequest$UrlEndpoint</a> when you create a service. The DNS names
+   *       resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+   *       seconds. This periodic DNS resolution ensures that the route configuration remains up-to-date. </p>
    *          <p>For private URLS, a target group is created on the Elastic Load Balancing and the target
    *       group health check is run. The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>,
    *       and <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
@@ -886,9 +889,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
-   * <p>
-   *     Updates an Amazon Web Services Migration Hub Refactor Spaces route.
-   *   </p>
+   * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
    */
   public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
   public updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;

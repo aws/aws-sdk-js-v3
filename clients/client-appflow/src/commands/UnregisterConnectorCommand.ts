@@ -29,8 +29,8 @@ export interface UnregisterConnectorCommandInput extends UnregisterConnectorRequ
 export interface UnregisterConnectorCommandOutput extends UnregisterConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Unregisters the custom connector registered in your account that matches the
- *       connectorLabel provided in the request.</p>
+ * <p>Unregisters the custom connector registered in your account that matches the connector
+ *       label provided in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

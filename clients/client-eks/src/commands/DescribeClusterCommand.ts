@@ -30,14 +30,14 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
 
 /**
  * <p>Returns descriptive information about an Amazon EKS cluster.</p>
- *         <p>The API server endpoint and certificate authority data returned by this operation are
+ *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
  *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
  *                 kubeconfig for Amazon EKS</a>.</p>
- *         <note>
+ *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

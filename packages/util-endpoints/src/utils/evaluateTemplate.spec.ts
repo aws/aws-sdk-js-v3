@@ -13,11 +13,9 @@ describe(evaluateTemplate.name, () => {
     jest.clearAllMocks();
   });
 
-  it("should escape tilde while processing expression", () => {
-    const template = "foo `bar` baz";
-    // This test verifies that tilde is unescaped after processing.
-    expect(evaluateTemplate(template, mockOptions)).toBe(template);
-    expect(getAttr).not.toHaveBeenCalled();
+  it("should not escape template without braces", () => {
+    const templateWithoutBraces = "foo bar baz";
+    expect(evaluateTemplate(templateWithoutBraces, mockOptions)).toEqual(templateWithoutBraces);
   });
 
   describe("should replace `{parameterName}` with value", () => {
@@ -33,7 +31,7 @@ describe(evaluateTemplate.name, () => {
     });
   });
 
-  it("should not replace string escaped {{value}}", () => {
+  it("should escape values within double braces like {{value}}", () => {
     const value = "bar";
     expect(evaluateTemplate("foo {{value1}} bar {{value2}} baz", { ...mockOptions, endpointParams: { value } })).toBe(
       "foo {value1} bar {value2} baz"
@@ -55,5 +53,16 @@ describe(evaluateTemplate.name, () => {
     expect(getAttr).toHaveBeenCalledTimes(2);
     expect(getAttr).toHaveBeenNthCalledWith(1, ref1, "key1");
     expect(getAttr).toHaveBeenNthCalledWith(2, ref2, "key2");
+  });
+
+  describe("should not change template with incomplete braces", () => {
+    it.each([
+      "incomplete opening bracket '{' in template",
+      "incomplete closing bracket '}' in template",
+      "incomplete opening escape '{{' in template",
+      "incomplete closing escape '}}' in template",
+    ])("%s", (template) => {
+      expect(evaluateTemplate(template, mockOptions)).toEqual(template);
+    });
   });
 });

@@ -36,10 +36,9 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *         returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis.
  *         When content analysis is finished, Amazon Rekognition Video publishes a completion status
  *         to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p>
- *         <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS
+ *          <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS
  *         topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier
  *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
- *
  *          <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

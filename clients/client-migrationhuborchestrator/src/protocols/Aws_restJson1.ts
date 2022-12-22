@@ -226,8 +226,8 @@ export const serializeAws_restJson1DeleteWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    stepGroupId: [, input.stepGroupId!],
-    workflowId: [, input.workflowId!],
+    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -251,7 +251,7 @@ export const serializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -296,8 +296,8 @@ export const serializeAws_restJson1GetTemplateStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templatestep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    templateId: [, input.templateId!],
-    stepGroupId: [, input.stepGroupId!],
+    templateId: [, __expectNonNull(input.templateId!, `templateId`)],
+    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -363,8 +363,8 @@ export const serializeAws_restJson1GetWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
-    stepGroupId: [, input.stepGroupId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -388,7 +388,7 @@ export const serializeAws_restJson1GetWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -509,8 +509,8 @@ export const serializeAws_restJson1ListTemplateStepsCommand = async (
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
-    templateId: [, input.templateId!],
-    stepGroupId: [, input.stepGroupId!],
+    templateId: [, __expectNonNull(input.templateId!, `templateId`)],
+    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -563,7 +563,7 @@ export const serializeAws_restJson1ListWorkflowStepGroupsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    workflowId: [, input.workflowId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -615,8 +615,8 @@ export const serializeAws_restJson1RetryWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retryworkflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
-    stepGroupId: [, input.stepGroupId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -707,7 +707,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -803,7 +806,7 @@ export const serializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
+    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2769,10 +2772,8 @@ const serializeAws_restJson1StepInputParameters = (input: Record<string, StepInp
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1StepInput(value, context),
-    };
+    acc[key] = serializeAws_restJson1StepInput(value, context);
+    return acc;
   }, {});
 };
 
@@ -2789,10 +2790,8 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2801,10 +2800,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2970,10 +2967,8 @@ const deserializeAws_restJson1StepInputParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1StepInput(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1StepInput(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -3014,10 +3009,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3026,10 +3019,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

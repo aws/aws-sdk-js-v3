@@ -165,6 +165,7 @@ export * from "./ListPrincipalPoliciesCommand";
 export * from "./ListPrincipalThingsCommand";
 export * from "./ListProvisioningTemplateVersionsCommand";
 export * from "./ListProvisioningTemplatesCommand";
+export * from "./ListRelatedResourcesForAuditFindingCommand";
 export * from "./ListRoleAliasesCommand";
 export * from "./ListScheduledAuditsCommand";
 export * from "./ListSecurityProfilesCommand";

@@ -52,12 +52,111 @@ import {
   GroupNameAndArn,
   LogTargetType,
   RegistrationConfig,
+  SecurityProfileTarget,
   Status,
+  StreamSummary,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListStreamsResponse {
+  /**
+   * <p>A list of streams.</p>
+   */
+  streams?: StreamSummary[];
+
+  /**
+   * <p>A token used to get the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of tags assigned to the resource.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTargetsForPolicyRequest {
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  pageSize?: number;
+}
+
+export interface ListTargetsForPolicyResponse {
+  /**
+   * <p>The policy targets.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  nextMarker?: string;
+}
+
+export interface ListTargetsForSecurityProfileRequest {
+  /**
+   * <p>The security profile.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListTargetsForSecurityProfileResponse {
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   */
+  securityProfileTargets?: SecurityProfileTarget[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
 
 export interface ListThingGroupsRequest {
   /**
@@ -2862,6 +2961,59 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

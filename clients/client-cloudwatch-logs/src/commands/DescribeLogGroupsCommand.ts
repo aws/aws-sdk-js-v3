@@ -38,6 +38,9 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *             </code> condition key to control access.
  *       For more information about using tags to control access, see
  *       <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
+ *     view data from the linked source accounts. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

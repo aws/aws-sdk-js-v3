@@ -19,7 +19,7 @@ import {
   ListTargetsForPolicyRequestFilterSensitiveLog,
   ListTargetsForPolicyResponse,
   ListTargetsForPolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListTargetsForPolicyCommand,
   serializeAws_restJson1ListTargetsForPolicyCommand,

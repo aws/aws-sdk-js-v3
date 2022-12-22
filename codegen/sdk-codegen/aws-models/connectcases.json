@@ -381,9 +381,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -394,9 +394,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -407,9 +407,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -420,9 +420,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -433,9 +433,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -446,9 +446,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -459,9 +459,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -472,9 +472,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -483,9 +483,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -496,9 +496,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -507,9 +507,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -520,9 +520,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -533,9 +533,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -546,9 +546,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -559,9 +559,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -572,9 +572,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -583,9 +583,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -596,9 +596,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -607,9 +607,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -620,9 +620,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -633,9 +633,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -645,9 +645,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -657,9 +657,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -1252,7 +1252,7 @@
         "clientToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#length": {
               "max": 64
@@ -1655,7 +1655,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a template in the Cases domain. This template is used to define the case\n      object model (that is, define what data can be captured on cases) in a Cases domain. A\n      template must have a unique name within a domain, and it must reference existing field IDs and layout\n      IDs. Additionally, multiple fields with same IDs are not allowed within the same Template.</p>",
+        "smithy.api#documentation": "<p>Creates a template in the Cases domain. This template is used to define the case object\n      model (that is, to define what data can be captured on cases) in a Cases domain. A template\n      must have a unique name within a domain, and it must reference existing field IDs and layout\n      IDs. Additionally, multiple fields with same IDs are not allowed within the same Template. A\n      template can be either Active or Inactive, as indicated by its status. Inactive templates\n      cannot be used to create cases.</p>",
         "smithy.api#http": {
           "uri": "/domains/{domainId}/templates",
           "method": "POST"
@@ -1697,6 +1697,12 @@
           "target": "com.amazonaws.connectcases#RequiredFieldList",
           "traits": {
             "smithy.api#documentation": "<p>A list of fields that must contain a value for a case to be successfully created with this\n      template.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.connectcases#TemplateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the template.</p>"
           }
         }
       }
@@ -2023,7 +2029,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Represents an ordered list containing field related information.</p>",
             "smithy.api#length": {
-              "max": 30
+              "max": 100
             },
             "smithy.api#required": {}
           }
@@ -2845,6 +2851,13 @@
           "traits": {
             "smithy.api#documentation": "<p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>"
           }
+        },
+        "status": {
+          "target": "com.amazonaws.connectcases#TemplateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the template.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -2964,7 +2977,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Ordered list containing different kinds of sections that can be added. A LayoutSections object can only contain one section.</p>"
+        "smithy.api#documentation": "<p>Ordered list containing different kinds of sections that can be added. A LayoutSections\n      object can only contain one section.</p>"
       }
     },
     "com.amazonaws.connectcases#LayoutSummary": {
@@ -3566,6 +3579,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.connectcases#TemplateStatusFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of status values to filter on.</p>",
+            "smithy.api#httpQuery": "status"
           }
         }
       }
@@ -4435,6 +4455,36 @@
         "smithy.api#pattern": "^.*[\\S]$"
       }
     },
+    "com.amazonaws.connectcases#TemplateStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Status of a template",
+        "smithy.api#enum": [
+          {
+            "value": "Active",
+            "name": "ACTIVE"
+          },
+          {
+            "value": "Inactive",
+            "name": "INACTIVE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.connectcases#TemplateStatusFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectcases#TemplateStatus"
+      },
+      "traits": {
+        "smithy.api#documentation": "List of filters used on the ListTemplates result set",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2
+        },
+        "smithy.api#uniqueItems": {}
+      }
+    },
     "com.amazonaws.connectcases#TemplateSummary": {
       "type": "structure",
       "members": {
@@ -4448,7 +4498,7 @@
         "templateArn": {
           "target": "com.amazonaws.connectcases#TemplateArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN)  of the template.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the template.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4456,6 +4506,13 @@
           "target": "com.amazonaws.connectcases#TemplateName",
           "traits": {
             "smithy.api#documentation": "<p>The template name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.connectcases#TemplateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the template.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4568,7 +4625,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the values of fields on a case. Fields to be updated are\n      received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p>\n         <p>If the action is successful, the service sends back an HTTP 200 response with an empty\n      HTTP body.</p>",
+        "smithy.api#documentation": "<p>Updates the values of fields on a case. Fields to be updated are received as an array of\n      id/value pairs identical to the <code>CreateCase</code> input .</p>\n         <p>If the action is successful, the service sends back an HTTP 200 response with an empty\n      HTTP body.</p>",
         "smithy.api#http": {
           "uri": "/domains/{domainId}/cases/{caseId}",
           "method": "PUT"
@@ -4706,6 +4763,9 @@
           "target": "com.amazonaws.connectcases#ResourceNotFoundException"
         },
         {
+          "target": "com.amazonaws.connectcases#ServiceQuotaExceededException"
+        },
+        {
           "target": "com.amazonaws.connectcases#ThrottlingException"
         },
         {
@@ -4787,7 +4847,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the attributes of an existing template. The template attributes that can be\n      modified include <code>name</code>, <code>description</code>, <code>layouts</code>,\n        and <code>requiredFields</code>. At least one of these\n      attributes must not be null. If a null value is provided for a given attribute, that attribute\n      is ignored and its current value is preserved.</p>",
+        "smithy.api#documentation": "<p>Updates the attributes of an existing template. The template attributes that can be\n      modified include <code>name</code>, <code>description</code>,\n      <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At\n      least one of these attributes must not be null. If a null value is provided for a given\n      attribute, that attribute is ignored and its current value is preserved.</p>",
         "smithy.api#http": {
           "uri": "/domains/{domainId}/templates/{templateId}",
           "method": "PUT"
@@ -4836,6 +4896,12 @@
           "target": "com.amazonaws.connectcases#RequiredFieldList",
           "traits": {
             "smithy.api#documentation": "<p>A list of fields that must contain a value for a case to be successfully created with this\n      template.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.connectcases#TemplateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the template.</p>"
           }
         }
       }

@@ -33,7 +33,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
  * 	    </p>
- * 		       <p>
+ *          <p>
  *             <code>ListDashboards</code> returns up to 1000 results on one page. If there
  * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
  * 		include the value you received for <code>NextToken</code> in the first call, to receive

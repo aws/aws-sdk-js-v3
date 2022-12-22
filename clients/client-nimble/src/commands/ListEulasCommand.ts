@@ -29,7 +29,7 @@ export interface ListEulasCommandInput extends ListEulasRequest {}
 export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBearer {}
 
 /**
- * <p>List Eulas.</p>
+ * <p>List EULAs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -18,7 +18,7 @@ import {
   SearchFoldersRequestFilterSensitiveLog,
   SearchFoldersResponse,
   SearchFoldersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchFoldersCommand,
   serializeAws_restJson1SearchFoldersCommand,

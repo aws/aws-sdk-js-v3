@@ -18,7 +18,7 @@ import {
   DescribeAppRequestFilterSensitiveLog,
   DescribeAppResponse,
   DescribeAppResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeAppCommand,
   serializeAws_json1_1DescribeAppCommand,

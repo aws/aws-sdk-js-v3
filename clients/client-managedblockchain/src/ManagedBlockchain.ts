@@ -273,7 +273,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
    *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
    *          from <code>AVAILABLE</code> to <code>PENDING_DELETION</code>. An accessor in the
    *          <code>PENDING_DELETION</code> state can’t be used for new WebSocket requests or
-   *          HTTP requests. However, WebSocket connections that are initiated while the accessor was in the
+   *          HTTP requests. However, WebSocket connections that were initiated while the accessor was in the
    *          <code>AVAILABLE</code> state remain open until they expire (up to 2 hours).</p>
    */
   public deleteAccessor(

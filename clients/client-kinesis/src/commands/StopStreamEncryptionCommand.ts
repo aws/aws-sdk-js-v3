@@ -25,7 +25,11 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables server-side encryption for a specified stream. </p>
- *         <p>Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis
  *             Data Streams returns immediately and sets the status of the stream to
  *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
  *             status of the stream back to <code>ACTIVE</code>. Stopping encryption normally takes a
@@ -33,9 +37,9 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             data to your stream while its status is <code>UPDATING</code>. Once the status of the
  *             stream is <code>ACTIVE</code>, records written to the stream are no longer encrypted by
  *             Kinesis Data Streams. </p>
- *         <p>API Limits: You can successfully disable server-side encryption 25 times in a rolling
+ *          <p>API Limits: You can successfully disable server-side encryption 25 times in a rolling
  *             24-hour period. </p>
- *         <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
+ *          <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
  *             before all records written to the stream are no longer subject to encryption. After you
  *             disabled encryption, you can verify that encryption is not applied by inspecting the API
  *             response from <code>PutRecord</code> or <code>PutRecords</code>.</p>
@@ -64,6 +68,8 @@ export class StopStreamEncryptionCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

@@ -29,8 +29,8 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns all the domain names registered with Amazon Route 53 for the current Amazon Web Services account
- * 			 if no filtering conditions are used.</p>
+ * <p>This operation returns all the domain names registered with Amazon Route 53 for the
+ * 			current Amazon Web Services account if no filtering conditions are used.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -19,7 +19,7 @@ import {
   ModifyManagedPrefixListRequestFilterSensitiveLog,
   ModifyManagedPrefixListResult,
   ModifyManagedPrefixListResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyManagedPrefixListCommand,
   serializeAws_ec2ModifyManagedPrefixListCommand,
@@ -30,9 +30,9 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
 
 /**
  * <p>Modifies the specified managed prefix list.</p>
- *         <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
+ *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
  *             Changing the name of the prefix list does not affect the version.</p>
- *         <p>If you specify a current version number that does not match the true current version
+ *          <p>If you specify a current version number that does not match the true current version
  *             number, the request fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

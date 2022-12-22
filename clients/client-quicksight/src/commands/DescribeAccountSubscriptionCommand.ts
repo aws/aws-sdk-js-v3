@@ -18,7 +18,7 @@ import {
   DescribeAccountSubscriptionRequestFilterSensitiveLog,
   DescribeAccountSubscriptionResponse,
   DescribeAccountSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeAccountSubscriptionCommand,
   serializeAws_restJson1DescribeAccountSubscriptionCommand,
@@ -31,7 +31,7 @@ export interface DescribeAccountSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use the DescribeAccountSubscription operation to receive a description of a Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
+ * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

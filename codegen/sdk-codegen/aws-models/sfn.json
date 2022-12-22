@@ -52,6 +52,9 @@
           "target": "com.amazonaws.sfn#DescribeExecution"
         },
         {
+          "target": "com.amazonaws.sfn#DescribeMapRun"
+        },
+        {
           "target": "com.amazonaws.sfn#DescribeStateMachine"
         },
         {
@@ -68,6 +71,9 @@
         },
         {
           "target": "com.amazonaws.sfn#ListExecutions"
+        },
+        {
+          "target": "com.amazonaws.sfn#ListMapRuns"
         },
         {
           "target": "com.amazonaws.sfn#ListStateMachines"
@@ -100,6 +106,9 @@
           "target": "com.amazonaws.sfn#UntagResource"
         },
         {
+          "target": "com.amazonaws.sfn#UpdateMapRun"
+        },
+        {
           "target": "com.amazonaws.sfn#UpdateStateMachine"
         }
       ],
@@ -115,7 +124,7 @@
           "name": "states"
         },
         "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<fullname>AWS Step Functions</fullname>\n         <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications\n      and microservices using visual workflows.</p>\n         <p>You can use Step Functions to build applications from individual components, each of which performs\n      a discrete function, or <i>task</i>, allowing you to scale and change\n      applications quickly. Step Functions provides a console that helps visualize the components of your\n      application as a series of steps. Step Functions automatically triggers and tracks each step, and\n      retries steps when there are errors, so your application executes predictably and in the right\n      order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any\n      issues.</p>\n         <p>Step Functions manages operations and underlying infrastructure to ensure your application is\n      available at any scale. You can run tasks on AWS, your own servers, or any system that has\n      access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API.\n      For more information about Step Functions, see the <i>\n               <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html\">AWS Step Functions Developer Guide</a>\n            </i>.</p>",
+        "smithy.api#documentation": "<fullname>Step Functions</fullname>\n         <p>Step Functions is a service that lets you coordinate the components of distributed applications\n      and microservices using visual workflows.</p>\n         <p>You can use Step Functions to build applications from individual components, each of which performs\n      a discrete function, or <i>task</i>, allowing you to scale and change\n      applications quickly. Step Functions provides a console that helps visualize the components of your\n      application as a series of steps. Step Functions automatically triggers and tracks each step, and\n      retries steps when there are errors, so your application executes predictably and in the right\n      order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any\n      issues.</p>\n         <p>Step Functions manages operations and underlying infrastructure to ensure your application is\n      available at any scale. You can run tasks on Amazon Web Services, your own servers, or any system that has\n      access to Amazon Web Services. You can access and use Step Functions using the console, the Amazon Web Services SDKs, or an HTTP API.\n      For more information about Step Functions, see the <i>\n               <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html\">Step Functions Developer Guide</a>\n            </i>.</p>",
         "smithy.api#title": "AWS Step Functions",
         "smithy.api#xmlNamespace": {
           "uri": "http://swf.amazonaws.com/doc/2015-07-20/"
@@ -125,7 +134,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -464,9 +473,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -477,9 +486,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -490,9 +499,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -503,9 +512,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -516,9 +525,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -529,9 +538,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -542,9 +551,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -555,9 +564,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -568,9 +577,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -581,9 +590,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -594,9 +603,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -607,9 +616,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -620,9 +629,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -633,9 +642,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -646,9 +655,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -659,9 +668,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -672,9 +681,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -685,9 +694,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -698,9 +707,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -711,9 +720,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -724,9 +733,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -737,9 +746,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -750,9 +759,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -763,9 +772,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -776,9 +785,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -789,9 +798,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -802,9 +811,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -815,9 +824,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -828,9 +837,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -841,9 +850,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -854,9 +863,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -867,9 +876,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -878,9 +887,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -891,9 +900,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -902,9 +911,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -915,9 +924,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -928,9 +937,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -941,9 +950,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -954,9 +963,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -967,9 +976,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -980,9 +989,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -993,9 +1002,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1006,9 +1015,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1019,9 +1028,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1032,9 +1041,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1045,9 +1054,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1058,9 +1067,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1071,9 +1080,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1084,9 +1093,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1097,9 +1106,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1110,9 +1119,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1123,9 +1132,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1136,9 +1145,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1149,9 +1158,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1162,9 +1171,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1175,9 +1184,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1188,9 +1197,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1201,9 +1210,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1214,9 +1223,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1227,9 +1236,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1240,9 +1249,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1253,9 +1262,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1266,9 +1275,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1279,9 +1288,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1292,9 +1301,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1305,9 +1314,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1318,9 +1327,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1331,9 +1340,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1344,9 +1353,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1357,9 +1366,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1370,9 +1379,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1383,9 +1392,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1396,9 +1405,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1409,9 +1418,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1422,9 +1431,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1435,9 +1444,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1448,9 +1457,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1461,9 +1470,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1474,9 +1483,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1487,9 +1496,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1500,9 +1509,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1513,9 +1522,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1526,9 +1535,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1539,9 +1548,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1552,9 +1561,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1565,9 +1574,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1578,9 +1587,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1591,9 +1600,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1604,9 +1613,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1617,9 +1626,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1630,9 +1639,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1643,9 +1652,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1656,9 +1665,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1669,9 +1678,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1682,9 +1691,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1695,9 +1704,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1708,9 +1717,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1721,9 +1730,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1734,9 +1743,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1747,9 +1756,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1760,9 +1769,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1773,9 +1782,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1786,9 +1795,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1799,9 +1808,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1812,9 +1821,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1825,9 +1834,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1838,9 +1847,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1851,9 +1860,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1862,9 +1871,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1875,9 +1884,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1886,9 +1895,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1899,9 +1908,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1912,9 +1921,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1925,9 +1934,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1938,9 +1947,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1951,9 +1960,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1964,9 +1973,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -1977,9 +1986,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -1990,9 +1999,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2003,9 +2012,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2016,9 +2025,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2029,9 +2038,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2042,9 +2051,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2055,9 +2064,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2068,9 +2077,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2081,9 +2090,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2094,9 +2103,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2107,9 +2116,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2120,9 +2129,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2133,9 +2142,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2146,9 +2155,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2159,9 +2168,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2170,9 +2179,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2183,9 +2192,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2194,9 +2203,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2207,9 +2216,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2220,9 +2229,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2232,9 +2241,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2244,9 +2253,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2569,7 +2578,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an activity. An activity is a task that you write in any programming language and\n      host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the\n        <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API\n      actions. This function lets Step Functions know the existence of your activity and returns an\n      identifier for use in a state machine and when polling from the activity.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateActivity</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateActivity</code>'s idempotency\n        check is based on the activity <code>name</code>. If a following request has different\n          <code>tags</code> values, Step Functions will ignore these differences and treat it as an\n        idempotent request of the previous. In this case, <code>tags</code> will not be updated,\n        even if they are different.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates an activity. An activity is a task that you write in any programming language and\n      host on any machine that has access to Step Functions. Activities must poll Step Functions using the\n        <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API\n      actions. This function lets Step Functions know the existence of your activity and returns an\n      identifier for use in a state machine and when polling from the activity.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateActivity</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateActivity</code>'s idempotency\n        check is based on the activity <code>name</code>. If a following request has different\n          <code>tags</code> values, Step Functions will ignore these differences and treat it as an\n        idempotent request of the previous. In this case, <code>tags</code> will not be updated,\n        even if they are different.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -2579,14 +2588,14 @@
         "name": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information,\n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>\n         <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>",
+            "smithy.api#documentation": "<p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,\n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>\n         <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>",
             "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.amazonaws.sfn#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>The list of tags to add to a resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
+            "smithy.api#documentation": "<p>The list of tags to add to a resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
           }
         }
       }
@@ -2651,7 +2660,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a state machine. A state machine consists of a collection of states that can do\n      work (<code>Task</code> states), determine to which states to transition next\n        (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),\n      and so on. State machines are specified using a JSON-based, structured language. For more\n      information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States\n        Language</a> in the AWS Step Functions User Guide.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency\n        check is based on the state machine <code>name</code>, <code>definition</code>,\n          <code>type</code>, <code>LoggingConfiguration</code> and <code>TracingConfiguration</code>. If a following request has a\n        different <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and\n        treat it as an idempotent request of the previous. In this case, <code>roleArn</code> and\n          <code>tags</code> will not be updated, even if they are different.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a state machine. A state machine consists of a collection of states that can do\n      work (<code>Task</code> states), determine to which states to transition next\n        (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),\n      and so on. State machines are specified using a JSON-based, structured language. For more\n      information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States\n        Language</a> in the Step Functions User Guide.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency\n        check is based on the state machine <code>name</code>, <code>definition</code>,\n          <code>type</code>, <code>LoggingConfiguration</code> and\n        <code>TracingConfiguration</code>. If a following request has a different\n          <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and treat\n        it as an idempotent request of the previous. In this case, <code>roleArn</code> and\n          <code>tags</code> will not be updated, even if they are different.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -2688,19 +2697,19 @@
         "loggingConfiguration": {
           "target": "com.amazonaws.sfn#LoggingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Defines what execution history events are logged and where they are logged.</p>\n         <note>\n            <p>By default, the <code>level</code> is set to <code>OFF</code>. For more information see\n          <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html\">Log\n          Levels</a> in the AWS Step Functions User Guide.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Defines what execution history events are logged and where they are logged.</p>\n         <note>\n            <p>By default, the <code>level</code> is set to <code>OFF</code>. For more information see\n          <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html\">Log\n          Levels</a> in the Step Functions User Guide.</p>\n         </note>"
           }
         },
         "tags": {
           "target": "com.amazonaws.sfn#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>Tags to be added when creating a state machine.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
+            "smithy.api#documentation": "<p>Tags to be added when creating a state machine.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
           }
         },
         "tracingConfiguration": {
           "target": "com.amazonaws.sfn#TracingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Selects whether AWS X-Ray tracing is enabled.</p>"
+            "smithy.api#documentation": "<p>Selects whether X-Ray tracing is enabled.</p>"
           }
         }
       }
@@ -2778,10 +2787,13 @@
       "errors": [
         {
           "target": "com.amazonaws.sfn#InvalidArn"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's\n      status to <code>DELETING</code> and begins the deletion process. </p>\n         <note>\n            <p>For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually\n        less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>\n        API is called.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's\n      status to <code>DELETING</code> and begins the deletion process. </p>\n    \n         <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>\n    \n         <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>\n    \n         <note>\n            <p>For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually\n        less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>\n        API is called.</p>\n         </note>"
       }
     },
     "com.amazonaws.sfn#DeleteStateMachineInput": {
@@ -2875,7 +2887,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes an execution.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>"
+        "smithy.api#documentation": "<p>Provides all information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. Use this API action to return the Map Run ARN if the execution was dispatched by a Map Run.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>\n         <p>This API action is not supported by <code>EXPRESS</code> state machine executions unless they were dispatched by a Map Run.</p>"
       }
     },
     "com.amazonaws.sfn#DescribeExecutionInput": {
@@ -2954,7 +2966,134 @@
         "traceHeader": {
           "target": "com.amazonaws.sfn#TraceHeader",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS X-Ray trace header that was passed to the execution.</p>"
+            "smithy.api#documentation": "<p>The X-Ray trace header that was passed to the execution.</p>"
+          }
+        },
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies a Map Run, which dispatched this execution.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.sfn#SensitiveError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error string if the state machine execution failed.</p>"
+          }
+        },
+        "cause": {
+          "target": "com.amazonaws.sfn#SensitiveCause",
+          "traits": {
+            "smithy.api#documentation": "<p>The cause string if the state machine execution failed.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sfn#DescribeMapRun": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sfn#DescribeMapRunInput"
+      },
+      "output": {
+        "target": "com.amazonaws.sfn#DescribeMapRunOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sfn#InvalidArn"
+        },
+        {
+          "target": "com.amazonaws.sfn#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information about a Map Run's configuration, progress, and results. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html\">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.sfn#DescribeMapRunInput": {
+      "type": "structure",
+      "members": {
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sfn#DescribeMapRunOutput": {
+      "type": "structure",
+      "members": {
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "executionArn": {
+          "target": "com.amazonaws.sfn#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the execution in which the Map Run was started.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.sfn#MapRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startDate": {
+          "target": "com.amazonaws.sfn#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date when the Map Run was started.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stopDate": {
+          "target": "com.amazonaws.sfn#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date when the Map Run was stopped.</p>"
+          }
+        },
+        "maxConcurrency": {
+          "target": "com.amazonaws.sfn#MaxConcurrency",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of child workflow executions configured to run in parallel for the Map Run at the same time.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "toleratedFailurePercentage": {
+          "target": "com.amazonaws.sfn#ToleratedFailurePercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum percentage of failed child workflow executions before the Map Run fails.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "toleratedFailureCount": {
+          "target": "com.amazonaws.sfn#ToleratedFailureCount",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of failed child workflow executions before the Map Run fails.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "itemCounts": {
+          "target": "com.amazonaws.sfn#MapRunItemCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON object that contains information about the total number of items, and the item count for each processing status, such as <code>pending</code> and <code>failed</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "executionCounts": {
+          "target": "com.amazonaws.sfn#MapRunExecutionCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -2976,7 +3115,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes a state machine.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration. If the state machine ARN is a qualified state machine ARN, the response returned includes the <code>Map</code> state's label.</p>\n    \n         <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>\n    \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
       }
     },
     "com.amazonaws.sfn#DescribeStateMachineForExecution": {
@@ -2996,7 +3135,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the state machine associated with a specific execution.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>"
+        "smithy.api#documentation": "<p>Provides information about a state machine's definition, its execution role ARN, and configuration. If an execution was dispatched by a Map Run, the Map Run is returned in the response. Additionally, the state machine returned will be the state machine associated with the Map Run.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>"
       }
     },
     "com.amazonaws.sfn#DescribeStateMachineForExecutionInput": {
@@ -3055,7 +3194,19 @@
         "tracingConfiguration": {
           "target": "com.amazonaws.sfn#TracingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Selects whether AWS X-Ray tracing is enabled.</p>"
+            "smithy.api#documentation": "<p>Selects whether X-Ray tracing is enabled.</p>"
+          }
+        },
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow execution. This field is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>"
+          }
+        },
+        "label": {
+          "target": "com.amazonaws.sfn#MapRunLabel",
+          "traits": {
+            "smithy.api#documentation": "<p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>"
           }
         }
       }
@@ -3105,7 +3256,7 @@
         "roleArn": {
           "target": "com.amazonaws.sfn#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role\n      maintains security by granting Step Functions access to AWS resources.)</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role\n      maintains security by granting Step Functions access to Amazon Web Services resources.)</p>",
             "smithy.api#required": {}
           }
         },
@@ -3129,7 +3280,13 @@
         "tracingConfiguration": {
           "target": "com.amazonaws.sfn#TracingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Selects whether AWS X-Ray tracing is enabled.</p>"
+            "smithy.api#documentation": "<p>Selects whether X-Ray tracing is enabled.</p>"
+          }
+        },
+        "label": {
+          "target": "com.amazonaws.sfn#MapRunLabel",
+          "traits": {
+            "smithy.api#documentation": "<p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>"
           }
         }
       }
@@ -3274,6 +3431,19 @@
           "traits": {
             "smithy.api#documentation": "<p>If the execution already ended, the date the execution stopped.</p>"
           }
+        },
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a Map Run. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>mapRunArn</code> isn't returned.</p>"
+          }
+        },
+        "itemCount": {
+          "target": "com.amazonaws.sfn#UnsignedInteger",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>"
+          }
         }
       },
       "traits": {
@@ -3298,7 +3468,7 @@
         "roleArn": {
           "target": "com.amazonaws.sfn#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>"
           }
         }
       },
@@ -3307,30 +3477,38 @@
       }
     },
     "com.amazonaws.sfn#ExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "ABORTED",
-            "name": "ABORTED"
+      "type": "enum",
+      "members": {
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
           }
-        ]
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "ABORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ABORTED"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#ExecutionSucceededEventDetails": {
@@ -3393,7 +3571,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Used by workers to retrieve a task (with the specified activity ARN) which has been\n      scheduled for execution by a running state machine. This initiates a long poll, where the\n      service holds the HTTP connection open and responds as soon as a task becomes available (i.e.\n      an execution of a task of this type is needed.) The maximum time the service holds on to the\n      request before responding is 60 seconds. If no task is available within 60 seconds, the poll\n      returns a <code>taskToken</code> with a null string.</p>\n         <important>\n            <p>Workers should set their client side socket timeout to at least 65 seconds (5 seconds\n        higher than the maximum time the service may hold the poll request).</p>\n            <p>Polling with <code>GetActivityTask</code> can cause latency in some implementations. See\n          <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html\">Avoid\n          Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>\n         </important>"
+        "smithy.api#documentation": "<p>Used by workers to retrieve a task (with the specified activity ARN) which has been\n      scheduled for execution by a running state machine. This initiates a long poll, where the\n      service holds the HTTP connection open and responds as soon as a task becomes available (i.e.\n      an execution of a task of this type is needed.) The maximum time the service holds on to the\n      request before responding is 60 seconds. If no task is available within 60 seconds, the poll\n      returns a <code>taskToken</code> with a null string.</p>\n    \n         <note>\n            <p>This API action isn't logged in CloudTrail.</p>\n         </note>\n    \n         <important>\n            <p>Workers should set their client side socket timeout to at least 65 seconds (5 seconds\n        higher than the maximum time the service may hold the poll request).</p>\n            <p>Polling with <code>GetActivityTask</code> can cause latency in some implementations. See\n          <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html\">Avoid\n          Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>\n         </important>"
       }
     },
     "com.amazonaws.sfn#GetActivityTaskInput": {
@@ -3680,7 +3858,7 @@
         "lambdaFunctionSucceededEventDetails": {
           "target": "com.amazonaws.sfn#LambdaFunctionSucceededEventDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Contains details about a lambda function that terminated successfully during an\n      execution.</p>"
+            "smithy.api#documentation": "<p>Contains details about a Lambda function that terminated successfully during an\n      execution.</p>"
           }
         },
         "lambdaFunctionTimedOutEventDetails": {
@@ -3691,6 +3869,18 @@
         },
         "stateExitedEventDetails": {
           "target": "com.amazonaws.sfn#StateExitedEventDetails"
+        },
+        "mapRunStartedEventDetails": {
+          "target": "com.amazonaws.sfn#MapRunStartedEventDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains details, such as <code>mapRunArn</code>, and the start date and time of a Map Run. <code>mapRunArn</code> is the Amazon Resource Name (ARN) of the Map Run that was started.</p>"
+          }
+        },
+        "mapRunFailedEventDetails": {
+          "target": "com.amazonaws.sfn#MapRunFailedEventDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains error and cause details about a Map Run that failed.</p>"
+          }
         }
       },
       "traits": {
@@ -3704,7 +3894,7 @@
           "target": "com.amazonaws.sfn#truncated",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Indicates whether input or output was truncated in the response. Always\n      <code>false</code> for API calls.</p>"
+            "smithy.api#documentation": "<p>Indicates whether input or output was truncated in the response. Always <code>false</code>\n      for API calls.</p>"
           }
         }
       },
@@ -3722,230 +3912,362 @@
       }
     },
     "com.amazonaws.sfn#HistoryEventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ActivityFailed",
-            "name": "ActivityFailed"
-          },
-          {
-            "value": "ActivityScheduled",
-            "name": "ActivityScheduled"
-          },
-          {
-            "value": "ActivityScheduleFailed",
-            "name": "ActivityScheduleFailed"
-          },
-          {
-            "value": "ActivityStarted",
-            "name": "ActivityStarted"
-          },
-          {
-            "value": "ActivitySucceeded",
-            "name": "ActivitySucceeded"
-          },
-          {
-            "value": "ActivityTimedOut",
-            "name": "ActivityTimedOut"
-          },
-          {
-            "value": "ChoiceStateEntered",
-            "name": "ChoiceStateEntered"
-          },
-          {
-            "value": "ChoiceStateExited",
-            "name": "ChoiceStateExited"
-          },
-          {
-            "value": "ExecutionAborted",
-            "name": "ExecutionAborted"
-          },
-          {
-            "value": "ExecutionFailed",
-            "name": "ExecutionFailed"
-          },
-          {
-            "value": "ExecutionStarted",
-            "name": "ExecutionStarted"
-          },
-          {
-            "value": "ExecutionSucceeded",
-            "name": "ExecutionSucceeded"
-          },
-          {
-            "value": "ExecutionTimedOut",
-            "name": "ExecutionTimedOut"
-          },
-          {
-            "value": "FailStateEntered",
-            "name": "FailStateEntered"
-          },
-          {
-            "value": "LambdaFunctionFailed",
-            "name": "LambdaFunctionFailed"
-          },
-          {
-            "value": "LambdaFunctionScheduled",
-            "name": "LambdaFunctionScheduled"
-          },
-          {
-            "value": "LambdaFunctionScheduleFailed",
-            "name": "LambdaFunctionScheduleFailed"
-          },
-          {
-            "value": "LambdaFunctionStarted",
-            "name": "LambdaFunctionStarted"
-          },
-          {
-            "value": "LambdaFunctionStartFailed",
-            "name": "LambdaFunctionStartFailed"
-          },
-          {
-            "value": "LambdaFunctionSucceeded",
-            "name": "LambdaFunctionSucceeded"
-          },
-          {
-            "value": "LambdaFunctionTimedOut",
-            "name": "LambdaFunctionTimedOut"
-          },
-          {
-            "value": "MapIterationAborted",
-            "name": "MapIterationAborted"
-          },
-          {
-            "value": "MapIterationFailed",
-            "name": "MapIterationFailed"
-          },
-          {
-            "value": "MapIterationStarted",
-            "name": "MapIterationStarted"
-          },
-          {
-            "value": "MapIterationSucceeded",
-            "name": "MapIterationSucceeded"
-          },
-          {
-            "value": "MapStateAborted",
-            "name": "MapStateAborted"
-          },
-          {
-            "value": "MapStateEntered",
-            "name": "MapStateEntered"
-          },
-          {
-            "value": "MapStateExited",
-            "name": "MapStateExited"
-          },
-          {
-            "value": "MapStateFailed",
-            "name": "MapStateFailed"
-          },
-          {
-            "value": "MapStateStarted",
-            "name": "MapStateStarted"
-          },
-          {
-            "value": "MapStateSucceeded",
-            "name": "MapStateSucceeded"
-          },
-          {
-            "value": "ParallelStateAborted",
-            "name": "ParallelStateAborted"
-          },
-          {
-            "value": "ParallelStateEntered",
-            "name": "ParallelStateEntered"
-          },
-          {
-            "value": "ParallelStateExited",
-            "name": "ParallelStateExited"
-          },
-          {
-            "value": "ParallelStateFailed",
-            "name": "ParallelStateFailed"
-          },
-          {
-            "value": "ParallelStateStarted",
-            "name": "ParallelStateStarted"
-          },
-          {
-            "value": "ParallelStateSucceeded",
-            "name": "ParallelStateSucceeded"
-          },
-          {
-            "value": "PassStateEntered",
-            "name": "PassStateEntered"
-          },
-          {
-            "value": "PassStateExited",
-            "name": "PassStateExited"
-          },
-          {
-            "value": "SucceedStateEntered",
-            "name": "SucceedStateEntered"
-          },
-          {
-            "value": "SucceedStateExited",
-            "name": "SucceedStateExited"
-          },
-          {
-            "value": "TaskFailed",
-            "name": "TaskFailed"
-          },
-          {
-            "value": "TaskScheduled",
-            "name": "TaskScheduled"
-          },
-          {
-            "value": "TaskStarted",
-            "name": "TaskStarted"
-          },
-          {
-            "value": "TaskStartFailed",
-            "name": "TaskStartFailed"
-          },
-          {
-            "value": "TaskStateAborted",
-            "name": "TaskStateAborted"
-          },
-          {
-            "value": "TaskStateEntered",
-            "name": "TaskStateEntered"
-          },
-          {
-            "value": "TaskStateExited",
-            "name": "TaskStateExited"
-          },
-          {
-            "value": "TaskSubmitFailed",
-            "name": "TaskSubmitFailed"
-          },
-          {
-            "value": "TaskSubmitted",
-            "name": "TaskSubmitted"
-          },
-          {
-            "value": "TaskSucceeded",
-            "name": "TaskSucceeded"
-          },
-          {
-            "value": "TaskTimedOut",
-            "name": "TaskTimedOut"
-          },
-          {
-            "value": "WaitStateAborted",
-            "name": "WaitStateAborted"
-          },
-          {
-            "value": "WaitStateEntered",
-            "name": "WaitStateEntered"
-          },
-          {
-            "value": "WaitStateExited",
-            "name": "WaitStateExited"
+      "type": "enum",
+      "members": {
+        "ActivityFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityFailed"
           }
-        ]
+        },
+        "ActivityScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityScheduled"
+          }
+        },
+        "ActivityScheduleFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityScheduleFailed"
+          }
+        },
+        "ActivityStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityStarted"
+          }
+        },
+        "ActivitySucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivitySucceeded"
+          }
+        },
+        "ActivityTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTimedOut"
+          }
+        },
+        "ChoiceStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChoiceStateEntered"
+          }
+        },
+        "ChoiceStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChoiceStateExited"
+          }
+        },
+        "ExecutionAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExecutionAborted"
+          }
+        },
+        "ExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExecutionFailed"
+          }
+        },
+        "ExecutionStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExecutionStarted"
+          }
+        },
+        "ExecutionSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExecutionSucceeded"
+          }
+        },
+        "ExecutionTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExecutionTimedOut"
+          }
+        },
+        "FailStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FailStateEntered"
+          }
+        },
+        "LambdaFunctionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionFailed"
+          }
+        },
+        "LambdaFunctionScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionScheduled"
+          }
+        },
+        "LambdaFunctionScheduleFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionScheduleFailed"
+          }
+        },
+        "LambdaFunctionStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionStarted"
+          }
+        },
+        "LambdaFunctionStartFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionStartFailed"
+          }
+        },
+        "LambdaFunctionSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionSucceeded"
+          }
+        },
+        "LambdaFunctionTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionTimedOut"
+          }
+        },
+        "MapIterationAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapIterationAborted"
+          }
+        },
+        "MapIterationFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapIterationFailed"
+          }
+        },
+        "MapIterationStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapIterationStarted"
+          }
+        },
+        "MapIterationSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapIterationSucceeded"
+          }
+        },
+        "MapStateAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateAborted"
+          }
+        },
+        "MapStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateEntered"
+          }
+        },
+        "MapStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateExited"
+          }
+        },
+        "MapStateFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateFailed"
+          }
+        },
+        "MapStateStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateStarted"
+          }
+        },
+        "MapStateSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapStateSucceeded"
+          }
+        },
+        "ParallelStateAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateAborted"
+          }
+        },
+        "ParallelStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateEntered"
+          }
+        },
+        "ParallelStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateExited"
+          }
+        },
+        "ParallelStateFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateFailed"
+          }
+        },
+        "ParallelStateStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateStarted"
+          }
+        },
+        "ParallelStateSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ParallelStateSucceeded"
+          }
+        },
+        "PassStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PassStateEntered"
+          }
+        },
+        "PassStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PassStateExited"
+          }
+        },
+        "SucceedStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SucceedStateEntered"
+          }
+        },
+        "SucceedStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SucceedStateExited"
+          }
+        },
+        "TaskFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskFailed"
+          }
+        },
+        "TaskScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskScheduled"
+          }
+        },
+        "TaskStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskStarted"
+          }
+        },
+        "TaskStartFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskStartFailed"
+          }
+        },
+        "TaskStateAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskStateAborted"
+          }
+        },
+        "TaskStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskStateEntered"
+          }
+        },
+        "TaskStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskStateExited"
+          }
+        },
+        "TaskSubmitFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskSubmitFailed"
+          }
+        },
+        "TaskSubmitted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskSubmitted"
+          }
+        },
+        "TaskSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskSucceeded"
+          }
+        },
+        "TaskTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TaskTimedOut"
+          }
+        },
+        "WaitStateAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitStateAborted"
+          }
+        },
+        "WaitStateEntered": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitStateEntered"
+          }
+        },
+        "WaitStateExited": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitStateExited"
+          }
+        },
+        "MapRunAborted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapRunAborted"
+          }
+        },
+        "MapRunFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapRunFailed"
+          }
+        },
+        "MapRunStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapRunStarted"
+          }
+        },
+        "MapRunSucceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MapRunSucceeded"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#Identity": {
@@ -3974,7 +4296,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided Amazon Resource Name (ARN) is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided Amazon Resource Name (ARN) is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -3986,7 +4308,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided Amazon States Language definition is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided Amazon States Language definition is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -3998,7 +4320,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided JSON input data is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided JSON input data is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4022,7 +4344,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided name is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided name is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4034,7 +4356,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided JSON output data is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided JSON output data is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4046,7 +4368,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The provided token is invalid.</p>",
+        "smithy.api#documentation": "<p>The provided token is not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4058,7 +4380,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>",
+        "smithy.api#documentation": "<p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not\n      been set to <code>true</code> or <code>false</code>.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4079,7 +4401,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about a lambda function that failed during an execution.</p>"
+        "smithy.api#documentation": "<p>Contains details about a Lambda function that failed during an execution.</p>"
       }
     },
     "com.amazonaws.sfn#LambdaFunctionScheduleFailedEventDetails": {
@@ -4099,7 +4421,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about a failed lambda function schedule event that occurred during an\n      execution.</p>"
+        "smithy.api#documentation": "<p>Contains details about a failed Lambda function schedule event that occurred during an\n      execution.</p>"
       }
     },
     "com.amazonaws.sfn#LambdaFunctionScheduledEventDetails": {
@@ -4108,14 +4430,14 @@
         "resource": {
           "target": "com.amazonaws.sfn#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the scheduled Lambda function.</p>",
             "smithy.api#required": {}
           }
         },
         "input": {
           "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
-            "smithy.api#documentation": "<p>The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
+            "smithy.api#documentation": "<p>The JSON data input to the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
           }
         },
         "inputDetails": {
@@ -4128,12 +4450,18 @@
           "target": "com.amazonaws.sfn#TimeoutInSeconds",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>The maximum allowed duration of the lambda function.</p>"
+            "smithy.api#documentation": "<p>The maximum allowed duration of the Lambda function.</p>"
+          }
+        },
+        "taskCredentials": {
+          "target": "com.amazonaws.sfn#TaskCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>The credentials that Step Functions uses for the task.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about a lambda function scheduled during an execution.</p>"
+        "smithy.api#documentation": "<p>Contains details about a Lambda function scheduled during an execution.</p>"
       }
     },
     "com.amazonaws.sfn#LambdaFunctionStartFailedEventDetails": {
@@ -4162,7 +4490,7 @@
         "output": {
           "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
-            "smithy.api#documentation": "<p>The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
+            "smithy.api#documentation": "<p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
           }
         },
         "outputDetails": {
@@ -4173,7 +4501,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about a lambda function that successfully terminated during an\n      execution.</p>"
+        "smithy.api#documentation": "<p>Contains details about a Lambda function that successfully terminated during an\n      execution.</p>"
       }
     },
     "com.amazonaws.sfn#LambdaFunctionTimedOutEventDetails": {
@@ -4193,7 +4521,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about a lambda function timeout that occurred during an execution.</p>"
+        "smithy.api#documentation": "<p>Contains details about a Lambda function timeout that occurred during an execution.</p>"
       }
     },
     "com.amazonaws.sfn#ListActivities": {
@@ -4271,14 +4599,20 @@
           "target": "com.amazonaws.sfn#InvalidToken"
         },
         {
+          "target": "com.amazonaws.sfn#ResourceNotFound"
+        },
+        {
           "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
         },
         {
           "target": "com.amazonaws.sfn#StateMachineTypeNotSupported"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the executions of a state machine that meet the filtering criteria. Results are\n      sorted by time, with the most recent execution first.</p> \n         <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>",
+        "smithy.api#documentation": "<p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>\n         <p>Results are\n      sorted by time, with the most recent execution first.</p>\n         <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -4293,8 +4627,7 @@
         "stateMachineArn": {
           "target": "com.amazonaws.sfn#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>\n         <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>"
           }
         },
         "statusFilter": {
@@ -4314,6 +4647,12 @@
           "target": "com.amazonaws.sfn#ListExecutionsPageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
+          }
+        },
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html\">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>\n         <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>"
           }
         }
       }
@@ -4342,6 +4681,78 @@
         "smithy.api#length": {
           "min": 1,
           "max": 3096
+        }
+      }
+    },
+    "com.amazonaws.sfn#ListMapRuns": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sfn#ListMapRunsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.sfn#ListMapRunsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sfn#ExecutionDoesNotExist"
+        },
+        {
+          "target": "com.amazonaws.sfn#InvalidArn"
+        },
+        {
+          "target": "com.amazonaws.sfn#InvalidToken"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "mapRuns",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.sfn#ListMapRunsInput": {
+      "type": "structure",
+      "members": {
+        "executionArn": {
+          "target": "com.amazonaws.sfn#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.sfn#PageSize",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.\n    The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> \n         <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.sfn#PageToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sfn#ListMapRunsOutput": {
+      "type": "structure",
+      "members": {
+        "mapRuns": {
+          "target": "com.amazonaws.sfn#MapRunList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.sfn#PageToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
+          }
         }
       }
     },
@@ -4452,7 +4863,7 @@
         "cloudWatchLogsLogGroup": {
           "target": "com.amazonaws.sfn#CloudWatchLogsLogGroup",
           "traits": {
-            "smithy.api#documentation": "<p>An object describing a CloudWatch log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>"
+            "smithy.api#documentation": "<p>An object describing a CloudWatch log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\">AWS::Logs::LogGroup</a> in the CloudFormation User Guide.</p>"
           }
         }
       },
@@ -4467,26 +4878,32 @@
       }
     },
     "com.amazonaws.sfn#LogLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL",
-            "name": "ALL"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "FATAL",
-            "name": "FATAL"
-          },
-          {
-            "value": "OFF",
-            "name": "OFF"
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
           }
-        ]
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "FATAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FATAL"
+          }
+        },
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#LoggingConfiguration": {
@@ -4516,6 +4933,15 @@
         "smithy.api#documentation": "<p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs\n      options.</p>"
       }
     },
+    "com.amazonaws.sfn#LongArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        }
+      }
+    },
     "com.amazonaws.sfn#MapIterationEventDetails": {
       "type": "structure",
       "members": {
@@ -4537,6 +4963,264 @@
         "smithy.api#documentation": "<p>Contains details about an iteration of a Map state.</p>"
       }
     },
+    "com.amazonaws.sfn#MapRunExecutionCounts": {
+      "type": "structure",
+      "members": {
+        "pending": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run, but haven't started executing yet. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "running": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run and are currently in-progress.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "succeeded": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run and have completed successfully.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "failed": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run, but have failed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timedOut": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run and have timed out.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "aborted": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run and were running, but were either stopped by the user or by Step Functions because the Map Run failed. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "total": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of child workflow executions that were started by a Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resultsWritten": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html\">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about all of the child workflow executions started by a Map Run.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MapRunFailedEventDetails": {
+      "type": "structure",
+      "members": {
+        "error": {
+          "target": "com.amazonaws.sfn#SensitiveError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code of the Map Run failure.</p>"
+          }
+        },
+        "cause": {
+          "target": "com.amazonaws.sfn#SensitiveCause",
+          "traits": {
+            "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about a Map Run failure event that occurred during a state machine execution.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MapRunItemCounts": {
+      "type": "structure",
+      "members": {
+        "pending": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items to process in child workflow executions that haven't started running yet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "running": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items being processed in child workflow executions that are currently in-progress.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "succeeded": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items processed in child workflow executions that have completed successfully.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "failed": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items processed in child workflow executions that have failed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timedOut": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items processed in child workflow executions that have timed out.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "aborted": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items processed in child workflow executions that were either stopped by the user or by Step Functions, because the Map Run failed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "total": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of items processed in all the child workflow executions started by a Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resultsWritten": {
+          "target": "com.amazonaws.sfn#UnsignedLong",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html\">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about items that were processed in all of the child workflow executions that were started by a Map Run.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MapRunLabel": {
+      "type": "string"
+    },
+    "com.amazonaws.sfn#MapRunList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sfn#MapRunListItem"
+      }
+    },
+    "com.amazonaws.sfn#MapRunListItem": {
+      "type": "structure",
+      "members": {
+        "executionArn": {
+          "target": "com.amazonaws.sfn#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>executionArn</code> of the execution from which the Map Run was started.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stateMachineArn": {
+          "target": "com.amazonaws.sfn#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the executed state machine.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startDate": {
+          "target": "com.amazonaws.sfn#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the Map Run started.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stopDate": {
+          "target": "com.amazonaws.sfn#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the Map Run stopped.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about a specific Map Run.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MapRunStartedEventDetails": {
+      "type": "structure",
+      "members": {
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about a Map Run that was started during a state machine execution.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MapRunStatus": {
+      "type": "enum",
+      "members": {
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "ABORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ABORTED"
+          }
+        }
+      }
+    },
     "com.amazonaws.sfn#MapStateStartedEventDetails": {
       "type": "structure",
       "members": {
@@ -4550,6 +5234,15 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Details about a Map state that was started.</p>"
+      }
+    },
+    "com.amazonaws.sfn#MaxConcurrency": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0
+        }
       }
     },
     "com.amazonaws.sfn#MissingRequiredParameter": {
@@ -4822,10 +5515,13 @@
         },
         {
           "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a state machine execution.</p>\n         <note>\n            <p>\n               <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called with\n        the same name and input as a running execution, the call will succeed and return the same\n        response as the original request. If the execution is closed or if the input is different,\n        it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90\n        days. </p>\n         </note>",
+        "smithy.api#documentation": "<p>Starts a state machine execution. If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>\n    \n         <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>\n    \n         <note>\n            <p>\n               <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For a\n          <code>STANDARD</code> workflow, if <code>StartExecution</code> is called with the same\n        name and input as a running execution, the call will succeed and return the same response as\n        the original request. If the execution is closed or if the input is different, it will\n        return a <code>400 ExecutionAlreadyExists</code> error. Names can be reused after 90 days. </p>\n            <p>\n               <code>StartExecution</code> is not idempotent for <code>EXPRESS</code> workflows. </p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -4842,7 +5538,7 @@
         "name": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information,\n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>\n         <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>"
+            "smithy.api#documentation": "<p>The name of the execution. This name must be unique for your Amazon Web Services account, region, and state machine for 90 days. For more information,\n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>\n         <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>"
           }
         },
         "input": {
@@ -4854,7 +5550,7 @@
         "traceHeader": {
           "target": "com.amazonaws.sfn#TraceHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>"
+            "smithy.api#documentation": "<p>Passes the X-Ray trace header. The trace header can also be passed in the request\n      payload.</p>"
           }
         }
       }
@@ -4907,7 +5603,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a Synchronous Express state machine execution.</p>",
+        "smithy.api#documentation": "<p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code> \n\t\t\t  is not available for <code>STANDARD</code> workflows.</p>\n         <note>\n            <p>\n               <code>StartSyncExecution</code> will return a <code>200 OK</code> response, even if your\n        execution fails, because the status code in the API response doesn't reflect function\n        errors. Error codes are reserved for errors that prevent your execution from running, such\n        as permissions errors, limit errors, or issues with your state machine code and\n        configuration. </p>\n         </note>\n         <note>\n            <p>This API action isn't logged in CloudTrail.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "sync-"
         }
@@ -4932,13 +5628,13 @@
         "input": {
           "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
-            "smithy.api#documentation": "<p>The string that contains the JSON input data for the execution, for example:</p>\n         <p>\n            <code>\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"</code>\n         </p>\n         <note>\n            <p>If you don't include any JSON input data, you still must include the two braces, for\n         example: <code>\"input\": \"{}\"</code>\n            </p>\n         </note>\n         <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
+            "smithy.api#documentation": "<p>The string that contains the JSON input data for the execution, for example:</p>\n         <p>\n            <code>\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"</code>\n         </p>\n         <note>\n            <p>If you don't include any JSON input data, you still must include the two braces, for\n        example: <code>\"input\": \"{}\"</code>\n            </p>\n         </note>\n         <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"
           }
         },
         "traceHeader": {
           "target": "com.amazonaws.sfn#TraceHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>"
+            "smithy.api#documentation": "<p>Passes the X-Ray trace header. The trace header can also be passed in the request\n      payload.</p>"
           }
         }
       }
@@ -5010,7 +5706,7 @@
         "output": {
           "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
-            "smithy.api#documentation": "<p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>\n         <note>\n            <p>This field is set only if the execution succeeds. If the execution fails, this field is\n         null.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>\n         <note>\n            <p>This field is set only if the execution succeeds. If the execution fails, this field is\n        null.</p>\n         </note>"
           }
         },
         "outputDetails": {
@@ -5019,13 +5715,13 @@
         "traceHeader": {
           "target": "com.amazonaws.sfn#TraceHeader",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS X-Ray trace header that was passed to the execution.</p>"
+            "smithy.api#documentation": "<p>The X-Ray trace header that was passed to the execution.</p>"
           }
         },
         "billingDetails": {
           "target": "com.amazonaws.sfn#BillingDetails",
           "traits": {
-            "smithy.api#documentation": "<p>An object that describes workflow billing details, including billed duration\n      and memory use.</p>"
+            "smithy.api#documentation": "<p>An object that describes workflow billing details, including billed duration and memory\n      use.</p>"
           }
         }
       }
@@ -5175,33 +5871,37 @@
       }
     },
     "com.amazonaws.sfn#StateMachineStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#StateMachineType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STANDARD",
-            "name": "STANDARD"
-          },
-          {
-            "value": "EXPRESS",
-            "name": "EXPRESS"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD"
           }
-        ]
+        },
+        "EXPRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPRESS"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#StateMachineTypeNotSupported": {
@@ -5230,6 +5930,9 @@
         },
         {
           "target": "com.amazonaws.sfn#InvalidArn"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
         }
       ],
       "traits": {
@@ -5273,22 +5976,26 @@
       }
     },
     "com.amazonaws.sfn#SyncExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
+      "type": "enum",
+      "members": {
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        }
       }
     },
     "com.amazonaws.sfn#Tag": {
@@ -5308,7 +6015,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Tags are key-value pairs that can be associated with Step Functions state machines and\n      activities.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
+        "smithy.api#documentation": "<p>Tags are key-value pairs that can be associated with Step Functions state machines and\n      activities.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
       }
     },
     "com.amazonaws.sfn#TagKey": {
@@ -5352,7 +6059,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Add a tag to a Step Functions resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
+        "smithy.api#documentation": "<p>Add a tag to a Step Functions resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
       }
     },
     "com.amazonaws.sfn#TagResourceInput": {
@@ -5387,6 +6094,20 @@
         }
       }
     },
+    "com.amazonaws.sfn#TaskCredentials": {
+      "type": "structure",
+      "members": {
+        "roleArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of an IAM role that Step Functions assumes for the task. The role can allow cross-account access to resources.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about the credentials that Step Functions uses for a task.</p>"
+      }
+    },
     "com.amazonaws.sfn#TaskDoesNotExist": {
       "type": "structure",
       "members": {
@@ -5404,14 +6125,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5438,14 +6159,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5476,6 +6197,12 @@
             "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum allowed duration between two heartbeats for the task.</p>"
           }
+        },
+        "taskCredentials": {
+          "target": "com.amazonaws.sfn#TaskCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>The credentials that Step Functions uses for the task.</p>"
+          }
         }
       },
       "traits": {
@@ -5488,14 +6215,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5522,14 +6249,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5544,14 +6271,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5578,14 +6305,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5612,14 +6339,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5657,14 +6384,14 @@
         "resourceType": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
+            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
             "smithy.api#required": {}
           }
         },
         "resource": {
           "target": "com.amazonaws.sfn#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
+            "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5703,6 +6430,25 @@
     "com.amazonaws.sfn#Timestamp": {
       "type": "timestamp"
     },
+    "com.amazonaws.sfn#ToleratedFailureCount": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.sfn#ToleratedFailurePercentage": {
+      "type": "float",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.sfn#TooManyTags": {
       "type": "structure",
       "members": {
@@ -5714,7 +6460,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the\n      AWS Step Functions Developer Guide.</p>",
+        "smithy.api#documentation": "<p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the\n      Step Functions Developer Guide.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -5726,7 +6472,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "\\p{ASCII}*"
+        "smithy.api#pattern": "^\\p{ASCII}*$"
       }
     },
     "com.amazonaws.sfn#TracingConfiguration": {
@@ -5736,16 +6482,25 @@
           "target": "com.amazonaws.sfn#Enabled",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>When set to <code>true</code>, AWS X-Ray tracing is enabled.</p>"
+            "smithy.api#documentation": "<p>When set to <code>true</code>, X-Ray tracing is enabled.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is <code>false</code>\n         </p>"
+        "smithy.api#documentation": "<p>Selects whether or not the state machine's X-Ray tracing is enabled. Default is\n        <code>false</code>\n         </p>"
       }
     },
     "com.amazonaws.sfn#UnsignedInteger": {
       "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.sfn#UnsignedLong": {
+      "type": "long",
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
@@ -5796,6 +6551,66 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.sfn#UpdateMapRun": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sfn#UpdateMapRunInput"
+      },
+      "output": {
+        "target": "com.amazonaws.sfn#UpdateMapRunOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sfn#InvalidArn"
+        },
+        {
+          "target": "com.amazonaws.sfn#ResourceNotFound"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>"
+      }
+    },
+    "com.amazonaws.sfn#UpdateMapRunInput": {
+      "type": "structure",
+      "members": {
+        "mapRunArn": {
+          "target": "com.amazonaws.sfn#LongArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a Map Run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maxConcurrency": {
+          "target": "com.amazonaws.sfn#MaxConcurrency",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>"
+          }
+        },
+        "toleratedFailurePercentage": {
+          "target": "com.amazonaws.sfn#ToleratedFailurePercentage",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum percentage of failed items before the Map Run fails.</p>"
+          }
+        },
+        "toleratedFailureCount": {
+          "target": "com.amazonaws.sfn#ToleratedFailureCount",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of failed items before the Map Run fails.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sfn#UpdateMapRunOutput": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.sfn#UpdateStateMachine": {
       "type": "operation",
       "input": {
@@ -5825,10 +6640,13 @@
         },
         {
           "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
+        },
+        {
+          "target": "com.amazonaws.sfn#ValidationException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing state machine by modifying its <code>definition</code>,\n        <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue\n      to use the previous <code>definition</code> and <code>roleArn</code>. You must include at\n      least one of <code>definition</code> or <code>roleArn</code> or you will receive a\n        <code>MissingRequiredParameter</code> error.</p>\n         <note>\n            <p>All <code>StartExecution</code> calls within a few seconds will use the updated\n          <code>definition</code> and <code>roleArn</code>. Executions started immediately after\n        calling <code>UpdateStateMachine</code> may use the previous state machine\n          <code>definition</code> and <code>roleArn</code>. </p>\n         </note>",
+        "smithy.api#documentation": "<p>Updates an existing state machine by modifying its <code>definition</code>,\n        <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue\n      to use the previous <code>definition</code> and <code>roleArn</code>. You must include at\n      least one of <code>definition</code> or <code>roleArn</code> or you will receive a\n        <code>MissingRequiredParameter</code> error.</p>\n    \n         <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>\n    \n         <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>\n    \n         <note>\n            <p>All <code>StartExecution</code> calls within a few seconds will use the updated\n          <code>definition</code> and <code>roleArn</code>. Executions started immediately after\n        calling <code>UpdateStateMachine</code> may use the previous state machine\n          <code>definition</code> and <code>roleArn</code>. </p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -5863,7 +6681,7 @@
         "tracingConfiguration": {
           "target": "com.amazonaws.sfn#TracingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Selects whether AWS X-Ray tracing is enabled.</p>"
+            "smithy.api#documentation": "<p>Selects whether X-Ray tracing is enabled.</p>"
           }
         }
       }
@@ -5876,6 +6694,48 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time the state machine was updated.</p>",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sfn#ValidationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.sfn#ErrorMessage"
+        },
+        "reason": {
+          "target": "com.amazonaws.sfn#ValidationExceptionReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.sfn#ValidationExceptionReason": {
+      "type": "enum",
+      "members": {
+        "API_DOES_NOT_SUPPORT_LABELED_ARNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "API_DOES_NOT_SUPPORT_LABELED_ARNS"
+          }
+        },
+        "MISSING_REQUIRED_PARAMETER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MISSING_REQUIRED_PARAMETER"
+          }
+        },
+        "CANNOT_UPDATE_COMPLETED_MAP_RUN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANNOT_UPDATE_COMPLETED_MAP_RUN"
           }
         }
       }

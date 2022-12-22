@@ -17,6 +17,11 @@ import {
 } from "./commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
 import {
+  DeregisterOrganizationDelegatedAdminCommand,
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/DeregisterOrganizationDelegatedAdminCommand";
+import {
   DescribeQueryCommand,
   DescribeQueryCommandInput,
   DescribeQueryCommandOutput,
@@ -93,6 +98,11 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommand,
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommand,
@@ -120,7 +130,6 @@ import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput }
  *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p>
  *          <p>CloudTrail is a web service that records Amazon Web Services API calls for your Amazon Web Services account and delivers log files to an Amazon S3 bucket.
  *          The recorded information includes the identity of the user, the start time of the Amazon Web Services API call, the source IP address, the request parameters, and the response elements returned by the service.</p>
- *
  *          <note>
  *             <p>As an alternative to the API,
  *             you can use one of the Amazon Web Services SDKs, which consist of libraries and sample code for various
@@ -322,6 +331,38 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Removes CloudTrail delegated administrator permissions from a member account in an organization.</p>
+   */
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput>;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> | void {
+    const command = new DeregisterOrganizationDelegatedAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns metadata about a query, including query run time in milliseconds, number of events scanned and matched, and query
    *          status. You must specify an ARN for <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
    */
@@ -389,7 +430,7 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>
    *          Returns information about a specific channel. Amazon Web Services services create service-linked channels to get information about CloudTrail events on your behalf. For more information about
-   *          service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing service-linked channels for CloudTrail by using the CLI.</a>.
+   *          service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing service-linked channels for CloudTrail by using the CLI</a>.
    *       </p>
    */
   public getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
@@ -1088,6 +1129,38 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: PutInsightSelectorsCommandOutput) => void
   ): Promise<PutInsightSelectorsCommandOutput> | void {
     const command = new PutInsightSelectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers an organization’s member account as the CloudTrail delegated administrator.</p>
+   */
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput>;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void),
+    cb?: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> | void {
+    const command = new RegisterOrganizationDelegatedAdminCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

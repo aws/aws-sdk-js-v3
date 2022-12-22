@@ -47,10 +47,21 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { ArchiveApplicationCommandInput, ArchiveApplicationCommandOutput } from "./commands/ArchiveApplicationCommand";
+import { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
+import {
+  AssociateApplicationsCommandInput,
+  AssociateApplicationsCommandOutput,
+} from "./commands/AssociateApplicationsCommand";
+import {
+  AssociateSourceServersCommandInput,
+  AssociateSourceServersCommandOutput,
+} from "./commands/AssociateSourceServersCommand";
 import {
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -59,6 +70,8 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import { CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -73,6 +86,7 @@ import {
   DeleteVcenterClientCommandInput,
   DeleteVcenterClientCommandOutput,
 } from "./commands/DeleteVcenterClientCommand";
+import { DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
 import {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
@@ -95,6 +109,14 @@ import {
   DescribeVcenterClientsCommandOutput,
 } from "./commands/DescribeVcenterClientsCommand";
 import {
+  DisassociateApplicationsCommandInput,
+  DisassociateApplicationsCommandOutput,
+} from "./commands/DisassociateApplicationsCommand";
+import {
+  DisassociateSourceServersCommandInput,
+  DisassociateSourceServersCommandOutput,
+} from "./commands/DisassociateSourceServersCommand";
+import {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
 } from "./commands/DisconnectFromServiceCommand";
@@ -108,11 +130,34 @@ import {
   GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import {
+  ListSourceServerActionsCommandInput,
+  ListSourceServerActionsCommandOutput,
+} from "./commands/ListSourceServerActionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTemplateActionsCommandInput,
+  ListTemplateActionsCommandOutput,
+} from "./commands/ListTemplateActionsCommand";
+import { ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
 import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "./commands/MarkAsArchivedCommand";
+import {
+  PutSourceServerActionCommandInput,
+  PutSourceServerActionCommandOutput,
+} from "./commands/PutSourceServerActionCommand";
+import { PutTemplateActionCommandInput, PutTemplateActionCommandOutput } from "./commands/PutTemplateActionCommand";
+import {
+  RemoveSourceServerActionCommandInput,
+  RemoveSourceServerActionCommandOutput,
+} from "./commands/RemoveSourceServerActionCommand";
+import {
+  RemoveTemplateActionCommandInput,
+  RemoveTemplateActionCommandOutput,
+} from "./commands/RemoveTemplateActionCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -125,7 +170,13 @@ import {
   TerminateTargetInstancesCommandInput,
   TerminateTargetInstancesCommandOutput,
 } from "./commands/TerminateTargetInstancesCommand";
+import {
+  UnarchiveApplicationCommandInput,
+  UnarchiveApplicationCommandOutput,
+} from "./commands/UnarchiveApplicationCommand";
+import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "./commands/UnarchiveWaveCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -146,6 +197,7 @@ import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
+import { UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -155,74 +207,118 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | ArchiveApplicationCommandInput
+  | ArchiveWaveCommandInput
+  | AssociateApplicationsCommandInput
+  | AssociateSourceServersCommandInput
   | ChangeServerLifeCycleStateCommandInput
+  | CreateApplicationCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
+  | CreateWaveCommandInput
+  | DeleteApplicationCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DeleteVcenterClientCommandInput
+  | DeleteWaveCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
   | DescribeLaunchConfigurationTemplatesCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
   | DescribeSourceServersCommandInput
   | DescribeVcenterClientsCommandInput
+  | DisassociateApplicationsCommandInput
+  | DisassociateSourceServersCommandInput
   | DisconnectFromServiceCommandInput
   | FinalizeCutoverCommandInput
   | GetLaunchConfigurationCommandInput
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
+  | ListApplicationsCommandInput
+  | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTemplateActionsCommandInput
+  | ListWavesCommandInput
   | MarkAsArchivedCommandInput
+  | PutSourceServerActionCommandInput
+  | PutTemplateActionCommandInput
+  | RemoveSourceServerActionCommandInput
+  | RemoveTemplateActionCommandInput
   | RetryDataReplicationCommandInput
   | StartCutoverCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
   | TagResourceCommandInput
   | TerminateTargetInstancesCommandInput
+  | UnarchiveApplicationCommandInput
+  | UnarchiveWaveCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput
-  | UpdateSourceServerReplicationTypeCommandInput;
+  | UpdateSourceServerReplicationTypeCommandInput
+  | UpdateWaveCommandInput;
 
 export type ServiceOutputTypes =
+  | ArchiveApplicationCommandOutput
+  | ArchiveWaveCommandOutput
+  | AssociateApplicationsCommandOutput
+  | AssociateSourceServersCommandOutput
   | ChangeServerLifeCycleStateCommandOutput
+  | CreateApplicationCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
+  | CreateWaveCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DeleteVcenterClientCommandOutput
+  | DeleteWaveCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
   | DescribeLaunchConfigurationTemplatesCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
   | DescribeSourceServersCommandOutput
   | DescribeVcenterClientsCommandOutput
+  | DisassociateApplicationsCommandOutput
+  | DisassociateSourceServersCommandOutput
   | DisconnectFromServiceCommandOutput
   | FinalizeCutoverCommandOutput
   | GetLaunchConfigurationCommandOutput
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
+  | ListApplicationsCommandOutput
+  | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTemplateActionsCommandOutput
+  | ListWavesCommandOutput
   | MarkAsArchivedCommandOutput
+  | PutSourceServerActionCommandOutput
+  | PutTemplateActionCommandOutput
+  | RemoveSourceServerActionCommandOutput
+  | RemoveTemplateActionCommandOutput
   | RetryDataReplicationCommandOutput
   | StartCutoverCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
   | TagResourceCommandOutput
   | TerminateTargetInstancesCommandOutput
+  | UnarchiveApplicationCommandOutput
+  | UnarchiveWaveCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput
-  | UpdateSourceServerReplicationTypeCommandOutput;
+  | UpdateSourceServerReplicationTypeCommandOutput
+  | UpdateWaveCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

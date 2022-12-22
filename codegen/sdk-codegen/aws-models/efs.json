@@ -321,7 +321,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an EFS access point. An access point is an application-specific view into an EFS\n      file system that applies an operating system user and group, and a file system path, to any\n      file system request made through the access point. The operating system user and group\n      override any identity information provided by the NFS client. The file system path is exposed\n      as the access point's root directory. Applications using the access point can only access data in\n      the application's own directory and any subdirectories. To learn more, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">Mounting a file system using EFS access\n        points</a>.</p>\n         <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>",
+        "smithy.api#documentation": "<p>Creates an EFS access point. An access point is an application-specific view into an EFS\n      file system that applies an operating system user and group, and a file system path, to any\n      file system request made through the access point. The operating system user and group\n      override any identity information provided by the NFS client. The file system path is exposed\n      as the access point's root directory. Applications using the access point can only access data in\n      the application's own directory and any subdirectories. To learn more, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">Mounting a file system using EFS access\n        points</a>.</p>\n         <note>\n            <p>If multiple requests to create access points on the same file system are sent in quick succession, and the file system is\n      near the limit of 120 access points, you may experience a throttling response for these requests. This \n      is to ensure that the file system does not exceed the stated access point limit.</p>\n         </note>\n         <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2015-02-01/access-points",
@@ -439,13 +439,13 @@
         "ThroughputMode": {
           "target": "com.amazonaws.efs#ThroughputMode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the throughput mode for the file system, either <code>bursting</code> or\n        <code>provisioned</code>. If you set <code>ThroughputMode</code> to\n      <code>provisioned</code>, you must also set a value for\n        <code>ProvisionedThroughputInMibps</code>. After you create the file system, you can\n      decrease your file system's throughput in Provisioned Throughput mode or change between\n      the throughput modes, as long as it’s been more than 24 hours since the last decrease or\n      throughput mode change. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput\">Specifying throughput with\n        provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </p>\n         <p>Default is <code>bursting</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,\n        <code>provisioned</code>, or <code>elastic</code>. If you set <code>ThroughputMode</code> to\n        <code>provisioned</code>, you must also set a value for\n        <code>ProvisionedThroughputInMibps</code>. After you create the file system, you can\n      decrease your file system's throughput in Provisioned Throughput mode or change between\n      the throughput modes, with certain time restrictions. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput\">Specifying\n        throughput with provisioned mode</a> in the <i>Amazon EFS User\n        Guide</i>. </p>\n         <p>Default is <code>bursting</code>.</p>"
           }
         },
         "ProvisionedThroughputInMibps": {
           "target": "com.amazonaws.efs#ProvisionedThroughputInMibps",
           "traits": {
-            "smithy.api#documentation": "<p>The throughput, measured in MiB/s, that you want to provision for a file system that\n      you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set\n      to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s. To increase this\n      limit, contact Amazon Web Services Support. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits\">Amazon EFS quotas that you can increase</a>\n      in the <i>Amazon EFS User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The throughput, measured in\n      MiB/s,\n      that you want to provision for a file system that you're creating. Valid values are\n      1-1024. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The upper\n      limit for throughput is 1024 MiB/s. To increase this limit, contact Amazon Web Services Support. For\n      more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits\">Amazon EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</p>"
           }
         },
         "AvailabilityZoneName": {
@@ -2237,34 +2237,44 @@
       }
     },
     "com.amazonaws.efs#LifeCycleState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "available",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "updating",
-            "name": "UPDATING"
-          },
-          {
-            "value": "deleting",
-            "name": "DELETING"
-          },
-          {
-            "value": "deleted",
-            "name": "DELETED"
-          },
-          {
-            "value": "error",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "creating"
           }
-        ]
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "available"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "updating"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "deleting"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "deleted"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "error"
+          }
+        }
       }
     },
     "com.amazonaws.efs#LifecycleConfigurationDescription": {
@@ -2504,7 +2514,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2553,15 +2563,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -2824,9 +2825,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -2837,9 +2838,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -2850,9 +2851,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -2863,9 +2864,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -2876,9 +2877,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-south-1"
               }
             },
             {
@@ -2889,9 +2890,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-south-1"
               }
             },
             {
@@ -2902,9 +2903,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-south-1"
               }
             },
             {
@@ -2915,9 +2916,61 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem-fips.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem-fips.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -2928,9 +2981,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -2941,9 +2994,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -2954,9 +3007,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -2967,9 +3020,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -2980,9 +3033,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "me-central-1"
               }
             },
             {
@@ -2993,9 +3046,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "me-central-1"
               }
             },
             {
@@ -3006,9 +3059,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "me-central-1"
               }
             },
             {
@@ -3019,9 +3072,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "me-central-1"
               }
             },
             {
@@ -3032,9 +3085,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -3045,9 +3098,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -3058,9 +3111,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -3071,9 +3124,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -3084,9 +3137,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -3097,9 +3150,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -3110,9 +3163,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -3123,9 +3176,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -3134,9 +3187,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -3147,9 +3200,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -3158,9 +3211,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -3171,9 +3224,61 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem-fips.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem-fips.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticfilesystem.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -3184,9 +3289,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-1"
               }
             },
             {
@@ -3197,9 +3302,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-1"
               }
             },
             {
@@ -3210,9 +3315,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-1"
               }
             },
             {
@@ -3223,9 +3328,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-1"
               }
             },
             {
@@ -3236,9 +3341,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -3249,9 +3354,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -3262,9 +3367,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -3275,9 +3380,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -3288,9 +3393,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -3301,9 +3406,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -3314,9 +3419,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -3327,9 +3432,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -3340,9 +3445,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-north-1"
               }
             },
             {
@@ -3353,9 +3458,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-north-1"
               }
             },
             {
@@ -3366,9 +3471,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-north-1"
               }
             },
             {
@@ -3379,9 +3484,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-north-1"
               }
             },
             {
@@ -3392,9 +3497,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-3"
               }
             },
             {
@@ -3405,9 +3510,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-3"
               }
             },
             {
@@ -3418,9 +3523,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-3"
               }
             },
             {
@@ -3431,9 +3536,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-3"
               }
             },
             {
@@ -3444,9 +3549,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -3457,9 +3562,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -3470,9 +3575,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -3483,9 +3588,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -3496,9 +3601,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -3509,9 +3614,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -3522,9 +3627,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -3535,9 +3640,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -3548,9 +3653,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -3561,9 +3666,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -3574,9 +3679,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -3587,9 +3692,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -3600,9 +3705,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3613,9 +3718,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3626,9 +3731,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3639,9 +3744,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3652,9 +3757,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -3665,9 +3770,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -3678,9 +3783,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -3691,9 +3796,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -3704,9 +3809,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "me-south-1"
               }
             },
             {
@@ -3717,9 +3822,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "me-south-1"
               }
             },
             {
@@ -3730,9 +3835,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "me-south-1"
               }
             },
             {
@@ -3743,9 +3848,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "me-south-1"
               }
             },
             {
@@ -3756,9 +3861,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3769,9 +3874,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3782,9 +3887,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3795,9 +3900,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3808,9 +3913,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-east-1"
               }
             },
             {
@@ -3821,9 +3926,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-east-1"
               }
             },
             {
@@ -3834,9 +3939,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-east-1"
               }
             },
             {
@@ -3847,9 +3952,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-east-1"
               }
             },
             {
@@ -3860,9 +3965,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3873,9 +3978,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3886,9 +3991,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3899,9 +4004,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3912,9 +4017,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -3925,9 +4030,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -3938,9 +4043,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -3951,9 +4056,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -3964,9 +4069,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -3977,9 +4082,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -3990,9 +4095,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -4003,9 +4108,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -4016,9 +4121,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -4029,9 +4134,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -4042,9 +4147,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -4055,9 +4160,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -4066,9 +4171,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4079,9 +4184,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4090,9 +4195,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4103,9 +4208,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4116,9 +4221,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -4129,9 +4234,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -4142,9 +4247,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -4155,9 +4260,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -4168,9 +4273,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -4181,9 +4286,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -4194,9 +4299,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -4207,9 +4312,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -4220,9 +4325,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -4233,9 +4338,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -4246,9 +4351,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -4259,9 +4364,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -4272,9 +4377,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -4285,9 +4390,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -4298,9 +4403,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -4311,9 +4416,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -4322,9 +4427,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4335,9 +4440,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4346,9 +4451,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4359,9 +4464,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4372,9 +4477,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4384,9 +4489,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4396,9 +4501,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -4701,18 +4806,20 @@
       }
     },
     "com.amazonaws.efs#PerformanceMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "generalPurpose",
-            "name": "GENERAL_PURPOSE"
-          },
-          {
-            "value": "maxIO",
-            "name": "MAX_IO"
+      "type": "enum",
+      "members": {
+        "GENERAL_PURPOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "generalPurpose"
           }
-        ]
+        },
+        "MAX_IO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "maxIO"
+          }
+        }
       }
     },
     "com.amazonaws.efs#Permissions": {
@@ -4783,7 +4890,7 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 1
+          "min": 1.0
         }
       }
     },
@@ -4970,7 +5077,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Use this action to manage EFS lifecycle management and intelligent tiering. A \n      <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code> objects that \n      define the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>EFS Lifecycle management</b> - When Amazon EFS \n        automatically transitions files in a file system into the lower-cost Infrequent Access (IA) storage class.</p>\n               <p>To enable EFS Lifecycle management, set the value of <code>TransitionToIA</code> to one of the available options.</p>\n            </li>\n            <li>\n               <p>\n                  <b>EFS Intelligent tiering</b> - When Amazon EFS \n        automatically transitions files from IA back into the file system's primary storage class (Standard or One Zone Standard.</p>\n               <p>To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>\n            </li>\n         </ul>\n    \n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html\">EFS Lifecycle Management</a>.</p>      \n         <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a\n        <code>LifecycleConfiguration</code> object already exists for the specified file system, a\n        <code>PutLifecycleConfiguration</code> call modifies the existing configuration. A\n        <code>PutLifecycleConfiguration</code> call with an empty <code>LifecyclePolicies</code>\n      array in the request body deletes any existing <code>LifecycleConfiguration</code> and\n      turns off lifecycle management and intelligent tiering for the file system.</p>    \n         <p>In the request, specify the following: </p>\n         <ul>\n            <li>\n               <p>The ID for the file system for which you are enabling, disabling, or modifying lifecycle management \n          and intelligent tiering.</p>\n            </li>\n            <li>\n               <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that\n          define when files are moved into IA storage, and when they are moved back to Standard storage.</p> \n               <note>\n                  <p>Amazon EFS requires that each <code>LifecyclePolicy</code> \n          object have only have a single transition, so the <code>LifecyclePolicies</code> array needs to be structured with separate \n          <code>LifecyclePolicy</code> objects. See the example requests in the following section for more information.</p>\n               </note>\n            </li>\n         </ul>\n\n         <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>\n         <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you\n      need the same Key Management Service permissions as when you created the encrypted file system.</p>",
+        "smithy.api#documentation": "<p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A\n        <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>\n      objects that define the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>EFS Lifecycle management</b> - When Amazon EFS\n          automatically transitions files in a file system into the lower-cost EFS Infrequent Access\n          (IA) storage class.</p>\n               <p>To enable EFS Lifecycle management, set the value of <code>TransitionToIA</code> to one of the available options.</p>\n            </li>\n            <li>\n               <p>\n                  <b>EFS Intelligent-Tiering</b> - When Amazon EFS\n          automatically transitions files from IA back into the file system's primary storage class\n          (EFS Standard or EFS One Zone Standard).</p>\n               <p>To enable EFS Intelligent-Tiering, set the value of\n            <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>\n            </li>\n         </ul>\n    \n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html\">EFS Lifecycle Management</a>.</p>      \n         <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to\n      all files in the file system. If a <code>LifecycleConfiguration</code> object already exists\n      for the specified file system, a <code>PutLifecycleConfiguration</code> call modifies the\n      existing configuration. A <code>PutLifecycleConfiguration</code> call with an empty\n        <code>LifecyclePolicies</code> array in the request body deletes any existing\n        <code>LifecycleConfiguration</code> and turns off lifecycle management and EFS\n      Intelligent-Tiering for the file system.</p>    \n         <p>In the request, specify the following: </p>\n         <ul>\n            <li>\n               <p>The ID for the file system for which you are enabling, disabling, or modifying\n          lifecycle management and EFS Intelligent-Tiering.</p>\n            </li>\n            <li>\n               <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that\n          define when files are moved into IA storage, and when they are moved back to Standard storage.</p> \n               <note>\n                  <p>Amazon EFS requires that each <code>LifecyclePolicy</code> \n          object have only have a single transition, so the <code>LifecyclePolicies</code> array needs to be structured with separate \n          <code>LifecyclePolicy</code> objects. See the example requests in the following section for more information.</p>\n               </note>\n            </li>\n         </ul>\n\n         <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>\n         <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you\n      need the same Key Management Service permissions as when you created the encrypted file system.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration",
@@ -5081,42 +5188,52 @@
       }
     },
     "com.amazonaws.efs#ReplicationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "ENABLING",
-            "name": "ENABLING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "ENABLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLING"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.efs#Resource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "An EFS resource, for example a file system or a mount target.",
-        "smithy.api#enum": [
-          {
-            "value": "FILE_SYSTEM",
-            "name": "FileSystem"
-          },
-          {
-            "value": "MOUNT_TARGET",
-            "name": "MountTarget"
+      "type": "enum",
+      "members": {
+        "FileSystem": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FILE_SYSTEM"
           }
-        ]
+        },
+        "MountTarget": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MOUNT_TARGET"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An EFS resource, for example a file system or a mount target."
       }
     },
     "com.amazonaws.efs#ResourceId": {
@@ -5150,19 +5267,23 @@
       }
     },
     "com.amazonaws.efs#ResourceIdType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "A preference indicating a choice to use 63bit/32bit IDs for all applicable resources.",
-        "smithy.api#enum": [
-          {
-            "value": "LONG_ID",
-            "name": "LongId"
-          },
-          {
-            "value": "SHORT_ID",
-            "name": "ShortId"
+      "type": "enum",
+      "members": {
+        "LongId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LONG_ID"
           }
-        ]
+        },
+        "ShortId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHORT_ID"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "A preference indicating a choice to use 63bit/32bit IDs for all applicable resources."
       }
     },
     "com.amazonaws.efs#Resources": {
@@ -5267,26 +5388,32 @@
       }
     },
     "com.amazonaws.efs#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "ENABLING",
-            "name": "ENABLING"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "DISABLING",
-            "name": "DISABLING"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "ENABLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLING"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "DISABLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLING"
+          }
+        }
       }
     },
     "com.amazonaws.efs#SubnetId": {
@@ -5440,7 +5567,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and \n            the number of Access Points in the account is nearing the limit of 120.</p>",
+        "smithy.api#documentation": "<p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and \n            the number of Access Points on the file system is nearing the \n            <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region\">limit of 120</a>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -5465,18 +5592,26 @@
       }
     },
     "com.amazonaws.efs#ThroughputMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "bursting",
-            "name": "BURSTING"
-          },
-          {
-            "value": "provisioned",
-            "name": "PROVISIONED"
+      "type": "enum",
+      "members": {
+        "BURSTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "bursting"
           }
-        ]
+        },
+        "PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "provisioned"
+          }
+        },
+        "ELASTIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "elastic"
+          }
+        }
       }
     },
     "com.amazonaws.efs#Timestamp": {
@@ -5513,41 +5648,55 @@
       }
     },
     "com.amazonaws.efs#TransitionToIARules": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AFTER_7_DAYS",
-            "name": "AFTER_7_DAYS"
-          },
-          {
-            "value": "AFTER_14_DAYS",
-            "name": "AFTER_14_DAYS"
-          },
-          {
-            "value": "AFTER_30_DAYS",
-            "name": "AFTER_30_DAYS"
-          },
-          {
-            "value": "AFTER_60_DAYS",
-            "name": "AFTER_60_DAYS"
-          },
-          {
-            "value": "AFTER_90_DAYS",
-            "name": "AFTER_90_DAYS"
+      "type": "enum",
+      "members": {
+        "AFTER_7_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_7_DAYS"
           }
-        ]
+        },
+        "AFTER_14_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_14_DAYS"
+          }
+        },
+        "AFTER_30_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_30_DAYS"
+          }
+        },
+        "AFTER_60_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_60_DAYS"
+          }
+        },
+        "AFTER_90_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_90_DAYS"
+          }
+        },
+        "AFTER_1_DAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_1_DAY"
+          }
+        }
       }
     },
     "com.amazonaws.efs#TransitionToPrimaryStorageClassRules": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AFTER_1_ACCESS",
-            "name": "AFTER_1_ACCESS"
+      "type": "enum",
+      "members": {
+        "AFTER_1_ACCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER_1_ACCESS"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.efs#Uid": {

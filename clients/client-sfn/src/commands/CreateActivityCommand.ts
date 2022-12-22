@@ -30,7 +30,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
 
 /**
  * <p>Creates an activity. An activity is a task that you write in any programming language and
- *       host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the
+ *       host on any machine that has access to Step Functions. Activities must poll Step Functions using the
  *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
  *       actions. This function lets Step Functions know the existence of your activity and returns an
  *       identifier for use in a state machine and when polling from the activity.</p>

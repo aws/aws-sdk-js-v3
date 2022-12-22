@@ -29,14 +29,8 @@ export interface GetCompatibleVersionsCommandInput extends GetCompatibleVersions
 export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch.
- *       You can optionally pass a
- *       <code>
- *         <a>DomainName</a>
- *       </code>
- *       to get all upgrade-compatible versions of OpenSearch/Elasticsearch for that specific domain.
- *     </p>
+ * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
+ *    to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

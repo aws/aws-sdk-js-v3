@@ -141,9 +141,17 @@ import {
 } from "./commands/ListLicenseVersionsCommand";
 import { ListReceivedGrantsCommandInput, ListReceivedGrantsCommandOutput } from "./commands/ListReceivedGrantsCommand";
 import {
+  ListReceivedGrantsForOrganizationCommandInput,
+  ListReceivedGrantsForOrganizationCommandOutput,
+} from "./commands/ListReceivedGrantsForOrganizationCommand";
+import {
   ListReceivedLicensesCommandInput,
   ListReceivedLicensesCommandOutput,
 } from "./commands/ListReceivedLicensesCommand";
+import {
+  ListReceivedLicensesForOrganizationCommandInput,
+  ListReceivedLicensesForOrganizationCommandOutput,
+} from "./commands/ListReceivedLicensesForOrganizationCommand";
 import {
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
@@ -221,7 +229,9 @@ export type ServiceInputTypes =
   | ListLicenseVersionsCommandInput
   | ListLicensesCommandInput
   | ListReceivedGrantsCommandInput
+  | ListReceivedGrantsForOrganizationCommandInput
   | ListReceivedLicensesCommandInput
+  | ListReceivedLicensesForOrganizationCommandInput
   | ListResourceInventoryCommandInput
   | ListTagsForResourceCommandInput
   | ListTokensCommandInput
@@ -271,7 +281,9 @@ export type ServiceOutputTypes =
   | ListLicenseVersionsCommandOutput
   | ListLicensesCommandOutput
   | ListReceivedGrantsCommandOutput
+  | ListReceivedGrantsForOrganizationCommandOutput
   | ListReceivedLicensesCommandOutput
+  | ListReceivedLicensesForOrganizationCommandOutput
   | ListResourceInventoryCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTokensCommandOutput

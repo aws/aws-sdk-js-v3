@@ -31,7 +31,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Allows you to purchase reserved OpenSearch instances.</p>
+ * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

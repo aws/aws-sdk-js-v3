@@ -30,13 +30,13 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
 
 /**
  * <p>Updates stream metadata, such as the device name and media type.</p>
- *         <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
+ *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
  *             stream.</p>
- *         <p>To make sure that you have the latest version of the stream before updating it, you
+ *          <p>To make sure that you have the latest version of the stream before updating it, you
  *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
  *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
  *             latest stream version, use the <code>DescribeStream</code> API. </p>
- *         <p>
+ *          <p>
  *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
  *             complete.</p>
  * @example

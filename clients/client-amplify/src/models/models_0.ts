@@ -141,6 +141,7 @@ export interface CustomRule {
 
 export enum Platform {
   WEB = "WEB",
+  WEB_COMPUTE = "WEB_COMPUTE",
   WEB_DYNAMIC = "WEB_DYNAMIC",
 }
 
@@ -164,7 +165,10 @@ export interface CreateAppRequest {
   repository?: string;
 
   /**
-   * <p> The platform or framework for an Amplify app. </p>
+   * <p> The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
+   *             For a dynamic server-side rendered (SSR) app, set the platform type to
+   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
+   *             <code>WEB_DYNAMIC</code>.</p>
    */
   platform?: Platform | string;
 
@@ -336,7 +340,10 @@ export interface App {
   repository: string | undefined;
 
   /**
-   * <p> The platform for the Amplify app. </p>
+   * <p> The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
+   *             For a dynamic server-side rendered (SSR) app, set the platform type to
+   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
+   *             <code>WEB_DYNAMIC</code>.</p>
    */
   platform: Platform | string | undefined;
 
@@ -2147,7 +2154,10 @@ export interface UpdateAppRequest {
   description?: string;
 
   /**
-   * <p> The platform for an Amplify app. </p>
+   * <p> The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
+   *             For a dynamic server-side rendered (SSR) app, set the platform type to
+   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
+   *             <code>WEB_DYNAMIC</code>.</p>
    */
   platform?: Platform | string;
 

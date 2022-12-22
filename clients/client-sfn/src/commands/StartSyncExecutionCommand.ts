@@ -29,7 +29,19 @@ export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput 
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a Synchronous Express state machine execution.</p>
+ * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
+ * 			  is not available for <code>STANDARD</code> workflows.</p>
+ *          <note>
+ *             <p>
+ *                <code>StartSyncExecution</code> will return a <code>200 OK</code> response, even if your
+ *         execution fails, because the status code in the API response doesn't reflect function
+ *         errors. Error codes are reserved for errors that prevent your execution from running, such
+ *         as permissions errors, limit errors, or issues with your state machine code and
+ *         configuration. </p>
+ *          </note>
+ *          <note>
+ *             <p>This API action isn't logged in CloudTrail.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -57,6 +57,11 @@ import {
   GetAttributeGroupCommandOutput,
 } from "./commands/GetAttributeGroupCommand";
 import {
+  GetConfigurationCommand,
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput,
+} from "./commands/GetConfigurationCommand";
+import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -86,6 +91,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutConfigurationCommand,
+  PutConfigurationCommandInput,
+  PutConfigurationCommandOutput,
+} from "./commands/PutConfigurationCommand";
 import {
   SyncResourceCommand,
   SyncResourceCommandInput,
@@ -471,6 +481,41 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * <p>
+   *       Retrieves a <code>TagKey</code> configuration
+   *       from an account.
+   *     </p>
+   */
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCommandOutput>;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): Promise<GetConfigurationCommandOutput> | void {
+    const command = new GetConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list of all of your applications. Results are paginated.</p>
    */
   public listApplications(
@@ -535,7 +580,27 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Lists all resources that are associated with specified application. Results are paginated.</p>
+   * <p>
+   *        Lists all
+   *        of the resources
+   *        that are associated
+   *        with the specified application.
+   *        Results are paginated.
+   *      </p>
+   *          <note>
+   *             <p>
+   *          If you share an application,
+   *          and a consumer account associates a tag query
+   *          to the application,
+   *          all of the users
+   *          who can access the application
+   *          can also view the tag values
+   *          in all accounts
+   *          that are associated
+   *          with it
+   *          using this API.
+   *        </p>
+   *          </note>
    */
   public listAssociatedResources(
     args: ListAssociatedResourcesCommandInput,
@@ -652,6 +717,41 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Associates a <code>TagKey</code> configuration
+   *       to an account.
+   *     </p>
+   */
+  public putConfiguration(
+    args: PutConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutConfigurationCommandOutput>;
+  public putConfiguration(
+    args: PutConfigurationCommandInput,
+    cb: (err: any, data?: PutConfigurationCommandOutput) => void
+  ): void;
+  public putConfiguration(
+    args: PutConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutConfigurationCommandOutput) => void
+  ): void;
+  public putConfiguration(
+    args: PutConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationCommandOutput) => void
+  ): Promise<PutConfigurationCommandOutput> | void {
+    const command = new PutConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -18,7 +18,7 @@ import {
   UpdateWorkteamRequestFilterSensitiveLog,
   UpdateWorkteamResponse,
   UpdateWorkteamResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateWorkteamCommand,
   serializeAws_json1_1UpdateWorkteamCommand,

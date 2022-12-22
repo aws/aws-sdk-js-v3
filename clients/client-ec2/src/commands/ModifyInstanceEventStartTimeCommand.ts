@@ -19,7 +19,7 @@ import {
   ModifyInstanceEventStartTimeRequestFilterSensitiveLog,
   ModifyInstanceEventStartTimeResult,
   ModifyInstanceEventStartTimeResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceEventStartTimeCommand,
   serializeAws_ec2ModifyInstanceEventStartTimeCommand,

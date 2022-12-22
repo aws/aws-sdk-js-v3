@@ -32,10 +32,10 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
 
 /**
  * <p>Lists the block lists used for query suggestions for an index.</p>
- *         <p>For information on the current quota limits for block lists, see
+ *          <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
  *                 for Amazon Kendra</a>.</p>
- *         <p>
+ *          <p>
  *             <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

@@ -27,6 +27,7 @@ export * from "./ListQueuesPaginator";
 export * from "./ListQuickConnectsPaginator";
 export * from "./ListRoutingProfileQueuesPaginator";
 export * from "./ListRoutingProfilesPaginator";
+export * from "./ListRulesPaginator";
 export * from "./ListSecurityKeysPaginator";
 export * from "./ListSecurityProfilePermissionsPaginator";
 export * from "./ListSecurityProfilesPaginator";

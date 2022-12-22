@@ -30,22 +30,22 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
 
 /**
  * <p>Updates a cache policy configuration.</p>
- * 		       <p>When you update a cache policy configuration, all the fields are updated with the
+ *          <p>When you update a cache policy configuration, all the fields are updated with the
  * 			values provided in the request. You cannot update some fields independent of others. To
  * 			update a cache policy configuration:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
- * 			         </li>
+ *                <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
+ *             </li>
  *             <li>
- * 				           <p>Locally modify the fields in the cache policy configuration that you want to
+ *                <p>Locally modify the fields in the cache policy configuration that you want to
  * 					update.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
+ *                <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
  * 					configuration, including the fields that you modified and those that you
- * 					didn’t.</p>
- * 			         </li>
+ * 					didn't.</p>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

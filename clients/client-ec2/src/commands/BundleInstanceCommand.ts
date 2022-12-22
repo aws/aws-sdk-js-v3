@@ -30,7 +30,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
  *          <note>
  *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
- * 			      </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

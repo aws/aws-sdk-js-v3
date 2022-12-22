@@ -32,7 +32,7 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
 
 /**
  * <p>Creates a multicast domain using the specified transit gateway.</p>
- *         <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
+ *          <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

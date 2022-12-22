@@ -29,10 +29,12 @@ export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeSt
 export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns query execution runtime statistics related to a single execution of a query if you
- *             have access to the workgroup in which the query ran. The query execution runtime statistics
- *             is returned only when <a>QueryExecutionStatus$State</a> is in a SUCCEEDED
- *             or FAILED state.</p>
+ * <p>Returns query execution runtime statistics related to a single execution of a query if
+ *             you have access to the workgroup in which the query ran. Query execution runtime
+ *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
+ *             SUCCEEDED or FAILED state. Stage-level input and output row count and data size
+ *             statistics are not shown when a query has row-level filters defined in Lake
+ *             Formation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySnapshotAttributeRequest, ModifySnapshotAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifySnapshotAttributeRequest, ModifySnapshotAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySnapshotAttributeCommand,
   serializeAws_ec2ModifySnapshotAttributeCommand,

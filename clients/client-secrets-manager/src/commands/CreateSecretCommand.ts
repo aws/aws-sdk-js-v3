@@ -35,6 +35,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *       includes the connection information to access a database or other service, which Secrets Manager
  *       doesn't encrypt. A secret in Secrets Manager consists of both the protected secret data and the
  *       important information needed to manage the secret.</p>
+ *          <p>For secrets that use <i>managed rotation</i>, you need to create the secret through the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.
+ *
+ *     </p>
  *          <p>For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create a secret</a>.</p>
  *          <p>To create a secret, you can provide the secret value to be encrypted in either the
  *       <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but not both.

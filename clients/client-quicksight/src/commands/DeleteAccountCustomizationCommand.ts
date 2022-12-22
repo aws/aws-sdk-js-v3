@@ -18,7 +18,7 @@ import {
   DeleteAccountCustomizationRequestFilterSensitiveLog,
   DeleteAccountCustomizationResponse,
   DeleteAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteAccountCustomizationCommand,
   serializeAws_restJson1DeleteAccountCustomizationCommand,

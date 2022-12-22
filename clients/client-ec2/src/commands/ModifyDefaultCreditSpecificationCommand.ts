@@ -35,7 +35,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  *             The default credit option is set at the account level per Amazon Web Services Region, and
  *             is specified per instance family. All new burstable performance instances in the account
  *             launch using the default credit option.</p>
- *         <p>
+ *          <p>
  *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
  *             works at an Amazon Web Services Region level and modifies the credit option for each
  *             Availability Zone. All zones in a Region are updated within five minutes. But if
@@ -43,7 +43,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  *             until the zone is updated. To verify whether the update has occurred, you can call
  *                 <code>GetDefaultCreditSpecification</code> and check
  *                 <code>DefaultCreditSpecification</code> for updates.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
  *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

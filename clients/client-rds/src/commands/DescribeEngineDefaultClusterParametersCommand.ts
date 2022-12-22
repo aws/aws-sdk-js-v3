@@ -33,7 +33,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
 
 /**
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
- *         <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example

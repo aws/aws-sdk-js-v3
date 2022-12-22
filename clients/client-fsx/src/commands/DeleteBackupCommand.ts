@@ -31,14 +31,12 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
 /**
  * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  *             its data is gone.</p>
- *
- *         <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
+ *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
  *             later <code>DescribeBackups</code> calls.</p>
- *
- *         <important>
+ *          <important>
  *             <p>The data in a deleted backup is also deleted and can't be recovered by any
  *                 means.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

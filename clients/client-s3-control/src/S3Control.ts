@@ -170,6 +170,11 @@ import {
   GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetMultiRegionAccessPointPolicyStatusCommand";
 import {
+  GetMultiRegionAccessPointRoutesCommand,
+  GetMultiRegionAccessPointRoutesCommandInput,
+  GetMultiRegionAccessPointRoutesCommandOutput,
+} from "./commands/GetMultiRegionAccessPointRoutesCommand";
+import {
   GetPublicAccessBlockCommand,
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
@@ -270,6 +275,11 @@ import {
   PutStorageLensConfigurationTaggingCommandInput,
   PutStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/PutStorageLensConfigurationTaggingCommand";
+import {
+  SubmitMultiRegionAccessPointRoutesCommand,
+  SubmitMultiRegionAccessPointRoutesCommandInput,
+  SubmitMultiRegionAccessPointRoutesCommandOutput,
+} from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
 import {
   UpdateJobPriorityCommand,
   UpdateJobPriorityCommandInput,
@@ -1998,12 +2008,12 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation returns the versioning state only for S3 on Outposts buckets. To return the versioning
-   *             state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in
+   *             <p>This operation returns the versioning state only for S3 on Outposts buckets. To return
+   *             the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in
    *             the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save multiple
-   *          distinct copies of your data and recover from unintended user actions and
+   *          <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save
+   *          multiple distinct copies of your data and recover from unintended user actions and
    *          application failures.</p>
    *          <p>If you've never set versioning on your bucket, it has no versioning state. In that case,
    *          the <code>GetBucketVersioning</code> request does not return a versioning state
@@ -2011,7 +2021,8 @@ export class S3Control extends S3ControlClient {
    *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
    *             User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html#API_control_GetBucketVersioning_Examples">Examples</a> section.</p>
-   *          <p>The following operations are related to <code>GetBucketVersioning</code> for S3 on Outposts.</p>
+   *          <p>The following operations are related to <code>GetBucketVersioning</code> for
+   *          S3 on Outposts.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2274,6 +2285,71 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
+   *          passive.</p>
+   *          <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control
+   *          infrastructure endpoints in these five Amazon Web Services Regions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>us-east-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us-west-2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ap-southeast-2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ap-northeast-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu-west-1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Your Amazon S3 bucket does not need to be in these five Regions.</p>
+   *          </note>
+   */
+  public getMultiRegionAccessPointRoutes(
+    args: GetMultiRegionAccessPointRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMultiRegionAccessPointRoutesCommandOutput>;
+  public getMultiRegionAccessPointRoutes(
+    args: GetMultiRegionAccessPointRoutesCommandInput,
+    cb: (err: any, data?: GetMultiRegionAccessPointRoutesCommandOutput) => void
+  ): void;
+  public getMultiRegionAccessPointRoutes(
+    args: GetMultiRegionAccessPointRoutesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMultiRegionAccessPointRoutesCommandOutput) => void
+  ): void;
+  public getMultiRegionAccessPointRoutes(
+    args: GetMultiRegionAccessPointRoutesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMultiRegionAccessPointRoutesCommandOutput) => void),
+    cb?: (err: any, data?: GetMultiRegionAccessPointRoutesCommandOutput) => void
+  ): Promise<GetMultiRegionAccessPointRoutesCommandOutput> | void {
+    const command = new GetMultiRegionAccessPointRoutesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
    *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
    *             public access</a>.</p>
@@ -2323,7 +2399,7 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
    *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>To use this action, you must have permission to perform the
    *                <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
@@ -2401,7 +2477,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns a list of the access points currently associated with the specified bucket. You can
+   * <p>Returns a list of the access points owned by the current account associated with the specified bucket. You can
    *          retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or
    *          the number specified in <code>maxResults</code>, whichever is less), the response will
    *          include a continuation token that you can use to list the additional access points.</p>
@@ -3087,15 +3163,15 @@ export class S3Control extends S3ControlClient {
    *             versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a> in
    *             the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save multiple
-   *          distinct copies of your data and recover from unintended user actions and
+   *          <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save
+   *          multiple distinct copies of your data and recover from unintended user actions and
    *          application failures.</p>
    *          <p>You can set the versioning state to one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Enabled</b> - Enables versioning for the objects in the bucket.
-   *                All objects added to the bucket receive a unique version ID.</p>
+   *                   <b>Enabled</b> - Enables versioning for the objects in
+   *                the bucket. All objects added to the bucket receive a unique version ID.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3104,8 +3180,8 @@ export class S3Control extends S3ControlClient {
    *                   <code>null</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If you've never set versioning on your bucket, it has no versioning state. In that
-   *          case, a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html">
+   *          <p>If you've never set versioning on your bucket, it has no versioning state. In that case,
+   *          a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html">
    *             GetBucketVersioning</a> request does not return a versioning state value.</p>
    *          <p>When you enable S3 Versioning, for each object in your bucket, you have a current
    *          version and zero or more noncurrent versions. You can configure your bucket S3 Lifecycle
@@ -3113,12 +3189,15 @@ export class S3Control extends S3ControlClient {
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html"> Creating and managing
    *             a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3
    *             User Guide</i>.</p>
-   *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you want to maintain the same
-   *             permanent delete behavior when you enable versioning, you must add a noncurrent expiration policy.
-   *             The noncurrent expiration lifecycle policy will manage the deletes of the noncurrent object versions
-   *             in the version-enabled bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you
+   *          want to maintain the same permanent delete behavior when you enable versioning, you must
+   *          add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage
+   *          the deletes of the noncurrent object versions in the version-enabled bucket. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
+   *             User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples">Examples</a> section.</p>
-   *          <p>The following operations are related to <code>PutBucketVersioning</code> for S3 on Outposts.</p>
+   *          <p>The following operations are related to <code>PutBucketVersioning</code> for
+   *          S3 on Outposts.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3363,7 +3442,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with
-   *             Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>To use this action, you must have permission to perform the
    *                <code>s3:PutStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
@@ -3429,6 +3508,84 @@ export class S3Control extends S3ControlClient {
     cb?: (err: any, data?: PutStorageLensConfigurationTaggingCommandOutput) => void
   ): Promise<PutStorageLensConfigurationTaggingCommandOutput> | void {
     const command = new PutStorageLensConfigurationTaggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the
+   *          routing status for the specified Regions from active to passive, or from passive to active.
+   *          A value of <code>0</code> indicates a passive status, which means that traffic won't be
+   *          routed to the specified Region. A value of <code>100</code> indicates an active status,
+   *          which means that traffic will be routed to the specified Region. At least one Region must be active at all times.</p>
+   *          <p>When
+   *          the routing configuration is changed, any in-progress operations (uploads, copies, deletes,
+   *          and so on) to formerly active Regions will continue to run to their
+   *          final completion state (success or failure). The routing configurations of any Regions that
+   *          aren’t specified remain unchanged.</p>
+   *          <note>
+   *             <p>Updated routing configurations might not be immediately applied.
+   *             It
+   *             can take up to 2 minutes for your changes to take effect.</p>
+   *          </note>
+   *          <p>To submit routing control changes and failover requests, use the Amazon S3 failover control
+   *          infrastructure endpoints in these five Amazon Web Services Regions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>us-east-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us-west-2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ap-southeast-2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ap-northeast-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu-west-1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Your Amazon S3 bucket does not need to be in these five Regions.</p>
+   *          </note>
+   */
+  public submitMultiRegionAccessPointRoutes(
+    args: SubmitMultiRegionAccessPointRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput>;
+  public submitMultiRegionAccessPointRoutes(
+    args: SubmitMultiRegionAccessPointRoutesCommandInput,
+    cb: (err: any, data?: SubmitMultiRegionAccessPointRoutesCommandOutput) => void
+  ): void;
+  public submitMultiRegionAccessPointRoutes(
+    args: SubmitMultiRegionAccessPointRoutesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubmitMultiRegionAccessPointRoutesCommandOutput) => void
+  ): void;
+  public submitMultiRegionAccessPointRoutes(
+    args: SubmitMultiRegionAccessPointRoutesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitMultiRegionAccessPointRoutesCommandOutput) => void),
+    cb?: (err: any, data?: SubmitMultiRegionAccessPointRoutesCommandOutput) => void
+  ): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> | void {
+    const command = new SubmitMultiRegionAccessPointRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

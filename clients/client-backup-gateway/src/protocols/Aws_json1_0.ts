@@ -3,6 +3,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -27,7 +28,16 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "../commands/DisassociateGatewayFromServerCommand";
+import {
+  GetBandwidthRateLimitScheduleCommandInput,
+  GetBandwidthRateLimitScheduleCommandOutput,
+} from "../commands/GetBandwidthRateLimitScheduleCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "../commands/GetGatewayCommand";
+import { GetHypervisorCommandInput, GetHypervisorCommandOutput } from "../commands/GetHypervisorCommand";
+import {
+  GetHypervisorPropertyMappingsCommandInput,
+  GetHypervisorPropertyMappingsCommandOutput,
+} from "../commands/GetHypervisorPropertyMappingsCommand";
 import { GetVirtualMachineCommandInput, GetVirtualMachineCommandOutput } from "../commands/GetVirtualMachineCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
@@ -44,9 +54,21 @@ import {
   ListVirtualMachinesCommandOutput,
 } from "../commands/ListVirtualMachinesCommand";
 import {
+  PutBandwidthRateLimitScheduleCommandInput,
+  PutBandwidthRateLimitScheduleCommandOutput,
+} from "../commands/PutBandwidthRateLimitScheduleCommand";
+import {
+  PutHypervisorPropertyMappingsCommandInput,
+  PutHypervisorPropertyMappingsCommandOutput,
+} from "../commands/PutHypervisorPropertyMappingsCommand";
+import {
   PutMaintenanceStartTimeCommandInput,
   PutMaintenanceStartTimeCommandOutput,
 } from "../commands/PutMaintenanceStartTimeCommand";
+import {
+  StartVirtualMachinesMetadataSyncCommandInput,
+  StartVirtualMachinesMetadataSyncCommandOutput,
+} from "../commands/StartVirtualMachinesMetadataSyncCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestHypervisorConfigurationCommandInput,
@@ -67,6 +89,7 @@ import {
   AccessDeniedException,
   AssociateGatewayToServerInput,
   AssociateGatewayToServerOutput,
+  BandwidthRateLimitInterval,
   ConflictException,
   CreateGatewayInput,
   CreateGatewayOutput,
@@ -78,11 +101,18 @@ import {
   DisassociateGatewayFromServerOutput,
   Gateway,
   GatewayDetails,
+  GetBandwidthRateLimitScheduleInput,
+  GetBandwidthRateLimitScheduleOutput,
   GetGatewayInput,
   GetGatewayOutput,
+  GetHypervisorInput,
+  GetHypervisorOutput,
+  GetHypervisorPropertyMappingsInput,
+  GetHypervisorPropertyMappingsOutput,
   GetVirtualMachineInput,
   GetVirtualMachineOutput,
   Hypervisor,
+  HypervisorDetails,
   ImportHypervisorConfigurationInput,
   ImportHypervisorConfigurationOutput,
   InternalServerException,
@@ -95,9 +125,15 @@ import {
   ListVirtualMachinesInput,
   ListVirtualMachinesOutput,
   MaintenanceStartTime,
+  PutBandwidthRateLimitScheduleInput,
+  PutBandwidthRateLimitScheduleOutput,
+  PutHypervisorPropertyMappingsInput,
+  PutHypervisorPropertyMappingsOutput,
   PutMaintenanceStartTimeInput,
   PutMaintenanceStartTimeOutput,
   ResourceNotFoundException,
+  StartVirtualMachinesMetadataSyncInput,
+  StartVirtualMachinesMetadataSyncOutput,
   Tag,
   TagResourceInput,
   TagResourceOutput,
@@ -115,6 +151,8 @@ import {
   ValidationException,
   VirtualMachine,
   VirtualMachineDetails,
+  VmwareTag,
+  VmwareToAwsTagMapping,
 } from "../models/models_0";
 
 export const serializeAws_json1_0AssociateGatewayToServerCommand = async (
@@ -182,6 +220,19 @@ export const serializeAws_json1_0DisassociateGatewayFromServerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0GetBandwidthRateLimitScheduleCommand = async (
+  input: GetBandwidthRateLimitScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.GetBandwidthRateLimitSchedule",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetBandwidthRateLimitScheduleInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0GetGatewayCommand = async (
   input: GetGatewayCommandInput,
   context: __SerdeContext
@@ -192,6 +243,32 @@ export const serializeAws_json1_0GetGatewayCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetGatewayInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetHypervisorCommand = async (
+  input: GetHypervisorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.GetHypervisor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetHypervisorInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetHypervisorPropertyMappingsCommand = async (
+  input: GetHypervisorPropertyMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.GetHypervisorPropertyMappings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetHypervisorPropertyMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,6 +350,32 @@ export const serializeAws_json1_0ListVirtualMachinesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0PutBandwidthRateLimitScheduleCommand = async (
+  input: PutBandwidthRateLimitScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.PutBandwidthRateLimitSchedule",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0PutBandwidthRateLimitScheduleInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0PutHypervisorPropertyMappingsCommand = async (
+  input: PutHypervisorPropertyMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.PutHypervisorPropertyMappings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0PutHypervisorPropertyMappingsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0PutMaintenanceStartTimeCommand = async (
   input: PutMaintenanceStartTimeCommandInput,
   context: __SerdeContext
@@ -283,6 +386,19 @@ export const serializeAws_json1_0PutMaintenanceStartTimeCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PutMaintenanceStartTimeInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand = async (
+  input: StartVirtualMachinesMetadataSyncCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.StartVirtualMachinesMetadataSync",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0StartVirtualMachinesMetadataSyncInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,6 +657,9 @@ const deserializeAws_json1_0DeleteHypervisorCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.backupgateway#AccessDeniedException":
       throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backupgateway#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -617,6 +736,56 @@ const deserializeAws_json1_0DisassociateGatewayFromServerCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetBandwidthRateLimitScheduleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetBandwidthRateLimitScheduleOutput(data, context);
+  const response: GetBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetBandwidthRateLimitScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBandwidthRateLimitScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0GetGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -638,6 +807,106 @@ const deserializeAws_json1_0GetGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetHypervisorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHypervisorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetHypervisorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetHypervisorOutput(data, context);
+  const response: GetHypervisorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetHypervisorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHypervisorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetHypervisorPropertyMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHypervisorPropertyMappingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetHypervisorPropertyMappingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetHypervisorPropertyMappingsOutput(data, context);
+  const response: GetHypervisorPropertyMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetHypervisorPropertyMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHypervisorPropertyMappingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -747,6 +1016,9 @@ const deserializeAws_json1_0ImportHypervisorConfigurationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.backupgateway#AccessDeniedException":
       throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backupgateway#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -958,6 +1230,112 @@ const deserializeAws_json1_0ListVirtualMachinesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0PutBandwidthRateLimitScheduleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0PutBandwidthRateLimitScheduleOutput(data, context);
+  const response: PutBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0PutBandwidthRateLimitScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBandwidthRateLimitScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0PutHypervisorPropertyMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutHypervisorPropertyMappingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0PutHypervisorPropertyMappingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0PutHypervisorPropertyMappingsOutput(data, context);
+  const response: PutHypervisorPropertyMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0PutHypervisorPropertyMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutHypervisorPropertyMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.backupgateway#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backupgateway#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0PutMaintenanceStartTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -988,6 +1366,59 @@ const deserializeAws_json1_0PutMaintenanceStartTimeCommandError = async (
     case "ConflictException":
     case "com.amazonaws.backupgateway#ConflictException":
       throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVirtualMachinesMetadataSyncCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0StartVirtualMachinesMetadataSyncOutput(data, context);
+  const response: StartVirtualMachinesMetadataSyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVirtualMachinesMetadataSyncCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.backupgateway#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -1297,6 +1728,9 @@ const deserializeAws_json1_0UpdateHypervisorCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.backupgateway#AccessDeniedException":
       throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backupgateway#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -1408,6 +1842,33 @@ const serializeAws_json1_0AssociateGatewayToServerInput = (
   };
 };
 
+const serializeAws_json1_0BandwidthRateLimitInterval = (
+  input: BandwidthRateLimitInterval,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AverageUploadRateLimitInBitsPerSec != null && {
+      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
+    }),
+    ...(input.DaysOfWeek != null && { DaysOfWeek: serializeAws_json1_0DaysOfWeek(input.DaysOfWeek, context) }),
+    ...(input.EndHourOfDay != null && { EndHourOfDay: input.EndHourOfDay }),
+    ...(input.EndMinuteOfHour != null && { EndMinuteOfHour: input.EndMinuteOfHour }),
+    ...(input.StartHourOfDay != null && { StartHourOfDay: input.StartHourOfDay }),
+    ...(input.StartMinuteOfHour != null && { StartMinuteOfHour: input.StartMinuteOfHour }),
+  };
+};
+
+const serializeAws_json1_0BandwidthRateLimitIntervals = (
+  input: BandwidthRateLimitInterval[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0BandwidthRateLimitInterval(entry, context);
+    });
+};
+
 const serializeAws_json1_0CreateGatewayInput = (input: CreateGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.ActivationKey != null && { ActivationKey: input.ActivationKey }),
@@ -1415,6 +1876,14 @@ const serializeAws_json1_0CreateGatewayInput = (input: CreateGatewayInput, conte
     ...(input.GatewayType != null && { GatewayType: input.GatewayType }),
     ...(input.Tags != null && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
   };
+};
+
+const serializeAws_json1_0DaysOfWeek = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_0DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
@@ -1438,9 +1907,33 @@ const serializeAws_json1_0DisassociateGatewayFromServerInput = (
   };
 };
 
+const serializeAws_json1_0GetBandwidthRateLimitScheduleInput = (
+  input: GetBandwidthRateLimitScheduleInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
+  };
+};
+
 const serializeAws_json1_0GetGatewayInput = (input: GetGatewayInput, context: __SerdeContext): any => {
   return {
     ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
+  };
+};
+
+const serializeAws_json1_0GetHypervisorInput = (input: GetHypervisorInput, context: __SerdeContext): any => {
+  return {
+    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
+  };
+};
+
+const serializeAws_json1_0GetHypervisorPropertyMappingsInput = (
+  input: GetHypervisorPropertyMappingsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
   };
 };
 
@@ -1498,6 +1991,34 @@ const serializeAws_json1_0ListVirtualMachinesInput = (
   };
 };
 
+const serializeAws_json1_0PutBandwidthRateLimitScheduleInput = (
+  input: PutBandwidthRateLimitScheduleInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BandwidthRateLimitIntervals != null && {
+      BandwidthRateLimitIntervals: serializeAws_json1_0BandwidthRateLimitIntervals(
+        input.BandwidthRateLimitIntervals,
+        context
+      ),
+    }),
+    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
+  };
+};
+
+const serializeAws_json1_0PutHypervisorPropertyMappingsInput = (
+  input: PutHypervisorPropertyMappingsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.VmwareToAwsTagMappings != null && {
+      VmwareToAwsTagMappings: serializeAws_json1_0VmwareToAwsTagMappings(input.VmwareToAwsTagMappings, context),
+    }),
+  };
+};
+
 const serializeAws_json1_0PutMaintenanceStartTimeInput = (
   input: PutMaintenanceStartTimeInput,
   context: __SerdeContext
@@ -1508,6 +2029,15 @@ const serializeAws_json1_0PutMaintenanceStartTimeInput = (
     ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
     ...(input.HourOfDay != null && { HourOfDay: input.HourOfDay }),
     ...(input.MinuteOfHour != null && { MinuteOfHour: input.MinuteOfHour }),
+  };
+};
+
+const serializeAws_json1_0StartVirtualMachinesMetadataSyncInput = (
+  input: StartVirtualMachinesMetadataSyncInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
   };
 };
 
@@ -1583,10 +2113,28 @@ const serializeAws_json1_0UpdateHypervisorInput = (input: UpdateHypervisorInput,
   return {
     ...(input.Host != null && { Host: input.Host }),
     ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
+    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.Username != null && { Username: input.Username }),
   };
+};
+
+const serializeAws_json1_0VmwareToAwsTagMapping = (input: VmwareToAwsTagMapping, context: __SerdeContext): any => {
+  return {
+    ...(input.AwsTagKey != null && { AwsTagKey: input.AwsTagKey }),
+    ...(input.AwsTagValue != null && { AwsTagValue: input.AwsTagValue }),
+    ...(input.VmwareCategory != null && { VmwareCategory: input.VmwareCategory }),
+    ...(input.VmwareTagName != null && { VmwareTagName: input.VmwareTagName }),
+  };
+};
+
+const serializeAws_json1_0VmwareToAwsTagMappings = (input: VmwareToAwsTagMapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0VmwareToAwsTagMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -1605,6 +2153,35 @@ const deserializeAws_json1_0AssociateGatewayToServerOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0BandwidthRateLimitInterval = (
+  output: any,
+  context: __SerdeContext
+): BandwidthRateLimitInterval => {
+  return {
+    AverageUploadRateLimitInBitsPerSec: __expectLong(output.AverageUploadRateLimitInBitsPerSec),
+    DaysOfWeek: output.DaysOfWeek != null ? deserializeAws_json1_0DaysOfWeek(output.DaysOfWeek, context) : undefined,
+    EndHourOfDay: __expectInt32(output.EndHourOfDay),
+    EndMinuteOfHour: __expectInt32(output.EndMinuteOfHour),
+    StartHourOfDay: __expectInt32(output.StartHourOfDay),
+    StartMinuteOfHour: __expectInt32(output.StartMinuteOfHour),
+  } as any;
+};
+
+const deserializeAws_json1_0BandwidthRateLimitIntervals = (
+  output: any,
+  context: __SerdeContext
+): BandwidthRateLimitInterval[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0BandwidthRateLimitInterval(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
@@ -1616,6 +2193,18 @@ const deserializeAws_json1_0CreateGatewayOutput = (output: any, context: __Serde
   return {
     GatewayArn: __expectString(output.GatewayArn),
   } as any;
+};
+
+const deserializeAws_json1_0DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
@@ -1686,9 +2275,43 @@ const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): G
   return retVal;
 };
 
+const deserializeAws_json1_0GetBandwidthRateLimitScheduleOutput = (
+  output: any,
+  context: __SerdeContext
+): GetBandwidthRateLimitScheduleOutput => {
+  return {
+    BandwidthRateLimitIntervals:
+      output.BandwidthRateLimitIntervals != null
+        ? deserializeAws_json1_0BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
+        : undefined,
+    GatewayArn: __expectString(output.GatewayArn),
+  } as any;
+};
+
 const deserializeAws_json1_0GetGatewayOutput = (output: any, context: __SerdeContext): GetGatewayOutput => {
   return {
     Gateway: output.Gateway != null ? deserializeAws_json1_0GatewayDetails(output.Gateway, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetHypervisorOutput = (output: any, context: __SerdeContext): GetHypervisorOutput => {
+  return {
+    Hypervisor:
+      output.Hypervisor != null ? deserializeAws_json1_0HypervisorDetails(output.Hypervisor, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetHypervisorPropertyMappingsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetHypervisorPropertyMappingsOutput => {
+  return {
+    HypervisorArn: __expectString(output.HypervisorArn),
+    IamRoleArn: __expectString(output.IamRoleArn),
+    VmwareToAwsTagMappings:
+      output.VmwareToAwsTagMappings != null
+        ? deserializeAws_json1_0VmwareToAwsTagMappings(output.VmwareToAwsTagMappings, context)
+        : undefined,
   } as any;
 };
 
@@ -1709,6 +2332,23 @@ const deserializeAws_json1_0Hypervisor = (output: any, context: __SerdeContext):
     Host: __expectString(output.Host),
     HypervisorArn: __expectString(output.HypervisorArn),
     KmsKeyArn: __expectString(output.KmsKeyArn),
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_json1_0HypervisorDetails = (output: any, context: __SerdeContext): HypervisorDetails => {
+  return {
+    Host: __expectString(output.Host),
+    HypervisorArn: __expectString(output.HypervisorArn),
+    KmsKeyArn: __expectString(output.KmsKeyArn),
+    LastSuccessfulMetadataSyncTime:
+      output.LastSuccessfulMetadataSyncTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulMetadataSyncTime)))
+        : undefined,
+    LatestMetadataSyncStatus: __expectString(output.LatestMetadataSyncStatus),
+    LatestMetadataSyncStatusMessage: __expectString(output.LatestMetadataSyncStatusMessage),
+    LogGroupArn: __expectString(output.LogGroupArn),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
   } as any;
@@ -1792,6 +2432,24 @@ const deserializeAws_json1_0MaintenanceStartTime = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_0PutBandwidthRateLimitScheduleOutput = (
+  output: any,
+  context: __SerdeContext
+): PutBandwidthRateLimitScheduleOutput => {
+  return {
+    GatewayArn: __expectString(output.GatewayArn),
+  } as any;
+};
+
+const deserializeAws_json1_0PutHypervisorPropertyMappingsOutput = (
+  output: any,
+  context: __SerdeContext
+): PutHypervisorPropertyMappingsOutput => {
+  return {
+    HypervisorArn: __expectString(output.HypervisorArn),
+  } as any;
+};
+
 const deserializeAws_json1_0PutMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
@@ -1808,6 +2466,15 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   return {
     ErrorCode: __expectString(output.ErrorCode),
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0StartVirtualMachinesMetadataSyncOutput = (
+  output: any,
+  context: __SerdeContext
+): StartVirtualMachinesMetadataSyncOutput => {
+  return {
+    HypervisorArn: __expectString(output.HypervisorArn),
   } as any;
 };
 
@@ -1912,6 +2579,7 @@ const deserializeAws_json1_0VirtualMachineDetails = (output: any, context: __Ser
     Name: __expectString(output.Name),
     Path: __expectString(output.Path),
     ResourceArn: __expectString(output.ResourceArn),
+    VmwareTags: output.VmwareTags != null ? deserializeAws_json1_0VmwareTags(output.VmwareTags, context) : undefined,
   } as any;
 };
 
@@ -1923,6 +2591,50 @@ const deserializeAws_json1_0VirtualMachines = (output: any, context: __SerdeCont
         return null as any;
       }
       return deserializeAws_json1_0VirtualMachine(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0VmwareTag = (output: any, context: __SerdeContext): VmwareTag => {
+  return {
+    VmwareCategory: __expectString(output.VmwareCategory),
+    VmwareTagDescription: __expectString(output.VmwareTagDescription),
+    VmwareTagName: __expectString(output.VmwareTagName),
+  } as any;
+};
+
+const deserializeAws_json1_0VmwareTags = (output: any, context: __SerdeContext): VmwareTag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0VmwareTag(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0VmwareToAwsTagMapping = (output: any, context: __SerdeContext): VmwareToAwsTagMapping => {
+  return {
+    AwsTagKey: __expectString(output.AwsTagKey),
+    AwsTagValue: __expectString(output.AwsTagValue),
+    VmwareCategory: __expectString(output.VmwareCategory),
+    VmwareTagName: __expectString(output.VmwareTagName),
+  } as any;
+};
+
+const deserializeAws_json1_0VmwareToAwsTagMappings = (
+  output: any,
+  context: __SerdeContext
+): VmwareToAwsTagMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0VmwareToAwsTagMapping(entry, context);
     });
   return retVal;
 };

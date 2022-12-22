@@ -2,6 +2,7 @@
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
+  SENSITIVE_STRING,
 } from "@aws-sdk/smithy-client";
 
 import { PersonalizeEventsServiceException as __BaseException } from "./PersonalizeEventsServiceException";
@@ -23,6 +24,16 @@ export class InvalidInputException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidInputException.prototype);
   }
+}
+
+/**
+ * <p>Contains information about a metric attribution associated with an event. For more information about metric attributions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+ */
+export interface MetricAttribution {
+  /**
+   * <p>The source of the event, such as a third party.</p>
+   */
+  eventAttributionSource: string | undefined;
 }
 
 /**
@@ -75,14 +86,27 @@ export interface Event {
   sentAt: Date | undefined;
 
   /**
-   * <p>The ID of the recommendation.</p>
+   * <p>The ID of the list of recommendations that contains the item the user interacted with. Provide a <code>recommendationId</code> to have Amazon Personalize implicitly record the
+   *       recommendations you show your user as impressions data. Or provide a <code>recommendationId</code> if you use a metric attribution to measure the impact of recommendations.
+   *     </p>
+   *          <p>
+   *       For more information on recording impressions data, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data">Recording impressions data</a>.
+   *       For more information on creating a metric attribution see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.
+   *     </p>
    */
   recommendationId?: string;
 
   /**
-   * <p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>["itemId1", "itemId2", "itemId3"]</code>.</p>
+   * <p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>["itemId1", "itemId2", "itemId3"]</code>. Provide a list of
+   *       items to manually record impressions data for an event. For more information on recording impressions data,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data">Recording impressions data</a>. </p>
    */
   impression?: string[];
+
+  /**
+   * <p>Contains information about the metric attribution associated with an event. For more information about metric attributions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+   */
+  metricAttribution?: MetricAttribution;
 }
 
 export interface PutEventsRequest {
@@ -222,8 +246,18 @@ export interface PutUsersRequest {
 /**
  * @internal
  */
+export const MetricAttributionFilterSensitiveLog = (obj: MetricAttribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const EventFilterSensitiveLog = (obj: Event): any => ({
   ...obj,
+  ...(obj.itemId && { itemId: SENSITIVE_STRING }),
+  ...(obj.properties && { properties: SENSITIVE_STRING }),
+  ...(obj.impression && { impression: SENSITIVE_STRING }),
 });
 
 /**
@@ -231,6 +265,8 @@ export const EventFilterSensitiveLog = (obj: Event): any => ({
  */
 export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
   ...obj,
+  ...(obj.userId && { userId: SENSITIVE_STRING }),
+  ...(obj.eventList && { eventList: SENSITIVE_STRING }),
 });
 
 /**
@@ -238,6 +274,7 @@ export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any =
  */
 export const ItemFilterSensitiveLog = (obj: Item): any => ({
   ...obj,
+  ...(obj.properties && { properties: SENSITIVE_STRING }),
 });
 
 /**
@@ -245,6 +282,7 @@ export const ItemFilterSensitiveLog = (obj: Item): any => ({
  */
 export const PutItemsRequestFilterSensitiveLog = (obj: PutItemsRequest): any => ({
   ...obj,
+  ...(obj.items && { items: obj.items.map((item) => ItemFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -252,6 +290,7 @@ export const PutItemsRequestFilterSensitiveLog = (obj: PutItemsRequest): any => 
  */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
+  ...(obj.properties && { properties: SENSITIVE_STRING }),
 });
 
 /**
@@ -259,4 +298,5 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
  */
 export const PutUsersRequestFilterSensitiveLog = (obj: PutUsersRequest): any => ({
   ...obj,
+  ...(obj.users && { users: obj.users.map((item) => UserFilterSensitiveLog(item)) }),
 });

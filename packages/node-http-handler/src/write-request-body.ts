@@ -22,7 +22,7 @@ function writeBody(
     // pipe automatically handles end
     body.pipe(httpRequest);
   } else if (body) {
-    httpRequest.end(Buffer.from(body));
+    httpRequest.end(Buffer.from(body as Parameters<typeof Buffer.from>[0]));
   } else {
     httpRequest.end();
   }

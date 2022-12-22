@@ -127,6 +127,28 @@
         }
       }
     },
+    "com.amazonaws.customerprofiles#AdditionalSearchKey": {
+      "type": "structure",
+      "members": {
+        "KeyName": {
+          "target": "com.amazonaws.customerprofiles#name",
+          "traits": {
+            "smithy.api#documentation": "<p>A searchable identifier of a customer profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.customerprofiles#requestValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key values.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that is\n         used in conjunction with the\n         <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-KeyName\">KeyName</a>\n         and\n         <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-Values\">Values</a>\n         parameters to search for profiles using the <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html\">SearchProfiles</a> API.</p>"
+      }
+    },
     "com.amazonaws.customerprofiles#Address": {
       "type": "structure",
       "members": {
@@ -474,18 +496,20 @@
       }
     },
     "com.amazonaws.customerprofiles#ConflictResolvingModel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RECENCY",
-            "name": "RECENCY"
-          },
-          {
-            "value": "SOURCE",
-            "name": "SOURCE"
+      "type": "enum",
+      "members": {
+        "RECENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECENCY"
           }
-        ]
+        },
+        "SOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOURCE"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#ConnectorOperator": {
@@ -956,6 +980,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A key value pair of attributes of a customer profile.</p>"
           }
+        },
+        "PartyTypeString": {
+          "target": "com.amazonaws.customerprofiles#string1To255",
+          "traits": {
+            "smithy.api#documentation": "<p>An alternative to <code>PartyType</code> which accepts any string as input.</p>"
+          }
+        },
+        "GenderString": {
+          "target": "com.amazonaws.customerprofiles#string1To255",
+          "traits": {
+            "smithy.api#documentation": "<p>An alternative to <code>Gender</code> which accepts any string as input.</p>"
+          }
         }
       }
     },
@@ -1102,14 +1138,14 @@
           "name": "profile"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<fullname>Amazon Connect Customer Profiles</fullname>\n         <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information\n         about the Amazon Connect Customer Profiles API, including supported operations, data types,\n         parameters, and schemas.</p>\n         <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has\n         pre-built connectors powered by AppFlow that make it easy to combine customer information\n         from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your\n         enterprise resource planning (ERP), with contact history from your Amazon Connect contact\n         center.</p>\n         <p>If you're new to Amazon Connect , you might find it helpful to also review the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html\">Amazon Connect Administrator Guide</a>.</p>",
+        "smithy.api#documentation": "<fullname>Amazon Connect Customer Profiles</fullname>\n         <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has\n         pre-built connectors powered by AppFlow that make it easy to combine customer information\n         from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your\n         enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.\n         If you're new to Amazon Connect, you might find it helpful to review the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/\">Amazon Connect Administrator Guide</a>.</p>",
         "smithy.api#title": "Amazon Connect Customer Profiles",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1158,15 +1194,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -1429,9 +1456,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1442,9 +1469,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1455,9 +1482,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1468,9 +1495,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1481,9 +1508,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1494,9 +1521,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1507,9 +1534,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1520,9 +1547,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1533,9 +1560,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -1546,9 +1573,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -1559,9 +1586,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -1572,9 +1599,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -1585,9 +1612,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -1598,9 +1625,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -1611,9 +1638,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -1624,9 +1651,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -1637,9 +1664,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1650,9 +1677,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1663,9 +1690,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1676,9 +1703,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1689,9 +1716,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1702,9 +1729,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1715,9 +1742,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1728,9 +1755,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1741,9 +1768,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1754,9 +1781,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1767,9 +1794,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1780,9 +1807,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1793,9 +1820,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1806,9 +1833,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1819,9 +1846,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1832,9 +1859,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1845,9 +1872,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1858,9 +1885,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1871,9 +1898,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1884,9 +1911,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1897,9 +1924,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -1910,9 +1937,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -1923,9 +1950,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -1936,9 +1963,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -1949,9 +1976,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1961,9 +1988,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1973,9 +2000,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -1985,18 +2012,20 @@
       }
     },
     "com.amazonaws.customerprofiles#DataPullMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Incremental",
-            "name": "INCREMENTAL"
-          },
-          {
-            "value": "Complete",
-            "name": "COMPLETE"
+      "type": "enum",
+      "members": {
+        "INCREMENTAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Incremental"
           }
-        ]
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Complete"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#Date": {
@@ -2545,8 +2574,8 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0,
-          "max": 1
+          "min": 0.0,
+          "max": 1.0
         }
       }
     },
@@ -2579,30 +2608,38 @@
       }
     },
     "com.amazonaws.customerprofiles#FieldContentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STRING",
-            "name": "STRING"
-          },
-          {
-            "value": "NUMBER",
-            "name": "NUMBER"
-          },
-          {
-            "value": "PHONE_NUMBER",
-            "name": "PHONE_NUMBER"
-          },
-          {
-            "value": "EMAIL_ADDRESS",
-            "name": "EMAIL_ADDRESS"
-          },
-          {
-            "value": "NAME",
-            "name": "NAME"
+      "type": "enum",
+      "members": {
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRING"
           }
-        ]
+        },
+        "NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NUMBER"
+          }
+        },
+        "PHONE_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHONE_NUMBER"
+          }
+        },
+        "EMAIL_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_ADDRESS"
+          }
+        },
+        "NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NAME"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#FieldMap": {
@@ -2823,23 +2860,47 @@
         "smithy.api#pattern": "^[a-zA-Z0-9][\\w!@#.-]+$"
       }
     },
-    "com.amazonaws.customerprofiles#Gender": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MALE",
-            "name": "MALE"
-          },
-          {
-            "value": "FEMALE",
-            "name": "FEMALE"
-          },
-          {
-            "value": "UNSPECIFIED",
-            "name": "UNSPECIFIED"
+    "com.amazonaws.customerprofiles#FoundByKeyValue": {
+      "type": "structure",
+      "members": {
+        "KeyName": {
+          "target": "com.amazonaws.customerprofiles#name",
+          "traits": {
+            "smithy.api#documentation": "<p>A searchable identifier of a customer profile.</p>"
           }
-        ]
+        },
+        "Values": {
+          "target": "com.amazonaws.customerprofiles#requestValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key values.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that were used\n         to find a profile returned in response to a <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html\">SearchProfiles</a> request. </p>"
+      }
+    },
+    "com.amazonaws.customerprofiles#Gender": {
+      "type": "enum",
+      "members": {
+        "MALE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MALE"
+          }
+        },
+        "FEMALE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FEMALE"
+          }
+        },
+        "UNSPECIFIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSPECIFIED"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#GetAutoMergingPreview": {
@@ -2868,7 +2929,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly\n         selects a sample of matching groups from the existing matching results, and applies the\n         automerging settings that you provided. You can then view the number of profiles in the\n         sample, the number of matches, and the number of profiles identified to be merged. This\n         enables you to evaluate the accuracy of the attributes in your matching list. </p>\n         <p>You can't view which profiles are matched and would be merged.</p>\n         <important>\n         \n            <p>We strongly recommend you use this API to do a dry run of the automerging process\n            before running the Identity Resolution Job. Include <b>at least</b> two matching\n            attributes. If your matching list includes too few attributes (such as only\n               <code>FirstName</code> or only <code>LastName</code>), there may be a large number of\n            matches. This increases the chances of erroneous merges.</p>\n         </important>",
+        "smithy.api#documentation": "<p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly\n         selects a sample of matching groups from the existing matching results, and applies the\n         automerging settings that you provided. You can then view the number of profiles in the\n         sample, the number of matches, and the number of profiles identified to be merged. This\n         enables you to evaluate the accuracy of the attributes in your matching list. </p>\n         <p>You can't view which profiles are matched and would be merged.</p>\n         <important>\n            <p>We strongly recommend you use this API to do a dry run of the automerging process\n            before running the Identity Resolution Job. Include <b>at least</b> two matching\n            attributes. If your matching list includes too few attributes (such as only\n               <code>FirstName</code> or only <code>LastName</code>), there may be a large number of\n            matches. This increases the chances of erroneous merges.</p>\n         </important>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview",
@@ -3320,7 +3381,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Before calling this API, use <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html\">CreateDomain</a> or\n            <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html\">UpdateDomain</a> to\n         enable identity resolution: set <code>Matching</code> to true.</p>\n         <p>GetMatches returns potentially matching profiles, based on the results of the latest run\n         of a machine learning process. </p>\n         <important>\n            <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly\nbatch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every \nSaturday at 12AM UTC to detect duplicate profiles in your domains. </p>\n            <p>After the Identity Resolution Job completes, use the \n<a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html\">GetMatches</a>\nAPI to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from\nS3.</p>\n         </important>\n\n         <p>Amazon Connect uses the following profile attributes to identify matches:</p>\n         <ul>\n            <li>\n               <p>PhoneNumber</p>\n            </li>\n            <li>\n               <p>HomePhoneNumber</p>\n            </li>\n            <li>\n               <p>BusinessPhoneNumber</p>\n            </li>\n            <li>\n               <p>MobilePhoneNumber</p>\n            </li>\n            <li>\n               <p>EmailAddress</p>\n            </li>\n            <li>\n               <p>PersonalEmailAddress</p>\n            </li>\n            <li>\n               <p>BusinessEmailAddress</p>\n            </li>\n            <li>\n               <p>FullName</p>\n            </li>\n         </ul>\n         <p>For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and <b>Jhn Doe</b>, or different casing\n         email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b> and\n            <b>johndoe@anycompany.com</b>, or different phone number\n         formats such as <b>555-010-0000</b> and <b>+1-555-010-0000</b>—can be detected as belonging to the same customer <b>John Doe</b> and merged into a unified profile.</p>",
+        "smithy.api#documentation": "<p>Before calling this API, use <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html\">CreateDomain</a> or\n            <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html\">UpdateDomain</a> to\n         enable identity resolution: set <code>Matching</code> to true.</p>\n         <p>GetMatches returns potentially matching profiles, based on the results of the latest run\n         of a machine learning process. </p>\n         <important>\n            <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly\nbatch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every \nSaturday at 12AM UTC to detect duplicate profiles in your domains. </p>\n            <p>After the Identity Resolution Job completes, use the \n<a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html\">GetMatches</a>\nAPI to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from\nS3.</p>\n         </important>\n         <p>Amazon Connect uses the following profile attributes to identify matches:</p>\n         <ul>\n            <li>\n               <p>PhoneNumber</p>\n            </li>\n            <li>\n               <p>HomePhoneNumber</p>\n            </li>\n            <li>\n               <p>BusinessPhoneNumber</p>\n            </li>\n            <li>\n               <p>MobilePhoneNumber</p>\n            </li>\n            <li>\n               <p>EmailAddress</p>\n            </li>\n            <li>\n               <p>PersonalEmailAddress</p>\n            </li>\n            <li>\n               <p>BusinessEmailAddress</p>\n            </li>\n            <li>\n               <p>FullName</p>\n            </li>\n         </ul>\n         <p>For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and <b>Jhn Doe</b>, or different casing\n         email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b> and\n            <b>johndoe@anycompany.com</b>, or different phone number\n         formats such as <b>555-010-0000</b> and <b>+1-555-010-0000</b>—can be detected as belonging to the same customer <b>John Doe</b> and merged into a unified profile.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/domains/{DomainName}/matches",
@@ -3877,38 +3938,50 @@
       }
     },
     "com.amazonaws.customerprofiles#IdentityResolutionJobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "PREPROCESSING",
-            "name": "PREPROCESSING"
-          },
-          {
-            "value": "FIND_MATCHING",
-            "name": "FIND_MATCHING"
-          },
-          {
-            "value": "MERGING",
-            "name": "MERGING"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "PARTIAL_SUCCESS",
-            "name": "PARTIAL_SUCCESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "PREPROCESSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREPROCESSING"
+          }
+        },
+        "FIND_MATCHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIND_MATCHING"
+          }
+        },
+        "MERGING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MERGING"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "PARTIAL_SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTIAL_SUCCESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#IdentityResolutionJobsList": {
@@ -3987,38 +4060,50 @@
       }
     },
     "com.amazonaws.customerprofiles#JobScheduleDayOfTheWeek": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUNDAY",
-            "name": "SUNDAY"
-          },
-          {
-            "value": "MONDAY",
-            "name": "MONDAY"
-          },
-          {
-            "value": "TUESDAY",
-            "name": "TUESDAY"
-          },
-          {
-            "value": "WEDNESDAY",
-            "name": "WEDNESDAY"
-          },
-          {
-            "value": "THURSDAY",
-            "name": "THURSDAY"
-          },
-          {
-            "value": "FRIDAY",
-            "name": "FRIDAY"
-          },
-          {
-            "value": "SATURDAY",
-            "name": "SATURDAY"
+      "type": "enum",
+      "members": {
+        "SUNDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUNDAY"
           }
-        ]
+        },
+        "MONDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONDAY"
+          }
+        },
+        "TUESDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TUESDAY"
+          }
+        },
+        "WEDNESDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEDNESDAY"
+          }
+        },
+        "THURSDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THURSDAY"
+          }
+        },
+        "FRIDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FRIDAY"
+          }
+        },
+        "SATURDAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SATURDAY"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#JobScheduleTime": {
@@ -5040,74 +5125,104 @@
       }
     },
     "com.amazonaws.customerprofiles#MarketoConnectorOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECTION",
-            "name": "PROJECTION"
-          },
-          {
-            "value": "LESS_THAN",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "BETWEEN",
-            "name": "BETWEEN"
-          },
-          {
-            "value": "ADDITION",
-            "name": "ADDITION"
-          },
-          {
-            "value": "MULTIPLICATION",
-            "name": "MULTIPLICATION"
-          },
-          {
-            "value": "DIVISION",
-            "name": "DIVISION"
-          },
-          {
-            "value": "SUBTRACTION",
-            "name": "SUBTRACTION"
-          },
-          {
-            "value": "MASK_ALL",
-            "name": "MASK_ALL"
-          },
-          {
-            "value": "MASK_FIRST_N",
-            "name": "MASK_FIRST_N"
-          },
-          {
-            "value": "MASK_LAST_N",
-            "name": "MASK_LAST_N"
-          },
-          {
-            "value": "VALIDATE_NON_NULL",
-            "name": "VALIDATE_NON_NULL"
-          },
-          {
-            "value": "VALIDATE_NON_ZERO",
-            "name": "VALIDATE_NON_ZERO"
-          },
-          {
-            "value": "VALIDATE_NON_NEGATIVE",
-            "name": "VALIDATE_NON_NEGATIVE"
-          },
-          {
-            "value": "VALIDATE_NUMERIC",
-            "name": "VALIDATE_NUMERIC"
-          },
-          {
-            "value": "NO_OP",
-            "name": "NO_OP"
+      "type": "enum",
+      "members": {
+        "PROJECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECTION"
           }
-        ]
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "BETWEEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BETWEEN"
+          }
+        },
+        "ADDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITION"
+          }
+        },
+        "MULTIPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTIPLICATION"
+          }
+        },
+        "DIVISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIVISION"
+          }
+        },
+        "SUBTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBTRACTION"
+          }
+        },
+        "MASK_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_ALL"
+          }
+        },
+        "MASK_FIRST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_FIRST_N"
+          }
+        },
+        "MASK_LAST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LAST_N"
+          }
+        },
+        "VALIDATE_NON_NULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NULL"
+          }
+        },
+        "VALIDATE_NON_ZERO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_ZERO"
+          }
+        },
+        "VALIDATE_NON_NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NEGATIVE"
+          }
+        },
+        "VALIDATE_NUMERIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NUMERIC"
+          }
+        },
+        "NO_OP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_OP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#MarketoSourceProperties": {
@@ -5269,7 +5384,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Runs an AWS Lambda job that does the following:</p>\n         <ol>\n            <li>\n               <p>All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the\n               main profile.</p>\n            </li>\n            <li>\n               <p>All the objects in the <code>ProfileToBeMerged</code> will be moved to the main\n               profile.</p>\n            </li>\n            <li>\n               <p>All the <code>ProfileToBeMerged</code> will be deleted at the end.</p>\n            </li>\n            <li>\n               <p>All the profileKeys in the <code>ProfileIdsToBeMerged</code> will be moved to the\n               main profile.</p>\n            </li>\n            <li>\n               <p>Standard fields are merged as follows:</p>\n               <ol>\n                  <li>\n                     <p>Fields are always \"union\"-ed if there are no conflicts in standard fields or\n                     attributeKeys.</p>\n                  </li>\n                  <li>\n                     <p>When there are conflicting fields:</p>\n\n                     <ol>\n                        <li>\n                           <p>If no <code>SourceProfileIds</code> entry is specified, the main\n                           Profile value is always taken. </p>\n                        </li>\n                        <li>\n                           <p>If a <code>SourceProfileIds</code> entry is specified, the specified\n                           profileId is always taken, even if it is a NULL value.</p>\n                        </li>\n                     </ol>\n                  </li>\n               </ol>\n            </li>\n         </ol>\n         <p>You can use MergeProfiles together with <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html\">GetMatches</a>, which\n         returns potentially matching profiles, or use it with the results of another matching\n         system. After profiles have been merged, they cannot be separated (unmerged).</p>",
+        "smithy.api#documentation": "<p>Runs an AWS Lambda job that does the following:</p>\n         <ol>\n            <li>\n               <p>All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the\n               main profile.</p>\n            </li>\n            <li>\n               <p>All the objects in the <code>ProfileToBeMerged</code> will be moved to the main\n               profile.</p>\n            </li>\n            <li>\n               <p>All the <code>ProfileToBeMerged</code> will be deleted at the end.</p>\n            </li>\n            <li>\n               <p>All the profileKeys in the <code>ProfileIdsToBeMerged</code> will be moved to the\n               main profile.</p>\n            </li>\n            <li>\n               <p>Standard fields are merged as follows:</p>\n               <ol>\n                  <li>\n                     <p>Fields are always \"union\"-ed if there are no conflicts in standard fields or\n                     attributeKeys.</p>\n                  </li>\n                  <li>\n                     <p>When there are conflicting fields:</p>\n                     <ol>\n                        <li>\n                           <p>If no <code>SourceProfileIds</code> entry is specified, the main\n                           Profile value is always taken. </p>\n                        </li>\n                        <li>\n                           <p>If a <code>SourceProfileIds</code> entry is specified, the specified\n                           profileId is always taken, even if it is a NULL value.</p>\n                        </li>\n                     </ol>\n                  </li>\n               </ol>\n            </li>\n         </ol>\n         <p>You can use MergeProfiles together with <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html\">GetMatches</a>, which\n         returns potentially matching profiles, or use it with the results of another matching\n         system. After profiles have been merged, they cannot be separated (unmerged).</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/domains/{DomainName}/profiles/objects/merge",
@@ -5415,85 +5530,115 @@
       }
     },
     "com.amazonaws.customerprofiles#OperatorPropertiesKeys": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VALUE",
-            "name": "VALUE"
-          },
-          {
-            "value": "VALUES",
-            "name": "VALUES"
-          },
-          {
-            "value": "DATA_TYPE",
-            "name": "DATA_TYPE"
-          },
-          {
-            "value": "UPPER_BOUND",
-            "name": "UPPER_BOUND"
-          },
-          {
-            "value": "LOWER_BOUND",
-            "name": "LOWER_BOUND"
-          },
-          {
-            "value": "SOURCE_DATA_TYPE",
-            "name": "SOURCE_DATA_TYPE"
-          },
-          {
-            "value": "DESTINATION_DATA_TYPE",
-            "name": "DESTINATION_DATA_TYPE"
-          },
-          {
-            "value": "VALIDATION_ACTION",
-            "name": "VALIDATION_ACTION"
-          },
-          {
-            "value": "MASK_VALUE",
-            "name": "MASK_VALUE"
-          },
-          {
-            "value": "MASK_LENGTH",
-            "name": "MASK_LENGTH"
-          },
-          {
-            "value": "TRUNCATE_LENGTH",
-            "name": "TRUNCATE_LENGTH"
-          },
-          {
-            "value": "MATH_OPERATION_FIELDS_ORDER",
-            "name": "MATH_OPERATION_FIELDS_ORDER"
-          },
-          {
-            "value": "CONCAT_FORMAT",
-            "name": "CONCAT_FORMAT"
-          },
-          {
-            "value": "SUBFIELD_CATEGORY_MAP",
-            "name": "SUBFIELD_CATEGORY_MAP"
+      "type": "enum",
+      "members": {
+        "VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALUE"
           }
-        ]
+        },
+        "VALUES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALUES"
+          }
+        },
+        "DATA_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATA_TYPE"
+          }
+        },
+        "UPPER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPPER_BOUND"
+          }
+        },
+        "LOWER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOWER_BOUND"
+          }
+        },
+        "SOURCE_DATA_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOURCE_DATA_TYPE"
+          }
+        },
+        "DESTINATION_DATA_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESTINATION_DATA_TYPE"
+          }
+        },
+        "VALIDATION_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATION_ACTION"
+          }
+        },
+        "MASK_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_VALUE"
+          }
+        },
+        "MASK_LENGTH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LENGTH"
+          }
+        },
+        "TRUNCATE_LENGTH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRUNCATE_LENGTH"
+          }
+        },
+        "MATH_OPERATION_FIELDS_ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MATH_OPERATION_FIELDS_ORDER"
+          }
+        },
+        "CONCAT_FORMAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONCAT_FORMAT"
+          }
+        },
+        "SUBFIELD_CATEGORY_MAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBFIELD_CATEGORY_MAP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#PartyType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INDIVIDUAL",
-            "name": "INDIVIDUAL"
-          },
-          {
-            "value": "BUSINESS",
-            "name": "BUSINESS"
-          },
-          {
-            "value": "OTHER",
-            "name": "OTHER"
+      "type": "enum",
+      "members": {
+        "INDIVIDUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INDIVIDUAL"
           }
-        ]
+        },
+        "BUSINESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUSINESS"
+          }
+        },
+        "OTHER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OTHER"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#Profile": {
@@ -5629,6 +5774,12 @@
           "target": "com.amazonaws.customerprofiles#Attributes",
           "traits": {
             "smithy.api#documentation": "<p>A key value pair of attributes of a customer profile.</p>"
+          }
+        },
+        "FoundByItems": {
+          "target": "com.amazonaws.customerprofiles#foundByList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of items used to find a profile returned in a <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html\">SearchProfiles</a> response.\n         An item is a key-value(s) pair that matches an attribute in the profile.</p>\n         <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the\n         <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html\">SearchProfiles</a> request, the <code>FoundByItems</code> list should be\n         interpreted based on the <code>LogicalOperator</code> used in the request:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AND</code> - The profile included in the response matched all of the search keys\n            specified in the request. The <code>FoundByItems</code> will include all of the key-value(s)\n            pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p>\n            </li>\n            <li>\n               <p>\n                  <code>OR</code> - The profile included in the response matched at least one of the\n            search keys specified in the request. The <code>FoundByItems</code> will\n            include each of the key-value(s) pairs that the profile was found by.</p>\n            </li>\n         </ul>\n         <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is\n         not included in the <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html\">SearchProfiles</a> request.</p>"
           }
         }
       },
@@ -6115,90 +6266,128 @@
       }
     },
     "com.amazonaws.customerprofiles#S3ConnectorOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECTION",
-            "name": "PROJECTION"
-          },
-          {
-            "value": "LESS_THAN",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "BETWEEN",
-            "name": "BETWEEN"
-          },
-          {
-            "value": "LESS_THAN_OR_EQUAL_TO",
-            "name": "LESS_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "GREATER_THAN_OR_EQUAL_TO",
-            "name": "GREATER_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "EQUAL_TO",
-            "name": "EQUAL_TO"
-          },
-          {
-            "value": "NOT_EQUAL_TO",
-            "name": "NOT_EQUAL_TO"
-          },
-          {
-            "value": "ADDITION",
-            "name": "ADDITION"
-          },
-          {
-            "value": "MULTIPLICATION",
-            "name": "MULTIPLICATION"
-          },
-          {
-            "value": "DIVISION",
-            "name": "DIVISION"
-          },
-          {
-            "value": "SUBTRACTION",
-            "name": "SUBTRACTION"
-          },
-          {
-            "value": "MASK_ALL",
-            "name": "MASK_ALL"
-          },
-          {
-            "value": "MASK_FIRST_N",
-            "name": "MASK_FIRST_N"
-          },
-          {
-            "value": "MASK_LAST_N",
-            "name": "MASK_LAST_N"
-          },
-          {
-            "value": "VALIDATE_NON_NULL",
-            "name": "VALIDATE_NON_NULL"
-          },
-          {
-            "value": "VALIDATE_NON_ZERO",
-            "name": "VALIDATE_NON_ZERO"
-          },
-          {
-            "value": "VALIDATE_NON_NEGATIVE",
-            "name": "VALIDATE_NON_NEGATIVE"
-          },
-          {
-            "value": "VALIDATE_NUMERIC",
-            "name": "VALIDATE_NUMERIC"
-          },
-          {
-            "value": "NO_OP",
-            "name": "NO_OP"
+      "type": "enum",
+      "members": {
+        "PROJECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECTION"
           }
-        ]
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "BETWEEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BETWEEN"
+          }
+        },
+        "LESS_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN_OR_EQUAL_TO"
+          }
+        },
+        "GREATER_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN_OR_EQUAL_TO"
+          }
+        },
+        "EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUAL_TO"
+          }
+        },
+        "NOT_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUAL_TO"
+          }
+        },
+        "ADDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITION"
+          }
+        },
+        "MULTIPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTIPLICATION"
+          }
+        },
+        "DIVISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIVISION"
+          }
+        },
+        "SUBTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBTRACTION"
+          }
+        },
+        "MASK_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_ALL"
+          }
+        },
+        "MASK_FIRST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_FIRST_N"
+          }
+        },
+        "MASK_LAST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LAST_N"
+          }
+        },
+        "VALIDATE_NON_NULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NULL"
+          }
+        },
+        "VALIDATE_NON_ZERO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_ZERO"
+          }
+        },
+        "VALIDATE_NON_NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NEGATIVE"
+          }
+        },
+        "VALIDATE_NUMERIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NUMERIC"
+          }
+        },
+        "NO_OP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_OP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#S3ExportingConfig": {
@@ -6264,94 +6453,134 @@
       }
     },
     "com.amazonaws.customerprofiles#SalesforceConnectorOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECTION",
-            "name": "PROJECTION"
-          },
-          {
-            "value": "LESS_THAN",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "CONTAINS",
-            "name": "CONTAINS"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "BETWEEN",
-            "name": "BETWEEN"
-          },
-          {
-            "value": "LESS_THAN_OR_EQUAL_TO",
-            "name": "LESS_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "GREATER_THAN_OR_EQUAL_TO",
-            "name": "GREATER_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "EQUAL_TO",
-            "name": "EQUAL_TO"
-          },
-          {
-            "value": "NOT_EQUAL_TO",
-            "name": "NOT_EQUAL_TO"
-          },
-          {
-            "value": "ADDITION",
-            "name": "ADDITION"
-          },
-          {
-            "value": "MULTIPLICATION",
-            "name": "MULTIPLICATION"
-          },
-          {
-            "value": "DIVISION",
-            "name": "DIVISION"
-          },
-          {
-            "value": "SUBTRACTION",
-            "name": "SUBTRACTION"
-          },
-          {
-            "value": "MASK_ALL",
-            "name": "MASK_ALL"
-          },
-          {
-            "value": "MASK_FIRST_N",
-            "name": "MASK_FIRST_N"
-          },
-          {
-            "value": "MASK_LAST_N",
-            "name": "MASK_LAST_N"
-          },
-          {
-            "value": "VALIDATE_NON_NULL",
-            "name": "VALIDATE_NON_NULL"
-          },
-          {
-            "value": "VALIDATE_NON_ZERO",
-            "name": "VALIDATE_NON_ZERO"
-          },
-          {
-            "value": "VALIDATE_NON_NEGATIVE",
-            "name": "VALIDATE_NON_NEGATIVE"
-          },
-          {
-            "value": "VALIDATE_NUMERIC",
-            "name": "VALIDATE_NUMERIC"
-          },
-          {
-            "value": "NO_OP",
-            "name": "NO_OP"
+      "type": "enum",
+      "members": {
+        "PROJECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECTION"
           }
-        ]
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "CONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTAINS"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "BETWEEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BETWEEN"
+          }
+        },
+        "LESS_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN_OR_EQUAL_TO"
+          }
+        },
+        "GREATER_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN_OR_EQUAL_TO"
+          }
+        },
+        "EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUAL_TO"
+          }
+        },
+        "NOT_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUAL_TO"
+          }
+        },
+        "ADDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITION"
+          }
+        },
+        "MULTIPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTIPLICATION"
+          }
+        },
+        "DIVISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIVISION"
+          }
+        },
+        "SUBTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBTRACTION"
+          }
+        },
+        "MASK_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_ALL"
+          }
+        },
+        "MASK_FIRST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_FIRST_N"
+          }
+        },
+        "MASK_LAST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LAST_N"
+          }
+        },
+        "VALIDATE_NON_NULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NULL"
+          }
+        },
+        "VALIDATE_NON_ZERO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_ZERO"
+          }
+        },
+        "VALIDATE_NON_NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NEGATIVE"
+          }
+        },
+        "VALIDATE_NUMERIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NUMERIC"
+          }
+        },
+        "NO_OP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_OP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#SalesforceSourceProperties": {
@@ -6481,7 +6710,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Searches for profiles within a specific domain name using name, phone number, email\n         address, account number, or a custom defined index.</p>",
+        "smithy.api#documentation": "<p>Searches for profiles within a specific domain using one or more predefined search keys\n         (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key\n         is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>\n         <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and up to\n         5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/domains/{DomainName}/profiles/search",
@@ -6502,7 +6731,7 @@
         "MaxResults": {
           "target": "com.amazonaws.customerprofiles#maxSize100",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects returned per page.</p>",
+            "smithy.api#documentation": "<p>The maximum number of objects returned per page.</p>\n         <p>The default is 20 if this parameter is not included in the request.</p>",
             "smithy.api#httpQuery": "max-results"
           }
         },
@@ -6527,6 +6756,18 @@
             "smithy.api#documentation": "<p>A list of key values.</p>",
             "smithy.api#required": {}
           }
+        },
+        "AdditionalSearchKeys": {
+          "target": "com.amazonaws.customerprofiles#additionalSearchKeysList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers of a\n         profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code> and a\n         list of <code>Values</code> associated with that specific key (i.e., a key-value(s) pair).\n         These additional search keys will be used in conjunction with the <code>LogicalOperator</code> and the\n         required <code>KeyName</code> and <code>Values</code> parameters to search for profiles\n         that satisfy the search criteria. </p>"
+          }
+        },
+        "LogicalOperator": {
+          "target": "com.amazonaws.customerprofiles#logicalOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>Relationship between all specified search keys that will be used to search for\n         profiles. This includes the required <code>KeyName</code> and <code>Values</code> parameters\n         as well as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>\n         <p>This parameter influences which profiles will be returned in the response in the following manner:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AND</code> - The response only includes profiles that match all of the search keys.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OR</code> - The response includes profiles that match at least one of the search keys.</p>\n            </li>\n         </ul>\n         <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>"
+          }
         }
       }
     },
@@ -6536,7 +6777,7 @@
         "Items": {
           "target": "com.amazonaws.customerprofiles#ProfileList",
           "traits": {
-            "smithy.api#documentation": "<p>The list of SearchProfiles instances.</p>"
+            "smithy.api#documentation": "<p>The list of Profiles matching the search criteria.</p>"
           }
         },
         "NextToken": {
@@ -6548,94 +6789,134 @@
       }
     },
     "com.amazonaws.customerprofiles#ServiceNowConnectorOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECTION",
-            "name": "PROJECTION"
-          },
-          {
-            "value": "CONTAINS",
-            "name": "CONTAINS"
-          },
-          {
-            "value": "LESS_THAN",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "BETWEEN",
-            "name": "BETWEEN"
-          },
-          {
-            "value": "LESS_THAN_OR_EQUAL_TO",
-            "name": "LESS_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "GREATER_THAN_OR_EQUAL_TO",
-            "name": "GREATER_THAN_OR_EQUAL_TO"
-          },
-          {
-            "value": "EQUAL_TO",
-            "name": "EQUAL_TO"
-          },
-          {
-            "value": "NOT_EQUAL_TO",
-            "name": "NOT_EQUAL_TO"
-          },
-          {
-            "value": "ADDITION",
-            "name": "ADDITION"
-          },
-          {
-            "value": "MULTIPLICATION",
-            "name": "MULTIPLICATION"
-          },
-          {
-            "value": "DIVISION",
-            "name": "DIVISION"
-          },
-          {
-            "value": "SUBTRACTION",
-            "name": "SUBTRACTION"
-          },
-          {
-            "value": "MASK_ALL",
-            "name": "MASK_ALL"
-          },
-          {
-            "value": "MASK_FIRST_N",
-            "name": "MASK_FIRST_N"
-          },
-          {
-            "value": "MASK_LAST_N",
-            "name": "MASK_LAST_N"
-          },
-          {
-            "value": "VALIDATE_NON_NULL",
-            "name": "VALIDATE_NON_NULL"
-          },
-          {
-            "value": "VALIDATE_NON_ZERO",
-            "name": "VALIDATE_NON_ZERO"
-          },
-          {
-            "value": "VALIDATE_NON_NEGATIVE",
-            "name": "VALIDATE_NON_NEGATIVE"
-          },
-          {
-            "value": "VALIDATE_NUMERIC",
-            "name": "VALIDATE_NUMERIC"
-          },
-          {
-            "value": "NO_OP",
-            "name": "NO_OP"
+      "type": "enum",
+      "members": {
+        "PROJECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECTION"
           }
-        ]
+        },
+        "CONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTAINS"
+          }
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "BETWEEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BETWEEN"
+          }
+        },
+        "LESS_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN_OR_EQUAL_TO"
+          }
+        },
+        "GREATER_THAN_OR_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN_OR_EQUAL_TO"
+          }
+        },
+        "EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUAL_TO"
+          }
+        },
+        "NOT_EQUAL_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUAL_TO"
+          }
+        },
+        "ADDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITION"
+          }
+        },
+        "MULTIPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTIPLICATION"
+          }
+        },
+        "DIVISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIVISION"
+          }
+        },
+        "SUBTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBTRACTION"
+          }
+        },
+        "MASK_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_ALL"
+          }
+        },
+        "MASK_FIRST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_FIRST_N"
+          }
+        },
+        "MASK_LAST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LAST_N"
+          }
+        },
+        "VALIDATE_NON_NULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NULL"
+          }
+        },
+        "VALIDATE_NON_ZERO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_ZERO"
+          }
+        },
+        "VALIDATE_NON_NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NEGATIVE"
+          }
+        },
+        "VALIDATE_NUMERIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NUMERIC"
+          }
+        },
+        "NO_OP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_OP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#ServiceNowSourceProperties": {
@@ -6692,30 +6973,38 @@
       }
     },
     "com.amazonaws.customerprofiles#SourceConnectorType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Salesforce",
-            "name": "SALESFORCE"
-          },
-          {
-            "value": "Marketo",
-            "name": "MARKETO"
-          },
-          {
-            "value": "Zendesk",
-            "name": "ZENDESK"
-          },
-          {
-            "value": "Servicenow",
-            "name": "SERVICENOW"
-          },
-          {
-            "value": "S3",
-            "name": "S3"
+      "type": "enum",
+      "members": {
+        "SALESFORCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Salesforce"
           }
-        ]
+        },
+        "MARKETO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Marketo"
+          }
+        },
+        "ZENDESK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Zendesk"
+          }
+        },
+        "SERVICENOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Servicenow"
+          }
+        },
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#SourceFields": {
@@ -6759,42 +7048,56 @@
       }
     },
     "com.amazonaws.customerprofiles#StandardIdentifier": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROFILE",
-            "name": "PROFILE"
-          },
-          {
-            "value": "ASSET",
-            "name": "ASSET"
-          },
-          {
-            "value": "CASE",
-            "name": "CASE"
-          },
-          {
-            "value": "UNIQUE",
-            "name": "UNIQUE"
-          },
-          {
-            "value": "SECONDARY",
-            "name": "SECONDARY"
-          },
-          {
-            "value": "LOOKUP_ONLY",
-            "name": "LOOKUP_ONLY"
-          },
-          {
-            "value": "NEW_ONLY",
-            "name": "NEW_ONLY"
-          },
-          {
-            "value": "ORDER",
-            "name": "ORDER"
+      "type": "enum",
+      "members": {
+        "PROFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROFILE"
           }
-        ]
+        },
+        "ASSET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSET"
+          }
+        },
+        "CASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CASE"
+          }
+        },
+        "UNIQUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNIQUE"
+          }
+        },
+        "SECONDARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECONDARY"
+          }
+        },
+        "LOOKUP_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOOKUP_ONLY"
+          }
+        },
+        "NEW_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEW_ONLY"
+          }
+        },
+        "ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORDER"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#StandardIdentifierList": {
@@ -6804,38 +7107,50 @@
       }
     },
     "com.amazonaws.customerprofiles#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NOT_STARTED",
-            "name": "NOT_STARTED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "SPLIT",
-            "name": "SPLIT"
-          },
-          {
-            "value": "RETRY",
-            "name": "RETRY"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
+      "type": "enum",
+      "members": {
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "SPLIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPLIT"
+          }
+        },
+        "RETRY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RETRY"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#TagArn": {
@@ -6996,38 +7311,50 @@
       }
     },
     "com.amazonaws.customerprofiles#TaskType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Arithmetic",
-            "name": "ARITHMETIC"
-          },
-          {
-            "value": "Filter",
-            "name": "FILTER"
-          },
-          {
-            "value": "Map",
-            "name": "MAP"
-          },
-          {
-            "value": "Mask",
-            "name": "MASK"
-          },
-          {
-            "value": "Merge",
-            "name": "MERGE"
-          },
-          {
-            "value": "Truncate",
-            "name": "TRUNCATE"
-          },
-          {
-            "value": "Validate",
-            "name": "VALIDATE"
+      "type": "enum",
+      "members": {
+        "ARITHMETIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Arithmetic"
           }
-        ]
+        },
+        "FILTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Filter"
+          }
+        },
+        "MAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Map"
+          }
+        },
+        "MASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Mask"
+          }
+        },
+        "MERGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Merge"
+          }
+        },
+        "TRUNCATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Truncate"
+          }
+        },
+        "VALIDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Validate"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#Tasks": {
@@ -7095,22 +7422,26 @@
       }
     },
     "com.amazonaws.customerprofiles#TriggerType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Scheduled",
-            "name": "SCHEDULED"
-          },
-          {
-            "value": "Event",
-            "name": "EVENT"
-          },
-          {
-            "value": "OnDemand",
-            "name": "ONDEMAND"
+      "type": "enum",
+      "members": {
+        "SCHEDULED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Scheduled"
           }
-        ]
+        },
+        "EVENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Event"
+          }
+        },
+        "ONDEMAND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OnDemand"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#UntagResource": {
@@ -7553,6 +7884,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A key value pair of attributes of a customer profile.</p>"
           }
+        },
+        "PartyTypeString": {
+          "target": "com.amazonaws.customerprofiles#string0To255",
+          "traits": {
+            "smithy.api#documentation": "<p>An alternative to <code>PartyType</code> which accepts any string as input.</p>"
+          }
+        },
+        "GenderString": {
+          "target": "com.amazonaws.customerprofiles#string0To255",
+          "traits": {
+            "smithy.api#documentation": "<p>An alternative to <code>Gender</code> which accepts any string as input.</p>"
+          }
         }
       }
     },
@@ -7623,77 +7966,103 @@
       }
     },
     "com.amazonaws.customerprofiles#WorkflowType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "APPFLOW_INTEGRATION",
-            "name": "APPFLOW_INTEGRATION"
+      "type": "enum",
+      "members": {
+        "APPFLOW_INTEGRATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPFLOW_INTEGRATION"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.customerprofiles#ZendeskConnectorOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECTION",
-            "name": "PROJECTION"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "ADDITION",
-            "name": "ADDITION"
-          },
-          {
-            "value": "MULTIPLICATION",
-            "name": "MULTIPLICATION"
-          },
-          {
-            "value": "DIVISION",
-            "name": "DIVISION"
-          },
-          {
-            "value": "SUBTRACTION",
-            "name": "SUBTRACTION"
-          },
-          {
-            "value": "MASK_ALL",
-            "name": "MASK_ALL"
-          },
-          {
-            "value": "MASK_FIRST_N",
-            "name": "MASK_FIRST_N"
-          },
-          {
-            "value": "MASK_LAST_N",
-            "name": "MASK_LAST_N"
-          },
-          {
-            "value": "VALIDATE_NON_NULL",
-            "name": "VALIDATE_NON_NULL"
-          },
-          {
-            "value": "VALIDATE_NON_ZERO",
-            "name": "VALIDATE_NON_ZERO"
-          },
-          {
-            "value": "VALIDATE_NON_NEGATIVE",
-            "name": "VALIDATE_NON_NEGATIVE"
-          },
-          {
-            "value": "VALIDATE_NUMERIC",
-            "name": "VALIDATE_NUMERIC"
-          },
-          {
-            "value": "NO_OP",
-            "name": "NO_OP"
+      "type": "enum",
+      "members": {
+        "PROJECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECTION"
           }
-        ]
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "ADDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITION"
+          }
+        },
+        "MULTIPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTIPLICATION"
+          }
+        },
+        "DIVISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIVISION"
+          }
+        },
+        "SUBTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBTRACTION"
+          }
+        },
+        "MASK_ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_ALL"
+          }
+        },
+        "MASK_FIRST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_FIRST_N"
+          }
+        },
+        "MASK_LAST_N": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASK_LAST_N"
+          }
+        },
+        "VALIDATE_NON_NULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NULL"
+          }
+        },
+        "VALIDATE_NON_ZERO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_ZERO"
+          }
+        },
+        "VALIDATE_NON_NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NON_NEGATIVE"
+          }
+        },
+        "VALIDATE_NUMERIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATE_NUMERIC"
+          }
+        },
+        "NO_OP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_OP"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#ZendeskSourceProperties": {
@@ -7709,6 +8078,18 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The properties that are applied when using Zendesk as a flow source.</p>"
+      }
+    },
+    "com.amazonaws.customerprofiles#additionalSearchKeysList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.customerprofiles#AdditionalSearchKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4
+        }
       }
     },
     "com.amazonaws.customerprofiles#boolean": {
@@ -7732,6 +8113,35 @@
         "smithy.api#range": {
           "min": 1,
           "max": 1098
+        }
+      }
+    },
+    "com.amazonaws.customerprofiles#foundByList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.customerprofiles#FoundByKeyValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.customerprofiles#logicalOperator": {
+      "type": "enum",
+      "members": {
+        "AND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AND"
+          }
+        },
+        "OR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OR"
+          }
         }
       }
     },

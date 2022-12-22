@@ -30,7 +30,11 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * <p>Decreases the Kinesis data stream's retention period, which is the length of time data
  *             records are accessible after they are added to the stream. The minimum value of a
  *             stream's retention period is 24 hours.</p>
- *         <p>This operation may result in lost data. For example, if the stream's retention period
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>This operation may result in lost data. For example, if the stream's retention period
  *             is 48 hours and is decreased to 24 hours, any data already in the stream that is older
  *             than 24 hours is inaccessible.</p>
  * @example
@@ -58,6 +62,8 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

@@ -31,7 +31,8 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
 /**
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
- *             remote locations, this operation retrieves data for the fleet's home Region only. See <a>DescribeFleetLocationUtilization</a> to get utilization statistics for a
+ *             remote locations, this operation retrieves data for the fleet's home Region only. See
+ *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html">DescribeFleetLocationUtilization</a> to get utilization statistics for a
  *             fleet's remote locations.</p>
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
@@ -46,39 +47,23 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  *          </ul>
  *         <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
  *             a set of sequential pages. </p>
- *         <p>If successful, a <a>FleetUtilization</a> object is returned for each
- *             requested fleet ID, unless the fleet identifier is not found. Each fleet utilization
- *             object includes a <code>Location</code> property, which is set to the fleet's home
- *             Region. </p>
+ *         <p>If successful, a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html">FleetUtilization</a> object is returned for each requested fleet ID, unless the
+ *             fleet identifier is not found. Each fleet utilization object includes a
+ *                 <code>Location</code> property, which is set to the fleet's home Region. </p>
  *         <note>
  *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
  *                 request exceeds this limit, the request fails and the error message includes the
  *                 maximum allowed.</p>
  *         </note>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 Fleets</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>ListFleets</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetCapacity</a> |
- *                     <a>DescribeFleetEvents</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>DescribeFleetPortSettings</a> |
- *                     <a>DescribeFleetUtilization</a> |
- *                     <a>DescribeRuntimeConfiguration</a> |
- *                     <a>DescribeScalingPolicies</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

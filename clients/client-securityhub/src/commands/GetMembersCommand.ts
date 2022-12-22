@@ -18,7 +18,7 @@ import {
   GetMembersRequestFilterSensitiveLog,
   GetMembersResponse,
   GetMembersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetMembersCommand,
   serializeAws_restJson1GetMembersCommand,

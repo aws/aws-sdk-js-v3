@@ -95,6 +95,7 @@ import {
   DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import { ExecuteCommandCommandInput, ExecuteCommandCommandOutput } from "./commands/ExecuteCommandCommand";
+import { GetTaskProtectionCommandInput, GetTaskProtectionCommandOutput } from "./commands/GetTaskProtectionCommand";
 import {
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -105,6 +106,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServicesByNamespaceCommandInput,
+  ListServicesByNamespaceCommandOutput,
+} from "./commands/ListServicesByNamespaceCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -176,6 +181,10 @@ import {
   UpdateServicePrimaryTaskSetCommandInput,
   UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
+import {
+  UpdateTaskProtectionCommandInput,
+  UpdateTaskProtectionCommandOutput,
+} from "./commands/UpdateTaskProtectionCommand";
 import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand";
 import {
   ClientInputEndpointParameters,
@@ -207,10 +216,12 @@ export type ServiceInputTypes =
   | DescribeTasksCommandInput
   | DiscoverPollEndpointCommandInput
   | ExecuteCommandCommandInput
+  | GetTaskProtectionCommandInput
   | ListAccountSettingsCommandInput
   | ListAttributesCommandInput
   | ListClustersCommandInput
   | ListContainerInstancesCommandInput
+  | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskDefinitionFamiliesCommandInput
@@ -237,6 +248,7 @@ export type ServiceInputTypes =
   | UpdateContainerInstancesStateCommandInput
   | UpdateServiceCommandInput
   | UpdateServicePrimaryTaskSetCommandInput
+  | UpdateTaskProtectionCommandInput
   | UpdateTaskSetCommandInput;
 
 export type ServiceOutputTypes =
@@ -261,10 +273,12 @@ export type ServiceOutputTypes =
   | DescribeTasksCommandOutput
   | DiscoverPollEndpointCommandOutput
   | ExecuteCommandCommandOutput
+  | GetTaskProtectionCommandOutput
   | ListAccountSettingsCommandOutput
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
   | ListContainerInstancesCommandOutput
+  | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskDefinitionFamiliesCommandOutput
@@ -291,6 +305,7 @@ export type ServiceOutputTypes =
   | UpdateContainerInstancesStateCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServicePrimaryTaskSetCommandOutput
+  | UpdateTaskProtectionCommandOutput
   | UpdateTaskSetCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -444,15 +459,15 @@ export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic Container Service</fullname>
- * 		       <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
+ *          <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
  * 			it easy to run, stop, and manage Docker containers. You can host your cluster on a
  * 			serverless infrastructure that's managed by Amazon ECS by launching your services or tasks on
  * 			Fargate. For more control, you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2)
  * 			or External (on-premises) instances that you manage.</p>
- * 		       <p>Amazon ECS makes it easy to launch and stop container-based applications with simple API
+ *          <p>Amazon ECS makes it easy to launch and stop container-based applications with simple API
  * 			calls. This makes it easy to get the state of your cluster from a centralized service,
  * 			and gives you access to many familiar Amazon EC2 features.</p>
- * 		       <p>You can use Amazon ECS to schedule the placement of containers across your cluster based on
+ *          <p>You can use Amazon ECS to schedule the placement of containers across your cluster based on
  * 			your resource needs, isolation policies, and availability requirements. With Amazon ECS, you
  * 			don't need to operate your own cluster management and configuration management systems.
  * 			You also don't need to worry about scaling your management infrastructure.</p>

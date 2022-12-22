@@ -28,7 +28,7 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  *                 <code>running</code> state. If your experience with the instance differs from the
  *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
  *             EC2 collects this information to improve the accuracy of status checks.</p>
- *         <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
+ *          <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -19,7 +19,7 @@ import {
   DisableFastLaunchRequestFilterSensitiveLog,
   DisableFastLaunchResult,
   DisableFastLaunchResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableFastLaunchCommand,
   serializeAws_ec2DisableFastLaunchCommand,
@@ -32,9 +32,9 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
  * 			When you disable faster launching, the AMI uses the standard launch process for each
  * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
- * 		       <note>
- * 			         <p>To change these settings, you must own the AMI.</p>
- * 		       </note>
+ *          <note>
+ *             <p>To change these settings, you must own the AMI.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

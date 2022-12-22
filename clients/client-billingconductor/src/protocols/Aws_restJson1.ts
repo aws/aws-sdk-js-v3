@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -70,6 +71,10 @@ import {
   ListCustomLineItemsCommandOutput,
 } from "../commands/ListCustomLineItemsCommand";
 import {
+  ListCustomLineItemVersionsCommandInput,
+  ListCustomLineItemVersionsCommandOutput,
+} from "../commands/ListCustomLineItemVersionsCommand";
+import {
   ListPricingPlansAssociatedWithPricingRuleCommandInput,
   ListPricingPlansAssociatedWithPricingRuleCommandOutput,
 } from "../commands/ListPricingPlansAssociatedWithPricingRuleCommand";
@@ -107,12 +112,16 @@ import {
   BillingGroupListElement,
   ComputationPreference,
   ConflictException,
+  CreateFreeTierConfig,
+  CreateTieringInput,
   CustomLineItemBillingPeriodRange,
   CustomLineItemChargeDetails,
   CustomLineItemFlatChargeDetails,
   CustomLineItemListElement,
   CustomLineItemPercentageChargeDetails,
+  CustomLineItemVersionListElement,
   DisassociateResourceResponseElement,
+  FreeTierConfig,
   InternalServerException,
   ListAccountAssociationsFilter,
   ListBillingGroupCostReportsFilter,
@@ -121,6 +130,8 @@ import {
   ListCustomLineItemFlatChargeDetails,
   ListCustomLineItemPercentageChargeDetails,
   ListCustomLineItemsFilter,
+  ListCustomLineItemVersionsBillingPeriodRangeFilter,
+  ListCustomLineItemVersionsFilter,
   ListPricingPlansFilter,
   ListPricingRulesFilter,
   ListResourcesAssociatedToCustomLineItemFilter,
@@ -130,9 +141,12 @@ import {
   ResourceNotFoundException,
   ServiceLimitExceededException,
   ThrottlingException,
+  Tiering,
   UpdateCustomLineItemChargeDetails,
   UpdateCustomLineItemFlatChargeDetails,
   UpdateCustomLineItemPercentageChargeDetails,
+  UpdateFreeTierConfig,
+  UpdateTieringInput,
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
@@ -365,12 +379,14 @@ export const serializeAws_restJson1CreatePricingRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-rule";
   let body: any;
   body = JSON.stringify({
+    ...(input.BillingEntity != null && { BillingEntity: input.BillingEntity }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Scope != null && { Scope: input.Scope }),
     ...(input.Service != null && { Service: input.Service }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tiering != null && { Tiering: serializeAws_restJson1CreateTieringInput(input.Tiering, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -651,6 +667,36 @@ export const serializeAws_restJson1ListCustomLineItemsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListCustomLineItemVersionsCommand = async (
+  input: ListCustomLineItemVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-custom-line-item-versions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListCustomLineItemVersionsFilter(input.Filters, context),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListPricingPlansCommand = async (
   input: ListPricingPlansCommandInput,
   context: __SerdeContext
@@ -849,7 +895,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -968,6 +1017,7 @@ export const serializeAws_restJson1UpdatePricingRuleCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tiering != null && { Tiering: serializeAws_restJson1UpdateTieringInput(input.Tiering, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -2007,6 +2057,62 @@ const deserializeAws_restJson1ListCustomLineItemsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListCustomLineItemVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomLineItemVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCustomLineItemVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CustomLineItemVersions != null) {
+    contents.CustomLineItemVersions = deserializeAws_restJson1CustomLineItemVersionList(
+      data.CustomLineItemVersions,
+      context
+    );
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCustomLineItemVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomLineItemVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.billingconductor#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.billingconductor#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.billingconductor#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.billingconductor#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListPricingPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2694,6 +2800,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   if (data.AssociatedPricingPlanCount != null) {
     contents.AssociatedPricingPlanCount = __expectLong(data.AssociatedPricingPlanCount);
   }
+  if (data.BillingEntity != null) {
+    contents.BillingEntity = __expectString(data.BillingEntity);
+  }
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
   }
@@ -2711,6 +2820,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   }
   if (data.Service != null) {
     contents.Service = __expectString(data.Service);
+  }
+  if (data.Tiering != null) {
+    contents.Tiering = deserializeAws_restJson1UpdateTieringInput(data.Tiering, context);
   }
   if (data.Type != null) {
     contents.Type = __expectString(data.Type);
@@ -2782,6 +2894,9 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   const data: any = parsedOutput.body;
   if (data.Message != null) {
     contents.Message = __expectString(data.Message);
+  }
+  if (data.Reason != null) {
+    contents.Reason = __expectString(data.Reason);
   }
   if (data.ResourceId != null) {
     contents.ResourceId = __expectString(data.ResourceId);
@@ -2940,6 +3055,18 @@ const serializeAws_restJson1ComputationPreference = (input: ComputationPreferenc
   };
 };
 
+const serializeAws_restJson1CreateFreeTierConfig = (input: CreateFreeTierConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Activated != null && { Activated: input.Activated }),
+  };
+};
+
+const serializeAws_restJson1CreateTieringInput = (input: CreateTieringInput, context: __SerdeContext): any => {
+  return {
+    ...(input.FreeTier != null && { FreeTier: serializeAws_restJson1CreateFreeTierConfig(input.FreeTier, context) }),
+  };
+};
+
 const serializeAws_restJson1CustomLineItemArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3073,6 +3200,30 @@ const serializeAws_restJson1ListCustomLineItemsFilter = (
   };
 };
 
+const serializeAws_restJson1ListCustomLineItemVersionsBillingPeriodRangeFilter = (
+  input: ListCustomLineItemVersionsBillingPeriodRangeFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndBillingPeriod != null && { EndBillingPeriod: input.EndBillingPeriod }),
+    ...(input.StartBillingPeriod != null && { StartBillingPeriod: input.StartBillingPeriod }),
+  };
+};
+
+const serializeAws_restJson1ListCustomLineItemVersionsFilter = (
+  input: ListCustomLineItemVersionsFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1ListCustomLineItemVersionsBillingPeriodRangeFilter(
+        input.BillingPeriodRange,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1ListPricingPlansFilter = (input: ListPricingPlansFilter, context: __SerdeContext): any => {
   return {
     ...(input.Arns != null && { Arns: serializeAws_restJson1PricingPlanArns(input.Arns, context) }),
@@ -3131,10 +3282,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3167,6 +3316,18 @@ const serializeAws_restJson1UpdateCustomLineItemPercentageChargeDetails = (
 ): any => {
   return {
     ...(input.PercentageValue != null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
+  };
+};
+
+const serializeAws_restJson1UpdateFreeTierConfig = (input: UpdateFreeTierConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Activated != null && { Activated: input.Activated }),
+  };
+};
+
+const serializeAws_restJson1UpdateTieringInput = (input: UpdateTieringInput, context: __SerdeContext): any => {
+  return {
+    ...(input.FreeTier != null && { FreeTier: serializeAws_restJson1UpdateFreeTierConfig(input.FreeTier, context) }),
   };
 };
 
@@ -3336,6 +3497,43 @@ const deserializeAws_restJson1CustomLineItemListElement = (
   } as any;
 };
 
+const deserializeAws_restJson1CustomLineItemVersionList = (
+  output: any,
+  context: __SerdeContext
+): CustomLineItemVersionListElement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomLineItemVersionListElement(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CustomLineItemVersionListElement = (
+  output: any,
+  context: __SerdeContext
+): CustomLineItemVersionListElement => {
+  return {
+    AssociationSize: __expectLong(output.AssociationSize),
+    BillingGroupArn: __expectString(output.BillingGroupArn),
+    ChargeDetails:
+      output.ChargeDetails != null
+        ? deserializeAws_restJson1ListCustomLineItemChargeDetails(output.ChargeDetails, context)
+        : undefined,
+    CreationTime: __expectLong(output.CreationTime),
+    CurrencyCode: __expectString(output.CurrencyCode),
+    Description: __expectString(output.Description),
+    EndBillingPeriod: __expectString(output.EndBillingPeriod),
+    LastModifiedTime: __expectLong(output.LastModifiedTime),
+    Name: __expectString(output.Name),
+    ProductCode: __expectString(output.ProductCode),
+    StartBillingPeriod: __expectString(output.StartBillingPeriod),
+  } as any;
+};
+
 const deserializeAws_restJson1DisassociateResourceResponseElement = (
   output: any,
   context: __SerdeContext
@@ -3359,6 +3557,12 @@ const deserializeAws_restJson1DisassociateResourcesResponseList = (
       return deserializeAws_restJson1DisassociateResourceResponseElement(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1FreeTierConfig = (output: any, context: __SerdeContext): FreeTierConfig => {
+  return {
+    Activated: __expectBoolean(output.Activated),
+  } as any;
 };
 
 const deserializeAws_restJson1ListCustomLineItemChargeDetails = (
@@ -3402,6 +3606,7 @@ const deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemResponseEle
 ): ListResourcesAssociatedToCustomLineItemResponseElement => {
   return {
     Arn: __expectString(output.Arn),
+    EndBillingPeriod: __expectString(output.EndBillingPeriod),
     Relationship: __expectString(output.Relationship),
   } as any;
 };
@@ -3490,6 +3695,7 @@ const deserializeAws_restJson1PricingRuleListElement = (
   return {
     Arn: __expectString(output.Arn),
     AssociatedPricingPlanCount: __expectLong(output.AssociatedPricingPlanCount),
+    BillingEntity: __expectString(output.BillingEntity),
     CreationTime: __expectLong(output.CreationTime),
     Description: __expectString(output.Description),
     LastModifiedTime: __expectLong(output.LastModifiedTime),
@@ -3497,6 +3703,7 @@ const deserializeAws_restJson1PricingRuleListElement = (
     Name: __expectString(output.Name),
     Scope: __expectString(output.Scope),
     Service: __expectString(output.Service),
+    Tiering: output.Tiering != null ? deserializeAws_restJson1Tiering(output.Tiering, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -3506,11 +3713,28 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1Tiering = (output: any, context: __SerdeContext): Tiering => {
+  return {
+    FreeTier: output.FreeTier != null ? deserializeAws_restJson1FreeTierConfig(output.FreeTier, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UpdateFreeTierConfig = (output: any, context: __SerdeContext): UpdateFreeTierConfig => {
+  return {
+    Activated: __expectBoolean(output.Activated),
+  } as any;
+};
+
+const deserializeAws_restJson1UpdateTieringInput = (output: any, context: __SerdeContext): UpdateTieringInput => {
+  return {
+    FreeTier:
+      output.FreeTier != null ? deserializeAws_restJson1UpdateFreeTierConfig(output.FreeTier, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (

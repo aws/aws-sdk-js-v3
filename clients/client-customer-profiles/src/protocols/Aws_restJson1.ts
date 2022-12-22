@@ -103,6 +103,7 @@ import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../comman
 import { CustomerProfilesServiceException as __BaseException } from "../models/CustomerProfilesServiceException";
 import {
   AccessDeniedException,
+  AdditionalSearchKey,
   Address,
   AppflowIntegration,
   AppflowIntegrationWorkflowAttributes,
@@ -119,6 +120,7 @@ import {
   ExportingLocation,
   FieldSourceProfileIds,
   FlowDefinition,
+  FoundByKeyValue,
   IdentityResolutionJob,
   IncrementalPullConfig,
   IntegrationConfig,
@@ -278,6 +280,7 @@ export const serializeAws_restJson1CreateProfileCommand = async (
     ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
     ...(input.FirstName != null && { FirstName: input.FirstName }),
     ...(input.Gender != null && { Gender: input.Gender }),
+    ...(input.GenderString != null && { GenderString: input.GenderString }),
     ...(input.HomePhoneNumber != null && { HomePhoneNumber: input.HomePhoneNumber }),
     ...(input.LastName != null && { LastName: input.LastName }),
     ...(input.MailingAddress != null && {
@@ -286,6 +289,7 @@ export const serializeAws_restJson1CreateProfileCommand = async (
     ...(input.MiddleName != null && { MiddleName: input.MiddleName }),
     ...(input.MobilePhoneNumber != null && { MobilePhoneNumber: input.MobilePhoneNumber }),
     ...(input.PartyType != null && { PartyType: input.PartyType }),
+    ...(input.PartyTypeString != null && { PartyTypeString: input.PartyTypeString }),
     ...(input.PersonalEmailAddress != null && { PersonalEmailAddress: input.PersonalEmailAddress }),
     ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
     ...(input.ShippingAddress != null && {
@@ -1120,7 +1124,11 @@ export const serializeAws_restJson1SearchProfilesCommand = async (
   });
   let body: any;
   body = JSON.stringify({
+    ...(input.AdditionalSearchKeys != null && {
+      AdditionalSearchKeys: serializeAws_restJson1additionalSearchKeysList(input.AdditionalSearchKeys, context),
+    }),
     ...(input.KeyName != null && { KeyName: input.KeyName }),
+    ...(input.LogicalOperator != null && { LogicalOperator: input.LogicalOperator }),
     ...(input.Values != null && { Values: serializeAws_restJson1requestValueList(input.Values, context) }),
   });
   return new __HttpRequest({
@@ -1169,7 +1177,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1240,6 +1251,7 @@ export const serializeAws_restJson1UpdateProfileCommand = async (
     ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
     ...(input.FirstName != null && { FirstName: input.FirstName }),
     ...(input.Gender != null && { Gender: input.Gender }),
+    ...(input.GenderString != null && { GenderString: input.GenderString }),
     ...(input.HomePhoneNumber != null && { HomePhoneNumber: input.HomePhoneNumber }),
     ...(input.LastName != null && { LastName: input.LastName }),
     ...(input.MailingAddress != null && {
@@ -1248,6 +1260,7 @@ export const serializeAws_restJson1UpdateProfileCommand = async (
     ...(input.MiddleName != null && { MiddleName: input.MiddleName }),
     ...(input.MobilePhoneNumber != null && { MobilePhoneNumber: input.MobilePhoneNumber }),
     ...(input.PartyType != null && { PartyType: input.PartyType }),
+    ...(input.PartyTypeString != null && { PartyTypeString: input.PartyTypeString }),
     ...(input.PersonalEmailAddress != null && { PersonalEmailAddress: input.PersonalEmailAddress }),
     ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
     ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
@@ -3643,6 +3656,21 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AdditionalSearchKey = (input: AdditionalSearchKey, context: __SerdeContext): any => {
+  return {
+    ...(input.KeyName != null && { KeyName: input.KeyName }),
+    ...(input.Values != null && { Values: serializeAws_restJson1requestValueList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1additionalSearchKeysList = (input: AdditionalSearchKey[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AdditionalSearchKey(entry, context);
+    });
+};
+
 const serializeAws_restJson1Address = (input: Address, context: __SerdeContext): any => {
   return {
     ...(input.Address1 != null && { Address1: input.Address1 }),
@@ -3672,10 +3700,8 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3684,10 +3710,8 @@ const serializeAws_restJson1AttributeSourceIdMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3759,10 +3783,8 @@ const serializeAws_restJson1FieldMap = (input: Record<string, ObjectTypeField>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ObjectTypeField(value, context),
-    };
+    acc[key] = serializeAws_restJson1ObjectTypeField(value, context);
+    return acc;
   }, {});
 };
 
@@ -3843,10 +3865,8 @@ const serializeAws_restJson1KeyMap = (input: Record<string, ObjectTypeKey[]>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ObjectTypeKeyList(value, context),
-    };
+    acc[key] = serializeAws_restJson1ObjectTypeKeyList(value, context);
+    return acc;
   }, {});
 };
 
@@ -3923,10 +3943,8 @@ const serializeAws_restJson1ObjectTypeNames = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4054,10 +4072,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4083,10 +4099,8 @@ const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, 
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -4137,10 +4151,8 @@ const serializeAws_restJson1UpdateAttributes = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4215,10 +4227,8 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4291,10 +4301,8 @@ const deserializeAws_restJson1FieldMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ObjectTypeField(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ObjectTypeField(value, context);
+    return acc;
   }, {});
 };
 
@@ -4306,6 +4314,25 @@ const deserializeAws_restJson1FieldNameList = (output: any, context: __SerdeCont
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FoundByKeyValue = (output: any, context: __SerdeContext): FoundByKeyValue => {
+  return {
+    KeyName: __expectString(output.KeyName),
+    Values: output.Values != null ? deserializeAws_restJson1requestValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1foundByList = (output: any, context: __SerdeContext): FoundByKeyValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FoundByKeyValue(entry, context);
     });
   return retVal;
 };
@@ -4377,10 +4404,8 @@ const deserializeAws_restJson1KeyMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ObjectTypeKeyList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ObjectTypeKeyList(value, context);
+    return acc;
   }, {});
 };
 
@@ -4567,10 +4592,8 @@ const deserializeAws_restJson1ObjectTypeNames = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4588,6 +4611,8 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
     BusinessPhoneNumber: __expectString(output.BusinessPhoneNumber),
     EmailAddress: __expectString(output.EmailAddress),
     FirstName: __expectString(output.FirstName),
+    FoundByItems:
+      output.FoundByItems != null ? deserializeAws_restJson1foundByList(output.FoundByItems, context) : undefined,
     Gender: __expectString(output.Gender),
     HomePhoneNumber: __expectString(output.HomePhoneNumber),
     LastName: __expectString(output.LastName),
@@ -4716,10 +4741,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

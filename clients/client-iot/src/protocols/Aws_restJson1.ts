@@ -461,6 +461,10 @@ import {
   ListProvisioningTemplateVersionsCommandInput,
   ListProvisioningTemplateVersionsCommandOutput,
 } from "../commands/ListProvisioningTemplateVersionsCommand";
+import {
+  ListRelatedResourcesForAuditFindingCommandInput,
+  ListRelatedResourcesForAuditFindingCommandOutput,
+} from "../commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "../commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
@@ -749,6 +753,7 @@ import {
   IotAnalyticsAction,
   IotEventsAction,
   IotSiteWiseAction,
+  IssuerCertificateIdentifier,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   KafkaAction,
@@ -764,6 +769,7 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  MqttHeaders,
   NonCompliantResource,
   OpenSearchAction,
   OTAUpdateFile,
@@ -787,6 +793,7 @@ import {
   S3Destination,
   S3Location,
   SalesforceAction,
+  SchedulingConfig,
   ServiceUnavailableException,
   SigningProfileParameter,
   SigV4Authorization,
@@ -813,6 +820,7 @@ import {
   UnauthorizedException,
   UpdateCACertificateParams,
   UpdateDeviceCertificateParams,
+  UserProperty,
   VersionConflictException,
   VersionsLimitExceededException,
   ViolationEventAdditionalInfo,
@@ -1098,7 +1106,7 @@ export const serializeAws_restJson1AttachSecurityProfileCommand = async (
     false
   );
   const query: any = map({
-    securityProfileTargetArn: [, input.securityProfileTargetArn!],
+    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1690,6 +1698,9 @@ export const serializeAws_restJson1CreateJobCommand = async (
     ...(input.namespaceId != null && { namespaceId: input.namespaceId }),
     ...(input.presignedUrlConfig != null && {
       presignedUrlConfig: serializeAws_restJson1PresignedUrlConfig(input.presignedUrlConfig, context),
+    }),
+    ...(input.schedulingConfig != null && {
+      schedulingConfig: serializeAws_restJson1SchedulingConfig(input.schedulingConfig, context),
     }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.targetSelection != null && { targetSelection: input.targetSelection }),
@@ -3137,8 +3148,8 @@ export const serializeAws_restJson1DeleteV2LoggingLevelCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2LoggingLevel";
   const query: any = map({
-    targetType: [, input.targetType!],
-    targetName: [, input.targetName!],
+    targetType: [, __expectNonNull(input.targetType!, `targetType`)],
+    targetName: [, __expectNonNull(input.targetName!, `targetName`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -4063,7 +4074,7 @@ export const serializeAws_restJson1DetachSecurityProfileCommand = async (
     false
   );
   const query: any = map({
-    securityProfileTargetArn: [, input.securityProfileTargetArn!],
+    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -4627,9 +4638,9 @@ export const serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand =
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/mitigationactions/executions";
   const query: any = map({
-    taskId: [, input.taskId!],
+    taskId: [, __expectNonNull(input.taskId!, `taskId`)],
     actionStatus: [, input.actionStatus!],
-    findingId: [, input.findingId!],
+    findingId: [, __expectNonNull(input.findingId!, `findingId`)],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -4661,10 +4672,13 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -4719,10 +4733,13 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/tasks";
   const query: any = map({
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     taskType: [, input.taskType!],
     taskStatus: [, input.taskStatus!],
     nextToken: [, input.nextToken!],
@@ -4946,10 +4963,13 @@ export const serializeAws_restJson1ListDetectMitigationActionsTasksCommand = asy
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -5201,15 +5221,18 @@ export const serializeAws_restJson1ListMetricValuesCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metric-values";
   const query: any = map({
-    thingName: [, input.thingName!],
-    metricName: [, input.metricName!],
+    thingName: [, __expectNonNull(input.thingName!, `thingName`)],
+    metricName: [, __expectNonNull(input.metricName!, `metricName`)],
     dimensionName: [, input.dimensionName!],
     dimensionValueOperator: [, input.dimensionValueOperator!],
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -5488,6 +5511,32 @@ export const serializeAws_restJson1ListProvisioningTemplateVersionsCommand = asy
   });
 };
 
+export const serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand = async (
+  input: ListRelatedResourcesForAuditFindingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/relatedResources";
+  const query: any = map({
+    findingId: [, __expectNonNull(input.findingId!, `findingId`)],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListRoleAliasesCommand = async (
   input: ListRoleAliasesCommandInput,
   context: __SerdeContext
@@ -5575,7 +5624,7 @@ export const serializeAws_restJson1ListSecurityProfilesForTargetCommand = async 
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     recursive: [() => input.recursive !== void 0, () => input.recursive!.toString()],
-    securityProfileTargetArn: [, input.securityProfileTargetArn!],
+    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -5623,7 +5672,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
     nextToken: [, input.nextToken!],
   });
   let body: any;
@@ -5789,7 +5838,7 @@ export const serializeAws_restJson1ListThingRegistrationTaskReportsCommand = asy
     "/thing-registration-tasks/{taskId}/reports";
   resolvedPath = __resolvedPath(resolvedPath, input, "taskId", () => input.taskId!, "{taskId}", false);
   const query: any = map({
-    reportType: [, input.reportType!],
+    reportType: [, __expectNonNull(input.reportType!, `reportType`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -6039,10 +6088,13 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/violation-events";
   const query: any = map({
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     thingName: [, input.thingName!],
     securityProfileName: [, input.securityProfileName!],
     behaviorCriteriaType: [, input.behaviorCriteriaType!],
@@ -6763,7 +6815,7 @@ export const serializeAws_restJson1TransferCertificateCommand = async (
     false
   );
   const query: any = map({
-    targetAwsAccount: [, input.targetAwsAccount!],
+    targetAwsAccount: [, __expectNonNull(input.targetAwsAccount!, `targetAwsAccount`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -7003,7 +7055,7 @@ export const serializeAws_restJson1UpdateCertificateCommand = async (
     false
   );
   const query: any = map({
-    newStatus: [, input.newStatus!],
+    newStatus: [, __expectNonNull(input.newStatus!, `newStatus`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -17182,6 +17234,59 @@ const deserializeAws_restJson1ListProvisioningTemplateVersionsCommandError = asy
   }
 };
 
+export const deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRelatedResourcesForAuditFindingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.relatedResources != null) {
+    contents.relatedResources = deserializeAws_restJson1RelatedResources(data.relatedResources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRelatedResourcesForAuditFindingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListRoleAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -21700,10 +21805,8 @@ const serializeAws_restJson1AdditionalParameterMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21746,10 +21849,8 @@ const serializeAws_restJson1AlertTargets = (input: Record<string, AlertTarget>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AlertTarget(value, context),
-    };
+    acc[key] = serializeAws_restJson1AlertTarget(value, context);
+    return acc;
   }, {});
 };
 
@@ -21800,10 +21901,8 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21812,10 +21911,8 @@ const serializeAws_restJson1AttributesMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21836,10 +21933,8 @@ const serializeAws_restJson1AuditCheckConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
-    };
+    acc[key] = serializeAws_restJson1AuditCheckConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -21851,10 +21946,8 @@ const serializeAws_restJson1AuditCheckToActionsMapping = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1MitigationActionNameList(value, context),
-    };
+    acc[key] = serializeAws_restJson1MitigationActionNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -21866,10 +21959,8 @@ const serializeAws_restJson1AuditCheckToReasonCodeFilter = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ReasonForNonComplianceCodes(value, context),
-    };
+    acc[key] = serializeAws_restJson1ReasonForNonComplianceCodes(value, context);
+    return acc;
   }, {});
 };
 
@@ -21909,10 +22000,8 @@ const serializeAws_restJson1AuditNotificationTargetConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AuditNotificationTarget(value, context),
-      };
+      acc[key] = serializeAws_restJson1AuditNotificationTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -22082,10 +22171,8 @@ const serializeAws_restJson1ClientProperties = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22174,10 +22261,8 @@ const serializeAws_restJson1DetailsMap = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22257,10 +22342,8 @@ const serializeAws_restJson1EventConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Configuration(value, context),
-    };
+    acc[key] = serializeAws_restJson1Configuration(value, context);
+    return acc;
   }, {});
 };
 
@@ -22355,10 +22438,8 @@ const serializeAws_restJson1HttpHeaders = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22406,6 +22487,19 @@ const serializeAws_restJson1IotSiteWiseAction = (input: IotSiteWiseAction, conte
       ),
     }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
+  };
+};
+
+const serializeAws_restJson1IssuerCertificateIdentifier = (
+  input: IssuerCertificateIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.issuerCertificateSerialNumber != null && {
+      issuerCertificateSerialNumber: input.issuerCertificateSerialNumber,
+    }),
+    ...(input.issuerCertificateSubject != null && { issuerCertificateSubject: input.issuerCertificateSubject }),
+    ...(input.issuerId != null && { issuerId: input.issuerId }),
   };
 };
 
@@ -22588,6 +22682,19 @@ const serializeAws_restJson1MqttContext = (input: MqttContext, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1MqttHeaders = (input: MqttHeaders, context: __SerdeContext): any => {
+  return {
+    ...(input.contentType != null && { contentType: input.contentType }),
+    ...(input.correlationData != null && { correlationData: input.correlationData }),
+    ...(input.messageExpiry != null && { messageExpiry: input.messageExpiry }),
+    ...(input.payloadFormatIndicator != null && { payloadFormatIndicator: input.payloadFormatIndicator }),
+    ...(input.responseTopic != null && { responseTopic: input.responseTopic }),
+    ...(input.userProperties != null && {
+      userProperties: serializeAws_restJson1UserProperties(input.userProperties, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1NamedShadowNamesFilter = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -22640,10 +22747,8 @@ const serializeAws_restJson1ParameterMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22652,10 +22757,8 @@ const serializeAws_restJson1Parameters = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22720,10 +22823,8 @@ const serializeAws_restJson1PublicKeyMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22802,6 +22903,7 @@ const serializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
 
 const serializeAws_restJson1RepublishAction = (input: RepublishAction, context: __SerdeContext): any => {
   return {
+    ...(input.headers != null && { headers: serializeAws_restJson1MqttHeaders(input.headers, context) }),
     ...(input.qos != null && { qos: input.qos }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.topic != null && { topic: input.topic }),
@@ -22814,8 +22916,15 @@ const serializeAws_restJson1ResourceIdentifier = (input: ResourceIdentifier, con
     ...(input.caCertificateId != null && { caCertificateId: input.caCertificateId }),
     ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.cognitoIdentityPoolId != null && { cognitoIdentityPoolId: input.cognitoIdentityPoolId }),
+    ...(input.deviceCertificateArn != null && { deviceCertificateArn: input.deviceCertificateArn }),
     ...(input.deviceCertificateId != null && { deviceCertificateId: input.deviceCertificateId }),
     ...(input.iamRoleArn != null && { iamRoleArn: input.iamRoleArn }),
+    ...(input.issuerCertificateIdentifier != null && {
+      issuerCertificateIdentifier: serializeAws_restJson1IssuerCertificateIdentifier(
+        input.issuerCertificateIdentifier,
+        context
+      ),
+    }),
     ...(input.policyVersionIdentifier != null && {
       policyVersionIdentifier: serializeAws_restJson1PolicyVersionIdentifier(input.policyVersionIdentifier, context),
     }),
@@ -22874,6 +22983,14 @@ const serializeAws_restJson1SalesforceAction = (input: SalesforceAction, context
   return {
     ...(input.token != null && { token: input.token }),
     ...(input.url != null && { url: input.url }),
+  };
+};
+
+const serializeAws_restJson1SchedulingConfig = (input: SchedulingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.endBehavior != null && { endBehavior: input.endBehavior }),
+    ...(input.endTime != null && { endTime: input.endTime }),
+    ...(input.startTime != null && { startTime: input.startTime }),
   };
 };
 
@@ -23208,6 +23325,21 @@ const serializeAws_restJson1UpdateDeviceCertificateParams = (
   };
 };
 
+const serializeAws_restJson1UserProperties = (input: UserProperty[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1UserProperty(entry, context);
+    });
+};
+
+const serializeAws_restJson1UserProperty = (input: UserProperty, context: __SerdeContext): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
+  };
+};
+
 const serializeAws_restJson1ViolationEventOccurrenceRange = (
   input: ViolationEventOccurrenceRange,
   context: __SerdeContext
@@ -23399,10 +23531,8 @@ const deserializeAws_restJson1AdditionalParameterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23451,10 +23581,8 @@ const deserializeAws_restJson1AlertTargets = (output: any, context: __SerdeConte
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1AlertTarget(value, context),
-      };
+      acc[key] = deserializeAws_restJson1AlertTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -23528,10 +23656,8 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23540,10 +23666,8 @@ const deserializeAws_restJson1AttributesMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23564,10 +23688,8 @@ const deserializeAws_restJson1AuditCheckConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AuditCheckConfiguration(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AuditCheckConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -23591,10 +23713,8 @@ const deserializeAws_restJson1AuditCheckToActionsMapping = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MitigationActionNameList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MitigationActionNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -23606,10 +23726,8 @@ const deserializeAws_restJson1AuditCheckToReasonCodeFilter = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ReasonForNonComplianceCodes(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ReasonForNonComplianceCodes(value, context);
+    return acc;
   }, {});
 };
 
@@ -23621,10 +23739,8 @@ const deserializeAws_restJson1AuditDetails = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AuditCheckDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AuditCheckDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -23738,10 +23854,8 @@ const deserializeAws_restJson1AuditMitigationActionsTaskStatistics = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1TaskStatisticsForAuditCheck(value, context),
-      };
+      acc[key] = deserializeAws_restJson1TaskStatisticsForAuditCheck(value, context);
+      return acc;
     },
     {}
   );
@@ -23781,10 +23895,8 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1AuditNotificationTarget(value, context),
-      };
+      acc[key] = deserializeAws_restJson1AuditNotificationTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -24228,10 +24340,8 @@ const deserializeAws_restJson1ClientProperties = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24335,10 +24445,8 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24618,10 +24726,8 @@ const deserializeAws_restJson1EventConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1Configuration(value, context),
-      };
+      acc[key] = deserializeAws_restJson1Configuration(value, context);
+      return acc;
     },
     {}
   );
@@ -24830,6 +24936,17 @@ const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1IssuerCertificateIdentifier = (
+  output: any,
+  context: __SerdeContext
+): IssuerCertificateIdentifier => {
+  return {
+    issuerCertificateSerialNumber: __expectString(output.issuerCertificateSerialNumber),
+    issuerCertificateSubject: __expectString(output.issuerCertificateSubject),
+    issuerId: __expectString(output.issuerId),
+  } as any;
+};
+
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
     abortConfig:
@@ -24873,6 +24990,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? deserializeAws_restJson1PresignedUrlConfig(output.presignedUrlConfig, context)
         : undefined,
     reasonCode: __expectString(output.reasonCode),
+    schedulingConfig:
+      output.schedulingConfig != null
+        ? deserializeAws_restJson1SchedulingConfig(output.schedulingConfig, context)
+        : undefined,
     status: __expectString(output.status),
     targetSelection: __expectString(output.targetSelection),
     targets: output.targets != null ? deserializeAws_restJson1JobTargets(output.targets, context) : undefined,
@@ -25385,6 +25506,20 @@ const deserializeAws_restJson1MitigationActionParams = (
   } as any;
 };
 
+const deserializeAws_restJson1MqttHeaders = (output: any, context: __SerdeContext): MqttHeaders => {
+  return {
+    contentType: __expectString(output.contentType),
+    correlationData: __expectString(output.correlationData),
+    messageExpiry: __expectString(output.messageExpiry),
+    payloadFormatIndicator: __expectString(output.payloadFormatIndicator),
+    responseTopic: __expectString(output.responseTopic),
+    userProperties:
+      output.userProperties != null
+        ? deserializeAws_restJson1UserProperties(output.userProperties, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1NamedShadowNamesFilter = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -25553,10 +25688,8 @@ const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25785,10 +25918,8 @@ const deserializeAws_restJson1PublicKeyMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25900,6 +26031,7 @@ const deserializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
 
 const deserializeAws_restJson1RepublishAction = (output: any, context: __SerdeContext): RepublishAction => {
   return {
+    headers: output.headers != null ? deserializeAws_restJson1MqttHeaders(output.headers, context) : undefined,
     qos: __expectInt32(output.qos),
     roleArn: __expectString(output.roleArn),
     topic: __expectString(output.topic),
@@ -25911,10 +26043,8 @@ const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25924,8 +26054,13 @@ const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __Serd
     caCertificateId: __expectString(output.caCertificateId),
     clientId: __expectString(output.clientId),
     cognitoIdentityPoolId: __expectString(output.cognitoIdentityPoolId),
+    deviceCertificateArn: __expectString(output.deviceCertificateArn),
     deviceCertificateId: __expectString(output.deviceCertificateId),
     iamRoleArn: __expectString(output.iamRoleArn),
+    issuerCertificateIdentifier:
+      output.issuerCertificateIdentifier != null
+        ? deserializeAws_restJson1IssuerCertificateIdentifier(output.issuerCertificateIdentifier, context)
+        : undefined,
     policyVersionIdentifier:
       output.policyVersionIdentifier != null
         ? deserializeAws_restJson1PolicyVersionIdentifier(output.policyVersionIdentifier, context)
@@ -26064,6 +26199,14 @@ const deserializeAws_restJson1ScheduledAuditMetadataList = (
       return deserializeAws_restJson1ScheduledAuditMetadata(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SchedulingConfig = (output: any, context: __SerdeContext): SchedulingConfig => {
+  return {
+    endBehavior: __expectString(output.endBehavior),
+    endTime: __expectString(output.endTime),
+    startTime: __expectString(output.startTime),
+  } as any;
 };
 
 const deserializeAws_restJson1SearchableAttributes = (output: any, context: __SerdeContext): string[] => {
@@ -26348,10 +26491,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -26877,6 +27018,25 @@ const deserializeAws_restJson1UpdateDeviceCertificateParams = (
 ): UpdateDeviceCertificateParams => {
   return {
     action: __expectString(output.action),
+  } as any;
+};
+
+const deserializeAws_restJson1UserProperties = (output: any, context: __SerdeContext): UserProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserProperty(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UserProperty = (output: any, context: __SerdeContext): UserProperty => {
+  return {
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 

@@ -28,12 +28,12 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes a response headers policy.</p>
- * 		       <p>You cannot delete a response headers policy if it’s attached to a cache behavior.
+ *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
  * 			First update your distributions to remove the response headers policy from all cache
  * 			behaviors, then delete the response headers policy.</p>
- * 		       <p>To delete a response headers policy, you must provide the policy’s identifier and
+ *          <p>To delete a response headers policy, you must provide the policy's identifier and
  * 			version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or
- * 				<code>GetResponseHeadersPolicy</code>. </p>
+ * 				<code>GetResponseHeadersPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

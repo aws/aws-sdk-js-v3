@@ -29,8 +29,9 @@ export interface ListPricesCommandInput extends ListPricesRequest {}
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the following prices for either all the TLDs supported by Route 53, or the specified TLD:</p>
- * 		       <ul>
+ * <p>Lists the following prices for either all the TLDs supported by Route 53, or
+ * 			the specified TLD:</p>
+ *          <ul>
  *             <li>
  *                <p>Registration</p>
  *             </li>

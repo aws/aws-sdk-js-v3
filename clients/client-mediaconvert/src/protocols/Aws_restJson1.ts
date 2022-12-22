@@ -96,10 +96,8 @@ import {
   DashIsoImageBasedTrickPlaySettings,
   DestinationSettings,
   DvbNitSettings,
-  DvbSdtSettings,
   DvbSubDestinationSettings,
   DvbSubSourceSettings,
-  DvbTdtSettings,
   Eac3AtmosSettings,
   Eac3Settings,
   EmbeddedDestinationSettings,
@@ -185,6 +183,8 @@ import {
   Deinterlacer,
   DolbyVision,
   DolbyVisionLevel6Metadata,
+  DvbSdtSettings,
+  DvbTdtSettings,
   ForbiddenException,
   FrameCaptureSettings,
   H264QvbrSettings,
@@ -2907,10 +2907,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2922,10 +2920,8 @@ const serializeAws_restJson1__mapOfAudioSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AudioSelector(value, context),
-    };
+    acc[key] = serializeAws_restJson1AudioSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -2937,10 +2933,8 @@ const serializeAws_restJson1__mapOfAudioSelectorGroup = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AudioSelectorGroup(value, context),
-    };
+    acc[key] = serializeAws_restJson1AudioSelectorGroup(value, context);
+    return acc;
   }, {});
 };
 
@@ -2952,10 +2946,8 @@ const serializeAws_restJson1__mapOfCaptionSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CaptionSelector(value, context),
-    };
+    acc[key] = serializeAws_restJson1CaptionSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -3464,6 +3456,7 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
     ...(input.MinFinalSegmentLength != null && {
       minFinalSegmentLength: __serializeFloat(input.MinFinalSegmentLength),
     }),
+    ...(input.MpdManifestBandwidthType != null && { mpdManifestBandwidthType: input.MpdManifestBandwidthType }),
     ...(input.MpdProfile != null && { mpdProfile: input.MpdProfile }),
     ...(input.PtsOffsetHandlingForBFrames != null && {
       ptsOffsetHandlingForBFrames: input.PtsOffsetHandlingForBFrames,
@@ -3475,6 +3468,7 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
     ...(input.TargetDurationCompatibilityMode != null && {
       targetDurationCompatibilityMode: input.TargetDurationCompatibilityMode,
     }),
+    ...(input.VideoCompositionOffsets != null && { videoCompositionOffsets: input.VideoCompositionOffsets }),
     ...(input.WriteDashManifest != null && { writeDashManifest: input.WriteDashManifest }),
     ...(input.WriteHlsManifest != null && { writeHlsManifest: input.WriteHlsManifest }),
     ...(input.WriteSegmentTimelineInRepresentation != null && {
@@ -3508,9 +3502,13 @@ const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __Serd
     }),
     ...(input.IFrameOnlyManifest != null && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
     ...(input.KlvMetadata != null && { klvMetadata: input.KlvMetadata }),
+    ...(input.ManifestMetadataSignaling != null && { manifestMetadataSignaling: input.ManifestMetadataSignaling }),
     ...(input.Scte35Esam != null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source != null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata != null && { timedMetadata: input.TimedMetadata }),
+    ...(input.TimedMetadataBoxVersion != null && { timedMetadataBoxVersion: input.TimedMetadataBoxVersion }),
+    ...(input.TimedMetadataSchemeIdUri != null && { timedMetadataSchemeIdUri: input.TimedMetadataSchemeIdUri }),
+    ...(input.TimedMetadataValue != null && { timedMetadataValue: input.TimedMetadataValue }),
   };
 };
 
@@ -3525,6 +3523,7 @@ const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __
     ...(input.Hue != null && { hue: input.Hue }),
     ...(input.SampleRangeConversion != null && { sampleRangeConversion: input.SampleRangeConversion }),
     ...(input.Saturation != null && { saturation: input.Saturation }),
+    ...(input.SdrReferenceWhiteLevel != null && { sdrReferenceWhiteLevel: input.SdrReferenceWhiteLevel }),
   };
 };
 
@@ -3600,6 +3599,7 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
     ...(input.MinFinalSegmentLength != null && {
       minFinalSegmentLength: __serializeFloat(input.MinFinalSegmentLength),
     }),
+    ...(input.MpdManifestBandwidthType != null && { mpdManifestBandwidthType: input.MpdManifestBandwidthType }),
     ...(input.MpdProfile != null && { mpdProfile: input.MpdProfile }),
     ...(input.PtsOffsetHandlingForBFrames != null && {
       ptsOffsetHandlingForBFrames: input.PtsOffsetHandlingForBFrames,
@@ -3607,6 +3607,7 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
     ...(input.SegmentControl != null && { segmentControl: input.SegmentControl }),
     ...(input.SegmentLength != null && { segmentLength: input.SegmentLength }),
     ...(input.SegmentLengthControl != null && { segmentLengthControl: input.SegmentLengthControl }),
+    ...(input.VideoCompositionOffsets != null && { videoCompositionOffsets: input.VideoCompositionOffsets }),
     ...(input.WriteSegmentTimelineInRepresentation != null && {
       writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
     }),
@@ -4222,6 +4223,7 @@ const serializeAws_restJson1ImageInserter = (input: ImageInserter, context: __Se
     ...(input.InsertableImages != null && {
       insertableImages: serializeAws_restJson1__listOfInsertableImage(input.InsertableImages, context),
     }),
+    ...(input.SdrReferenceWhiteLevel != null && { sdrReferenceWhiteLevel: input.SdrReferenceWhiteLevel }),
   };
 };
 
@@ -4631,9 +4633,13 @@ const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeC
     ...(input.AudioDuration != null && { audioDuration: input.AudioDuration }),
     ...(input.CaptionContainerType != null && { captionContainerType: input.CaptionContainerType }),
     ...(input.KlvMetadata != null && { klvMetadata: input.KlvMetadata }),
+    ...(input.ManifestMetadataSignaling != null && { manifestMetadataSignaling: input.ManifestMetadataSignaling }),
     ...(input.Scte35Esam != null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source != null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata != null && { timedMetadata: input.TimedMetadata }),
+    ...(input.TimedMetadataBoxVersion != null && { timedMetadataBoxVersion: input.TimedMetadataBoxVersion }),
+    ...(input.TimedMetadataSchemeIdUri != null && { timedMetadataSchemeIdUri: input.TimedMetadataSchemeIdUri }),
+    ...(input.TimedMetadataValue != null && { timedMetadataValue: input.TimedMetadataValue }),
   };
 };
 
@@ -5973,10 +5979,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5988,10 +5992,8 @@ const deserializeAws_restJson1__mapOfAudioSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AudioSelector(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AudioSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -6003,10 +6005,8 @@ const deserializeAws_restJson1__mapOfAudioSelectorGroup = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AudioSelectorGroup(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AudioSelectorGroup(value, context);
+    return acc;
   }, {});
 };
 
@@ -6018,10 +6018,8 @@ const deserializeAws_restJson1__mapOfCaptionSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1CaptionSelector(value, context),
-    };
+    acc[key] = deserializeAws_restJson1CaptionSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -6528,6 +6526,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
     MinBufferTime: __expectInt32(output.minBufferTime),
     MinFinalSegmentLength: __limitedParseDouble(output.minFinalSegmentLength),
+    MpdManifestBandwidthType: __expectString(output.mpdManifestBandwidthType),
     MpdProfile: __expectString(output.mpdProfile),
     PtsOffsetHandlingForBFrames: __expectString(output.ptsOffsetHandlingForBFrames),
     SegmentControl: __expectString(output.segmentControl),
@@ -6535,6 +6534,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     SegmentLengthControl: __expectString(output.segmentLengthControl),
     StreamInfResolution: __expectString(output.streamInfResolution),
     TargetDurationCompatibilityMode: __expectString(output.targetDurationCompatibilityMode),
+    VideoCompositionOffsets: __expectString(output.videoCompositionOffsets),
     WriteDashManifest: __expectString(output.writeDashManifest),
     WriteHlsManifest: __expectString(output.writeHlsManifest),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
@@ -6564,9 +6564,13 @@ const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeConte
     DescriptiveVideoServiceFlag: __expectString(output.descriptiveVideoServiceFlag),
     IFrameOnlyManifest: __expectString(output.iFrameOnlyManifest),
     KlvMetadata: __expectString(output.klvMetadata),
+    ManifestMetadataSignaling: __expectString(output.manifestMetadataSignaling),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),
+    TimedMetadataBoxVersion: __expectString(output.timedMetadataBoxVersion),
+    TimedMetadataSchemeIdUri: __expectString(output.timedMetadataSchemeIdUri),
+    TimedMetadataValue: __expectString(output.timedMetadataValue),
   } as any;
 };
 
@@ -6580,6 +6584,7 @@ const deserializeAws_restJson1ColorCorrector = (output: any, context: __SerdeCon
     Hue: __expectInt32(output.hue),
     SampleRangeConversion: __expectString(output.sampleRangeConversion),
     Saturation: __expectInt32(output.saturation),
+    SdrReferenceWhiteLevel: __expectInt32(output.sdrReferenceWhiteLevel),
   } as any;
 };
 
@@ -6657,11 +6662,13 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
         : undefined,
     MinBufferTime: __expectInt32(output.minBufferTime),
     MinFinalSegmentLength: __limitedParseDouble(output.minFinalSegmentLength),
+    MpdManifestBandwidthType: __expectString(output.mpdManifestBandwidthType),
     MpdProfile: __expectString(output.mpdProfile),
     PtsOffsetHandlingForBFrames: __expectString(output.ptsOffsetHandlingForBFrames),
     SegmentControl: __expectString(output.segmentControl),
     SegmentLength: __expectInt32(output.segmentLength),
     SegmentLengthControl: __expectString(output.segmentLengthControl),
+    VideoCompositionOffsets: __expectString(output.videoCompositionOffsets),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
   } as any;
 };
@@ -7227,6 +7234,7 @@ const deserializeAws_restJson1ImageInserter = (output: any, context: __SerdeCont
       output.insertableImages != null
         ? deserializeAws_restJson1__listOfInsertableImage(output.insertableImages, context)
         : undefined,
+    SdrReferenceWhiteLevel: __expectInt32(output.sdrReferenceWhiteLevel),
   } as any;
 };
 
@@ -7743,9 +7751,13 @@ const deserializeAws_restJson1MpdSettings = (output: any, context: __SerdeContex
     AudioDuration: __expectString(output.audioDuration),
     CaptionContainerType: __expectString(output.captionContainerType),
     KlvMetadata: __expectString(output.klvMetadata),
+    ManifestMetadataSignaling: __expectString(output.manifestMetadataSignaling),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),
+    TimedMetadataBoxVersion: __expectString(output.timedMetadataBoxVersion),
+    TimedMetadataSchemeIdUri: __expectString(output.timedMetadataSchemeIdUri),
+    TimedMetadataValue: __expectString(output.timedMetadataValue),
   } as any;
 };
 

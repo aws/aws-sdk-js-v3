@@ -42,6 +42,8 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [Middleware Stack](#middleware-stack)
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
+1. [Release Cadence](#release-cadence)
+1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
 
@@ -506,6 +508,31 @@ client.middlewareStack.add(middleware, {
 ```
 
 For a full middleware stack deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
+
+## Release Cadence
+
+Our releases usually happen once per weekday. Each release increments the
+minor version, e.g. 3.200.0 -> 3.201.0.
+
+## Stability of Modular Packages
+
+| Package name                | containing folder | API controlled by | stability     |
+| --------------------------- | ----------------- | ----------------- | ------------- |
+| @aws-sdk/client-\* Commands | clients           | AWS service teams | public/stable |
+| @aws-sdk/client-\* Clients  | clients           | AWS SDK JS team   | public/stable |
+| @aws-sdk/lib-\*             | lib               | AWS SDK JS team   | public/stable |
+| @aws-sdk/\*-signer          | packages          | AWS SDK JS team   | public/stable |
+| @aws-sdk/middleware-stack   | packages          | AWS SDK JS team   | public/stable |
+| remaining @aws-sdk/\*       | packages          | AWS SDK JS team   | internal      |
+
+Additional notes:
+
+- internal does not mean a package or interface is constantly changing
+  or being actively worked on. It means it is subject to change without any
+  notice period. The changes are included in the release notes.
+- public interfaces such as client configuration are also subject to change
+  in exceptional cases. We will try to undergo a deprecation period with
+  an advance notice.
 
 ## Known Issues
 

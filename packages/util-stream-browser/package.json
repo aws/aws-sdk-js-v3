@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-stream-browser",
-  "version": "3.200.0",
+  "version": "3.226.0",
   "scripts": {
     "build": "concurrently 'yarn:build:es' 'yarn:build:types'",
     "build:es": "tsc -p tsconfig.es.json",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@aws-sdk/fetch-http-handler": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-base64-browser": "*",
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/util-hex-encoding": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "tslib": "^2.3.1"

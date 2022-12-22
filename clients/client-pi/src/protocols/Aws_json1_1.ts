@@ -596,10 +596,8 @@ const serializeAws_json1_1MetricQueryFilterMap = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -640,10 +638,8 @@ const deserializeAws_json1_1AdditionalMetricsMap = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -786,10 +782,8 @@ const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -807,10 +801,8 @@ const deserializeAws_json1_1FeatureMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1FeatureMetadata(value, context),
-    };
+    acc[key] = deserializeAws_json1_1FeatureMetadata(value, context);
+    return acc;
   }, {});
 };
 

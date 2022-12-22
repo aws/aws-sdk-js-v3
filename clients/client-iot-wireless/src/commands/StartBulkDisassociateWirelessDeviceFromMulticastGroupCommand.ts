@@ -19,7 +19,7 @@ import {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
   serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,

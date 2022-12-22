@@ -30,7 +30,6 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
 
 /**
  * <p>Use this operation to delete a workforce.</p>
- *
  *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use this operation to delete the
  *       existing workforce and then use
@@ -41,7 +40,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  *             operation to delete all work teams before you delete the workforce.
  *             If you try to delete a workforce that contains one or more work teams,
  *             you will recieve a <code>ResourceInUse</code> error.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

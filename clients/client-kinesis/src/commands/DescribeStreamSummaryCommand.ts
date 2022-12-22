@@ -31,10 +31,14 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
 /**
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
- *         <p>The information returned includes the stream name, Amazon Resource Name (ARN), status,
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>The information returned includes the stream name, Amazon Resource Name (ARN), status,
  *             record retention period, approximate creation time, monitoring, encryption details, and
  *             open shard count. </p>
- *         <p>
+ *          <p>
  *             <a>DescribeStreamSummary</a> has a limit of 20 transactions per second per
  *             account.</p>
  * @example
@@ -62,6 +66,8 @@ export class DescribeStreamSummaryCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

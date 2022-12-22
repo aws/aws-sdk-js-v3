@@ -1,3 +1,4 @@
+export * from "./NoOpLogger";
 export * from "./client";
 export * from "./command";
 export * from "./constants";

@@ -29,7 +29,8 @@ export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRen
 export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
- * <p>This operation disables automatic renewal of domain registration for the specified domain.</p>
+ * <p>This operation disables automatic renewal of domain registration for the specified
+ * 			domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,11 +28,14 @@ describe(resolveEndpointsConfig.name, () => {
   });
 
   afterEach(() => {
-    expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.useDualstackEndpoint);
     jest.clearAllMocks();
   });
 
   describe("tls", () => {
+    afterEach(() => {
+      expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.useDualstackEndpoint);
+    });
+
     it.each([true, false])("returns %s when it's %s", (tls) => {
       expect(resolveEndpointsConfig({ ...mockInput, tls }).tls).toStrictEqual(tls);
     });
@@ -43,6 +46,10 @@ describe(resolveEndpointsConfig.name, () => {
   });
 
   describe("isCustomEndpoint", () => {
+    afterEach(() => {
+      expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.useDualstackEndpoint);
+    });
+
     it("returns true when endpoint is defined", () => {
       expect(resolveEndpointsConfig(mockInput).isCustomEndpoint).toStrictEqual(true);
     });
@@ -53,7 +60,19 @@ describe(resolveEndpointsConfig.name, () => {
     });
   });
 
+  it("returns false when useDualstackEndpoint is not defined", async () => {
+    const useDualstackEndpoint = await resolveEndpointsConfig({
+      ...mockInput,
+      useDualstackEndpoint: undefined,
+    }).useDualstackEndpoint();
+    expect(useDualstackEndpoint).toStrictEqual(false);
+  });
+
   describe("endpoint", () => {
+    afterEach(() => {
+      expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.useDualstackEndpoint);
+    });
+
     describe("returns from normalizeProvider when endpoint is defined", () => {
       afterEach(() => {
         expect(normalizeProvider).toHaveBeenCalledTimes(2);

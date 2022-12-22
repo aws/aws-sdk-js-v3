@@ -277,11 +277,14 @@ export interface Alarm {
 }
 
 /**
- * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+ * <p>The details for the CloudWatch alarm you want to apply to an automation or
+ *    command.</p>
  */
 export interface AlarmConfiguration {
   /**
-   * <p>If you specify <code>true</code> for this value, your automation or command continue to run even if we can't gather information about the state of your CloudWatch alarm. The default value is <code>false</code>.</p>
+   * <p>If you specify <code>true</code> for this value, your automation or command continue to run
+   *    even if we can't gather information about the state of your CloudWatch alarm. The default
+   *    value is <code>false</code>.</p>
    */
   IgnorePollAlarmFailure?: boolean;
 
@@ -642,6 +645,10 @@ export interface CreateActivationRequest {
    *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
    *      IAM service role for a hybrid environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <note>
+   *             <p>You can't specify an IAM service-linked role for this parameter. You must
+   *     create a unique role.</p>
+   *          </note>
    */
   IamRole: string | undefined;
 
@@ -845,6 +852,12 @@ export interface TargetLocation {
    *    the default value is <code>AWS-SystemsManager-AutomationExecutionRole</code>.</p>
    */
   ExecutionRoleName?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  TargetLocationAlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -1136,15 +1149,16 @@ export interface CreateAssociationRequest {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i>
-   *    are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your
-   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
-   *    a key and an optional value, both of which you define. </p>
+   * <p>Adds or overwrites one or more tags for a State Manager association.
+   *     <i>Tags</i> are metadata that you can assign to your Amazon Web Services resources. Tags enable
+   *    you to categorize your resources in different ways, for example, by purpose, owner, or
+   *    environment. Each tag consists of a key and an optional value, both of which you define. </p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 }
@@ -1372,7 +1386,8 @@ export interface AssociationDescription {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 
@@ -1717,7 +1732,8 @@ export interface CreateAssociationBatchRequestEntry {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 }
@@ -2582,8 +2598,29 @@ export interface CreateOpsItemRequest {
   Description: string | undefined;
 
   /**
-   * <p>The type of OpsItem to create. Currently, the only valid values are
-   *     <code>/aws/changerequest</code> and <code>/aws/issue</code>.</p>
+   * <p>The type of OpsItem to create. Systems Manager supports the following types of OpsItems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/issue</code>
+   *                </p>
+   *                <p>This type of OpsItem is used for default OpsItems created by OpsCenter. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/changerequest</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
+   *      requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/insights</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+   *      OpsItems. </p>
+   *             </li>
+   *          </ul>
    */
   OpsItemType?: string;
 
@@ -2690,6 +2727,14 @@ export interface CreateOpsItemRequest {
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    */
   PlannedEndTime?: Date;
+
+  /**
+   * <p>The target Amazon Web Services account where you want to create an OpsItem. To make this call, your account
+   *    must be configured to work with OpsItems across accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html">Setting
+   *     up OpsCenter to work with OpsItems across accounts</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   */
+  AccountId?: string;
 }
 
 export interface CreateOpsItemResponse {
@@ -2697,6 +2742,34 @@ export interface CreateOpsItemResponse {
    * <p>The ID of the OpsItem.</p>
    */
   OpsItemId?: string;
+
+  /**
+   * <p>The OpsItem Amazon Resource Name (ARN).</p>
+   */
+  OpsItemArn?: string;
+}
+
+/**
+ * <p>You don't have permission to view OpsItems in the specified account. Verify that your account
+ *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
+ *    management account.</p>
+ */
+export class OpsItemAccessDeniedException extends __BaseException {
+  readonly name: "OpsItemAccessDeniedException" = "OpsItemAccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpsItemAccessDeniedException, __BaseException>) {
+    super({
+      name: "OpsItemAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpsItemAccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3892,6 +3965,73 @@ export class ResourceDataSyncNotFoundException extends __BaseException {
   }
 }
 
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy ID.</p>
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>ID of the current policy version. The hash helps to prevent multiple calls from attempting
+   *    to overwrite a policy.</p>
+   */
+  PolicyHash: string | undefined;
+}
+
+export interface DeleteResourcePolicyResponse {}
+
+/**
+ * <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
+ *    trying to update an obsolete policy version or when multiple requests to update a policy are
+ *    sent.</p>
+ */
+export class ResourcePolicyConflictException extends __BaseException {
+  readonly name: "ResourcePolicyConflictException" = "ResourcePolicyConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyConflictException, __BaseException>) {
+    super({
+      name: "ResourcePolicyConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
+ *    values and try again.</p>
+ */
+export class ResourcePolicyInvalidParameterException extends __BaseException {
+  readonly name: "ResourcePolicyInvalidParameterException" = "ResourcePolicyInvalidParameterException";
+  readonly $fault: "client" = "client";
+  ParameterNames?: string[];
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyInvalidParameterException, __BaseException>) {
+    super({
+      name: "ResourcePolicyInvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyInvalidParameterException.prototype);
+    this.ParameterNames = opts.ParameterNames;
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeregisterManagedInstanceRequest {
   /**
    * <p>The ID assigned to the managed node when you registered it using the activation process.
@@ -4255,7 +4395,8 @@ export interface AssociationExecution {
   ResourceCountByStatus?: string;
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 
@@ -5034,6 +5175,11 @@ export interface StepExecution {
    *    execution.</p>
    */
   TargetLocation?: TargetLocation;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeAutomationStepExecutionsResult {
@@ -6461,25 +6607,25 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
-   * <p>The number of patches per node that are specified as <code>Critical</code> for
-   *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required managed node
-   *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as <code>Critical</code> for compliance
+   *    reporting in the patch baseline aren't installed. These patches might be missing, have failed
+   *    installation, were rejected, or were installed but awaiting a required managed node reboot. The
+   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   CriticalNonCompliantCount?: number;
 
   /**
-   * <p>The number of patches per node that are specified as <code>Security</code> in a
-   *    patch advisory aren't installed. These patches might be missing, have failed installation, were
+   * <p>The number of patches per node that are specified as <code>Security</code> in a patch
+   *    advisory aren't installed. These patches might be missing, have failed installation, were
    *    rejected, or were installed but awaiting a required managed node reboot. The status of these
    *    managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   SecurityNonCompliantCount?: number;
 
   /**
-   * <p>The number of patches per node that are specified as other than
-   *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
-   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as other than <code>Critical</code> or
+   *     <code>Security</code> but aren't compliant with the patch baseline. The status of these managed
+   *    nodes is <code>NON_COMPLIANT</code>.</p>
    */
   OtherNonCompliantCount?: number;
 }
@@ -7618,6 +7764,7 @@ export interface DescribeMaintenanceWindowTasksResult {
 }
 
 export enum OpsItemFilterKey {
+  ACCOUNT_ID = "AccountId",
   ACTUAL_END_TIME = "ActualEndTime",
   ACTUAL_START_TIME = "ActualStartTime",
   AUTOMATION_ID = "AutomationId",
@@ -7652,237 +7799,6 @@ export enum OpsItemFilterOperator {
   EQUAL = "Equal",
   GREATER_THAN = "GreaterThan",
   LESS_THAN = "LessThan",
-}
-
-/**
- * <p>Describes an OpsItem filter.</p>
- */
-export interface OpsItemFilter {
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Key: OpsItemFilterKey | string | undefined;
-
-  /**
-   * <p>The filter value.</p>
-   */
-  Values: string[] | undefined;
-
-  /**
-   * <p>The operator used by the filter call.</p>
-   */
-  Operator: OpsItemFilterOperator | string | undefined;
-}
-
-export interface DescribeOpsItemsRequest {
-  /**
-   * <p>One or more filters to limit the response.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key: CreatedTime</p>
-   *                <p>Operations: GreaterThan, LessThan</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: LastModifiedBy</p>
-   *                <p>Operations: Contains, Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: LastModifiedTime</p>
-   *                <p>Operations: GreaterThan, LessThan</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Priority</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Source</p>
-   *                <p>Operations: Contains, Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Status</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Title*</p>
-   *                <p>Operations: Equals,Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalData**</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalDataKey</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalDataValue</p>
-   *                <p>Operations: Equals, Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OpsItemId</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: ResourceId</p>
-   *                <p>Operations: Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: AutomationId</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *          </ul>
-   *          <p>*The Equals operator for Title matches the first 100 characters. If you specify more than
-   *    100 characters, they system returns an error that the filter value exceeds the length
-   *    limit.</p>
-   *          <p>**If you filter the response by using the OperationalData operator, specify a key-value pair
-   *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
-   */
-  OpsItemFilters?: OpsItemFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum OpsItemStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  CLOSED = "Closed",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  OPEN = "Open",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RESOLVED = "Resolved",
-  RUNBOOK_IN_PROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  TIMED_OUT = "TimedOut",
-}
-
-/**
- * <p>A count of OpsItems.</p>
- */
-export interface OpsItemSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
-   *    OpsItem.</p>
-   */
-  CreatedBy?: string;
-
-  /**
-   * <p>The date and time the OpsItem was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
-   *    OpsItem.</p>
-   */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The date and time the OpsItem was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The impacted Amazon Web Services resource.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>.</p>
-   */
-  Status?: OpsItemStatus | string;
-
-  /**
-   * <p>The ID of the OpsItem.</p>
-   */
-  OpsItemId?: string;
-
-  /**
-   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>Operational data is custom data that provides useful reference details about the OpsItem.
-   *   </p>
-   */
-  OperationalData?: Record<string, OpsItemDataValue>;
-
-  /**
-   * <p>A list of OpsItems by category.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>A list of OpsItems by severity.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The type of OpsItem. Currently, the only valid values are <code>/aws/changerequest</code>
-   *    and <code>/aws/issue</code>.</p>
-   */
-  OpsItemType?: string;
-
-  /**
-   * <p>The time a runbook workflow started. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualStartTime?: Date;
-
-  /**
-   * <p>The time a runbook workflow ended. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualEndTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to start. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedStartTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to end. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedEndTime?: Date;
-}
-
-export interface DescribeOpsItemsResponse {
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of OpsItems.</p>
-   */
-  OpsItemSummaries?: OpsItemSummary[];
 }
 
 /**
@@ -8495,6 +8411,20 @@ export const DeleteResourceDataSyncRequestFilterSensitiveLog = (obj: DeleteResou
  * @internal
  */
 export const DeleteResourceDataSyncResultFilterSensitiveLog = (obj: DeleteResourceDataSyncResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
   ...obj,
 });
 
@@ -9288,32 +9218,4 @@ export const DescribeMaintenanceWindowTasksResultFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Tasks && { Tasks: obj.Tasks.map((item) => MaintenanceWindowTaskFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const OpsItemFilterFilterSensitiveLog = (obj: OpsItemFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOpsItemsRequestFilterSensitiveLog = (obj: DescribeOpsItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsItemSummaryFilterSensitiveLog = (obj: OpsItemSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOpsItemsResponseFilterSensitiveLog = (obj: DescribeOpsItemsResponse): any => ({
-  ...obj,
 });

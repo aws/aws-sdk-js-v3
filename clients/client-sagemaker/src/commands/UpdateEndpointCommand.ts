@@ -32,12 +32,12 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
  *             using newly created endpoint, and then deletes resources provisioned for the endpoint
  *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
- *         <p>When SageMaker receives the request, it sets the endpoint status to
+ *          <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Updating</code>. After updating the endpoint, it sets the status to
  *                 <code>InService</code>. To check the status of an endpoint, use the <a>DescribeEndpoint</a> API.
  *
  *         </p>
- *         <note>
+ *          <note>
  *             <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
  *                 live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
  *                 operations are being performed on the endpoint. To update an endpoint, you must
@@ -45,7 +45,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *             <p>If you delete the <code>EndpointConfig</code> of an endpoint that is active or
  *                 being created or updated you may lose visibility into the instance type the endpoint
  *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

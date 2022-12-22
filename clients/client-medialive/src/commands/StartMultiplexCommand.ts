@@ -19,7 +19,7 @@ import {
   StartMultiplexRequestFilterSensitiveLog,
   StartMultiplexResponse,
   StartMultiplexResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StartMultiplexCommand,
   serializeAws_restJson1StartMultiplexCommand,

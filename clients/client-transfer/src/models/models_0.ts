@@ -38,6 +38,7 @@ export enum EncryptionAlg {
   AES128_CBC = "AES128_CBC",
   AES192_CBC = "AES192_CBC",
   AES256_CBC = "AES256_CBC",
+  NONE = "NONE",
 }
 
 export enum MdnResponse {
@@ -1446,6 +1447,21 @@ export interface CustomStepDetails {
   SourceFileLocation?: string;
 }
 
+export enum EncryptionType {
+  PGP = "PGP",
+}
+
+export interface DecryptStepDetails {
+  Name?: string;
+  Type: EncryptionType | string | undefined;
+  SourceFileLocation?: string;
+  OverwriteExisting?: OverwriteExisting | string;
+  /**
+   * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+   */
+  DestinationFileLocation: InputFileLocation | undefined;
+}
+
 /**
  * <p>The name of the step, used to identify the delete step.</p>
  */
@@ -1522,6 +1538,7 @@ export interface TagStepDetails {
 export enum WorkflowStepType {
   COPY = "COPY",
   CUSTOM = "CUSTOM",
+  DECRYPT = "DECRYPT",
   DELETE = "DELETE",
   TAG = "TAG",
 }
@@ -1593,6 +1610,8 @@ export interface WorkflowStep {
    *          <p>You specify one or more tags: each tag contains a key/value pair.</p>
    */
   TagStepDetails?: TagStepDetails;
+
+  DecryptStepDetails?: DecryptStepDetails;
 }
 
 export interface CreateWorkflowRequest {
@@ -5078,6 +5097,13 @@ export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): a
  * @internal
  */
 export const CustomStepDetailsFilterSensitiveLog = (obj: CustomStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecryptStepDetailsFilterSensitiveLog = (obj: DecryptStepDetails): any => ({
   ...obj,
 });
 

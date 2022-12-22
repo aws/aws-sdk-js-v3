@@ -33,6 +33,9 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  *       You can list all the log streams or filter the results by prefix.
  *       You can also control how the results are ordered.</p>
  *          <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
+ *       view data from the linked source accounts. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

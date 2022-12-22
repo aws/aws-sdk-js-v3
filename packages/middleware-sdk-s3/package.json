@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.200.0",
+  "version": "3.231.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -20,7 +20,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",

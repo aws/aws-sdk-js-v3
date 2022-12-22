@@ -29,8 +29,8 @@ export interface UpdateCaseCommandInput extends UpdateCaseRequest {}
 export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the values of fields on a case. Fields to be updated are
- *       received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p>
+ * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
+ *       id/value pairs identical to the <code>CreateCase</code> input .</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *       HTTP body.</p>
  * @example

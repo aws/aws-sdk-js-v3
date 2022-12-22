@@ -19,7 +19,7 @@ import {
   CreateStreamingDistributionWithTagsRequestFilterSensitiveLog,
   CreateStreamingDistributionWithTagsResult,
   CreateStreamingDistributionWithTagsResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
   serializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
@@ -31,9 +31,9 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API is deprecated.
- *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
- *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+ * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
+ * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
+ * 			forum.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

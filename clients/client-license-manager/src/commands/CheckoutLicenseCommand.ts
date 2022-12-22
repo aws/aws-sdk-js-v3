@@ -30,6 +30,10 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
 
 /**
  * <p>Checks out the specified license.</p>
+ *          <note>
+ *             <p>If the account that created the license is the same that is performing the check out, you must
+ *             specify the account as the beneficiary.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1417,7 +1417,7 @@ export interface DeploymentIoTJobConfiguration {
 
 export interface CreateDeploymentRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>
    */
   targetArn: string | undefined;
 
@@ -1443,6 +1443,11 @@ export interface CreateDeploymentRequest {
    *       updates components and handles failure.</p>
    */
   deploymentPolicies?: DeploymentPolicies;
+
+  /**
+   * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
+   */
+  parentTargetArn?: string;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -1512,7 +1517,7 @@ export enum DeploymentStatus {
  */
 export interface Deployment {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>
    */
   targetArn?: string;
 
@@ -1545,6 +1550,11 @@ export interface Deployment {
    * <p>Whether or not the deployment is the latest revision for its target.</p>
    */
   isLatestForTarget?: boolean;
+
+  /**
+   * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
+   */
+  parentTargetArn?: string;
 }
 
 export enum DeploymentHistoryFilter {
@@ -1929,6 +1939,11 @@ export interface GetDeploymentResponse {
   isLatestForTarget?: boolean;
 
   /**
+   * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
+   */
+  parentTargetArn?: string;
+
+  /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
@@ -2113,6 +2128,11 @@ export interface ListDeploymentsRequest {
    *          </p>
    */
   historyFilter?: DeploymentHistoryFilter | string;
+
+  /**
+   * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
+   */
+  parentTargetArn?: string;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>

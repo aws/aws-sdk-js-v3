@@ -31,8 +31,9 @@ export interface ResendContactReachabilityEmailCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>For operations that require confirmation that the email address for the registrant contact is valid,
- * 			such as registering a new domain, this operation resends the confirmation email to the current email address for the registrant contact.</p>
+ * <p>For operations that require confirmation that the email address for the registrant
+ * 			contact is valid, such as registering a new domain, this operation resends the
+ * 			confirmation email to the current email address for the registrant contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

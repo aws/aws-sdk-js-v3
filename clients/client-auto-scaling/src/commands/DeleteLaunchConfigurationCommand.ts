@@ -25,7 +25,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes the specified launch configuration.</p>
- *         <p>The launch configuration must not be attached to an Auto Scaling group. When this call
+ *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

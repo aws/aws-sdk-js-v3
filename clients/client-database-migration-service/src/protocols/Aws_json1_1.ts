@@ -4757,6 +4757,7 @@ const serializeAws_json1_1CreateReplicationInstanceMessage = (
     ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.MultiAZ != null && { MultiAZ: input.MultiAZ }),
+    ...(input.NetworkType != null && { NetworkType: input.NetworkType }),
     ...(input.PreferredMaintenanceWindow != null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
     ...(input.PubliclyAccessible != null && { PubliclyAccessible: input.PubliclyAccessible }),
     ...(input.ReplicationInstanceClass != null && { ReplicationInstanceClass: input.ReplicationInstanceClass }),
@@ -5535,6 +5536,7 @@ const serializeAws_json1_1ModifyReplicationInstanceMessage = (
     ...(input.AutoMinorVersionUpgrade != null && { AutoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
     ...(input.MultiAZ != null && { MultiAZ: input.MultiAZ }),
+    ...(input.NetworkType != null && { NetworkType: input.NetworkType }),
     ...(input.PreferredMaintenanceWindow != null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
     ...(input.ReplicationInstanceArn != null && { ReplicationInstanceArn: input.ReplicationInstanceArn }),
     ...(input.ReplicationInstanceClass != null && { ReplicationInstanceClass: input.ReplicationInstanceClass }),
@@ -7702,6 +7704,7 @@ const deserializeAws_json1_1ReplicationInstance = (output: any, context: __Serde
         : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     MultiAZ: __expectBoolean(output.MultiAZ),
+    NetworkType: __expectString(output.NetworkType),
     PendingModifiedValues:
       output.PendingModifiedValues != null
         ? deserializeAws_json1_1ReplicationPendingModifiedValues(output.PendingModifiedValues, context)
@@ -7711,6 +7714,10 @@ const deserializeAws_json1_1ReplicationInstance = (output: any, context: __Serde
     ReplicationInstanceArn: __expectString(output.ReplicationInstanceArn),
     ReplicationInstanceClass: __expectString(output.ReplicationInstanceClass),
     ReplicationInstanceIdentifier: __expectString(output.ReplicationInstanceIdentifier),
+    ReplicationInstanceIpv6Addresses:
+      output.ReplicationInstanceIpv6Addresses != null
+        ? deserializeAws_json1_1ReplicationInstanceIpv6AddressList(output.ReplicationInstanceIpv6Addresses, context)
+        : undefined,
     ReplicationInstancePrivateIpAddress: __expectString(output.ReplicationInstancePrivateIpAddress),
     ReplicationInstancePrivateIpAddresses:
       output.ReplicationInstancePrivateIpAddresses != null
@@ -7738,6 +7745,18 @@ const deserializeAws_json1_1ReplicationInstance = (output: any, context: __Serde
         ? deserializeAws_json1_1VpcSecurityGroupMembershipList(output.VpcSecurityGroups, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ReplicationInstanceIpv6AddressList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReplicationInstanceList = (output: any, context: __SerdeContext): ReplicationInstance[] => {
@@ -7816,6 +7835,7 @@ const deserializeAws_json1_1ReplicationPendingModifiedValues = (
     AllocatedStorage: __expectInt32(output.AllocatedStorage),
     EngineVersion: __expectString(output.EngineVersion),
     MultiAZ: __expectBoolean(output.MultiAZ),
+    NetworkType: __expectString(output.NetworkType),
     ReplicationInstanceClass: __expectString(output.ReplicationInstanceClass),
   } as any;
 };
@@ -7826,6 +7846,10 @@ const deserializeAws_json1_1ReplicationSubnetGroup = (output: any, context: __Se
     ReplicationSubnetGroupIdentifier: __expectString(output.ReplicationSubnetGroupIdentifier),
     SubnetGroupStatus: __expectString(output.SubnetGroupStatus),
     Subnets: output.Subnets != null ? deserializeAws_json1_1SubnetList(output.Subnets, context) : undefined,
+    SupportedNetworkTypes:
+      output.SupportedNetworkTypes != null
+        ? deserializeAws_json1_1StringList(output.SupportedNetworkTypes, context)
+        : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -8369,6 +8393,10 @@ const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1TableStatistics = (output: any, context: __SerdeContext): TableStatistics => {
   return {
+    AppliedDdls: __expectLong(output.AppliedDdls),
+    AppliedDeletes: __expectLong(output.AppliedDeletes),
+    AppliedInserts: __expectLong(output.AppliedInserts),
+    AppliedUpdates: __expectLong(output.AppliedUpdates),
     Ddls: __expectLong(output.Ddls),
     Deletes: __expectLong(output.Deletes),
     FullLoadCondtnlChkFailedRows: __expectLong(output.FullLoadCondtnlChkFailedRows),

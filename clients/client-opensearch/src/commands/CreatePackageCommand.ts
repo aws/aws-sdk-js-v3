@@ -29,7 +29,8 @@ export interface CreatePackageCommandInput extends CreatePackageRequest {}
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
- * <p>Create a package for use with Amazon OpenSearch Service domains.</p>
+ * <p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see
+ *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

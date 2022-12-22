@@ -75,6 +75,12 @@ export interface EnvironmentAccountConnection {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface AcceptEnvironmentAccountConnectionOutput {
@@ -248,6 +254,12 @@ export interface AccountSettings {
    *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranch;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for CodeBuild-based
+   *       provisioning.</p>
+   */
+  pipelineCodebuildRoleArn?: string;
 }
 
 export interface GetAccountSettingsInput {}
@@ -300,6 +312,12 @@ export interface UpdateAccountSettingsInput {
    *       pipeline repository.</p>
    */
   deletePipelineProvisioningRepository?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based
+   *       provisioning.</p>
+   */
+  pipelineCodebuildRoleArn?: string;
 }
 
 export interface UpdateAccountSettingsOutput {
@@ -517,6 +535,12 @@ export interface Environment {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CancelEnvironmentDeploymentOutput {
@@ -1100,7 +1124,7 @@ export interface CreateEnvironmentAccountConnectionInput {
    * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
    *       resources in the associated environment account.</p>
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 
   /**
    * <p>The name of the Proton environment that's created in the associated management account.</p>
@@ -1124,6 +1148,12 @@ export interface CreateEnvironmentAccountConnectionInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CreateEnvironmentAccountConnectionOutput {
@@ -1303,6 +1333,12 @@ export interface UpdateEnvironmentAccountConnectionInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface UpdateEnvironmentAccountConnectionOutput {
@@ -1436,6 +1472,14 @@ export interface CreateEnvironmentInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   *          <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the
+   *       <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CreateEnvironmentOutput {
@@ -1706,6 +1750,12 @@ export interface UpdateEnvironmentInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface UpdateEnvironmentOutput {
@@ -2625,7 +2675,7 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   /**
    * <p>The status of your provisioned resource.</p>
    */
-  status: ResourceDeploymentStatus | string | undefined;
+  status?: ResourceDeploymentStatus | string;
 
   /**
    * <p>The provisioned resource state change detail data that's returned by Proton.</p>
@@ -2873,6 +2923,51 @@ export interface GetServiceInstanceOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
+export enum ListServiceInstancesFilterBy {
+  CREATED_AT_AFTER = "createdAtAfter",
+  CREATED_AT_BEFORE = "createdAtBefore",
+  DEPLOYED_TEMPLATE_VERSION_STATUS = "deployedTemplateVersionStatus",
+  DEPLOYMENT_STATUS = "deploymentStatus",
+  ENVIRONMENT_NAME = "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_AFTER = "lastDeploymentAttemptedAtAfter",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_BEFORE = "lastDeploymentAttemptedAtBefore",
+  NAME = "name",
+  SERVICE_NAME = "serviceName",
+  TEMPLATE_NAME = "templateName",
+}
+
+/**
+ * <p>A filtering criterion to scope down the result list of the <a>ListServiceInstances</a> action.</p>
+ */
+export interface ListServiceInstancesFilter {
+  /**
+   * <p>The name of a filtering criterion.</p>
+   */
+  key?: ListServiceInstancesFilterBy | string;
+
+  /**
+   * <p>A value to filter by.</p>
+   *          <p>With the date/time keys (<code>*At{Before,After}</code>), the value is a valid <a href="https://datatracker.ietf.org/doc/html/rfc3339.html">RFC
+   *         3339</a> string with no UTC offset and with an optional fractional precision (for example, <code>1985-04-12T23:20:50.52Z</code>).</p>
+   */
+  value?: string;
+}
+
+export enum ListServiceInstancesSortBy {
+  CREATED_AT = "createdAt",
+  DEPLOYMENT_STATUS = "deploymentStatus",
+  ENVIRONMENT_NAME = "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT = "lastDeploymentAttemptedAt",
+  NAME = "name",
+  SERVICE_NAME = "serviceName",
+  TEMPLATE_NAME = "templateName",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
 export interface ListServiceInstancesInput {
   /**
    * <p>The name of the service that the service instance belongs to.</p>
@@ -2889,6 +2984,26 @@ export interface ListServiceInstancesInput {
    * <p>The maximum number of service instances to list.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>
+   */
+  filters?: ListServiceInstancesFilter[];
+
+  /**
+   * <p>The field that the result list is sorted by.</p>
+   *          <p>When you choose to sort by <code>serviceName</code>, service instances within each service are sorted by service instance name.</p>
+   *          <p>Default: <code>serviceName</code>
+   *          </p>
+   */
+  sortBy?: ListServiceInstancesSortBy | string;
+
+  /**
+   * <p>Result list sort order.</p>
+   *          <p>Default: <code>ASCENDING</code>
+   *          </p>
+   */
+  sortOrder?: SortOrder | string;
 }
 
 /**
@@ -5246,6 +5361,13 @@ export const GetServiceInstanceInputFilterSensitiveLog = (obj: GetServiceInstanc
 export const GetServiceInstanceOutputFilterSensitiveLog = (obj: GetServiceInstanceOutput): any => ({
   ...obj,
   ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstancesFilterFilterSensitiveLog = (obj: ListServiceInstancesFilter): any => ({
+  ...obj,
 });
 
 /**

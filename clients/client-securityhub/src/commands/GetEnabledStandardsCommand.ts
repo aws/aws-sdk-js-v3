@@ -18,7 +18,7 @@ import {
   GetEnabledStandardsRequestFilterSensitiveLog,
   GetEnabledStandardsResponse,
   GetEnabledStandardsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetEnabledStandardsCommand,
   serializeAws_restJson1GetEnabledStandardsCommand,

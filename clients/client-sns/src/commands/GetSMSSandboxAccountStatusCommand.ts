@@ -29,7 +29,8 @@ export interface GetSMSSandboxAccountStatusCommandInput extends GetSMSSandboxAcc
 export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAccountStatusResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p>
+ * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
+ *             Amazon Web Services Region.</p>
  *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your

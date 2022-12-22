@@ -104,6 +104,7 @@ import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
 } from "./commands/CreateFlowDefinitionCommand";
+import { CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "./commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
@@ -111,6 +112,10 @@ import {
 } from "./commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "./commands/CreateImageVersionCommand";
+import {
+  CreateInferenceExperimentCommandInput,
+  CreateInferenceExperimentCommandOutput,
+} from "./commands/CreateInferenceExperimentCommand";
 import {
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
@@ -120,6 +125,11 @@ import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "./commands/CreateModelBiasJobDefinitionCommand";
+import { CreateModelCardCommandInput, CreateModelCardCommandOutput } from "./commands/CreateModelCardCommand";
+import {
+  CreateModelCardExportJobCommandInput,
+  CreateModelCardExportJobCommandOutput,
+} from "./commands/CreateModelCardExportJobCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelExplainabilityJobDefinitionCommandInput,
@@ -160,6 +170,7 @@ import {
   CreateProcessingJobCommandOutput,
 } from "./commands/CreateProcessingJobCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import {
   CreateStudioLifecycleConfigCommandInput,
   CreateStudioLifecycleConfigCommandOutput,
@@ -213,13 +224,20 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand";
+import { DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
+import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "./commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
 import {
+  DeleteInferenceExperimentCommandInput,
+  DeleteInferenceExperimentCommandOutput,
+} from "./commands/DeleteInferenceExperimentCommand";
+import {
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
 } from "./commands/DeleteModelBiasJobDefinitionCommand";
+import { DeleteModelCardCommandInput, DeleteModelCardCommandOutput } from "./commands/DeleteModelCardCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelExplainabilityJobDefinitionCommandInput,
@@ -252,6 +270,7 @@ import {
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
   DeleteStudioLifecycleConfigCommandInput,
   DeleteStudioLifecycleConfigCommandOutput,
@@ -320,6 +339,8 @@ import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "./commands/DescribeFlowDefinitionCommand";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
+import { DescribeHubContentCommandInput, DescribeHubContentCommandOutput } from "./commands/DescribeHubContentCommand";
 import {
   DescribeHumanTaskUiCommandInput,
   DescribeHumanTaskUiCommandOutput,
@@ -333,6 +354,10 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceExperimentCommandInput,
+  DescribeInferenceExperimentCommandOutput,
+} from "./commands/DescribeInferenceExperimentCommand";
 import {
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
@@ -349,6 +374,11 @@ import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
 } from "./commands/DescribeModelBiasJobDefinitionCommand";
+import { DescribeModelCardCommandInput, DescribeModelCardCommandOutput } from "./commands/DescribeModelCardCommand";
+import {
+  DescribeModelCardExportJobCommandInput,
+  DescribeModelCardExportJobCommandOutput,
+} from "./commands/DescribeModelCardExportJobCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
 import {
   DescribeModelExplainabilityJobDefinitionCommandInput,
@@ -392,6 +422,7 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "./commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommandInput,
   DescribeStudioLifecycleConfigCommandOutput,
@@ -451,8 +482,10 @@ import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
+import { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "./commands/ImportHubContentCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -500,6 +533,12 @@ import {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
 } from "./commands/ListFlowDefinitionsCommand";
+import { ListHubContentsCommandInput, ListHubContentsCommandOutput } from "./commands/ListHubContentsCommand";
+import {
+  ListHubContentVersionsCommandInput,
+  ListHubContentVersionsCommandOutput,
+} from "./commands/ListHubContentVersionsCommand";
+import { ListHubsCommandInput, ListHubsCommandOutput } from "./commands/ListHubsCommand";
 import { ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput } from "./commands/ListHumanTaskUisCommand";
 import {
   ListHyperParameterTuningJobsCommandInput,
@@ -507,6 +546,10 @@ import {
 } from "./commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "./commands/ListImageVersionsCommand";
+import {
+  ListInferenceExperimentsCommandInput,
+  ListInferenceExperimentsCommandOutput,
+} from "./commands/ListInferenceExperimentsCommand";
 import {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
@@ -526,6 +569,15 @@ import {
   ListModelBiasJobDefinitionsCommandOutput,
 } from "./commands/ListModelBiasJobDefinitionsCommand";
 import {
+  ListModelCardExportJobsCommandInput,
+  ListModelCardExportJobsCommandOutput,
+} from "./commands/ListModelCardExportJobsCommand";
+import { ListModelCardsCommandInput, ListModelCardsCommandOutput } from "./commands/ListModelCardsCommand";
+import {
+  ListModelCardVersionsCommandInput,
+  ListModelCardVersionsCommandOutput,
+} from "./commands/ListModelCardVersionsCommand";
+import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
 } from "./commands/ListModelExplainabilityJobDefinitionsCommand";
@@ -540,6 +592,14 @@ import {
   ListModelQualityJobDefinitionsCommandOutput,
 } from "./commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import {
+  ListMonitoringAlertHistoryCommandInput,
+  ListMonitoringAlertHistoryCommandOutput,
+} from "./commands/ListMonitoringAlertHistoryCommand";
+import {
+  ListMonitoringAlertsCommandInput,
+  ListMonitoringAlertsCommandOutput,
+} from "./commands/ListMonitoringAlertsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput,
@@ -571,6 +631,7 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "./commands/ListStageDevicesCommand";
 import {
   ListStudioLifecycleConfigsCommandInput,
@@ -620,6 +681,10 @@ import {
   StartEdgeDeploymentStageCommandOutput,
 } from "./commands/StartEdgeDeploymentStageCommand";
 import {
+  StartInferenceExperimentCommandInput,
+  StartInferenceExperimentCommandOutput,
+} from "./commands/StartInferenceExperimentCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "./commands/StartMonitoringScheduleCommand";
@@ -645,6 +710,10 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "./commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceExperimentCommandInput,
+  StopInferenceExperimentCommandOutput,
+} from "./commands/StopInferenceExperimentCommand";
 import {
   StopInferenceRecommendationsJobCommandInput,
   StopInferenceRecommendationsJobCommandOutput,
@@ -690,8 +759,19 @@ import {
   UpdateFeatureMetadataCommandInput,
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
+import { UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
+import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "./commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceExperimentCommandInput,
+  UpdateInferenceExperimentCommandOutput,
+} from "./commands/UpdateInferenceExperimentCommand";
+import { UpdateModelCardCommandInput, UpdateModelCardCommandOutput } from "./commands/UpdateModelCardCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "./commands/UpdateModelPackageCommand";
+import {
+  UpdateMonitoringAlertCommandInput,
+  UpdateMonitoringAlertCommandOutput,
+} from "./commands/UpdateMonitoringAlertCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -710,6 +790,7 @@ import {
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "./commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
@@ -752,13 +833,17 @@ export type ServiceInputTypes =
   | CreateExperimentCommandInput
   | CreateFeatureGroupCommandInput
   | CreateFlowDefinitionCommandInput
+  | CreateHubCommandInput
   | CreateHumanTaskUiCommandInput
   | CreateHyperParameterTuningJobCommandInput
   | CreateImageCommandInput
   | CreateImageVersionCommandInput
+  | CreateInferenceExperimentCommandInput
   | CreateInferenceRecommendationsJobCommandInput
   | CreateLabelingJobCommandInput
   | CreateModelBiasJobDefinitionCommandInput
+  | CreateModelCardCommandInput
+  | CreateModelCardExportJobCommandInput
   | CreateModelCommandInput
   | CreateModelExplainabilityJobDefinitionCommandInput
   | CreateModelPackageCommandInput
@@ -772,6 +857,7 @@ export type ServiceInputTypes =
   | CreatePresignedNotebookInstanceUrlCommandInput
   | CreateProcessingJobCommandInput
   | CreateProjectCommandInput
+  | CreateSpaceCommandInput
   | CreateStudioLifecycleConfigCommandInput
   | CreateTrainingJobCommandInput
   | CreateTransformJobCommandInput
@@ -798,10 +884,14 @@ export type ServiceInputTypes =
   | DeleteExperimentCommandInput
   | DeleteFeatureGroupCommandInput
   | DeleteFlowDefinitionCommandInput
+  | DeleteHubCommandInput
+  | DeleteHubContentCommandInput
   | DeleteHumanTaskUiCommandInput
   | DeleteImageCommandInput
   | DeleteImageVersionCommandInput
+  | DeleteInferenceExperimentCommandInput
   | DeleteModelBiasJobDefinitionCommandInput
+  | DeleteModelCardCommandInput
   | DeleteModelCommandInput
   | DeleteModelExplainabilityJobDefinitionCommandInput
   | DeleteModelPackageCommandInput
@@ -813,6 +903,7 @@ export type ServiceInputTypes =
   | DeleteNotebookInstanceLifecycleConfigCommandInput
   | DeletePipelineCommandInput
   | DeleteProjectCommandInput
+  | DeleteSpaceCommandInput
   | DeleteStudioLifecycleConfigCommandInput
   | DeleteTagsCommandInput
   | DeleteTrialCommandInput
@@ -842,14 +933,19 @@ export type ServiceInputTypes =
   | DescribeFeatureGroupCommandInput
   | DescribeFeatureMetadataCommandInput
   | DescribeFlowDefinitionCommandInput
+  | DescribeHubCommandInput
+  | DescribeHubContentCommandInput
   | DescribeHumanTaskUiCommandInput
   | DescribeHyperParameterTuningJobCommandInput
   | DescribeImageCommandInput
   | DescribeImageVersionCommandInput
+  | DescribeInferenceExperimentCommandInput
   | DescribeInferenceRecommendationsJobCommandInput
   | DescribeLabelingJobCommandInput
   | DescribeLineageGroupCommandInput
   | DescribeModelBiasJobDefinitionCommandInput
+  | DescribeModelCardCommandInput
+  | DescribeModelCardExportJobCommandInput
   | DescribeModelCommandInput
   | DescribeModelExplainabilityJobDefinitionCommandInput
   | DescribeModelPackageCommandInput
@@ -863,6 +959,7 @@ export type ServiceInputTypes =
   | DescribePipelineExecutionCommandInput
   | DescribeProcessingJobCommandInput
   | DescribeProjectCommandInput
+  | DescribeSpaceCommandInput
   | DescribeStudioLifecycleConfigCommandInput
   | DescribeSubscribedWorkteamCommandInput
   | DescribeTrainingJobCommandInput
@@ -880,8 +977,10 @@ export type ServiceInputTypes =
   | GetModelPackageGroupPolicyCommandInput
   | GetSagemakerServicecatalogPortfolioStatusCommandInput
   | GetSearchSuggestionsCommandInput
+  | ImportHubContentCommandInput
   | ListActionsCommandInput
   | ListAlgorithmsCommandInput
+  | ListAliasesCommandInput
   | ListAppImageConfigsCommandInput
   | ListAppsCommandInput
   | ListArtifactsCommandInput
@@ -902,22 +1001,31 @@ export type ServiceInputTypes =
   | ListExperimentsCommandInput
   | ListFeatureGroupsCommandInput
   | ListFlowDefinitionsCommandInput
+  | ListHubContentVersionsCommandInput
+  | ListHubContentsCommandInput
+  | ListHubsCommandInput
   | ListHumanTaskUisCommandInput
   | ListHyperParameterTuningJobsCommandInput
   | ListImageVersionsCommandInput
   | ListImagesCommandInput
+  | ListInferenceExperimentsCommandInput
   | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
   | ListLineageGroupsCommandInput
   | ListModelBiasJobDefinitionsCommandInput
+  | ListModelCardExportJobsCommandInput
+  | ListModelCardVersionsCommandInput
+  | ListModelCardsCommandInput
   | ListModelExplainabilityJobDefinitionsCommandInput
   | ListModelMetadataCommandInput
   | ListModelPackageGroupsCommandInput
   | ListModelPackagesCommandInput
   | ListModelQualityJobDefinitionsCommandInput
   | ListModelsCommandInput
+  | ListMonitoringAlertHistoryCommandInput
+  | ListMonitoringAlertsCommandInput
   | ListMonitoringExecutionsCommandInput
   | ListMonitoringSchedulesCommandInput
   | ListNotebookInstanceLifecycleConfigsCommandInput
@@ -928,6 +1036,7 @@ export type ServiceInputTypes =
   | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
   | ListProjectsCommandInput
+  | ListSpacesCommandInput
   | ListStageDevicesCommandInput
   | ListStudioLifecycleConfigsCommandInput
   | ListSubscribedWorkteamsCommandInput
@@ -949,6 +1058,7 @@ export type ServiceInputTypes =
   | SendPipelineExecutionStepFailureCommandInput
   | SendPipelineExecutionStepSuccessCommandInput
   | StartEdgeDeploymentStageCommandInput
+  | StartInferenceExperimentCommandInput
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
@@ -957,6 +1067,7 @@ export type ServiceInputTypes =
   | StopEdgeDeploymentStageCommandInput
   | StopEdgePackagingJobCommandInput
   | StopHyperParameterTuningJobCommandInput
+  | StopInferenceExperimentCommandInput
   | StopInferenceRecommendationsJobCommandInput
   | StopLabelingJobCommandInput
   | StopMonitoringScheduleCommandInput
@@ -978,14 +1089,20 @@ export type ServiceInputTypes =
   | UpdateExperimentCommandInput
   | UpdateFeatureGroupCommandInput
   | UpdateFeatureMetadataCommandInput
+  | UpdateHubCommandInput
   | UpdateImageCommandInput
+  | UpdateImageVersionCommandInput
+  | UpdateInferenceExperimentCommandInput
+  | UpdateModelCardCommandInput
   | UpdateModelPackageCommandInput
+  | UpdateMonitoringAlertCommandInput
   | UpdateMonitoringScheduleCommandInput
   | UpdateNotebookInstanceCommandInput
   | UpdateNotebookInstanceLifecycleConfigCommandInput
   | UpdatePipelineCommandInput
   | UpdatePipelineExecutionCommandInput
   | UpdateProjectCommandInput
+  | UpdateSpaceCommandInput
   | UpdateTrainingJobCommandInput
   | UpdateTrialCommandInput
   | UpdateTrialComponentCommandInput
@@ -1018,13 +1135,17 @@ export type ServiceOutputTypes =
   | CreateExperimentCommandOutput
   | CreateFeatureGroupCommandOutput
   | CreateFlowDefinitionCommandOutput
+  | CreateHubCommandOutput
   | CreateHumanTaskUiCommandOutput
   | CreateHyperParameterTuningJobCommandOutput
   | CreateImageCommandOutput
   | CreateImageVersionCommandOutput
+  | CreateInferenceExperimentCommandOutput
   | CreateInferenceRecommendationsJobCommandOutput
   | CreateLabelingJobCommandOutput
   | CreateModelBiasJobDefinitionCommandOutput
+  | CreateModelCardCommandOutput
+  | CreateModelCardExportJobCommandOutput
   | CreateModelCommandOutput
   | CreateModelExplainabilityJobDefinitionCommandOutput
   | CreateModelPackageCommandOutput
@@ -1038,6 +1159,7 @@ export type ServiceOutputTypes =
   | CreatePresignedNotebookInstanceUrlCommandOutput
   | CreateProcessingJobCommandOutput
   | CreateProjectCommandOutput
+  | CreateSpaceCommandOutput
   | CreateStudioLifecycleConfigCommandOutput
   | CreateTrainingJobCommandOutput
   | CreateTransformJobCommandOutput
@@ -1064,10 +1186,14 @@ export type ServiceOutputTypes =
   | DeleteExperimentCommandOutput
   | DeleteFeatureGroupCommandOutput
   | DeleteFlowDefinitionCommandOutput
+  | DeleteHubCommandOutput
+  | DeleteHubContentCommandOutput
   | DeleteHumanTaskUiCommandOutput
   | DeleteImageCommandOutput
   | DeleteImageVersionCommandOutput
+  | DeleteInferenceExperimentCommandOutput
   | DeleteModelBiasJobDefinitionCommandOutput
+  | DeleteModelCardCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelExplainabilityJobDefinitionCommandOutput
   | DeleteModelPackageCommandOutput
@@ -1079,6 +1205,7 @@ export type ServiceOutputTypes =
   | DeleteNotebookInstanceLifecycleConfigCommandOutput
   | DeletePipelineCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteSpaceCommandOutput
   | DeleteStudioLifecycleConfigCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrialCommandOutput
@@ -1108,14 +1235,19 @@ export type ServiceOutputTypes =
   | DescribeFeatureGroupCommandOutput
   | DescribeFeatureMetadataCommandOutput
   | DescribeFlowDefinitionCommandOutput
+  | DescribeHubCommandOutput
+  | DescribeHubContentCommandOutput
   | DescribeHumanTaskUiCommandOutput
   | DescribeHyperParameterTuningJobCommandOutput
   | DescribeImageCommandOutput
   | DescribeImageVersionCommandOutput
+  | DescribeInferenceExperimentCommandOutput
   | DescribeInferenceRecommendationsJobCommandOutput
   | DescribeLabelingJobCommandOutput
   | DescribeLineageGroupCommandOutput
   | DescribeModelBiasJobDefinitionCommandOutput
+  | DescribeModelCardCommandOutput
+  | DescribeModelCardExportJobCommandOutput
   | DescribeModelCommandOutput
   | DescribeModelExplainabilityJobDefinitionCommandOutput
   | DescribeModelPackageCommandOutput
@@ -1129,6 +1261,7 @@ export type ServiceOutputTypes =
   | DescribePipelineExecutionCommandOutput
   | DescribeProcessingJobCommandOutput
   | DescribeProjectCommandOutput
+  | DescribeSpaceCommandOutput
   | DescribeStudioLifecycleConfigCommandOutput
   | DescribeSubscribedWorkteamCommandOutput
   | DescribeTrainingJobCommandOutput
@@ -1146,8 +1279,10 @@ export type ServiceOutputTypes =
   | GetModelPackageGroupPolicyCommandOutput
   | GetSagemakerServicecatalogPortfolioStatusCommandOutput
   | GetSearchSuggestionsCommandOutput
+  | ImportHubContentCommandOutput
   | ListActionsCommandOutput
   | ListAlgorithmsCommandOutput
+  | ListAliasesCommandOutput
   | ListAppImageConfigsCommandOutput
   | ListAppsCommandOutput
   | ListArtifactsCommandOutput
@@ -1168,22 +1303,31 @@ export type ServiceOutputTypes =
   | ListExperimentsCommandOutput
   | ListFeatureGroupsCommandOutput
   | ListFlowDefinitionsCommandOutput
+  | ListHubContentVersionsCommandOutput
+  | ListHubContentsCommandOutput
+  | ListHubsCommandOutput
   | ListHumanTaskUisCommandOutput
   | ListHyperParameterTuningJobsCommandOutput
   | ListImageVersionsCommandOutput
   | ListImagesCommandOutput
+  | ListInferenceExperimentsCommandOutput
   | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
   | ListLineageGroupsCommandOutput
   | ListModelBiasJobDefinitionsCommandOutput
+  | ListModelCardExportJobsCommandOutput
+  | ListModelCardVersionsCommandOutput
+  | ListModelCardsCommandOutput
   | ListModelExplainabilityJobDefinitionsCommandOutput
   | ListModelMetadataCommandOutput
   | ListModelPackageGroupsCommandOutput
   | ListModelPackagesCommandOutput
   | ListModelQualityJobDefinitionsCommandOutput
   | ListModelsCommandOutput
+  | ListMonitoringAlertHistoryCommandOutput
+  | ListMonitoringAlertsCommandOutput
   | ListMonitoringExecutionsCommandOutput
   | ListMonitoringSchedulesCommandOutput
   | ListNotebookInstanceLifecycleConfigsCommandOutput
@@ -1194,6 +1338,7 @@ export type ServiceOutputTypes =
   | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
   | ListProjectsCommandOutput
+  | ListSpacesCommandOutput
   | ListStageDevicesCommandOutput
   | ListStudioLifecycleConfigsCommandOutput
   | ListSubscribedWorkteamsCommandOutput
@@ -1215,6 +1360,7 @@ export type ServiceOutputTypes =
   | SendPipelineExecutionStepFailureCommandOutput
   | SendPipelineExecutionStepSuccessCommandOutput
   | StartEdgeDeploymentStageCommandOutput
+  | StartInferenceExperimentCommandOutput
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput
@@ -1223,6 +1369,7 @@ export type ServiceOutputTypes =
   | StopEdgeDeploymentStageCommandOutput
   | StopEdgePackagingJobCommandOutput
   | StopHyperParameterTuningJobCommandOutput
+  | StopInferenceExperimentCommandOutput
   | StopInferenceRecommendationsJobCommandOutput
   | StopLabelingJobCommandOutput
   | StopMonitoringScheduleCommandOutput
@@ -1244,14 +1391,20 @@ export type ServiceOutputTypes =
   | UpdateExperimentCommandOutput
   | UpdateFeatureGroupCommandOutput
   | UpdateFeatureMetadataCommandOutput
+  | UpdateHubCommandOutput
   | UpdateImageCommandOutput
+  | UpdateImageVersionCommandOutput
+  | UpdateInferenceExperimentCommandOutput
+  | UpdateModelCardCommandOutput
   | UpdateModelPackageCommandOutput
+  | UpdateMonitoringAlertCommandOutput
   | UpdateMonitoringScheduleCommandOutput
   | UpdateNotebookInstanceCommandOutput
   | UpdateNotebookInstanceLifecycleConfigCommandOutput
   | UpdatePipelineCommandOutput
   | UpdatePipelineExecutionCommandOutput
   | UpdateProjectCommandOutput
+  | UpdateSpaceCommandOutput
   | UpdateTrainingJobCommandOutput
   | UpdateTrialCommandOutput
   | UpdateTrialComponentCommandOutput
@@ -1410,16 +1563,16 @@ export interface SageMakerClientResolvedConfig extends SageMakerClientResolvedCo
 
 /**
  * <p>Provides APIs for creating and managing SageMaker resources. </p>
- *         <p>Other Resources:</p>
- *         <ul>
+ *          <p>Other Resources:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer
  *                         Guide</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI
  *                         Runtime API Reference</a>
  *                </p>

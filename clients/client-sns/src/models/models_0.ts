@@ -16,8 +16,8 @@ export interface AddPermissionInput {
 
   /**
    * <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the
-   *             specified actions. The users must have Amazon Web Services account, but do not need to be signed up for
-   *             this service.</p>
+   *             specified actions. The users must have Amazon Web Services account, but do not need to be signed up
+   *             for this service.</p>
    */
   AWSAccountId: string[] | undefined;
 
@@ -172,9 +172,9 @@ export interface ConfirmSubscriptionInput {
 
   /**
    * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
-   *             parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic
-   *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
-   *             requires Amazon Web Services authentication. </p>
+   *             parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the
+   *             topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
+   *             action requires Amazon Web Services authentication. </p>
    */
   AuthenticateOnUnsubscribe?: string;
 }
@@ -450,6 +450,22 @@ export interface CreateTopicInput {
    *                     topic. By default, only the topic owner can publish or subscribe to the
    *                     topic.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SignatureVersion</code> – The signature version corresponds to
+   *                     the hashing algorithm used while creating the signature of the notifications,
+   *                     subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+   *                     By default, <code>SignatureVersion</code> is set to 1.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to Active, Amazon SNS will vend X-Ray segment data to topic
+   *                     owner account if the sampled flag in the tracing header is true. This is only
+   *                     supported on standard topics.</p>
+   *             </li>
    *          </ul>
    *
    *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side
@@ -459,8 +475,7 @@ export interface CreateTopicInput {
    *                 <p>
    *                     <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
    *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
-   *                         Reference</i>. </p>
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>. </p>
    *             </li>
    *          </ul>
    *
@@ -684,8 +699,8 @@ export interface DeleteTopicInput {
 export interface GetDataProtectionPolicyInput {
   /**
    * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-   *             in the Amazon Web Services General Reference.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *                 (ARNs)</a> in the Amazon Web Services General Reference.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -761,15 +776,18 @@ export interface GetPlatformApplicationAttributesResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>AppleCertificateExpiryDate</code> – The expiry date of the SSL certificate used to configure certificate-based authentication.</p>
+   *                     <code>AppleCertificateExpiryDate</code> – The expiry date of the SSL
+   *                     certificate used to configure certificate-based authentication.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ApplePlatformTeamID</code> – The Apple developer account ID used to configure token-based authentication.</p>
+   *                     <code>ApplePlatformTeamID</code> – The Apple developer account ID used to
+   *                     configure token-based authentication.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ApplePlatformBundleID</code> – The app identifier used to configure token-based authentication.</p>
+   *                     <code>ApplePlatformBundleID</code> – The app identifier used to configure
+   *                     token-based authentication.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -871,6 +889,20 @@ export interface GetSubscriptionAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageBody</code> – The filter is applied on the message body.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>Owner</code> – The Amazon Web Services account ID of the subscription's
    *                     owner.</p>
    *             </li>
@@ -956,12 +988,36 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
+   *                     effective delivery policy, taking system defaults into account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>Owner</code> – The Amazon Web Services account ID of the topic's owner.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>Policy</code> – The JSON serialization of the topic's access
    *                     control policy.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SignatureVersion</code> – The version of the Amazon SNS signature used
+   *                     for the topic.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>By default, <code>SignatureVersion</code> is set to <b>1</b>. The signature is a Base64-encoded
+   *                                 <b>SHA1withRSA</b> signature.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>When you set <code>SignatureVersion</code> to <b>2</b>. Amazon SNS uses a Base64-encoded <b>SHA256withRSA</b> signature. </p>
+   *                         <note>
+   *                             <p>If the API response does not include the
+   *                                     <code>SignatureVersion</code> attribute, it means that the
+   *                                     <code>SignatureVersion</code> for the topic has value <b>1</b>.</p>
+   *                         </note>
+   *                     </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                 <p>
@@ -984,8 +1040,12 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
-   *                     effective delivery policy, taking system defaults into account.</p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to Active, Amazon SNS will vend X-Ray segment data to topic
+   *                     owner account if the sampled flag in the tracing header is true. This is only
+   *                     supported on standard topics.</p>
    *             </li>
    *          </ul>
    *
@@ -995,8 +1055,7 @@ export interface GetTopicAttributesResponse {
    *                 <p>
    *                   <code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key
    *                     (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
-   *                         Reference</i>.</p>
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p>
    *             </li>
    *          </ul>
    *
@@ -1297,7 +1356,7 @@ export interface ListSMSSandboxPhoneNumbersResult {
 
   /**
    * <p>A <code>NextToken</code> string is returned when you call the
-   *             <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of
+   *                 <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of
    *             records are available.</p>
    */
   NextToken?: string;
@@ -1797,8 +1856,8 @@ export interface PublishInput {
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
-   *             <code>(a-z, A-Z, 0-9)</code> and punctuation
-   *             <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
    *             used for deduplication of sent messages. If a message with a particular
    *                 <code>MessageDeduplicationId</code> is sent successfully, any message sent with the
@@ -1812,9 +1871,9 @@ export interface PublishInput {
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
-   *             <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
-   *             <code>(a-z, A-Z, 0-9)</code> and punctuation
-   *             <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
+   *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
    *             specific message group. Messages that belong to the same message group are processed in
    *             a FIFO manner (however, messages in different message groups might be processed out of
@@ -2029,7 +2088,8 @@ export interface PublishBatchInput {
   TopicArn: string | undefined;
 
   /**
-   * <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
+   * <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS
+   *             topic.</p>
    */
   PublishBatchRequestEntries: PublishBatchRequestEntry[] | undefined;
 }
@@ -2114,9 +2174,10 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
 
 export interface PutDataProtectionPolicyInput {
   /**
-   * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-   *             in the Amazon Web Services General Reference.</p>
+   * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
+   *             update.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *                 (ARNs)</a> in the Amazon Web Services General Reference.</p>
    */
   ResourceArn: string | undefined;
 
@@ -2195,46 +2256,54 @@ export interface SetPlatformApplicationAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>PlatformCredential</code> – The credential received from the notification service.</p>
+   *                   <code>PlatformCredential</code> – The credential received from the
+   *                     notification service.</p>
    *                 <ul>
    *                   <li>
-   *                      <p>For ADM, <code>PlatformCredential</code>is client secret.</p>
-   *                   </li>
+   *                         <p>For ADM, <code>PlatformCredential</code>is client secret.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p>
-   *                   </li>
+   *                         <p>For Apple Services using certificate credentials,
+   *                                 <code>PlatformCredential</code> is private key.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p>
-   *                   </li>
+   *                         <p>For Apple Services using token credentials,
+   *                                 <code>PlatformCredential</code> is signing key.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </p>
-   *                   </li>
+   *                         <p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is
+   *                             API key. </p>
+   *                     </li>
    *                </ul>
    *             </li>
    *          </ul>
    *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>PlatformPrincipal</code> – The principal received from the notification service.</p>
-   *                <ul>
+   *                 <p>
+   *                   <code>PlatformPrincipal</code> – The principal received from the
+   *                     notification service.</p>
+   *                 <ul>
    *                   <li>
-   *                      <p>For ADM, <code>PlatformPrincipal</code>is client id.</p>
-   *                   </li>
+   *                         <p>For ADM, <code>PlatformPrincipal</code>is client id.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p>
-   *                   </li>
+   *                         <p>For Apple Services using certificate credentials,
+   *                                 <code>PlatformPrincipal</code> is SSL certificate.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p>
-   *                   </li>
+   *                         <p>For Apple Services using token credentials,
+   *                                 <code>PlatformPrincipal</code> is signing key ID.</p>
+   *                     </li>
    *                   <li>
-   *                      <p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p>
-   *                   </li>
+   *                         <p>For GCM (Firebase Cloud Messaging), there is no
+   *                                 <code>PlatformPrincipal</code>. </p>
+   *                     </li>
    *                </ul>
    *             </li>
    *          </ul>
    *         <ul>
    *             <li>
-   *                    <p>
+   *                 <p>
    *                     <code>EventEndpointCreated</code> – Topic ARN to which
    *                         <code>EndpointCreated</code> event notifications are sent.</p>
    *             </li>
@@ -2271,15 +2340,18 @@ export interface SetPlatformApplicationAttributesInput {
    *                     of successfully delivered messages.</p>
    *             </li>
    *          </ul>
-   *         <p>The following attributes only apply to <code>APNs</code> token-based authentication:</p>
+   *         <p>The following attributes only apply to <code>APNs</code> token-based
+   *             authentication:</p>
    *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer account team.</p>
+   *                 <p>
+   *                   <code>ApplePlatformTeamID</code> – The identifier that's assigned to your
+   *                     Apple developer account team.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p>
+   *                 <p>
+   *                   <code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to
+   *                     your iOS app.</p>
    *             </li>
    *          </ul>
    */
@@ -2291,8 +2363,8 @@ export interface SetPlatformApplicationAttributesInput {
  */
 export interface SetSMSAttributesInput {
   /**
-   * <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set values
-   *             for the following attribute names:</p>
+   * <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set
+   *             values for the following attribute names:</p>
    *         <p>
    *             <code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend
    *             each month to send SMS messages. When Amazon SNS determines that sending an SMS message would
@@ -2336,7 +2408,8 @@ export interface SetSMSAttributesInput {
    *             <li>
    *                 <p>
    *                     <code>Transactional</code> – Critical messages that support customer
-   *                     transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p>
+   *                     transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS
+   *                     optimizes the message delivery to achieve the highest reliability.</p>
    *             </li>
    *          </ul>
    *         <p>
@@ -2412,6 +2485,20 @@ export interface SetSubscriptionAttributesInput {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageBody</code> – The filter is applied on the message body.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
    *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
    *                     need for the endpoints to process JSON formatting, which is otherwise created
@@ -2484,6 +2571,15 @@ export interface SetTopicAttributesInput {
    *                     topic. By default, only the topic owner can publish or subscribe to the
    *                     topic.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to Active, Amazon SNS will vend X-Ray segment data to topic
+   *                     owner account if the sampled flag in the tracing header is true. This is only
+   *                     supported on standard topics.</p>
+   *             </li>
    *          </ul>
    *
    *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
@@ -2492,8 +2588,14 @@ export interface SetTopicAttributesInput {
    *                 <p>
    *                     <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
    *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
-   *                         Reference</i>. </p>
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>SignatureVersion</code> – The signature version corresponds to the
+   *                     hashing algorithm used while creating the signature of the notifications,
+   *                     subscription confirmations, or unsubscribe confirmation messages sent by
+   *                     Amazon SNS.</p>
    *             </li>
    *          </ul>
    *
@@ -2649,6 +2751,20 @@ export interface SubscribeInput {
    *                   <code>FilterPolicy</code> – The simple JSON object that lets your
    *                     subscriber receive only a subset of messages, rather than receiving every
    *                     message published to the topic.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageBody</code> – The filter is applied on the message body.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                 <p>

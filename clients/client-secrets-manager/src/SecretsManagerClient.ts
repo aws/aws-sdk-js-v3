@@ -298,37 +298,20 @@ export interface SecretsManagerClientResolvedConfig extends SecretsManagerClient
 /**
  * <fullname>Amazon Web Services Secrets Manager</fullname>
  *          <p>Amazon Web Services Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
- *
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
  *       service, see the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">Amazon Web Services Secrets Manager User Guide</a>.</p>
- *
  *          <p>
  *             <b>API Version</b>
  *          </p>
- *
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
+ *          <p>For a list of endpoints, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/asm_access.html#endpoints">Amazon Web Services Secrets Manager
+ *       endpoints</a>.</p>
  *          <p>
  *             <b>Support and Feedback for Amazon Web Services Secrets Manager</b>
  *          </p>
  *          <p>We welcome your feedback. Send your comments to <a href="mailto:awssecretsmanager-feedback@amazon.com">awssecretsmanager-feedback@amazon.com</a>, or post your feedback and questions in the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=296">Amazon Web Services Secrets Manager Discussion Forum</a>. For more
  *       information about the Amazon Web Services Discussion Forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums
  *         Help</a>.</p>
- *
  *          <p>
  *             <b>Logging API Requests</b>
  *          </p>

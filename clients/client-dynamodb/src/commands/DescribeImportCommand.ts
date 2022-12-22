@@ -29,9 +29,7 @@ export interface DescribeImportCommandInput extends DescribeImportInput {}
 export interface DescribeImportCommandOutput extends DescribeImportOutput, __MetadataBearer {}
 
 /**
- * <p>
- *                 Represents the properties of the import.
- *                 </p>
+ * <p> Represents the properties of the import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

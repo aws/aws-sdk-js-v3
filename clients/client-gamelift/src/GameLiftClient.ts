@@ -65,6 +65,7 @@ import {
   CreateGameSessionQueueCommandInput,
   CreateGameSessionQueueCommandOutput,
 } from "./commands/CreateGameSessionQueueCommand";
+import { CreateLocationCommandInput, CreateLocationCommandOutput } from "./commands/CreateLocationCommand";
 import {
   CreateMatchmakingConfigurationCommandInput,
   CreateMatchmakingConfigurationCommandOutput,
@@ -105,6 +106,7 @@ import {
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand";
+import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
 import {
   DeleteMatchmakingConfigurationCommandInput,
   DeleteMatchmakingConfigurationCommandOutput,
@@ -126,12 +128,14 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
+import { DeregisterComputeCommandInput, DeregisterComputeCommandOutput } from "./commands/DeregisterComputeCommand";
 import {
   DeregisterGameServerCommandInput,
   DeregisterGameServerCommandOutput,
 } from "./commands/DeregisterGameServerCommand";
 import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./commands/DescribeAliasCommand";
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
+import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "./commands/DescribeComputeCommand";
 import {
   DescribeEC2InstanceLimitsCommandInput,
   DescribeEC2InstanceLimitsCommandOutput,
@@ -227,6 +231,11 @@ import {
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
+import { GetComputeAccessCommandInput, GetComputeAccessCommandOutput } from "./commands/GetComputeAccessCommand";
+import {
+  GetComputeAuthTokenCommandInput,
+  GetComputeAuthTokenCommandOutput,
+} from "./commands/GetComputeAuthTokenCommand";
 import {
   GetGameSessionLogUrlCommandInput,
   GetGameSessionLogUrlCommandOutput,
@@ -234,18 +243,21 @@ import {
 import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from "./commands/GetInstanceAccessCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
+import { ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
   ListGameServerGroupsCommandOutput,
 } from "./commands/ListGameServerGroupsCommand";
 import { ListGameServersCommandInput, ListGameServersCommandOutput } from "./commands/ListGameServersCommand";
+import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
 import { ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
+import { RegisterComputeCommandInput, RegisterComputeCommandOutput } from "./commands/RegisterComputeCommand";
 import { RegisterGameServerCommandInput, RegisterGameServerCommandOutput } from "./commands/RegisterGameServerCommand";
 import {
   RequestUploadCredentialsCommandInput,
@@ -331,6 +343,7 @@ export type ServiceInputTypes =
   | CreateGameServerGroupCommandInput
   | CreateGameSessionCommandInput
   | CreateGameSessionQueueCommandInput
+  | CreateLocationCommandInput
   | CreateMatchmakingConfigurationCommandInput
   | CreateMatchmakingRuleSetCommandInput
   | CreatePlayerSessionCommandInput
@@ -344,15 +357,18 @@ export type ServiceInputTypes =
   | DeleteFleetLocationsCommandInput
   | DeleteGameServerGroupCommandInput
   | DeleteGameSessionQueueCommandInput
+  | DeleteLocationCommandInput
   | DeleteMatchmakingConfigurationCommandInput
   | DeleteMatchmakingRuleSetCommandInput
   | DeleteScalingPolicyCommandInput
   | DeleteScriptCommandInput
   | DeleteVpcPeeringAuthorizationCommandInput
   | DeleteVpcPeeringConnectionCommandInput
+  | DeregisterComputeCommandInput
   | DeregisterGameServerCommandInput
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
+  | DescribeComputeCommandInput
   | DescribeEC2InstanceLimitsCommandInput
   | DescribeFleetAttributesCommandInput
   | DescribeFleetCapacityCommandInput
@@ -379,16 +395,21 @@ export type ServiceInputTypes =
   | DescribeScriptCommandInput
   | DescribeVpcPeeringAuthorizationsCommandInput
   | DescribeVpcPeeringConnectionsCommandInput
+  | GetComputeAccessCommandInput
+  | GetComputeAuthTokenCommandInput
   | GetGameSessionLogUrlCommandInput
   | GetInstanceAccessCommandInput
   | ListAliasesCommandInput
   | ListBuildsCommandInput
+  | ListComputeCommandInput
   | ListFleetsCommandInput
   | ListGameServerGroupsCommandInput
   | ListGameServersCommandInput
+  | ListLocationsCommandInput
   | ListScriptsCommandInput
   | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
+  | RegisterComputeCommandInput
   | RegisterGameServerCommandInput
   | RequestUploadCredentialsCommandInput
   | ResolveAliasCommandInput
@@ -428,6 +449,7 @@ export type ServiceOutputTypes =
   | CreateGameServerGroupCommandOutput
   | CreateGameSessionCommandOutput
   | CreateGameSessionQueueCommandOutput
+  | CreateLocationCommandOutput
   | CreateMatchmakingConfigurationCommandOutput
   | CreateMatchmakingRuleSetCommandOutput
   | CreatePlayerSessionCommandOutput
@@ -441,15 +463,18 @@ export type ServiceOutputTypes =
   | DeleteFleetLocationsCommandOutput
   | DeleteGameServerGroupCommandOutput
   | DeleteGameSessionQueueCommandOutput
+  | DeleteLocationCommandOutput
   | DeleteMatchmakingConfigurationCommandOutput
   | DeleteMatchmakingRuleSetCommandOutput
   | DeleteScalingPolicyCommandOutput
   | DeleteScriptCommandOutput
   | DeleteVpcPeeringAuthorizationCommandOutput
   | DeleteVpcPeeringConnectionCommandOutput
+  | DeregisterComputeCommandOutput
   | DeregisterGameServerCommandOutput
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
+  | DescribeComputeCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
   | DescribeFleetAttributesCommandOutput
   | DescribeFleetCapacityCommandOutput
@@ -476,16 +501,21 @@ export type ServiceOutputTypes =
   | DescribeScriptCommandOutput
   | DescribeVpcPeeringAuthorizationsCommandOutput
   | DescribeVpcPeeringConnectionsCommandOutput
+  | GetComputeAccessCommandOutput
+  | GetComputeAuthTokenCommandOutput
   | GetGameSessionLogUrlCommandOutput
   | GetInstanceAccessCommandOutput
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
+  | ListComputeCommandOutput
   | ListFleetsCommandOutput
   | ListGameServerGroupsCommandOutput
   | ListGameServersCommandOutput
+  | ListLocationsCommandOutput
   | ListScriptsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
+  | RegisterComputeCommandOutput
   | RegisterGameServerCommandOutput
   | RequestUploadCredentialsCommandOutput
   | ResolveAliasCommandOutput
@@ -665,10 +695,9 @@ type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConfigType {}
 
 /**
- * <fullname>GameLift Service</fullname>
- *         <p>Amazon Web Services provides solutions for hosting session-based multiplayer game servers in the
- *             cloud, including tools for deploying, operating, and scaling game servers. Built on Amazon Web Services
- *             global computing infrastructure, GameLift helps you deliver high-performance,
+ * <p>Amazon GameLift provides solutions for hosting session-based multiplayer game servers in the
+ *             cloud, including tools for deploying, operating, and scaling game servers. Built on
+ *             Amazon Web Services global computing infrastructure, GameLift helps you deliver high-performance,
  *             high-reliability, low-cost game servers while dynamically scaling your resource usage to
  *             meet player demand. </p>
  *         <p>
@@ -677,24 +706,25 @@ export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConf
  *         <p>Get more information on these GameLift solutions in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/">GameLift Developer Guide</a>.</p>
  *         <ul>
  *             <li>
- *                <p>GameLift managed hosting -- GameLift offers a fully managed service to set up and maintain
- *                     computing machines for hosting, manage game session and player session life
- *                     cycle, and handle security, storage, and performance tracking. You can use
- *                     automatic scaling tools to balance player demand and hosting costs, configure
- *                     your game session management to minimize player latency, and add FlexMatch for
- *                     matchmaking.</p>
+ *                 <p>GameLift managed hosting -- GameLift offers a fully managed service to set up
+ *                     and maintain computing machines for hosting, manage game session and player
+ *                     session life cycle, and handle security, storage, and performance tracking. You
+ *                     can use automatic scaling tools to balance player demand and hosting costs,
+ *                     configure your game session management to minimize player latency, and add
+ *                     FlexMatch for matchmaking.</p>
  *             </li>
  *             <li>
- *                <p>Managed hosting with Realtime Servers -- With GameLift Realtime Servers, you can quickly configure and set up
- *                     ready-to-go game servers for your game. Realtime Servers provides a game server framework
- *                     with core GameLift infrastructure already built in. Then use the full range of
- *                     GameLift managed hosting features, including FlexMatch, for your game.</p>
+ *                 <p>Managed hosting with Realtime Servers -- With GameLift Realtime Servers, you can quickly configure
+ *                     and set up ready-to-go game servers for your game. Realtime Servers provides a game server
+ *                     framework with core GameLift infrastructure already built in. Then use the full
+ *                     range of GameLift managed hosting features, including FlexMatch, for your
+ *                     game.</p>
  *             </li>
  *             <li>
- *                <p>GameLift FleetIQ -- Use GameLift FleetIQ as a standalone service while hosting your games using EC2 instances and
- *                     Auto Scaling groups. GameLift FleetIQ provides optimizations for game hosting, including
- *                     boosting the viability of low-cost Spot Instances gaming. For a complete
- *                     solution, pair the GameLift FleetIQ and FlexMatch standalone services.</p>
+ *                 <p>GameLift FleetIQ -- Use GameLift FleetIQ as a standalone service while hosting your games using EC2
+ *                     instances and Auto Scaling groups. GameLift FleetIQ provides optimizations for game
+ *                     hosting, including boosting the viability of low-cost Spot Instances gaming. For
+ *                     a complete solution, pair the GameLift FleetIQ and FlexMatch standalone services.</p>
  *             </li>
  *             <li>
  *                 <p>GameLift FlexMatch -- Add matchmaking to your game hosting solution. FlexMatch is a
@@ -706,20 +736,20 @@ export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConf
  *         <p>
  *             <b>About this API Reference</b>
  *          </p>
- *         <p>This reference guide describes the low-level service API for Amazon Web Services. With each topic
+ *         <p>This reference guide describes the low-level service API for Amazon GameLift. With each topic
  *             in this guide, you can find links to language-specific SDK guides and the Amazon Web Services CLI
  *             reference. Useful links:</p>
  *         <ul>
  *             <li>
  *                 <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html">GameLift API
- *                     operations listed by tasks</a>
+ *                         operations listed by tasks</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-components.html"> GameLift tools
- *                     and resources</a>
+ *                         and resources</a>
  *                </p>
  *             </li>
  *          </ul>

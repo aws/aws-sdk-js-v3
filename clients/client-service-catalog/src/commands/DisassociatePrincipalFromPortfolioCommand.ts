@@ -33,6 +33,13 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
 /**
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
+ *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
+ *          <code>AssociatePrincipalWithPortfolio</code> call request details. For example,
+ *          to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code>
+ *          IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p>
+ *          <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal,
+ *    share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name
+ *    of the associated principal. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,6 +37,7 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "../
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "../commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "../commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "../commands/DisassociateApiCommand";
+import { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "../commands/EvaluateCodeCommand";
 import {
   EvaluateMappingTemplateCommandInput,
   EvaluateMappingTemplateCommandOutput,
@@ -97,10 +98,14 @@ import {
   ApiKeyLimitExceededException,
   ApiKeyValidityOutOfBoundsException,
   ApiLimitExceededException,
+  AppSyncRuntime,
   AuthorizationConfig,
   AwsIamConfig,
+  BadRequestDetail,
   BadRequestException,
   CachingConfig,
+  CodeError,
+  CodeErrorLocation,
   CognitoUserPoolConfig,
   ConcurrentModificationException,
   DataSource,
@@ -109,6 +114,7 @@ import {
   DynamodbDataSourceConfig,
   ElasticsearchDataSourceConfig,
   ErrorDetail,
+  EvaluateCodeErrorDetail,
   FunctionConfiguration,
   GraphqlApi,
   GraphQLSchemaException,
@@ -307,6 +313,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.code != null && { code: input.code }),
     ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
     ...(input.description != null && { description: input.description }),
     ...(input.functionVersion != null && { functionVersion: input.functionVersion }),
@@ -314,6 +321,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.name != null && { name: input.name }),
     ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
     ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.runtime != null && { runtime: serializeAws_restJson1AppSyncRuntime(input.runtime, context) }),
     ...(input.syncConfig != null && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   return new __HttpRequest({
@@ -388,6 +396,7 @@ export const serializeAws_restJson1CreateResolverCommand = async (
     ...(input.cachingConfig != null && {
       cachingConfig: serializeAws_restJson1CachingConfig(input.cachingConfig, context),
     }),
+    ...(input.code != null && { code: input.code }),
     ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
     ...(input.fieldName != null && { fieldName: input.fieldName }),
     ...(input.kind != null && { kind: input.kind }),
@@ -397,6 +406,7 @@ export const serializeAws_restJson1CreateResolverCommand = async (
     }),
     ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
     ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.runtime != null && { runtime: serializeAws_restJson1AppSyncRuntime(input.runtime, context) }),
     ...(input.syncConfig != null && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   return new __HttpRequest({
@@ -632,6 +642,34 @@ export const serializeAws_restJson1DisassociateApiCommand = async (
   });
 };
 
+export const serializeAws_restJson1EvaluateCodeCommand = async (
+  input: EvaluateCodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/dataplane-evaluatecode";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.code != null && { code: input.code }),
+    ...(input.context != null && { context: input.context }),
+    ...(input.function != null && { function: input.function }),
+    ...(input.runtime != null && { runtime: serializeAws_restJson1AppSyncRuntime(input.runtime, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1EvaluateMappingTemplateCommand = async (
   input: EvaluateMappingTemplateCommandInput,
   context: __SerdeContext
@@ -816,7 +854,7 @@ export const serializeAws_restJson1GetIntrospectionSchemaCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/schema";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
     includeDirectives: [() => input.includeDirectives !== void 0, () => input.includeDirectives!.toString()],
   });
   let body: any;
@@ -888,7 +926,7 @@ export const serializeAws_restJson1GetTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "typeName", () => input.typeName!, "{typeName}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1113,7 +1151,7 @@ export const serializeAws_restJson1ListTypesCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/types";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1190,7 +1228,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1354,6 +1395,7 @@ export const serializeAws_restJson1UpdateFunctionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "functionId", () => input.functionId!, "{functionId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.code != null && { code: input.code }),
     ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
     ...(input.description != null && { description: input.description }),
     ...(input.functionVersion != null && { functionVersion: input.functionVersion }),
@@ -1361,6 +1403,7 @@ export const serializeAws_restJson1UpdateFunctionCommand = async (
     ...(input.name != null && { name: input.name }),
     ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
     ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.runtime != null && { runtime: serializeAws_restJson1AppSyncRuntime(input.runtime, context) }),
     ...(input.syncConfig != null && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   return new __HttpRequest({
@@ -1436,6 +1479,7 @@ export const serializeAws_restJson1UpdateResolverCommand = async (
     ...(input.cachingConfig != null && {
       cachingConfig: serializeAws_restJson1CachingConfig(input.cachingConfig, context),
     }),
+    ...(input.code != null && { code: input.code }),
     ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
     ...(input.kind != null && { kind: input.kind }),
     ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
@@ -1444,6 +1488,7 @@ export const serializeAws_restJson1UpdateResolverCommand = async (
     }),
     ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
     ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.runtime != null && { runtime: serializeAws_restJson1AppSyncRuntime(input.runtime, context) }),
     ...(input.syncConfig != null && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   return new __HttpRequest({
@@ -1880,6 +1925,9 @@ const deserializeAws_restJson1CreateResolverCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.appsync#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2277,6 +2325,9 @@ const deserializeAws_restJson1DeleteResolverCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.appsync#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2400,6 +2451,59 @@ const deserializeAws_restJson1DisassociateApiCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1EvaluateCodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvaluateCodeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1EvaluateCodeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.error != null) {
+    contents.error = deserializeAws_restJson1EvaluateCodeErrorDetail(data.error, context);
+  }
+  if (data.evaluationResult != null) {
+    contents.evaluationResult = __expectString(data.evaluationResult);
+  }
+  if (data.logs != null) {
+    contents.logs = deserializeAws_restJson1Logs(data.logs, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1EvaluateCodeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvaluateCodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appsync#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1EvaluateMappingTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2416,6 +2520,9 @@ export const deserializeAws_restJson1EvaluateMappingTemplateCommand = async (
   }
   if (data.evaluationResult != null) {
     contents.evaluationResult = __expectString(data.evaluationResult);
+  }
+  if (data.logs != null) {
+    contents.logs = deserializeAws_restJson1Logs(data.logs, context);
   }
   return contents;
 };
@@ -3991,6 +4098,9 @@ const deserializeAws_restJson1UpdateResolverCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.appsync#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -4138,8 +4248,14 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  if (data.detail != null) {
+    contents.detail = deserializeAws_restJson1BadRequestDetail(data.detail, context);
+  }
   if (data.message != null) {
     contents.message = __expectString(data.message);
+  }
+  if (data.reason != null) {
+    contents.reason = __expectString(data.reason);
   }
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -4271,6 +4387,13 @@ const serializeAws_restJson1AdditionalAuthenticationProviders = (
     .map((entry) => {
       return serializeAws_restJson1AdditionalAuthenticationProvider(entry, context);
     });
+};
+
+const serializeAws_restJson1AppSyncRuntime = (input: AppSyncRuntime, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.runtimeVersion != null && { runtimeVersion: input.runtimeVersion }),
+  };
 };
 
 const serializeAws_restJson1AuthorizationConfig = (input: AuthorizationConfig, context: __SerdeContext): any => {
@@ -4464,10 +4587,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4557,6 +4678,13 @@ const deserializeAws_restJson1ApiKeys = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1AppSyncRuntime = (output: any, context: __SerdeContext): AppSyncRuntime => {
+  return {
+    name: __expectString(output.name),
+    runtimeVersion: __expectString(output.runtimeVersion),
+  } as any;
+};
+
 const deserializeAws_restJson1AuthorizationConfig = (output: any, context: __SerdeContext): AuthorizationConfig => {
   return {
     authorizationType: __expectString(output.authorizationType),
@@ -4569,6 +4697,12 @@ const deserializeAws_restJson1AwsIamConfig = (output: any, context: __SerdeConte
   return {
     signingRegion: __expectString(output.signingRegion),
     signingServiceName: __expectString(output.signingServiceName),
+  } as any;
+};
+
+const deserializeAws_restJson1BadRequestDetail = (output: any, context: __SerdeContext): BadRequestDetail => {
+  return {
+    codeErrors: output.codeErrors != null ? deserializeAws_restJson1CodeErrors(output.codeErrors, context) : undefined,
   } as any;
 };
 
@@ -4588,6 +4722,34 @@ const deserializeAws_restJson1CachingKeys = (output: any, context: __SerdeContex
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CodeError = (output: any, context: __SerdeContext): CodeError => {
+  return {
+    errorType: __expectString(output.errorType),
+    location: output.location != null ? deserializeAws_restJson1CodeErrorLocation(output.location, context) : undefined,
+    value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_restJson1CodeErrorLocation = (output: any, context: __SerdeContext): CodeErrorLocation => {
+  return {
+    column: __expectInt32(output.column),
+    line: __expectInt32(output.line),
+    span: __expectInt32(output.span),
+  } as any;
+};
+
+const deserializeAws_restJson1CodeErrors = (output: any, context: __SerdeContext): CodeError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CodeError(entry, context);
     });
   return retVal;
 };
@@ -4706,8 +4868,19 @@ const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1EvaluateCodeErrorDetail = (
+  output: any,
+  context: __SerdeContext
+): EvaluateCodeErrorDetail => {
+  return {
+    codeErrors: output.codeErrors != null ? deserializeAws_restJson1CodeErrors(output.codeErrors, context) : undefined,
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
+    code: __expectString(output.code),
     dataSourceName: __expectString(output.dataSourceName),
     description: __expectString(output.description),
     functionArn: __expectString(output.functionArn),
@@ -4717,6 +4890,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     name: __expectString(output.name),
     requestMappingTemplate: __expectString(output.requestMappingTemplate),
     responseMappingTemplate: __expectString(output.responseMappingTemplate),
+    runtime: output.runtime != null ? deserializeAws_restJson1AppSyncRuntime(output.runtime, context) : undefined,
     syncConfig: output.syncConfig != null ? deserializeAws_restJson1SyncConfig(output.syncConfig, context) : undefined,
   } as any;
 };
@@ -4834,15 +5008,25 @@ const deserializeAws_restJson1LogConfig = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1Logs = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MapOfStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4898,6 +5082,7 @@ const deserializeAws_restJson1Resolver = (output: any, context: __SerdeContext):
   return {
     cachingConfig:
       output.cachingConfig != null ? deserializeAws_restJson1CachingConfig(output.cachingConfig, context) : undefined,
+    code: __expectString(output.code),
     dataSourceName: __expectString(output.dataSourceName),
     fieldName: __expectString(output.fieldName),
     kind: __expectString(output.kind),
@@ -4909,6 +5094,7 @@ const deserializeAws_restJson1Resolver = (output: any, context: __SerdeContext):
     requestMappingTemplate: __expectString(output.requestMappingTemplate),
     resolverArn: __expectString(output.resolverArn),
     responseMappingTemplate: __expectString(output.responseMappingTemplate),
+    runtime: output.runtime != null ? deserializeAws_restJson1AppSyncRuntime(output.runtime, context) : undefined,
     syncConfig: output.syncConfig != null ? deserializeAws_restJson1SyncConfig(output.syncConfig, context) : undefined,
     typeName: __expectString(output.typeName),
   } as any;
@@ -4942,10 +5128,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

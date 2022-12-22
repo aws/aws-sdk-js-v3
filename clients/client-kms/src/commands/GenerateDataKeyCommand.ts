@@ -60,8 +60,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>How to use your data
- *         key</b>
+ *             <b>How to use your data key</b>
  *          </p>
  *          <p>We recommend that you use the following pattern to encrypt data locally in your
  *       application. You can write your own code or use a client-side encryption library, such as the

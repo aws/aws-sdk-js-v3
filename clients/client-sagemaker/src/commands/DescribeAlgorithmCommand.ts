@@ -18,7 +18,7 @@ import {
   DescribeAlgorithmInputFilterSensitiveLog,
   DescribeAlgorithmOutput,
   DescribeAlgorithmOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeAlgorithmCommand,
   serializeAws_json1_1DescribeAlgorithmCommand,

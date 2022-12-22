@@ -19,7 +19,7 @@ import {
   PutWorkflowRunPropertiesRequestFilterSensitiveLog,
   PutWorkflowRunPropertiesResponse,
   PutWorkflowRunPropertiesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
   serializeAws_json1_1PutWorkflowRunPropertiesCommand,

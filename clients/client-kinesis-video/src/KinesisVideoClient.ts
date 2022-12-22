@@ -58,9 +58,21 @@ import {
 } from "./commands/DeleteSignalingChannelCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
+  DescribeEdgeConfigurationCommandInput,
+  DescribeEdgeConfigurationCommandOutput,
+} from "./commands/DescribeEdgeConfigurationCommand";
+import {
   DescribeImageGenerationConfigurationCommandInput,
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "./commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "./commands/DescribeMediaStorageConfigurationCommand";
 import {
   DescribeNotificationConfigurationCommandInput,
   DescribeNotificationConfigurationCommandOutput,
@@ -85,6 +97,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
+import {
+  StartEdgeConfigurationUpdateCommandInput,
+  StartEdgeConfigurationUpdateCommandOutput,
+} from "./commands/StartEdgeConfigurationUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -97,6 +113,10 @@ import {
   UpdateImageGenerationConfigurationCommandInput,
   UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "./commands/UpdateMediaStorageConfigurationCommand";
 import {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
@@ -119,7 +139,10 @@ export type ServiceInputTypes =
   | CreateStreamCommandInput
   | DeleteSignalingChannelCommandInput
   | DeleteStreamCommandInput
+  | DescribeEdgeConfigurationCommandInput
   | DescribeImageGenerationConfigurationCommandInput
+  | DescribeMappedResourceConfigurationCommandInput
+  | DescribeMediaStorageConfigurationCommandInput
   | DescribeNotificationConfigurationCommandInput
   | DescribeSignalingChannelCommandInput
   | DescribeStreamCommandInput
@@ -129,12 +152,14 @@ export type ServiceInputTypes =
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsForStreamCommandInput
+  | StartEdgeConfigurationUpdateCommandInput
   | TagResourceCommandInput
   | TagStreamCommandInput
   | UntagResourceCommandInput
   | UntagStreamCommandInput
   | UpdateDataRetentionCommandInput
   | UpdateImageGenerationConfigurationCommandInput
+  | UpdateMediaStorageConfigurationCommandInput
   | UpdateNotificationConfigurationCommandInput
   | UpdateSignalingChannelCommandInput
   | UpdateStreamCommandInput;
@@ -144,7 +169,10 @@ export type ServiceOutputTypes =
   | CreateStreamCommandOutput
   | DeleteSignalingChannelCommandOutput
   | DeleteStreamCommandOutput
+  | DescribeEdgeConfigurationCommandOutput
   | DescribeImageGenerationConfigurationCommandOutput
+  | DescribeMappedResourceConfigurationCommandOutput
+  | DescribeMediaStorageConfigurationCommandOutput
   | DescribeNotificationConfigurationCommandOutput
   | DescribeSignalingChannelCommandOutput
   | DescribeStreamCommandOutput
@@ -154,12 +182,14 @@ export type ServiceOutputTypes =
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsForStreamCommandOutput
+  | StartEdgeConfigurationUpdateCommandOutput
   | TagResourceCommandOutput
   | TagStreamCommandOutput
   | UntagResourceCommandOutput
   | UntagStreamCommandOutput
   | UpdateDataRetentionCommandOutput
   | UpdateImageGenerationConfigurationCommandOutput
+  | UpdateMediaStorageConfigurationCommandOutput
   | UpdateNotificationConfigurationCommandOutput
   | UpdateSignalingChannelCommandOutput
   | UpdateStreamCommandOutput;

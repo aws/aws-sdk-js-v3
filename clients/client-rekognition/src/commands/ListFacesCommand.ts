@@ -26,14 +26,12 @@ export interface ListFacesCommandInput extends ListFacesRequest {}
 export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata for faces in the specified collection.
- *       This metadata includes information such as the bounding box coordinates, the confidence
- *       (that the bounding box contains a face), and face ID. For an example, see Listing Faces in a Collection
- *       in the Amazon Rekognition Developer Guide.</p>
- *
- *
- *          <p>This operation requires permissions to perform the
- *       <code>rekognition:ListFaces</code> action.</p>
+ * <p>Returns metadata for faces in the specified collection. This metadata
+ *       includes information such as the bounding box coordinates, the confidence (that the bounding
+ *       box contains a face), and face ID. For an example, see Listing Faces in a Collection in the
+ *       Amazon Rekognition Developer Guide.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:ListFaces</code>
+ *       action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2751,10 +2751,8 @@ const serializeAws_json1_0IPSetReferenceMap = (input: Record<string, IPSetRefere
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0IPSetReference(value, context),
-    };
+    acc[key] = serializeAws_json1_0IPSetReference(value, context);
+    return acc;
   }, {});
 };
 
@@ -2763,10 +2761,8 @@ const serializeAws_json1_0IPSets = (input: Record<string, IPSet>, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0IPSet(value, context),
-    };
+    acc[key] = serializeAws_json1_0IPSet(value, context);
+    return acc;
   }, {});
 };
 
@@ -2832,10 +2828,8 @@ const serializeAws_json1_0LogDestinationMap = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2888,10 +2882,8 @@ const serializeAws_json1_0PortSets = (input: Record<string, PortSet>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0PortSet(value, context),
-    };
+    acc[key] = serializeAws_json1_0PortSet(value, context);
+    return acc;
   }, {});
 };
 
@@ -3870,10 +3862,8 @@ const deserializeAws_json1_0IPSetMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0IPSetMetadata(value, context),
-    };
+    acc[key] = deserializeAws_json1_0IPSetMetadata(value, context);
+    return acc;
   }, {});
 };
 
@@ -3891,10 +3881,8 @@ const deserializeAws_json1_0IPSetReferenceMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0IPSetReference(value, context),
-    };
+    acc[key] = deserializeAws_json1_0IPSetReference(value, context);
+    return acc;
   }, {});
 };
 
@@ -3903,10 +3891,8 @@ const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0IPSet(value, context),
-    };
+    acc[key] = deserializeAws_json1_0IPSet(value, context);
+    return acc;
   }, {});
 };
 
@@ -3981,10 +3967,8 @@ const deserializeAws_json1_0LogDestinationMap = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4057,10 +4041,8 @@ const deserializeAws_json1_0PortSets = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0PortSet(value, context),
-    };
+    acc[key] = deserializeAws_json1_0PortSet(value, context);
+    return acc;
   }, {});
 };
 
@@ -4452,10 +4434,8 @@ const deserializeAws_json1_0SyncStateConfig = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0PerObjectStatus(value, context),
-    };
+    acc[key] = deserializeAws_json1_0PerObjectStatus(value, context);
+    return acc;
   }, {});
 };
 
@@ -4464,10 +4444,8 @@ const deserializeAws_json1_0SyncStates = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0SyncState(value, context),
-    };
+    acc[key] = deserializeAws_json1_0SyncState(value, context);
+    return acc;
   }, {});
 };
 

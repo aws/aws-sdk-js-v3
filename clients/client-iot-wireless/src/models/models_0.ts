@@ -111,14 +111,41 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface Accuracy {
   /**
-   * <p>The horizontal accuracy of the estimated position in meters.</p>
+   * <p>The horizontal accuracy of the estimated position, which is the difference between the estimated
+   *             location and the actual device location.</p>
    */
   HorizontalAccuracy?: number;
 
   /**
-   * <p>The vertical accuracy of the estimated position in meters.</p>
+   * <p>The vertical accuracy of the estimated position, which is the difference between the estimated
+   *             altitude and actual device latitude in meters.</p>
    */
   VerticalAccuracy?: number;
+}
+
+export enum ApplicationConfigType {
+  SemtechGeoLocation = "SemtechGeolocation",
+}
+
+/**
+ * <p>LoRaWAN application configuration, which can be used to perform geolocation.</p>
+ */
+export interface ApplicationConfig {
+  /**
+   * <p>The Fport value.</p>
+   */
+  FPort?: number;
+
+  /**
+   * <p>Application type, which can be specified to obtain real-time position information of your LoRaWAN device.</p>
+   */
+  Type?: ApplicationConfigType | string;
+
+  /**
+   * <p>The name of the position data destination that describes the AWS IoT rule that processes the device's position data
+   *          for use by AWS IoT Core for LoRaWAN.</p>
+   */
+  DestinationName?: string;
 }
 
 /**
@@ -425,6 +452,516 @@ export interface CancelMulticastGroupSessionRequest {
 }
 
 export interface CancelMulticastGroupSessionResponse {}
+
+/**
+ * <p>CDMA local ID information, which corresponds to the local identification parameters of a CDMA cell.</p>
+ */
+export interface CdmaLocalId {
+  /**
+   * <p>Pseudo-noise offset, which is a characteristic of the signal from a cell on a radio tower.</p>
+   */
+  PnOffset: number | undefined;
+
+  /**
+   * <p>CDMA channel information.</p>
+   */
+  CdmaChannel: number | undefined;
+}
+
+/**
+ * <p>CDMA object for network measurement reports.</p>
+ */
+export interface CdmaNmrObj {
+  /**
+   * <p>Pseudo-noise offset, which is a characteristic of the signal from a cell on a radio tower.</p>
+   */
+  PnOffset: number | undefined;
+
+  /**
+   * <p>CDMA channel information.</p>
+   */
+  CdmaChannel: number | undefined;
+
+  /**
+   * <p>Transmit power level of the pilot signal, measured in dBm (decibel-milliwatts).</p>
+   */
+  PilotPower?: number;
+
+  /**
+   * <p>CDMA base station ID (BSID).</p>
+   */
+  BaseStationId?: number;
+}
+
+/**
+ * <p>CDMA (Code-division multiple access) object.</p>
+ */
+export interface CdmaObj {
+  /**
+   * <p>CDMA system ID (SID).</p>
+   */
+  SystemId: number | undefined;
+
+  /**
+   * <p>CDMA network ID (NID).</p>
+   */
+  NetworkId: number | undefined;
+
+  /**
+   * <p>CDMA base station ID (BSID).</p>
+   */
+  BaseStationId: number | undefined;
+
+  /**
+   * <p>CDMA registration zone (RZ).</p>
+   */
+  RegistrationZone?: number;
+
+  /**
+   * <p>CDMA local identification (local ID) parameters.</p>
+   */
+  CdmaLocalId?: CdmaLocalId;
+
+  /**
+   * <p>Transmit power level of the pilot signal, measured in dBm (decibel-milliwatts).</p>
+   */
+  PilotPower?: number;
+
+  /**
+   * <p>CDMA base station latitude in degrees.</p>
+   */
+  BaseLat?: number;
+
+  /**
+   * <p>CDMA base station longtitude in degrees.</p>
+   */
+  BaseLng?: number;
+
+  /**
+   * <p>CDMA network measurement reports.</p>
+   */
+  CdmaNmr?: CdmaNmrObj[];
+}
+
+/**
+ * <p>GSM local ID information, which corresponds to the local identification parameters of a GSM cell.</p>
+ */
+export interface GsmLocalId {
+  /**
+   * <p>GSM base station identity code (BSIC).</p>
+   */
+  Bsic: number | undefined;
+
+  /**
+   * <p>GSM broadcast control channel.</p>
+   */
+  Bcch: number | undefined;
+}
+
+/**
+ * <p>Global identity information.</p>
+ */
+export interface GlobalIdentity {
+  /**
+   * <p>Location area code of the global identity.</p>
+   */
+  Lac: number | undefined;
+
+  /**
+   * <p>GERAN (GSM EDGE Radio Access Network) cell global identifier.</p>
+   */
+  GeranCid: number | undefined;
+}
+
+/**
+ * <p>GSM object for network measurement reports.</p>
+ */
+export interface GsmNmrObj {
+  /**
+   * <p>GSM base station identity code (BSIC).</p>
+   */
+  Bsic: number | undefined;
+
+  /**
+   * <p>GSM broadcast control channel.</p>
+   */
+  Bcch: number | undefined;
+
+  /**
+   * <p>Rx level, which is the received signal power, measured in dBm (decibel-milliwatts).</p>
+   */
+  RxLevel?: number;
+
+  /**
+   * <p>Global identity information of the GSM object.</p>
+   */
+  GlobalIdentity?: GlobalIdentity;
+}
+
+/**
+ * <p>GSM object.</p>
+ */
+export interface GsmObj {
+  /**
+   * <p>Mobile Country Code.</p>
+   */
+  Mcc: number | undefined;
+
+  /**
+   * <p>Mobile Network Code.</p>
+   */
+  Mnc: number | undefined;
+
+  /**
+   * <p>Location area code.</p>
+   */
+  Lac: number | undefined;
+
+  /**
+   * <p>GERAN (GSM EDGE Radio Access Network) Cell Global Identifier.</p>
+   */
+  GeranCid: number | undefined;
+
+  /**
+   * <p>GSM local identification (local ID) information.</p>
+   */
+  GsmLocalId?: GsmLocalId;
+
+  /**
+   * <p>Timing advance value, which corresponds to the length of time a signal takes to reach the
+   *          base station from a mobile phone.</p>
+   */
+  GsmTimingAdvance?: number;
+
+  /**
+   * <p>Rx level, which is the received signal power, measured in dBm (decibel-milliwatts).</p>
+   */
+  RxLevel?: number;
+
+  /**
+   * <p>GSM object for network measurement reports.</p>
+   */
+  GsmNmr?: GsmNmrObj[];
+}
+
+/**
+ * <p>LTE local identification (local ID) information.</p>
+ */
+export interface LteLocalId {
+  /**
+   * <p>Physical cell ID.</p>
+   */
+  Pci: number | undefined;
+
+  /**
+   * <p>Evolved universal terrestrial radio access (E-UTRA) absolute radio frequency channel number (FCN).</p>
+   */
+  Earfcn: number | undefined;
+}
+
+/**
+ * <p>LTE object for network measurement reports.</p>
+ */
+export interface LteNmrObj {
+  /**
+   * <p>Physical cell ID.</p>
+   */
+  Pci: number | undefined;
+
+  /**
+   * <p>E-UTRA (Evolved universal terrestrial Radio Access) absolute radio frequency channel Number (EARFCN).</p>
+   */
+  Earfcn: number | undefined;
+
+  /**
+   * <p>E-UTRAN (Evolved Universal Terrestrial Radio Access Network) cell global identifier (EUTRANCID).</p>
+   */
+  EutranCid: number | undefined;
+
+  /**
+   * <p>Signal power of the reference signal received, measured in dBm (decibel-milliwatts).</p>
+   */
+  Rsrp?: number;
+
+  /**
+   * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
+   */
+  Rsrq?: number;
+}
+
+/**
+ * <p>LTE object.</p>
+ */
+export interface LteObj {
+  /**
+   * <p>Mobile Country Code.</p>
+   */
+  Mcc: number | undefined;
+
+  /**
+   * <p>Mobile Network Code.</p>
+   */
+  Mnc: number | undefined;
+
+  /**
+   * <p>E-UTRAN (Evolved Universal Terrestrial Radio Access Network) Cell Global Identifier.</p>
+   */
+  EutranCid: number | undefined;
+
+  /**
+   * <p>LTE tracking area code.</p>
+   */
+  Tac?: number;
+
+  /**
+   * <p>LTE local identification (local ID) information.</p>
+   */
+  LteLocalId?: LteLocalId;
+
+  /**
+   * <p>LTE timing advance.</p>
+   */
+  LteTimingAdvance?: number;
+
+  /**
+   * <p>Signal power of the reference signal received, measured in dBm (decibel-milliwatts).</p>
+   */
+  Rsrp?: number;
+
+  /**
+   * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
+   */
+  Rsrq?: number;
+
+  /**
+   * <p>Parameter that determines whether the LTE object is capable of supporting NR (new radio).</p>
+   */
+  NrCapable?: boolean;
+
+  /**
+   * <p>LTE object for network measurement reports.</p>
+   */
+  LteNmr?: LteNmrObj[];
+}
+
+/**
+ * <p>TD-SCDMA local identification (local Id) information.</p>
+ */
+export interface TdscdmaLocalId {
+  /**
+   * <p>TD-SCDMA UTRA (Universal Terrestrial Radio Access Network) absolute RF channel number (UARFCN).</p>
+   */
+  Uarfcn: number | undefined;
+
+  /**
+   * <p>Cell parameters for TD-SCDMA.</p>
+   */
+  CellParams: number | undefined;
+}
+
+/**
+ * <p>TD-SCDMA object for network measurement reports.</p>
+ */
+export interface TdscdmaNmrObj {
+  /**
+   * <p>TD-SCDMA UTRA (Universal Terrestrial Radio Access Network) absolute RF channel number.</p>
+   */
+  Uarfcn: number | undefined;
+
+  /**
+   * <p>Cell parameters for TD-SCDMA network measurement reports object.</p>
+   */
+  CellParams: number | undefined;
+
+  /**
+   * <p>UTRAN (UMTS Terrestrial Radio Access Network) cell global identifier.</p>
+   */
+  UtranCid?: number;
+
+  /**
+   * <p>Code power of the received signal, measured in decibel-milliwatts (dBm).</p>
+   */
+  Rscp?: number;
+
+  /**
+   * <p>Path loss, or path attenuation, is the reduction in power density of an electromagnetic wave as it
+   *          propagates through space.</p>
+   */
+  PathLoss?: number;
+}
+
+/**
+ * <p>TD-SCDMA object.</p>
+ */
+export interface TdscdmaObj {
+  /**
+   * <p>Mobile Country Code.</p>
+   */
+  Mcc: number | undefined;
+
+  /**
+   * <p>Mobile Network Code.</p>
+   */
+  Mnc: number | undefined;
+
+  /**
+   * <p>Location Area Code.</p>
+   */
+  Lac?: number;
+
+  /**
+   * <p>UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.</p>
+   */
+  UtranCid: number | undefined;
+
+  /**
+   * <p>TD-SCDMA local identification (local ID) information.</p>
+   */
+  TdscdmaLocalId?: TdscdmaLocalId;
+
+  /**
+   * <p>TD-SCDMA Timing advance.</p>
+   */
+  TdscdmaTimingAdvance?: number;
+
+  /**
+   * <p>Signal power of the received signal (Received Signal Code Power), measured in decibel-milliwatts (dBm).</p>
+   */
+  Rscp?: number;
+
+  /**
+   * <p>Path loss, or path attenuation, is the reduction in power density of an electromagnetic wave as it
+   *          propagates through space.</p>
+   */
+  PathLoss?: number;
+
+  /**
+   * <p>TD-SCDMA object for network measurement reports.</p>
+   */
+  TdscdmaNmr?: TdscdmaNmrObj[];
+}
+
+/**
+ * <p>WCDMA local identification (local ID) information.</p>
+ */
+export interface WcdmaLocalId {
+  /**
+   * <p>WCDMA UTRA Absolute RF Channel Number downlink.</p>
+   */
+  Uarfcndl: number | undefined;
+
+  /**
+   * <p>Primary Scrambling Code.</p>
+   */
+  Psc: number | undefined;
+}
+
+/**
+ * <p>Network Measurement Reports.</p>
+ */
+export interface WcdmaNmrObj {
+  /**
+   * <p>WCDMA UTRA Absolute RF Channel Number downlink.</p>
+   */
+  Uarfcndl: number | undefined;
+
+  /**
+   * <p>Primary Scrambling Code.</p>
+   */
+  Psc: number | undefined;
+
+  /**
+   * <p>UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.</p>
+   */
+  UtranCid: number | undefined;
+
+  /**
+   * <p>Received Signal Code Power (signal power) (dBm)</p>
+   */
+  Rscp?: number;
+
+  /**
+   * <p>Path loss, or path attenuation, is the reduction in power density of an electromagnetic wave as
+   *          it propagates through space.</p>
+   */
+  PathLoss?: number;
+}
+
+/**
+ * <p>WCDMA.</p>
+ */
+export interface WcdmaObj {
+  /**
+   * <p>Mobile Country Code.</p>
+   */
+  Mcc: number | undefined;
+
+  /**
+   * <p>Mobile Network Code.</p>
+   */
+  Mnc: number | undefined;
+
+  /**
+   * <p>Location Area Code.</p>
+   */
+  Lac?: number;
+
+  /**
+   * <p>UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.</p>
+   */
+  UtranCid: number | undefined;
+
+  /**
+   * <p>WCDMA local ID information.</p>
+   */
+  WcdmaLocalId?: WcdmaLocalId;
+
+  /**
+   * <p>Received Signal Code Power (signal power) (dBm).</p>
+   */
+  Rscp?: number;
+
+  /**
+   * <p>Path loss, or path attenuation, is the reduction in power density of an electromagnetic wave as
+   *          it propagates through space.</p>
+   */
+  PathLoss?: number;
+
+  /**
+   * <p>WCDMA object for network measurement reports.</p>
+   */
+  WcdmaNmr?: WcdmaNmrObj[];
+}
+
+/**
+ * <p>The cell towers that were used to perform the measurements.</p>
+ */
+export interface CellTowers {
+  /**
+   * <p>GSM object information.</p>
+   */
+  Gsm?: GsmObj[];
+
+  /**
+   * <p>WCDMA object information.</p>
+   */
+  Wcdma?: WcdmaObj[];
+
+  /**
+   * <p>TD-SCDMA object information.</p>
+   */
+  Tdscdma?: TdscdmaObj[];
+
+  /**
+   * <p>LTE object information.</p>
+   */
+  Lte?: LteObj[];
+
+  /**
+   * <p>CDMA object information.</p>
+   */
+  Cdma?: CdmaObj[];
+}
 
 export enum SigningAlg {
   Ed25519 = "Ed25519",
@@ -992,6 +1529,11 @@ export interface FPorts {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
   Positioning?: Positioning;
+
+  /**
+   * <p>Optional LoRaWAN application information, which can be used for geolocation.</p>
+   */
+  Applications?: ApplicationConfig[];
 }
 
 /**
@@ -1079,6 +1621,11 @@ export interface LoRaWANDevice {
   FPorts?: FPorts;
 }
 
+export enum PositioningConfigStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
 export enum WirelessDeviceType {
   LoRaWAN = "LoRaWAN",
   Sidewalk = "Sidewalk",
@@ -1119,6 +1666,11 @@ export interface CreateWirelessDeviceRequest {
    * <p>The tags to attach to the new wireless device. Tags are metadata that you can use to manage a resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
+   */
+  Positioning?: PositioningConfigStatus | string;
 }
 
 export interface CreateWirelessDeviceResponse {
@@ -1788,7 +2340,7 @@ export interface MessageDeliveryStatusEventConfiguration {
   Sidewalk?: SidewalkEventNotificationConfigurations;
 
   /**
-   * <p>Denotes whether the wireless device ID device registration state event topic is enabled
+   * <p>Denotes whether the wireless device ID message delivery status event topic is enabled
    *             or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
@@ -2567,6 +3119,111 @@ export interface GetPositionConfigurationResponse {
   Destination?: string;
 }
 
+/**
+ * <p>Global navigation satellite system (GNSS) object used for positioning.</p>
+ */
+export interface Gnss {
+  /**
+   * <p>Payload that contains the GNSS scan result, or NAV message, in hexadecimal notation.</p>
+   */
+  Payload: string | undefined;
+
+  /**
+   * <p>Optional parameter that gives an estimate of the time when the GNSS scan information is
+   *           taken, in seconds GPS time (GPST). If capture time is not specified, the local server time is used.</p>
+   */
+  CaptureTime?: number;
+
+  /**
+   * <p>Optional value that gives the capture time estimate accuracy, in seconds. If capture time
+   *           accuracy is not specified, default value of 300 is used.</p>
+   */
+  CaptureTimeAccuracy?: number;
+
+  /**
+   * <p>Optional assistance position information, specified using latitude and longitude values in degrees.
+   *           The co-ordinates are inside the WGS84 reference frame.</p>
+   */
+  AssistPosition?: number[];
+
+  /**
+   * <p>Optional assistance altitude, which is the altitude of the device at capture time, specified in meters above
+   *           the WGS84 reference ellipsoid.</p>
+   */
+  AssistAltitude?: number;
+
+  /**
+   * <p>Optional parameter that forces 2D solve, which modifies the positioning algorithm to a 2D solution
+   *           problem. When this parameter is specified, the assistance altitude should have an accuracy of at least 10 meters.</p>
+   */
+  Use2DSolver?: boolean;
+}
+
+/**
+ * <p>IP address used for resolving device location.</p>
+ */
+export interface Ip {
+  /**
+   * <p>IP address information.</p>
+   */
+  IpAddress: string | undefined;
+}
+
+/**
+ * <p>Wi-Fi access point.</p>
+ */
+export interface WiFiAccessPoint {
+  /**
+   * <p>Wi-Fi MAC Address.</p>
+   */
+  MacAddress: string | undefined;
+
+  /**
+   * <p>Recived signal strength of the WLAN measurement data.</p>
+   */
+  Rss: number | undefined;
+}
+
+export interface GetPositionEstimateRequest {
+  /**
+   * <p>Retrieves an estimated device position by resolving WLAN measurement data. The position is
+   *         resolved using HERE's Wi-Fi based solver.</p>
+   */
+  WiFiAccessPoints?: WiFiAccessPoint[];
+
+  /**
+   * <p>Retrieves an estimated device position by resolving measurement data from cellular radio towers. The
+   *            position is resolved using HERE's cellular-based solver.</p>
+   */
+  CellTowers?: CellTowers;
+
+  /**
+   * <p>Retrieves an estimated device position by resolving the IP address information from the device. The
+   *            position is resolved using MaxMind's IP-based solver.</p>
+   */
+  Ip?: Ip;
+
+  /**
+   * <p>Retrieves an estimated device position by resolving the global navigation satellite system (GNSS)
+   *            scan data. The position is resolved using the GNSS solver powered by LoRa Cloud.</p>
+   */
+  Gnss?: Gnss;
+
+  /**
+   * <p>Optional information that specifies the time when the position information will be resolved. It
+   *         uses the UNIX timestamp format. If not specified, the time at which the request was received will be used.</p>
+   */
+  Timestamp?: Date;
+}
+
+export interface GetPositionEstimateResponse {
+  /**
+   * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
+   *           which a format that's used to encode geographic data structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   */
+  GeoJsonPayload?: Uint8Array;
+}
+
 export interface GetResourceEventConfigurationRequest {
   /**
    * <p>Resource identifier to opt in for event messaging.</p>
@@ -2630,6 +3287,28 @@ export interface GetResourceLogLevelResponse {
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel?: LogLevel | string;
+}
+
+export interface GetResourcePositionRequest {
+  /**
+   * <p>The identifier of the resource for which position information is retrieved. It can be the wireless
+   *         device ID or the wireless gateway ID depending on the resource type.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of resource for which position information is retrieved, which can be a wireless device or a
+   *           wireless gateway.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+}
+
+export interface GetResourcePositionResponse {
+  /**
+   * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
+   *            which a format that's used to encode geographic data structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   */
+  GeoJsonPayload?: Uint8Array;
 }
 
 export enum WirelessGatewayServiceType {
@@ -2886,6 +3565,11 @@ export interface GetWirelessDeviceResponse {
    * <p>Sidewalk device object.</p>
    */
   Sidewalk?: SidewalkDevice;
+
+  /**
+   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
+   */
+  Positioning?: PositioningConfigStatus | string;
 }
 
 export interface GetWirelessDeviceStatisticsRequest {
@@ -3469,8 +4153,8 @@ export interface PositionConfigurationItem {
   Solvers?: PositionSolverDetails;
 
   /**
-   * <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by
-   *             AWS IoT Core for LoRaWAN.</p>
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position
+   *             data for use by AWS IoT Core for LoRaWAN.</p>
    */
   Destination?: string;
 }
@@ -3899,8 +4583,8 @@ export interface PutPositionConfigurationRequest {
   Solvers?: PositionSolverConfigurations;
 
   /**
-   * <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by
-   *             AWS IoT Core for LoRaWAN.</p>
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position
+   *             data for use by AWS IoT Core for LoRaWAN.</p>
    */
   Destination?: string;
 }
@@ -3967,304 +4651,6 @@ export interface MulticastWirelessMetadata {
   LoRaWAN?: LoRaWANMulticastMetadata;
 }
 
-export interface SendDataToMulticastGroupRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The binary to be sent to the end device, encoded in base64.</p>
-   */
-  PayloadData: string | undefined;
-
-  /**
-   * <p>Wireless metadata that is to be sent to multicast group.</p>
-   */
-  WirelessMetadata: MulticastWirelessMetadata | undefined;
-}
-
-export interface SendDataToMulticastGroupResponse {
-  /**
-   * <p>ID of a multicast group message.</p>
-   */
-  MessageId?: string;
-}
-
-export enum MessageType {
-  CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
-  CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
-  CUSTOM_COMMAND_ID_RESP = "CUSTOM_COMMAND_ID_RESP",
-  CUSTOM_COMMAND_ID_SET = "CUSTOM_COMMAND_ID_SET",
-}
-
-/**
- * <p>Information about a Sidewalk router.</p>
- */
-export interface SidewalkSendDataToDevice {
-  /**
-   * <p>The sequence number.</p>
-   */
-  Seq?: number;
-
-  /**
-   * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
-   */
-  MessageType?: MessageType | string;
-
-  /**
-   * <p>The duration of time in seconds for which you want to retry sending the ACK.</p>
-   */
-  AckModeRetryDurationSecs?: number;
-}
-
-/**
- * <p>WirelessMetadata object.</p>
- */
-export interface WirelessMetadata {
-  /**
-   * <p>LoRaWAN device info.</p>
-   */
-  LoRaWAN?: LoRaWANSendDataToDevice;
-
-  /**
-   * <p>The Sidewalk account credentials.</p>
-   */
-  Sidewalk?: SidewalkSendDataToDevice;
-}
-
-export interface SendDataToWirelessDeviceRequest {
-  /**
-   * <p>The ID of the wireless device to receive the data.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
-   */
-  TransmitMode: number | undefined;
-
-  /**
-   * <p>The binary to be sent to the end device, encoded in base64.</p>
-   */
-  PayloadData: string | undefined;
-
-  /**
-   * <p>Metadata about the message request.</p>
-   */
-  WirelessMetadata?: WirelessMetadata;
-}
-
-export interface SendDataToWirelessDeviceResponse {
-  /**
-   * <p>The ID of the message sent to the wireless device.</p>
-   */
-  MessageId?: string;
-}
-
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
-   */
-  QueryString?: string;
-
-  /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
-
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
-   */
-  QueryString?: string;
-
-  /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
-
-/**
- * <p>The LoRaWAN information used to start a FUOTA task.</p>
- */
-export interface LoRaWANStartFuotaTask {
-  /**
-   * <p>Start time of a FUOTA task.</p>
-   */
-  StartTime?: Date;
-}
-
-export interface StartFuotaTaskRequest {
-  /**
-   * <p>The ID of a FUOTA task.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The LoRaWAN information used to start a FUOTA task.</p>
-   */
-  LoRaWAN?: LoRaWANStartFuotaTask;
-}
-
-export interface StartFuotaTaskResponse {}
-
-export interface StartMulticastGroupSessionRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The LoRaWAN information used with the multicast session.</p>
-   */
-  LoRaWAN: LoRaWANMulticastSession | undefined;
-}
-
-export interface StartMulticastGroupSessionResponse {}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to add tags to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use to manage a resource.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-export interface TagResourceResponse {}
-
-/**
- * <p>The request was denied because the resource can't have any more tags.</p>
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>Name of the resource that exceeds maximum number of tags allowed.</p>
-   */
-  ResourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-export interface TestWirelessDeviceRequest {
-  /**
-   * <p>The ID of the wireless device to test.</p>
-   */
-  Id: string | undefined;
-}
-
-export interface TestWirelessDeviceResponse {
-  /**
-   * <p>The result returned by the test.</p>
-   */
-  Result?: string;
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource to remove tags from.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>A list of the keys of the tags to remove from the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-export interface UntagResourceResponse {}
-
-export interface UpdateDestinationRequest {
-  /**
-   * <p>The new name of the resource.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The type of value in <code>Expression</code>.</p>
-   */
-  ExpressionType?: ExpressionType | string;
-
-  /**
-   * <p>The new rule name or topic rule to send messages to.</p>
-   */
-  Expression?: string;
-
-  /**
-   * <p>A new description of the resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ARN of the IAM Role that authorizes the destination.</p>
-   */
-  RoleArn?: string;
-}
-
-export interface UpdateDestinationResponse {}
-
-export interface UpdateEventConfigurationByResourceTypesRequest {
-  /**
-   * <p>Device registration state resource type event configuration object for enabling and disabling wireless
-   *             gateway topic.</p>
-   */
-  DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
-
-  /**
-   * <p>Proximity resource type event configuration object for enabling and disabling wireless gateway topic.</p>
-   */
-  Proximity?: ProximityResourceTypeEventConfiguration;
-
-  /**
-   * <p>Join resource type event configuration object for enabling and disabling wireless device topic.</p>
-   */
-  Join?: JoinResourceTypeEventConfiguration;
-
-  /**
-   * <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
-   */
-  ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
-
-  /**
-   * <p>Message delivery status resource type event configuration object for enabling and disabling wireless device topic.</p>
-   */
-  MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
-}
-
-export interface UpdateEventConfigurationByResourceTypesResponse {}
-
 /**
  * @internal
  */
@@ -4297,6 +4683,13 @@ export const AbpV1_1FilterSensitiveLog = (obj: AbpV1_1): any => ({
  * @internal
  */
 export const AccuracyFilterSensitiveLog = (obj: Accuracy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationConfigFilterSensitiveLog = (obj: ApplicationConfig): any => ({
   ...obj,
 });
 
@@ -4463,6 +4856,125 @@ export const CancelMulticastGroupSessionRequestFilterSensitiveLog = (obj: Cancel
 export const CancelMulticastGroupSessionResponseFilterSensitiveLog = (
   obj: CancelMulticastGroupSessionResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CdmaLocalIdFilterSensitiveLog = (obj: CdmaLocalId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CdmaNmrObjFilterSensitiveLog = (obj: CdmaNmrObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CdmaObjFilterSensitiveLog = (obj: CdmaObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GsmLocalIdFilterSensitiveLog = (obj: GsmLocalId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalIdentityFilterSensitiveLog = (obj: GlobalIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GsmNmrObjFilterSensitiveLog = (obj: GsmNmrObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GsmObjFilterSensitiveLog = (obj: GsmObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LteLocalIdFilterSensitiveLog = (obj: LteLocalId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LteNmrObjFilterSensitiveLog = (obj: LteNmrObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LteObjFilterSensitiveLog = (obj: LteObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TdscdmaLocalIdFilterSensitiveLog = (obj: TdscdmaLocalId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TdscdmaNmrObjFilterSensitiveLog = (obj: TdscdmaNmrObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TdscdmaObjFilterSensitiveLog = (obj: TdscdmaObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WcdmaLocalIdFilterSensitiveLog = (obj: WcdmaLocalId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WcdmaNmrObjFilterSensitiveLog = (obj: WcdmaNmrObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WcdmaObjFilterSensitiveLog = (obj: WcdmaObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CellTowersFilterSensitiveLog = (obj: CellTowers): any => ({
   ...obj,
 });
 
@@ -5447,6 +5959,41 @@ export const GetPositionConfigurationResponseFilterSensitiveLog = (obj: GetPosit
 /**
  * @internal
  */
+export const GnssFilterSensitiveLog = (obj: Gnss): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpFilterSensitiveLog = (obj: Ip): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WiFiAccessPointFilterSensitiveLog = (obj: WiFiAccessPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPositionEstimateRequestFilterSensitiveLog = (obj: GetPositionEstimateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPositionEstimateResponseFilterSensitiveLog = (obj: GetPositionEstimateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetResourceEventConfigurationRequestFilterSensitiveLog = (
   obj: GetResourceEventConfigurationRequest
 ): any => ({
@@ -5473,6 +6020,20 @@ export const GetResourceLogLevelRequestFilterSensitiveLog = (obj: GetResourceLog
  * @internal
  */
 export const GetResourceLogLevelResponseFilterSensitiveLog = (obj: GetResourceLogLevelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePositionRequestFilterSensitiveLog = (obj: GetResourcePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePositionResponseFilterSensitiveLog = (obj: GetResourcePositionResponse): any => ({
   ...obj,
 });
 
@@ -6059,192 +6620,5 @@ export const LoRaWANMulticastMetadataFilterSensitiveLog = (obj: LoRaWANMulticast
  * @internal
  */
 export const MulticastWirelessMetadataFilterSensitiveLog = (obj: MulticastWirelessMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendDataToMulticastGroupRequestFilterSensitiveLog = (obj: SendDataToMulticastGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendDataToMulticastGroupResponseFilterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SidewalkSendDataToDeviceFilterSensitiveLog = (obj: SidewalkSendDataToDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WirelessMetadataFilterSensitiveLog = (obj: WirelessMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendDataToWirelessDeviceRequestFilterSensitiveLog = (obj: SendDataToWirelessDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendDataToWirelessDeviceResponseFilterSensitiveLog = (obj: SendDataToWirelessDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog = (
-  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog = (
-  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog = (
-  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog = (
-  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoRaWANStartFuotaTaskFilterSensitiveLog = (obj: LoRaWANStartFuotaTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFuotaTaskRequestFilterSensitiveLog = (obj: StartFuotaTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFuotaTaskResponseFilterSensitiveLog = (obj: StartFuotaTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMulticastGroupSessionRequestFilterSensitiveLog = (obj: StartMulticastGroupSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMulticastGroupSessionResponseFilterSensitiveLog = (obj: StartMulticastGroupSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestWirelessDeviceRequestFilterSensitiveLog = (obj: TestWirelessDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestWirelessDeviceResponseFilterSensitiveLog = (obj: TestWirelessDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDestinationRequestFilterSensitiveLog = (obj: UpdateDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDestinationResponseFilterSensitiveLog = (obj: UpdateDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog = (
-  obj: UpdateEventConfigurationByResourceTypesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog = (
-  obj: UpdateEventConfigurationByResourceTypesResponse
-): any => ({
   ...obj,
 });

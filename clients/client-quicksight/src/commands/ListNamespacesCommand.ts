@@ -18,7 +18,7 @@ import {
   ListNamespacesRequestFilterSensitiveLog,
   ListNamespacesResponse,
   ListNamespacesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListNamespacesCommand,
   serializeAws_restJson1ListNamespacesCommand,

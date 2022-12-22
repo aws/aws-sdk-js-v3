@@ -30,9 +30,9 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
 
 /**
  * <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
- *         <note>
+ *          <note>
  *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

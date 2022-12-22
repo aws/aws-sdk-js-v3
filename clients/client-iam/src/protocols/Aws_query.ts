@@ -11052,6 +11052,9 @@ const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeCon
   }
   if (input.ContextKeyValues != null) {
     const memberEntries = serializeAws_queryContextKeyValueListType(input.ContextKeyValues, context);
+    if (input.ContextKeyValues?.length === 0) {
+      entries.ContextKeyValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextKeyValues.${key}`;
       entries[loc] = value;
@@ -11135,6 +11138,9 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11170,6 +11176,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.ClientIDList != null) {
     const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
+    if (input.ClientIDList?.length === 0) {
+      entries.ClientIDList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
       entries[loc] = value;
@@ -11177,6 +11186,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    if (input.ThumbprintList?.length === 0) {
+      entries.ThumbprintList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
@@ -11184,6 +11196,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11208,6 +11223,9 @@ const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11255,6 +11273,9 @@ const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11276,6 +11297,9 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11328,6 +11352,9 @@ const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11349,6 +11376,9 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11722,6 +11752,9 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
   const entries: any = {};
   if (input.Filter != null) {
     const memberEntries = serializeAws_queryentityListType(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
@@ -11743,6 +11776,9 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
   const entries: any = {};
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -11761,6 +11797,9 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   }
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12255,6 +12294,9 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   }
   if (input.ServiceNamespaces != null) {
     const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
+    if (input.ServiceNamespaces?.length === 0) {
+      entries.ServiceNamespaces = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceNamespaces.${key}`;
       entries[loc] = value;
@@ -12720,6 +12762,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   const entries: any = {};
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12727,6 +12772,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+      entries.PermissionsBoundaryPolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
@@ -12734,6 +12782,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    if (input.ActionNames?.length === 0) {
+      entries.ActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
@@ -12741,6 +12792,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -12757,6 +12811,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    if (input.ContextEntries?.length === 0) {
+      entries.ContextEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
@@ -12784,6 +12841,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12791,6 +12851,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+      entries.PermissionsBoundaryPolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
@@ -12798,6 +12861,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    if (input.ActionNames?.length === 0) {
+      entries.ActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
@@ -12805,6 +12871,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -12821,6 +12890,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    if (input.ContextEntries?.length === 0) {
+      entries.ContextEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
@@ -12872,6 +12944,9 @@ const serializeAws_queryTagInstanceProfileRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12916,6 +12991,9 @@ const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12934,6 +13012,9 @@ const serializeAws_queryTagOpenIDConnectProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12949,6 +13030,9 @@ const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12964,6 +13048,9 @@ const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __Serd
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12979,6 +13066,9 @@ const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12997,6 +13087,9 @@ const serializeAws_queryTagServerCertificateRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -13012,6 +13105,9 @@ const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __Serd
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -13043,6 +13139,9 @@ const serializeAws_queryUntagInstanceProfileRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13058,6 +13157,9 @@ const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, c
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13076,6 +13178,9 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13091,6 +13196,9 @@ const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13106,6 +13214,9 @@ const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13121,6 +13232,9 @@ const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequ
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13139,6 +13253,9 @@ const serializeAws_queryUntagServerCertificateRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13154,6 +13271,9 @@ const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13266,6 +13386,9 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   }
   if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    if (input.ThumbprintList?.length === 0) {
+      entries.ThumbprintList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
@@ -13420,6 +13543,9 @@ const serializeAws_queryUploadServerCertificateRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -14035,10 +14161,8 @@ const deserializeAws_queryEvalDecisionDetailsType = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -16980,10 +17104,8 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __strictParseInt32(pair["value"]) as number,
-    };
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
   }, {});
 };
 

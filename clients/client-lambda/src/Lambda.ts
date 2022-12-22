@@ -377,21 +377,21 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Grants an Amazon Web Services service, account, or organization permission to use a function. You can apply the
-   *       policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
-   *       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
-   *       Note: Lambda does not support adding policies to version $LATEST.</p>
+   * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
+   *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
+   *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
+   *       (ARN) of that version or alias to invoke the function. Note: Lambda does not support adding policies
+   *       to version $LATEST.</p>
    *
-   *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant permission to an
-   *       organization defined in Organizations, specify the organization ID as the <code>PrincipalOrgID</code>.
-   *       For Amazon Web Services services, the principal is a domain-style identifier defined by the service,
-   *       like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify
-   *       the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without
-   *       specifying the source, other accounts could potentially configure resources in their account to invoke your
-   *       Lambda function.</p>
+   *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant
+   *       permission to an organization defined in Organizations, specify the organization ID as the
+   *         <code>PrincipalOrgID</code>. For Amazon Web Services, the principal is a domain-style identifier that
+   *       the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If
+   *       you grant permission to a service principal without specifying the source, other accounts could potentially
+   *       configure resources in their account to invoke your Lambda function.</p>
    *
-   *          <p>This action adds a statement to a resource-based permissions policy for the function. For more information
-   *       about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
+   *          <p>This operation adds a statement to a resource-based permissions policy for the function. For more information
+   *       about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Using resource-based policies for Lambda</a>.</p>
    */
   public addPermission(
     args: AddPermissionCommandInput,
@@ -454,7 +454,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of
+   * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">code signing configuration</a> defines a list of
    *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
    *       validation checks fail). </p>
    */
@@ -624,27 +624,27 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
-   *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services
-   *       services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p>
+   *       deployment package is a .zip file archive or container image that contains your function code. The execution role
+   *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
+   *       streaming and X-Ray for request tracing.</p>
    *
-   *          <p>You set the package type to <code>Image</code> if the deployment package is a
-   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image,
-   *       the code property must include the URI of a container image in the Amazon ECR registry.
-   *       You do not need to specify the handler and runtime properties. </p>
+   *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+   *         image</a>, then you set the package type to <code>Image</code>. For a container image, the code property
+   *       must include the URI of a container image in the Amazon ECR registry. You do not need to specify the
+   *       handler and runtime properties.</p>
    *
-   *          <p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
-   *         archive</a>. For a .zip file archive, the code property specifies the location of the
-   *       .zip file. You must also specify the handler and runtime properties. The code in the
-   *       deployment package must be compatible with the target instruction set architecture of the
-   *       function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, the default value is
+   *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>, then
+   *       you set the package type to <code>Zip</code>. For a .zip file archive, the code property specifies the location of
+   *       the .zip file. You must also specify the handler and runtime properties. The code in the deployment package must
+   *       be compatible with the target instruction set architecture of the function (<code>x86-64</code> or
+   *         <code>arm64</code>). If you do not specify the architecture, then the default value is
    *       <code>x86-64</code>.</p>
    *
-   *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
-   *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
-   *       modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in
-   *       the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For
-   *       more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
-   *         States</a>.</p>
+   *          <p>When you create a function, Lambda provisions an instance of the function and its supporting
+   *       resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't
+   *       invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code>
+   *       fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to
+   *       invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda function states</a>.</p>
    *
    *          <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version
    *       changes when you update your function's code and configuration. A published version is a snapshot of your function
@@ -657,19 +657,18 @@ export class Lambda extends LambdaClient {
    *       to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)
    *       and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>
    *
-   *          <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function,
-   *       specify the ARN of a code-signing configuration. When a user
-   *       attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code
-   *       package has a valid signature from a trusted publisher. The code-signing configuration
-   *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
+   *          <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this
+   *       function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with
+   *         <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from
+   *       a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted
+   *       publishers for this function.</p>
    *
-   *          <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant
-   *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
-   *       or on an alias.</p>
+   *          <p>If another Amazon Web Services account or an Amazon Web Service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
    *
    *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
-   *       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
-   *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+   *       in other Amazon Web Services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+   *       or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Lambda
+   *       functions</a>.</p>
    */
   public createFunction(
     args: CreateFunctionCommandInput,
@@ -831,9 +830,8 @@ export class Lambda extends LambdaClient {
    * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
    *       Otherwise, all versions and aliases are deleted.</p>
    *
-   *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-   *       For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you
-   *       originally configured it.</p>
+   *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
+   *       directly, delete the trigger in the service where you originally configured it.</p>
    */
   public deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -1544,21 +1542,23 @@ export class Lambda extends LambdaClient {
    *
    *          <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type,
    *       client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an
-   *       error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html">Retry Behavior</a>.</p>
+   *       error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html">Error handling and automatic retries in
+   *           Lambda</a>.</p>
    *
    *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous invocation</a>,
    *       Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity
    *       to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple
-   *       times, even if no error occurs. To retain events that were not processed, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a>.</p>
+   *       times, even if no error occurs. To retain events that were not processed, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">dead-letter queue</a>.</p>
    *
    *          <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that
-   *       prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limit errors</a>, or issues with your function's code and configuration.
-   *       For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to
-   *       exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or
-   *       function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
+   *       prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">quota</a> errors, or issues with your function's code and
+   *       configuration. For example, Lambda returns <code>TooManyRequestsException</code> if running the
+   *       function would cause you to exceed a concurrency limit at either the account level
+   *         (<code>ConcurrentInvocationLimitExceeded</code>) or function level
+   *         (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
    *
-   *          <p>For functions with a long timeout, your client might be disconnected during synchronous invocation while it
-   *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
+   *          <p>For functions with a long timeout, your client might disconnect during synchronous invocation while it waits
+   *       for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
    *       connections with timeout or keep-alive settings.</p>
    *
    *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up
@@ -1750,11 +1750,11 @@ export class Lambda extends LambdaClient {
    * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
    *       functions per call.</p>
    *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
-   *       addition to the unpublished version. </p>
+   *       addition to the unpublished version.</p>
    *          <note>
-   *             <p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields.
-   *       To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode)
-   *       for a function or version, use <a>GetFunction</a>.</p>
+   *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
+   *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
+   *         LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p>
    *          </note>
    */
   public listFunctions(
@@ -2126,7 +2126,7 @@ export class Lambda extends LambdaClient {
    *       the current setting for a function.</p>
    *          <p>Use <a>GetAccountSettings</a> to see your Regional concurrency limit. You can reserve concurrency
    *       for as many functions as you like, as long as you leave at least 100 simultaneous executions unreserved for
-   *       functions that aren't configured with a per-function limit. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
+   *       functions that aren't configured with a per-function limit. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html">Lambda function scaling</a>.</p>
    */
   public putFunctionConcurrency(
     args: PutFunctionConcurrencyCommandInput,
@@ -2266,8 +2266,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement
-   *       from the output of <a>GetPolicy</a>.</p>
+   * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
+   *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
    */
   public removePermission(
     args: RemovePermissionCommandInput,
@@ -2551,27 +2551,24 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed
-   *       by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p>
+   * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package
+   *       must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p>
    *
-   *          <p>If the function's package type is <code>Image</code>, you must specify the code package in <code>ImageUri</code> as
-   *       the URI of a
-   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>
-   *       in the Amazon ECR registry.
-   *        </p>
+   *          <p>If the function's package type is <code>Image</code>, then you must specify the code package in
+   *         <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
    *
-   *          <p>If the function's package type is <code>Zip</code>, you must specify the deployment
-   *       package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
-   *         archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location.
-   *       You can also provide the function code inline using the <code>ZipFile</code> field. </p>
-   *          <p>The code in the deployment package must be compatible with the target instruction set
-   *       architecture of the function (<code>x86-64</code> or <code>arm64</code>). </p>
+   *          <p>If the function's package type is <code>Zip</code>, then you must specify the deployment package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
+   *         archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location. You can also provide
+   *       the function code inline using the <code>ZipFile</code> field.</p>
+   *          <p>The code in the deployment package must be compatible with the target instruction set architecture of the
+   *       function (<code>x86-64</code> or <code>arm64</code>).</p>
    *
    *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
    *       only the unpublished version.</p>
    *          <note>
-   *             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if
-   *       you update the image tag to a new image, Lambda does not automatically update the function.</p>
+   *             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In
+   *           Amazon ECR, if you update the image tag to a new image, Lambda does not automatically
+   *         update the function.</p>
    *          </note>
    */
   public updateFunctionCode(
@@ -2606,19 +2603,19 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Modify the version-specific settings of a Lambda function.</p>
    *
-   *          <p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If
-   *       your function connects to a VPC, this process can take a minute. During this time, you can't modify the function,
-   *       but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and
-   *         <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a>
+   *          <p>When you update a function, Lambda provisions an instance of the function and its supporting
+   *       resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify
+   *       the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>,
+   *       and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a>
    *       indicate when the update is complete and the function is processing events with the new configuration. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
-   *       States</a>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda
+   *         function states</a>.</p>
    *
    *          <p>These settings can vary between versions of a function and are locked when you publish a version. You can't
    *       modify the configuration of a published version, only the unpublished version.</p>
    *
    *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
-   *       to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
+   *       to an Amazon Web Services account or Amazon Web Service, use <a>AddPermission</a>.</p>
    */
   public updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,

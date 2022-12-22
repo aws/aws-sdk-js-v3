@@ -30,6 +30,10 @@ import {
   DeleteEventDataStoreCommandOutput,
 } from "../commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "../commands/DeleteTrailCommand";
+import {
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "../commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "../commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../commands/DescribeTrailsCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
@@ -60,6 +64,10 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "../commands/PutInsightSelectorsCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "../commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommandInput,
@@ -78,12 +86,16 @@ import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/U
 import { CloudTrailServiceException as __BaseException } from "../models/CloudTrailServiceException";
 import {
   AccountHasOngoingImportException,
+  AccountNotFoundException,
+  AccountNotRegisteredException,
+  AccountRegisteredException,
   AddTagsRequest,
   AddTagsResponse,
   AdvancedEventSelector,
   AdvancedFieldSelector,
   CancelQueryRequest,
   CancelQueryResponse,
+  CannotDelegateManagementAccountException,
   Channel,
   ChannelARNInvalidException,
   ChannelNotFoundException,
@@ -97,10 +109,13 @@ import {
   CreateTrailRequest,
   CreateTrailResponse,
   DataResource,
+  DelegatedAdminAccountLimitExceededException,
   DeleteEventDataStoreRequest,
   DeleteEventDataStoreResponse,
   DeleteTrailRequest,
   DeleteTrailResponse,
+  DeregisterOrganizationDelegatedAdminRequest,
+  DeregisterOrganizationDelegatedAdminResponse,
   DescribeQueryRequest,
   DescribeQueryResponse,
   DescribeTrailsRequest,
@@ -193,6 +208,8 @@ import {
   LookupEventsResponse,
   MaxConcurrentQueriesException,
   MaximumNumberOfTrailsExceededException,
+  NoManagementAccountSLRExistsException,
+  NotOrganizationManagementAccountException,
   NotOrganizationMasterAccountException,
   OperationNotPermittedException,
   OrganizationNotInAllFeaturesModeException,
@@ -206,6 +223,8 @@ import {
   QueryIdNotFoundException,
   QueryStatistics,
   QueryStatisticsForDescribeQuery,
+  RegisterOrganizationDelegatedAdminRequest,
+  RegisterOrganizationDelegatedAdminResponse,
   RemoveTagsRequest,
   RemoveTagsResponse,
   Resource,
@@ -316,6 +335,19 @@ export const serializeAws_json1_1DeleteTrailCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand = async (
+  input: DeregisterOrganizationDelegatedAdminCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeregisterOrganizationDelegatedAdmin",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeregisterOrganizationDelegatedAdminRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -592,6 +624,19 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
+  input: RegisterOrganizationDelegatedAdminCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.RegisterOrganizationDelegatedAdmin",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterOrganizationDelegatedAdminRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
@@ -754,6 +799,9 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -828,6 +876,9 @@ const deserializeAws_json1_1CancelQueryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -893,12 +944,30 @@ const deserializeAws_json1_1CreateEventDataStoreCommandError = async (
         parsedOutput,
         context
       );
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
+    case "InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
       throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+    case "KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1018,6 +1087,9 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "MaximumNumberOfTrailsExceededException":
     case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
       throw await deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1033,6 +1105,9 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "TrailAlreadyExistsException":
     case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
       throw await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(parsedOutput, context);
@@ -1092,6 +1167,9 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "EventDataStoreTerminationProtectedException":
     case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
       throw await deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -1101,6 +1179,9 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1148,6 +1229,9 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
@@ -1163,6 +1247,9 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1172,6 +1259,77 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeregisterOrganizationDelegatedAdminResponse(data, context);
+  const response: DeregisterOrganizationDelegatedAdminCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountNotFoundException":
+    case "com.amazonaws.cloudtrail#AccountNotFoundException":
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+    case "AccountNotRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountNotRegisteredException":
+      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotOrganizationManagementAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
+      throw await deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1225,6 +1383,9 @@ const deserializeAws_json1_1DescribeQueryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1275,6 +1436,9 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1378,6 +1542,9 @@ const deserializeAws_json1_1GetEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1422,9 +1589,15 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1522,12 +1695,18 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
       throw await deserializeAws_json1_1InsightNotEnabledExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1584,6 +1763,9 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
       throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
@@ -1593,6 +1775,9 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1640,6 +1825,9 @@ const deserializeAws_json1_1GetTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1690,6 +1878,9 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1793,6 +1984,9 @@ const deserializeAws_json1_1ListEventDataStoresCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
       throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2011,6 +2205,9 @@ const deserializeAws_json1_1ListQueriesCommandError = async (
     case "InvalidQueryStatusException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatusException":
       throw await deserializeAws_json1_1InvalidQueryStatusExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2070,6 +2267,9 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2223,6 +2423,9 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2238,6 +2441,9 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2288,6 +2494,9 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
@@ -2306,6 +2515,9 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
       throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2318,6 +2530,83 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RegisterOrganizationDelegatedAdminResponse(data, context);
+  const response: RegisterOrganizationDelegatedAdminCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountNotFoundException":
+    case "com.amazonaws.cloudtrail#AccountNotFoundException":
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+    case "AccountRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountRegisteredException":
+      throw await deserializeAws_json1_1AccountRegisteredExceptionResponse(parsedOutput, context);
+    case "CannotDelegateManagementAccountException":
+    case "com.amazonaws.cloudtrail#CannotDelegateManagementAccountException":
+      throw await deserializeAws_json1_1CannotDelegateManagementAccountExceptionResponse(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "DelegatedAdminAccountLimitExceededException":
+    case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
+      throw await deserializeAws_json1_1DelegatedAdminAccountLimitExceededExceptionResponse(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotOrganizationManagementAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
+      throw await deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -2374,6 +2663,9 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2451,6 +2743,9 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2575,6 +2870,9 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2587,6 +2885,9 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2646,6 +2947,9 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientS3BucketPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
       throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
@@ -2664,6 +2968,9 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "MaxConcurrentQueriesException":
     case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
       throw await deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2761,6 +3068,9 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2773,6 +3083,9 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2844,9 +3157,27 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
         parsedOutput,
         context
       );
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
+    case "InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2900,6 +3231,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
@@ -2942,6 +3276,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "InvalidParameterCombinationException":
     case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
       throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidS3BucketNameException":
     case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
       throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
@@ -2963,6 +3300,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "KmsKeyNotFoundException":
     case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
       throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -3005,6 +3345,58 @@ const deserializeAws_json1_1AccountHasOngoingImportExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccountHasOngoingImportException(body, context);
   const exception = new AccountHasOngoingImportException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountNotFoundException(body, context);
+  const exception = new AccountNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountNotRegisteredException(body, context);
+  const exception = new AccountNotRegisteredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountRegisteredException(body, context);
+  const exception = new AccountRegisteredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1CannotDelegateManagementAccountExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotDelegateManagementAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CannotDelegateManagementAccountException(body, context);
+  const exception = new CannotDelegateManagementAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3096,6 +3488,19 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1DelegatedAdminAccountLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DelegatedAdminAccountLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DelegatedAdminAccountLimitExceededException(body, context);
+  const exception = new DelegatedAdminAccountLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3674,6 +4079,32 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoManagementAccountSLRExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NoManagementAccountSLRExistsException(body, context);
+  const exception = new NoManagementAccountSLRExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotOrganizationManagementAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NotOrganizationManagementAccountException(body, context);
+  const exception = new NotOrganizationManagementAccountException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3902,6 +4333,7 @@ const serializeAws_json1_1CreateEventDataStoreRequest = (
     ...(input.AdvancedEventSelectors != null && {
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
@@ -3965,6 +4397,15 @@ const serializeAws_json1_1DeleteEventDataStoreRequest = (
 const serializeAws_json1_1DeleteTrailRequest = (input: DeleteTrailRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeregisterOrganizationDelegatedAdminRequest = (
+  input: DeregisterOrganizationDelegatedAdminRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DelegatedAdminAccountId != null && { DelegatedAdminAccountId: input.DelegatedAdminAccountId }),
   };
 };
 
@@ -4238,6 +4679,15 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   };
 };
 
+const serializeAws_json1_1RegisterOrganizationDelegatedAdminRequest = (
+  input: RegisterOrganizationDelegatedAdminRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MemberAccountId != null && { MemberAccountId: input.MemberAccountId }),
+  };
+};
+
 const serializeAws_json1_1RemoveTagsRequest = (input: RemoveTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
@@ -4339,6 +4789,7 @@ const serializeAws_json1_1UpdateEventDataStoreRequest = (
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
     ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
@@ -4369,6 +4820,33 @@ const deserializeAws_json1_1AccountHasOngoingImportException = (
   output: any,
   context: __SerdeContext
 ): AccountHasOngoingImportException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountNotRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotRegisteredException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountRegisteredException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4435,6 +4913,15 @@ const deserializeAws_json1_1CancelQueryResponse = (output: any, context: __Serde
   return {
     QueryId: __expectString(output.QueryId),
     QueryStatus: __expectString(output.QueryStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1CannotDelegateManagementAccountException = (
+  output: any,
+  context: __SerdeContext
+): CannotDelegateManagementAccountException => {
+  return {
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4531,6 +5018,7 @@ const deserializeAws_json1_1CreateEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -4594,6 +5082,15 @@ const deserializeAws_json1_1DataResourceValues = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_json1_1DelegatedAdminAccountLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): DelegatedAdminAccountLimitExceededException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
@@ -4602,6 +5099,13 @@ const deserializeAws_json1_1DeleteEventDataStoreResponse = (
 };
 
 const deserializeAws_json1_1DeleteTrailResponse = (output: any, context: __SerdeContext): DeleteTrailResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminResponse = (
+  output: any,
+  context: __SerdeContext
+): DeregisterOrganizationDelegatedAdminResponse => {
   return {} as any;
 };
 
@@ -4825,6 +5329,7 @@ const deserializeAws_json1_1GetEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -5471,6 +5976,24 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1NoManagementAccountSLRExistsException = (
+  output: any,
+  context: __SerdeContext
+): NoManagementAccountSLRExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1NotOrganizationManagementAccountException = (
+  output: any,
+  context: __SerdeContext
+): NotOrganizationManagementAccountException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1NotOrganizationMasterAccountException = (
   output: any,
   context: __SerdeContext
@@ -5611,10 +6134,8 @@ const deserializeAws_json1_1QueryResultColumn = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5664,6 +6185,13 @@ const deserializeAws_json1_1QueryStatisticsForDescribeQuery = (
     EventsScanned: __expectLong(output.EventsScanned),
     ExecutionTimeInMillis: __expectInt32(output.ExecutionTimeInMillis),
   } as any;
+};
+
+const deserializeAws_json1_1RegisterOrganizationDelegatedAdminResponse = (
+  output: any,
+  context: __SerdeContext
+): RegisterOrganizationDelegatedAdminResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1RemoveTagsResponse = (output: any, context: __SerdeContext): RemoveTagsResponse => {
@@ -5740,6 +6268,7 @@ const deserializeAws_json1_1RestoreEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -5980,6 +6509,7 @@ const deserializeAws_json1_1UpdateEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),

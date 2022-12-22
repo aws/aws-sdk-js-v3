@@ -48,10 +48,11 @@ import {
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
+  RelatedResource,
   ResourceIdentifier,
+  SchedulingConfig,
   ServiceType,
   StreamFile,
-  Tag,
   TargetSelection,
   TaskStatisticsForAuditCheck,
   TemplateType,
@@ -61,6 +62,34 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+export interface DeleteProvisioningTemplateRequest {
+  /**
+   * <p>The name of the fleet provision template to delete.</p>
+   */
+  templateName: string | undefined;
+}
+
+export interface DeleteProvisioningTemplateResponse {}
+
+export interface DeleteProvisioningTemplateVersionRequest {
+  /**
+   * <p>The name of the provisioning template version to delete.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The provisioning template version ID to delete.</p>
+   */
+  versionId: number | undefined;
+}
+
+export interface DeleteProvisioningTemplateVersionResponse {}
+
+/**
+ * <p>The input for the DeleteRegistrationCode operation.</p>
+ */
+export interface DeleteRegistrationCodeRequest {}
 
 /**
  * <p>The output for the DeleteRegistrationCode operation.</p>
@@ -1463,6 +1492,7 @@ export enum JobStatus {
   COMPLETED = "COMPLETED",
   DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
   IN_PROGRESS = "IN_PROGRESS",
+  SCHEDULED = "SCHEDULED",
 }
 
 /**
@@ -1610,6 +1640,12 @@ export interface Job {
    *             otherwise false.</p>
    */
   isConcurrent?: boolean;
+
+  /**
+   * <p>The configuration that allows you to schedule a job for a future date and time in
+   *             addition to specifying the end behavior for each job execution.</p>
+   */
+  schedulingConfig?: SchedulingConfig;
 }
 
 export interface DescribeJobResponse {
@@ -3004,7 +3040,7 @@ export interface ThingGroupIndexingConfiguration {
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
+   *       service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
    */
   managedFields?: Field[];
 
@@ -5601,6 +5637,37 @@ export interface ListProvisioningTemplateVersionsResponse {
   nextToken?: string;
 }
 
+export interface ListRelatedResourcesForAuditFindingRequest {
+  /**
+   * <p>The finding Id.</p>
+   */
+  findingId: string | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListRelatedResourcesForAuditFindingResponse {
+  /**
+   * <p>The related resources.</p>
+   */
+  relatedResources?: RelatedResource[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> for the first API call.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListRoleAliasesRequest {
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -5845,102 +5912,44 @@ export interface StreamSummary {
   description?: string;
 }
 
-export interface ListStreamsResponse {
-  /**
-   * <p>A list of streams.</p>
-   */
-  streams?: StreamSummary[];
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateRequestFilterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token used to get the next set of results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateResponseFilterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
+  ...obj,
+});
 
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionResponse
+): any => ({
+  ...obj,
+});
 
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The list of tags assigned to the resource.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export interface ListTargetsForPolicyRequest {
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  pageSize?: number;
-}
-
-export interface ListTargetsForPolicyResponse {
-  /**
-   * <p>The policy targets.</p>
-   */
-  targets?: string[];
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export interface ListTargetsForSecurityProfileRequest {
-  /**
-   * <p>The security profile.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export interface ListTargetsForSecurityProfileResponse {
-  /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   */
-  securityProfileTargets?: SecurityProfileTarget[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7770,6 +7779,24 @@ export const ListProvisioningTemplateVersionsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListRoleAliasesRequestFilterSensitiveLog = (obj: ListRoleAliasesRequest): any => ({
   ...obj,
 });
@@ -7866,58 +7893,5 @@ export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): a
  * @internal
  */
 export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileResponse
-): any => ({
   ...obj,
 });

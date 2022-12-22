@@ -32,7 +32,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
- *         <important>
+ *          <important>
  *             <p>After you modify a DB parameter group, you should wait at least 5 minutes
  *             before creating your first DB instance that uses that DB parameter group as the default parameter
  *             group. This allows Amazon RDS to fully complete the modify action before the parameter
@@ -42,7 +42,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *             <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
  *             <i>DescribeDBParameters</i> command to verify
  *             that your DB parameter group has been created or modified.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

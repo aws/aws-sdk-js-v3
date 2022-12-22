@@ -14,7 +14,6 @@ AWS SDK for JavaScript CloudTrail Client for Node.js, Browser and React Native.
 <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p>
 <p>CloudTrail is a web service that records Amazon Web Services API calls for your Amazon Web Services account and delivers log files to an Amazon S3 bucket.
 The recorded information includes the identity of the user, the start time of the Amazon Web Services API call, the source IP address, the request parameters, and the response elements returned by the service.</p>
-
 <note>
 <p>As an alternative to the API,
 you can use one of the Amazon Web Services SDKs, which consist of libraries and sample code for various

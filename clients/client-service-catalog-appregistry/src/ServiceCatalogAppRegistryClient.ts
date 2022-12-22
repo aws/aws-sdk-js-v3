@@ -76,6 +76,7 @@ import {
   GetAssociatedResourceCommandOutput,
 } from "./commands/GetAssociatedResourceCommand";
 import { GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput } from "./commands/GetAttributeGroupCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListAssociatedAttributeGroupsCommandInput,
@@ -97,6 +98,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutConfigurationCommandInput, PutConfigurationCommandOutput } from "./commands/PutConfigurationCommand";
 import { SyncResourceCommandInput, SyncResourceCommandOutput } from "./commands/SyncResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -125,12 +127,14 @@ export type ServiceInputTypes =
   | GetApplicationCommandInput
   | GetAssociatedResourceCommandInput
   | GetAttributeGroupCommandInput
+  | GetConfigurationCommandInput
   | ListApplicationsCommandInput
   | ListAssociatedAttributeGroupsCommandInput
   | ListAssociatedResourcesCommandInput
   | ListAttributeGroupsCommandInput
   | ListAttributeGroupsForApplicationCommandInput
   | ListTagsForResourceCommandInput
+  | PutConfigurationCommandInput
   | SyncResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -149,12 +153,14 @@ export type ServiceOutputTypes =
   | GetApplicationCommandOutput
   | GetAssociatedResourceCommandOutput
   | GetAttributeGroupCommandOutput
+  | GetConfigurationCommandOutput
   | ListApplicationsCommandOutput
   | ListAssociatedAttributeGroupsCommandOutput
   | ListAssociatedResourcesCommandOutput
   | ListAttributeGroupsCommandOutput
   | ListAttributeGroupsForApplicationCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutConfigurationCommandOutput
   | SyncResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

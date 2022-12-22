@@ -18,7 +18,7 @@ import {
   DisableImportFindingsForProductRequestFilterSensitiveLog,
   DisableImportFindingsForProductResponse,
   DisableImportFindingsForProductResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DisableImportFindingsForProductCommand,
   serializeAws_restJson1DisableImportFindingsForProductCommand,

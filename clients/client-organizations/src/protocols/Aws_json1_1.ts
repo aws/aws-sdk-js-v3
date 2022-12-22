@@ -39,6 +39,10 @@ import {
 import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "../commands/DeleteOrganizationCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "../commands/DeletePolicyCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeregisterDelegatedAdministratorCommandInput,
   DeregisterDelegatedAdministratorCommandOutput,
 } from "../commands/DeregisterDelegatedAdministratorCommand";
@@ -61,6 +65,10 @@ import {
   DescribeOrganizationCommandOutput,
 } from "../commands/DescribeOrganizationCommand";
 import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "../commands/DescribePolicyCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "../commands/DescribeResourcePolicyCommand";
 import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "../commands/DetachPolicyCommand";
 import {
   DisableAWSServiceAccessCommandInput,
@@ -128,6 +136,7 @@ import {
   ListTargetsForPolicyCommandOutput,
 } from "../commands/ListTargetsForPolicyCommand";
 import { MoveAccountCommandInput, MoveAccountCommandOutput } from "../commands/MoveAccountCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   RegisterDelegatedAdministratorCommandInput,
   RegisterDelegatedAdministratorCommandOutput,
@@ -198,6 +207,7 @@ import {
   DescribeOrganizationResponse,
   DescribePolicyRequest,
   DescribePolicyResponse,
+  DescribeResourcePolicyResponse,
   DestinationParentNotFoundException,
   DetachPolicyRequest,
   DisableAWSServiceAccessRequest,
@@ -281,8 +291,13 @@ import {
   PolicyTypeNotAvailableForOrganizationException,
   PolicyTypeNotEnabledException,
   PolicyTypeSummary,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResponse,
   RegisterDelegatedAdministratorRequest,
   RemoveAccountFromOrganizationRequest,
+  ResourcePolicy,
+  ResourcePolicyNotFoundException,
+  ResourcePolicySummary,
   Root,
   RootNotFoundException,
   ServiceException,
@@ -468,6 +483,18 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSOrganizationsV20161128.DeleteResourcePolicy",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
   input: DeregisterDelegatedAdministratorCommandInput,
   context: __SerdeContext
@@ -568,6 +595,18 @@ export const serializeAws_json1_1DescribePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeResourcePolicyCommand = async (
+  input: DescribeResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSOrganizationsV20161128.DescribeResourcePolicy",
+  };
+  const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -892,6 +931,19 @@ export const serializeAws_json1_1MoveAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MoveAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSOrganizationsV20161128.PutResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1815,6 +1867,65 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.organizations#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2264,6 +2375,65 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
       throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeResourcePolicyResponse(data, context);
+  const response: DescribeResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
       throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
@@ -3783,6 +3953,68 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.organizations#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4684,6 +4916,19 @@ const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotFoundException(body, context);
+  const exception = new ResourcePolicyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5172,6 +5417,16 @@ const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, conte
   };
 };
 
+const serializeAws_json1_1PutResourcePolicyRequest = (
+  input: PutResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
   input: RegisterDelegatedAdministratorRequest,
   context: __SerdeContext
@@ -5642,6 +5897,16 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
 const deserializeAws_json1_1DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
   return {
     Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeResourcePolicyResponse => {
+  return {
+    ResourcePolicy:
+      output.ResourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.ResourcePolicy, context) : undefined,
   } as any;
 };
 
@@ -6305,6 +6570,42 @@ const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeCo
   return {
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1PutResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyResponse => {
+  return {
+    ResourcePolicy:
+      output.ResourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.ResourcePolicy, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
+  return {
+    Content: __expectString(output.Content),
+    ResourcePolicySummary:
+      output.ResourcePolicySummary != null
+        ? deserializeAws_json1_1ResourcePolicySummary(output.ResourcePolicySummary, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicySummary = (output: any, context: __SerdeContext): ResourcePolicySummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
   } as any;
 };
 

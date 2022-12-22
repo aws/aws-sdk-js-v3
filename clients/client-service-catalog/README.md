@@ -9,10 +9,10 @@
 
 AWS SDK for JavaScript ServiceCatalog Client for Node.js, Browser and React Native.
 
-<fullname>AWS Service Catalog</fullname>
+<fullname>Service Catalog</fullname>
 
 <p>
-<a href="https://aws.amazon.com/servicecatalog/">Service Catalog</a> enables
+<a href="http://aws.amazon.com/servicecatalog">Service Catalog</a> enables
 organizations to create and manage catalogs of IT services that are approved for Amazon Web Services. To
 get the most out of this documentation, you should be familiar with the terminology
 discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">Service Catalog

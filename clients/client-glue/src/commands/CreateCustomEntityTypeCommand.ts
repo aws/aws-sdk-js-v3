@@ -30,8 +30,7 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
 
 /**
  * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
- *
- * 	        <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
+ *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

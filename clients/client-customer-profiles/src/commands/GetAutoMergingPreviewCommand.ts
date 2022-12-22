@@ -36,7 +36,6 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
  *          <p>You can't view which profiles are matched and would be merged.</p>
  *          <important>
- *
  *             <p>We strongly recommend you use this API to do a dry run of the automerging process
  *             before running the Identity Resolution Job. Include <b>at least</b> two matching
  *             attributes. If your matching list includes too few attributes (such as only

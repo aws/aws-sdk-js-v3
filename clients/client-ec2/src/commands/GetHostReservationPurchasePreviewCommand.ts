@@ -31,11 +31,11 @@ export interface GetHostReservationPurchasePreviewCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Preview a reservation purchase with configurations that match those of your
- *             Dedicated Host. You must have active Dedicated Hosts in your account before you purchase
- *             a reservation.</p>
- *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
- *             not result in the offering being purchased.</p>
+ * <p>Preview a reservation purchase with configurations that match those of your Dedicated
+ *             Host. You must have active Dedicated Hosts in your account before you purchase a
+ *             reservation.</p>
+ *          <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not
+ *             result in the offering being purchased.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

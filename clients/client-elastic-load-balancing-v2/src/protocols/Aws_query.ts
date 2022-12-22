@@ -3076,6 +3076,9 @@ const serializeAws_queryAddListenerCertificatesInput = (
   }
   if (input.Certificates != null) {
     const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    if (input.Certificates?.length === 0) {
+      entries.Certificates = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Certificates.${key}`;
       entries[loc] = value;
@@ -3088,6 +3091,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   const entries: any = {};
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceArns(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -3095,6 +3101,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3281,6 +3290,9 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
   }
   if (input.Certificates != null) {
     const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    if (input.Certificates?.length === 0) {
+      entries.Certificates = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Certificates.${key}`;
       entries[loc] = value;
@@ -3288,6 +3300,9 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
   }
   if (input.DefaultActions != null) {
     const memberEntries = serializeAws_queryActions(input.DefaultActions, context);
+    if (input.DefaultActions?.length === 0) {
+      entries.DefaultActions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DefaultActions.${key}`;
       entries[loc] = value;
@@ -3295,6 +3310,9 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
   }
   if (input.AlpnPolicy != null) {
     const memberEntries = serializeAws_queryAlpnPolicyName(input.AlpnPolicy, context);
+    if (input.AlpnPolicy?.length === 0) {
+      entries.AlpnPolicy = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlpnPolicy.${key}`;
       entries[loc] = value;
@@ -3302,6 +3320,9 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3317,6 +3338,9 @@ const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInpu
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -3324,6 +3348,9 @@ const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInpu
   }
   if (input.SubnetMappings != null) {
     const memberEntries = serializeAws_querySubnetMappings(input.SubnetMappings, context);
+    if (input.SubnetMappings?.length === 0) {
+      entries.SubnetMappings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetMappings.${key}`;
       entries[loc] = value;
@@ -3331,6 +3358,9 @@ const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInpu
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -3341,6 +3371,9 @@ const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInpu
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3365,6 +3398,9 @@ const serializeAws_queryCreateRuleInput = (input: CreateRuleInput, context: __Se
   }
   if (input.Conditions != null) {
     const memberEntries = serializeAws_queryRuleConditionList(input.Conditions, context);
+    if (input.Conditions?.length === 0) {
+      entries.Conditions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Conditions.${key}`;
       entries[loc] = value;
@@ -3375,6 +3411,9 @@ const serializeAws_queryCreateRuleInput = (input: CreateRuleInput, context: __Se
   }
   if (input.Actions != null) {
     const memberEntries = serializeAws_queryActions(input.Actions, context);
+    if (input.Actions?.length === 0) {
+      entries.Actions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Actions.${key}`;
       entries[loc] = value;
@@ -3382,6 +3421,9 @@ const serializeAws_queryCreateRuleInput = (input: CreateRuleInput, context: __Se
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3443,6 +3485,9 @@ const serializeAws_queryCreateTargetGroupInput = (input: CreateTargetGroupInput,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3493,6 +3538,9 @@ const serializeAws_queryDeregisterTargetsInput = (input: DeregisterTargetsInput,
   }
   if (input.Targets != null) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
+    if (input.Targets?.length === 0) {
+      entries.Targets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
@@ -3539,6 +3587,9 @@ const serializeAws_queryDescribeListenersInput = (input: DescribeListenersInput,
   }
   if (input.ListenerArns != null) {
     const memberEntries = serializeAws_queryListenerArns(input.ListenerArns, context);
+    if (input.ListenerArns?.length === 0) {
+      entries.ListenerArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListenerArns.${key}`;
       entries[loc] = value;
@@ -3571,6 +3622,9 @@ const serializeAws_queryDescribeLoadBalancersInput = (
   const entries: any = {};
   if (input.LoadBalancerArns != null) {
     const memberEntries = serializeAws_queryLoadBalancerArns(input.LoadBalancerArns, context);
+    if (input.LoadBalancerArns?.length === 0) {
+      entries.LoadBalancerArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerArns.${key}`;
       entries[loc] = value;
@@ -3578,6 +3632,9 @@ const serializeAws_queryDescribeLoadBalancersInput = (
   }
   if (input.Names != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.Names, context);
+    if (input.Names?.length === 0) {
+      entries.Names = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Names.${key}`;
       entries[loc] = value;
@@ -3599,6 +3656,9 @@ const serializeAws_queryDescribeRulesInput = (input: DescribeRulesInput, context
   }
   if (input.RuleArns != null) {
     const memberEntries = serializeAws_queryRuleArns(input.RuleArns, context);
+    if (input.RuleArns?.length === 0) {
+      entries.RuleArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleArns.${key}`;
       entries[loc] = value;
@@ -3617,6 +3677,9 @@ const serializeAws_queryDescribeSSLPoliciesInput = (input: DescribeSSLPoliciesIn
   const entries: any = {};
   if (input.Names != null) {
     const memberEntries = serializeAws_querySslPolicyNames(input.Names, context);
+    if (input.Names?.length === 0) {
+      entries.Names = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Names.${key}`;
       entries[loc] = value;
@@ -3638,6 +3701,9 @@ const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: 
   const entries: any = {};
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceArns(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -3667,6 +3733,9 @@ const serializeAws_queryDescribeTargetGroupsInput = (
   }
   if (input.TargetGroupArns != null) {
     const memberEntries = serializeAws_queryTargetGroupArns(input.TargetGroupArns, context);
+    if (input.TargetGroupArns?.length === 0) {
+      entries.TargetGroupArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupArns.${key}`;
       entries[loc] = value;
@@ -3674,6 +3743,9 @@ const serializeAws_queryDescribeTargetGroupsInput = (
   }
   if (input.Names != null) {
     const memberEntries = serializeAws_queryTargetGroupNames(input.Names, context);
+    if (input.Names?.length === 0) {
+      entries.Names = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Names.${key}`;
       entries[loc] = value;
@@ -3698,6 +3770,9 @@ const serializeAws_queryDescribeTargetHealthInput = (
   }
   if (input.Targets != null) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
+    if (input.Targets?.length === 0) {
+      entries.Targets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
@@ -3727,6 +3802,9 @@ const serializeAws_queryForwardActionConfig = (input: ForwardActionConfig, conte
   const entries: any = {};
   if (input.TargetGroups != null) {
     const memberEntries = serializeAws_queryTargetGroupList(input.TargetGroups, context);
+    if (input.TargetGroups?.length === 0) {
+      entries.TargetGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroups.${key}`;
       entries[loc] = value;
@@ -3749,6 +3827,9 @@ const serializeAws_queryHostHeaderConditionConfig = (
   const entries: any = {};
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -3767,6 +3848,9 @@ const serializeAws_queryHttpHeaderConditionConfig = (
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -3782,6 +3866,9 @@ const serializeAws_queryHttpRequestMethodConditionConfig = (
   const entries: any = {};
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -3896,6 +3983,9 @@ const serializeAws_queryModifyListenerInput = (input: ModifyListenerInput, conte
   }
   if (input.Certificates != null) {
     const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    if (input.Certificates?.length === 0) {
+      entries.Certificates = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Certificates.${key}`;
       entries[loc] = value;
@@ -3903,6 +3993,9 @@ const serializeAws_queryModifyListenerInput = (input: ModifyListenerInput, conte
   }
   if (input.DefaultActions != null) {
     const memberEntries = serializeAws_queryActions(input.DefaultActions, context);
+    if (input.DefaultActions?.length === 0) {
+      entries.DefaultActions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DefaultActions.${key}`;
       entries[loc] = value;
@@ -3910,6 +4003,9 @@ const serializeAws_queryModifyListenerInput = (input: ModifyListenerInput, conte
   }
   if (input.AlpnPolicy != null) {
     const memberEntries = serializeAws_queryAlpnPolicyName(input.AlpnPolicy, context);
+    if (input.AlpnPolicy?.length === 0) {
+      entries.AlpnPolicy = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlpnPolicy.${key}`;
       entries[loc] = value;
@@ -3928,6 +4024,9 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
   }
   if (input.Attributes != null) {
     const memberEntries = serializeAws_queryLoadBalancerAttributes(input.Attributes, context);
+    if (input.Attributes?.length === 0) {
+      entries.Attributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -3943,6 +4042,9 @@ const serializeAws_queryModifyRuleInput = (input: ModifyRuleInput, context: __Se
   }
   if (input.Conditions != null) {
     const memberEntries = serializeAws_queryRuleConditionList(input.Conditions, context);
+    if (input.Conditions?.length === 0) {
+      entries.Conditions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Conditions.${key}`;
       entries[loc] = value;
@@ -3950,6 +4052,9 @@ const serializeAws_queryModifyRuleInput = (input: ModifyRuleInput, context: __Se
   }
   if (input.Actions != null) {
     const memberEntries = serializeAws_queryActions(input.Actions, context);
+    if (input.Actions?.length === 0) {
+      entries.Actions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Actions.${key}`;
       entries[loc] = value;
@@ -3968,6 +4073,9 @@ const serializeAws_queryModifyTargetGroupAttributesInput = (
   }
   if (input.Attributes != null) {
     const memberEntries = serializeAws_queryTargetGroupAttributes(input.Attributes, context);
+    if (input.Attributes?.length === 0) {
+      entries.Attributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4022,6 +4130,9 @@ const serializeAws_queryPathPatternConditionConfig = (
   const entries: any = {};
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4037,6 +4148,9 @@ const serializeAws_queryQueryStringConditionConfig = (
   const entries: any = {};
   if (input.Values != null) {
     const memberEntries = serializeAws_queryQueryStringKeyValuePairList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4105,6 +4219,9 @@ const serializeAws_queryRegisterTargetsInput = (input: RegisterTargetsInput, con
   }
   if (input.Targets != null) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
+    if (input.Targets?.length === 0) {
+      entries.Targets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
@@ -4123,6 +4240,9 @@ const serializeAws_queryRemoveListenerCertificatesInput = (
   }
   if (input.Certificates != null) {
     const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    if (input.Certificates?.length === 0) {
+      entries.Certificates = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Certificates.${key}`;
       entries[loc] = value;
@@ -4135,6 +4255,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   const entries: any = {};
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceArns(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -4142,6 +4265,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryTagKeys(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -4183,6 +4309,9 @@ const serializeAws_queryRuleCondition = (input: RuleCondition, context: __SerdeC
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4304,6 +4433,9 @@ const serializeAws_querySetRulePrioritiesInput = (input: SetRulePrioritiesInput,
   const entries: any = {};
   if (input.RulePriorities != null) {
     const memberEntries = serializeAws_queryRulePriorityList(input.RulePriorities, context);
+    if (input.RulePriorities?.length === 0) {
+      entries.RulePriorities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RulePriorities.${key}`;
       entries[loc] = value;
@@ -4319,6 +4451,9 @@ const serializeAws_querySetSecurityGroupsInput = (input: SetSecurityGroupsInput,
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -4334,6 +4469,9 @@ const serializeAws_querySetSubnetsInput = (input: SetSubnetsInput, context: __Se
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -4341,6 +4479,9 @@ const serializeAws_querySetSubnetsInput = (input: SetSubnetsInput, context: __Se
   }
   if (input.SubnetMappings != null) {
     const memberEntries = serializeAws_querySubnetMappings(input.SubnetMappings, context);
+    if (input.SubnetMappings?.length === 0) {
+      entries.SubnetMappings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetMappings.${key}`;
       entries[loc] = value;
@@ -4356,6 +4497,9 @@ const serializeAws_querySourceIpConditionConfig = (input: SourceIpConditionConfi
   const entries: any = {};
   if (input.Values != null) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4707,10 +4851,8 @@ const deserializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraPar
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -4772,10 +4914,8 @@ const deserializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

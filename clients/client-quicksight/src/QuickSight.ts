@@ -89,6 +89,11 @@ import {
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
 import {
+  DeleteAccountSubscriptionCommand,
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
+} from "./commands/DeleteAccountSubscriptionCommand";
+import {
   DeleteAnalysisCommand,
   DeleteAnalysisCommandInput,
   DeleteAnalysisCommandOutput,
@@ -177,6 +182,11 @@ import {
   DescribeAnalysisCommandOutput,
 } from "./commands/DescribeAnalysisCommand";
 import {
+  DescribeAnalysisDefinitionCommand,
+  DescribeAnalysisDefinitionCommandInput,
+  DescribeAnalysisDefinitionCommandOutput,
+} from "./commands/DescribeAnalysisDefinitionCommand";
+import {
   DescribeAnalysisPermissionsCommand,
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
@@ -186,6 +196,11 @@ import {
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
+import {
+  DescribeDashboardDefinitionCommand,
+  DescribeDashboardDefinitionCommandInput,
+  DescribeDashboardDefinitionCommandOutput,
+} from "./commands/DescribeDashboardDefinitionCommand";
 import {
   DescribeDashboardPermissionsCommand,
   DescribeDashboardPermissionsCommandInput,
@@ -266,6 +281,11 @@ import {
   DescribeTemplateCommandInput,
   DescribeTemplateCommandOutput,
 } from "./commands/DescribeTemplateCommand";
+import {
+  DescribeTemplateDefinitionCommand,
+  DescribeTemplateDefinitionCommandInput,
+  DescribeTemplateDefinitionCommandOutput,
+} from "./commands/DescribeTemplateDefinitionCommand";
 import {
   DescribeTemplatePermissionsCommand,
   DescribeTemplatePermissionsCommandInput,
@@ -426,6 +446,16 @@ import {
   SearchDashboardsCommandOutput,
 } from "./commands/SearchDashboardsCommand";
 import {
+  SearchDataSetsCommand,
+  SearchDataSetsCommandInput,
+  SearchDataSetsCommandOutput,
+} from "./commands/SearchDataSetsCommand";
+import {
+  SearchDataSourcesCommand,
+  SearchDataSourcesCommandInput,
+  SearchDataSourcesCommandOutput,
+} from "./commands/SearchDataSourcesCommand";
+import {
   SearchFoldersCommand,
   SearchFoldersCommandInput,
   SearchFoldersCommandOutput,
@@ -553,7 +583,7 @@ import { QuickSightClient } from "./QuickSightClient";
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- *         <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *          <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
  *             you can use to manage Amazon QuickSight. </p>
@@ -597,11 +627,11 @@ export class QuickSight extends QuickSightClient {
    *             API operation. To further customize Amazon QuickSight by removing Amazon QuickSight
    *             sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide.</i>
    *          </p>
-   *         <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
+   *          <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
    *             a QuickSight namespace instead. Customizations that apply to a namespace always override
    *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
    *             the <code>DescribeAccountCustomization</code> API operation.</p>
-   *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
+   *          <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
    *             as the namespace default, make sure that you first share the theme with the namespace.
    *             If you don't share it with the namespace, the theme isn't visible to your users
    *             even if you make it the default theme.
@@ -647,27 +677,22 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.</p>
-   *
    *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
    *           CLI or SDK. This operation isn't supported in the US East (Ohio) Region, South America (Sao Paulo) Region, or Asia
    *             Pacific (Singapore) Region.  </p>
-   *
    *          <p>Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign
    *                 up for Amazon Web Services</a> in the <i>Amazon QuickSight User
    *                 Guide</i>. The person who signs up for Amazon QuickSight needs to have the
    *             correct Identity and Access Management (IAM) permissions. For more information,
    *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM Policy Examples for Amazon QuickSight</a> in the
    *                     <i>Amazon QuickSight User Guide</i>.</p>
-   *
    *          <p>If your IAM policy includes both the <code>Subscribe</code> and
    *                 <code>CreateAccountSubscription</code> actions, make sure that both actions are set
    *             to <code>Allow</code>. If either action is set to <code>Deny</code>, the
    *                 <code>Deny</code> action prevails and your API call fails.</p>
-   *
    *          <p>You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to
    *                 Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing IAM roles to Amazon QuickSight</a> in the
    *                     <i>Amazon QuickSight User Guide</i>.</p>
-   *
    *          <p>You can't set default resource access on the new account from the Amazon QuickSight
    *             API. Instead, add default resource access from the Amazon QuickSight console. For more
    *             information about setting default resource access to Amazon Web Services services, see
@@ -742,7 +767,7 @@ export class QuickSight extends QuickSightClient {
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
    *             </code>
    *             API operation.</p>
-   *         <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
+   *          <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
    *             from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can
    *             create scheduled email reports from them. If you have the correct permissions, you can
    *             create a dashboard from a template that exists in a different Amazon Web Services account.</p>
@@ -903,10 +928,10 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Use the <code>CreateGroup</code> operation to create a group in   Amazon QuickSight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact AWS Support.</p>
-   * 		       <p>The permissions resource is
+   *          <p>The permissions resource is
    * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
    *             </code>.</p>
-   * 		       <p>The response is a group object.</p>
+   *          <p>The response is a group object.</p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
   public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
@@ -1003,8 +1028,7 @@ export class QuickSight extends QuickSightClient {
    * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
    * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
    * 			is measured starting 24 hours before the current date and time.</p>
-   *
-   * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
+   *          <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
    * 			access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
    * 				tags?</a> in the Amazon Web Services Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
    */
@@ -1039,7 +1063,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
-   *         <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
+   *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
    *             for that namespace. Users that access the namespace can share assets only with other
    *             users or groups in the same namespace. They can't see users and groups in other
    *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
@@ -1079,7 +1103,7 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting
    * 			template to create a dashboard.</p>
-   * 		       <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
+   *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
    * 			required to create an analysis and that you can use to create s dashboard. A template adds
    * 			a layer of abstraction by using placeholders to replace the dataset associated with the
    * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
@@ -1149,7 +1173,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Creates a theme.</p>
-   * 		       <p>A <i>theme</i> is set of configuration options for color and layout.
+   *          <p>A <i>theme</i> is set of configuration options for color and layout.
    * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
    * 			Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
    */
@@ -1242,16 +1266,48 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Use the <code>DeleteAccountSubscription</code> operation to delete an Amazon QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
+   */
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountSubscriptionCommandOutput>;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): void;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): void;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): Promise<DeleteAccountSubscriptionCommandOutput> | void {
+    const command = new DeleteAccountSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
    *             which you can restore the analysis. If you don't specify a recovery window value, the
    *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
    *             the response that specifies the end of the recovery window. At the end of the recovery
    *             window, Amazon QuickSight deletes the analysis permanently.</p>
-   *         <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
+   *          <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
    *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
    *             the analysis. The analysis remains visible in the API until it's deleted, so you can
    *             describe it but you can't make a template from it.</p>
-   *         <p>An analysis that's scheduled for deletion isn't accessible in the Amazon QuickSight console.
+   *          <p>An analysis that's scheduled for deletion isn't accessible in the Amazon QuickSight console.
    *             To access it in the console, restore it. Deleting an analysis doesn't delete the
    *             dashboards that you publish from it.</p>
    */
@@ -1756,11 +1812,11 @@ export class QuickSight extends QuickSightClient {
    *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
    *             customizations to apply by running this API operation with the <code>Resolved</code> flag
    *             included. </p>
-   *         <p>To determine what customizations display when you run this command, it can help to
+   *          <p>To determine what customizations display when you run this command, it can help to
    *             visualize the relationship of the entities involved. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Amazon Web Services account</code> - The Amazon Web Services account exists at the top of the hierarchy.
    *                     It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you
    *                     subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use as your home Region.
@@ -1768,30 +1824,30 @@ export class QuickSight extends QuickSightClient {
    *                     supported Amazon Web Services Region. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Amazon Web Services Region</code> - In each Amazon Web Services Region where you sign in to Amazon QuickSight
    *                     at least once, Amazon QuickSight acts as a separate instance of the same service. If
    *                     you have a user directory, it resides in us-east-1, which is the US East (N.
    *                     Virginia). Generally speaking, these users have access to Amazon QuickSight in any
    *                     Amazon Web Services Region, unless they are constrained to a namespace. </p>
-   *                 <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
+   *                <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
    *                     If you're using the CLI, you can use one of the following options:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command line options</a>. </p>
-   *                     </li>
+   *                      <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command line options</a>. </p>
+   *                   </li>
    *                   <li>
-   *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
-   *                     </li>
+   *                      <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
+   *                   </li>
    *                   <li>
-   *                         <p>Run <code>aws configure</code> to change your default Amazon Web Services Region. Use
+   *                      <p>Run <code>aws configure</code> to change your default Amazon Web Services Region. Use
    *                             Enter to key the same settings for your keys. For more information, see
    *                             <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the CLI</a>.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Namespace</code> - A QuickSight namespace is a partition that contains
    *                     users and assets (data sources, datasets, dashboards, and so on). To access
    *                     assets that are in a specific namespace, users and groups must also be part of
@@ -1800,7 +1856,7 @@ export class QuickSight extends QuickSightClient {
    *                     and Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Applied customizations</code> -  Within an Amazon Web Services Region, a set of
    *                     Amazon QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
    *                     Settings that you apply to a namespace override settings that you apply to an
@@ -1873,7 +1929,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Use the DescribeAccountSubscription operation to receive a description of a Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
+   * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
    */
   public describeAccountSubscription(
     args: DescribeAccountSubscriptionCommandInput,
@@ -1926,6 +1982,46 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeAnalysisCommandOutput) => void
   ): Promise<DescribeAnalysisCommandOutput> | void {
     const command = new DescribeAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a detailed description of the definition of an analysis.</p>
+   *          <note>
+   *             <p>If you do not need to know details about the content of an Analysis, for instance if you
+   *                 are trying to check the status of a recently created or updated Analysis, use the
+   *                 <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html">
+   *                   <code>DescribeAnalysis</code>
+   *                </a> instead.
+   *             </p>
+   *          </note>
+   */
+  public describeAnalysisDefinition(
+    args: DescribeAnalysisDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAnalysisDefinitionCommandOutput>;
+  public describeAnalysisDefinition(
+    args: DescribeAnalysisDefinitionCommandInput,
+    cb: (err: any, data?: DescribeAnalysisDefinitionCommandOutput) => void
+  ): void;
+  public describeAnalysisDefinition(
+    args: DescribeAnalysisDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAnalysisDefinitionCommandOutput) => void
+  ): void;
+  public describeAnalysisDefinition(
+    args: DescribeAnalysisDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnalysisDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAnalysisDefinitionCommandOutput) => void
+  ): Promise<DescribeAnalysisDefinitionCommandOutput> | void {
+    const command = new DescribeAnalysisDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1990,6 +2086,46 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
   ): Promise<DescribeDashboardCommandOutput> | void {
     const command = new DescribeDashboardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a detailed description of the definition of a dashboard.</p>
+   *          <note>
+   *             <p>If you do not need to know details about the content of a dashboard, for instance if you
+   *                 are trying to check the status of a recently created or updated dashboard, use the
+   *                 <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html">
+   *                   <code>DescribeDashboard</code>
+   *                </a> instead.
+   *             </p>
+   *          </note>
+   */
+  public describeDashboardDefinition(
+    args: DescribeDashboardDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardDefinitionCommandOutput>;
+  public describeDashboardDefinition(
+    args: DescribeDashboardDefinitionCommandInput,
+    cb: (err: any, data?: DescribeDashboardDefinitionCommandOutput) => void
+  ): void;
+  public describeDashboardDefinition(
+    args: DescribeDashboardDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardDefinitionCommandOutput) => void
+  ): void;
+  public describeDashboardDefinition(
+    args: DescribeDashboardDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDashboardDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDashboardDefinitionCommandOutput) => void
+  ): Promise<DescribeDashboardDefinitionCommandOutput> | void {
+    const command = new DescribeDashboardDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2066,7 +2202,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Describes the permissions on a dataset.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+   *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
    */
   public describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
@@ -2516,6 +2652,46 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Provides a detailed description of the definition of a template.</p>
+   *          <note>
+   *             <p>If you do not need to know details about the content of a template, for instance if you
+   * 				are trying to check the status of a recently created or updated template, use the
+   * 				<a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTemplate.html">
+   *                   <code>DescribeTemplate</code>
+   *                </a> instead.
+   * 			</p>
+   *          </note>
+   */
+  public describeTemplateDefinition(
+    args: DescribeTemplateDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTemplateDefinitionCommandOutput>;
+  public describeTemplateDefinition(
+    args: DescribeTemplateDefinitionCommandInput,
+    cb: (err: any, data?: DescribeTemplateDefinitionCommandOutput) => void
+  ): void;
+  public describeTemplateDefinition(
+    args: DescribeTemplateDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTemplateDefinitionCommandOutput) => void
+  ): void;
+  public describeTemplateDefinition(
+    args: DescribeTemplateDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTemplateDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTemplateDefinitionCommandOutput) => void
+  ): Promise<DescribeTemplateDefinitionCommandOutput> | void {
+    const command = new DescribeTemplateDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes read and write permissions on a template.</p>
    */
   public describeTemplatePermissions(
@@ -2674,23 +2850,23 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions.</p>
-   *         <p>The following rules apply to the generated URL:</p>
-   *         <ul>
+   *          <p>The following rules apply to the generated URL:</p>
+   *          <ul>
    *             <li>
-   *                 <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
+   *                <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
    *             </li>
    *             <li>
-   *                 <p>The URL validity period should not be confused with the actual session lifetime that can be customized using the <code>
+   *                <p>The URL validity period should not be confused with the actual session lifetime that can be customized using the <code>
    *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
    *                   </code> parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
    *             </li>
    *             <li>
-   *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
+   *                <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
    *             Guide</i>.</p>
-   *         <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+   *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
    */
   public generateEmbedUrlForAnonymousUser(
     args: GenerateEmbedUrlForAnonymousUserCommandInput,
@@ -2724,25 +2900,25 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
    *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
-   *         <p>The following rules apply to the generated URL:</p>
-   *         <ul>
+   *          <p>The following rules apply to the generated URL:</p>
+   *          <ul>
    *             <li>
-   *                 <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
+   *                <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
    *             </li>
    *             <li>
-   *                 <p>The URL validity period should not be confused with the actual session lifetime
+   *                <p>The URL validity period should not be confused with the actual session lifetime
    *         that can be customized using the <code>
    *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
    *                   </code> parameter.</p>
-   *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
+   *                <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
    *             </li>
    *             <li>
-   *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
+   *                <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
    *             Guide</i>.</p>
-   *             <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+   *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
    */
   public generateEmbedUrlForRegisteredUser(
     args: GenerateEmbedUrlForRegisteredUserCommandInput,
@@ -2775,27 +2951,27 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions. </p>
-   *         <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the user's browser. The following rules apply to the generated URL:</p>
-   *         <ul>
+   *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the user's browser. The following rules apply to the generated URL:</p>
+   *          <ul>
    *             <li>
-   *                 <p>They must be used together.</p>
+   *                <p>They must be used together.</p>
    *             </li>
    *             <li>
-   *                 <p>They can be used one time only.</p>
+   *                <p>They can be used one time only.</p>
    *             </li>
    *             <li>
-   *                 <p>They are valid for 5 minutes after you run this command.</p>
+   *                <p>They are valid for 5 minutes after you run this command.</p>
    *             </li>
    *             <li>
-   *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
+   *                <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
    *             </li>
    *             <li>
-   *                 <p>The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customize session duration.</p>
+   *                <p>The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customize session duration.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User
    *             Guide</i>.</p>
-   *             <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+   *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
    */
   public getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
@@ -2841,14 +3017,14 @@ export class QuickSight extends QuickSightClient {
    *             API operation to add a new user with a custom permission profile attached. For more
    *             information, see the following sections in the <i>Amazon QuickSight User
    *             Guide</i>:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding Analytics</a>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
    *                </p>
    *             </li>
@@ -2978,7 +3154,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
+   *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
    */
   public listDataSets(
     args: ListDataSetsCommandInput,
@@ -3623,9 +3799,9 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Searches for analyses that belong to the user specified in the filter.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
-   *         </note>
+   *          </note>
    */
   public searchAnalyses(
     args: SearchAnalysesCommandInput,
@@ -3658,9 +3834,9 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Searches for dashboards that belong to a user. </p>
-   *         <note>
+   *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
-   *         </note>
+   *          </note>
    */
   public searchDashboards(
     args: SearchDashboardsCommandInput,
@@ -3681,6 +3857,70 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: SearchDashboardsCommandOutput) => void
   ): Promise<SearchDashboardsCommandOutput> | void {
     const command = new SearchDashboardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>SearchDataSets</code> operation to search for datasets that belong to an account.</p>
+   */
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDataSetsCommandOutput>;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    cb: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): void;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): void;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDataSetsCommandOutput) => void),
+    cb?: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): Promise<SearchDataSetsCommandOutput> | void {
+    const command = new SearchDataSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>SearchDataSources</code> operation to search for data sources that belong to an account.</p>
+   */
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDataSourcesCommandOutput>;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): void;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): void;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDataSourcesCommandOutput) => void),
+    cb?: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): Promise<SearchDataSourcesCommandOutput> | void {
+    const command = new SearchDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3754,27 +3994,27 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight resource. </p>
-   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to
    * 			scope user permissions, by granting a user permission to access or change only resources
    * 			with certain tag values. You can use the <code>TagResource</code> operation with a
    * 			resource that already has tags. If you specify a new tag key for the resource, this tag
    * 			is appended to the list of tags associated with the resource. If you specify a tag key
    * 			that is already associated with the resource, the new tag value that you specify
    * 			replaces the previous value for that tag.</p>
-   * 		       <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
+   *          <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
    * 			set, data source, dashboard, and template. </p>
-   * 		       <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
+   *          <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
    * 			the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>You can't use tags to track costs for Amazon QuickSight. This isn't
+   *                <p>You can't use tags to track costs for Amazon QuickSight. This isn't
    * 				possible because you can't tag the resources that Amazon QuickSight costs are based
    * 				on, for example Amazon QuickSight storage capacity (SPICE), number of users, type
    * 				of users, and usage metrics.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
-   * 				        </li>
+   *                <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
+   *             </li>
    *          </ul>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -3834,7 +4074,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme.</p>
-   *         <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
+   *          <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
    *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override
    *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
    *             the <code>DescribeAccountCustomization</code> API operation. </p>
@@ -3966,13 +4206,13 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Updates a dashboard in an Amazon Web Services account.</p>
-   *         <note>
+   *          <note>
    *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
    *                 the new version.  You can update the published version of a dashboard by
    *                 using the <code>
    *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html">UpdateDashboardPublishedVersion</a>
    *                </code> API operation.</p>
-   *         </note>
+   *          </note>
    */
   public updateDashboard(
     args: UpdateDashboardCommandInput,
@@ -4101,7 +4341,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Updates the permissions on a dataset.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+   *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
    */
   public updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
@@ -4547,12 +4787,12 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
    * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
-   * 		       <p>Theme permissions apply in groupings. Valid groupings include the following for the three
+   *          <p>Theme permissions apply in groupings. Valid groupings include the following for the three
    * 			levels of permissions, which are user, owner, or no permissions: </p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>User</p>
-   * 					          <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>"quicksight:DescribeTheme"</code>
@@ -4574,10 +4814,10 @@ export class QuickSight extends QuickSightClient {
    *                      </p>
    *                   </li>
    *                </ul>
-   * 				        </li>
+   *             </li>
    *             <li>
    *                <p>Owner</p>
-   * 					          <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>"quicksight:DescribeTheme"</code>
@@ -4634,7 +4874,7 @@ export class QuickSight extends QuickSightClient {
    *                      </p>
    *                   </li>
    *                </ul>
-   * 				        </li>
+   *             </li>
    *             <li>
    *                <p>To specify no permissions, omit the permissions list.</p>
    *             </li>

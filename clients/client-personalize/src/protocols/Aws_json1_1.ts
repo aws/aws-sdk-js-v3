@@ -40,6 +40,10 @@ import {
 } from "../commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "../commands/CreateEventTrackerCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
+import {
+  CreateMetricAttributionCommandInput,
+  CreateMetricAttributionCommandOutput,
+} from "../commands/CreateMetricAttributionCommand";
 import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "../commands/CreateRecommenderCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "../commands/CreateSolutionCommand";
@@ -52,6 +56,10 @@ import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../comman
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "../commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "../commands/DeleteEventTrackerCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
+import {
+  DeleteMetricAttributionCommandInput,
+  DeleteMetricAttributionCommandOutput,
+} from "../commands/DeleteMetricAttributionCommand";
 import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "../commands/DeleteRecommenderCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "../commands/DeleteSolutionCommand";
@@ -87,6 +95,10 @@ import {
   DescribeFeatureTransformationCommandOutput,
 } from "../commands/DescribeFeatureTransformationCommand";
 import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "../commands/DescribeFilterCommand";
+import {
+  DescribeMetricAttributionCommandInput,
+  DescribeMetricAttributionCommandOutput,
+} from "../commands/DescribeMetricAttributionCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "../commands/DescribeRecipeCommand";
 import {
   DescribeRecommenderCommandInput,
@@ -120,6 +132,14 @@ import {
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "../commands/ListEventTrackersCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
+import {
+  ListMetricAttributionMetricsCommandInput,
+  ListMetricAttributionMetricsCommandOutput,
+} from "../commands/ListMetricAttributionMetricsCommand";
+import {
+  ListMetricAttributionsCommandInput,
+  ListMetricAttributionsCommandOutput,
+} from "../commands/ListMetricAttributionsCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand";
 import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "../commands/ListRecommendersCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
@@ -141,6 +161,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "../commands/UpdateCampaignCommand";
+import {
+  UpdateMetricAttributionCommandInput,
+  UpdateMetricAttributionCommandOutput,
+} from "../commands/UpdateMetricAttributionCommand";
 import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "../commands/UpdateRecommenderCommand";
 import {
   Algorithm,
@@ -180,6 +204,8 @@ import {
   CreateEventTrackerResponse,
   CreateFilterRequest,
   CreateFilterResponse,
+  CreateMetricAttributionRequest,
+  CreateMetricAttributionResponse,
   CreateRecommenderRequest,
   CreateRecommenderResponse,
   CreateSchemaRequest,
@@ -209,6 +235,7 @@ import {
   DeleteDatasetRequest,
   DeleteEventTrackerRequest,
   DeleteFilterRequest,
+  DeleteMetricAttributionRequest,
   DeleteRecommenderRequest,
   DeleteSchemaRequest,
   DeleteSolutionRequest,
@@ -234,6 +261,8 @@ import {
   DescribeFeatureTransformationResponse,
   DescribeFilterRequest,
   DescribeFilterResponse,
+  DescribeMetricAttributionRequest,
+  DescribeMetricAttributionResponse,
   DescribeRecipeRequest,
   DescribeRecipeResponse,
   DescribeRecommenderRequest,
@@ -277,6 +306,10 @@ import {
   ListEventTrackersResponse,
   ListFiltersRequest,
   ListFiltersResponse,
+  ListMetricAttributionMetricsRequest,
+  ListMetricAttributionMetricsResponse,
+  ListMetricAttributionsRequest,
+  ListMetricAttributionsResponse,
   ListRecipesRequest,
   ListRecipesResponse,
   ListRecommendersRequest,
@@ -289,6 +322,10 @@ import {
   ListSolutionVersionsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  MetricAttribute,
+  MetricAttribution,
+  MetricAttributionOutput,
+  MetricAttributionSummary,
   OptimizationObjective,
   Recipe,
   RecipeSummary,
@@ -320,6 +357,8 @@ import {
   UntagResourceResponse,
   UpdateCampaignRequest,
   UpdateCampaignResponse,
+  UpdateMetricAttributionRequest,
+  UpdateMetricAttributionResponse,
   UpdateRecommenderRequest,
   UpdateRecommenderResponse,
 } from "../models/models_0";
@@ -442,6 +481,19 @@ export const serializeAws_json1_1CreateFilterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateMetricAttributionCommand = async (
+  input: CreateMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.CreateMetricAttribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateMetricAttributionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateRecommenderCommand = async (
   input: CreateRecommenderCommandInput,
   context: __SerdeContext
@@ -556,6 +608,19 @@ export const serializeAws_json1_1DeleteFilterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteMetricAttributionCommand = async (
+  input: DeleteMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.DeleteMetricAttribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -738,6 +803,19 @@ export const serializeAws_json1_1DescribeFilterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeMetricAttributionCommand = async (
+  input: DescribeMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.DescribeMetricAttribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -936,6 +1014,32 @@ export const serializeAws_json1_1ListFiltersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListMetricAttributionMetricsCommand = async (
+  input: ListMetricAttributionMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.ListMetricAttributionMetrics",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMetricAttributionMetricsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMetricAttributionsCommand = async (
+  input: ListMetricAttributionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.ListMetricAttributions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMetricAttributionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListRecipesCommand = async (
   input: ListRecipesCommandInput,
   context: __SerdeContext
@@ -1089,6 +1193,19 @@ export const serializeAws_json1_1UpdateCampaignCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCampaignRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateMetricAttributionCommand = async (
+  input: UpdateMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.UpdateMetricAttribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1600,6 +1717,59 @@ const deserializeAws_json1_1CreateFilterCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateMetricAttributionResponse(data, context);
+  const response: CreateMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateRecommenderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1792,6 +1962,9 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
       throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
@@ -2006,6 +2179,50 @@ const deserializeAws_json1_1DeleteFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFilterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteMetricAttributionCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricAttributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2625,6 +2842,50 @@ const deserializeAws_json1_1DescribeFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFilterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeMetricAttributionResponse(data, context);
+  const response: DescribeMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetricAttributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3308,6 +3569,94 @@ const deserializeAws_json1_1ListFiltersCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListMetricAttributionMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMetricAttributionMetricsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMetricAttributionMetricsResponse(data, context);
+  const response: ListMetricAttributionMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMetricAttributionMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListMetricAttributionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMetricAttributionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMetricAttributionsResponse(data, context);
+  const response: ListMetricAttributionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMetricAttributionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListRecipesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3863,6 +4212,56 @@ const deserializeAws_json1_1UpdateCampaignCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateMetricAttributionResponse(data, context);
+  const response: UpdateMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateRecommenderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4209,6 +4608,9 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
     ...(input.importMode != null && { importMode: input.importMode }),
     ...(input.jobName != null && { jobName: input.jobName }),
+    ...(input.publishAttributionMetricsToS3 != null && {
+      publishAttributionMetricsToS3: input.publishAttributionMetricsToS3,
+    }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
@@ -4241,6 +4643,20 @@ const serializeAws_json1_1CreateFilterRequest = (input: CreateFilterRequest, con
     ...(input.filterExpression != null && { filterExpression: input.filterExpression }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateMetricAttributionRequest = (
+  input: CreateMetricAttributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.datasetGroupArn != null && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.metrics != null && { metrics: serializeAws_json1_1MetricAttributes(input.metrics, context) }),
+    ...(input.metricsOutputConfig != null && {
+      metricsOutputConfig: serializeAws_json1_1MetricAttributionOutput(input.metricsOutputConfig, context),
+    }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -4287,6 +4703,7 @@ const serializeAws_json1_1CreateSolutionVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.name != null && { name: input.name }),
     ...(input.solutionArn != null && { solutionArn: input.solutionArn }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.trainingMode != null && { trainingMode: input.trainingMode }),
@@ -4340,6 +4757,15 @@ const serializeAws_json1_1DeleteEventTrackerRequest = (
 const serializeAws_json1_1DeleteFilterRequest = (input: DeleteFilterRequest, context: __SerdeContext): any => {
   return {
     ...(input.filterArn != null && { filterArn: input.filterArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteMetricAttributionRequest = (
+  input: DeleteMetricAttributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.metricAttributionArn != null && { metricAttributionArn: input.metricAttributionArn }),
   };
 };
 
@@ -4454,6 +4880,15 @@ const serializeAws_json1_1DescribeFilterRequest = (input: DescribeFilterRequest,
   };
 };
 
+const serializeAws_json1_1DescribeMetricAttributionRequest = (
+  input: DescribeMetricAttributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.metricAttributionArn != null && { metricAttributionArn: input.metricAttributionArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeRecipeRequest = (input: DescribeRecipeRequest, context: __SerdeContext): any => {
   return {
     ...(input.recipeArn != null && { recipeArn: input.recipeArn }),
@@ -4498,10 +4933,8 @@ const serializeAws_json1_1FeatureTransformationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4572,10 +5005,8 @@ const serializeAws_json1_1HyperParameters = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4690,6 +5121,28 @@ const serializeAws_json1_1ListFiltersRequest = (input: ListFiltersRequest, conte
   };
 };
 
+const serializeAws_json1_1ListMetricAttributionMetricsRequest = (
+  input: ListMetricAttributionMetricsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.metricAttributionArn != null && { metricAttributionArn: input.metricAttributionArn }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  };
+};
+
+const serializeAws_json1_1ListMetricAttributionsRequest = (
+  input: ListMetricAttributionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.datasetGroupArn != null && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  };
+};
+
 const serializeAws_json1_1ListRecipesRequest = (input: ListRecipesRequest, context: __SerdeContext): any => {
   return {
     ...(input.domain != null && { domain: input.domain }),
@@ -4739,6 +5192,39 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+  };
+};
+
+const serializeAws_json1_1MetricAttribute = (input: MetricAttribute, context: __SerdeContext): any => {
+  return {
+    ...(input.eventType != null && { eventType: input.eventType }),
+    ...(input.expression != null && { expression: input.expression }),
+    ...(input.metricName != null && { metricName: input.metricName }),
+  };
+};
+
+const serializeAws_json1_1MetricAttributes = (input: MetricAttribute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1MetricAttribute(entry, context);
+    });
+};
+
+const serializeAws_json1_1MetricAttributesNamesList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1MetricAttributionOutput = (input: MetricAttributionOutput, context: __SerdeContext): any => {
+  return {
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.s3DataDestination != null && {
+      s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
   };
 };
 
@@ -4853,6 +5339,22 @@ const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest,
     }),
     ...(input.minProvisionedTPS != null && { minProvisionedTPS: input.minProvisionedTPS }),
     ...(input.solutionVersionArn != null && { solutionVersionArn: input.solutionVersionArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateMetricAttributionRequest = (
+  input: UpdateMetricAttributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.addMetrics != null && { addMetrics: serializeAws_json1_1MetricAttributes(input.addMetrics, context) }),
+    ...(input.metricAttributionArn != null && { metricAttributionArn: input.metricAttributionArn }),
+    ...(input.metricsOutputConfig != null && {
+      metricsOutputConfig: serializeAws_json1_1MetricAttributionOutput(input.metricsOutputConfig, context),
+    }),
+    ...(input.removeMetrics != null && {
+      removeMetrics: serializeAws_json1_1MetricAttributesNamesList(input.removeMetrics, context),
+    }),
   };
 };
 
@@ -5314,6 +5816,15 @@ const deserializeAws_json1_1CreateFilterResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1CreateMetricAttributionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateMetricAttributionResponse => {
+  return {
+    metricAttributionArn: __expectString(output.metricAttributionArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateRecommenderResponse = (
   output: any,
   context: __SerdeContext
@@ -5492,6 +6003,7 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
       output.lastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
+    publishAttributionMetricsToS3: __expectBoolean(output.publishAttributionMetricsToS3),
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
   } as any;
@@ -5811,6 +6323,18 @@ const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1DescribeMetricAttributionResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeMetricAttributionResponse => {
+  return {
+    metricAttribution:
+      output.metricAttribution != null
+        ? deserializeAws_json1_1MetricAttribution(output.metricAttribution, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
   return {
     recipe: output.recipe != null ? deserializeAws_json1_1Recipe(output.recipe, context) : undefined,
@@ -5929,10 +6453,8 @@ const deserializeAws_json1_1FeatureTransformationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5944,10 +6466,8 @@ const deserializeAws_json1_1FeaturizationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6062,10 +6582,8 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6211,6 +6729,29 @@ const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ListMetricAttributionMetricsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMetricAttributionMetricsResponse => {
+  return {
+    metrics: output.metrics != null ? deserializeAws_json1_1MetricAttributes(output.metrics, context) : undefined,
+    nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListMetricAttributionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMetricAttributionsResponse => {
+  return {
+    metricAttributions:
+      output.metricAttributions != null
+        ? deserializeAws_json1_1MetricAttributions(output.metricAttributions, context)
+        : undefined,
+    nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
@@ -6265,15 +6806,100 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1MetricAttribute = (output: any, context: __SerdeContext): MetricAttribute => {
+  return {
+    eventType: __expectString(output.eventType),
+    expression: __expectString(output.expression),
+    metricName: __expectString(output.metricName),
+  } as any;
+};
+
+const deserializeAws_json1_1MetricAttributes = (output: any, context: __SerdeContext): MetricAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricAttribute(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MetricAttribution = (output: any, context: __SerdeContext): MetricAttribution => {
+  return {
+    creationDateTime:
+      output.creationDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
+        : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    failureReason: __expectString(output.failureReason),
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
+        : undefined,
+    metricAttributionArn: __expectString(output.metricAttributionArn),
+    metricsOutputConfig:
+      output.metricsOutputConfig != null
+        ? deserializeAws_json1_1MetricAttributionOutput(output.metricsOutputConfig, context)
+        : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_json1_1MetricAttributionOutput = (
+  output: any,
+  context: __SerdeContext
+): MetricAttributionOutput => {
+  return {
+    roleArn: __expectString(output.roleArn),
+    s3DataDestination:
+      output.s3DataDestination != null
+        ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MetricAttributions = (output: any, context: __SerdeContext): MetricAttributionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricAttributionSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MetricAttributionSummary = (
+  output: any,
+  context: __SerdeContext
+): MetricAttributionSummary => {
+  return {
+    creationDateTime:
+      output.creationDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
+        : undefined,
+    failureReason: __expectString(output.failureReason),
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
+        : undefined,
+    metricAttributionArn: __expectString(output.metricAttributionArn),
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+  } as any;
+};
+
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6441,10 +7067,8 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6555,6 +7179,7 @@ const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
+    recipeArn: __expectString(output.recipeArn),
     solutionArn: __expectString(output.solutionArn),
     status: __expectString(output.status),
   } as any;
@@ -6573,6 +7198,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
       output.lastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
+    name: __expectString(output.name),
     performAutoML: __expectBoolean(output.performAutoML),
     performHPO: __expectBoolean(output.performHPO),
     recipeArn: __expectString(output.recipeArn),
@@ -6688,6 +7314,15 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 const deserializeAws_json1_1UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
   return {
     campaignArn: __expectString(output.campaignArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateMetricAttributionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateMetricAttributionResponse => {
+  return {
+    metricAttributionArn: __expectString(output.metricAttributionArn),
   } as any;
 };
 

@@ -12,7 +12,7 @@ import type { V1OrV2Endpoint } from "./serdePlugin";
 
 export const serializerMiddleware =
   <Input extends object, Output extends object, RuntimeUtils extends EndpointBearer>(
-    options: V1OrV2Endpoint<RuntimeUtils>,
+    options: V1OrV2Endpoint,
     serializer: RequestSerializer<any, RuntimeUtils>
   ): SerializeMiddleware<Input, Output> =>
   (next: SerializeHandler<Input, Output>, context: HandlerExecutionContext): SerializeHandler<Input, Output> =>
@@ -20,13 +20,13 @@ export const serializerMiddleware =
     const endpoint =
       context.endpointV2?.url && options.urlParser
         ? async () => options.urlParser!(context.endpointV2!.url as URL)
-        : options.endpoint;
+        : options.endpoint!;
 
     if (!endpoint) {
       throw new Error("No valid endpoint provider available.");
     }
 
-    const request = await serializer(args.input, { ...options, endpoint });
+    const request = await serializer(args.input, { ...options, endpoint } as RuntimeUtils);
 
     return next({
       ...args,

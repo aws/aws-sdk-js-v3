@@ -133,6 +133,11 @@ import {
   GetAllowListCommandOutput,
 } from "./commands/GetAllowListCommand";
 import {
+  GetAutomatedDiscoveryConfigurationCommand,
+  GetAutomatedDiscoveryConfigurationCommandInput,
+  GetAutomatedDiscoveryConfigurationCommandOutput,
+} from "./commands/GetAutomatedDiscoveryConfigurationCommand";
+import {
   GetBucketStatisticsCommand,
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -142,6 +147,11 @@ import {
   GetClassificationExportConfigurationCommandInput,
   GetClassificationExportConfigurationCommandOutput,
 } from "./commands/GetClassificationExportConfigurationCommand";
+import {
+  GetClassificationScopeCommand,
+  GetClassificationScopeCommandInput,
+  GetClassificationScopeCommandOutput,
+} from "./commands/GetClassificationScopeCommand";
 import {
   GetCustomDataIdentifierCommand,
   GetCustomDataIdentifierCommandInput,
@@ -180,6 +190,11 @@ import {
 } from "./commands/GetMasterAccountCommand";
 import { GetMemberCommand, GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
 import {
+  GetResourceProfileCommand,
+  GetResourceProfileCommandInput,
+  GetResourceProfileCommandOutput,
+} from "./commands/GetResourceProfileCommand";
+import {
   GetRevealConfigurationCommand,
   GetRevealConfigurationCommandInput,
   GetRevealConfigurationCommandOutput,
@@ -194,6 +209,11 @@ import {
   GetSensitiveDataOccurrencesCommandInput,
   GetSensitiveDataOccurrencesCommandOutput,
 } from "./commands/GetSensitiveDataOccurrencesCommand";
+import {
+  GetSensitivityInspectionTemplateCommand,
+  GetSensitivityInspectionTemplateCommandInput,
+  GetSensitivityInspectionTemplateCommandOutput,
+} from "./commands/GetSensitivityInspectionTemplateCommand";
 import {
   GetUsageStatisticsCommand,
   GetUsageStatisticsCommandInput,
@@ -214,6 +234,11 @@ import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "./commands/ListClassificationJobsCommand";
+import {
+  ListClassificationScopesCommand,
+  ListClassificationScopesCommandInput,
+  ListClassificationScopesCommandOutput,
+} from "./commands/ListClassificationScopesCommand";
 import {
   ListCustomDataIdentifiersCommand,
   ListCustomDataIdentifiersCommandInput,
@@ -245,6 +270,21 @@ import {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
+import {
+  ListResourceProfileArtifactsCommand,
+  ListResourceProfileArtifactsCommandInput,
+  ListResourceProfileArtifactsCommandOutput,
+} from "./commands/ListResourceProfileArtifactsCommand";
+import {
+  ListResourceProfileDetectionsCommand,
+  ListResourceProfileDetectionsCommandInput,
+  ListResourceProfileDetectionsCommandOutput,
+} from "./commands/ListResourceProfileDetectionsCommand";
+import {
+  ListSensitivityInspectionTemplatesCommand,
+  ListSensitivityInspectionTemplatesCommandInput,
+  ListSensitivityInspectionTemplatesCommandOutput,
+} from "./commands/ListSensitivityInspectionTemplatesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -282,10 +322,20 @@ import {
   UpdateAllowListCommandOutput,
 } from "./commands/UpdateAllowListCommand";
 import {
+  UpdateAutomatedDiscoveryConfigurationCommand,
+  UpdateAutomatedDiscoveryConfigurationCommandInput,
+  UpdateAutomatedDiscoveryConfigurationCommandOutput,
+} from "./commands/UpdateAutomatedDiscoveryConfigurationCommand";
+import {
   UpdateClassificationJobCommand,
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
 } from "./commands/UpdateClassificationJobCommand";
+import {
+  UpdateClassificationScopeCommand,
+  UpdateClassificationScopeCommandInput,
+  UpdateClassificationScopeCommandOutput,
+} from "./commands/UpdateClassificationScopeCommand";
 import {
   UpdateFindingsFilterCommand,
   UpdateFindingsFilterCommandInput,
@@ -307,14 +357,29 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
+  UpdateResourceProfileCommand,
+  UpdateResourceProfileCommandInput,
+  UpdateResourceProfileCommandOutput,
+} from "./commands/UpdateResourceProfileCommand";
+import {
+  UpdateResourceProfileDetectionsCommand,
+  UpdateResourceProfileDetectionsCommandInput,
+  UpdateResourceProfileDetectionsCommandOutput,
+} from "./commands/UpdateResourceProfileDetectionsCommand";
+import {
   UpdateRevealConfigurationCommand,
   UpdateRevealConfigurationCommandInput,
   UpdateRevealConfigurationCommandOutput,
 } from "./commands/UpdateRevealConfigurationCommand";
+import {
+  UpdateSensitivityInspectionTemplateCommand,
+  UpdateSensitivityInspectionTemplateCommandInput,
+  UpdateSensitivityInspectionTemplateCommandOutput,
+} from "./commands/UpdateSensitivityInspectionTemplateCommand";
 import { Macie2Client } from "./Macie2Client";
 
 /**
- * <p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>
+ * <p>Amazon Macie</p>
  */
 export class Macie2 extends Macie2Client {
   /**
@@ -792,7 +857,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes.</p>
+   * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
    */
   public describeBuckets(
     args: DescribeBucketsCommandInput,
@@ -1164,7 +1229,39 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves (queries) aggregated statistical data about S3 buckets that Amazon Macie monitors and analyzes.</p>
+   * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
+   */
+  public getAutomatedDiscoveryConfiguration(
+    args: GetAutomatedDiscoveryConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedDiscoveryConfigurationCommandOutput>;
+  public getAutomatedDiscoveryConfiguration(
+    args: GetAutomatedDiscoveryConfigurationCommandInput,
+    cb: (err: any, data?: GetAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): void;
+  public getAutomatedDiscoveryConfiguration(
+    args: GetAutomatedDiscoveryConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): void;
+  public getAutomatedDiscoveryConfiguration(
+    args: GetAutomatedDiscoveryConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutomatedDiscoveryConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): Promise<GetAutomatedDiscoveryConfigurationCommandOutput> | void {
+    const command = new GetAutomatedDiscoveryConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
    */
   public getBucketStatistics(
     args: GetBucketStatisticsCommandInput,
@@ -1217,6 +1314,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: GetClassificationExportConfigurationCommandOutput) => void
   ): Promise<GetClassificationExportConfigurationCommandOutput> | void {
     const command = new GetClassificationExportConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the classification scope settings for an account.</p>
+   */
+  public getClassificationScope(
+    args: GetClassificationScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClassificationScopeCommandOutput>;
+  public getClassificationScope(
+    args: GetClassificationScopeCommandInput,
+    cb: (err: any, data?: GetClassificationScopeCommandOutput) => void
+  ): void;
+  public getClassificationScope(
+    args: GetClassificationScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClassificationScopeCommandOutput) => void
+  ): void;
+  public getClassificationScope(
+    args: GetClassificationScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClassificationScopeCommandOutput) => void),
+    cb?: (err: any, data?: GetClassificationScopeCommandOutput) => void
+  ): Promise<GetClassificationScopeCommandOutput> | void {
+    const command = new GetClassificationScopeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1414,7 +1543,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the current status and configuration settings for an Amazon Macie account.</p>
+   * <p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
    */
   public getMacieSession(
     args: GetMacieSessionCommandInput,
@@ -1493,6 +1622,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: GetMemberCommandOutput) => void
   ): Promise<GetMemberCommandOutput> | void {
     const command = new GetMemberCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket.</p>
+   */
+  public getResourceProfile(
+    args: GetResourceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceProfileCommandOutput>;
+  public getResourceProfile(
+    args: GetResourceProfileCommandInput,
+    cb: (err: any, data?: GetResourceProfileCommandOutput) => void
+  ): void;
+  public getResourceProfile(
+    args: GetResourceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceProfileCommandOutput) => void
+  ): void;
+  public getResourceProfile(
+    args: GetResourceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceProfileCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceProfileCommandOutput) => void
+  ): Promise<GetResourceProfileCommandOutput> | void {
+    const command = new GetResourceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1591,6 +1752,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: GetSensitiveDataOccurrencesAvailabilityCommandOutput) => void
   ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> | void {
     const command = new GetSensitiveDataOccurrencesAvailabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the settings for the sensitivity inspection template for an account.</p>
+   */
+  public getSensitivityInspectionTemplate(
+    args: GetSensitivityInspectionTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSensitivityInspectionTemplateCommandOutput>;
+  public getSensitivityInspectionTemplate(
+    args: GetSensitivityInspectionTemplateCommandInput,
+    cb: (err: any, data?: GetSensitivityInspectionTemplateCommandOutput) => void
+  ): void;
+  public getSensitivityInspectionTemplate(
+    args: GetSensitivityInspectionTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSensitivityInspectionTemplateCommandOutput) => void
+  ): void;
+  public getSensitivityInspectionTemplate(
+    args: GetSensitivityInspectionTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSensitivityInspectionTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetSensitivityInspectionTemplateCommandOutput) => void
+  ): Promise<GetSensitivityInspectionTemplateCommandOutput> | void {
+    const command = new GetSensitivityInspectionTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1719,6 +1912,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: ListClassificationJobsCommandOutput) => void
   ): Promise<ListClassificationJobsCommandOutput> | void {
     const command = new ListClassificationJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a subset of information about the classification scope for an account.</p>
+   */
+  public listClassificationScopes(
+    args: ListClassificationScopesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClassificationScopesCommandOutput>;
+  public listClassificationScopes(
+    args: ListClassificationScopesCommandInput,
+    cb: (err: any, data?: ListClassificationScopesCommandOutput) => void
+  ): void;
+  public listClassificationScopes(
+    args: ListClassificationScopesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClassificationScopesCommandOutput) => void
+  ): void;
+  public listClassificationScopes(
+    args: ListClassificationScopesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClassificationScopesCommandOutput) => void),
+    cb?: (err: any, data?: ListClassificationScopesCommandOutput) => void
+  ): Promise<ListClassificationScopesCommandOutput> | void {
+    const command = new ListClassificationScopesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1934,6 +2159,102 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
   ): Promise<ListOrganizationAdminAccountsCommandOutput> | void {
     const command = new ListOrganizationAdminAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
+   */
+  public listResourceProfileArtifacts(
+    args: ListResourceProfileArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceProfileArtifactsCommandOutput>;
+  public listResourceProfileArtifacts(
+    args: ListResourceProfileArtifactsCommandInput,
+    cb: (err: any, data?: ListResourceProfileArtifactsCommandOutput) => void
+  ): void;
+  public listResourceProfileArtifacts(
+    args: ListResourceProfileArtifactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceProfileArtifactsCommandOutput) => void
+  ): void;
+  public listResourceProfileArtifacts(
+    args: ListResourceProfileArtifactsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceProfileArtifactsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceProfileArtifactsCommandOutput) => void
+  ): Promise<ListResourceProfileArtifactsCommandOutput> | void {
+    const command = new ListResourceProfileArtifactsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
+   */
+  public listResourceProfileDetections(
+    args: ListResourceProfileDetectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceProfileDetectionsCommandOutput>;
+  public listResourceProfileDetections(
+    args: ListResourceProfileDetectionsCommandInput,
+    cb: (err: any, data?: ListResourceProfileDetectionsCommandOutput) => void
+  ): void;
+  public listResourceProfileDetections(
+    args: ListResourceProfileDetectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceProfileDetectionsCommandOutput) => void
+  ): void;
+  public listResourceProfileDetections(
+    args: ListResourceProfileDetectionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceProfileDetectionsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceProfileDetectionsCommandOutput) => void
+  ): Promise<ListResourceProfileDetectionsCommandOutput> | void {
+    const command = new ListResourceProfileDetectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a subset of information about the sensitivity inspection template for an account.</p>
+   */
+  public listSensitivityInspectionTemplates(
+    args: ListSensitivityInspectionTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSensitivityInspectionTemplatesCommandOutput>;
+  public listSensitivityInspectionTemplates(
+    args: ListSensitivityInspectionTemplatesCommandInput,
+    cb: (err: any, data?: ListSensitivityInspectionTemplatesCommandOutput) => void
+  ): void;
+  public listSensitivityInspectionTemplates(
+    args: ListSensitivityInspectionTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSensitivityInspectionTemplatesCommandOutput) => void
+  ): void;
+  public listSensitivityInspectionTemplates(
+    args: ListSensitivityInspectionTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSensitivityInspectionTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListSensitivityInspectionTemplatesCommandOutput) => void
+  ): Promise<ListSensitivityInspectionTemplatesCommandOutput> | void {
+    const command = new ListSensitivityInspectionTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2195,6 +2516,40 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * <p>Enables or disables automated sensitive data discovery for an account.</p>
+   */
+  public updateAutomatedDiscoveryConfiguration(
+    args: UpdateAutomatedDiscoveryConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput>;
+  public updateAutomatedDiscoveryConfiguration(
+    args: UpdateAutomatedDiscoveryConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): void;
+  public updateAutomatedDiscoveryConfiguration(
+    args: UpdateAutomatedDiscoveryConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): void;
+  public updateAutomatedDiscoveryConfiguration(
+    args: UpdateAutomatedDiscoveryConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAutomatedDiscoveryConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAutomatedDiscoveryConfigurationCommandOutput) => void
+  ): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> | void {
+    const command = new UpdateAutomatedDiscoveryConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Changes the status of a classification job.</p>
    */
   public updateClassificationJob(
@@ -2216,6 +2571,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: UpdateClassificationJobCommandOutput) => void
   ): Promise<UpdateClassificationJobCommandOutput> | void {
     const command = new UpdateClassificationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the classification scope settings for an account.</p>
+   */
+  public updateClassificationScope(
+    args: UpdateClassificationScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClassificationScopeCommandOutput>;
+  public updateClassificationScope(
+    args: UpdateClassificationScopeCommandInput,
+    cb: (err: any, data?: UpdateClassificationScopeCommandOutput) => void
+  ): void;
+  public updateClassificationScope(
+    args: UpdateClassificationScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClassificationScopeCommandOutput) => void
+  ): void;
+  public updateClassificationScope(
+    args: UpdateClassificationScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClassificationScopeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateClassificationScopeCommandOutput) => void
+  ): Promise<UpdateClassificationScopeCommandOutput> | void {
+    const command = new UpdateClassificationScopeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2355,6 +2742,70 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * <p>Updates the sensitivity score for an S3 bucket.</p>
+   */
+  public updateResourceProfile(
+    args: UpdateResourceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceProfileCommandOutput>;
+  public updateResourceProfile(
+    args: UpdateResourceProfileCommandInput,
+    cb: (err: any, data?: UpdateResourceProfileCommandOutput) => void
+  ): void;
+  public updateResourceProfile(
+    args: UpdateResourceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceProfileCommandOutput) => void
+  ): void;
+  public updateResourceProfile(
+    args: UpdateResourceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourceProfileCommandOutput) => void
+  ): Promise<UpdateResourceProfileCommandOutput> | void {
+    const command = new UpdateResourceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
+   */
+  public updateResourceProfileDetections(
+    args: UpdateResourceProfileDetectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceProfileDetectionsCommandOutput>;
+  public updateResourceProfileDetections(
+    args: UpdateResourceProfileDetectionsCommandInput,
+    cb: (err: any, data?: UpdateResourceProfileDetectionsCommandOutput) => void
+  ): void;
+  public updateResourceProfileDetections(
+    args: UpdateResourceProfileDetectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceProfileDetectionsCommandOutput) => void
+  ): void;
+  public updateResourceProfileDetections(
+    args: UpdateResourceProfileDetectionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceProfileDetectionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourceProfileDetectionsCommandOutput) => void
+  ): Promise<UpdateResourceProfileDetectionsCommandOutput> | void {
+    const command = new UpdateResourceProfileDetectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
    */
   public updateRevealConfiguration(
@@ -2376,6 +2827,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: UpdateRevealConfigurationCommandOutput) => void
   ): Promise<UpdateRevealConfigurationCommandOutput> | void {
     const command = new UpdateRevealConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the settings for the sensitivity inspection template for an account.</p>
+   */
+  public updateSensitivityInspectionTemplate(
+    args: UpdateSensitivityInspectionTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSensitivityInspectionTemplateCommandOutput>;
+  public updateSensitivityInspectionTemplate(
+    args: UpdateSensitivityInspectionTemplateCommandInput,
+    cb: (err: any, data?: UpdateSensitivityInspectionTemplateCommandOutput) => void
+  ): void;
+  public updateSensitivityInspectionTemplate(
+    args: UpdateSensitivityInspectionTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSensitivityInspectionTemplateCommandOutput) => void
+  ): void;
+  public updateSensitivityInspectionTemplate(
+    args: UpdateSensitivityInspectionTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSensitivityInspectionTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSensitivityInspectionTemplateCommandOutput) => void
+  ): Promise<UpdateSensitivityInspectionTemplateCommandOutput> | void {
+    const command = new UpdateSensitivityInspectionTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

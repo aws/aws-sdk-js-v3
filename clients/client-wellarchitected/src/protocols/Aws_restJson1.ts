@@ -54,6 +54,8 @@ import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "../commands
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "../commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "../commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
+import { ListCheckDetailsCommandInput, ListCheckDetailsCommandOutput } from "../commands/ListCheckDetailsCommand";
+import { ListCheckSummariesCommandInput, ListCheckSummariesCommandOutput } from "../commands/ListCheckSummariesCommand";
 import { ListLensesCommandInput, ListLensesCommandOutput } from "../commands/ListLensesCommand";
 import {
   ListLensReviewImprovementsCommandInput,
@@ -96,6 +98,9 @@ import {
   AdditionalResources,
   Answer,
   AnswerSummary,
+  CheckDetail,
+  CheckStatus,
+  CheckSummary,
   Choice,
   ChoiceAnswer,
   ChoiceAnswerSummary,
@@ -128,6 +133,7 @@ import {
   ValidationExceptionField,
   VersionDifferences,
   Workload,
+  WorkloadDiscoveryConfig,
   WorkloadShare,
   WorkloadShareSummary,
   WorkloadSummary,
@@ -256,12 +262,18 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
     ...(input.AccountIds != null && {
       AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context),
     }),
+    ...(input.Applications != null && {
+      Applications: serializeAws_restJson1WorkloadApplications(input.Applications, context),
+    }),
     ...(input.ArchitecturalDesign != null && { ArchitecturalDesign: input.ArchitecturalDesign }),
     ...(input.AwsRegions != null && {
       AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context),
     }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.DiscoveryConfig != null && {
+      DiscoveryConfig: serializeAws_restJson1WorkloadDiscoveryConfig(input.DiscoveryConfig, context),
+    }),
     ...(input.Environment != null && { Environment: input.Environment }),
     ...(input.Industry != null && { Industry: input.Industry }),
     ...(input.IndustryType != null && { IndustryType: input.IndustryType }),
@@ -325,8 +337,8 @@ export const serializeAws_restJson1DeleteLensCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}";
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
-    LensStatus: [, input.LensStatus!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    LensStatus: [, __expectNonNull(input.LensStatus!, `LensStatus`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -352,7 +364,7 @@ export const serializeAws_restJson1DeleteLensShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -376,7 +388,7 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -402,7 +414,7 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -708,6 +720,68 @@ export const serializeAws_restJson1ListAnswersCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListCheckDetailsCommand = async (
+  input: ListCheckDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checks";
+  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChoiceId != null && { ChoiceId: input.ChoiceId }),
+    ...(input.LensArn != null && { LensArn: input.LensArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PillarId != null && { PillarId: input.PillarId }),
+    ...(input.QuestionId != null && { QuestionId: input.QuestionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListCheckSummariesCommand = async (
+  input: ListCheckSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checkSummaries";
+  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChoiceId != null && { ChoiceId: input.ChoiceId }),
+    ...(input.LensArn != null && { LensArn: input.LensArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PillarId != null && { PillarId: input.PillarId }),
+    ...(input.QuestionId != null && { QuestionId: input.QuestionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListLensesCommand = async (
   input: ListLensesCommandInput,
   context: __SerdeContext
@@ -1009,7 +1083,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1162,11 +1239,17 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
     ...(input.AccountIds != null && {
       AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context),
     }),
+    ...(input.Applications != null && {
+      Applications: serializeAws_restJson1WorkloadApplications(input.Applications, context),
+    }),
     ...(input.ArchitecturalDesign != null && { ArchitecturalDesign: input.ArchitecturalDesign }),
     ...(input.AwsRegions != null && {
       AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context),
     }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.DiscoveryConfig != null && {
+      DiscoveryConfig: serializeAws_restJson1WorkloadDiscoveryConfig(input.DiscoveryConfig, context),
+    }),
     ...(input.Environment != null && { Environment: input.Environment }),
     ...(input.ImprovementStatus != null && { ImprovementStatus: input.ImprovementStatus }),
     ...(input.Industry != null && { Industry: input.Industry }),
@@ -2469,6 +2552,118 @@ const deserializeAws_restJson1ListAnswersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListCheckDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCheckDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCheckDetailsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CheckDetails != null) {
+    contents.CheckDetails = deserializeAws_restJson1CheckDetails(data.CheckDetails, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCheckDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCheckDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListCheckSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCheckSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCheckSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CheckSummaries != null) {
+    contents.CheckSummaries = deserializeAws_restJson1CheckSummaries(data.CheckSummaries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCheckSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCheckSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListLensesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3677,10 +3872,8 @@ const serializeAws_restJson1ChoiceUpdates = (input: Record<string, ChoiceUpdate>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ChoiceUpdate(value, context),
-    };
+    acc[key] = serializeAws_restJson1ChoiceUpdate(value, context);
+    return acc;
   }, {});
 };
 
@@ -3697,10 +3890,8 @@ const serializeAws_restJson1PillarNotes = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3717,14 +3908,20 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
 const serializeAws_restJson1WorkloadAccountIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1WorkloadApplications = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3738,6 +3935,17 @@ const serializeAws_restJson1WorkloadAwsRegions = (input: string[], context: __Se
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1WorkloadDiscoveryConfig = (
+  input: WorkloadDiscoveryConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TrustedAdvisorIntegrationStatus != null && {
+      TrustedAdvisorIntegrationStatus: input.TrustedAdvisorIntegrationStatus,
+    }),
+  };
 };
 
 const serializeAws_restJson1WorkloadLenses = (input: string[], context: __SerdeContext): any => {
@@ -3762,6 +3970,16 @@ const serializeAws_restJson1WorkloadPillarPriorities = (input: string[], context
     .map((entry) => {
       return entry;
     });
+};
+
+const deserializeAws_restJson1AccountSummary = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CheckStatus | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectInt32(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1AdditionalResources = (output: any, context: __SerdeContext): AdditionalResources => {
@@ -3838,6 +4056,69 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
       output.SelectedChoices != null
         ? deserializeAws_restJson1SelectedChoices(output.SelectedChoices, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CheckDetail = (output: any, context: __SerdeContext): CheckDetail => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    ChoiceId: __expectString(output.ChoiceId),
+    Description: __expectString(output.Description),
+    FlaggedResources: __expectInt32(output.FlaggedResources),
+    Id: __expectString(output.Id),
+    LensArn: __expectString(output.LensArn),
+    Name: __expectString(output.Name),
+    PillarId: __expectString(output.PillarId),
+    Provider: __expectString(output.Provider),
+    QuestionId: __expectString(output.QuestionId),
+    Reason: __expectString(output.Reason),
+    Status: __expectString(output.Status),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CheckDetails = (output: any, context: __SerdeContext): CheckDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CheckDetail(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CheckSummaries = (output: any, context: __SerdeContext): CheckSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CheckSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CheckSummary = (output: any, context: __SerdeContext): CheckSummary => {
+  return {
+    AccountSummary:
+      output.AccountSummary != null
+        ? deserializeAws_restJson1AccountSummary(output.AccountSummary, context)
+        : undefined,
+    ChoiceId: __expectString(output.ChoiceId),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LensArn: __expectString(output.LensArn),
+    Name: __expectString(output.Name),
+    PillarId: __expectString(output.PillarId),
+    Provider: __expectString(output.Provider),
+    QuestionId: __expectString(output.QuestionId),
+    Status: __expectString(output.Status),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -4222,10 +4503,8 @@ const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4288,10 +4567,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4345,10 +4622,18 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
   return {
     AccountIds:
       output.AccountIds != null ? deserializeAws_restJson1WorkloadAccountIds(output.AccountIds, context) : undefined,
+    Applications:
+      output.Applications != null
+        ? deserializeAws_restJson1WorkloadApplications(output.Applications, context)
+        : undefined,
     ArchitecturalDesign: __expectString(output.ArchitecturalDesign),
     AwsRegions:
       output.AwsRegions != null ? deserializeAws_restJson1WorkloadAwsRegions(output.AwsRegions, context) : undefined,
     Description: __expectString(output.Description),
+    DiscoveryConfig:
+      output.DiscoveryConfig != null
+        ? deserializeAws_restJson1WorkloadDiscoveryConfig(output.DiscoveryConfig, context)
+        : undefined,
     Environment: __expectString(output.Environment),
     ImprovementStatus: __expectString(output.ImprovementStatus),
     Industry: __expectString(output.Industry),
@@ -4393,6 +4678,18 @@ const deserializeAws_restJson1WorkloadAccountIds = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1WorkloadApplications = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1WorkloadAwsRegions = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -4403,6 +4700,15 @@ const deserializeAws_restJson1WorkloadAwsRegions = (output: any, context: __Serd
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1WorkloadDiscoveryConfig = (
+  output: any,
+  context: __SerdeContext
+): WorkloadDiscoveryConfig => {
+  return {
+    TrustedAdvisorIntegrationStatus: __expectString(output.TrustedAdvisorIntegrationStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1WorkloadLenses = (output: any, context: __SerdeContext): string[] => {

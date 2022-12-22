@@ -24,7 +24,7 @@ export interface DeleteDistributionCommandInput extends DeleteDistributionReques
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a distribution. </p>
+ * <p>Delete a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

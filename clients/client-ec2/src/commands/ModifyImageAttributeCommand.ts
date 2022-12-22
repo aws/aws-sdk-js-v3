@@ -27,7 +27,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
  *        You can use the <code>Attribute</code> parameter to specify the attribute or one of the following parameters:
  *        <code>Description</code> or <code>LaunchPermission</code>.</p>
- *    	     <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
+ *          <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
  *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance
  *        and create an AMI from the instance.</p>
  * @example

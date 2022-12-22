@@ -43,7 +43,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *   <li>Compares boolean shapes to the string {@code "true"} to generate a boolean.</li>
  * </ul>
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {

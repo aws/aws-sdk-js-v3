@@ -30,7 +30,8 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
 
 /**
  * <p>This operation deletes the specified tags for a domain.</p>
- * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ *          <p>All tag operations are eventually consistent; subsequent operations might not
+ * 			immediately represent all issued operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

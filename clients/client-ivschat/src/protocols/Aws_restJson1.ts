@@ -6,6 +6,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
   parseRfc3339DateTime as __parseRfc3339DateTime,
@@ -19,11 +20,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateChatTokenCommandInput, CreateChatTokenCommandOutput } from "../commands/CreateChatTokenCommand";
+import {
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "../commands/CreateLoggingConfigurationCommand";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "../commands/CreateRoomCommand";
+import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "../commands/DeleteLoggingConfigurationCommand";
 import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "../commands/DeleteMessageCommand";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "../commands/DeleteRoomCommand";
 import { DisconnectUserCommandInput, DisconnectUserCommandOutput } from "../commands/DisconnectUserCommand";
+import {
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput,
+} from "../commands/GetLoggingConfigurationCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "../commands/GetRoomCommand";
+import {
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput,
+} from "../commands/ListLoggingConfigurationsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "../commands/ListRoomsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -32,17 +49,26 @@ import {
 import { SendEventCommandInput, SendEventCommandOutput } from "../commands/SendEventCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "../commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "../commands/UpdateRoomCommand";
 import { IvschatServiceException as __BaseException } from "../models/IvschatServiceException";
 import {
   AccessDeniedException,
   ChatTokenCapability,
+  CloudWatchLogsDestinationConfiguration,
   ConflictException,
+  DestinationConfiguration,
+  FirehoseDestinationConfiguration,
   InternalServerException,
+  LoggingConfigurationSummary,
   MessageReviewHandler,
   PendingVerification,
   ResourceNotFoundException,
   RoomSummary,
+  S3DestinationConfiguration,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
@@ -81,6 +107,35 @@ export const serializeAws_restJson1CreateChatTokenCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateLoggingConfigurationCommand = async (
+  input: CreateLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLoggingConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.destinationConfiguration != null && {
+      destinationConfiguration: serializeAws_restJson1DestinationConfiguration(input.destinationConfiguration, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateRoomCommand = async (
   input: CreateRoomCommandInput,
   context: __SerdeContext
@@ -92,6 +147,12 @@ export const serializeAws_restJson1CreateRoomCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateRoom";
   let body: any;
   body = JSON.stringify({
+    ...(input.loggingConfigurationIdentifiers != null && {
+      loggingConfigurationIdentifiers: serializeAws_restJson1LoggingConfigurationIdentifierList(
+        input.loggingConfigurationIdentifiers,
+        context
+      ),
+    }),
     ...(input.maximumMessageLength != null && { maximumMessageLength: input.maximumMessageLength }),
     ...(input.maximumMessageRatePerSecond != null && {
       maximumMessageRatePerSecond: input.maximumMessageRatePerSecond,
@@ -101,6 +162,31 @@ export const serializeAws_restJson1CreateRoomCommand = async (
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteLoggingConfigurationCommand = async (
+  input: DeleteLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLoggingConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.identifier != null && { identifier: input.identifier }),
   });
   return new __HttpRequest({
     protocol,
@@ -189,6 +275,31 @@ export const serializeAws_restJson1DisconnectUserCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetLoggingConfigurationCommand = async (
+  input: GetLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLoggingConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.identifier != null && { identifier: input.identifier }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetRoomCommand = async (
   input: GetRoomCommandInput,
   context: __SerdeContext
@@ -213,6 +324,32 @@ export const serializeAws_restJson1GetRoomCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListLoggingConfigurationsCommand = async (
+  input: ListLoggingConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLoggingConfigurations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListRoomsCommand = async (
   input: ListRoomsCommandInput,
   context: __SerdeContext
@@ -224,6 +361,9 @@ export const serializeAws_restJson1ListRoomsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListRooms";
   let body: any;
   body = JSON.stringify({
+    ...(input.loggingConfigurationIdentifier != null && {
+      loggingConfigurationIdentifier: input.loggingConfigurationIdentifier,
+    }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.messageReviewHandlerUri != null && { messageReviewHandlerUri: input.messageReviewHandlerUri }),
     ...(input.name != null && { name: input.name }),
@@ -320,7 +460,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -331,6 +474,35 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateLoggingConfigurationCommand = async (
+  input: UpdateLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLoggingConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.destinationConfiguration != null && {
+      destinationConfiguration: serializeAws_restJson1DestinationConfiguration(input.destinationConfiguration, context),
+    }),
+    ...(input.identifier != null && { identifier: input.identifier }),
+    ...(input.name != null && { name: input.name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -347,6 +519,12 @@ export const serializeAws_restJson1UpdateRoomCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.identifier != null && { identifier: input.identifier }),
+    ...(input.loggingConfigurationIdentifiers != null && {
+      loggingConfigurationIdentifiers: serializeAws_restJson1LoggingConfigurationIdentifierList(
+        input.loggingConfigurationIdentifiers,
+        context
+      ),
+    }),
     ...(input.maximumMessageLength != null && { maximumMessageLength: input.maximumMessageLength }),
     ...(input.maximumMessageRatePerSecond != null && {
       maximumMessageRatePerSecond: input.maximumMessageRatePerSecond,
@@ -423,6 +601,86 @@ const deserializeAws_restJson1CreateChatTokenCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.createTime != null) {
+    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+  }
+  if (data.destinationConfiguration != null) {
+    contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
+      __expectUnion(data.destinationConfiguration),
+      context
+    );
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.state != null) {
+    contents.state = __expectString(data.state);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.updateTime != null) {
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivschat#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivschat#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivschat#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ivschat#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivschat#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -442,6 +700,12 @@ export const deserializeAws_restJson1CreateRoomCommand = async (
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
+  }
+  if (data.loggingConfigurationIdentifiers != null) {
+    contents.loggingConfigurationIdentifiers = deserializeAws_restJson1LoggingConfigurationIdentifierList(
+      data.loggingConfigurationIdentifiers,
+      context
+    );
   }
   if (data.maximumMessageLength != null) {
     contents.maximumMessageLength = __expectInt32(data.maximumMessageLength);
@@ -503,6 +767,56 @@ const deserializeAws_restJson1CreateRoomCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivschat#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivschat#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivschat#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivschat#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -533,6 +847,9 @@ const deserializeAws_restJson1DeleteMessageCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -627,12 +944,86 @@ const deserializeAws_restJson1DisconnectUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ivschat#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivschat#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.createTime != null) {
+    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+  }
+  if (data.destinationConfiguration != null) {
+    contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
+      __expectUnion(data.destinationConfiguration),
+      context
+    );
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.state != null) {
+    contents.state = __expectString(data.state);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.updateTime != null) {
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivschat#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivschat#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivschat#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -666,6 +1057,12 @@ export const deserializeAws_restJson1GetRoomCommand = async (
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
+  }
+  if (data.loggingConfigurationIdentifiers != null) {
+    contents.loggingConfigurationIdentifiers = deserializeAws_restJson1LoggingConfigurationIdentifierList(
+      data.loggingConfigurationIdentifiers,
+      context
+    );
   }
   if (data.maximumMessageLength != null) {
     contents.maximumMessageLength = __expectInt32(data.maximumMessageLength);
@@ -704,6 +1101,56 @@ const deserializeAws_restJson1GetRoomCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivschat#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListLoggingConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLoggingConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListLoggingConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.loggingConfigurations != null) {
+    contents.loggingConfigurations = deserializeAws_restJson1LoggingConfigurationList(
+      data.loggingConfigurations,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListLoggingConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLoggingConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivschat#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivschat#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -845,6 +1292,9 @@ const deserializeAws_restJson1SendEventCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -953,6 +1403,80 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.createTime != null) {
+    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+  }
+  if (data.destinationConfiguration != null) {
+    contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
+      __expectUnion(data.destinationConfiguration),
+      context
+    );
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.state != null) {
+    contents.state = __expectString(data.state);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.updateTime != null) {
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivschat#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivschat#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivschat#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -972,6 +1496,12 @@ export const deserializeAws_restJson1UpdateRoomCommand = async (
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
+  }
+  if (data.loggingConfigurationIdentifiers != null) {
+    contents.loggingConfigurationIdentifiers = deserializeAws_restJson1LoggingConfigurationIdentifierList(
+      data.loggingConfigurationIdentifiers,
+      context
+    );
   }
   if (data.maximumMessageLength != null) {
     contents.maximumMessageLength = __expectInt32(data.maximumMessageLength);
@@ -1197,10 +1727,8 @@ const serializeAws_restJson1ChatTokenAttributes = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1215,16 +1743,54 @@ const serializeAws_restJson1ChatTokenCapabilities = (
     });
 };
 
+const serializeAws_restJson1CloudWatchLogsDestinationConfiguration = (
+  input: CloudWatchLogsDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
+  };
+};
+
+const serializeAws_restJson1DestinationConfiguration = (
+  input: DestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return DestinationConfiguration.visit(input, {
+    cloudWatchLogs: (value) => ({
+      cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfiguration(value, context),
+    }),
+    firehose: (value) => ({ firehose: serializeAws_restJson1FirehoseDestinationConfiguration(value, context) }),
+    s3: (value) => ({ s3: serializeAws_restJson1S3DestinationConfiguration(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 const serializeAws_restJson1EventAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1FirehoseDestinationConfiguration = (
+  input: FirehoseDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.deliveryStreamName != null && { deliveryStreamName: input.deliveryStreamName }),
+  };
+};
+
+const serializeAws_restJson1LoggingConfigurationIdentifierList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1MessageReviewHandler = (input: MessageReviewHandler, context: __SerdeContext): any => {
@@ -1234,16 +1800,109 @@ const serializeAws_restJson1MessageReviewHandler = (input: MessageReviewHandler,
   };
 };
 
+const serializeAws_restJson1S3DestinationConfiguration = (
+  input: S3DestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
+  };
+};
+
 const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1CloudWatchLogsDestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchLogsDestinationConfiguration => {
+  return {
+    logGroupName: __expectString(output.logGroupName),
+  } as any;
+};
+
+const deserializeAws_restJson1DestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DestinationConfiguration => {
+  if (output.cloudWatchLogs != null) {
+    return {
+      cloudWatchLogs: deserializeAws_restJson1CloudWatchLogsDestinationConfiguration(output.cloudWatchLogs, context),
+    };
+  }
+  if (output.firehose != null) {
+    return {
+      firehose: deserializeAws_restJson1FirehoseDestinationConfiguration(output.firehose, context),
+    };
+  }
+  if (output.s3 != null) {
+    return {
+      s3: deserializeAws_restJson1S3DestinationConfiguration(output.s3, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1FirehoseDestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FirehoseDestinationConfiguration => {
+  return {
+    deliveryStreamName: __expectString(output.deliveryStreamName),
+  } as any;
+};
+
+const deserializeAws_restJson1LoggingConfigurationIdentifierList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LoggingConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): LoggingConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LoggingConfigurationSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LoggingConfigurationSummary = (
+  output: any,
+  context: __SerdeContext
+): LoggingConfigurationSummary => {
+  return {
+    arn: __expectString(output.arn),
+    createTime: output.createTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createTime)) : undefined,
+    destinationConfiguration:
+      output.destinationConfiguration != null
+        ? deserializeAws_restJson1DestinationConfiguration(__expectUnion(output.destinationConfiguration), context)
+        : undefined,
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    state: __expectString(output.state),
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1MessageReviewHandler = (output: any, context: __SerdeContext): MessageReviewHandler => {
@@ -1270,6 +1929,10 @@ const deserializeAws_restJson1RoomSummary = (output: any, context: __SerdeContex
     arn: __expectString(output.arn),
     createTime: output.createTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createTime)) : undefined,
     id: __expectString(output.id),
+    loggingConfigurationIdentifiers:
+      output.loggingConfigurationIdentifiers != null
+        ? deserializeAws_restJson1LoggingConfigurationIdentifierList(output.loggingConfigurationIdentifiers, context)
+        : undefined,
     messageReviewHandler:
       output.messageReviewHandler != null
         ? deserializeAws_restJson1MessageReviewHandler(output.messageReviewHandler, context)
@@ -1280,15 +1943,22 @@ const deserializeAws_restJson1RoomSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1S3DestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): S3DestinationConfiguration => {
+  return {
+    bucketName: __expectString(output.bucketName),
+  } as any;
+};
+
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

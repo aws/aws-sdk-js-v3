@@ -311,6 +311,7 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
   BudgetDetail,
   CloudWatchDashboard,
+  CodeStarParameters,
   ConstraintDetail,
   ConstraintSummary,
   CopyOption,
@@ -409,6 +410,7 @@ import {
   ImportAsProvisionedProductOutput,
   InvalidParametersException,
   InvalidStateException,
+  LastSync,
   LaunchPath,
   LaunchPathSummary,
   LimitExceededException,
@@ -506,6 +508,9 @@ import {
   ServiceActionSummary,
   ShareDetails,
   ShareError,
+  SourceConnection,
+  SourceConnectionDetail,
+  SourceConnectionParameters,
   StackInstance,
   Tag,
   TagOptionDetail,
@@ -5804,6 +5809,15 @@ const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifact
   };
 };
 
+const serializeAws_json1_1CodeStarParameters = (input: CodeStarParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.ArtifactPath != null && { ArtifactPath: input.ArtifactPath }),
+    ...(input.Branch != null && { Branch: input.Branch }),
+    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Repository != null && { Repository: input.Repository }),
+  };
+};
+
 const serializeAws_json1_1CopyOptions = (input: (CopyOption | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5863,6 +5877,7 @@ const serializeAws_json1_1CreatePortfolioShareInput = (
       OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
     }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
@@ -5881,6 +5896,9 @@ const serializeAws_json1_1CreateProductInput = (input: CreateProductInput, conte
         input.ProvisioningArtifactParameters,
         context
       ),
+    }),
+    ...(input.SourceConnection != null && {
+      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
     }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
@@ -6210,6 +6228,7 @@ const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
     ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
+    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
   };
 };
 
@@ -6284,10 +6303,8 @@ const serializeAws_json1_1ExecutionParameterMap = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ExecutionParameterValueList(value, context),
-    };
+    acc[key] = serializeAws_json1_1ExecutionParameterValueList(value, context);
+    return acc;
   }, {});
 };
 
@@ -6588,10 +6605,8 @@ const serializeAws_json1_1ProductViewFilters = (input: Record<string, string[]>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ProductViewFilterValues(value, context),
-    };
+    acc[key] = serializeAws_json1_1ProductViewFilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -6612,10 +6627,8 @@ const serializeAws_json1_1ProvisionedProductFilters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1ProvisionedProductViewFilterValues(value, context),
-      };
+      acc[key] = serializeAws_json1_1ProvisionedProductViewFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -6629,10 +6642,8 @@ const serializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6649,10 +6660,8 @@ const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6831,13 +6840,29 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
+};
+
+const serializeAws_json1_1SourceConnection = (input: SourceConnection, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionParameters != null && {
+      ConnectionParameters: serializeAws_json1_1SourceConnectionParameters(input.ConnectionParameters, context),
+    }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1SourceConnectionParameters = (
+  input: SourceConnectionParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CodeStar != null && { CodeStar: serializeAws_json1_1CodeStarParameters(input.CodeStar, context) }),
+  };
 };
 
 const serializeAws_json1_1SourceProvisioningArtifactProperties = (
@@ -6860,10 +6885,8 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -6954,6 +6977,7 @@ const serializeAws_json1_1UpdatePortfolioShareInput = (
       OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
     }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
@@ -6968,6 +6992,9 @@ const serializeAws_json1_1UpdateProductInput = (input: UpdateProductInput, conte
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Owner != null && { Owner: input.Owner }),
     ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
+    ...(input.SourceConnection != null && {
+      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
+    }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
@@ -7230,6 +7257,15 @@ const deserializeAws_json1_1CloudWatchDashboards = (output: any, context: __Serd
       return deserializeAws_json1_1CloudWatchDashboard(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CodeStarParameters = (output: any, context: __SerdeContext): CodeStarParameters => {
+  return {
+    ArtifactPath: __expectString(output.ArtifactPath),
+    Branch: __expectString(output.Branch),
+    ConnectionArn: __expectString(output.ConnectionArn),
+    Repository: __expectString(output.Repository),
+  } as any;
 };
 
 const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
@@ -7850,6 +7886,22 @@ const deserializeAws_json1_1InvalidStateException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1LastSync = (output: any, context: __SerdeContext): LastSync => {
+  return {
+    LastSuccessfulSyncProvisioningArtifactId: __expectString(output.LastSuccessfulSyncProvisioningArtifactId),
+    LastSuccessfulSyncTime:
+      output.LastSuccessfulSyncTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulSyncTime)))
+        : undefined,
+    LastSyncStatus: __expectString(output.LastSyncStatus),
+    LastSyncStatusMessage: __expectString(output.LastSyncStatusMessage),
+    LastSyncTime:
+      output.LastSyncTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSyncTime)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
   return {
     Id: __expectString(output.Id),
@@ -8206,6 +8258,7 @@ const deserializeAws_json1_1PortfolioShareDetail = (output: any, context: __Serd
   return {
     Accepted: __expectBoolean(output.Accepted),
     PrincipalId: __expectString(output.PrincipalId),
+    SharePrincipals: __expectBoolean(output.SharePrincipals),
     ShareTagOptions: __expectBoolean(output.ShareTagOptions),
     Type: __expectString(output.Type),
   } as any;
@@ -8251,10 +8304,8 @@ const deserializeAws_json1_1ProductViewAggregations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context),
-      };
+      acc[key] = deserializeAws_json1_1ProductViewAggregationValues(value, context);
+      return acc;
     },
     {}
   );
@@ -8295,6 +8346,10 @@ const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeCo
     ProductViewSummary:
       output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
+        : undefined,
+    SourceConnection:
+      output.SourceConnection != null
+        ? deserializeAws_json1_1SourceConnectionDetail(output.SourceConnection, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -8497,10 +8552,8 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8531,6 +8584,7 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
     Guidance: __expectString(output.Guidance),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
+    SourceRevision: __expectString(output.SourceRevision),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -8558,10 +8612,8 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8995,10 +9047,8 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -9067,6 +9117,26 @@ const deserializeAws_json1_1ShareErrors = (output: any, context: __SerdeContext)
       return deserializeAws_json1_1ShareError(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1SourceConnectionDetail = (output: any, context: __SerdeContext): SourceConnectionDetail => {
+  return {
+    ConnectionParameters:
+      output.ConnectionParameters != null
+        ? deserializeAws_json1_1SourceConnectionParameters(output.ConnectionParameters, context)
+        : undefined,
+    LastSync: output.LastSync != null ? deserializeAws_json1_1LastSync(output.LastSync, context) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1SourceConnectionParameters = (
+  output: any,
+  context: __SerdeContext
+): SourceConnectionParameters => {
+  return {
+    CodeStar: output.CodeStar != null ? deserializeAws_json1_1CodeStarParameters(output.CodeStar, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StackInstance = (output: any, context: __SerdeContext): StackInstance => {

@@ -19,7 +19,7 @@ import {
   DescribeIpamsRequestFilterSensitiveLog,
   DescribeIpamsResult,
   DescribeIpamsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeIpamsCommand, serializeAws_ec2DescribeIpamsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}

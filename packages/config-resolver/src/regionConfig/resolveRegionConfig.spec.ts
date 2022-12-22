@@ -59,6 +59,14 @@ describe("RegionConfig", () => {
       expect(mockRegionProvider).toHaveBeenCalledTimes(1);
     });
 
+    it("can be undefined", async () => {
+      const resolvedRegionConfig = resolveRegionConfig({
+        region: mockRegionProvider,
+      });
+
+      expect(await resolvedRegionConfig.useFipsEndpoint()).toBe(false);
+    });
+
     it("returns Provider which returns true for FIPS endpoints", async () => {
       (isFipsRegion as jest.Mock).mockReturnValue(true);
       const resolvedRegionConfig = resolveRegionConfig({

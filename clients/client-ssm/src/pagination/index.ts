@@ -42,6 +42,7 @@ export * from "./GetInventorySchemaPaginator";
 export * from "./GetOpsSummaryPaginator";
 export * from "./GetParameterHistoryPaginator";
 export * from "./GetParametersByPathPaginator";
+export * from "./GetResourcePoliciesPaginator";
 export * from "./ListAssociationVersionsPaginator";
 export * from "./ListAssociationsPaginator";
 export * from "./ListCommandInvocationsPaginator";

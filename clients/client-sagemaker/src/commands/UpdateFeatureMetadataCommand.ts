@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFeatureMetadataRequest, UpdateFeatureMetadataRequestFilterSensitiveLog } from "../models/models_3";
+import { UpdateFeatureMetadataRequest, UpdateFeatureMetadataRequestFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateFeatureMetadataCommand,
   serializeAws_json1_1UpdateFeatureMetadataCommand,

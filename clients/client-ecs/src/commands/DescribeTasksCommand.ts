@@ -30,7 +30,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
 
 /**
  * <p>Describes a specified task or tasks.</p>
- * 		       <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
+ *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

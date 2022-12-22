@@ -67,6 +67,9 @@
         "assignedValue": {
           "target": "com.amazonaws.iotfleetwise#string",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "assignedValue is no longer in use"
+            },
             "smithy.api#documentation": "<p>A specified value for the actuator.</p>"
           }
         }
@@ -192,6 +195,9 @@
         "assignedValue": {
           "target": "com.amazonaws.iotfleetwise#string",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "assignedValue is no longer in use"
+            },
             "smithy.api#documentation": "<p>A specified value for the attribute.</p>"
           }
         },
@@ -1597,6 +1603,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The request couldn't be completed because of invalid network interfaces in the request.</p>"
           }
+        },
+        "message": {
+          "target": "com.amazonaws.iotfleetwise#string"
         }
       },
       "traits": {
@@ -2605,6 +2614,9 @@
         },
         {
           "target": "com.amazonaws.iotfleetwise#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotfleetwise#ValidationException"
         }
       ],
       "traits": {
@@ -3348,6 +3360,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The reason the node validation failed.</p>"
           }
+        },
+        "message": {
+          "target": "com.amazonaws.iotfleetwise#string"
         }
       },
       "traits": {
@@ -3504,7 +3519,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -3553,15 +3568,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -6974,6 +6980,9 @@
         },
         {
           "target": "com.amazonaws.iotfleetwise#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotfleetwise#ValidationException"
         }
       ],
       "traits": {

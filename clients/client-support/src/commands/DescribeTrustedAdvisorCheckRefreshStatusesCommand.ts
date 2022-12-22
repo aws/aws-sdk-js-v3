@@ -34,24 +34,28 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
 /**
  * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
  *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
- *         <p>Some checks are refreshed automatically, and you can't return their refresh statuses
+ *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
  *             by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If you
  *             call this operation for these checks, you might see an
  *                 <code>InvalidParameterValue</code> error.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
+ *          <p>To call the Trusted Advisor operations in
+ * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+ * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+ * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

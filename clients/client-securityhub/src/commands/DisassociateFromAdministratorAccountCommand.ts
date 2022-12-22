@@ -18,7 +18,7 @@ import {
   DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
   DisassociateFromAdministratorAccountResponse,
   DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
   serializeAws_restJson1DisassociateFromAdministratorAccountCommand,

@@ -134,22 +134,19 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             symbolProvider.toSymbol(shape.getKey()),
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
-                    // Handle the sparse trait by short circuiting null values
+                    // Handle the sparse trait by short-circuiting null values
                     // from deserialization, and not including them if encountered
                     // when not sparse.
                     if (shape.hasTrait(SparseTrait.ID)) {
-                        writer.write("return { ...acc, [key]: null as any }");
-                    } else {
-                        writer.write("return acc;");
+                        writer.write("acc[key] = null as any;");
                     }
+                    writer.write("return acc;");
                 });
 
-                writer.openBlock("return {", "};", () -> {
-                    writer.write("...acc,");
-                    // Dispatch to the output value provider for any additional handling.
-                    writer.write("[key]: $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
-                            usesExpect(target) ? " as any" : "");
-                });
+                // Dispatch to the output value provider for any additional handling.
+                writer.write("acc[key] = $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
+                    usesExpect(target) ? " as any;" : ";");
+                writer.write("return acc;");
             }
         );
     }

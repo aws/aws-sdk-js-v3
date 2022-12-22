@@ -27,6 +27,8 @@ describe(fromSSO.name, () => {
     secretAccessKey: "mockSecretAccessKey",
   };
 
+  const mockProfileName = "mockProfileName";
+
   beforeEach(() => {
     (resolveSSOCredentials as jest.Mock).mockResolvedValue(mockCreds);
   });
@@ -35,8 +37,23 @@ describe(fromSSO.name, () => {
     jest.clearAllMocks();
   });
 
+  it("throws error if profile is not found", async () => {
+    const mockInit = { profile: mockProfileName };
+    const mockProfiles = {};
+    (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
+    (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
+    const expectedError = new CredentialsProviderError(`Profile ${mockProfileName} was not found.`);
+
+    try {
+      await fromSSO(mockInit)();
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+  });
+
   describe("all sso* values are not set", () => {
-    const mockProfileName = "mockProfileName";
     const mockInit = { profile: mockProfileName };
     const mockProfiles = { [mockProfileName]: mockSsoProfile };
 
@@ -97,6 +114,8 @@ describe(fromSSO.name, () => {
         ssoAccountId: mockValidatedSsoProfile.sso_account_id,
         ssoRegion: mockValidatedSsoProfile.sso_region,
         ssoRoleName: mockValidatedSsoProfile.sso_role_name,
+        profile: mockProfileName,
+        ssoSession: undefined,
       });
     });
   });
@@ -117,7 +136,12 @@ describe(fromSSO.name, () => {
   });
 
   it("calls resolveSSOCredentials if all sso* values are set", async () => {
-    const mockOptions = { ...mockSsoProfile, ssoClient: mockSsoClient };
+    const mockOptions = {
+      ...mockSsoProfile,
+      ssoClient: mockSsoClient,
+      profile: mockProfileName,
+      ssoSession: "sso-session-name",
+    };
     const receivedCreds = await fromSSO(mockOptions)();
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveSSOCredentials).toHaveBeenCalledWith(mockOptions);

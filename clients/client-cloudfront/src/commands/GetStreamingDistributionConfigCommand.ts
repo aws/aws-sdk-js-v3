@@ -31,7 +31,7 @@ export interface GetStreamingDistributionConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Get the configuration information about a streaming distribution. </p>
+ * <p>Get the configuration information about a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

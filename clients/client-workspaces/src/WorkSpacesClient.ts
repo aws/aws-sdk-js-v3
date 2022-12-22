@@ -63,6 +63,10 @@ import {
   CreateConnectionAliasCommandOutput,
 } from "./commands/CreateConnectionAliasCommand";
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
+import {
+  CreateStandbyWorkspacesCommandInput,
+  CreateStandbyWorkspacesCommandOutput,
+} from "./commands/CreateStandbyWorkspacesCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateUpdatedWorkspaceImageCommandInput,
@@ -178,6 +182,10 @@ import {
 import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "./commands/MigrateWorkspaceCommand";
 import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "./commands/ModifyAccountCommand";
 import {
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
+import {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
@@ -255,6 +263,7 @@ export type ServiceInputTypes =
   | CreateConnectClientAddInCommandInput
   | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
+  | CreateStandbyWorkspacesCommandInput
   | CreateTagsCommandInput
   | CreateUpdatedWorkspaceImageCommandInput
   | CreateWorkspaceBundleCommandInput
@@ -291,6 +300,7 @@ export type ServiceInputTypes =
   | ListAvailableManagementCidrRangesCommandInput
   | MigrateWorkspaceCommandInput
   | ModifyAccountCommandInput
+  | ModifyCertificateBasedAuthPropertiesCommandInput
   | ModifyClientPropertiesCommandInput
   | ModifySamlPropertiesCommandInput
   | ModifySelfservicePermissionsCommandInput
@@ -320,6 +330,7 @@ export type ServiceOutputTypes =
   | CreateConnectClientAddInCommandOutput
   | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
+  | CreateStandbyWorkspacesCommandOutput
   | CreateTagsCommandOutput
   | CreateUpdatedWorkspaceImageCommandOutput
   | CreateWorkspaceBundleCommandOutput
@@ -356,6 +367,7 @@ export type ServiceOutputTypes =
   | ListAvailableManagementCidrRangesCommandOutput
   | MigrateWorkspaceCommandOutput
   | ModifyAccountCommandOutput
+  | ModifyCertificateBasedAuthPropertiesCommandOutput
   | ModifyClientPropertiesCommandOutput
   | ModifySamlPropertiesCommandOutput
   | ModifySelfservicePermissionsCommandOutput

@@ -19,7 +19,7 @@ import {
   TagResourceRequestFilterSensitiveLog,
   TagResourceResponse,
   TagResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,

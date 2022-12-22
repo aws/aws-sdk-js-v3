@@ -33,7 +33,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
 
 /**
  * <p>
- *       A list of the pricing plans associated with a pricing rule.
+ *       A list of the pricing plans that are associated with a pricing rule.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

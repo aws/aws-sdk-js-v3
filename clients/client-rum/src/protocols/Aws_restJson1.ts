@@ -75,6 +75,7 @@ import {
   BatchCreateRumMetricDefinitionsError,
   BatchDeleteRumMetricDefinitionsError,
   ConflictException,
+  CustomEvents,
   CwLog,
   DataStorage,
   InternalServerException,
@@ -147,10 +148,10 @@ export const serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand = asyn
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
     metricDefinitionIds: [
-      () => input.MetricDefinitionIds !== void 0,
+      __expectNonNull(input.MetricDefinitionIds, `MetricDefinitionIds`) != null,
       () => (input.MetricDefinitionIds! || []).map((_entry) => _entry as any),
     ],
   });
@@ -184,7 +185,7 @@ export const serializeAws_restJson1BatchGetRumMetricDefinitionsCommand = async (
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
@@ -215,6 +216,9 @@ export const serializeAws_restJson1CreateAppMonitorCommand = async (
   body = JSON.stringify({
     ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
+    }),
+    ...(input.CustomEvents != null && {
+      CustomEvents: serializeAws_restJson1CustomEvents(input.CustomEvents, context),
     }),
     ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
     ...(input.Domain != null && { Domain: input.Domain }),
@@ -270,7 +274,7 @@ export const serializeAws_restJson1DeleteRumMetricsDestinationCommand = async (
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
   });
   let body: any;
@@ -519,7 +523,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -548,6 +555,9 @@ export const serializeAws_restJson1UpdateAppMonitorCommand = async (
   body = JSON.stringify({
     ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
+    }),
+    ...(input.CustomEvents != null && {
+      CustomEvents: serializeAws_restJson1CustomEvents(input.CustomEvents, context),
     }),
     ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
     ...(input.Domain != null && { Domain: input.Domain }),
@@ -1673,15 +1683,19 @@ const serializeAws_restJson1AppMonitorDetails = (input: AppMonitorDetails, conte
   };
 };
 
+const serializeAws_restJson1CustomEvents = (input: CustomEvents, context: __SerdeContext): any => {
+  return {
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_restJson1DimensionKeysMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1773,10 +1787,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1809,6 +1821,8 @@ const deserializeAws_restJson1AppMonitor = (output: any, context: __SerdeContext
         ? deserializeAws_restJson1AppMonitorConfiguration(output.AppMonitorConfiguration, context)
         : undefined,
     Created: __expectString(output.Created),
+    CustomEvents:
+      output.CustomEvents != null ? deserializeAws_restJson1CustomEvents(output.CustomEvents, context) : undefined,
     DataStorage:
       output.DataStorage != null ? deserializeAws_restJson1DataStorage(output.DataStorage, context) : undefined,
     Domain: __expectString(output.Domain),
@@ -1918,6 +1932,12 @@ const deserializeAws_restJson1BatchDeleteRumMetricDefinitionsErrors = (
   return retVal;
 };
 
+const deserializeAws_restJson1CustomEvents = (output: any, context: __SerdeContext): CustomEvents => {
+  return {
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_restJson1CwLog = (output: any, context: __SerdeContext): CwLog => {
   return {
     CwLogEnabled: __expectBoolean(output.CwLogEnabled),
@@ -1936,10 +1956,8 @@ const deserializeAws_restJson1DimensionKeysMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2064,10 +2082,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

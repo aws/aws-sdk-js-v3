@@ -19,7 +19,7 @@ import {
   CreateCoipPoolRequestFilterSensitiveLog,
   CreateCoipPoolResult,
   CreateCoipPoolResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { deserializeAws_ec2CreateCoipPoolCommand, serializeAws_ec2CreateCoipPoolCommand } from "../protocols/Aws_ec2";
 
 export interface CreateCoipPoolCommandInput extends CreateCoipPoolRequest {}

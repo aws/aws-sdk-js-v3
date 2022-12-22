@@ -33,7 +33,7 @@ export interface PutRecommendationPreferencesCommandOutput
 /**
  * <p>Creates a new recommendation preference or updates an existing recommendation
  *             preference, such as enhanced infrastructure metrics.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
  * @example

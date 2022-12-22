@@ -19,7 +19,7 @@ import {
   DisassociateEnclaveCertificateIamRoleRequestFilterSensitiveLog,
   DisassociateEnclaveCertificateIamRoleResult,
   DisassociateEnclaveCertificateIamRoleResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,
   serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,

@@ -19,7 +19,7 @@ import {
   UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog,
   UpdateEventConfigurationByResourceTypesResponse,
   UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,
   serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,

@@ -28,18 +28,15 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
 /**
  * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
  *             subnet, or VPC. </p>
- *
- *         <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
+ *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
  *             consisting of fields that describe the traffic flow. For more information, see
  *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>
  *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
- *
- *         <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
+ *          <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
  *             interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all
  *             of the monitored network interfaces are published to a single log file object that is stored in the specified
  *             bucket.</p>
- *
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

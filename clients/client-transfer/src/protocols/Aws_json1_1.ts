@@ -115,6 +115,7 @@ import {
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   CustomStepDetails,
+  DecryptStepDetails,
   DeleteAccessRequest,
   DeleteAgreementRequest,
   DeleteCertificateRequest,
@@ -4271,6 +4272,18 @@ const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context
   };
 };
 
+const serializeAws_json1_1DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationFileLocation != null && {
+      DestinationFileLocation: serializeAws_json1_1InputFileLocation(input.DestinationFileLocation, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
+    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1DeleteAccessRequest = (input: DeleteAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
@@ -4952,6 +4965,9 @@ const serializeAws_json1_1WorkflowStep = (input: WorkflowStep, context: __SerdeC
     ...(input.CustomStepDetails != null && {
       CustomStepDetails: serializeAws_json1_1CustomStepDetails(input.CustomStepDetails, context),
     }),
+    ...(input.DecryptStepDetails != null && {
+      DecryptStepDetails: serializeAws_json1_1DecryptStepDetails(input.DecryptStepDetails, context),
+    }),
     ...(input.DeleteStepDetails != null && {
       DeleteStepDetails: serializeAws_json1_1DeleteStepDetails(input.DeleteStepDetails, context),
     }),
@@ -5099,6 +5115,19 @@ const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeCo
     SourceFileLocation: __expectString(output.SourceFileLocation),
     Target: __expectString(output.Target),
     TimeoutSeconds: __expectInt32(output.TimeoutSeconds),
+  } as any;
+};
+
+const deserializeAws_json1_1DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
+  return {
+    DestinationFileLocation:
+      output.DestinationFileLocation != null
+        ? deserializeAws_json1_1InputFileLocation(output.DestinationFileLocation, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OverwriteExisting: __expectString(output.OverwriteExisting),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -6302,6 +6331,10 @@ const deserializeAws_json1_1WorkflowStep = (output: any, context: __SerdeContext
     CustomStepDetails:
       output.CustomStepDetails != null
         ? deserializeAws_json1_1CustomStepDetails(output.CustomStepDetails, context)
+        : undefined,
+    DecryptStepDetails:
+      output.DecryptStepDetails != null
+        ? deserializeAws_json1_1DecryptStepDetails(output.DecryptStepDetails, context)
         : undefined,
     DeleteStepDetails:
       output.DeleteStepDetails != null

@@ -31,7 +31,7 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables for the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
+ * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

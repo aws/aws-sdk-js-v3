@@ -29,7 +29,9 @@ export interface AcceptInboundConnectionCommandInput extends AcceptInboundConnec
 export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows the remote domain owner to accept an inbound cross-cluster connection request.</p>
+ * <p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
+ *    cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+ *     for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

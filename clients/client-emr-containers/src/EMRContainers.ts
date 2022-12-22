@@ -7,6 +7,11 @@ import {
   CancelJobRunCommandOutput,
 } from "./commands/CancelJobRunCommand";
 import {
+  CreateJobTemplateCommand,
+  CreateJobTemplateCommandInput,
+  CreateJobTemplateCommandOutput,
+} from "./commands/CreateJobTemplateCommand";
+import {
   CreateManagedEndpointCommand,
   CreateManagedEndpointCommandInput,
   CreateManagedEndpointCommandOutput,
@@ -16,6 +21,11 @@ import {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "./commands/CreateVirtualClusterCommand";
+import {
+  DeleteJobTemplateCommand,
+  DeleteJobTemplateCommandInput,
+  DeleteJobTemplateCommandOutput,
+} from "./commands/DeleteJobTemplateCommand";
 import {
   DeleteManagedEndpointCommand,
   DeleteManagedEndpointCommandInput,
@@ -32,6 +42,11 @@ import {
   DescribeJobRunCommandOutput,
 } from "./commands/DescribeJobRunCommand";
 import {
+  DescribeJobTemplateCommand,
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "./commands/DescribeJobTemplateCommand";
+import {
   DescribeManagedEndpointCommand,
   DescribeManagedEndpointCommandInput,
   DescribeManagedEndpointCommandOutput,
@@ -42,6 +57,11 @@ import {
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import {
+  ListJobTemplatesCommand,
+  ListJobTemplatesCommandInput,
+  ListJobTemplatesCommandOutput,
+} from "./commands/ListJobTemplatesCommand";
 import {
   ListManagedEndpointsCommand,
   ListManagedEndpointsCommandInput,
@@ -125,8 +145,43 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to
-   *          Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Creates a job template. Job template stores values of StartJobRun API request in a
+   *          template and can be used to start a job run. Job template allows two use cases: avoid
+   *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
+   *          API request.</p>
+   */
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobTemplateCommandOutput>;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    cb: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): void;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): void;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): Promise<CreateJobTemplateCommandOutput> | void {
+    const command = new CreateJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio
+   *          to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
    */
   public createManagedEndpoint(
     args: CreateManagedEndpointCommandInput,
@@ -194,8 +249,44 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to
-   *          Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Deletes a job template. Job template stores values of StartJobRun API request in a
+   *          template and can be used to start a job run. Job template allows two use cases: avoid
+   *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
+   *          API request.</p>
+   */
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobTemplateCommandOutput>;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): Promise<DeleteJobTemplateCommandOutput> | void {
+    const command = new DeleteJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a managed endpoint. A managed endpoint is a gateway
+   *          that connects EMR Studio to Amazon EMR on EKS so that EMR Studio
+   *          can communicate with your virtual cluster.</p>
    */
   public deleteManagedEndpoint(
     args: DeleteManagedEndpointCommandInput,
@@ -296,9 +387,44 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway
-   *          that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your
-   *          virtual cluster.</p>
+   * <p>Displays detailed information about a specified job template. Job template stores values
+   *          of StartJobRun API request in a template and can be used to start a job run. Job template
+   *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
+   *          certain values in StartJobRun API request.</p>
+   */
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobTemplateCommandOutput>;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    cb: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): void;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): void;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): Promise<DescribeJobTemplateCommandOutput> | void {
+    const command = new DescribeJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays detailed information about a managed endpoint. A managed endpoint is
+   *          a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
+   *          communicate with your virtual cluster.</p>
    */
   public describeManagedEndpoint(
     args: DescribeManagedEndpointCommandInput,
@@ -394,9 +520,44 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
-   *          that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your
-   *          virtual cluster.</p>
+   * <p>Lists job templates based on a set of parameters. Job template stores values of
+   *          StartJobRun API request in a template and can be used to start a job run. Job template
+   *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
+   *          certain values in StartJobRun API request.</p>
+   */
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobTemplatesCommandOutput>;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): Promise<ListJobTemplatesCommandOutput> | void {
+    const command = new ListJobTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists managed endpoints based on a set of parameters. A managed endpoint
+   *          is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio
+   *          can communicate with your virtual cluster.</p>
    */
   public listManagedEndpoints(
     args: ListManagedEndpointsCommandInput,

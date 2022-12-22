@@ -19,7 +19,7 @@ import {
   DisassociateIamInstanceProfileRequestFilterSensitiveLog,
   DisassociateIamInstanceProfileResult,
   DisassociateIamInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateIamInstanceProfileCommand,
   serializeAws_ec2DisassociateIamInstanceProfileCommand,
@@ -32,7 +32,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
 
 /**
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
- *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+ *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

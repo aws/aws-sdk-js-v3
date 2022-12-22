@@ -31,6 +31,9 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
 /**
  * <p>Fetches the temporarily cached result of an SQL statement.
  *        A token is returned to page through the statement results. </p>
+ *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+ *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+ *        <i>Amazon Redshift Management Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

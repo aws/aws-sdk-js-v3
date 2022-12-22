@@ -1888,6 +1888,11 @@ export interface ListInferenceSchedulersRequest {
    * <p>The name of the ML model used by the inference scheduler to be listed. </p>
    */
   ModelName?: string;
+
+  /**
+   * <p>Specifies the current status of the inference schedulers to list.</p>
+   */
+  Status?: InferenceSchedulerStatus | string;
 }
 
 /**

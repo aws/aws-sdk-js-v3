@@ -48,29 +48,13 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *             </li>
  *          </ul>
  *         <p>If successful, GameLift no longer initiates scaling events except in response to manual
- *             changes using <a>UpdateFleetCapacity</a>. You can view a fleet's stopped
- *             actions using <a>DescribeFleetAttributes</a> or <a>DescribeFleetLocationAttributes</a>. Suspended activity can be restarted
- *             using <a>StartFleetActions</a>.</p>
- *         <p>
+ *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleet</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 Fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

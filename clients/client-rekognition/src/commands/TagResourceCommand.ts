@@ -29,11 +29,11 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Adds one or more key-value tags to an Amazon Rekognition collection, stream processor, or Custom Labels model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a>.
- *     </p>
- *          <p>This operation requires permissions to perform the
- *       <code>rekognition:TagResource</code> action. </p>
+ * <p> Adds one or more key-value tags to an Amazon Rekognition collection, stream processor, or Custom
+ *       Labels model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+ *         Resources</a>. </p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:TagResource</code>
+ *       action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

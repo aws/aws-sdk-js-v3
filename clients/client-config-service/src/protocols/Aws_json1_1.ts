@@ -252,6 +252,10 @@ import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
 } from "../commands/GetResourceConfigHistoryCommand";
+import {
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
+} from "../commands/GetResourceEvaluationSummaryCommand";
 import { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "../commands/GetStoredQueryCommand";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
@@ -265,6 +269,10 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
+import {
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
+} from "../commands/ListResourceEvaluationsCommand";
 import { ListStoredQueriesCommandInput, ListStoredQueriesCommandOutput } from "../commands/ListStoredQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -332,6 +340,10 @@ import {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "../commands/StartRemediationExecutionCommand";
+import {
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
+} from "../commands/StartResourceEvaluationCommand";
 import {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
@@ -424,6 +436,7 @@ import {
   DescribeComplianceByResourceResponse,
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
+  DescribeConfigRulesFilters,
   DescribeConfigRulesRequest,
   DescribeConfigRulesResponse,
   DescribeConfigurationAggregatorSourcesStatusRequest,
@@ -463,9 +476,12 @@ import {
   DescribeRetentionConfigurationsRequest,
   DescribeRetentionConfigurationsResponse,
   Evaluation,
+  EvaluationContext,
+  EvaluationModeConfiguration,
   EvaluationResult,
   EvaluationResultIdentifier,
   EvaluationResultQualifier,
+  EvaluationStatus,
   ExecutionControls,
   ExternalEvaluation,
   FailedDeleteRemediationExceptionsBatch,
@@ -505,9 +521,12 @@ import {
   GetOrganizationCustomRulePolicyResponse,
   GetResourceConfigHistoryRequest,
   GetResourceConfigHistoryResponse,
+  GetResourceEvaluationSummaryRequest,
+  GetResourceEvaluationSummaryResponse,
   GetStoredQueryRequest,
   GetStoredQueryResponse,
   GroupedResourceCount,
+  IdempotentParameterMismatch,
   InsufficientDeliveryPolicyException,
   InsufficientPermissionsException,
   InvalidConfigurationRecorderNameException,
@@ -531,6 +550,8 @@ import {
   ListConformancePackComplianceScoresResponse,
   ListDiscoveredResourcesRequest,
   ListDiscoveredResourcesResponse,
+  ListResourceEvaluationsRequest,
+  ListResourceEvaluationsResponse,
   ListStoredQueriesRequest,
   ListStoredQueriesResponse,
   ListTagsForResourceRequest,
@@ -539,16 +560,9 @@ import {
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
   MaxNumberOfConformancePacksExceededException,
-  MaxNumberOfDeliveryChannelsExceededException,
-  MaxNumberOfOrganizationConfigRulesExceededException,
-  MaxNumberOfOrganizationConformancePacksExceededException,
-  MaxNumberOfRetentionConfigurationsExceededException,
   MemberAccountStatus,
   NoAvailableConfigurationRecorderException,
-  NoAvailableDeliveryChannelException,
-  NoAvailableOrganizationException,
   NoRunningConfigurationRecorderException,
-  NoSuchBucketException,
   NoSuchConfigRuleException,
   NoSuchConfigRuleInConformancePackException,
   NoSuchConfigurationAggregatorException,
@@ -562,7 +576,6 @@ import {
   NoSuchRetentionConfigurationException,
   OrganizationAccessDeniedException,
   OrganizationAggregationSource,
-  OrganizationAllFeaturesNotEnabledException,
   OrganizationConfigRule,
   OrganizationConfigRuleStatus,
   OrganizationConfigRuleTriggerType,
@@ -570,20 +583,12 @@ import {
   OrganizationConformancePack,
   OrganizationConformancePackDetailedStatus,
   OrganizationConformancePackStatus,
-  OrganizationConformancePackTemplateValidationException,
-  OrganizationCustomPolicyRuleMetadata,
   OrganizationCustomPolicyRuleMetadataNoPolicy,
   OrganizationCustomRuleMetadata,
   OrganizationManagedRuleMetadata,
   OrganizationResourceDetailedStatusFilters,
   OversizedConfigurationItemException,
   PendingAggregationRequest,
-  PutAggregationAuthorizationRequest,
-  PutAggregationAuthorizationResponse,
-  PutConfigRuleRequest,
-  PutConfigurationAggregatorRequest,
-  PutConfigurationAggregatorResponse,
-  PutConfigurationRecorderRequest,
   RecordingGroup,
   Relationship,
   RemediationConfiguration,
@@ -595,6 +600,9 @@ import {
   RemediationParameterValue,
   ResourceCount,
   ResourceCountFilters,
+  ResourceDetails,
+  ResourceEvaluation,
+  ResourceEvaluationFilters,
   ResourceFilters,
   ResourceIdentifier,
   ResourceInUseException,
@@ -614,9 +622,26 @@ import {
   StoredQueryMetadata,
   Tag,
   TemplateSSMDocumentDetails,
+  TimeWindow,
   ValidationException,
 } from "../models/models_0";
 import {
+  MaxNumberOfDeliveryChannelsExceededException,
+  MaxNumberOfOrganizationConfigRulesExceededException,
+  MaxNumberOfOrganizationConformancePacksExceededException,
+  MaxNumberOfRetentionConfigurationsExceededException,
+  NoAvailableDeliveryChannelException,
+  NoAvailableOrganizationException,
+  NoSuchBucketException,
+  OrganizationAllFeaturesNotEnabledException,
+  OrganizationConformancePackTemplateValidationException,
+  OrganizationCustomPolicyRuleMetadata,
+  PutAggregationAuthorizationRequest,
+  PutAggregationAuthorizationResponse,
+  PutConfigRuleRequest,
+  PutConfigurationAggregatorRequest,
+  PutConfigurationAggregatorResponse,
+  PutConfigurationRecorderRequest,
   PutConformancePackRequest,
   PutConformancePackResponse,
   PutDeliveryChannelRequest,
@@ -648,6 +673,8 @@ import {
   StartConfigurationRecorderRequest,
   StartRemediationExecutionRequest,
   StartRemediationExecutionResponse,
+  StartResourceEvaluationRequest,
+  StartResourceEvaluationResponse,
   StopConfigurationRecorderRequest,
   TagResourceRequest,
   TooManyTagsException,
@@ -1433,6 +1460,19 @@ export const serializeAws_json1_1GetResourceConfigHistoryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetResourceEvaluationSummaryCommand = async (
+  input: GetResourceEvaluationSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.GetResourceEvaluationSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourceEvaluationSummaryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetStoredQueryCommand = async (
   input: GetStoredQueryCommandInput,
   context: __SerdeContext
@@ -1482,6 +1522,19 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDiscoveredResourcesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListResourceEvaluationsCommand = async (
+  input: ListResourceEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.ListResourceEvaluations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListResourceEvaluationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1768,6 +1821,19 @@ export const serializeAws_json1_1StartRemediationExecutionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartRemediationExecutionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartResourceEvaluationCommand = async (
+  input: StartResourceEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.StartResourceEvaluation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartResourceEvaluationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2884,6 +2950,9 @@ const deserializeAws_json1_1DescribeConfigRulesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.configservice#InvalidNextTokenException":
       throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "NoSuchConfigRuleException":
     case "com.amazonaws.configservice#NoSuchConfigRuleException":
       throw await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(parsedOutput, context);
@@ -4534,6 +4603,47 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetResourceEvaluationSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEvaluationSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourceEvaluationSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourceEvaluationSummaryResponse(data, context);
+  const response: GetResourceEvaluationSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourceEvaluationSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEvaluationSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1GetStoredQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4714,6 +4824,53 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.configservice#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListResourceEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListResourceEvaluationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListResourceEvaluationsResponse(data, context);
+  const response: ListResourceEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListResourceEvaluationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceEvaluationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidTimeRangeException":
+    case "com.amazonaws.configservice#InvalidTimeRangeException":
+      throw await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5816,6 +5973,50 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartResourceEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartResourceEvaluationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartResourceEvaluationResponse(data, context);
+  const response: StartResourceEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartResourceEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatch":
+    case "com.amazonaws.configservice#IdempotentParameterMismatch":
+      throw await deserializeAws_json1_1IdempotentParameterMismatchResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StopConfigurationRecorderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5946,6 +6147,19 @@ const deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse =
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConformancePackTemplateValidationException(body, context);
   const exception = new ConformancePackTemplateValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1IdempotentParameterMismatchResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IdempotentParameterMismatch> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatch(body, context);
+  const exception = new IdempotentParameterMismatch({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6766,6 +6980,9 @@ const serializeAws_json1_1ConfigRule = (input: ConfigRule, context: __SerdeConte
     ...(input.ConfigRuleState != null && { ConfigRuleState: input.ConfigRuleState }),
     ...(input.CreatedBy != null && { CreatedBy: input.CreatedBy }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.EvaluationModes != null && {
+      EvaluationModes: serializeAws_json1_1EvaluationModes(input.EvaluationModes, context),
+    }),
     ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
     ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
     ...(input.Scope != null && { Scope: serializeAws_json1_1Scope(input.Scope, context) }),
@@ -7213,6 +7430,15 @@ const serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeConfigRulesFilters = (
+  input: DescribeConfigRulesFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+  };
+};
+
 const serializeAws_json1_1DescribeConfigRulesRequest = (
   input: DescribeConfigRulesRequest,
   context: __SerdeContext
@@ -7221,6 +7447,7 @@ const serializeAws_json1_1DescribeConfigRulesRequest = (
     ...(input.ConfigRuleNames != null && {
       ConfigRuleNames: serializeAws_json1_1ConfigRuleNames(input.ConfigRuleNames, context),
     }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1DescribeConfigRulesFilters(input.Filters, context) }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
@@ -7483,6 +7710,31 @@ const serializeAws_json1_1Evaluation = (input: Evaluation, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1EvaluationContext = (input: EvaluationContext, context: __SerdeContext): any => {
+  return {
+    ...(input.EvaluationContextIdentifier != null && {
+      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
+    }),
+  };
+};
+
+const serializeAws_json1_1EvaluationModeConfiguration = (
+  input: EvaluationModeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Mode != null && { Mode: input.Mode }),
+  };
+};
+
+const serializeAws_json1_1EvaluationModes = (input: EvaluationModeConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EvaluationModeConfiguration(entry, context);
+    });
+};
+
 const serializeAws_json1_1Evaluations = (input: Evaluation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7618,6 +7870,7 @@ const serializeAws_json1_1GetComplianceDetailsByResourceRequest = (
       ComplianceTypes: serializeAws_json1_1ComplianceTypes(input.ComplianceTypes, context),
     }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
@@ -7738,6 +7991,15 @@ const serializeAws_json1_1GetResourceConfigHistoryRequest = (
   };
 };
 
+const serializeAws_json1_1GetResourceEvaluationSummaryRequest = (
+  input: GetResourceEvaluationSummaryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
+  };
+};
+
 const serializeAws_json1_1GetStoredQueryRequest = (input: GetStoredQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.QueryName != null && { QueryName: input.QueryName }),
@@ -7785,6 +8047,17 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
     ...(input.resourceIds != null && { resourceIds: serializeAws_json1_1ResourceIdList(input.resourceIds, context) }),
     ...(input.resourceName != null && { resourceName: input.resourceName }),
     ...(input.resourceType != null && { resourceType: input.resourceType }),
+  };
+};
+
+const serializeAws_json1_1ListResourceEvaluationsRequest = (
+  input: ListResourceEvaluationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ResourceEvaluationFilters(input.Filters, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -8243,10 +8516,8 @@ const serializeAws_json1_1RemediationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1RemediationParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1RemediationParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -8267,6 +8538,30 @@ const serializeAws_json1_1ResourceCountFilters = (input: ResourceCountFilters, c
     ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.Region != null && { Region: input.Region }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1ResourceDetails = (input: ResourceDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceConfiguration != null && { ResourceConfiguration: input.ResourceConfiguration }),
+    ...(input.ResourceConfigurationSchemaType != null && {
+      ResourceConfigurationSchemaType: input.ResourceConfigurationSchemaType,
+    }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1ResourceEvaluationFilters = (
+  input: ResourceEvaluationFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EvaluationContextIdentifier != null && {
+      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
+    }),
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+    ...(input.TimeWindow != null && { TimeWindow: serializeAws_json1_1TimeWindow(input.TimeWindow, context) }),
   };
 };
 
@@ -8456,6 +8751,23 @@ const serializeAws_json1_1StartRemediationExecutionRequest = (
   };
 };
 
+const serializeAws_json1_1StartResourceEvaluationRequest = (
+  input: StartResourceEvaluationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.EvaluationContext != null && {
+      EvaluationContext: serializeAws_json1_1EvaluationContext(input.EvaluationContext, context),
+    }),
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+    ...(input.EvaluationTimeout != null && { EvaluationTimeout: input.EvaluationTimeout }),
+    ...(input.ResourceDetails != null && {
+      ResourceDetails: serializeAws_json1_1ResourceDetails(input.ResourceDetails, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StaticParameterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8531,10 +8843,8 @@ const serializeAws_json1_1Tags = (input: Record<string, string>, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8553,6 +8863,13 @@ const serializeAws_json1_1TemplateSSMDocumentDetails = (
   return {
     ...(input.DocumentName != null && { DocumentName: input.DocumentName }),
     ...(input.DocumentVersion != null && { DocumentVersion: input.DocumentVersion }),
+  };
+};
+
+const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -9089,6 +9406,10 @@ const deserializeAws_json1_1ConfigRule = (output: any, context: __SerdeContext):
     ConfigRuleState: __expectString(output.ConfigRuleState),
     CreatedBy: __expectString(output.CreatedBy),
     Description: __expectString(output.Description),
+    EvaluationModes:
+      output.EvaluationModes != null
+        ? deserializeAws_json1_1EvaluationModes(output.EvaluationModes, context)
+        : undefined,
     InputParameters: __expectString(output.InputParameters),
     MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
     Scope: output.Scope != null ? deserializeAws_json1_1Scope(output.Scope, context) : undefined,
@@ -10052,6 +10373,33 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1EvaluationContext = (output: any, context: __SerdeContext): EvaluationContext => {
+  return {
+    EvaluationContextIdentifier: __expectString(output.EvaluationContextIdentifier),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluationModeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EvaluationModeConfiguration => {
+  return {
+    Mode: __expectString(output.Mode),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluationModes = (output: any, context: __SerdeContext): EvaluationModeConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluationModeConfiguration(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
     Annotation: __expectString(output.Annotation),
@@ -10085,6 +10433,7 @@ const deserializeAws_json1_1EvaluationResultIdentifier = (
       output.OrderingTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
         : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
   } as any;
 };
 
@@ -10094,6 +10443,7 @@ const deserializeAws_json1_1EvaluationResultQualifier = (
 ): EvaluationResultQualifier => {
   return {
     ConfigRuleName: __expectString(output.ConfigRuleName),
+    EvaluationMode: __expectString(output.EvaluationMode),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
   } as any;
@@ -10121,6 +10471,13 @@ const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext)
       return deserializeAws_json1_1Evaluation(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1EvaluationStatus = (output: any, context: __SerdeContext): EvaluationStatus => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1ExcludedAccounts = (output: any, context: __SerdeContext): string[] => {
@@ -10468,6 +10825,33 @@ const deserializeAws_json1_1GetResourceConfigHistoryResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetResourceEvaluationSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourceEvaluationSummaryResponse => {
+  return {
+    Compliance: __expectString(output.Compliance),
+    EvaluationContext:
+      output.EvaluationContext != null
+        ? deserializeAws_json1_1EvaluationContext(output.EvaluationContext, context)
+        : undefined,
+    EvaluationMode: __expectString(output.EvaluationMode),
+    EvaluationStartTimestamp:
+      output.EvaluationStartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
+        : undefined,
+    EvaluationStatus:
+      output.EvaluationStatus != null
+        ? deserializeAws_json1_1EvaluationStatus(output.EvaluationStatus, context)
+        : undefined,
+    ResourceDetails:
+      output.ResourceDetails != null
+        ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
+        : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
 const deserializeAws_json1_1GetStoredQueryResponse = (output: any, context: __SerdeContext): GetStoredQueryResponse => {
   return {
     StoredQuery:
@@ -10495,6 +10879,15 @@ const deserializeAws_json1_1GroupedResourceCountList = (
       return deserializeAws_json1_1GroupedResourceCount(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1IdempotentParameterMismatch = (
+  output: any,
+  context: __SerdeContext
+): IdempotentParameterMismatch => {
+  return {
+    message: __expectString(output.message),
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientDeliveryPolicyException = (
@@ -10676,6 +11069,19 @@ const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
     resourceIdentifiers:
       output.resourceIdentifiers != null
         ? deserializeAws_json1_1ResourceIdentifierList(output.resourceIdentifiers, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListResourceEvaluationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListResourceEvaluationsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ResourceEvaluations:
+      output.ResourceEvaluations != null
+        ? deserializeAws_json1_1ResourceEvaluations(output.ResourceEvaluations, context)
         : undefined,
   } as any;
 };
@@ -11631,10 +12037,8 @@ const deserializeAws_json1_1RemediationParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1RemediationParameterValue(value, context),
-      };
+      acc[key] = deserializeAws_json1_1RemediationParameterValue(value, context);
+      return acc;
     },
     {}
   );
@@ -11676,6 +12080,38 @@ const deserializeAws_json1_1ResourceCounts = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_json1_1ResourceCount(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return {
+    ResourceConfiguration: __expectString(output.ResourceConfiguration),
+    ResourceConfigurationSchemaType: __expectString(output.ResourceConfigurationSchemaType),
+    ResourceId: __expectString(output.ResourceId),
+    ResourceType: __expectString(output.ResourceType),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceEvaluation = (output: any, context: __SerdeContext): ResourceEvaluation => {
+  return {
+    EvaluationMode: __expectString(output.EvaluationMode),
+    EvaluationStartTimestamp:
+      output.EvaluationStartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
+        : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceEvaluations = (output: any, context: __SerdeContext): ResourceEvaluation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceEvaluation(entry, context);
     });
   return retVal;
 };
@@ -11903,6 +12339,15 @@ const deserializeAws_json1_1StartRemediationExecutionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartResourceEvaluationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartResourceEvaluationResponse => {
+  return {
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
 const deserializeAws_json1_1StaticParameterValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -11960,10 +12405,8 @@ const deserializeAws_json1_1SupplementaryConfiguration = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -11991,10 +12434,8 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

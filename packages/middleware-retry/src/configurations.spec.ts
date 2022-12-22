@@ -1,18 +1,15 @@
 import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { AdaptiveRetryStrategy, DEFAULT_MAX_ATTEMPTS, StandardRetryStrategy } from "@aws-sdk/util-retry";
 
-import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
-import { DEFAULT_MAX_ATTEMPTS } from "./config";
 import {
   CONFIG_MAX_ATTEMPTS,
   ENV_MAX_ATTEMPTS,
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   resolveRetryConfig,
 } from "./configurations";
-import { StandardRetryStrategy } from "./StandardRetryStrategy";
 
-jest.mock("./AdaptiveRetryStrategy");
-jest.mock("./StandardRetryStrategy");
 jest.mock("@aws-sdk/util-middleware");
+jest.mock("@aws-sdk/util-retry");
 
 describe(resolveRetryConfig.name, () => {
   const retryMode = jest.fn() as any;

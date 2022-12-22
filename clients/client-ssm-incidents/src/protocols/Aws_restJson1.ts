@@ -105,16 +105,21 @@ import {
   DeleteRegionAction,
   DynamicSsmParameterValue,
   EmptyChatChannel,
+  EventReference,
   EventSummary,
   Filter,
   IncidentRecord,
   IncidentRecordSource,
   IncidentRecordSummary,
   IncidentTemplate,
+  Integration,
   InternalServerException,
   ItemIdentifier,
   ItemValue,
   NotificationTargetItem,
+  PagerDutyConfiguration,
+  PagerDutyIncidentConfiguration,
+  PagerDutyIncidentDetail,
   RegionInfo,
   RegionMapInputValue,
   RelatedItem,
@@ -146,6 +151,7 @@ export const serializeAws_restJson1CreateReplicationSetCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.regions != null && { regions: serializeAws_restJson1RegionMapInput(input.regions, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -177,6 +183,9 @@ export const serializeAws_restJson1CreateResponsePlanCommand = async (
     ...(input.incidentTemplate != null && {
       incidentTemplate: serializeAws_restJson1IncidentTemplate(input.incidentTemplate, context),
     }),
+    ...(input.integrations != null && {
+      integrations: serializeAws_restJson1Integrations(input.integrations, context),
+    }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
@@ -204,6 +213,9 @@ export const serializeAws_restJson1CreateTimelineEventCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.eventData != null && { eventData: input.eventData }),
+    ...(input.eventReferences != null && {
+      eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
+    }),
     ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
@@ -251,7 +263,7 @@ export const serializeAws_restJson1DeleteReplicationSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteReplicationSet";
   const query: any = map({
-    arn: [, input.arn!],
+    arn: [, __expectNonNull(input.arn!, `arn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -348,7 +360,7 @@ export const serializeAws_restJson1GetIncidentRecordCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getIncidentRecord";
   const query: any = map({
-    arn: [, input.arn!],
+    arn: [, __expectNonNull(input.arn!, `arn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -371,7 +383,7 @@ export const serializeAws_restJson1GetReplicationSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getReplicationSet";
   const query: any = map({
-    arn: [, input.arn!],
+    arn: [, __expectNonNull(input.arn!, `arn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -396,7 +408,7 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getResourcePolicies";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -423,7 +435,7 @@ export const serializeAws_restJson1GetResponsePlanCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getResponsePlan";
   const query: any = map({
-    arn: [, input.arn!],
+    arn: [, __expectNonNull(input.arn!, `arn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -446,8 +458,8 @@ export const serializeAws_restJson1GetTimelineEventCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getTimelineEvent";
   const query: any = map({
-    incidentRecordArn: [, input.incidentRecordArn!],
-    eventId: [, input.eventId!],
+    incidentRecordArn: [, __expectNonNull(input.incidentRecordArn!, `incidentRecordArn`)],
+    eventId: [, __expectNonNull(input.eventId!, `eventId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -705,7 +717,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -866,6 +881,9 @@ export const serializeAws_restJson1UpdateResponsePlanCommand = async (
       incidentTemplateTags: serializeAws_restJson1TagMapUpdate(input.incidentTemplateTags, context),
     }),
     ...(input.incidentTemplateTitle != null && { incidentTemplateTitle: input.incidentTemplateTitle }),
+    ...(input.integrations != null && {
+      integrations: serializeAws_restJson1Integrations(input.integrations, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -892,6 +910,9 @@ export const serializeAws_restJson1UpdateTimelineEventCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.eventData != null && { eventData: input.eventData }),
     ...(input.eventId != null && { eventId: input.eventId }),
+    ...(input.eventReferences != null && {
+      eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
+    }),
     ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
@@ -1509,6 +1530,9 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
   }
   if (data.incidentTemplate != null) {
     contents.incidentTemplate = deserializeAws_restJson1IncidentTemplate(data.incidentTemplate, context);
+  }
+  if (data.integrations != null) {
+    contents.integrations = deserializeAws_restJson1Integrations(data.integrations, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -2677,10 +2701,8 @@ const serializeAws_restJson1DynamicSsmParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1DynamicSsmParameterValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1DynamicSsmParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2703,6 +2725,22 @@ const serializeAws_restJson1EngagementSet = (input: string[], context: __SerdeCo
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1EventReference = (input: EventReference, context: __SerdeContext): any => {
+  return EventReference.visit(input, {
+    relatedItemId: (value) => ({ relatedItemId: value }),
+    resource: (value) => ({ resource: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1EventReferenceList = (input: EventReference[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EventReference(entry, context);
     });
 };
 
@@ -2742,6 +2780,23 @@ const serializeAws_restJson1IntegerList = (input: number[], context: __SerdeCont
     });
 };
 
+const serializeAws_restJson1Integration = (input: Integration, context: __SerdeContext): any => {
+  return Integration.visit(input, {
+    pagerDutyConfiguration: (value) => ({
+      pagerDutyConfiguration: serializeAws_restJson1PagerDutyConfiguration(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1Integrations = (input: Integration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Integration(entry, context);
+    });
+};
+
 const serializeAws_restJson1ItemIdentifier = (input: ItemIdentifier, context: __SerdeContext): any => {
   return {
     ...(input.type != null && { type: input.type }),
@@ -2753,6 +2808,9 @@ const serializeAws_restJson1ItemValue = (input: ItemValue, context: __SerdeConte
   return ItemValue.visit(input, {
     arn: (value) => ({ arn: value }),
     metricDefinition: (value) => ({ metricDefinition: value }),
+    pagerDutyIncidentDetail: (value) => ({
+      pagerDutyIncidentDetail: serializeAws_restJson1PagerDutyIncidentDetail(value, context),
+    }),
     url: (value) => ({ url: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -2773,6 +2831,39 @@ const serializeAws_restJson1NotificationTargetSet = (input: NotificationTargetIt
     });
 };
 
+const serializeAws_restJson1PagerDutyConfiguration = (input: PagerDutyConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.pagerDutyIncidentConfiguration != null && {
+      pagerDutyIncidentConfiguration: serializeAws_restJson1PagerDutyIncidentConfiguration(
+        input.pagerDutyIncidentConfiguration,
+        context
+      ),
+    }),
+    ...(input.secretId != null && { secretId: input.secretId }),
+  };
+};
+
+const serializeAws_restJson1PagerDutyIncidentConfiguration = (
+  input: PagerDutyIncidentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceId != null && { serviceId: input.serviceId }),
+  };
+};
+
+const serializeAws_restJson1PagerDutyIncidentDetail = (
+  input: PagerDutyIncidentDetail,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.autoResolve != null && { autoResolve: input.autoResolve }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.secretId != null && { secretId: input.secretId }),
+  };
+};
+
 const serializeAws_restJson1RegionMapInput = (
   input: Record<string, RegionMapInputValue>,
   context: __SerdeContext
@@ -2781,10 +2872,8 @@ const serializeAws_restJson1RegionMapInput = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RegionMapInputValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1RegionMapInputValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2796,6 +2885,7 @@ const serializeAws_restJson1RegionMapInputValue = (input: RegionMapInputValue, c
 
 const serializeAws_restJson1RelatedItem = (input: RelatedItem, context: __SerdeContext): any => {
   return {
+    ...(input.generatedId != null && { generatedId: input.generatedId }),
     ...(input.identifier != null && { identifier: serializeAws_restJson1ItemIdentifier(input.identifier, context) }),
     ...(input.title != null && { title: input.title }),
   };
@@ -2835,10 +2925,8 @@ const serializeAws_restJson1SsmParameters = (input: Record<string, string[]>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SsmParameterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1SsmParameterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2863,10 +2951,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2875,10 +2961,8 @@ const serializeAws_restJson1TagMapUpdate = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2987,10 +3071,8 @@ const deserializeAws_restJson1DynamicSsmParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -3020,9 +3102,35 @@ const deserializeAws_restJson1EngagementSet = (output: any, context: __SerdeCont
   return retVal;
 };
 
+const deserializeAws_restJson1EventReference = (output: any, context: __SerdeContext): EventReference => {
+  if (__expectString(output.relatedItemId) !== undefined) {
+    return { relatedItemId: __expectString(output.relatedItemId) as any };
+  }
+  if (__expectString(output.resource) !== undefined) {
+    return { resource: __expectString(output.resource) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1EventReferenceList = (output: any, context: __SerdeContext): EventReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventReference(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1EventSummary = (output: any, context: __SerdeContext): EventSummary => {
   return {
     eventId: __expectString(output.eventId),
+    eventReferences:
+      output.eventReferences != null
+        ? deserializeAws_restJson1EventReferenceList(output.eventReferences, context)
+        : undefined,
     eventTime:
       output.eventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime))) : undefined,
     eventType: __expectString(output.eventType),
@@ -3146,6 +3254,27 @@ const deserializeAws_restJson1IncidentTemplate = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
+  if (output.pagerDutyConfiguration != null) {
+    return {
+      pagerDutyConfiguration: deserializeAws_restJson1PagerDutyConfiguration(output.pagerDutyConfiguration, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1Integrations = (output: any, context: __SerdeContext): Integration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Integration(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ItemIdentifier = (output: any, context: __SerdeContext): ItemIdentifier => {
   return {
     type: __expectString(output.type),
@@ -3159,6 +3288,11 @@ const deserializeAws_restJson1ItemValue = (output: any, context: __SerdeContext)
   }
   if (__expectString(output.metricDefinition) !== undefined) {
     return { metricDefinition: __expectString(output.metricDefinition) as any };
+  }
+  if (output.pagerDutyIncidentDetail != null) {
+    return {
+      pagerDutyIncidentDetail: deserializeAws_restJson1PagerDutyIncidentDetail(output.pagerDutyIncidentDetail, context),
+    };
   }
   if (__expectString(output.url) !== undefined) {
     return { url: __expectString(output.url) as any };
@@ -3191,6 +3325,40 @@ const deserializeAws_restJson1NotificationTargetSet = (
   return retVal;
 };
 
+const deserializeAws_restJson1PagerDutyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyConfiguration => {
+  return {
+    name: __expectString(output.name),
+    pagerDutyIncidentConfiguration:
+      output.pagerDutyIncidentConfiguration != null
+        ? deserializeAws_restJson1PagerDutyIncidentConfiguration(output.pagerDutyIncidentConfiguration, context)
+        : undefined,
+    secretId: __expectString(output.secretId),
+  } as any;
+};
+
+const deserializeAws_restJson1PagerDutyIncidentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyIncidentConfiguration => {
+  return {
+    serviceId: __expectString(output.serviceId),
+  } as any;
+};
+
+const deserializeAws_restJson1PagerDutyIncidentDetail = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyIncidentDetail => {
+  return {
+    autoResolve: __expectBoolean(output.autoResolve),
+    id: __expectString(output.id),
+    secretId: __expectString(output.secretId),
+  } as any;
+};
+
 const deserializeAws_restJson1RegionInfo = (output: any, context: __SerdeContext): RegionInfo => {
   return {
     sseKmsKeyId: __expectString(output.sseKmsKeyId),
@@ -3208,15 +3376,14 @@ const deserializeAws_restJson1RegionInfoMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RegionInfo(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RegionInfo(value, context);
+    return acc;
   }, {});
 };
 
 const deserializeAws_restJson1RelatedItem = (output: any, context: __SerdeContext): RelatedItem => {
   return {
+    generatedId: __expectString(output.generatedId),
     identifier:
       output.identifier != null ? deserializeAws_restJson1ItemIdentifier(output.identifier, context) : undefined,
     title: __expectString(output.title),
@@ -3329,10 +3496,8 @@ const deserializeAws_restJson1SsmParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1SsmParameterValues(value, context),
-    };
+    acc[key] = deserializeAws_restJson1SsmParameterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -3353,10 +3518,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3364,6 +3527,10 @@ const deserializeAws_restJson1TimelineEvent = (output: any, context: __SerdeCont
   return {
     eventData: __expectString(output.eventData),
     eventId: __expectString(output.eventId),
+    eventReferences:
+      output.eventReferences != null
+        ? deserializeAws_restJson1EventReferenceList(output.eventReferences, context)
+        : undefined,
     eventTime:
       output.eventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime))) : undefined,
     eventType: __expectString(output.eventType),

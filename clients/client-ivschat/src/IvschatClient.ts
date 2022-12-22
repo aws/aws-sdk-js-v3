@@ -48,11 +48,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateChatTokenCommandInput, CreateChatTokenCommandOutput } from "./commands/CreateChatTokenCommand";
+import {
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "./commands/CreateLoggingConfigurationCommand";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
+import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "./commands/DeleteLoggingConfigurationCommand";
 import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "./commands/DeleteMessageCommand";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import { DisconnectUserCommandInput, DisconnectUserCommandOutput } from "./commands/DisconnectUserCommand";
+import {
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput,
+} from "./commands/GetLoggingConfigurationCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import {
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput,
+} from "./commands/ListLoggingConfigurationsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -61,6 +77,10 @@ import {
 import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "./commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import {
   ClientInputEndpointParameters,
@@ -72,30 +92,40 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateChatTokenCommandInput
+  | CreateLoggingConfigurationCommandInput
   | CreateRoomCommandInput
+  | DeleteLoggingConfigurationCommandInput
   | DeleteMessageCommandInput
   | DeleteRoomCommandInput
   | DisconnectUserCommandInput
+  | GetLoggingConfigurationCommandInput
   | GetRoomCommandInput
+  | ListLoggingConfigurationsCommandInput
   | ListRoomsCommandInput
   | ListTagsForResourceCommandInput
   | SendEventCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateLoggingConfigurationCommandInput
   | UpdateRoomCommandInput;
 
 export type ServiceOutputTypes =
   | CreateChatTokenCommandOutput
+  | CreateLoggingConfigurationCommandOutput
   | CreateRoomCommandOutput
+  | DeleteLoggingConfigurationCommandOutput
   | DeleteMessageCommandOutput
   | DeleteRoomCommandOutput
   | DisconnectUserCommandOutput
+  | GetLoggingConfigurationCommandOutput
   | GetRoomCommandOutput
+  | ListLoggingConfigurationsCommandOutput
   | ListRoomsCommandOutput
   | ListTagsForResourceCommandOutput
   | SendEventCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateLoggingConfigurationCommandOutput
   | UpdateRoomCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -273,8 +303,12 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <p>
  *             <b>Resources</b>
  *          </p>
- *          <p>The following resource is part of Amazon IVS Chat:</p>
+ *          <p>The following resources are part of Amazon IVS Chat:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <b>Room</b> — The central Amazon IVS Chat resource through
@@ -379,10 +413,10 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateChatToken</a> — Creates an encrypted token that is used to
- *           establish an individual WebSocket connection to a room. The token is valid for one minute,
- *           and a connection (session) established with the token is valid for the specified
- *           duration.</p>
+ *                   <a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
+ *           individual WebSocket chat connection to a room. When the token is used to connect to chat,
+ *           the connection is valid for the session duration specified in the request. The token
+ *           becomes invalid at the token-expiration timestamp included in the response.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -410,6 +444,34 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *             <li>
  *                <p>
  *                   <a>UpdateRoom</a> — Updates a room’s configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Logging Configuration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteLoggingConfiguration</a> — Deletes the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetLoggingConfiguration</a> — Gets the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListLoggingConfigurations</a> — Gets summary information about all
+ *           your logging configurations in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
  *             </li>
  *          </ul>
  *          <p>

@@ -2072,6 +2072,9 @@ const deserializeAws_json1_0GetModelManifestCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3601,6 +3604,9 @@ const deserializeAws_json1_0UpdateSignalCatalogCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3844,10 +3850,8 @@ const serializeAws_json1_0attributesMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4375,10 +4379,8 @@ const serializeAws_json1_0ModelSignalsMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4749,10 +4751,8 @@ const deserializeAws_json1_0attributesMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5043,6 +5043,7 @@ const deserializeAws_json1_0DecoderManifestValidationException = (
       output.invalidSignals != null
         ? deserializeAws_json1_0InvalidSignalDecoders(output.invalidSignals, context)
         : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5406,6 +5407,7 @@ const deserializeAws_json1_0InvalidNetworkInterfaces = (
 const deserializeAws_json1_0InvalidNodeException = (output: any, context: __SerdeContext): InvalidNodeException => {
   return {
     invalidNodes: output.invalidNodes != null ? deserializeAws_json1_0Nodes(output.invalidNodes, context) : undefined,
+    message: __expectString(output.message),
     reason: __expectString(output.reason),
   } as any;
 };

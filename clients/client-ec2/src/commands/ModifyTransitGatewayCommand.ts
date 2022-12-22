@@ -19,7 +19,7 @@ import {
   ModifyTransitGatewayRequestFilterSensitiveLog,
   ModifyTransitGatewayResult,
   ModifyTransitGatewayResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTransitGatewayCommand,
   serializeAws_ec2ModifyTransitGatewayCommand,

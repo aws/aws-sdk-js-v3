@@ -33,7 +33,6 @@ export interface DeleteTrafficDistributionGroupCommandOutput
 /**
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
  *    created.</p>
- *
  *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
  *    the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example

@@ -29,8 +29,11 @@ export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
- *             changed.</p>
+ * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+ *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
+ *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
+ *             support (for example, an Apache Spark enabled workgroup) or
+ *                 <code>ConfigurationUpdates</code> for an Athena SQL workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

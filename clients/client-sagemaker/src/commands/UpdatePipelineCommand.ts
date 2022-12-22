@@ -18,7 +18,7 @@ import {
   UpdatePipelineRequestFilterSensitiveLog,
   UpdatePipelineResponse,
   UpdatePipelineResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdatePipelineCommand,
   serializeAws_json1_1UpdatePipelineCommand,

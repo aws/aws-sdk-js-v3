@@ -20,6 +20,7 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "../commands/CancelJobRunCommand";
+import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "../commands/CreateJobTemplateCommand";
 import {
   CreateManagedEndpointCommandInput,
   CreateManagedEndpointCommandOutput,
@@ -28,6 +29,7 @@ import {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "../commands/CreateVirtualClusterCommand";
+import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "../commands/DeleteJobTemplateCommand";
 import {
   DeleteManagedEndpointCommandInput,
   DeleteManagedEndpointCommandOutput,
@@ -38,6 +40,10 @@ import {
 } from "../commands/DeleteVirtualClusterCommand";
 import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "../commands/DescribeJobRunCommand";
 import {
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "../commands/DescribeJobTemplateCommand";
+import {
   DescribeManagedEndpointCommandInput,
   DescribeManagedEndpointCommandOutput,
 } from "../commands/DescribeManagedEndpointCommand";
@@ -46,6 +52,7 @@ import {
   DescribeVirtualClusterCommandOutput,
 } from "../commands/DescribeVirtualClusterCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
+import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "../commands/ListJobTemplatesCommand";
 import {
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
@@ -74,11 +81,18 @@ import {
   InternalServerException,
   JobDriver,
   JobRun,
+  JobTemplate,
+  JobTemplateData,
   MonitoringConfiguration,
+  ParametricCloudWatchMonitoringConfiguration,
+  ParametricConfigurationOverrides,
+  ParametricMonitoringConfiguration,
+  ParametricS3MonitoringConfiguration,
   ResourceNotFoundException,
   S3MonitoringConfiguration,
   SparkSqlJobDriver,
   SparkSubmitJobDriver,
+  TemplateParameterConfiguration,
   ValidationException,
   VirtualCluster,
 } from "../models/models_0";
@@ -107,6 +121,36 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateJobTemplateCommand = async (
+  input: CreateJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.jobTemplateData != null && {
+      jobTemplateData: serializeAws_restJson1JobTemplateData(input.jobTemplateData, context),
+    }),
+    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -185,6 +229,26 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteJobTemplateCommand = async (
+  input: DeleteJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
   input: DeleteManagedEndpointCommandInput,
   context: __SerdeContext
@@ -253,6 +317,26 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
     "{virtualClusterId}",
     false
   );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeJobTemplateCommand = async (
+  input: DescribeJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -343,6 +427,38 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
     ],
     name: [, input.name!],
     states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListJobTemplatesCommand = async (
+  input: ListJobTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
+  const query: any = map({
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -485,6 +601,10 @@ export const serializeAws_restJson1StartJobRunCommand = async (
     }),
     ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
     ...(input.jobDriver != null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
+    ...(input.jobTemplateId != null && { jobTemplateId: input.jobTemplateId }),
+    ...(input.jobTemplateParameters != null && {
+      jobTemplateParameters: serializeAws_restJson1TemplateParameterInputMap(input.jobTemplateParameters, context),
+    }),
     ...(input.name != null && { name: input.name }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -534,7 +654,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -582,6 +705,62 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrcontainers#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateJobTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.createdAt != null) {
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrcontainers#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrcontainers#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -691,6 +870,50 @@ const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrcontainers#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteJobTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrcontainers#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -843,6 +1066,53 @@ const deserializeAws_restJson1DescribeJobRunCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeJobTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.jobTemplate != null) {
+    contents.jobTemplate = deserializeAws_restJson1JobTemplate(data.jobTemplate, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrcontainers#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrcontainers#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrcontainers#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DescribeManagedEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -961,6 +1231,53 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrcontainers#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrcontainers#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListJobTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListJobTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.templates != null) {
+    contents.templates = deserializeAws_restJson1JobTemplates(data.templates, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListJobTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1399,6 +1716,27 @@ const serializeAws_restJson1JobDriver = (input: JobDriver, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1JobTemplateData = (input: JobTemplateData, context: __SerdeContext): any => {
+  return {
+    ...(input.configurationOverrides != null && {
+      configurationOverrides: serializeAws_restJson1ParametricConfigurationOverrides(
+        input.configurationOverrides,
+        context
+      ),
+    }),
+    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
+    ...(input.jobDriver != null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
+    ...(input.jobTags != null && { jobTags: serializeAws_restJson1TagMap(input.jobTags, context) }),
+    ...(input.parameterConfiguration != null && {
+      parameterConfiguration: serializeAws_restJson1TemplateParameterConfigurationMap(
+        input.parameterConfiguration,
+        context
+      ),
+    }),
+    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
+  };
+};
+
 const serializeAws_restJson1MonitoringConfiguration = (
   input: MonitoringConfiguration,
   context: __SerdeContext
@@ -1420,6 +1758,63 @@ const serializeAws_restJson1MonitoringConfiguration = (
   };
 };
 
+const serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
+  input: ParametricCloudWatchMonitoringConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
+  };
+};
+
+const serializeAws_restJson1ParametricConfigurationOverrides = (
+  input: ParametricConfigurationOverrides,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.applicationConfiguration != null && {
+      applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
+    }),
+    ...(input.monitoringConfiguration != null && {
+      monitoringConfiguration: serializeAws_restJson1ParametricMonitoringConfiguration(
+        input.monitoringConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParametricMonitoringConfiguration = (
+  input: ParametricMonitoringConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cloudWatchMonitoringConfiguration != null && {
+      cloudWatchMonitoringConfiguration: serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration(
+        input.cloudWatchMonitoringConfiguration,
+        context
+      ),
+    }),
+    ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
+    ...(input.s3MonitoringConfiguration != null && {
+      s3MonitoringConfiguration: serializeAws_restJson1ParametricS3MonitoringConfiguration(
+        input.s3MonitoringConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParametricS3MonitoringConfiguration = (
+  input: ParametricS3MonitoringConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logUri != null && { logUri: input.logUri }),
+  };
+};
+
 const serializeAws_restJson1S3MonitoringConfiguration = (
   input: S3MonitoringConfiguration,
   context: __SerdeContext
@@ -1434,10 +1829,8 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1463,10 +1856,44 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1TemplateParameterConfiguration = (
+  input: TemplateParameterConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
+    ...(input.type != null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1TemplateParameterConfigurationMap = (
+  input: Record<string, TemplateParameterConfiguration>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1TemplateParameterConfiguration(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1TemplateParameterInputMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1654,6 +2081,52 @@ const deserializeAws_restJson1JobRuns = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdBy: __expectString(output.createdBy),
+    decryptionError: __expectString(output.decryptionError),
+    id: __expectString(output.id),
+    jobTemplateData:
+      output.jobTemplateData != null
+        ? deserializeAws_restJson1JobTemplateData(output.jobTemplateData, context)
+        : undefined,
+    kmsKeyArn: __expectString(output.kmsKeyArn),
+    name: __expectString(output.name),
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JobTemplateData = (output: any, context: __SerdeContext): JobTemplateData => {
+  return {
+    configurationOverrides:
+      output.configurationOverrides != null
+        ? deserializeAws_restJson1ParametricConfigurationOverrides(output.configurationOverrides, context)
+        : undefined,
+    executionRoleArn: __expectString(output.executionRoleArn),
+    jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
+    jobTags: output.jobTags != null ? deserializeAws_restJson1TagMap(output.jobTags, context) : undefined,
+    parameterConfiguration:
+      output.parameterConfiguration != null
+        ? deserializeAws_restJson1TemplateParameterConfigurationMap(output.parameterConfiguration, context)
+        : undefined,
+    releaseLabel: __expectString(output.releaseLabel),
+  } as any;
+};
+
+const deserializeAws_restJson1JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobTemplate(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MonitoringConfiguration = (
   output: any,
   context: __SerdeContext
@@ -1668,6 +2141,61 @@ const deserializeAws_restJson1MonitoringConfiguration = (
       output.s3MonitoringConfiguration != null
         ? deserializeAws_restJson1S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ParametricCloudWatchMonitoringConfiguration => {
+  return {
+    logGroupName: __expectString(output.logGroupName),
+    logStreamNamePrefix: __expectString(output.logStreamNamePrefix),
+  } as any;
+};
+
+const deserializeAws_restJson1ParametricConfigurationOverrides = (
+  output: any,
+  context: __SerdeContext
+): ParametricConfigurationOverrides => {
+  return {
+    applicationConfiguration:
+      output.applicationConfiguration != null
+        ? deserializeAws_restJson1ConfigurationList(output.applicationConfiguration, context)
+        : undefined,
+    monitoringConfiguration:
+      output.monitoringConfiguration != null
+        ? deserializeAws_restJson1ParametricMonitoringConfiguration(output.monitoringConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParametricMonitoringConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ParametricMonitoringConfiguration => {
+  return {
+    cloudWatchMonitoringConfiguration:
+      output.cloudWatchMonitoringConfiguration != null
+        ? deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration(
+            output.cloudWatchMonitoringConfiguration,
+            context
+          )
+        : undefined,
+    persistentAppUI: __expectString(output.persistentAppUI),
+    s3MonitoringConfiguration:
+      output.s3MonitoringConfiguration != null
+        ? deserializeAws_restJson1ParametricS3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParametricS3MonitoringConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ParametricS3MonitoringConfiguration => {
+  return {
+    logUri: __expectString(output.logUri),
   } as any;
 };
 
@@ -1688,10 +2216,8 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1730,11 +2256,35 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1TemplateParameterConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TemplateParameterConfiguration => {
+  return {
+    defaultValue: __expectString(output.defaultValue),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1TemplateParameterConfigurationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, TemplateParameterConfiguration> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, TemplateParameterConfiguration>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1TemplateParameterConfiguration(value, context);
+      return acc;
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {

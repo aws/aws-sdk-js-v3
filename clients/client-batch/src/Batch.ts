@@ -170,6 +170,10 @@ export class Batch extends BatchClient {
    *    your container instances into that Amazon ECS cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon ECS container instance</a> in the
    *    <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <note>
+   *             <p>To create a compute environment that uses EKS resources, the caller must have permissions to call
+   *     <code>eks:DescribeCluster</code>.</p>
+   *          </note>
+   *          <note>
    *             <p>Batch doesn't automatically upgrade the AMIs in a compute environment after it's created. For example, it
    *     also doesn't update the AMIs in your compute environment when a newer version of the Amazon ECS optimized AMI is
    *     available. You're responsible for the management of the guest operating system. This includes any updates and

@@ -445,7 +445,7 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "AbortMultipartUpload"],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -482,7 +482,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "CompleteMultipartUpload"],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   if (input.MultipartUpload !== undefined) {
@@ -565,13 +565,10 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -675,13 +672,10 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -737,7 +731,7 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -814,7 +808,7 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -841,7 +835,7 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -894,7 +888,7 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1237,7 +1231,7 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
   const query: any = map({
     analytics: [, ""],
     "x-id": [, "GetBucketAnalyticsConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1315,7 +1309,7 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
   const query: any = map({
     "intelligent-tiering": [, ""],
     "x-id": [, "GetBucketIntelligentTieringConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1343,7 +1337,7 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
   const query: any = map({
     inventory: [, ""],
     "x-id": [, "GetBucketInventoryConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1449,7 +1443,7 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   const query: any = map({
     metrics: [, ""],
     "x-id": [, "GetBucketMetricsConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2332,7 +2326,7 @@ export const serializeAws_restXmlListPartsCommand = async (
     "x-id": [, "ListParts"],
     "max-parts": [() => input.MaxParts !== void 0, () => input.MaxParts!.toString()],
     "part-number-marker": [, input.PartNumberMarker!],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2443,7 +2437,7 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.AnalyticsConfiguration !== undefined) {
@@ -2558,7 +2552,7 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.IntelligentTieringConfiguration !== undefined) {
@@ -2596,7 +2590,7 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.InventoryConfiguration !== undefined) {
@@ -2712,7 +2706,7 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.MetricsConfiguration !== undefined) {
@@ -3100,13 +3094,10 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3527,8 +3518,8 @@ export const serializeAws_restXmlUploadPartCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPart"],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
-    uploadId: [, input.UploadId!],
+    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   if (input.Body !== undefined) {
@@ -3584,8 +3575,8 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPartCopy"],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
-    uploadId: [, input.UploadId!],
+    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -3671,13 +3662,10 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
       () => input.BucketKeyEnabled!.toString(),
     ],
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";

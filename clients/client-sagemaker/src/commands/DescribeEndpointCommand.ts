@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEndpointInput, DescribeEndpointInputFilterSensitiveLog } from "../models/models_1";
-import { DescribeEndpointOutput, DescribeEndpointOutputFilterSensitiveLog } from "../models/models_2";
+import {
+  DescribeEndpointInput,
+  DescribeEndpointInputFilterSensitiveLog,
+  DescribeEndpointOutput,
+  DescribeEndpointOutputFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeEndpointCommand,
   serializeAws_json1_1DescribeEndpointCommand,

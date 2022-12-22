@@ -19,7 +19,7 @@ import {
   ListMembersRequestFilterSensitiveLog,
   ListMembersResponse,
   ListMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListMembersCommand,
   serializeAws_restJson1ListMembersCommand,

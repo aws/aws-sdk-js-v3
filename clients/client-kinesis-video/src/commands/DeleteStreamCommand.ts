@@ -30,14 +30,14 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
 
 /**
  * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
- *         <p>This method marks the stream for deletion, and makes the data in the stream
+ *          <p>This method marks the stream for deletion, and makes the data in the stream
  *             inaccessible immediately.</p>
- *         <p> </p>
- *         <p> To ensure that you have the latest version of the stream before deleting it, you
+ *          <p> </p>
+ *          <p> To ensure that you have the latest version of the stream before deleting it, you
  *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
  *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
  *             latest stream version, use the <code>DescribeStream</code> API. </p>
- *         <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
+ *          <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
  *             action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -278,7 +278,7 @@ type TranslateClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface TranslateClientResolvedConfig extends TranslateClientResolvedConfigType {}
 
 /**
- * <p>Provides language translation for input text in the source language to the specified target language.</p>
+ * <p>Provides translation of the input content from the source language to the target language.</p>
  */
 export class TranslateClient extends __Client<
   __HttpHandlerOptions,

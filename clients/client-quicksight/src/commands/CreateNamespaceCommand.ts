@@ -18,7 +18,7 @@ import {
   CreateNamespaceRequestFilterSensitiveLog,
   CreateNamespaceResponse,
   CreateNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateNamespaceCommand,
   serializeAws_restJson1CreateNamespaceCommand,
@@ -30,7 +30,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
 
 /**
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
- *         <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
+ *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
  *             users or groups in the same namespace. They can't see users and groups in other
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to

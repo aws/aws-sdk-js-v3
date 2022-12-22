@@ -363,6 +363,31 @@ export interface LifeCycle {
   lastLaunch?: LifeCycleLastLaunch;
 }
 
+export enum ReplicationDirection {
+  FAILBACK = "FAILBACK",
+  FAILOVER = "FAILOVER",
+}
+
+/**
+ * <p>Properties of the cloud environment where this Source Server originated from.</p>
+ */
+export interface SourceCloudProperties {
+  /**
+   * <p>AWS Account ID for an EC2-originated Source Server.</p>
+   */
+  originAccountID?: string;
+
+  /**
+   * <p>AWS Region for an EC2-originated Source Server.</p>
+   */
+  originRegion?: string;
+
+  /**
+   * <p>AWS Availability Zone for an EC2-originated Source Server.</p>
+   */
+  originAvailabilityZone?: string;
+}
+
 /**
  * <p>An object representing a data storage device on a server.</p>
  */
@@ -557,6 +582,21 @@ export interface SourceServer {
    * <p>The staging area of the source server.</p>
    */
   stagingArea?: StagingArea;
+
+  /**
+   * <p>Source cloud properties of the Source Server.</p>
+   */
+  sourceCloudProperties?: SourceCloudProperties;
+
+  /**
+   * <p>Replication direction of the Source Server.</p>
+   */
+  replicationDirection?: ReplicationDirection | string;
+
+  /**
+   * <p>For EC2-originated Source Servers which have been failed over and then failed back, this value will mean the ARN of the Source Server on the opposite replication direction.</p>
+   */
+  reversedDirectionSourceServerArn?: string;
 }
 
 export interface CreateExtendedSourceServerResponse {
@@ -1305,12 +1345,24 @@ export interface DescribeRecoveryInstancesRequest {
 export enum FailbackReplicationError {
   AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
   FAILBACK_CLIENT_NOT_SEEN = "FAILBACK_CLIENT_NOT_SEEN",
+  FAILED_GETTING_REPLICATION_STATE = "FAILED_GETTING_REPLICATION_STATE",
+  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
   FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE = "FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
   FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
   FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
   FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
   FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
   NOT_CONVERGING = "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
   UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
 }
 
@@ -1330,13 +1382,24 @@ export interface RecoveryInstanceDataReplicationError {
 }
 
 export enum RecoveryInstanceDataReplicationInitiationStepName {
+  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
   COMPLETE_VOLUME_MAPPING = "COMPLETE_VOLUME_MAPPING",
   CONFIGURE_REPLICATION_SOFTWARE = "CONFIGURE_REPLICATION_SOFTWARE",
+  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
   DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
   ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
   ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
   LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE = "LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE",
   PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER = "START_DATA_TRANSFER",
+  WAIT = "WAIT",
 }
 
 export enum RecoveryInstanceDataReplicationInitiationStepStatus {
@@ -1384,7 +1447,9 @@ export enum RecoveryInstanceDataReplicationState {
   DISCONNECTED = "DISCONNECTED",
   INITIAL_SYNC = "INITIAL_SYNC",
   INITIATING = "INITIATING",
+  NOT_STARTED = "NOT_STARTED",
   PAUSED = "PAUSED",
+  REPLICATION_STATE_NOT_AVAILABLE = "REPLICATION_STATE_NOT_AVAILABLE",
   RESCAN = "RESCAN",
   STALLED = "STALLED",
   STOPPED = "STOPPED",
@@ -1465,10 +1530,17 @@ export enum EC2InstanceState {
   TERMINATED = "TERMINATED",
 }
 
+export enum FailbackLaunchType {
+  DRILL = "DRILL",
+  RECOVERY = "RECOVERY",
+}
+
 export enum FailbackState {
   FAILBACK_COMPLETED = "FAILBACK_COMPLETED",
   FAILBACK_ERROR = "FAILBACK_ERROR",
   FAILBACK_IN_PROGRESS = "FAILBACK_IN_PROGRESS",
+  FAILBACK_LAUNCH_STATE_NOT_AVAILABLE = "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE",
+  FAILBACK_NOT_READY_FOR_LAUNCH = "FAILBACK_NOT_READY_FOR_LAUNCH",
   FAILBACK_NOT_STARTED = "FAILBACK_NOT_STARTED",
   FAILBACK_READY_FOR_LAUNCH = "FAILBACK_READY_FOR_LAUNCH",
 }
@@ -1521,6 +1593,16 @@ export interface RecoveryInstanceFailback {
    * <p>The amount of time that the Recovery Instance has been replicating for.</p>
    */
   elapsedReplicationDuration?: string;
+
+  /**
+   * <p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>
+   */
+  failbackLaunchType?: FailbackLaunchType | string;
+}
+
+export enum OriginEnvironment {
+  AWS = "AWS",
+  ON_PREMISES = "ON_PREMISES",
 }
 
 /**
@@ -1646,6 +1728,11 @@ export interface RecoveryInstance {
    * <p>Whether this Recovery Instance was created for a drill or for an actual Recovery event.</p>
    */
   isDrill?: boolean;
+
+  /**
+   * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from. </p>
+   */
+  originEnvironment?: OriginEnvironment | string;
 }
 
 export interface DescribeRecoveryInstancesResponse {
@@ -1961,6 +2048,20 @@ export interface GetFailbackReplicationConfigurationResponse {
   usePrivateIP?: boolean;
 }
 
+export interface ReverseReplicationRequest {
+  /**
+   * <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
+   */
+  recoveryInstanceID: string | undefined;
+}
+
+export interface ReverseReplicationResponse {
+  /**
+   * <p>ARN of created SourceServer.</p>
+   */
+  reversedDirectionSourceServerArn?: string;
+}
+
 export interface StartFailbackLaunchRequest {
   /**
    * <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
@@ -2216,7 +2317,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
+   * <p>When <code>stagingDiskType</code> is set to Auto, this field shows the current staging disk EBS volume type as it is constantly updated by the service. This is a read-only field.</p>
    */
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }
@@ -2347,6 +2448,34 @@ export interface StartRecoveryResponse {
    * <p>The Recovery Job.</p>
    */
   job?: Job;
+}
+
+export interface StartReplicationRequest {
+  /**
+   * <p>The ID of the Source Server to start replication for.</p>
+   */
+  sourceServerID: string | undefined;
+}
+
+export interface StartReplicationResponse {
+  /**
+   * <p>The Source Server that this action was targeted on.</p>
+   */
+  sourceServer?: SourceServer;
+}
+
+export interface StopReplicationRequest {
+  /**
+   * <p>The ID of the Source Server to stop replication for.</p>
+   */
+  sourceServerID: string | undefined;
+}
+
+export interface StopReplicationResponse {
+  /**
+   * <p>The Source Server that this action was targeted on.</p>
+   */
+  sourceServer?: SourceServer;
 }
 
 export interface UpdateLaunchConfigurationRequest {
@@ -2574,6 +2703,13 @@ export const LifeCycleLastLaunchFilterSensitiveLog = (obj: LifeCycleLastLaunch):
  * @internal
  */
 export const LifeCycleFilterSensitiveLog = (obj: LifeCycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceCloudPropertiesFilterSensitiveLog = (obj: SourceCloudProperties): any => ({
   ...obj,
 });
 
@@ -3061,6 +3197,20 @@ export const GetFailbackReplicationConfigurationResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ReverseReplicationRequestFilterSensitiveLog = (obj: ReverseReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReverseReplicationResponseFilterSensitiveLog = (obj: ReverseReplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartFailbackLaunchRequestFilterSensitiveLog = (obj: StartFailbackLaunchRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -3188,6 +3338,36 @@ export const StartRecoveryRequestFilterSensitiveLog = (obj: StartRecoveryRequest
 export const StartRecoveryResponseFilterSensitiveLog = (obj: StartRecoveryResponse): any => ({
   ...obj,
   ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
+export const StartReplicationRequestFilterSensitiveLog = (obj: StartReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartReplicationResponseFilterSensitiveLog = (obj: StartReplicationResponse): any => ({
+  ...obj,
+  ...(obj.sourceServer && { sourceServer: SourceServerFilterSensitiveLog(obj.sourceServer) }),
+});
+
+/**
+ * @internal
+ */
+export const StopReplicationRequestFilterSensitiveLog = (obj: StopReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopReplicationResponseFilterSensitiveLog = (obj: StopReplicationResponse): any => ({
+  ...obj,
+  ...(obj.sourceServer && { sourceServer: SourceServerFilterSensitiveLog(obj.sourceServer) }),
 });
 
 /**

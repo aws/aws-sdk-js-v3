@@ -60,6 +60,7 @@ export class ListRegionalBucketsCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
       OutpostId: { type: "contextParams", name: "OutpostId" },
       AccountId: { type: "contextParams", name: "AccountId" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },

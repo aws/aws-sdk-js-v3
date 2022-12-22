@@ -17,7 +17,7 @@ describe(validateSsoProfile.name, () => {
   });
 
   it.each(["sso_start_url", "sso_account_id", "sso_region", "sso_role_name"])(
-    "throws is '%s' is missing from profile",
+    "throws if '%s' is missing from profile",
     (key) => {
       const profileToVerify = getMockSsoProfile();
       delete profileToVerify[key];
@@ -26,8 +26,8 @@ describe(validateSsoProfile.name, () => {
         validateSsoProfile(profileToVerify);
       }).toThrowError(
         new CredentialsProviderError(
-          `Profile is configured with invalid SSO credentials. Required parameters "sso_account_id", "sso_region", ` +
-            `"sso_role_name", "sso_start_url". Got ${Object.keys(profileToVerify).join(
+          `Profile is configured with invalid SSO credentials. Required parameters ` +
+            `"sso_account_id", "sso_region", "sso_role_name", "sso_start_url". Got ${Object.keys(profileToVerify).join(
               ", "
             )}\nReference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html`,
           false
@@ -35,4 +35,13 @@ describe(validateSsoProfile.name, () => {
       );
     }
   );
+
+  it.each(["sso_session"])("does not throw if '%s' is missing from profile", (key) => {
+    const profileToVerify = getMockSsoProfile();
+    delete profileToVerify[key];
+
+    expect(() => {
+      validateSsoProfile(profileToVerify);
+    }).not.toThrowError();
+  });
 });

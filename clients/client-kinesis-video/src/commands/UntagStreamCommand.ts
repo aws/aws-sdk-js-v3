@@ -32,7 +32,7 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
  *             keys; don't specify the value. If you specify a tag key that does not exist, it's
  *             ignored.</p>
- *         <p>In the request, you must provide the <code>StreamName</code> or
+ *          <p>In the request, you must provide the <code>StreamName</code> or
  *                 <code>StreamARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

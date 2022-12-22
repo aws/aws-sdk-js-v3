@@ -29,7 +29,9 @@ export interface DescribeInboundConnectionsCommandInput extends DescribeInboundC
 export interface DescribeInboundConnectionsCommandOutput extends DescribeInboundConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the inbound cross-cluster connections for a remote domain.</p>
+ * <p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon
+ *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+ *     for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

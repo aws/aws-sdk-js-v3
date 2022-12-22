@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ListJobsRequest, ListJobsRequestFilterSensitiveLog } from "../models/models_1";
-import { ListJobsResponse, ListJobsResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  ListJobsRequest,
+  ListJobsRequestFilterSensitiveLog,
+  ListJobsResponse,
+  ListJobsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListJobsCommand,
   serializeAws_restJson1ListJobsCommand,

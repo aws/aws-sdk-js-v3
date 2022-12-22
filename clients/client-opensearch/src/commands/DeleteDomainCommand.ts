@@ -29,9 +29,8 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Permanently deletes the specified domain and all of its data. Once a domain is deleted, it cannot
- *       be recovered.
- *     </p>
+ * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
+ *    after you delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -489,6 +489,10 @@ import {
   ListProvisioningTemplateVersionsCommandInput,
   ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand";
+import {
+  ListRelatedResourcesForAuditFindingCommandInput,
+  ListRelatedResourcesForAuditFindingCommandOutput,
+} from "./commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
@@ -873,6 +877,7 @@ export type ServiceInputTypes =
   | ListPrincipalThingsCommandInput
   | ListProvisioningTemplateVersionsCommandInput
   | ListProvisioningTemplatesCommandInput
+  | ListRelatedResourcesForAuditFindingCommandInput
   | ListRoleAliasesCommandInput
   | ListScheduledAuditsCommandInput
   | ListSecurityProfilesCommandInput
@@ -1112,6 +1117,7 @@ export type ServiceOutputTypes =
   | ListPrincipalThingsCommandOutput
   | ListProvisioningTemplateVersionsCommandOutput
   | ListProvisioningTemplatesCommandOutput
+  | ListRelatedResourcesForAuditFindingCommandOutput
   | ListRoleAliasesCommandOutput
   | ListScheduledAuditsCommandOutput
   | ListSecurityProfilesCommandOutput

@@ -3433,7 +3433,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -12257,10 +12260,8 @@ const serializeAws_restJson1MapOf__double = (input: Record<string, number>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __serializeFloat(value),
-    };
+    acc[key] = __serializeFloat(value);
+    return acc;
   }, {});
 };
 
@@ -12269,10 +12270,8 @@ const serializeAws_restJson1MapOf__string = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -12281,10 +12280,8 @@ const serializeAws_restJson1MapOfActivity = (input: Record<string, Activity>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Activity(value, context),
-    };
+    acc[key] = serializeAws_restJson1Activity(value, context);
+    return acc;
   }, {});
 };
 
@@ -12296,10 +12293,8 @@ const serializeAws_restJson1MapOfAddressConfiguration = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AddressConfiguration(value, context),
-    };
+    acc[key] = serializeAws_restJson1AddressConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -12311,10 +12306,8 @@ const serializeAws_restJson1MapOfAttributeDimension = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AttributeDimension(value, context),
-    };
+    acc[key] = serializeAws_restJson1AttributeDimension(value, context);
+    return acc;
   }, {});
 };
 
@@ -12326,10 +12319,8 @@ const serializeAws_restJson1MapOfEndpointSendConfiguration = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1EndpointSendConfiguration(value, context),
-    };
+    acc[key] = serializeAws_restJson1EndpointSendConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -12338,10 +12329,8 @@ const serializeAws_restJson1MapOfEvent = (input: Record<string, Event>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Event(value, context),
-    };
+    acc[key] = serializeAws_restJson1Event(value, context);
+    return acc;
   }, {});
 };
 
@@ -12350,10 +12339,8 @@ const serializeAws_restJson1MapOfEventsBatch = (input: Record<string, EventsBatc
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1EventsBatch(value, context),
-    };
+    acc[key] = serializeAws_restJson1EventsBatch(value, context);
+    return acc;
   }, {});
 };
 
@@ -12362,10 +12349,8 @@ const serializeAws_restJson1MapOfListOf__string = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ListOf__string(value, context),
-    };
+    acc[key] = serializeAws_restJson1ListOf__string(value, context);
+    return acc;
   }, {});
 };
 
@@ -12377,10 +12362,8 @@ const serializeAws_restJson1MapOfListOfOpenHoursRules = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ListOfOpenHoursRules(value, context),
-    };
+    acc[key] = serializeAws_restJson1ListOfOpenHoursRules(value, context);
+    return acc;
   }, {});
 };
 
@@ -12392,10 +12375,8 @@ const serializeAws_restJson1MapOfMetricDimension = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1MetricDimension(value, context),
-    };
+    acc[key] = serializeAws_restJson1MetricDimension(value, context);
+    return acc;
   }, {});
 };
 
@@ -14508,10 +14489,8 @@ const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -14520,10 +14499,8 @@ const deserializeAws_restJson1MapOf__integer = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -14532,10 +14509,8 @@ const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -14544,10 +14519,8 @@ const deserializeAws_restJson1MapOfActivity = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Activity(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Activity(value, context);
+    return acc;
   }, {});
 };
 
@@ -14559,10 +14532,8 @@ const deserializeAws_restJson1MapOfAttributeDimension = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AttributeDimension(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AttributeDimension(value, context);
+    return acc;
   }, {});
 };
 
@@ -14574,10 +14545,8 @@ const deserializeAws_restJson1MapOfChannelResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ChannelResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ChannelResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -14589,10 +14558,8 @@ const deserializeAws_restJson1MapOfEndpointMessageResult = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1EndpointMessageResult(value, context),
-    };
+    acc[key] = deserializeAws_restJson1EndpointMessageResult(value, context);
+    return acc;
   }, {});
 };
 
@@ -14604,10 +14571,8 @@ const deserializeAws_restJson1MapOfEventItemResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1EventItemResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1EventItemResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -14619,10 +14584,8 @@ const deserializeAws_restJson1MapOfItemResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ItemResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ItemResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -14634,10 +14597,8 @@ const deserializeAws_restJson1MapOfListOf__string = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ListOf__string(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ListOf__string(value, context);
+    return acc;
   }, {});
 };
 
@@ -14650,10 +14611,8 @@ const deserializeAws_restJson1MapOfListOfOpenHoursRules = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ListOfOpenHoursRules(value, context),
-      };
+      acc[key] = deserializeAws_restJson1ListOfOpenHoursRules(value, context);
+      return acc;
     },
     {}
   );
@@ -14668,10 +14627,8 @@ const deserializeAws_restJson1MapOfMapOfEndpointMessageResult = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1MapOfEndpointMessageResult(value, context),
-      };
+      acc[key] = deserializeAws_restJson1MapOfEndpointMessageResult(value, context);
+      return acc;
     },
     {}
   );
@@ -14685,10 +14642,8 @@ const deserializeAws_restJson1MapOfMessageResult = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MessageResult(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MessageResult(value, context);
+    return acc;
   }, {});
 };
 
@@ -14700,10 +14655,8 @@ const deserializeAws_restJson1MapOfMetricDimension = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MetricDimension(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MetricDimension(value, context);
+    return acc;
   }, {});
 };
 

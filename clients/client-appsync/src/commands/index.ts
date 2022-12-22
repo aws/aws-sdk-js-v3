@@ -17,6 +17,7 @@ export * from "./DeleteGraphqlApiCommand";
 export * from "./DeleteResolverCommand";
 export * from "./DeleteTypeCommand";
 export * from "./DisassociateApiCommand";
+export * from "./EvaluateCodeCommand";
 export * from "./EvaluateMappingTemplateCommand";
 export * from "./FlushApiCacheCommand";
 export * from "./GetApiAssociationCommand";

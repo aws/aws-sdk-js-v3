@@ -388,6 +388,12 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.acm#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.acm#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
       throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
@@ -397,6 +403,9 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -679,6 +688,9 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
     case "InvalidArgsException":
     case "com.amazonaws.acm#InvalidArgsException":
       throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.acm#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1445,6 +1457,7 @@ const serializeAws_json1_1RequestCertificateRequest = (
       DomainValidationOptions: serializeAws_json1_1DomainValidationOptionList(input.DomainValidationOptions, context),
     }),
     ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.KeyAlgorithm != null && { KeyAlgorithm: input.KeyAlgorithm }),
     ...(input.Options != null && { Options: serializeAws_json1_1CertificateOptions(input.Options, context) }),
     ...(input.SubjectAlternativeNames != null && {
       SubjectAlternativeNames: serializeAws_json1_1DomainList(input.SubjectAlternativeNames, context),

@@ -28,12 +28,12 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes an origin request policy.</p>
- * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
- * 			update your distributions to remove the origin request policy from all cache behaviors,
- * 			then delete the origin request policy.</p>
- * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
- * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
- * 			<code>GetOriginRequestPolicy</code>.</p>
+ *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
+ * 			First update your distributions to remove the origin request policy from all cache
+ * 			behaviors, then delete the origin request policy.</p>
+ *          <p>To delete an origin request policy, you must provide the policy's identifier and
+ * 			version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+ * 				<code>GetOriginRequestPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

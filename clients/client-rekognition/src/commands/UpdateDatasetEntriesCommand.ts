@@ -34,18 +34,12 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *       the image location, assigned labels, and object location bounding boxes.  For more information,
  *       see Image-Level labels in manifest files and Object localization in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *      </p>
- *
- *
- *
  *          <p>If the <code>source-ref</code> field in the JSON line references an existing image, the existing image in the dataset
  *       is updated.
  *       If <code>source-ref</code> field doesn't reference an existing image, the image is added as a new image to the dataset. </p>
- *
  *          <p>You specify the changes that you want to make in the <code>Changes</code> input parameter.
  *     There isn't a limit to the number JSON Lines that you can change, but the size of <code>Changes</code> must be less
  * than 5MB.</p>
- *
- *
  *          <p>
  *             <code>UpdateDatasetEntries</code> returns immediatly, but the dataset update might take a while to complete.
  *       Use <a>DescribeDataset</a> to check the

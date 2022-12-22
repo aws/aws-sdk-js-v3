@@ -27,7 +27,7 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * <p>Creates a static route associated with a VPN connection between an existing virtual
  *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
  *             from the virtual private gateway to the VPN customer gateway.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

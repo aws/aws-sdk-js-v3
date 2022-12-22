@@ -376,9 +376,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -388,9 +388,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -400,9 +400,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -458,7 +458,7 @@
         "properties": {
           "target": "com.amazonaws.personalizeevents#SynthesizedJsonEventPropertiesJSON",
           "traits": {
-            "smithy.api#documentation": "<p>A string map of event-specific data that you might choose to record. For example, if a\n      user rates a movie on your site, other than movie ID (<code>itemId</code>) and rating (<code>eventValue</code>)\n      , you might also send the number of movie ratings made by the user.</p>\n         <p>Each item in the map consists of a key-value pair. For example,</p>\n      \n         <p>\n            <code>{\"numberOfRatings\": \"12\"}</code>\n         </p>\n         <p>The keys use camel case names that match the fields in the Interactions\n      schema. In the above example, the <code>numberOfRatings</code> would match the\n      'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>"
+            "smithy.api#documentation": "<p>A string map of event-specific data that you might choose to record. For example, if a\n      user rates a movie on your site, other than movie ID (<code>itemId</code>) and rating (<code>eventValue</code>)\n      , you might also send the number of movie ratings made by the user.</p>\n         <p>Each item in the map consists of a key-value pair. For example,</p>\n    \n         <p>\n            <code>{\"numberOfRatings\": \"12\"}</code>\n         </p>\n         <p>The keys use camel case names that match the fields in the Interactions\n      schema. In the above example, the <code>numberOfRatings</code> would match the\n      'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>"
           }
         },
         "sentAt": {
@@ -471,18 +471,35 @@
         "recommendationId": {
           "target": "com.amazonaws.personalizeevents#RecommendationId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the recommendation.</p>"
+            "smithy.api#documentation": "<p>The ID of the list of recommendations that contains the item the user interacted with. Provide a <code>recommendationId</code> to have Amazon Personalize implicitly record the\n      recommendations you show your user as impressions data. Or provide a <code>recommendationId</code> if you use a metric attribution to measure the impact of recommendations. \n    </p>\n         <p>\n      For more information on recording impressions data, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data\">Recording impressions data</a>. \n      For more information on creating a metric attribution see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.\n    </p>"
           }
         },
         "impression": {
           "target": "com.amazonaws.personalizeevents#Impression",
           "traits": {
-            "smithy.api#documentation": "<p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>[\"itemId1\", \"itemId2\", \"itemId3\"]</code>.</p>"
+            "smithy.api#documentation": "<p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>[\"itemId1\", \"itemId2\", \"itemId3\"]</code>. Provide a list of \n      items to manually record impressions data for an event. For more information on recording impressions data, \n      see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data\">Recording impressions data</a>. </p>"
+          }
+        },
+        "metricAttribution": {
+          "target": "com.amazonaws.personalizeevents#MetricAttribution",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains information about the metric attribution associated with an event. For more information about metric attributions, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents user interaction event information sent using the\n      <code>PutEvents</code> API.</p>"
+        "smithy.api#documentation": "<p>Represents user interaction event information sent using the\n      <code>PutEvents</code> API.</p>",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.personalizeevents#EventAttributionSource": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\x20-\\x7E]*[\\x21-\\x7E]+[\\x20-\\x7E]*$"
       }
     },
     "com.amazonaws.personalizeevents#EventList": {
@@ -552,7 +569,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 256
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.personalizeevents#ItemList": {
@@ -565,6 +583,21 @@
           "min": 1,
           "max": 10
         }
+      }
+    },
+    "com.amazonaws.personalizeevents#MetricAttribution": {
+      "type": "structure",
+      "members": {
+        "eventAttributionSource": {
+          "target": "com.amazonaws.personalizeevents#EventAttributionSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source of the event, such as a third party.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about a metric attribution associated with an event. For more information about metric attributions, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.</p>"
       }
     },
     "com.amazonaws.personalizeevents#PutEvents": {
@@ -766,7 +799,8 @@
           "min": 1,
           "max": 1024
         },
-        "smithy.api#mediaType": "application/json"
+        "smithy.api#mediaType": "application/json",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.personalizeevents#SynthesizedJsonItemProperties": {
@@ -776,7 +810,8 @@
           "min": 1,
           "max": 24262
         },
-        "smithy.api#mediaType": "application/json"
+        "smithy.api#mediaType": "application/json",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.personalizeevents#SynthesizedJsonUserProperties": {
@@ -786,7 +821,8 @@
           "min": 1,
           "max": 4096
         },
-        "smithy.api#mediaType": "application/json"
+        "smithy.api#mediaType": "application/json",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.personalizeevents#User": {
@@ -816,7 +852,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 256
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.personalizeevents#UserList": {

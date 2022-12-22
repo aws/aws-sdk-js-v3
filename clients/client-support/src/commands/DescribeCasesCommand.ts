@@ -34,32 +34,32 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *             date. You can set values for the <code>includeResolvedCases</code> and
  *                 <code>includeCommunications</code> parameters to specify how much information to
  *             return.</p>
- *         <p>The response returns the following in JSON format:</p>
- *         <ul>
+ *          <p>The response returns the following in JSON format:</p>
+ *          <ul>
  *             <li>
- *                 <p>One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> data types.</p>
+ *                <p>One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> data types.</p>
  *             </li>
  *             <li>
- *                 <p>One or more <code>nextToken</code> values, which specify where to paginate the
+ *                <p>One or more <code>nextToken</code> values, which specify where to paginate the
  *                     returned records represented by the <code>CaseDetails</code> objects.</p>
  *             </li>
  *          </ul>
- *         <p>Case data is available for 12 months after creation. If a case was created more than
+ *          <p>Case data is available for 12 months after creation. If a case was created more than
  *             12 months ago, a request might return an error.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

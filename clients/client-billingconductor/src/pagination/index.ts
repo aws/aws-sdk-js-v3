@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListAccountAssociationsPaginator";
 export * from "./ListBillingGroupCostReportsPaginator";
 export * from "./ListBillingGroupsPaginator";
+export * from "./ListCustomLineItemVersionsPaginator";
 export * from "./ListCustomLineItemsPaginator";
 export * from "./ListPricingPlansAssociatedWithPricingRulePaginator";
 export * from "./ListPricingPlansPaginator";

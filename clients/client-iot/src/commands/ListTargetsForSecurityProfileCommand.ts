@@ -19,7 +19,7 @@ import {
   ListTargetsForSecurityProfileRequestFilterSensitiveLog,
   ListTargetsForSecurityProfileResponse,
   ListTargetsForSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListTargetsForSecurityProfileCommand,
   serializeAws_restJson1ListTargetsForSecurityProfileCommand,

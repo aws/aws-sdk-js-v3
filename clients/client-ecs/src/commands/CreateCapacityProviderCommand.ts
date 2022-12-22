@@ -32,7 +32,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
- * 		       <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
+ *          <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
  * 			Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.
  * 			These providers are available to all accounts in the Amazon Web Services Regions that Fargate
  * 			supports.</p>

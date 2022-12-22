@@ -1588,7 +1588,7 @@ export interface OracleSettings {
   /**
    * <p>When this field is set to <code>Y</code>, DMS only accesses the
    *          archived redo logs. If the archived redo logs are stored on
-   *          Oracle ASM only, the DMS user account needs to be
+   *          Automatic Storage Management (ASM) only, the DMS user account needs to be
    *          granted ASM privileges.</p>
    */
   ArchivedLogsOnly?: boolean;
@@ -1794,7 +1794,7 @@ export interface OracleSettings {
   SecretsManagerSecretId?: string;
 
   /**
-   * <p>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full ARN
+   * <p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN
    *          of the IAM role that specifies DMS as the trusted entity and grants the required
    *          permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This
    *             <code>SecretsManagerOracleAsmSecret</code> has the secret value that allows access to
@@ -1814,7 +1814,7 @@ export interface OracleSettings {
   SecretsManagerOracleAsmAccessRoleArn?: string;
 
   /**
-   * <p>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
+   * <p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
    *          that contains the Oracle ASM connection details for the Oracle endpoint.</p>
    */
   SecretsManagerOracleAsmSecretId?: string;
@@ -2831,7 +2831,7 @@ export interface S3Settings {
   CdcMaxBatchInterval?: number;
 
   /**
-   * <p>Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.</p>
+   * <p>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</p>
    *          <p>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified, the file
    *          write is triggered by whichever parameter condition is met first within an DMS
    *          CloudFormation template.</p>
@@ -3003,9 +3003,9 @@ export interface CreateEndpointMessage {
    *          <code>EndpointType</code> value, include <code>"mysql"</code>, <code>"oracle"</code>,
    *           <code>"postgres"</code>, <code>"mariadb"</code>, <code>"aurora"</code>,
    *           <code>"aurora-postgresql"</code>, <code>"opensearch"</code>, <code>"redshift"</code>, <code>"s3"</code>,
-   *          <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
+   *          <code>"db2"</code>, <code>"db2-zos"</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
-   *          <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
+   *          <code>"sqlserver"</code>, <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    */
   EngineName: string | undefined;
 
@@ -3294,18 +3294,19 @@ export interface Endpoint {
 
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
-   *             <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *             <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
-   *             <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
-   *             <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
-   *             <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>,
-   *             <code>"documentdb"</code>, <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
+   *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    */
   EngineName?: string;
 
   /**
    * <p>The expanded name for the engine name. For example, if the <code>EngineName</code>
-   *          parameter is "aurora," this value would be "Amazon Aurora MySQL."</p>
+   *          parameter is "aurora", this value would be "Amazon Aurora MySQL".</p>
    */
   EngineDisplayName?: string;
 
@@ -4043,6 +4044,13 @@ export interface CreateReplicationInstanceMessage {
    *          value for the end of <code>EndpointArn</code>.</p>
    */
   ResourceIdentifier?: string;
+
+  /**
+   * <p>The type of IP address protocol used by a replication instance,
+   *          such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+   *          IPv6 only is not yet supported.</p>
+   */
+  NetworkType?: string;
 }
 
 /**
@@ -4081,6 +4089,13 @@ export interface ReplicationPendingModifiedValues {
    * <p>The engine version number of the replication instance.</p>
    */
   EngineVersion?: string;
+
+  /**
+   * <p>The type of IP address protocol used by a replication instance,
+   *          such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+   *          IPv6 only is not yet supported.</p>
+   */
+  NetworkType?: string;
 }
 
 /**
@@ -4149,6 +4164,13 @@ export interface ReplicationSubnetGroup {
    * <p>The subnets that are in the subnet group.</p>
    */
   Subnets?: Subnet[];
+
+  /**
+   * <p>The IP addressing protocol supported by the subnet group. This is used by a
+   *       replication instance with values such as IPv4 only or Dual-stack that supports
+   *       both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</p>
+   */
+  SupportedNetworkTypes?: string[];
 }
 
 /**
@@ -4374,6 +4396,11 @@ export interface ReplicationInstance {
   ReplicationInstancePrivateIpAddresses?: string[];
 
   /**
+   * <p>One or more IPv6 addresses for the replication instance.</p>
+   */
+  ReplicationInstanceIpv6Addresses?: string[];
+
+  /**
    * <p> Specifies the accessibility options for the replication instance. A value of
    *             <code>true</code> represents an instance with a public IP address. A value of
    *             <code>false</code> represents an instance with a private IP address. The default value
@@ -4397,6 +4424,13 @@ export interface ReplicationInstance {
    * <p>The DNS name servers supported for the replication instance to access your on-premise source or target database.</p>
    */
   DnsNameServers?: string;
+
+  /**
+   * <p>The type of IP address protocol used by a replication instance,
+   *          such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+   *          IPv6 only is not yet supported.</p>
+   */
+  NetworkType?: string;
 }
 
 /**
@@ -5734,13 +5768,14 @@ export interface DescribeEndpointTypesMessage {
  */
 export interface SupportedEndpointType {
   /**
-   * <p>The database engine name. Valid values, depending on the EndpointType,  include
+   * <p>The database engine name. Valid values, depending on the EndpointType, include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
    *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
-   *          <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
-   *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>,
-   *          <code>"documentdb"</code>, <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
+   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    */
   EngineName?: string;
 
@@ -5761,7 +5796,7 @@ export interface SupportedEndpointType {
 
   /**
    * <p>The expanded name for the engine name. For example, if the <code>EngineName</code>
-   *          parameter is "aurora," this value would be "Amazon Aurora MySQL."</p>
+   *          parameter is "aurora", this value would be "Amazon Aurora MySQL".</p>
    */
   EngineDisplayName?: string;
 }
@@ -5831,7 +5866,9 @@ export interface DescribeEventCategoriesResponse {
   EventCategoryGroupList?: EventCategoryGroup[];
 }
 
-export type SourceType = "replication-instance";
+export enum SourceType {
+  replication_instance = "replication-instance",
+}
 
 /**
  * <p></p>
@@ -7462,6 +7499,27 @@ export interface TableStatistics {
   Ddls?: number;
 
   /**
+   * <p>The number of insert actions applied on a target table.</p>
+   */
+  AppliedInserts?: number;
+
+  /**
+   * <p>The number of delete actions applied on a target table.</p>
+   */
+  AppliedDeletes?: number;
+
+  /**
+   * <p>The number of update actions applied on a target table.</p>
+   */
+  AppliedUpdates?: number;
+
+  /**
+   * <p>The number of data definition language (DDL) statements used to build and modify the structure
+   *          of your tables applied on the target.</p>
+   */
+  AppliedDdls?: number;
+
+  /**
    * <p>The number of rows added during the full load operation.</p>
    */
   FullLoadRows?: number;
@@ -7701,14 +7759,14 @@ export interface ModifyEndpointMessage {
   EndpointType?: ReplicationEndpointTypeValue | string;
 
   /**
-   * <p>The type of engine for the endpoint. Valid values, depending on the EndpointType,
-   *          include
+   * <p>The database engine name. Valid values, depending on the EndpointType, include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
-   *          <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
-   *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>,
-   *          <code>"documentdb"</code>, <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
+   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    */
   EngineName?: string;
 
@@ -8104,6 +8162,13 @@ export interface ModifyReplicationInstanceMessage {
    *          string.</p>
    */
   ReplicationInstanceIdentifier?: string;
+
+  /**
+   * <p>The type of IP address protocol used by a replication instance,
+   *          such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+   *          IPv6 only is not yet supported.</p>
+   */
+  NetworkType?: string;
 }
 
 /**

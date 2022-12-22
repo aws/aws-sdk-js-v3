@@ -30,7 +30,8 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
 
 /**
  * <p>This operation adds or updates tags for a specified domain.</p>
- * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ *          <p>All tag operations are eventually consistent; subsequent operations might not
+ * 			immediately represent all issued operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

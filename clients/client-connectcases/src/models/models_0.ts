@@ -140,7 +140,9 @@ export interface CreateCaseRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 }
@@ -1474,7 +1476,8 @@ export namespace Section {
 }
 
 /**
- * <p>Ordered list containing different kinds of sections that can be added. A LayoutSections object can only contain one section.</p>
+ * <p>Ordered list containing different kinds of sections that can be added. A LayoutSections
+ *       object can only contain one section.</p>
  */
 export interface LayoutSections {
   /**
@@ -1721,6 +1724,11 @@ export interface RequiredField {
   fieldId: string | undefined;
 }
 
+export enum TemplateStatus {
+  ACTIVE = "Active",
+  INACTIVE = "Inactive",
+}
+
 export interface CreateTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1747,6 +1755,11 @@ export interface CreateTemplateRequest {
    *       template.</p>
    */
   requiredFields?: RequiredField[];
+
+  /**
+   * <p>The status of the template.</p>
+   */
+  status?: TemplateStatus | string;
 }
 
 export interface CreateTemplateResponse {
@@ -1809,6 +1822,11 @@ export interface GetTemplateResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The status of the template.</p>
+   */
+  status: TemplateStatus | string | undefined;
 }
 
 export interface ListTemplatesRequest {
@@ -1827,6 +1845,11 @@ export interface ListTemplatesRequest {
    * response in the next request to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of status values to filter on.</p>
+   */
+  status?: (TemplateStatus | string)[];
 }
 
 /**
@@ -1839,7 +1862,7 @@ export interface TemplateSummary {
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN)  of the template.</p>
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
   templateArn: string | undefined;
 
@@ -1847,6 +1870,11 @@ export interface TemplateSummary {
    * <p>The template name.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The status of the template.</p>
+   */
+  status: TemplateStatus | string | undefined;
 }
 
 export interface ListTemplatesResponse {
@@ -1892,6 +1920,11 @@ export interface UpdateTemplateRequest {
    *       template.</p>
    */
   requiredFields?: RequiredField[];
+
+  /**
+   * <p>The status of the template.</p>
+   */
+  status?: TemplateStatus | string;
 }
 
 export interface UpdateTemplateResponse {}

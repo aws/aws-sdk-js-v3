@@ -62,6 +62,7 @@ export enum Engine {
 }
 
 export enum LanguageCode {
+  ar_AE = "ar-AE",
   arb = "arb",
   ca_ES = "ca-ES",
   cmn_CN = "cmn-CN",
@@ -79,6 +80,7 @@ export enum LanguageCode {
   es_ES = "es-ES",
   es_MX = "es-MX",
   es_US = "es-US",
+  fi_FI = "fi-FI",
   fr_CA = "fr-CA",
   fr_FR = "fr-FR",
   hi_IN = "hi-IN",
@@ -155,6 +157,7 @@ export enum VoiceId {
   Cristiano = "Cristiano",
   Daniel = "Daniel",
   Dora = "Dora",
+  Elin = "Elin",
   Emma = "Emma",
   Enrique = "Enrique",
   Ewa = "Ewa",
@@ -163,9 +166,11 @@ export enum VoiceId {
   Geraint = "Geraint",
   Giorgio = "Giorgio",
   Gwyneth = "Gwyneth",
+  Hala = "Hala",
   Hannah = "Hannah",
   Hans = "Hans",
   Hiujin = "Hiujin",
+  Ida = "Ida",
   Ines = "Ines",
   Ivy = "Ivy",
   Jacek = "Jacek",
@@ -178,6 +183,7 @@ export enum VoiceId {
   Kendra = "Kendra",
   Kevin = "Kevin",
   Kimberly = "Kimberly",
+  Laura = "Laura",
   Lea = "Lea",
   Liam = "Liam",
   Liv = "Liv",
@@ -195,6 +201,7 @@ export enum VoiceId {
   Mizuki = "Mizuki",
   Naja = "Naja",
   Nicole = "Nicole",
+  Ola = "Ola",
   Olivia = "Olivia",
   Pedro = "Pedro",
   Penelope = "Penelope",
@@ -204,6 +211,7 @@ export enum VoiceId {
   Russell = "Russell",
   Salli = "Salli",
   Seoyeon = "Seoyeon",
+  Suvi = "Suvi",
   Takumi = "Takumi",
   Tatyana = "Tatyana",
   Vicki = "Vicki",
@@ -1164,7 +1172,7 @@ export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>
    */
-  AudioStream: Readable | ReadableStream | Blob | undefined;
+  AudioStream?: Readable | ReadableStream | Blob;
 
   /**
    * <p> Specifies the type audio stream. This should reflect the

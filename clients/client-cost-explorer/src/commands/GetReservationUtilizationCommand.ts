@@ -29,9 +29,10 @@ export interface GetReservationUtilizationCommandInput extends GetReservationUti
 export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts.
- * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
- * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
+ * <p>Retrieves the reservation utilization for your account. Management account in an
+ *       organization have access to member accounts. You can filter data by dimensions in a time
+ *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
+ *       values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,7 +30,7 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
 
 /**
  * <p>Fetches the queries that are suggested to your users.</p>
- *         <p>
+ *          <p>
  *             <code>GetQuerySuggestions</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

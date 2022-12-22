@@ -19,7 +19,7 @@ import {
   SendDataToWirelessDeviceRequestFilterSensitiveLog,
   SendDataToWirelessDeviceResponse,
   SendDataToWirelessDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1SendDataToWirelessDeviceCommand,
   serializeAws_restJson1SendDataToWirelessDeviceCommand,

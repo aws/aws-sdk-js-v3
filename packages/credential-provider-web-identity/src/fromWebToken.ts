@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 export interface AssumeRoleWithWebIdentityParams {
   /**
@@ -124,11 +124,11 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
    *
    * @param params input parameter of sts:AssumeRoleWithWebIdentity API.
    */
-  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
+  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 }
 
 export const fromWebToken =
-  (init: FromWebTokenInit): CredentialProvider =>
+  (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   () => {
     const {
       roleArn,

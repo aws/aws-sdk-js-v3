@@ -33,21 +33,21 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *             Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
  *             created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the
  *                 <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>This action only restores the DB cluster, not the DB instances for that DB
  *                   cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
  *                   instances for the restored DB cluster, specifying the identifier of the restored DB
  *                   cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
  *                   the <code>RestoreDBClusterFromS3</code> action has completed and the DB
  *                   cluster is available.</p>
- *         </note>
- *         <p>For more information on Amazon Aurora, see
+ *          </note>
+ *          <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Aurora DB clusters. The source DB engine must be
  *                 MySQL.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

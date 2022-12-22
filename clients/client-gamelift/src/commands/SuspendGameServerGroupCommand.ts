@@ -32,8 +32,9 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Temporarily stops activity on a game server group without terminating instances or the
- *             game server group. You can restart activity by calling <a>ResumeGameServerGroup</a>. You can suspend the following activity:</p>
+ *          <p>Temporarily stops activity on
+ *             a game server group without terminating instances or the game server group. You can
+ *             restart activity by calling <a href="gamelift/latest/apireference/API_ResumeGameServerGroup.html">ResumeGameServerGroup</a>. You can suspend the following activity:</p>
  *         <ul>
  *             <li>
  *                 <p>
@@ -49,28 +50,15 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *             </li>
  *          </ul>
  *         <p>To suspend activity, specify a game server group ARN and the type of activity to be
- *             suspended. If successful, a <a>GameServerGroup</a> object is returned showing
- *             that the activity is listed in <code>SuspendedActions</code>.</p>
+ *             suspended. If successful, a <code>GameServerGroup</code> object is returned showing that
+ *             the activity is listed in <code>SuspendedActions</code>.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

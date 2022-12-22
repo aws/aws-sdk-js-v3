@@ -33,6 +33,10 @@ import {
   CreateConnectionAliasCommandOutput,
 } from "../commands/CreateConnectionAliasCommand";
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "../commands/CreateIpGroupCommand";
+import {
+  CreateStandbyWorkspacesCommandInput,
+  CreateStandbyWorkspacesCommandOutput,
+} from "../commands/CreateStandbyWorkspacesCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
   CreateUpdatedWorkspaceImageCommandInput,
@@ -148,6 +152,10 @@ import {
 import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "../commands/MigrateWorkspaceCommand";
 import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "../commands/ModifyAccountCommand";
 import {
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "../commands/ModifyCertificateBasedAuthPropertiesCommand";
+import {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
 } from "../commands/ModifyClientPropertiesCommand";
@@ -219,6 +227,7 @@ import {
   AssociateIpGroupsResult,
   AuthorizeIpRulesRequest,
   AuthorizeIpRulesResult,
+  CertificateBasedAuthProperties,
   ClientDeviceType,
   ClientProperties,
   ClientPropertiesResult,
@@ -235,6 +244,8 @@ import {
   CreateConnectionAliasResult,
   CreateIpGroupRequest,
   CreateIpGroupResult,
+  CreateStandbyWorkspacesRequest,
+  CreateStandbyWorkspacesResult,
   CreateTagsRequest,
   CreateTagsResult,
   CreateUpdatedWorkspaceImageRequest,
@@ -248,6 +259,7 @@ import {
   DefaultClientBrandingAttributes,
   DefaultImportClientBrandingAttributes,
   DefaultWorkspaceCreationProperties,
+  DeletableCertificateBasedAuthProperty,
   DeletableSamlProperty,
   DeleteClientBrandingRequest,
   DeleteClientBrandingResult,
@@ -301,6 +313,7 @@ import {
   DisassociateConnectionAliasResult,
   DisassociateIpGroupsRequest,
   DisassociateIpGroupsResult,
+  FailedCreateStandbyWorkspacesRequest,
   FailedCreateWorkspaceRequest,
   FailedWorkspaceChangeRequest,
   ImagePermission,
@@ -320,6 +333,8 @@ import {
   ModificationState,
   ModifyAccountRequest,
   ModifyAccountResult,
+  ModifyCertificateBasedAuthPropertiesRequest,
+  ModifyCertificateBasedAuthPropertiesResult,
   ModifyClientPropertiesRequest,
   ModifyClientPropertiesResult,
   ModifySamlPropertiesRequest,
@@ -337,6 +352,8 @@ import {
   OperatingSystem,
   OperationInProgressException,
   OperationNotSupportedException,
+  PendingCreateStandbyWorkspacesRequest,
+  Protocol,
   RebootRequest,
   RebootWorkspacesRequest,
   RebootWorkspacesResult,
@@ -345,6 +362,7 @@ import {
   RebuildWorkspacesResult,
   RegisterWorkspaceDirectoryRequest,
   RegisterWorkspaceDirectoryResult,
+  RelatedWorkspaceProperties,
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
@@ -359,6 +377,7 @@ import {
   SamlProperties,
   SelfservicePermissions,
   Snapshot,
+  StandbyWorkspace,
   StartRequest,
   StartWorkspacesRequest,
   StartWorkspacesResult,
@@ -485,6 +504,19 @@ export const serializeAws_json1_1CreateIpGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIpGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateStandbyWorkspacesCommand = async (
+  input: CreateStandbyWorkspacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.CreateStandbyWorkspaces",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateStandbyWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -953,6 +985,19 @@ export const serializeAws_json1_1ModifyAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand = async (
+  input: ModifyCertificateBasedAuthPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.ModifyCertificateBasedAuthProperties",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ModifyCertificateBasedAuthPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1591,6 +1636,59 @@ const deserializeAws_json1_1CreateIpGroupCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateStandbyWorkspacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStandbyWorkspacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateStandbyWorkspacesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateStandbyWorkspacesResult(data, context);
+  const response: CreateStandbyWorkspacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateStandbyWorkspacesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStandbyWorkspacesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.workspaces#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3330,6 +3428,56 @@ const deserializeAws_json1_1ModifyAccountCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesResult(data, context);
+  const response: ModifyCertificateBasedAuthPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3660,6 +3808,9 @@ const deserializeAws_json1_1ModifyWorkspaceStateCommandError = async (
     case "InvalidResourceStateException":
     case "com.amazonaws.workspaces#InvalidResourceStateException":
       throw await deserializeAws_json1_1InvalidResourceStateExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3700,13 +3851,19 @@ const deserializeAws_json1_1RebootWorkspacesCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  throwDefaultError({
-    output,
-    parsedBody,
-    exceptionCtor: __BaseException,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1RebuildWorkspacesCommand = async (
@@ -3735,13 +3892,19 @@ const deserializeAws_json1_1RebuildWorkspacesCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  throwDefaultError({
-    output,
-    parsedBody,
-    exceptionCtor: __BaseException,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
@@ -3839,6 +4002,9 @@ const deserializeAws_json1_1RestoreWorkspaceCommandError = async (
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -4200,6 +4366,9 @@ const deserializeAws_json1_1UpdateWorkspaceBundleCommandError = async (
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -4495,6 +4664,16 @@ const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_json1_1CertificateBasedAuthProperties = (
+  input: CertificateBasedAuthProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1ClientDeviceTypeList = (
   input: (ClientDeviceType | string)[],
   context: __SerdeContext
@@ -4580,6 +4759,18 @@ const serializeAws_json1_1CreateIpGroupRequest = (input: CreateIpGroupRequest, c
   };
 };
 
+const serializeAws_json1_1CreateStandbyWorkspacesRequest = (
+  input: CreateStandbyWorkspacesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PrimaryRegion != null && { PrimaryRegion: input.PrimaryRegion }),
+    ...(input.StandbyWorkspaces != null && {
+      StandbyWorkspaces: serializeAws_json1_1StandbyWorkspacesList(input.StandbyWorkspaces, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
@@ -4645,6 +4836,17 @@ const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportLink != null && { SupportLink: input.SupportLink }),
   };
+};
+
+const serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList = (
+  input: (DeletableCertificateBasedAuthProperty | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeletableSamlPropertiesList = (
@@ -5024,10 +5226,8 @@ const serializeAws_json1_1LoginMessage = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5044,6 +5244,27 @@ const serializeAws_json1_1ModifyAccountRequest = (input: ModifyAccountRequest, c
       DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
     }),
     ...(input.DedicatedTenancySupport != null && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
+  };
+};
+
+const serializeAws_json1_1ModifyCertificateBasedAuthPropertiesRequest = (
+  input: ModifyCertificateBasedAuthPropertiesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateBasedAuthProperties != null && {
+      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
+        input.CertificateBasedAuthProperties,
+        context
+      ),
+    }),
+    ...(input.PropertiesToDelete != null && {
+      PropertiesToDelete: serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList(
+        input.PropertiesToDelete,
+        context
+      ),
+    }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5136,6 +5357,14 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
     ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
     ...(input.WorkspaceState != null && { WorkspaceState: input.WorkspaceState }),
   };
+};
+
+const serializeAws_json1_1ProtocolList = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RebootRequest = (input: RebootRequest, context: __SerdeContext): any => {
@@ -5242,6 +5471,23 @@ const serializeAws_json1_1SelfservicePermissions = (input: SelfservicePermission
     ...(input.RestartWorkspace != null && { RestartWorkspace: input.RestartWorkspace }),
     ...(input.SwitchRunningMode != null && { SwitchRunningMode: input.SwitchRunningMode }),
   };
+};
+
+const serializeAws_json1_1StandbyWorkspace = (input: StandbyWorkspace, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.PrimaryWorkspaceId != null && { PrimaryWorkspaceId: input.PrimaryWorkspaceId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VolumeEncryptionKey != null && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
+  };
+};
+
+const serializeAws_json1_1StandbyWorkspacesList = (input: StandbyWorkspace[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1StandbyWorkspace(entry, context);
+    });
 };
 
 const serializeAws_json1_1StartRequest = (input: StartRequest, context: __SerdeContext): any => {
@@ -5462,6 +5708,7 @@ const serializeAws_json1_1WorkspaceImageIdList = (input: string[], context: __Se
 const serializeAws_json1_1WorkspaceProperties = (input: WorkspaceProperties, context: __SerdeContext): any => {
   return {
     ...(input.ComputeTypeName != null && { ComputeTypeName: input.ComputeTypeName }),
+    ...(input.Protocols != null && { Protocols: serializeAws_json1_1ProtocolList(input.Protocols, context) }),
     ...(input.RootVolumeSizeGib != null && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
     ...(input.RunningMode != null && { RunningMode: input.RunningMode }),
     ...(input.RunningModeAutoStopTimeoutInMinutes != null && {
@@ -5558,6 +5805,16 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
       return deserializeAws_json1_1WorkspaceBundle(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CertificateBasedAuthProperties = (
+  output: any,
+  context: __SerdeContext
+): CertificateBasedAuthProperties => {
+  return {
+    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
@@ -5723,6 +5980,22 @@ const deserializeAws_json1_1CreateConnectionAliasResult = (
 const deserializeAws_json1_1CreateIpGroupResult = (output: any, context: __SerdeContext): CreateIpGroupResult => {
   return {
     GroupId: __expectString(output.GroupId),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateStandbyWorkspacesResult = (
+  output: any,
+  context: __SerdeContext
+): CreateStandbyWorkspacesResult => {
+  return {
+    FailedStandbyRequests:
+      output.FailedStandbyRequests != null
+        ? deserializeAws_json1_1FailedCreateStandbyWorkspacesRequestList(output.FailedStandbyRequests, context)
+        : undefined,
+    PendingStandbyRequests:
+      output.PendingStandbyRequests != null
+        ? deserializeAws_json1_1PendingCreateStandbyWorkspacesRequestList(output.PendingStandbyRequests, context)
+        : undefined,
   } as any;
 };
 
@@ -6108,6 +6381,35 @@ const deserializeAws_json1_1DnsIpAddresses = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1FailedCreateStandbyWorkspacesRequest = (
+  output: any,
+  context: __SerdeContext
+): FailedCreateStandbyWorkspacesRequest => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    StandbyWorkspaceRequest:
+      output.StandbyWorkspaceRequest != null
+        ? deserializeAws_json1_1StandbyWorkspace(output.StandbyWorkspaceRequest, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FailedCreateStandbyWorkspacesRequestList = (
+  output: any,
+  context: __SerdeContext
+): FailedCreateStandbyWorkspacesRequest[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedCreateStandbyWorkspacesRequest(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
   output: any,
   context: __SerdeContext
@@ -6365,10 +6667,8 @@ const deserializeAws_json1_1LoginMessage = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6399,6 +6699,13 @@ const deserializeAws_json1_1ModificationStateList = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ModifyAccountResult = (output: any, context: __SerdeContext): ModifyAccountResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyCertificateBasedAuthPropertiesResult => {
   return {} as any;
 };
 
@@ -6476,6 +6783,45 @@ const deserializeAws_json1_1OperationNotSupportedException = (
   } as any;
 };
 
+const deserializeAws_json1_1PendingCreateStandbyWorkspacesRequest = (
+  output: any,
+  context: __SerdeContext
+): PendingCreateStandbyWorkspacesRequest => {
+  return {
+    DirectoryId: __expectString(output.DirectoryId),
+    State: __expectString(output.State),
+    UserName: __expectString(output.UserName),
+    WorkspaceId: __expectString(output.WorkspaceId),
+  } as any;
+};
+
+const deserializeAws_json1_1PendingCreateStandbyWorkspacesRequestList = (
+  output: any,
+  context: __SerdeContext
+): PendingCreateStandbyWorkspacesRequest[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PendingCreateStandbyWorkspacesRequest(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ProtocolList = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1RebootWorkspacesResult = (output: any, context: __SerdeContext): RebootWorkspacesResult => {
   return {
     FailedRequests:
@@ -6502,6 +6848,33 @@ const deserializeAws_json1_1RegisterWorkspaceDirectoryResult = (
   context: __SerdeContext
 ): RegisterWorkspaceDirectoryResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1RelatedWorkspaceProperties = (
+  output: any,
+  context: __SerdeContext
+): RelatedWorkspaceProperties => {
+  return {
+    Region: __expectString(output.Region),
+    State: __expectString(output.State),
+    Type: __expectString(output.Type),
+    WorkspaceId: __expectString(output.WorkspaceId),
+  } as any;
+};
+
+const deserializeAws_json1_1RelatedWorkspaces = (
+  output: any,
+  context: __SerdeContext
+): RelatedWorkspaceProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RelatedWorkspaceProperties(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
@@ -6611,6 +6984,15 @@ const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext
       return deserializeAws_json1_1Snapshot(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1StandbyWorkspace = (output: any, context: __SerdeContext): StandbyWorkspace => {
+  return {
+    DirectoryId: __expectString(output.DirectoryId),
+    PrimaryWorkspaceId: __expectString(output.PrimaryWorkspaceId),
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    VolumeEncryptionKey: __expectString(output.VolumeEncryptionKey),
+  } as any;
 };
 
 const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __SerdeContext): StartWorkspacesResult => {
@@ -6752,6 +7134,10 @@ const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): 
       output.ModificationStates != null
         ? deserializeAws_json1_1ModificationStateList(output.ModificationStates, context)
         : undefined,
+    RelatedWorkspaces:
+      output.RelatedWorkspaces != null
+        ? deserializeAws_json1_1RelatedWorkspaces(output.RelatedWorkspaces, context)
+        : undefined,
     RootVolumeEncryptionEnabled: __expectBoolean(output.RootVolumeEncryptionEnabled),
     State: __expectString(output.State),
     SubnetId: __expectString(output.SubnetId),
@@ -6785,6 +7171,7 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
 const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeContext): WorkspaceBundle => {
   return {
     BundleId: __expectString(output.BundleId),
+    BundleType: __expectString(output.BundleType),
     ComputeType:
       output.ComputeType != null ? deserializeAws_json1_1ComputeType(output.ComputeType, context) : undefined,
     CreationTime:
@@ -6801,6 +7188,7 @@ const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeCont
     Owner: __expectString(output.Owner),
     RootStorage:
       output.RootStorage != null ? deserializeAws_json1_1RootStorage(output.RootStorage, context) : undefined,
+    State: __expectString(output.State),
     UserStorage:
       output.UserStorage != null ? deserializeAws_json1_1UserStorage(output.UserStorage, context) : undefined,
   } as any;
@@ -6842,6 +7230,10 @@ const deserializeAws_json1_1WorkspaceConnectionStatusList = (
 const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeContext): WorkspaceDirectory => {
   return {
     Alias: __expectString(output.Alias),
+    CertificateBasedAuthProperties:
+      output.CertificateBasedAuthProperties != null
+        ? deserializeAws_json1_1CertificateBasedAuthProperties(output.CertificateBasedAuthProperties, context)
+        : undefined,
     CustomerUserName: __expectString(output.CustomerUserName),
     DirectoryId: __expectString(output.DirectoryId),
     DirectoryName: __expectString(output.DirectoryName),
@@ -6919,6 +7311,7 @@ const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContex
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
   return {
     ComputeTypeName: __expectString(output.ComputeTypeName),
+    Protocols: output.Protocols != null ? deserializeAws_json1_1ProtocolList(output.Protocols, context) : undefined,
     RootVolumeSizeGib: __expectInt32(output.RootVolumeSizeGib),
     RunningMode: __expectString(output.RunningMode),
     RunningModeAutoStopTimeoutInMinutes: __expectInt32(output.RunningModeAutoStopTimeoutInMinutes),

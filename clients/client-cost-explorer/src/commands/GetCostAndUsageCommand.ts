@@ -34,7 +34,8 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
  *       data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific
  *       time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts.</p>
- * 	        <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+ *          <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a>
+ *       in the <i>Billing and Cost Management User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

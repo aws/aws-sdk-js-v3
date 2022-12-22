@@ -31,7 +31,6 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
 /**
  * <p>When a contact is being recorded, and the recording has been suspended using
  *    SuspendContactRecording, this API resumes recording the call.</p>
- *
  *          <p>Only voice recordings are supported at this time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,4 +36,4 @@ import { nodeProvider } from "@aws-sdk/token-providers"
 cont token = await nodeProvider();
 ```
 
-[http-bearer-auth-trait]: https://awslabs.github.io/smithy/1.0/spec/core/auth-traits.html#httpbearerauth-trait
+[http-bearer-auth-trait]: https://smithy.io/2.0/spec/authentication-traits.html#smithy-api-httpbearerauth-trait

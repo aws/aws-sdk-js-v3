@@ -30,9 +30,9 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
 
 /**
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
- *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify an equality
- *             condition on all key attributes. This enforces that each <code>SELECT</code> statement in a
- *             batch returns at most a single item.</p>
+ *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
+ *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
+ *             statement in a batch returns at most a single item.</p>
  *         <note>
  *             <p>The entire batch must consist of either read statements or write statements, you
  *                 cannot mix both in one batch.</p>

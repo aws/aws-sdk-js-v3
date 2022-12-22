@@ -81,6 +81,7 @@ import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "../commands/CreateRoutingProfileCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import {
   CreateSecurityProfileCommandInput,
   CreateSecurityProfileCommandOutput,
@@ -112,6 +113,7 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "../commands/DeleteIntegrationAssociationCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "../commands/DeleteQuickConnectCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
@@ -167,6 +169,7 @@ import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
 } from "../commands/DescribeRoutingProfileCommand";
+import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "../commands/DescribeRuleCommand";
 import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
@@ -290,6 +293,7 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "../commands/ListRoutingProfilesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "../commands/ListSecurityKeysCommand";
 import {
   ListSecurityProfilePermissionsCommandInput,
@@ -314,6 +318,7 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { MonitorContactCommandInput, MonitorContactCommandOutput } from "../commands/MonitorContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "../commands/ReplicateInstanceCommand";
@@ -408,6 +413,10 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "../commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdateParticipantRoleConfigCommandInput,
+  UpdateParticipantRoleConfigCommandOutput,
+} from "../commands/UpdateParticipantRoleConfigCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -447,6 +456,7 @@ import {
   UpdateRoutingProfileQueuesCommandInput,
   UpdateRoutingProfileQueuesCommandOutput,
 } from "../commands/UpdateRoutingProfileQueuesCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "../commands/UpdateRuleCommand";
 import {
   UpdateSecurityProfileCommandInput,
   UpdateSecurityProfileCommandOutput,
@@ -487,11 +497,13 @@ import {
 import { ConnectServiceException as __BaseException } from "../models/ConnectServiceException";
 import {
   AccessDeniedException,
+  ActionSummary,
   AgentContactReference,
   AgentInfo,
   AgentStatus,
   AgentStatusReference,
   AgentStatusSummary,
+  AssignContactCategoryActionDefinition,
   AttachmentReference,
   Attribute,
   Channel,
@@ -509,12 +521,12 @@ import {
   CurrentMetricData,
   CurrentMetricResult,
   DateReference,
-  DefaultVocabulary,
   Dimensions,
   Distribution,
   DuplicateResourceException,
   EmailReference,
   EncryptionConfig,
+  EventBridgeActionDefinition,
   Filters,
   Grouping,
   HierarchyGroup,
@@ -529,14 +541,11 @@ import {
   HistoricalMetricResult,
   HoursOfOperation,
   HoursOfOperationConfig,
-  HoursOfOperationSummary,
   HoursOfOperationTimeSlice,
   IdempotencyException,
   Instance,
   InstanceStatusReason,
   InstanceStorageConfig,
-  InstanceSummary,
-  IntegrationAssociationSummary,
   InternalServiceException,
   InvalidContactFlowException,
   InvalidContactFlowModuleException,
@@ -551,6 +560,8 @@ import {
   LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
+  MonitorCapability,
+  NotificationRecipientType,
   NumberReference,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
@@ -567,7 +578,7 @@ import {
   QuickConnect,
   QuickConnectConfig,
   ReadOnlyFieldInfo,
-  ReferenceSummary,
+  Reference,
   RequiredFieldInfo,
   ResourceConflictException,
   ResourceInUseException,
@@ -577,10 +588,14 @@ import {
   RoutingProfileQueueConfig,
   RoutingProfileQueueReference,
   RoutingProfileReference,
+  Rule,
+  RuleAction,
+  RuleTriggerEventSource,
   S3Config,
   SecurityProfile,
+  SendNotificationActionDefinition,
   ServiceQuotaExceededException,
-  StringReference,
+  TaskActionDefinition,
   TaskTemplateConstraints,
   TaskTemplateDefaultFieldValue,
   TaskTemplateDefaults,
@@ -590,7 +605,6 @@ import {
   Threshold,
   ThrottlingException,
   TrafficDistributionGroup,
-  UrlReference,
   User,
   UserData,
   UserDataFilters,
@@ -605,36 +619,47 @@ import {
   AnswerMachineDetectionConfig,
   AvailableNumberSummary,
   ChatMessage,
+  ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactNotFoundException,
   ControlPlaneTagFilter,
+  DefaultVocabulary,
   DestinationNotAllowedException,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
+  HoursOfOperationSummary,
+  InstanceSummary,
+  IntegrationAssociationSummary,
   ListPhoneNumbersSummary,
   OutboundContactNotPermittedException,
   ParticipantDetails,
+  ParticipantTimerConfiguration,
+  ParticipantTimerValue,
   PhoneNumberSummary,
   PromptSummary,
   QueueSearchCriteria,
   QueueSearchFilter,
   QueueSummary,
   QuickConnectSummary,
-  Reference,
+  ReferenceSummary,
   RoutingProfileQueueConfigSummary,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
   RoutingProfileSummary,
+  RuleSummary,
   SecurityKey,
   SecurityProfileSearchCriteria,
   SecurityProfileSearchSummary,
   SecurityProfilesSearchFilter,
   SecurityProfileSummary,
   StringCondition,
+  StringReference,
   TagCondition,
   TaskTemplateMetadata,
   TrafficDistributionGroupSummary,
+  UpdateParticipantRoleConfigChannelInfo,
+  UrlReference,
   UseCase,
   UserIdentityInfoLite,
   UserSearchCriteria,
@@ -1252,6 +1277,38 @@ export const serializeAws_restJson1CreateRoutingProfileCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateRuleCommand = async (
+  input: CreateRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Actions != null && { Actions: serializeAws_restJson1RuleActions(input.Actions, context) }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Function != null && { Function: input.Function }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PublishStatus != null && { PublishStatus: input.PublishStatus }),
+    ...(input.TriggerEventSource != null && {
+      TriggerEventSource: serializeAws_restJson1RuleTriggerEventSource(input.TriggerEventSource, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateSecurityProfileCommand = async (
   input: CreateSecurityProfileCommandInput,
   context: __SerdeContext
@@ -1265,11 +1322,17 @@ export const serializeAws_restJson1CreateSecurityProfileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedAccessControlTags != null && {
+      AllowedAccessControlTags: serializeAws_restJson1AllowedAccessControlTags(input.AllowedAccessControlTags, context),
+    }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Permissions != null && {
       Permissions: serializeAws_restJson1PermissionsList(input.Permissions, context),
     }),
     ...(input.SecurityProfileName != null && { SecurityProfileName: input.SecurityProfileName }),
+    ...(input.TagRestrictedResources != null && {
+      TagRestrictedResources: serializeAws_restJson1TagRestrictedResourceList(input.TagRestrictedResources, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -1637,6 +1700,28 @@ export const serializeAws_restJson1DeleteQuickConnectCommand = async (
     "{QuickConnectId}",
     false
   );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteRuleCommand = async (
+  input: DeleteRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2062,7 +2147,7 @@ export const serializeAws_restJson1DescribeInstanceStorageConfigCommand = async 
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2175,6 +2260,28 @@ export const serializeAws_restJson1DescribeRoutingProfileCommand = async (
     "{RoutingProfileId}",
     false
   );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeRuleCommand = async (
+  input: DescribeRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2358,7 +2465,7 @@ export const serializeAws_restJson1DisassociateApprovedOriginCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    origin: [, input.Origin!],
+    origin: [, __expectNonNull(input.Origin!, `Origin`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2419,7 +2526,7 @@ export const serializeAws_restJson1DisassociateInstanceStorageConfigCommand = as
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2444,7 +2551,7 @@ export const serializeAws_restJson1DisassociateLambdaFunctionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    functionArn: [, input.FunctionArn!],
+    functionArn: [, __expectNonNull(input.FunctionArn!, `FunctionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2469,8 +2576,8 @@ export const serializeAws_restJson1DisassociateLexBotCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    botName: [, input.BotName!],
-    lexRegion: [, input.LexRegion!],
+    botName: [, __expectNonNull(input.BotName!, `BotName`)],
+    lexRegion: [, __expectNonNull(input.LexRegion!, `LexRegion`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2503,7 +2610,7 @@ export const serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand = a
     false
   );
   const query: any = map({
-    instanceId: [, input.InstanceId!],
+    instanceId: [, __expectNonNull(input.InstanceId!, `InstanceId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2910,7 +3017,7 @@ export const serializeAws_restJson1ListBotsCommand = async (
   const query: any = map({
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    lexVersion: [, input.LexVersion!],
+    lexVersion: [, __expectNonNull(input.LexVersion!, `LexVersion`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2996,7 +3103,7 @@ export const serializeAws_restJson1ListContactReferencesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
   const query: any = map({
     referenceTypes: [
-      () => input.ReferenceTypes !== void 0,
+      __expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null,
       () => (input.ReferenceTypes! || []).map((_entry) => _entry as any),
     ],
     nextToken: [, input.NextToken!],
@@ -3128,7 +3235,7 @@ export const serializeAws_restJson1ListInstanceStorageConfigsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-configs";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
@@ -3464,6 +3571,33 @@ export const serializeAws_restJson1ListRoutingProfilesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListRulesCommand = async (
+  input: ListRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    publishStatus: [, input.PublishStatus!],
+    eventSourceName: [, input.EventSourceName!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListSecurityKeysCommand = async (
   input: ListSecurityKeysCommandInput,
   context: __SerdeContext
@@ -3713,6 +3847,39 @@ export const serializeAws_restJson1ListUsersCommand = async (
   });
 };
 
+export const serializeAws_restJson1MonitorContactCommand = async (
+  input: MonitorContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/monitor";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AllowedMonitorCapabilities != null && {
+      AllowedMonitorCapabilities: serializeAws_restJson1AllowedMonitorCapabilities(
+        input.AllowedMonitorCapabilities,
+        context
+      ),
+    }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutUserStatusCommand = async (
   input: PutUserStatusCommandInput,
   context: __SerdeContext
@@ -3757,7 +3924,7 @@ export const serializeAws_restJson1ReleasePhoneNumberCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.ClientToken!],
+    clientToken: [, input.ClientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -4365,7 +4532,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -4774,7 +4944,7 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -4790,6 +4960,39 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateParticipantRoleConfigCommand = async (
+  input: UpdateParticipantRoleConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact/participant-role-config/{InstanceId}/{ContactId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelConfiguration != null && {
+      ChannelConfiguration: serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo(
+        input.ChannelConfiguration,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5187,6 +5390,36 @@ export const serializeAws_restJson1UpdateRoutingProfileQueuesCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateRuleCommand = async (
+  input: UpdateRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Actions != null && { Actions: serializeAws_restJson1RuleActions(input.Actions, context) }),
+    ...(input.Function != null && { Function: input.Function }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PublishStatus != null && { PublishStatus: input.PublishStatus }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateSecurityProfileCommand = async (
   input: UpdateSecurityProfileCommandInput,
   context: __SerdeContext
@@ -5209,9 +5442,15 @@ export const serializeAws_restJson1UpdateSecurityProfileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedAccessControlTags != null && {
+      AllowedAccessControlTags: serializeAws_restJson1AllowedAccessControlTags(input.AllowedAccessControlTags, context),
+    }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Permissions != null && {
       Permissions: serializeAws_restJson1PermissionsList(input.Permissions, context),
+    }),
+    ...(input.TagRestrictedResources != null && {
+      TagRestrictedResources: serializeAws_restJson1TagRestrictedResourceList(input.TagRestrictedResources, context),
     }),
   });
   return new __HttpRequest({
@@ -6662,6 +6901,68 @@ const deserializeAws_restJson1CreateRoutingProfileCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RuleArn != null) {
+    contents.RuleArn = __expectString(data.RuleArn);
+  }
+  if (data.RuleId != null) {
+    contents.RuleId = __expectString(data.RuleId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateSecurityProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7370,6 +7671,56 @@ const deserializeAws_restJson1DeleteQuickConnectCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.connect#InvalidParameterException":
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -8397,6 +8748,59 @@ const deserializeAws_restJson1DescribeRoutingProfileCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DescribeRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Rule != null) {
+    contents.Rule = deserializeAws_restJson1Rule(data.Rule, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9393,6 +9797,15 @@ export const deserializeAws_restJson1GetFederationTokenCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Credentials != null) {
     contents.Credentials = deserializeAws_restJson1Credentials(data.Credentials, context);
+  }
+  if (data.SignInUrl != null) {
+    contents.SignInUrl = __expectString(data.SignInUrl);
+  }
+  if (data.UserArn != null) {
+    contents.UserArn = __expectString(data.UserArn);
+  }
+  if (data.UserId != null) {
+    contents.UserId = __expectString(data.UserId);
   }
   return contents;
 };
@@ -10890,6 +11303,62 @@ const deserializeAws_restJson1ListRoutingProfilesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRulesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RuleSummaryList != null) {
+    contents.RuleSummaryList = deserializeAws_restJson1RuleSummaryList(data.RuleSummaryList, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListSecurityKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11380,6 +11849,68 @@ const deserializeAws_restJson1ListUsersCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1MonitorContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MonitorContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MonitorContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ContactArn != null) {
+    contents.ContactArn = __expectString(data.ContactArn);
+  }
+  if (data.ContactId != null) {
+    contents.ContactId = __expectString(data.ContactId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1MonitorContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MonitorContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await deserializeAws_restJson1IdempotencyExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -13205,6 +13736,59 @@ const deserializeAws_restJson1UpdateInstanceStorageConfigCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateParticipantRoleConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParticipantRoleConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateParticipantRoleConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateParticipantRoleConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParticipantRoleConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdatePhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13806,6 +14390,59 @@ const deserializeAws_restJson1UpdateRoutingProfileQueuesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -14717,6 +15354,30 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AllowedAccessControlTags = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1AllowedMonitorCapabilities = (
+  input: (MonitorCapability | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1AnswerMachineDetectionConfig = (
   input: AnswerMachineDetectionConfig,
   context: __SerdeContext
@@ -14729,15 +15390,20 @@ const serializeAws_restJson1AnswerMachineDetectionConfig = (
   };
 };
 
+const serializeAws_restJson1AssignContactCategoryActionDefinition = (
+  input: AssignContactCategoryActionDefinition,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
 const serializeAws_restJson1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -14753,6 +15419,20 @@ const serializeAws_restJson1ChatMessage = (input: ChatMessage, context: __SerdeC
   return {
     ...(input.Content != null && { Content: input.Content }),
     ...(input.ContentType != null && { ContentType: input.ContentType }),
+  };
+};
+
+const serializeAws_restJson1ChatParticipantRoleConfig = (
+  input: ChatParticipantRoleConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParticipantTimerConfigList != null && {
+      ParticipantTimerConfigList: serializeAws_restJson1ParticipantTimerConfigList(
+        input.ParticipantTimerConfigList,
+        context
+      ),
+    }),
   };
 };
 
@@ -14778,10 +15458,8 @@ const serializeAws_restJson1ContactReferences = (input: Record<string, Reference
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Reference(value, context),
-    };
+    acc[key] = serializeAws_restJson1Reference(value, context);
+    return acc;
   }, {});
 };
 
@@ -14841,6 +15519,15 @@ const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context
   return {
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
+  };
+};
+
+const serializeAws_restJson1EventBridgeActionDefinition = (
+  input: EventBridgeActionDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -15025,6 +15712,16 @@ const serializeAws_restJson1MediaConcurrency = (input: MediaConcurrency, context
   };
 };
 
+const serializeAws_restJson1NotificationRecipientType = (
+  input: NotificationRecipientType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.UserIds != null && { UserIds: serializeAws_restJson1UserIdList(input.UserIds, context) }),
+    ...(input.UserTags != null && { UserTags: serializeAws_restJson1UserTagMap(input.UserTags, context) }),
+  };
+};
+
 const serializeAws_restJson1OutboundCallerConfig = (input: OutboundCallerConfig, context: __SerdeContext): any => {
   return {
     ...(input.OutboundCallerIdName != null && { OutboundCallerIdName: input.OutboundCallerIdName }),
@@ -15037,6 +15734,38 @@ const serializeAws_restJson1ParticipantDetails = (input: ParticipantDetails, con
   return {
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
   };
+};
+
+const serializeAws_restJson1ParticipantTimerConfigList = (
+  input: ParticipantTimerConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ParticipantTimerConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ParticipantTimerConfiguration = (
+  input: ParticipantTimerConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
+    ...(input.TimerType != null && { TimerType: input.TimerType }),
+    ...(input.TimerValue != null && {
+      TimerValue: serializeAws_restJson1ParticipantTimerValue(input.TimerValue, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParticipantTimerValue = (input: ParticipantTimerValue, context: __SerdeContext): any => {
+  return ParticipantTimerValue.visit(input, {
+    ParticipantTimerAction: (value) => ({ ParticipantTimerAction: value }),
+    ParticipantTimerDurationInMinutes: (value) => ({ ParticipantTimerDurationInMinutes: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1PermissionsList = (input: string[], context: __SerdeContext): any => {
@@ -15266,6 +15995,45 @@ const serializeAws_restJson1RoutingProfileSearchFilter = (
   };
 };
 
+const serializeAws_restJson1RuleAction = (input: RuleAction, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionType != null && { ActionType: input.ActionType }),
+    ...(input.AssignContactCategoryAction != null && {
+      AssignContactCategoryAction: serializeAws_restJson1AssignContactCategoryActionDefinition(
+        input.AssignContactCategoryAction,
+        context
+      ),
+    }),
+    ...(input.EventBridgeAction != null && {
+      EventBridgeAction: serializeAws_restJson1EventBridgeActionDefinition(input.EventBridgeAction, context),
+    }),
+    ...(input.SendNotificationAction != null && {
+      SendNotificationAction: serializeAws_restJson1SendNotificationActionDefinition(
+        input.SendNotificationAction,
+        context
+      ),
+    }),
+    ...(input.TaskAction != null && {
+      TaskAction: serializeAws_restJson1TaskActionDefinition(input.TaskAction, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1RuleAction(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleTriggerEventSource = (input: RuleTriggerEventSource, context: __SerdeContext): any => {
+  return {
+    ...(input.EventSourceName != null && { EventSourceName: input.EventSourceName }),
+    ...(input.IntegrationAssociationId != null && { IntegrationAssociationId: input.IntegrationAssociationId }),
+  };
+};
+
 const serializeAws_restJson1S3Config = (input: S3Config, context: __SerdeContext): any => {
   return {
     ...(input.BucketName != null && { BucketName: input.BucketName }),
@@ -15323,6 +16091,21 @@ const serializeAws_restJson1SecurityProfilesSearchFilter = (
   };
 };
 
+const serializeAws_restJson1SendNotificationActionDefinition = (
+  input: SendNotificationActionDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
+    ...(input.DeliveryMethod != null && { DeliveryMethod: input.DeliveryMethod }),
+    ...(input.Recipient != null && {
+      Recipient: serializeAws_restJson1NotificationRecipientType(input.Recipient, context),
+    }),
+    ...(input.Subject != null && { Subject: input.Subject }),
+  };
+};
+
 const serializeAws_restJson1SingleSelectOptions = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -15367,10 +16150,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -15380,6 +16161,23 @@ const serializeAws_restJson1TagOrConditionList = (input: TagCondition[][], conte
     .map((entry) => {
       return serializeAws_restJson1TagAndConditionList(entry, context);
     });
+};
+
+const serializeAws_restJson1TagRestrictedResourceList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TaskActionDefinition = (input: TaskActionDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.ContactFlowId != null && { ContactFlowId: input.ContactFlowId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.References != null && { References: serializeAws_restJson1ContactReferences(input.References, context) }),
+  };
 };
 
 const serializeAws_restJson1TaskTemplateConstraints = (
@@ -15471,6 +16269,16 @@ const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo = (
+  input: UpdateParticipantRoleConfigChannelInfo,
+  context: __SerdeContext
+): any => {
+  return UpdateParticipantRoleConfigChannelInfo.visit(input, {
+    Chat: (value) => ({ Chat: serializeAws_restJson1ChatParticipantRoleConfig(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 const serializeAws_restJson1UserDataFilters = (input: UserDataFilters, context: __SerdeContext): any => {
   return {
     ...(input.ContactFilter != null && {
@@ -15488,6 +16296,14 @@ const serializeAws_restJson1UserIdentityInfo = (input: UserIdentityInfo, context
     ...(input.Mobile != null && { Mobile: input.Mobile }),
     ...(input.SecondaryEmail != null && { SecondaryEmail: input.SecondaryEmail }),
   };
+};
+
+const serializeAws_restJson1UserIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1UserPhoneConfig = (input: UserPhoneConfig, context: __SerdeContext): any => {
@@ -15539,6 +16355,16 @@ const serializeAws_restJson1UserSearchFilter = (input: UserSearchFilter, context
   };
 };
 
+const serializeAws_restJson1UserTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1VoiceRecordingConfiguration = (
   input: VoiceRecordingConfiguration,
   context: __SerdeContext
@@ -15546,6 +16372,24 @@ const serializeAws_restJson1VoiceRecordingConfiguration = (
   return {
     ...(input.VoiceRecordingTrack != null && { VoiceRecordingTrack: input.VoiceRecordingTrack }),
   };
+};
+
+const deserializeAws_restJson1ActionSummaries = (output: any, context: __SerdeContext): ActionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ActionSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ActionSummary = (output: any, context: __SerdeContext): ActionSummary => {
+  return {
+    ActionType: __expectString(output.ActionType),
+  } as any;
 };
 
 const deserializeAws_restJson1AgentContactReference = (output: any, context: __SerdeContext): AgentContactReference => {
@@ -15635,6 +16479,26 @@ const deserializeAws_restJson1AgentStatusSummaryList = (output: any, context: __
   return retVal;
 };
 
+const deserializeAws_restJson1AllowedAccessControlTags = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1AssignContactCategoryActionDefinition = (
+  output: any,
+  context: __SerdeContext
+): AssignContactCategoryActionDefinition => {
+  return {} as any;
+};
+
 const deserializeAws_restJson1AttachmentReference = (output: any, context: __SerdeContext): AttachmentReference => {
   return {
     Name: __expectString(output.Name),
@@ -15655,10 +16519,8 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -15705,10 +16567,8 @@ const deserializeAws_restJson1ChannelToCountMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -15836,6 +16696,16 @@ const deserializeAws_restJson1ContactFlowSummaryList = (output: any, context: __
       return deserializeAws_restJson1ContactFlowSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ContactReferences = (output: any, context: __SerdeContext): Record<string, Reference> => {
+  return Object.entries(output).reduce((acc: Record<string, Reference>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1Reference(value, context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1Credentials = (output: any, context: __SerdeContext): Credentials => {
@@ -15969,6 +16839,15 @@ const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeC
   return {
     EncryptionType: __expectString(output.EncryptionType),
     KeyId: __expectString(output.KeyId),
+  } as any;
+};
+
+const deserializeAws_restJson1EventBridgeActionDefinition = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeActionDefinition => {
+  return {
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -16490,6 +17369,16 @@ const deserializeAws_restJson1MediaConcurrency = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1NotificationRecipientType = (
+  output: any,
+  context: __SerdeContext
+): NotificationRecipientType => {
+  return {
+    UserIds: output.UserIds != null ? deserializeAws_restJson1UserIdList(output.UserIds, context) : undefined,
+    UserTags: output.UserTags != null ? deserializeAws_restJson1UserTagMap(output.UserTags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1NumberReference = (output: any, context: __SerdeContext): NumberReference => {
   return {
     Name: __expectString(output.Name),
@@ -16785,6 +17674,13 @@ const deserializeAws_restJson1ReadOnlyTaskTemplateFields = (
   return retVal;
 };
 
+const deserializeAws_restJson1Reference = (output: any, context: __SerdeContext): Reference => {
+  return {
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
 const deserializeAws_restJson1ReferenceSummary = (output: any, context: __SerdeContext): ReferenceSummary => {
   if (output.Attachment != null) {
     return {
@@ -16944,6 +17840,107 @@ const deserializeAws_restJson1RoutingProfileSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rule => {
+  return {
+    Actions: output.Actions != null ? deserializeAws_restJson1RuleActions(output.Actions, context) : undefined,
+    CreatedTime:
+      output.CreatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    Function: __expectString(output.Function),
+    LastUpdatedBy: __expectString(output.LastUpdatedBy),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    PublishStatus: __expectString(output.PublishStatus),
+    RuleArn: __expectString(output.RuleArn),
+    RuleId: __expectString(output.RuleId),
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    TriggerEventSource:
+      output.TriggerEventSource != null
+        ? deserializeAws_restJson1RuleTriggerEventSource(output.TriggerEventSource, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleAction = (output: any, context: __SerdeContext): RuleAction => {
+  return {
+    ActionType: __expectString(output.ActionType),
+    AssignContactCategoryAction:
+      output.AssignContactCategoryAction != null
+        ? deserializeAws_restJson1AssignContactCategoryActionDefinition(output.AssignContactCategoryAction, context)
+        : undefined,
+    EventBridgeAction:
+      output.EventBridgeAction != null
+        ? deserializeAws_restJson1EventBridgeActionDefinition(output.EventBridgeAction, context)
+        : undefined,
+    SendNotificationAction:
+      output.SendNotificationAction != null
+        ? deserializeAws_restJson1SendNotificationActionDefinition(output.SendNotificationAction, context)
+        : undefined,
+    TaskAction:
+      output.TaskAction != null ? deserializeAws_restJson1TaskActionDefinition(output.TaskAction, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleActions = (output: any, context: __SerdeContext): RuleAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleAction(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
+  return {
+    ActionSummaries:
+      output.ActionSummaries != null
+        ? deserializeAws_restJson1ActionSummaries(output.ActionSummaries, context)
+        : undefined,
+    CreatedTime:
+      output.CreatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    EventSourceName: __expectString(output.EventSourceName),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    PublishStatus: __expectString(output.PublishStatus),
+    RuleArn: __expectString(output.RuleArn),
+    RuleId: __expectString(output.RuleId),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleSummaryList = (output: any, context: __SerdeContext): RuleSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RuleTriggerEventSource = (
+  output: any,
+  context: __SerdeContext
+): RuleTriggerEventSource => {
+  return {
+    EventSourceName: __expectString(output.EventSourceName),
+    IntegrationAssociationId: __expectString(output.IntegrationAssociationId),
+  } as any;
+};
+
 const deserializeAws_restJson1S3Config = (output: any, context: __SerdeContext): S3Config => {
   return {
     BucketName: __expectString(output.BucketName),
@@ -16980,11 +17977,19 @@ const deserializeAws_restJson1SecurityKeysList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SecurityProfile = (output: any, context: __SerdeContext): SecurityProfile => {
   return {
+    AllowedAccessControlTags:
+      output.AllowedAccessControlTags != null
+        ? deserializeAws_restJson1AllowedAccessControlTags(output.AllowedAccessControlTags, context)
+        : undefined,
     Arn: __expectString(output.Arn),
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     OrganizationResourceId: __expectString(output.OrganizationResourceId),
     SecurityProfileName: __expectString(output.SecurityProfileName),
+    TagRestrictedResources:
+      output.TagRestrictedResources != null
+        ? deserializeAws_restJson1TagRestrictedResourceList(output.TagRestrictedResources, context)
+        : undefined,
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
@@ -17056,6 +18061,22 @@ const deserializeAws_restJson1SecurityProfileSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1SendNotificationActionDefinition = (
+  output: any,
+  context: __SerdeContext
+): SendNotificationActionDefinition => {
+  return {
+    Content: __expectString(output.Content),
+    ContentType: __expectString(output.ContentType),
+    DeliveryMethod: __expectString(output.DeliveryMethod),
+    Recipient:
+      output.Recipient != null
+        ? deserializeAws_restJson1NotificationRecipientType(output.Recipient, context)
+        : undefined,
+    Subject: __expectString(output.Subject),
+  } as any;
+};
+
 const deserializeAws_restJson1SingleSelectOptions = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -17080,11 +18101,31 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1TagRestrictedResourceList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TaskActionDefinition = (output: any, context: __SerdeContext): TaskActionDefinition => {
+  return {
+    ContactFlowId: __expectString(output.ContactFlowId),
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    References:
+      output.References != null ? deserializeAws_restJson1ContactReferences(output.References, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1TaskTemplateConstraints = (
@@ -17368,6 +18409,18 @@ const deserializeAws_restJson1UserIdentityInfoLite = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1UserIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
     AfterContactWorkTimeLimit: __expectInt32(output.AfterContactWorkTimeLimit),
@@ -17446,6 +18499,16 @@ const deserializeAws_restJson1UserSummaryList = (output: any, context: __SerdeCo
       return deserializeAws_restJson1UserSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1UserTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1Vocabulary = (output: any, context: __SerdeContext): Vocabulary => {

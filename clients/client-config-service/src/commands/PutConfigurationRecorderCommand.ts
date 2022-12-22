@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigurationRecorderRequest, PutConfigurationRecorderRequestFilterSensitiveLog } from "../models/models_0";
+import { PutConfigurationRecorderRequest, PutConfigurationRecorderRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1PutConfigurationRecorderCommand,
   serializeAws_json1_1PutConfigurationRecorderCommand,

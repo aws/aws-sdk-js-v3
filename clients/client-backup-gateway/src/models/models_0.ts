@@ -160,6 +160,141 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export interface GetBandwidthRateLimitScheduleInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the
+   *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html">
+   *                <code>ListGateways</code>
+   *             </a> operation to return a list of gateways
+   *       for your account and Amazon Web Services Region.</p>
+   */
+  GatewayArn: string | undefined;
+}
+
+/**
+ * <p>Describes a bandwidth rate limit interval for a gateway. A bandwidth
+ *       rate limit schedule consists of one or more bandwidth rate limit intervals.
+ *       A bandwidth rate limit interval defines a period of time on one or more days
+ *       of the week, during which bandwidth rate limits are specified for uploading,
+ *       downloading, or both.</p>
+ */
+export interface BandwidthRateLimitInterval {
+  /**
+   * <p>The average upload rate limit component of the bandwidth rate limit
+   *       interval, in bits per second. This field does not appear in the response if
+   *       the upload rate limit is not set.</p>
+   *          <note>
+   *             <p>For Backup Gateway, the minimum value is <code>(Value)</code>.</p>
+   *          </note>
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The hour of the day to start the bandwidth rate limit interval.</p>
+   */
+  StartHourOfDay: number | undefined;
+
+  /**
+   * <p>The hour of the day to end the bandwidth rate limit interval.</p>
+   */
+  EndHourOfDay: number | undefined;
+
+  /**
+   * <p>The minute of the hour to start the bandwidth rate limit interval. The
+   *       interval begins at the start of that minute. To begin an interval exactly at
+   *       the start of the hour, use the value <code>0</code>.</p>
+   */
+  StartMinuteOfHour: number | undefined;
+
+  /**
+   * <p>The minute of the hour to end the bandwidth rate limit interval.</p>
+   *          <important>
+   *             <p>The bandwidth rate limit interval ends at the end of the minute.
+   *       To end an interval at the end of an hour, use the value <code>59</code>.</p>
+   *          </important>
+   */
+  EndMinuteOfHour: number | undefined;
+
+  /**
+   * <p>The days of the week component of the bandwidth rate limit interval,
+   *       represented as ordinal numbers from 0 to 6, where 0 represents Sunday and 6 represents
+   *       Saturday.</p>
+   */
+  DaysOfWeek: number[] | undefined;
+}
+
+export interface GetBandwidthRateLimitScheduleOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the
+   *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html">
+   *                <code>ListGateways</code>
+   *             </a> operation to return a list of gateways
+   *       for your account and Amazon Web Services Region.</p>
+   */
+  GatewayArn?: string;
+
+  /**
+   * <p>An array containing bandwidth rate limit schedule intervals for a gateway.
+   *       When no bandwidth rate limit intervals have been scheduled, the array is empty.</p>
+   */
+  BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[];
+}
+
+/**
+ * <p>A resource that is required for the action wasn't found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A description of which resource wasn't found.</p>
+   */
+  ErrorCode?: string;
+
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+export interface PutBandwidthRateLimitScheduleInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the
+   *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html">
+   *                <code>ListGateways</code>
+   *             </a> operation to return a list of gateways
+   *       for your account and Amazon Web Services Region.</p>
+   */
+  GatewayArn: string | undefined;
+
+  /**
+   * <p>An array containing bandwidth rate limit schedule intervals for a gateway.
+   *       When no bandwidth rate limit intervals have been scheduled, the array is empty.</p>
+   */
+  BandwidthRateLimitIntervals: BandwidthRateLimitInterval[] | undefined;
+}
+
+export interface PutBandwidthRateLimitScheduleOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the
+   *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html">
+   *                <code>ListGateways</code>
+   *             </a> operation to return a list of gateways
+   *       for your account and Amazon Web Services Region.</p>
+   */
+  GatewayArn?: string;
+}
+
 export enum GatewayType {
   BACKUP_VM = "BACKUP_VM",
 }
@@ -222,33 +357,6 @@ export interface DeleteGatewayOutput {
    * <p>The Amazon Resource Name (ARN) of the gateway you deleted.</p>
    */
   GatewayArn?: string;
-}
-
-/**
- * <p>A resource that is required for the action wasn't found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A description of which resource wasn't found.</p>
-   */
-  ErrorCode?: string;
-
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
 }
 
 export interface DisassociateGatewayFromServerInput {
@@ -536,6 +644,169 @@ export interface DeleteHypervisorOutput {
   HypervisorArn?: string;
 }
 
+export interface GetHypervisorInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn: string | undefined;
+}
+
+export enum SyncMetadataStatus {
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  PARTIALLY_FAILED = "PARTIALLY_FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+export enum HypervisorState {
+  ERROR = "ERROR",
+  OFFLINE = "OFFLINE",
+  ONLINE = "ONLINE",
+  PENDING = "PENDING",
+}
+
+/**
+ * <p>These are the details of the specified hypervisor. A hypervisor is hardware,
+ *       software, or firmware that creates and manages virtual machines, and allocates
+ *       resources to them.</p>
+ */
+export interface HypervisorDetails {
+  /**
+   * <p>The server host of the hypervisor. This can be either an IP address or
+   *       a fully-qualified domain name (FQDN).</p>
+   */
+  Host?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS
+   *       used to encrypt the hypervisor.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>This is the name of the specified hypervisor.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group of gateways within
+   *       the requested log.</p>
+   */
+  LogGroupArn?: string;
+
+  /**
+   * <p>This is the current state of the specified hypervisor.</p>
+   *          <p>The possible states are <code>PENDING</code>, <code>ONLINE</code>,
+   *       <code>OFFLINE</code>, or <code>ERROR</code>.</p>
+   */
+  State?: HypervisorState | string;
+
+  /**
+   * <p>This is the time when the most recent successful sync
+   *       of metadata occurred.</p>
+   */
+  LastSuccessfulMetadataSyncTime?: Date;
+
+  /**
+   * <p>This is the most recent status for the indicated metadata sync.</p>
+   */
+  LatestMetadataSyncStatusMessage?: string;
+
+  /**
+   * <p>This is the most recent status for the indicated metadata sync.</p>
+   */
+  LatestMetadataSyncStatus?: SyncMetadataStatus | string;
+}
+
+export interface GetHypervisorOutput {
+  /**
+   * <p>Details about the requested hypervisor.</p>
+   */
+  Hypervisor?: HypervisorDetails;
+}
+
+export interface GetHypervisorPropertyMappingsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn: string | undefined;
+}
+
+/**
+ * <p>This displays the mapping of on-premises VMware tags to the
+ *       corresponding Amazon Web Services tags.</p>
+ */
+export interface VmwareToAwsTagMapping {
+  /**
+   * <p>The is the category of VMware.</p>
+   */
+  VmwareCategory: string | undefined;
+
+  /**
+   * <p>This is the user-defined name of a VMware tag.</p>
+   */
+  VmwareTagName: string | undefined;
+
+  /**
+   * <p>The key part of the Amazon Web Services tag's key-value pair.</p>
+   */
+  AwsTagKey: string | undefined;
+
+  /**
+   * <p>The value part of the Amazon Web Services tag's key-value pair.</p>
+   */
+  AwsTagValue: string | undefined;
+}
+
+export interface GetHypervisorPropertyMappingsOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn?: string;
+
+  /**
+   * <p>This is a display of the mappings of on-premises VMware tags to the
+   *       Amazon Web Services tags.</p>
+   */
+  VmwareToAwsTagMappings?: VmwareToAwsTagMapping[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role.</p>
+   */
+  IamRoleArn?: string;
+}
+
+export interface PutHypervisorPropertyMappingsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn: string | undefined;
+
+  /**
+   * <p>This action requests the mappings of on-premises VMware tags to the
+   *       Amazon Web Services tags.</p>
+   */
+  VmwareToAwsTagMappings: VmwareToAwsTagMapping[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role.</p>
+   */
+  IamRoleArn: string | undefined;
+}
+
+export interface PutHypervisorPropertyMappingsOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn?: string;
+}
+
 export interface ImportHypervisorConfigurationInput {
   /**
    * <p>The name of the hypervisor.</p>
@@ -591,13 +862,6 @@ export interface ListHypervisorsInput {
   NextToken?: string;
 }
 
-export enum HypervisorState {
-  ERROR = "ERROR",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-}
-
 /**
  * <p>Represents the hypervisor's permissions to which the gateway will connect.</p>
  *          <p>A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
@@ -648,6 +912,20 @@ export interface ListHypervisorsOutput {
   NextToken?: string;
 }
 
+export interface StartVirtualMachinesMetadataSyncInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn: string | undefined;
+}
+
+export interface StartVirtualMachinesMetadataSyncOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
+   */
+  HypervisorArn?: string;
+}
+
 export interface UpdateHypervisorInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor to update.</p>
@@ -674,6 +952,11 @@ export interface UpdateHypervisorInput {
    * <p>The updated name for the hypervisor</p>
    */
   Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group of gateways within the requested log.</p>
+   */
+  LogGroupArn?: string;
 }
 
 export interface UpdateHypervisorOutput {
@@ -748,6 +1031,29 @@ export interface GetVirtualMachineInput {
 }
 
 /**
+ * <p>A VMware tag is a tag attached to a specific virtual machine.
+ *       A <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_Tag.html">tag</a>
+ *       is a key-value pair you can use to manage, filter, and search for your resources.</p>
+ *          <p>The content of VMware tags can be matched to Amazon Web Services tags.</p>
+ */
+export interface VmwareTag {
+  /**
+   * <p>The is the category of VMware.</p>
+   */
+  VmwareCategory?: string;
+
+  /**
+   * <p>This is the user-defined name of a VMware tag.</p>
+   */
+  VmwareTagName?: string;
+
+  /**
+   * <p>This is a user-defined description of a VMware tag.</p>
+   */
+  VmwareTagDescription?: string;
+}
+
+/**
  * <p>Your <code>VirtualMachine</code> objects, ordered by their Amazon Resource Names (ARNs).</p>
  */
 export interface VirtualMachineDetails {
@@ -781,6 +1087,12 @@ export interface VirtualMachineDetails {
    * <p>The most recent date a virtual machine was backed up, in Unix format and UTC time.</p>
    */
   LastBackupDate?: Date;
+
+  /**
+   * <p>These are the details of the VMware tags associated with the specified
+   *       virtual machine.</p>
+   */
+  VmwareTags?: VmwareTag[];
 }
 
 export interface GetVirtualMachineOutput {
@@ -875,6 +1187,45 @@ export const AssociateGatewayToServerInputFilterSensitiveLog = (obj: AssociateGa
  * @internal
  */
 export const AssociateGatewayToServerOutputFilterSensitiveLog = (obj: AssociateGatewayToServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBandwidthRateLimitScheduleInputFilterSensitiveLog = (obj: GetBandwidthRateLimitScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BandwidthRateLimitIntervalFilterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
+  obj: GetBandwidthRateLimitScheduleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBandwidthRateLimitScheduleInputFilterSensitiveLog = (obj: PutBandwidthRateLimitScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
+  obj: PutBandwidthRateLimitScheduleOutput
+): any => ({
   ...obj,
 });
 
@@ -1053,6 +1404,66 @@ export const DeleteHypervisorOutputFilterSensitiveLog = (obj: DeleteHypervisorOu
 /**
  * @internal
  */
+export const GetHypervisorInputFilterSensitiveLog = (obj: GetHypervisorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HypervisorDetailsFilterSensitiveLog = (obj: HypervisorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHypervisorOutputFilterSensitiveLog = (obj: GetHypervisorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHypervisorPropertyMappingsInputFilterSensitiveLog = (obj: GetHypervisorPropertyMappingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VmwareToAwsTagMappingFilterSensitiveLog = (obj: VmwareToAwsTagMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHypervisorPropertyMappingsOutputFilterSensitiveLog = (
+  obj: GetHypervisorPropertyMappingsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutHypervisorPropertyMappingsInputFilterSensitiveLog = (obj: PutHypervisorPropertyMappingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutHypervisorPropertyMappingsOutputFilterSensitiveLog = (
+  obj: PutHypervisorPropertyMappingsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ImportHypervisorConfigurationInputFilterSensitiveLog = (obj: ImportHypervisorConfigurationInput): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -1086,6 +1497,24 @@ export const HypervisorFilterSensitiveLog = (obj: Hypervisor): any => ({
  * @internal
  */
 export const ListHypervisorsOutputFilterSensitiveLog = (obj: ListHypervisorsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVirtualMachinesMetadataSyncInputFilterSensitiveLog = (
+  obj: StartVirtualMachinesMetadataSyncInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog = (
+  obj: StartVirtualMachinesMetadataSyncOutput
+): any => ({
   ...obj,
 });
 
@@ -1151,6 +1580,13 @@ export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput):
  * @internal
  */
 export const GetVirtualMachineInputFilterSensitiveLog = (obj: GetVirtualMachineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VmwareTagFilterSensitiveLog = (obj: VmwareTag): any => ({
   ...obj,
 });
 

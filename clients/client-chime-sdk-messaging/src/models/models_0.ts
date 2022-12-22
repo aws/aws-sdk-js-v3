@@ -2740,10 +2740,9 @@ export const ChannelMessageCallbackFilterSensitiveLog = (obj: ChannelMessageCall
   }),
   ...(obj.MessageAttributes && {
     MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-        ...acc,
-        [key]: MessageAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => (
+        (acc[key] = MessageAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2844,10 +2843,9 @@ export const ChannelMessageFilterSensitiveLog = (obj: ChannelMessage): any => ({
   ...(obj.Sender && { Sender: IdentityFilterSensitiveLog(obj.Sender) }),
   ...(obj.MessageAttributes && {
     MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-        ...acc,
-        [key]: MessageAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => (
+        (acc[key] = MessageAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2863,10 +2861,9 @@ export const ChannelMessageSummaryFilterSensitiveLog = (obj: ChannelMessageSumma
   ...(obj.Sender && { Sender: IdentityFilterSensitiveLog(obj.Sender) }),
   ...(obj.MessageAttributes && {
     MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-        ...acc,
-        [key]: MessageAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => (
+        (acc[key] = MessageAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3515,10 +3512,9 @@ export const SendChannelMessageRequestFilterSensitiveLog = (obj: SendChannelMess
   }),
   ...(obj.MessageAttributes && {
     MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-        ...acc,
-        [key]: MessageAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => (
+        (acc[key] = MessageAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),

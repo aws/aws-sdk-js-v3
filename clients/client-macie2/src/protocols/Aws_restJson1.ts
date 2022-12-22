@@ -92,6 +92,10 @@ import {
 } from "../commands/GetAdministratorAccountCommand";
 import { GetAllowListCommandInput, GetAllowListCommandOutput } from "../commands/GetAllowListCommand";
 import {
+  GetAutomatedDiscoveryConfigurationCommandInput,
+  GetAutomatedDiscoveryConfigurationCommandOutput,
+} from "../commands/GetAutomatedDiscoveryConfigurationCommand";
+import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
 } from "../commands/GetBucketStatisticsCommand";
@@ -99,6 +103,10 @@ import {
   GetClassificationExportConfigurationCommandInput,
   GetClassificationExportConfigurationCommandOutput,
 } from "../commands/GetClassificationExportConfigurationCommand";
+import {
+  GetClassificationScopeCommandInput,
+  GetClassificationScopeCommandOutput,
+} from "../commands/GetClassificationScopeCommand";
 import {
   GetCustomDataIdentifierCommandInput,
   GetCustomDataIdentifierCommandOutput,
@@ -120,6 +128,7 @@ import {
 import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "../commands/GetMacieSessionCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "../commands/GetMemberCommand";
+import { GetResourceProfileCommandInput, GetResourceProfileCommandOutput } from "../commands/GetResourceProfileCommand";
 import {
   GetRevealConfigurationCommandInput,
   GetRevealConfigurationCommandOutput,
@@ -132,6 +141,10 @@ import {
   GetSensitiveDataOccurrencesCommandInput,
   GetSensitiveDataOccurrencesCommandOutput,
 } from "../commands/GetSensitiveDataOccurrencesCommand";
+import {
+  GetSensitivityInspectionTemplateCommandInput,
+  GetSensitivityInspectionTemplateCommandOutput,
+} from "../commands/GetSensitivityInspectionTemplateCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "../commands/GetUsageTotalsCommand";
 import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "../commands/ListAllowListsCommand";
@@ -139,6 +152,10 @@ import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "../commands/ListClassificationJobsCommand";
+import {
+  ListClassificationScopesCommandInput,
+  ListClassificationScopesCommandOutput,
+} from "../commands/ListClassificationScopesCommand";
 import {
   ListCustomDataIdentifiersCommandInput,
   ListCustomDataIdentifiersCommandOutput,
@@ -158,6 +175,18 @@ import {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
+import {
+  ListResourceProfileArtifactsCommandInput,
+  ListResourceProfileArtifactsCommandOutput,
+} from "../commands/ListResourceProfileArtifactsCommand";
+import {
+  ListResourceProfileDetectionsCommandInput,
+  ListResourceProfileDetectionsCommandOutput,
+} from "../commands/ListResourceProfileDetectionsCommand";
+import {
+  ListSensitivityInspectionTemplatesCommandInput,
+  ListSensitivityInspectionTemplatesCommandOutput,
+} from "../commands/ListSensitivityInspectionTemplatesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -179,9 +208,17 @@ import {
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "../commands/UpdateAllowListCommand";
 import {
+  UpdateAutomatedDiscoveryConfigurationCommandInput,
+  UpdateAutomatedDiscoveryConfigurationCommandOutput,
+} from "../commands/UpdateAutomatedDiscoveryConfigurationCommand";
+import {
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
 } from "../commands/UpdateClassificationJobCommand";
+import {
+  UpdateClassificationScopeCommandInput,
+  UpdateClassificationScopeCommandOutput,
+} from "../commands/UpdateClassificationScopeCommand";
 import {
   UpdateFindingsFilterCommandInput,
   UpdateFindingsFilterCommandOutput,
@@ -196,9 +233,21 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
 import {
+  UpdateResourceProfileCommandInput,
+  UpdateResourceProfileCommandOutput,
+} from "../commands/UpdateResourceProfileCommand";
+import {
+  UpdateResourceProfileDetectionsCommandInput,
+  UpdateResourceProfileDetectionsCommandOutput,
+} from "../commands/UpdateResourceProfileDetectionsCommand";
+import {
   UpdateRevealConfigurationCommandInput,
   UpdateRevealConfigurationCommandOutput,
 } from "../commands/UpdateRevealConfigurationCommand";
+import {
+  UpdateSensitivityInspectionTemplateCommandInput,
+  UpdateSensitivityInspectionTemplateCommandOutput,
+} from "../commands/UpdateSensitivityInspectionTemplateCommand";
 import { Macie2ServiceException as __BaseException } from "../models/Macie2ServiceException";
 import {
   _Record,
@@ -228,11 +277,13 @@ import {
   BucketPublicAccess,
   BucketServerSideEncryption,
   BucketSortCriteria,
+  BucketStatisticsBySensitivity,
   Cell,
   ClassificationDetails,
   ClassificationExportConfiguration,
   ClassificationResult,
   ClassificationResultStatus,
+  ClassificationScopeSummary,
   ConflictException,
   CriteriaBlockForJob,
   CriteriaForJob,
@@ -243,6 +294,7 @@ import {
   DailySchedule,
   DefaultDetection,
   DetectedDataDetails,
+  Detection,
   DomainDetails,
   FederatedUser,
   Finding,
@@ -284,26 +336,31 @@ import {
   Range,
   ReplicationDetails,
   ResourceNotFoundException,
+  ResourceProfileArtifact,
   ResourcesAffected,
+  ResourceStatistics,
   RevealConfiguration,
   S3Bucket,
   S3BucketCriteriaForJob,
   S3BucketDefinitionForJob,
   S3BucketOwner,
+  S3ClassificationScope,
+  S3ClassificationScopeExclusion,
   S3Destination,
   S3JobDefinition,
   S3Object,
   S3WordsList,
   Scoping,
-  SearchResourcesBucketCriteria,
   SearchResourcesCriteria,
-  SearchResourcesCriteriaBlock,
   SearchResourcesSimpleCriterion,
-  SearchResourcesSortCriteria,
   SearchResourcesTagCriterion,
   SearchResourcesTagCriterionPair,
   SecurityHubConfiguration,
   SensitiveDataItem,
+  SensitivityAggregations,
+  SensitivityInspectionTemplateExcludes,
+  SensitivityInspectionTemplateIncludes,
+  SensitivityInspectionTemplatesEntry,
   ServerSideEncryption,
   ServiceLimit,
   ServiceQuotaExceededException,
@@ -316,6 +373,7 @@ import {
   SimpleScopeTerm,
   SortCriteria,
   Statistics,
+  SuppressDataIdentifier,
   TagCriterionForJob,
   TagCriterionPairForJob,
   TagScopeTerm,
@@ -335,6 +393,13 @@ import {
   ValidationException,
   WeeklySchedule,
 } from "../models/models_0";
+import {
+  S3ClassificationScopeExclusionUpdate,
+  S3ClassificationScopeUpdate,
+  SearchResourcesBucketCriteria,
+  SearchResourcesCriteriaBlock,
+  SearchResourcesSortCriteria,
+} from "../models/models_1";
 
 export const serializeAws_restJson1AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
@@ -843,7 +908,7 @@ export const serializeAws_restJson1DisableOrganizationAdminAccountCommand = asyn
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/admin";
   const query: any = map({
-    adminAccountId: [, input.adminAccountId!],
+    adminAccountId: [, __expectNonNull(input.adminAccountId!, `adminAccountId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1017,6 +1082,29 @@ export const serializeAws_restJson1GetAllowListCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetAutomatedDiscoveryConfigurationCommand = async (
+  input: GetAutomatedDiscoveryConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automated-discovery/configuration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetBucketStatisticsCommand = async (
   input: GetBucketStatisticsCommandInput,
   context: __SerdeContext
@@ -1054,6 +1142,27 @@ export const serializeAws_restJson1GetClassificationExportConfigurationCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/classification-export-configuration";
   let body: any;
   body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetClassificationScopeCommand = async (
+  input: GetClassificationScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/classification-scopes/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1273,6 +1382,29 @@ export const serializeAws_restJson1GetMemberCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetResourceProfileCommand = async (
+  input: GetResourceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-profiles";
+  const query: any = map({
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetRevealConfigurationCommand = async (
   input: GetRevealConfigurationCommandInput,
   context: __SerdeContext
@@ -1325,6 +1457,27 @@ export const serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityComman
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/{findingId}/reveal/availability";
   resolvedPath = __resolvedPath(resolvedPath, input, "findingId", () => input.findingId!, "{findingId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetSensitivityInspectionTemplateCommand = async (
+  input: GetSensitivityInspectionTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/sensitivity-inspections/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1441,6 +1594,30 @@ export const serializeAws_restJson1ListClassificationJobsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListClassificationScopesCommand = async (
+  input: ListClassificationScopesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/classification-scopes";
+  const query: any = map({
+    name: [, input.name!],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1607,6 +1784,82 @@ export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async 
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/admin";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListResourceProfileArtifactsCommand = async (
+  input: ListResourceProfileArtifactsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-profiles/artifacts";
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListResourceProfileDetectionsCommand = async (
+  input: ListResourceProfileDetectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-profiles/detections";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSensitivityInspectionTemplatesCommand = async (
+  input: ListSensitivityInspectionTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/sensitivity-inspections";
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -1796,7 +2049,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1838,6 +2094,31 @@ export const serializeAws_restJson1UpdateAllowListCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand = async (
+  input: UpdateAutomatedDiscoveryConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automated-discovery/configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.status != null && { status: input.status }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateClassificationJobCommand = async (
   input: UpdateClassificationJobCommandInput,
   context: __SerdeContext
@@ -1851,6 +2132,32 @@ export const serializeAws_restJson1UpdateClassificationJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.jobStatus != null && { jobStatus: input.jobStatus }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateClassificationScopeCommand = async (
+  input: UpdateClassificationScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/classification-scopes/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.s3 != null && { s3: serializeAws_restJson1S3ClassificationScopeUpdate(input.s3, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1969,6 +2276,68 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
   });
 };
 
+export const serializeAws_restJson1UpdateResourceProfileCommand = async (
+  input: UpdateResourceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-profiles";
+  const query: any = map({
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.sensitivityScoreOverride != null && { sensitivityScoreOverride: input.sensitivityScoreOverride }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateResourceProfileDetectionsCommand = async (
+  input: UpdateResourceProfileDetectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-profiles/detections";
+  const query: any = map({
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.suppressDataIdentifiers != null && {
+      suppressDataIdentifiers: serializeAws_restJson1__listOfSuppressDataIdentifier(
+        input.suppressDataIdentifiers,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateRevealConfigurationCommand = async (
   input: UpdateRevealConfigurationCommandInput,
   context: __SerdeContext
@@ -1982,6 +2351,38 @@ export const serializeAws_restJson1UpdateRevealConfigurationCommand = async (
   body = JSON.stringify({
     ...(input.configuration != null && {
       configuration: serializeAws_restJson1RevealConfiguration(input.configuration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand = async (
+  input: UpdateSensitivityInspectionTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/sensitivity-inspections/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.description != null && { description: input.description }),
+    ...(input.excludes != null && {
+      excludes: serializeAws_restJson1SensitivityInspectionTemplateExcludes(input.excludes, context),
+    }),
+    ...(input.includes != null && {
+      includes: serializeAws_restJson1SensitivityInspectionTemplateIncludes(input.includes, context),
     }),
   });
   return new __HttpRequest({
@@ -3654,6 +4055,71 @@ const deserializeAws_restJson1GetAllowListCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetAutomatedDiscoveryConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedDiscoveryConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAutomatedDiscoveryConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.classificationScopeId != null) {
+    contents.classificationScopeId = __expectString(data.classificationScopeId);
+  }
+  if (data.disabledAt != null) {
+    contents.disabledAt = __expectNonNull(__parseRfc3339DateTime(data.disabledAt));
+  }
+  if (data.firstEnabledAt != null) {
+    contents.firstEnabledAt = __expectNonNull(__parseRfc3339DateTime(data.firstEnabledAt));
+  }
+  if (data.lastUpdatedAt != null) {
+    contents.lastUpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedAt));
+  }
+  if (data.sensitivityInspectionTemplateId != null) {
+    contents.sensitivityInspectionTemplateId = __expectString(data.sensitivityInspectionTemplateId);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetAutomatedDiscoveryConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedDiscoveryConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3690,6 +4156,12 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   if (data.bucketCountBySharedAccessType != null) {
     contents.bucketCountBySharedAccessType = deserializeAws_restJson1BucketCountBySharedAccessType(
       data.bucketCountBySharedAccessType,
+      context
+    );
+  }
+  if (data.bucketStatisticsBySensitivity != null) {
+    contents.bucketStatisticsBySensitivity = deserializeAws_restJson1BucketStatisticsBySensitivity(
+      data.bucketStatisticsBySensitivity,
       context
     );
   }
@@ -3810,6 +4282,65 @@ const deserializeAws_restJson1GetClassificationExportConfigurationCommandError =
     case "ServiceQuotaExceededException":
     case "com.amazonaws.macie2#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetClassificationScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClassificationScopeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetClassificationScopeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.s3 != null) {
+    contents.s3 = deserializeAws_restJson1S3ClassificationScope(data.s3, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetClassificationScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClassificationScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4451,6 +4982,71 @@ const deserializeAws_restJson1GetMemberCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetResourceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetResourceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.profileUpdatedAt != null) {
+    contents.profileUpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.profileUpdatedAt));
+  }
+  if (data.sensitivityScore != null) {
+    contents.sensitivityScore = __expectInt32(data.sensitivityScore);
+  }
+  if (data.sensitivityScoreOverridden != null) {
+    contents.sensitivityScoreOverridden = __expectBoolean(data.sensitivityScoreOverridden);
+  }
+  if (data.statistics != null) {
+    contents.statistics = deserializeAws_restJson1ResourceStatistics(data.statistics, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetResourceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetRevealConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4608,6 +5204,71 @@ const deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommandErro
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetSensitivityInspectionTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitivityInspectionTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSensitivityInspectionTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.excludes != null) {
+    contents.excludes = deserializeAws_restJson1SensitivityInspectionTemplateExcludes(data.excludes, context);
+  }
+  if (data.includes != null) {
+    contents.includes = deserializeAws_restJson1SensitivityInspectionTemplateIncludes(data.includes, context);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.sensitivityInspectionTemplateId != null) {
+    contents.sensitivityInspectionTemplateId = __expectString(data.sensitivityInspectionTemplateId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetSensitivityInspectionTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitivityInspectionTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4844,6 +5505,62 @@ const deserializeAws_restJson1ListClassificationJobsCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.macie2#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListClassificationScopesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClassificationScopesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListClassificationScopesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.classificationScopes != null) {
+    contents.classificationScopes = deserializeAws_restJson1__listOfClassificationScopeSummary(
+      data.classificationScopes,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListClassificationScopesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClassificationScopesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -5274,6 +5991,180 @@ const deserializeAws_restJson1ListOrganizationAdminAccountsCommandError = async 
   }
 };
 
+export const deserializeAws_restJson1ListResourceProfileArtifactsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceProfileArtifactsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListResourceProfileArtifactsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.artifacts != null) {
+    contents.artifacts = deserializeAws_restJson1__listOfResourceProfileArtifact(data.artifacts, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListResourceProfileArtifactsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceProfileArtifactsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListResourceProfileDetectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceProfileDetectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListResourceProfileDetectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.detections != null) {
+    contents.detections = deserializeAws_restJson1__listOfDetection(data.detections, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListResourceProfileDetectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceProfileDetectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListSensitivityInspectionTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSensitivityInspectionTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSensitivityInspectionTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.sensitivityInspectionTemplates != null) {
+    contents.sensitivityInspectionTemplates = deserializeAws_restJson1__listOfSensitivityInspectionTemplatesEntry(
+      data.sensitivityInspectionTemplates,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListSensitivityInspectionTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSensitivityInspectionTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5665,6 +6556,53 @@ const deserializeAws_restJson1UpdateAllowListCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5704,6 +6642,56 @@ const deserializeAws_restJson1UpdateClassificationJobCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.macie2#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateClassificationScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClassificationScopeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateClassificationScopeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateClassificationScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClassificationScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -5951,6 +6939,112 @@ const deserializeAws_restJson1UpdateOrganizationConfigurationCommandError = asyn
   }
 };
 
+export const deserializeAws_restJson1UpdateResourceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateResourceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateResourceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateResourceProfileDetectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceProfileDetectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateResourceProfileDetectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateResourceProfileDetectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceProfileDetectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateRevealConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5984,6 +7078,56 @@ const deserializeAws_restJson1UpdateRevealConfigurationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.macie2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSensitivityInspectionTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSensitivityInspectionTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -6184,6 +7328,14 @@ const serializeAws_restJson1__listOfS3BucketDefinitionForJob = (
     });
 };
 
+const serializeAws_restJson1__listOfS3BucketName = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1__listOfSearchResourcesCriteria = (
   input: SearchResourcesCriteria[],
   context: __SerdeContext
@@ -6203,6 +7355,17 @@ const serializeAws_restJson1__listOfSearchResourcesTagCriterionPair = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1SearchResourcesTagCriterionPair(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfSuppressDataIdentifier = (
+  input: SuppressDataIdentifier[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SuppressDataIdentifier(entry, context);
     });
 };
 
@@ -6258,10 +7421,8 @@ const serializeAws_restJson1BucketCriteria = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
-    };
+    acc[key] = serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context);
+    return acc;
   }, {});
 };
 
@@ -6323,10 +7484,8 @@ const serializeAws_restJson1Criterion = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
-    };
+    acc[key] = serializeAws_restJson1CriterionAdditionalProperties(value, context);
+    return acc;
   }, {});
 };
 
@@ -6451,6 +7610,29 @@ const serializeAws_restJson1S3BucketDefinitionForJob = (
   return {
     ...(input.accountId != null && { accountId: input.accountId }),
     ...(input.buckets != null && { buckets: serializeAws_restJson1__listOf__string(input.buckets, context) }),
+  };
+};
+
+const serializeAws_restJson1S3ClassificationScopeExclusionUpdate = (
+  input: S3ClassificationScopeExclusionUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucketNames != null && {
+      bucketNames: serializeAws_restJson1__listOfS3BucketName(input.bucketNames, context),
+    }),
+    ...(input.operation != null && { operation: input.operation }),
+  };
+};
+
+const serializeAws_restJson1S3ClassificationScopeUpdate = (
+  input: S3ClassificationScopeUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.excludes != null && {
+      excludes: serializeAws_restJson1S3ClassificationScopeExclusionUpdate(input.excludes, context),
+    }),
   };
 };
 
@@ -6580,6 +7762,34 @@ const serializeAws_restJson1SecurityHubConfiguration = (
   };
 };
 
+const serializeAws_restJson1SensitivityInspectionTemplateExcludes = (
+  input: SensitivityInspectionTemplateExcludes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.managedDataIdentifierIds != null && {
+      managedDataIdentifierIds: serializeAws_restJson1__listOf__string(input.managedDataIdentifierIds, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SensitivityInspectionTemplateIncludes = (
+  input: SensitivityInspectionTemplateIncludes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.allowListIds != null && {
+      allowListIds: serializeAws_restJson1__listOf__string(input.allowListIds, context),
+    }),
+    ...(input.customDataIdentifierIds != null && {
+      customDataIdentifierIds: serializeAws_restJson1__listOf__string(input.customDataIdentifierIds, context),
+    }),
+    ...(input.managedDataIdentifierIds != null && {
+      managedDataIdentifierIds: serializeAws_restJson1__listOf__string(input.managedDataIdentifierIds, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1SeverityLevel = (input: SeverityLevel, context: __SerdeContext): any => {
   return {
     ...(input.occurrencesThreshold != null && { occurrencesThreshold: input.occurrencesThreshold }),
@@ -6618,6 +7828,13 @@ const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __Serd
   };
 };
 
+const serializeAws_restJson1SuppressDataIdentifier = (input: SuppressDataIdentifier, context: __SerdeContext): any => {
+  return {
+    ...(input.id != null && { id: input.id }),
+    ...(input.type != null && { type: input.type }),
+  };
+};
+
 const serializeAws_restJson1TagCriterionForJob = (input: TagCriterionForJob, context: __SerdeContext): any => {
   return {
     ...(input.comparator != null && { comparator: input.comparator }),
@@ -6639,10 +7856,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6746,6 +7961,21 @@ const deserializeAws_restJson1__listOfBucketMetadata = (output: any, context: __
   return retVal;
 };
 
+const deserializeAws_restJson1__listOfClassificationScopeSummary = (
+  output: any,
+  context: __SerdeContext
+): ClassificationScopeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClassificationScopeSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1__listOfCriteriaForJob = (output: any, context: __SerdeContext): CriteriaForJob[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6784,6 +8014,18 @@ const deserializeAws_restJson1__listOfDetectedDataDetails = (
         return null as any;
       }
       return deserializeAws_restJson1DetectedDataDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfDetection = (output: any, context: __SerdeContext): Detection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Detection(entry, context);
     });
   return retVal;
 };
@@ -6914,6 +8156,21 @@ const deserializeAws_restJson1__listOfMember = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1__listOfResourceProfileArtifact = (
+  output: any,
+  context: __SerdeContext
+): ResourceProfileArtifact[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourceProfileArtifact(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1__listOfS3BucketDefinitionForJob = (
   output: any,
   context: __SerdeContext
@@ -6925,6 +8182,33 @@ const deserializeAws_restJson1__listOfS3BucketDefinitionForJob = (
         return null as any;
       }
       return deserializeAws_restJson1S3BucketDefinitionForJob(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfS3BucketName = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfSensitivityInspectionTemplatesEntry = (
+  output: any,
+  context: __SerdeContext
+): SensitivityInspectionTemplatesEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SensitivityInspectionTemplatesEntry(entry, context);
     });
   return retVal;
 };
@@ -7210,6 +8494,10 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
     jobDetails: output.jobDetails != null ? deserializeAws_restJson1JobDetails(output.jobDetails, context) : undefined,
+    lastAutomatedDiscoveryTime:
+      output.lastAutomatedDiscoveryTime != null
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastAutomatedDiscoveryTime))
+        : undefined,
     lastUpdated: output.lastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdated)) : undefined,
     objectCount: __expectLong(output.objectCount),
     objectCountByEncryptionType:
@@ -7225,6 +8513,7 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
       output.replicationDetails != null
         ? deserializeAws_restJson1ReplicationDetails(output.replicationDetails, context)
         : undefined,
+    sensitivityScore: __expectInt32(output.sensitivityScore),
     serverSideEncryption:
       output.serverSideEncryption != null
         ? deserializeAws_restJson1BucketServerSideEncryption(output.serverSideEncryption, context)
@@ -7285,6 +8574,28 @@ const deserializeAws_restJson1BucketServerSideEncryption = (
   return {
     kmsMasterKeyId: __expectString(output.kmsMasterKeyId),
     type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1BucketStatisticsBySensitivity = (
+  output: any,
+  context: __SerdeContext
+): BucketStatisticsBySensitivity => {
+  return {
+    classificationError:
+      output.classificationError != null
+        ? deserializeAws_restJson1SensitivityAggregations(output.classificationError, context)
+        : undefined,
+    notClassified:
+      output.notClassified != null
+        ? deserializeAws_restJson1SensitivityAggregations(output.notClassified, context)
+        : undefined,
+    notSensitive:
+      output.notSensitive != null
+        ? deserializeAws_restJson1SensitivityAggregations(output.notSensitive, context)
+        : undefined,
+    sensitive:
+      output.sensitive != null ? deserializeAws_restJson1SensitivityAggregations(output.sensitive, context) : undefined,
   } as any;
 };
 
@@ -7355,6 +8666,16 @@ const deserializeAws_restJson1ClassificationResultStatus = (
   } as any;
 };
 
+const deserializeAws_restJson1ClassificationScopeSummary = (
+  output: any,
+  context: __SerdeContext
+): ClassificationScopeSummary => {
+  return {
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+  } as any;
+};
+
 const deserializeAws_restJson1CriteriaBlockForJob = (output: any, context: __SerdeContext): CriteriaBlockForJob => {
   return {
     and: output.and != null ? deserializeAws_restJson1__listOfCriteriaForJob(output.and, context) : undefined,
@@ -7383,10 +8704,8 @@ const deserializeAws_restJson1Criterion = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1CriterionAdditionalProperties(value, context),
-      };
+      acc[key] = deserializeAws_restJson1CriterionAdditionalProperties(value, context);
+      return acc;
     },
     {}
   );
@@ -7479,6 +8798,17 @@ const deserializeAws_restJson1DefaultDetections = (output: any, context: __Serde
 const deserializeAws_restJson1DetectedDataDetails = (output: any, context: __SerdeContext): DetectedDataDetails => {
   return {
     value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_restJson1Detection = (output: any, context: __SerdeContext): Detection => {
+  return {
+    arn: __expectString(output.arn),
+    count: __expectLong(output.count),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    suppressed: __expectBoolean(output.suppressed),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -7750,11 +9080,16 @@ const deserializeAws_restJson1MatchingBucket = (output: any, context: __SerdeCon
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
     jobDetails: output.jobDetails != null ? deserializeAws_restJson1JobDetails(output.jobDetails, context) : undefined,
+    lastAutomatedDiscoveryTime:
+      output.lastAutomatedDiscoveryTime != null
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastAutomatedDiscoveryTime))
+        : undefined,
     objectCount: __expectLong(output.objectCount),
     objectCountByEncryptionType:
       output.objectCountByEncryptionType != null
         ? deserializeAws_restJson1ObjectCountByEncryptionType(output.objectCountByEncryptionType, context)
         : undefined,
+    sensitivityScore: __expectInt32(output.sensitivityScore),
     sizeInBytes: __expectLong(output.sizeInBytes),
     sizeInBytesCompressed: __expectLong(output.sizeInBytesCompressed),
     unclassifiableObjectCount:
@@ -7906,10 +9241,35 @@ const deserializeAws_restJson1ReplicationDetails = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1ResourceProfileArtifact = (
+  output: any,
+  context: __SerdeContext
+): ResourceProfileArtifact => {
+  return {
+    arn: __expectString(output.arn),
+    classificationResultStatus: __expectString(output.classificationResultStatus),
+    sensitive: __expectBoolean(output.sensitive),
+  } as any;
+};
+
 const deserializeAws_restJson1ResourcesAffected = (output: any, context: __SerdeContext): ResourcesAffected => {
   return {
     s3Bucket: output.s3Bucket != null ? deserializeAws_restJson1S3Bucket(output.s3Bucket, context) : undefined,
     s3Object: output.s3Object != null ? deserializeAws_restJson1S3Object(output.s3Object, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceStatistics = (output: any, context: __SerdeContext): ResourceStatistics => {
+  return {
+    totalBytesClassified: __expectLong(output.totalBytesClassified),
+    totalDetections: __expectLong(output.totalDetections),
+    totalDetectionsSuppressed: __expectLong(output.totalDetectionsSuppressed),
+    totalItemsClassified: __expectLong(output.totalItemsClassified),
+    totalItemsSensitive: __expectLong(output.totalItemsSensitive),
+    totalItemsSkipped: __expectLong(output.totalItemsSkipped),
+    totalItemsSkippedInvalidEncryption: __expectLong(output.totalItemsSkippedInvalidEncryption),
+    totalItemsSkippedInvalidKms: __expectLong(output.totalItemsSkippedInvalidKms),
+    totalItemsSkippedPermissionDenied: __expectLong(output.totalItemsSkippedPermissionDenied),
   } as any;
 };
 
@@ -7965,6 +9325,27 @@ const deserializeAws_restJson1S3BucketOwner = (output: any, context: __SerdeCont
   return {
     displayName: __expectString(output.displayName),
     id: __expectString(output.id),
+  } as any;
+};
+
+const deserializeAws_restJson1S3ClassificationScope = (output: any, context: __SerdeContext): S3ClassificationScope => {
+  return {
+    excludes:
+      output.excludes != null
+        ? deserializeAws_restJson1S3ClassificationScopeExclusion(output.excludes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3ClassificationScopeExclusion = (
+  output: any,
+  context: __SerdeContext
+): S3ClassificationScopeExclusion => {
+  return {
+    bucketNames:
+      output.bucketNames != null
+        ? deserializeAws_restJson1__listOfS3BucketName(output.bucketNames, context)
+        : undefined,
   } as any;
 };
 
@@ -8064,11 +9445,61 @@ const deserializeAws_restJson1SensitiveDataOccurrences = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1__listOfDetectedDataDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1__listOfDetectedDataDetails(value, context);
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1SensitivityAggregations = (
+  output: any,
+  context: __SerdeContext
+): SensitivityAggregations => {
+  return {
+    classifiableSizeInBytes: __expectLong(output.classifiableSizeInBytes),
+    publiclyAccessibleCount: __expectLong(output.publiclyAccessibleCount),
+    totalCount: __expectLong(output.totalCount),
+    totalSizeInBytes: __expectLong(output.totalSizeInBytes),
+  } as any;
+};
+
+const deserializeAws_restJson1SensitivityInspectionTemplateExcludes = (
+  output: any,
+  context: __SerdeContext
+): SensitivityInspectionTemplateExcludes => {
+  return {
+    managedDataIdentifierIds:
+      output.managedDataIdentifierIds != null
+        ? deserializeAws_restJson1__listOf__string(output.managedDataIdentifierIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SensitivityInspectionTemplateIncludes = (
+  output: any,
+  context: __SerdeContext
+): SensitivityInspectionTemplateIncludes => {
+  return {
+    allowListIds:
+      output.allowListIds != null ? deserializeAws_restJson1__listOf__string(output.allowListIds, context) : undefined,
+    customDataIdentifierIds:
+      output.customDataIdentifierIds != null
+        ? deserializeAws_restJson1__listOf__string(output.customDataIdentifierIds, context)
+        : undefined,
+    managedDataIdentifierIds:
+      output.managedDataIdentifierIds != null
+        ? deserializeAws_restJson1__listOf__string(output.managedDataIdentifierIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SensitivityInspectionTemplatesEntry = (
+  output: any,
+  context: __SerdeContext
+): SensitivityInspectionTemplatesEntry => {
+  return {
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+  } as any;
 };
 
 const deserializeAws_restJson1ServerSideEncryption = (output: any, context: __SerdeContext): ServerSideEncryption => {
@@ -8192,10 +9623,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8237,6 +9666,10 @@ const deserializeAws_restJson1UsageByAccount = (output: any, context: __SerdeCon
 const deserializeAws_restJson1UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
   return {
     accountId: __expectString(output.accountId),
+    automatedDiscoveryFreeTrialStartDate:
+      output.automatedDiscoveryFreeTrialStartDate != null
+        ? __expectNonNull(__parseRfc3339DateTime(output.automatedDiscoveryFreeTrialStartDate))
+        : undefined,
     freeTrialStartDate:
       output.freeTrialStartDate != null
         ? __expectNonNull(__parseRfc3339DateTime(output.freeTrialStartDate))

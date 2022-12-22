@@ -31,8 +31,8 @@ export interface DescribeDomainChangeProgressCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns information about the current blue/green deployment happening on a domain, including
- *       a change ID, status, and progress stages.</p>
+ * <p>Returns information about the current blue/green deployment happening on an Amazon
+ *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

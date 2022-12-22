@@ -29,7 +29,7 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration details for a specific environment.</p>
+ * <p>Updates the configuration details for a specific runtime environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

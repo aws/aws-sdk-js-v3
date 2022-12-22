@@ -19,7 +19,7 @@ import {
   ModifyVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServiceConfigurationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
   serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
@@ -36,7 +36,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
  *             required for requests to connect to your endpoint service through an interface VPC
  *             endpoint.</p>
- * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
+ *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
  *             domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

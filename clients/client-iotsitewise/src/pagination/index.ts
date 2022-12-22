@@ -12,7 +12,9 @@ export * from "./GetInterpolatedAssetPropertyValuesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAccessPoliciesPaginator";
+export * from "./ListAssetModelPropertiesPaginator";
 export * from "./ListAssetModelsPaginator";
+export * from "./ListAssetPropertiesPaginator";
 export * from "./ListAssetRelationshipsPaginator";
 export * from "./ListAssetsPaginator";
 export * from "./ListAssociatedAssetsPaginator";

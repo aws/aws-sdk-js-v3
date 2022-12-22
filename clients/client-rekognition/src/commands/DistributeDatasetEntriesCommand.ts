@@ -39,7 +39,6 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  *          <p>Distributing a dataset takes a while to complete. To check the status call <code>DescribeDataset</code>. The operation
  *          is complete when the <code>Status</code> field for the training dataset and the test dataset is <code>UPDATE_COMPLETE</code>.
  *          If the dataset split fails, the value of <code>Status</code> is <code>UPDATE_FAILED</code>.</p>
- *
  *          <p>This operation requires permissions to perform the <code>rekognition:DistributeDatasetEntries</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -19,7 +19,7 @@ import {
   CreateSubnetCidrReservationRequestFilterSensitiveLog,
   CreateSubnetCidrReservationResult,
   CreateSubnetCidrReservationResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSubnetCidrReservationCommand,
   serializeAws_ec2CreateSubnetCidrReservationCommand,

@@ -9,7 +9,8 @@
 
 AWS SDK for JavaScript Route53Domains Client for Node.js, Browser and React Native.
 
-<p>Amazon Route 53 API actions let you register domain names and perform related operations.</p>
+<p>Amazon Route 53 API actions let you register domain names and perform related
+operations.</p>
 
 ## Installing
 

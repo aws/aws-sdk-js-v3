@@ -33,6 +33,16 @@ import {
   GetExpenseAnalysisCommandOutput,
 } from "./commands/GetExpenseAnalysisCommand";
 import {
+  GetLendingAnalysisCommand,
+  GetLendingAnalysisCommandInput,
+  GetLendingAnalysisCommandOutput,
+} from "./commands/GetLendingAnalysisCommand";
+import {
+  GetLendingAnalysisSummaryCommand,
+  GetLendingAnalysisSummaryCommandInput,
+  GetLendingAnalysisSummaryCommandOutput,
+} from "./commands/GetLendingAnalysisSummaryCommand";
+import {
   StartDocumentAnalysisCommand,
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -47,6 +57,11 @@ import {
   StartExpenseAnalysisCommandInput,
   StartExpenseAnalysisCommandOutput,
 } from "./commands/StartExpenseAnalysisCommand";
+import {
+  StartLendingAnalysisCommand,
+  StartLendingAnalysisCommandInput,
+  StartLendingAnalysisCommandOutput,
+} from "./commands/StartLendingAnalysisCommand";
 import { TextractClient } from "./TextractClient";
 
 /**
@@ -76,6 +91,11 @@ export class Textract extends TextractClient {
    *                WORD <code>Block</code> objects. All lines and words that are detected in the
    *                document are returned (including text that doesn't have a relationship with the value
    *                of <code>FeatureTypes</code>). </p>
+   *             </li>
+   *             <li>
+   *                <p>Signatures. A SIGNATURE <code>Block</code> object contains the location information
+   *                of a signature in a document. If used in conjunction with forms or tables, a signature
+   *                can be given a Key-Value pairing or be detected in the cell of a table.</p>
    *             </li>
    *             <li>
    *                <p>Query. A QUERY Block object contains the query text, alias and link to the
@@ -452,6 +472,91 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
+   *             lending document. </p>
+   *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
+   *             which returns a job identifier (<code>JobId</code>). When the text analysis operation
+   *             finishes, Amazon Textract publishes a completion status to the Amazon Simple
+   *             Notification Service (Amazon SNS) topic that's registered in the initial call to
+   *                 <code>StartLendingAnalysis</code>. </p>
+   *         <p>To get the results of the text analysis operation, first check that the status value
+   *             published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass
+   *             the job identifier (<code>JobId</code>) from the initial call to
+   *                 <code>StartLendingAnalysis</code>.</p>
+   */
+  public getLendingAnalysis(
+    args: GetLendingAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLendingAnalysisCommandOutput>;
+  public getLendingAnalysis(
+    args: GetLendingAnalysisCommandInput,
+    cb: (err: any, data?: GetLendingAnalysisCommandOutput) => void
+  ): void;
+  public getLendingAnalysis(
+    args: GetLendingAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLendingAnalysisCommandOutput) => void
+  ): void;
+  public getLendingAnalysis(
+    args: GetLendingAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLendingAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: GetLendingAnalysisCommandOutput) => void
+  ): Promise<GetLendingAnalysisCommandOutput> | void {
+    const command = new GetLendingAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
+   *    text in a lending document. The returned summary consists of information about documents grouped
+   *    together by a common document type. Information like detected signatures, page numbers, and split
+   *    documents is returned with respect to the type of grouped document. </p>
+   *          <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>, which
+   *    returns a job identifier (<code>JobId</code>). When the text analysis operation finishes, Amazon
+   *    Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
+   *    topic that's registered in the initial call to <code>StartLendingAnalysis</code>. </p>
+   *          <p>To get the results of the text analysis operation, first check that the status value
+   *    published to the Amazon SNS topic is SUCCEEDED. If so, call
+   *     <code>GetLendingAnalysisSummary</code>, and pass the job identifier (<code>JobId</code>) from
+   *    the initial call to <code>StartLendingAnalysis</code>.</p>
+   */
+  public getLendingAnalysisSummary(
+    args: GetLendingAnalysisSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLendingAnalysisSummaryCommandOutput>;
+  public getLendingAnalysisSummary(
+    args: GetLendingAnalysisSummaryCommandInput,
+    cb: (err: any, data?: GetLendingAnalysisSummaryCommandOutput) => void
+  ): void;
+  public getLendingAnalysisSummary(
+    args: GetLendingAnalysisSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLendingAnalysisSummaryCommandOutput) => void
+  ): void;
+  public getLendingAnalysisSummary(
+    args: GetLendingAnalysisSummaryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLendingAnalysisSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetLendingAnalysisSummaryCommandOutput) => void
+  ): Promise<GetLendingAnalysisSummaryCommandOutput> | void {
+    const command = new GetLendingAnalysisSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts the asynchronous analysis of an input document for relationships between detected
    *          items such as key-value pairs, tables, and selection elements.</p>
    *
@@ -585,6 +690,68 @@ export class Textract extends TextractClient {
     cb?: (err: any, data?: StartExpenseAnalysisCommandOutput) => void
   ): Promise<StartExpenseAnalysisCommandOutput> | void {
     const command = new StartExpenseAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the classification and analysis of an input document.
+   *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
+   *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an
+   *    Amazon S3 bucket.</p>
+   *          <p>
+   *             <code>StartLendingAnalysis</code> can analyze text in documents that are in one of the
+   *    following formats: JPEG, PNG, TIFF, PDF. Use <code>DocumentLocation</code> to specify the bucket
+   *    name and the file name of the document. </p>
+   *          <p>
+   *             <code>StartLendingAnalysis</code> returns a job identifier (<code>JobId</code>) that you use
+   *    to get the results of the operation. When the text analysis is finished, Amazon Textract
+   *    publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that
+   *    you specify in <code>NotificationChannel</code>. To get the results of the text analysis
+   *    operation, first check that the status value published to the Amazon SNS topic is SUCCEEDED. If
+   *    the status is SUCCEEDED you can call either <code>GetLendingAnalysis</code> or
+   *     <code>GetLendingAnalysisSummary</code> and provide the <code>JobId</code> to obtain the results
+   *    of the analysis.</p>
+   *          <p>If using <code>OutputConfig</code> to specify an Amazon S3 bucket, the output will be contained
+   *    within the specified prefix in a directory labeled with the job-id. In the directory there are 3
+   *    sub-directories: </p>
+   *          <ul>
+   *             <li>
+   *                <p>detailedResponse (contains the GetLendingAnalysis response)</p>
+   *             </li>
+   *             <li>
+   *                <p>summaryResponse (for the GetLendingAnalysisSummary response)</p>
+   *             </li>
+   *             <li>
+   *                <p>splitDocuments (documents split across logical boundaries)</p>
+   *             </li>
+   *          </ul>
+   */
+  public startLendingAnalysis(
+    args: StartLendingAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartLendingAnalysisCommandOutput>;
+  public startLendingAnalysis(
+    args: StartLendingAnalysisCommandInput,
+    cb: (err: any, data?: StartLendingAnalysisCommandOutput) => void
+  ): void;
+  public startLendingAnalysis(
+    args: StartLendingAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartLendingAnalysisCommandOutput) => void
+  ): void;
+  public startLendingAnalysis(
+    args: StartLendingAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLendingAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartLendingAnalysisCommandOutput) => void
+  ): Promise<StartLendingAnalysisCommandOutput> | void {
+    const command = new StartLendingAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

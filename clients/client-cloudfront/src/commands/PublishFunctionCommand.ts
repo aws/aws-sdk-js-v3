@@ -29,15 +29,16 @@ export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
- * 			stage to <code>LIVE</code>. This automatically updates all cache behaviors that are
- * 			using this function to use the newly published copy in the <code>LIVE</code>
- * 			stage.</p>
- * 		       <p>When a function is published to the <code>LIVE</code> stage, you can attach the function to
- * 			a distribution’s cache behavior, using the function’s Amazon Resource Name (ARN).</p>
- * 		       <p>To publish a function, you must provide the function’s name and version (<code>ETag</code>
- * 			value). To get these values, you can use <code>ListFunctions</code> and
- * 			<code>DescribeFunction</code>.</p>
+ * <p>Publishes a CloudFront function by copying the function code from the
+ * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
+ * 			cache behaviors that are using this function to use the newly published copy in the
+ * 				<code>LIVE</code> stage.</p>
+ *          <p>When a function is published to the <code>LIVE</code> stage, you can attach the
+ * 			function to a distribution's cache behavior, using the function's Amazon Resource Name
+ * 			(ARN).</p>
+ *          <p>To publish a function, you must provide the function's name and version
+ * 				(<code>ETag</code> value). To get these values, you can use
+ * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

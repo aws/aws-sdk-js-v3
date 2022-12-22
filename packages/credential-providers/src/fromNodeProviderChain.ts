@@ -1,6 +1,6 @@
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
 import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
-import { CredentialProvider, Pluggable } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface fromNodeProviderChainInit extends DefaultProviderInit {
   clientConfig?: STSClientConfig;
@@ -32,7 +32,7 @@ export interface fromNodeProviderChainInit extends DefaultProviderInit {
  * })
  * ```
  */
-export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): CredentialProvider =>
+export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): AwsCredentialIdentityProvider =>
   defaultProvider({
     ...init,
     roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig, init.clientPlugins),

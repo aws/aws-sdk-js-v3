@@ -33,7 +33,7 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
 
 /**
  * <p>
- *       List the resources associated to a custom line item.
+ *       List the resources that are associated to a custom line item.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

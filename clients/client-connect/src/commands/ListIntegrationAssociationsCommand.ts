@@ -19,7 +19,7 @@ import {
   ListIntegrationAssociationsRequestFilterSensitiveLog,
   ListIntegrationAssociationsResponse,
   ListIntegrationAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListIntegrationAssociationsCommand,
   serializeAws_restJson1ListIntegrationAssociationsCommand,

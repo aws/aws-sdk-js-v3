@@ -30,8 +30,7 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
 
 /**
  * <p>Provides information about the specified Call Analytics category.</p>
- *         <p>To get a list of your Call Analytics categories, use the
- *              operation.</p>
+ *          <p>To get a list of your Call Analytics categories, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -19,7 +19,7 @@ import {
   DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog,
   DeleteVpcEndpointConnectionNotificationsResult,
   DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
   serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,

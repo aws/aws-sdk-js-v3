@@ -31,7 +31,6 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 /**
  * <p>Ends the specified contact. This call does not work for the following initiation
  *    methods:</p>
- *
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>

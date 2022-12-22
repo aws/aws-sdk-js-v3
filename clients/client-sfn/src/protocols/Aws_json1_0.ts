@@ -12,7 +12,9 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -28,6 +30,7 @@ import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "../comm
 import { DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput } from "../commands/DeleteStateMachineCommand";
 import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "../commands/DescribeActivityCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "../commands/DescribeExecutionCommand";
+import { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "../commands/DescribeMapRunCommand";
 import {
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -43,6 +46,7 @@ import {
 } from "../commands/GetExecutionHistoryCommand";
 import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "../commands/ListActivitiesCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
+import { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "../commands/ListMapRunsCommand";
 import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "../commands/ListStateMachinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -56,6 +60,7 @@ import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from 
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "../commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "../commands/UpdateMapRunCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "../commands/UpdateStateMachineCommand";
 import {
   ActivityDoesNotExist,
@@ -83,6 +88,8 @@ import {
   DescribeActivityOutput,
   DescribeExecutionInput,
   DescribeExecutionOutput,
+  DescribeMapRunInput,
+  DescribeMapRunOutput,
   DescribeStateMachineForExecutionInput,
   DescribeStateMachineForExecutionOutput,
   DescribeStateMachineInput,
@@ -120,6 +127,8 @@ import {
   ListActivitiesOutput,
   ListExecutionsInput,
   ListExecutionsOutput,
+  ListMapRunsInput,
+  ListMapRunsOutput,
   ListStateMachinesInput,
   ListStateMachinesOutput,
   ListTagsForResourceInput,
@@ -127,6 +136,11 @@ import {
   LogDestination,
   LoggingConfiguration,
   MapIterationEventDetails,
+  MapRunExecutionCounts,
+  MapRunFailedEventDetails,
+  MapRunItemCounts,
+  MapRunListItem,
+  MapRunStartedEventDetails,
   MapStateStartedEventDetails,
   MissingRequiredParameter,
   ResourceNotFound,
@@ -153,6 +167,7 @@ import {
   Tag,
   TagResourceInput,
   TagResourceOutput,
+  TaskCredentials,
   TaskDoesNotExist,
   TaskFailedEventDetails,
   TaskScheduledEventDetails,
@@ -167,8 +182,11 @@ import {
   TracingConfiguration,
   UntagResourceInput,
   UntagResourceOutput,
+  UpdateMapRunInput,
+  UpdateMapRunOutput,
   UpdateStateMachineInput,
   UpdateStateMachineOutput,
+  ValidationException,
 } from "../models/models_0";
 import { SFNServiceException as __BaseException } from "../models/SFNServiceException";
 
@@ -250,6 +268,19 @@ export const serializeAws_json1_0DescribeExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeMapRunCommand = async (
+  input: DescribeMapRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSStepFunctions.DescribeMapRun",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeMapRunInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeStateMachineCommand = async (
   input: DescribeStateMachineCommandInput,
   context: __SerdeContext
@@ -325,6 +356,19 @@ export const serializeAws_json1_0ListExecutionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListExecutionsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListMapRunsCommand = async (
+  input: ListMapRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSStepFunctions.ListMapRuns",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListMapRunsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -462,6 +506,19 @@ export const serializeAws_json1_0UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateMapRunCommand = async (
+  input: UpdateMapRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSStepFunctions.UpdateMapRun",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateMapRunInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -664,6 +721,9 @@ const deserializeAws_json1_0DeleteStateMachineCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -752,6 +812,50 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DescribeMapRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMapRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeMapRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeMapRunOutput(data, context);
+  const response: DescribeMapRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeMapRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMapRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1019,12 +1123,65 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
       throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
       throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListMapRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMapRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListMapRunsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListMapRunsOutput(data, context);
+  const response: ListMapRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListMapRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMapRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ExecutionDoesNotExist":
+    case "com.amazonaws.sfn#ExecutionDoesNotExist":
+      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    case "InvalidToken":
+    case "com.amazonaws.sfn#InvalidToken":
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1313,6 +1470,9 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1413,6 +1573,9 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1515,6 +1678,53 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateMapRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMapRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateMapRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateMapRunOutput(data, context);
+  const response: UpdateMapRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateMapRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMapRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0UpdateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1563,6 +1773,9 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1886,6 +2099,19 @@ const deserializeAws_json1_0TooManyTagsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_0ValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_0CloudWatchLogsLogGroup = (input: CloudWatchLogsLogGroup, context: __SerdeContext): any => {
   return {
     ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
@@ -1939,6 +2165,12 @@ const serializeAws_json1_0DescribeExecutionInput = (input: DescribeExecutionInpu
   };
 };
 
+const serializeAws_json1_0DescribeMapRunInput = (input: DescribeMapRunInput, context: __SerdeContext): any => {
+  return {
+    ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
+  };
+};
+
 const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
   input: DescribeStateMachineForExecutionInput,
   context: __SerdeContext
@@ -1986,10 +2218,19 @@ const serializeAws_json1_0ListActivitiesInput = (input: ListActivitiesInput, con
 
 const serializeAws_json1_0ListExecutionsInput = (input: ListExecutionsInput, context: __SerdeContext): any => {
   return {
+    ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.stateMachineArn != null && { stateMachineArn: input.stateMachineArn }),
     ...(input.statusFilter != null && { statusFilter: input.statusFilter }),
+  };
+};
+
+const serializeAws_json1_0ListMapRunsInput = (input: ListMapRunsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.executionArn != null && { executionArn: input.executionArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2122,6 +2363,17 @@ const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, conte
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
     ...(input.tagKeys != null && { tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_0UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext): any => {
+  return {
+    ...(input.mapRunArn != null && { mapRunArn: input.mapRunArn }),
+    ...(input.maxConcurrency != null && { maxConcurrency: input.maxConcurrency }),
+    ...(input.toleratedFailureCount != null && { toleratedFailureCount: input.toleratedFailureCount }),
+    ...(input.toleratedFailurePercentage != null && {
+      toleratedFailurePercentage: __serializeFloat(input.toleratedFailurePercentage),
+    }),
   };
 };
 
@@ -2323,12 +2575,15 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
   context: __SerdeContext
 ): DescribeExecutionOutput => {
   return {
+    cause: __expectString(output.cause),
+    error: __expectString(output.error),
     executionArn: __expectString(output.executionArn),
     input: __expectString(output.input),
     inputDetails:
       output.inputDetails != null
         ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
         : undefined,
+    mapRunArn: __expectString(output.mapRunArn),
     name: __expectString(output.name),
     output: __expectString(output.output),
     outputDetails:
@@ -2345,16 +2600,39 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeMapRunOutput = (output: any, context: __SerdeContext): DescribeMapRunOutput => {
+  return {
+    executionArn: __expectString(output.executionArn),
+    executionCounts:
+      output.executionCounts != null
+        ? deserializeAws_json1_0MapRunExecutionCounts(output.executionCounts, context)
+        : undefined,
+    itemCounts:
+      output.itemCounts != null ? deserializeAws_json1_0MapRunItemCounts(output.itemCounts, context) : undefined,
+    mapRunArn: __expectString(output.mapRunArn),
+    maxConcurrency: __expectInt32(output.maxConcurrency),
+    startDate:
+      output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
+    status: __expectString(output.status),
+    stopDate:
+      output.stopDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate))) : undefined,
+    toleratedFailureCount: __expectLong(output.toleratedFailureCount),
+    toleratedFailurePercentage: __limitedParseFloat32(output.toleratedFailurePercentage),
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeStateMachineForExecutionOutput => {
   return {
     definition: __expectString(output.definition),
+    label: __expectString(output.label),
     loggingConfiguration:
       output.loggingConfiguration != null
         ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
         : undefined,
+    mapRunArn: __expectString(output.mapRunArn),
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
     stateMachineArn: __expectString(output.stateMachineArn),
@@ -2377,6 +2655,7 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     definition: __expectString(output.definition),
+    label: __expectString(output.label),
     loggingConfiguration:
       output.loggingConfiguration != null
         ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
@@ -2446,6 +2725,8 @@ const deserializeAws_json1_0ExecutionList = (output: any, context: __SerdeContex
 const deserializeAws_json1_0ExecutionListItem = (output: any, context: __SerdeContext): ExecutionListItem => {
   return {
     executionArn: __expectString(output.executionArn),
+    itemCount: __expectInt32(output.itemCount),
+    mapRunArn: __expectString(output.mapRunArn),
     name: __expectString(output.name),
     startDate:
       output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
@@ -2603,6 +2884,14 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
       output.mapIterationSucceededEventDetails != null
         ? deserializeAws_json1_0MapIterationEventDetails(output.mapIterationSucceededEventDetails, context)
         : undefined,
+    mapRunFailedEventDetails:
+      output.mapRunFailedEventDetails != null
+        ? deserializeAws_json1_0MapRunFailedEventDetails(output.mapRunFailedEventDetails, context)
+        : undefined,
+    mapRunStartedEventDetails:
+      output.mapRunStartedEventDetails != null
+        ? deserializeAws_json1_0MapRunStartedEventDetails(output.mapRunStartedEventDetails, context)
+        : undefined,
     mapStateStartedEventDetails:
       output.mapStateStartedEventDetails != null
         ? deserializeAws_json1_0MapStateStartedEventDetails(output.mapStateStartedEventDetails, context)
@@ -2750,6 +3039,10 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
         ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
         : undefined,
     resource: __expectString(output.resource),
+    taskCredentials:
+      output.taskCredentials != null
+        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
+        : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
@@ -2811,6 +3104,13 @@ const deserializeAws_json1_0ListExecutionsOutput = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_0ListMapRunsOutput = (output: any, context: __SerdeContext): ListMapRunsOutput => {
+  return {
+    mapRuns: output.mapRuns != null ? deserializeAws_json1_0MapRunList(output.mapRuns, context) : undefined,
+    nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
 const deserializeAws_json1_0ListStateMachinesOutput = (
   output: any,
   context: __SerdeContext
@@ -2868,6 +3168,75 @@ const deserializeAws_json1_0MapIterationEventDetails = (
   return {
     index: __expectInt32(output.index),
     name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_json1_0MapRunExecutionCounts = (output: any, context: __SerdeContext): MapRunExecutionCounts => {
+  return {
+    aborted: __expectLong(output.aborted),
+    failed: __expectLong(output.failed),
+    pending: __expectLong(output.pending),
+    resultsWritten: __expectLong(output.resultsWritten),
+    running: __expectLong(output.running),
+    succeeded: __expectLong(output.succeeded),
+    timedOut: __expectLong(output.timedOut),
+    total: __expectLong(output.total),
+  } as any;
+};
+
+const deserializeAws_json1_0MapRunFailedEventDetails = (
+  output: any,
+  context: __SerdeContext
+): MapRunFailedEventDetails => {
+  return {
+    cause: __expectString(output.cause),
+    error: __expectString(output.error),
+  } as any;
+};
+
+const deserializeAws_json1_0MapRunItemCounts = (output: any, context: __SerdeContext): MapRunItemCounts => {
+  return {
+    aborted: __expectLong(output.aborted),
+    failed: __expectLong(output.failed),
+    pending: __expectLong(output.pending),
+    resultsWritten: __expectLong(output.resultsWritten),
+    running: __expectLong(output.running),
+    succeeded: __expectLong(output.succeeded),
+    timedOut: __expectLong(output.timedOut),
+    total: __expectLong(output.total),
+  } as any;
+};
+
+const deserializeAws_json1_0MapRunList = (output: any, context: __SerdeContext): MapRunListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0MapRunListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0MapRunListItem = (output: any, context: __SerdeContext): MapRunListItem => {
+  return {
+    executionArn: __expectString(output.executionArn),
+    mapRunArn: __expectString(output.mapRunArn),
+    startDate:
+      output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
+    stateMachineArn: __expectString(output.stateMachineArn),
+    stopDate:
+      output.stopDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0MapRunStartedEventDetails = (
+  output: any,
+  context: __SerdeContext
+): MapRunStartedEventDetails => {
+  return {
+    mapRunArn: __expectString(output.mapRunArn),
   } as any;
 };
 
@@ -3074,6 +3443,12 @@ const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_0TaskCredentials = (output: any, context: __SerdeContext): TaskCredentials => {
+  return {
+    roleArn: __expectString(output.roleArn),
+  } as any;
+};
+
 const deserializeAws_json1_0TaskDoesNotExist = (output: any, context: __SerdeContext): TaskDoesNotExist => {
   return {
     message: __expectString(output.message),
@@ -3099,6 +3474,10 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
     region: __expectString(output.region),
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
+    taskCredentials:
+      output.taskCredentials != null
+        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
+        : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
@@ -3202,6 +3581,10 @@ const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_0UpdateMapRunOutput = (output: any, context: __SerdeContext): UpdateMapRunOutput => {
+  return {} as any;
+};
+
 const deserializeAws_json1_0UpdateStateMachineOutput = (
   output: any,
   context: __SerdeContext
@@ -3209,6 +3592,13 @@ const deserializeAws_json1_0UpdateStateMachineOutput = (
   return {
     updateDate:
       output.updateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDate))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  return {
+    message: __expectString(output.message),
+    reason: __expectString(output.reason),
   } as any;
 };
 

@@ -41,7 +41,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  *                 Organizations with Other Amazon Web Services Services</a> in the
  *                 <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's management account and only
+ *         <p>You can only call this operation from the organization's management account and only
  *             if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled all
  *                 features</a>.</p>
  * @example

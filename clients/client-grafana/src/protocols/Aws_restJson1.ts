@@ -10,6 +10,7 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  LazyJsonString as __LazyJsonString,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -40,6 +41,10 @@ import {
 } from "../commands/DescribeWorkspaceAuthenticationCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
 import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "../commands/DescribeWorkspaceConfigurationCommand";
+import {
   DisassociateLicenseCommandInput,
   DisassociateLicenseCommandOutput,
 } from "../commands/DisassociateLicenseCommand";
@@ -57,6 +62,10 @@ import {
   UpdateWorkspaceAuthenticationCommandOutput,
 } from "../commands/UpdateWorkspaceAuthenticationCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "../commands/UpdateWorkspaceCommand";
+import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "../commands/UpdateWorkspaceConfigurationCommand";
 import { GrafanaServiceException as __BaseException } from "../models/GrafanaServiceException";
 import {
   AccessDeniedException,
@@ -82,6 +91,7 @@ import {
   User,
   ValidationException,
   ValidationExceptionField,
+  VpcConfiguration,
   WorkspaceDescription,
   WorkspaceSummary,
 } from "../models/models_0";
@@ -125,10 +135,14 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
       authenticationProviders: serializeAws_restJson1AuthenticationProviders(input.authenticationProviders, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.configuration != null && { configuration: __LazyJsonString.fromObject(input.configuration) }),
     ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
     ...(input.permissionType != null && { permissionType: input.permissionType }),
     ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.vpcConfiguration != null && {
+      vpcConfiguration: serializeAws_restJson1VpcConfiguration(input.vpcConfiguration, context),
+    }),
     ...(input.workspaceDataSources != null && {
       workspaceDataSources: serializeAws_restJson1DataSourceTypesList(input.workspaceDataSources, context),
     }),
@@ -273,6 +287,27 @@ export const serializeAws_restJson1DescribeWorkspaceAuthenticationCommand = asyn
   });
 };
 
+export const serializeAws_restJson1DescribeWorkspaceConfigurationCommand = async (
+  input: DescribeWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/configuration";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateLicenseCommand = async (
   input: DisassociateLicenseCommandInput,
   context: __SerdeContext
@@ -403,7 +438,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -462,7 +500,11 @@ export const serializeAws_restJson1UpdateWorkspaceCommand = async (
     ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
     ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
     ...(input.permissionType != null && { permissionType: input.permissionType }),
+    ...(input.removeVpcConfiguration != null && { removeVpcConfiguration: input.removeVpcConfiguration }),
     ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
+    ...(input.vpcConfiguration != null && {
+      vpcConfiguration: serializeAws_restJson1VpcConfiguration(input.vpcConfiguration, context),
+    }),
     ...(input.workspaceDataSources != null && {
       workspaceDataSources: serializeAws_restJson1DataSourceTypesList(input.workspaceDataSources, context),
     }),
@@ -518,6 +560,32 @@ export const serializeAws_restJson1UpdateWorkspaceAuthenticationCommand = async 
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateWorkspaceConfigurationCommand = async (
+  input: UpdateWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/configuration";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.configuration != null && { configuration: __LazyJsonString.fromObject(input.configuration) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -908,6 +976,56 @@ const deserializeAws_restJson1DescribeWorkspaceAuthenticationCommandError = asyn
     case "ValidationException":
     case "com.amazonaws.grafana#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeWorkspaceConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.configuration != null) {
+    contents.configuration = new __LazyJsonString(data.configuration);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeWorkspaceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.grafana#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.grafana#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.grafana#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.grafana#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1396,6 +1514,59 @@ const deserializeAws_restJson1UpdateWorkspaceAuthenticationCommandError = async 
   }
 };
 
+export const deserializeAws_restJson1UpdateWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateWorkspaceConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateWorkspaceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.grafana#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.grafana#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.grafana#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.grafana#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.grafana#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.grafana#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const map = __map;
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -1652,15 +1823,29 @@ const serializeAws_restJson1SamlConfiguration = (input: SamlConfiguration, conte
   };
 };
 
+const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1693,6 +1878,15 @@ const serializeAws_restJson1UserList = (input: User[], context: __SerdeContext):
     .map((entry) => {
       return serializeAws_restJson1User(entry, context);
     });
+};
+
+const serializeAws_restJson1VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.securityGroupIds != null && {
+      securityGroupIds: serializeAws_restJson1SecurityGroupIds(input.securityGroupIds, context),
+    }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_restJson1SubnetIds(input.subnetIds, context) }),
+  };
 };
 
 const deserializeAws_restJson1AllowedOrganizations = (output: any, context: __SerdeContext): string[] => {
@@ -1878,15 +2072,37 @@ const deserializeAws_restJson1SamlConfiguration = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1962,6 +2178,16 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   return retVal;
 };
 
+const deserializeAws_restJson1VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
+  return {
+    securityGroupIds:
+      output.securityGroupIds != null
+        ? deserializeAws_restJson1SecurityGroupIds(output.securityGroupIds, context)
+        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_restJson1SubnetIds(output.subnetIds, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
   return {
     accountAccessType: __expectString(output.accountAccessType),
@@ -2003,6 +2229,10 @@ const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __Se
     stackSetName: __expectString(output.stackSetName),
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    vpcConfiguration:
+      output.vpcConfiguration != null
+        ? deserializeAws_restJson1VpcConfiguration(output.vpcConfiguration, context)
+        : undefined,
     workspaceRoleArn: __expectString(output.workspaceRoleArn),
   } as any;
 };

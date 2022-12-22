@@ -32,9 +32,9 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * <p>Lists private workforce information, including workforce name, Amazon Resource Name
  *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
  *             ranges are the IP addresses that workers can use to access tasks. </p>
- *         <important>
+ *          <important>
  *             <p>This operation applies only to private workforces.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

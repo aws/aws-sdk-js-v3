@@ -3331,6 +3331,7 @@ const serializeAws_json1_1StartTaskExecutionRequest = (
     ...(input.OverrideOptions != null && {
       OverrideOptions: serializeAws_json1_1Options(input.OverrideOptions, context),
     }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
     ...(input.TaskArn != null && { TaskArn: input.TaskArn }),
   };
 };

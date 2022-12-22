@@ -28,9 +28,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
 /**
  * <p>Starts a new task from the specified task definition on the specified container
  * 			instance or instances.</p>
- * 		       <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -51,7 +51,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * Timestamps are deserialized from {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML
  *      traits.</a>
  */
 @SmithyInternalApi
@@ -128,24 +128,21 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String dataSource = getUnnamedTargetWrapper(context, target, "pair[\"" + valueLocation + "\"]");
 
             writer.openBlock("if ($L === null) {", "}", dataSource, () -> {
-                // Handle the sparse trait by short circuiting null values
+                // Handle the sparse trait by short-circuiting null values
                 // from deserialization, and not including them if encountered
                 // when not sparse.
                 if (shape.hasTrait(SparseTrait.ID)) {
-                    writer.write("return { ...acc, [pair[$S]]: null as any }");
-                } else {
-                    writer.write("return acc;");
+                    writer.write("acc[pair[$S]] = null as any;");
                 }
+                writer.write("return acc;");
             });
 
-            writer.openBlock("return {", "};", () -> {
-                writer.write("...acc,");
-                // Dispatch to the output value provider for any additional handling.
-                writer.write("[pair[$S]]: $L$L",
-                        keyLocation,
-                        target.accept(getMemberVisitor(shape.getValue(), dataSource)),
-                        usesExpect(target) ? " as any" : "");
-            });
+            // Dispatch to the output value provider for any additional handling.
+            writer.write("acc[pair[$S]] = $L$L",
+                keyLocation,
+                target.accept(getMemberVisitor(shape.getValue(), dataSource)),
+                usesExpect(target) ? " as any;" : ";");
+            writer.write("return acc;");
         });
     }
 

@@ -52,7 +52,7 @@ export const serializeAws_restJson1SearchCommand = async (
     fq: [, input.filterQuery!],
     highlight: [, input.highlight!],
     partial: [() => input.partial !== void 0, () => input.partial!.toString()],
-    q: [, input.query!],
+    q: [, __expectNonNull(input.query!, `query`)],
     "q.options": [, input.queryOptions!],
     "q.parser": [, input.queryParser!],
     return: [, input.return!],
@@ -84,8 +84,8 @@ export const serializeAws_restJson1SuggestCommand = async (
   const query: any = map({
     format: [, "sdk"],
     pretty: [, "true"],
-    q: [, input.query!],
-    suggester: [, input.suggester!],
+    q: [, __expectNonNull(input.query!, `query`)],
+    suggester: [, __expectNonNull(input.suggester!, `suggester`)],
     size: [() => input.size !== void 0, () => input.size!.toString()],
   });
   let body: any;
@@ -364,10 +364,8 @@ const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -376,10 +374,8 @@ const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BucketInfo(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BucketInfo(value, context);
+    return acc;
   }, {});
 };
 
@@ -388,10 +384,8 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldValue(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -425,10 +419,8 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -474,10 +466,8 @@ const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldStats(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldStats(value, context);
+    return acc;
   }, {});
 };
 

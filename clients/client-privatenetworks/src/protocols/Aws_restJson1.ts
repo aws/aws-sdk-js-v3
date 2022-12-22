@@ -691,7 +691,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2122,10 +2125,8 @@ const serializeAws_restJson1DeviceIdentifierFilters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1DeviceIdentifierFilterValues(value, context),
-      };
+      acc[key] = serializeAws_restJson1DeviceIdentifierFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -2151,10 +2152,8 @@ const serializeAws_restJson1NetworkFilters = (input: Record<string, string[]>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1NetworkFilterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1NetworkFilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2197,10 +2196,8 @@ const serializeAws_restJson1NetworkResourceFilters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1NetworkResourceFilterValues(value, context),
-      };
+      acc[key] = serializeAws_restJson1NetworkResourceFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -2220,10 +2217,8 @@ const serializeAws_restJson1NetworkSiteFilters = (input: Record<string, string[]
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1NetworkSiteFilterValues(value, context),
-      };
+      acc[key] = serializeAws_restJson1NetworkSiteFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -2250,10 +2245,8 @@ const serializeAws_restJson1OrderFilters = (input: Record<string, string[]>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1OrderFilterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1OrderFilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2289,10 +2282,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2531,10 +2522,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -829,7 +829,7 @@ export const serializeAws_restJson1ListRecommendationTemplatesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-recommendation-templates";
   const query: any = map({
-    assessmentArn: [, input.assessmentArn!],
+    assessmentArn: [, __expectNonNull(input.assessmentArn!, `assessmentArn`)],
     reverseOrder: [() => input.reverseOrder !== void 0, () => input.reverseOrder!.toString()],
     status: [() => input.status !== void 0, () => (input.status! || []).map((_entry) => _entry as any)],
     recommendationTemplateArn: [, input.recommendationTemplateArn!],
@@ -1183,7 +1183,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -3641,10 +3644,8 @@ const serializeAws_restJson1DisruptionPolicy = (input: Record<string, FailurePol
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FailurePolicy(value, context),
-    };
+    acc[key] = serializeAws_restJson1FailurePolicy(value, context);
+    return acc;
   }, {});
 };
 
@@ -3726,10 +3727,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3981,10 +3980,8 @@ const deserializeAws_restJson1AssessmentCompliance = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DisruptionCompliance(value, context),
-      };
+      acc[key] = deserializeAws_restJson1DisruptionCompliance(value, context);
+      return acc;
     },
     {}
   );
@@ -4103,10 +4100,8 @@ const deserializeAws_restJson1DisruptionPolicy = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1FailurePolicy(value, context),
-      };
+      acc[key] = deserializeAws_restJson1FailurePolicy(value, context);
+      return acc;
     },
     {}
   );
@@ -4120,10 +4115,8 @@ const deserializeAws_restJson1DisruptionResiliencyScore = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4192,10 +4185,8 @@ const deserializeAws_restJson1RecommendationCompliance = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1RecommendationDisruptionCompliance(value, context),
-      };
+      acc[key] = deserializeAws_restJson1RecommendationDisruptionCompliance(value, context);
+      return acc;
     },
     {}
   );
@@ -4455,10 +4446,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

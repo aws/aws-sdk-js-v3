@@ -1,5 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import { clearCredentialCache, createScope, getSigningKey } from "./credentialDerivation";
@@ -13,7 +13,7 @@ describe("createScope", () => {
 describe("getSigningKey", () => {
   beforeEach(clearCredentialCache);
 
-  const credentials: Credentials = {
+  const credentials: AwsCredentialIdentity = {
     accessKeyId: "foo",
     secretAccessKey: "bar",
   };

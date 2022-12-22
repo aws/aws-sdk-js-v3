@@ -32,27 +32,17 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Retrieves information on all game servers that are currently active in a specified
- *             game server group. You can opt to sort the list by game server age. Use the
- *             pagination parameters to retrieve results in a set of sequential segments. </p>
+ *          <p>Retrieves information on all game
+ *             servers that are currently active in a specified game server group. You can opt to sort
+ *             the list by game server age. Use the pagination parameters to retrieve results in a set
+ *             of sequential segments. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>RegisterGameServer</a> |
- *                     <a>ListGameServers</a> |
- *                     <a>ClaimGameServer</a> |
- *                     <a>DescribeGameServer</a> |
- *                     <a>UpdateGameServer</a> |
- *                     <a>DeregisterGameServer</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

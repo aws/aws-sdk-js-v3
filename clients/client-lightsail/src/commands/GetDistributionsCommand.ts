@@ -19,7 +19,7 @@ import {
   GetDistributionsRequestFilterSensitiveLog,
   GetDistributionsResult,
   GetDistributionsResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDistributionsCommand,
   serializeAws_json1_1GetDistributionsCommand,

@@ -18,7 +18,7 @@ import {
   ListEndpointsInputFilterSensitiveLog,
   ListEndpointsOutput,
   ListEndpointsOutputFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListEndpointsCommand,
   serializeAws_json1_1ListEndpointsCommand,

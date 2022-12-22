@@ -1041,7 +1041,7 @@ export const serializeAws_restJson1ExportApiCommand = async (
   const query: any = map({
     exportVersion: [, input.ExportVersion!],
     includeExtensions: [() => input.IncludeExtensions !== void 0, () => input.IncludeExtensions!.toString()],
-    outputType: [, input.OutputType!],
+    outputType: [, __expectNonNull(input.OutputType!, `OutputType`)],
     stageName: [, input.StageName!],
   });
   let body: any;
@@ -1846,7 +1846,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -6935,10 +6938,8 @@ const serializeAws_restJson1IntegrationParameters = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6973,10 +6974,8 @@ const serializeAws_restJson1ResponseParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1IntegrationParameters(value, context),
-    };
+    acc[key] = serializeAws_restJson1IntegrationParameters(value, context);
+    return acc;
   }, {});
 };
 
@@ -6985,10 +6984,8 @@ const serializeAws_restJson1RouteModels = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7000,10 +6997,8 @@ const serializeAws_restJson1RouteParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ParameterConstraints(value, context),
-    };
+    acc[key] = serializeAws_restJson1ParameterConstraints(value, context);
+    return acc;
   }, {});
 };
 
@@ -7022,10 +7017,8 @@ const serializeAws_restJson1RouteSettingsMap = (input: Record<string, RouteSetti
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RouteSettings(value, context),
-    };
+    acc[key] = serializeAws_restJson1RouteSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7042,10 +7035,8 @@ const serializeAws_restJson1StageVariablesMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7062,10 +7053,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7074,10 +7063,8 @@ const serializeAws_restJson1TemplateMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7487,10 +7474,8 @@ const deserializeAws_restJson1IntegrationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7556,10 +7541,8 @@ const deserializeAws_restJson1ResponseParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1IntegrationParameters(value, context),
-    };
+    acc[key] = deserializeAws_restJson1IntegrationParameters(value, context);
+    return acc;
   }, {});
 };
 
@@ -7593,10 +7576,8 @@ const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7608,10 +7589,8 @@ const deserializeAws_restJson1RouteParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ParameterConstraints(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ParameterConstraints(value, context);
+    return acc;
   }, {});
 };
 
@@ -7647,10 +7626,8 @@ const deserializeAws_restJson1RouteSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RouteSettings(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RouteSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7703,10 +7680,8 @@ const deserializeAws_restJson1StageVariablesMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7727,10 +7702,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7739,10 +7712,8 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

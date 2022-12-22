@@ -58,6 +58,10 @@ import {
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "../commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "../commands/CopyOptionGroupCommand";
 import {
+  CreateBlueGreenDeploymentCommandInput,
+  CreateBlueGreenDeploymentCommandOutput,
+} from "../commands/CreateBlueGreenDeploymentCommand";
+import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
 } from "../commands/CreateCustomDBEngineVersionCommand";
@@ -106,6 +110,10 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "../commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
+import {
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
+} from "../commands/DeleteBlueGreenDeploymentCommand";
 import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
@@ -163,6 +171,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
+} from "../commands/DescribeBlueGreenDeploymentsCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -460,6 +472,10 @@ import {
 } from "../commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "../commands/StopDBInstanceCommand";
 import {
+  SwitchoverBlueGreenDeploymentCommandInput,
+  SwitchoverBlueGreenDeploymentCommandOutput,
+} from "../commands/SwitchoverBlueGreenDeploymentCommand";
+import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "../commands/SwitchoverReadReplicaCommand";
@@ -481,13 +497,16 @@ import {
   AvailabilityZone,
   BacktrackDBClusterMessage,
   BackupPolicyNotFoundFault,
+  BlueGreenDeployment,
+  BlueGreenDeploymentAlreadyExistsFault,
+  BlueGreenDeploymentNotFoundFault,
+  BlueGreenDeploymentTask,
   CancelExportTaskMessage,
   Certificate,
   CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
   ClusterPendingModifiedValues,
-  ConnectionPoolConfigurationInfo,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -498,6 +517,8 @@ import {
   CopyDBSnapshotResult,
   CopyOptionGroupMessage,
   CopyOptionGroupResult,
+  CreateBlueGreenDeploymentRequest,
+  CreateBlueGreenDeploymentResponse,
   CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
@@ -590,14 +611,11 @@ import {
   DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
-  DBProxyTarget,
-  DBProxyTargetGroup,
   DBProxyTargetGroupNotFoundFault,
   DBProxyTargetNotFoundFault,
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
-  DBSecurityGroupMessage,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
@@ -611,6 +629,8 @@ import {
   DBSubnetGroupNotFoundFault,
   DBSubnetGroupQuotaExceededFault,
   DBSubnetQuotaExceededFault,
+  DeleteBlueGreenDeploymentRequest,
+  DeleteBlueGreenDeploymentResponse,
   DeleteCustomDBEngineVersionMessage,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
@@ -639,6 +659,8 @@ import {
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
+  DescribeBlueGreenDeploymentsRequest,
+  DescribeBlueGreenDeploymentsResponse,
   DescribeCertificatesMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
@@ -658,13 +680,6 @@ import {
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
-  DescribeDBProxyEndpointsRequest,
-  DescribeDBProxyEndpointsResponse,
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetsRequest,
-  DescribeDBProxyTargetsResponse,
-  DescribeDBSecurityGroupsMessage,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -683,6 +698,7 @@ import {
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
+  InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
   InvalidDBClusterEndpointStateFault,
   InvalidDBClusterSnapshotStateFault,
@@ -705,6 +721,7 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  MasterUserSecret,
   NetworkTypeNotSupported,
   Option,
   OptionGroup,
@@ -731,6 +748,8 @@ import {
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
+  SourceClusterNotSupportedFault,
+  SourceDatabaseNotSupportedFault,
   SourceNotFoundFault,
   StorageQuotaExceededFault,
   StorageTypeNotSupportedFault,
@@ -738,8 +757,8 @@ import {
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
+  SwitchoverDetail,
   Tag,
-  TargetHealth,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
@@ -750,18 +769,29 @@ import {
   AvailableProcessorFeature,
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
+  ConnectionPoolConfigurationInfo,
   DBClusterCapacityInfo,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
+  DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
+  DBProxyTargetGroup,
+  DBSecurityGroupMessage,
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxyEndpointsRequest,
+  DescribeDBProxyEndpointsResponse,
+  DescribeDBProxyTargetGroupsRequest,
+  DescribeDBProxyTargetGroupsResponse,
+  DescribeDBProxyTargetsRequest,
+  DescribeDBProxyTargetsResponse,
+  DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
@@ -920,9 +950,12 @@ import {
   StopDBInstanceMessage,
   StopDBInstanceResult,
   SubnetAlreadyInUse,
+  SwitchoverBlueGreenDeploymentRequest,
+  SwitchoverBlueGreenDeploymentResponse,
   SwitchoverReadReplicaMessage,
   SwitchoverReadReplicaResult,
   TagListMessage,
+  TargetHealth,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1131,6 +1164,22 @@ export const serializeAws_queryCopyOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCopyOptionGroupMessage(input, context),
     Action: "CopyOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  input: CreateBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateBlueGreenDeploymentRequest(input, context),
+    Action: "CreateBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1387,6 +1436,22 @@ export const serializeAws_queryCreateOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateOptionGroupMessage(input, context),
     Action: "CreateOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  input: DeleteBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteBlueGreenDeploymentRequest(input, context),
+    Action: "DeleteBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1675,6 +1740,22 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAccountAttributesMessage(input, context),
     Action: "DescribeAccountAttributes",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  input: DescribeBlueGreenDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeBlueGreenDeploymentsRequest(input, context),
+    Action: "DescribeBlueGreenDeployments",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3104,6 +3185,22 @@ export const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  input: SwitchoverBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySwitchoverBlueGreenDeploymentRequest(input, context),
+    Action: "SwitchoverBlueGreenDeployment",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_querySwitchoverReadReplicaCommand = async (
   input: SwitchoverReadReplicaCommandInput,
   context: __SerdeContext
@@ -3285,6 +3382,9 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -3741,6 +3841,77 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateBlueGreenDeploymentResponse(data.CreateBlueGreenDeploymentResult, context);
+  const response: CreateBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentAlreadyExistsFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentAlreadyExistsFault":
+      throw await deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse(parsedOutput, context);
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterParameterGroupNotFound":
+    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterQuotaExceededFault":
+    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "DBParameterGroupNotFound":
+    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "InstanceQuotaExceeded":
+    case "com.amazonaws.rds#InstanceQuotaExceededFault":
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    case "SourceClusterNotSupportedFault":
+    case "com.amazonaws.rds#SourceClusterNotSupportedFault":
+      throw await deserializeAws_querySourceClusterNotSupportedFaultResponse(parsedOutput, context);
+    case "SourceDatabaseNotSupportedFault":
+    case "com.amazonaws.rds#SourceDatabaseNotSupportedFault":
+      throw await deserializeAws_querySourceDatabaseNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4687,6 +4858,50 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
   }
 };
 
+export const deserializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteBlueGreenDeploymentResponse(data.DeleteBlueGreenDeploymentResult, context);
+  const response: DeleteBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_queryDeleteCustomDBEngineVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5489,6 +5704,47 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeBlueGreenDeploymentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeBlueGreenDeploymentsResponse(data.DescribeBlueGreenDeploymentsResult, context);
+  const response: DescribeBlueGreenDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_queryDescribeCertificatesCommand = async (
@@ -7176,6 +7432,9 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -8679,6 +8938,9 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -8930,6 +9192,9 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
@@ -9090,6 +9355,9 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
@@ -9905,6 +10173,53 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
   }
 };
 
+export const deserializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySwitchoverBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySwitchoverBlueGreenDeploymentResponse(
+    data.SwitchoverBlueGreenDeploymentResult,
+    context
+  );
+  const response: SwitchoverBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySwitchoverBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_querySwitchoverReadReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9995,6 +10310,32 @@ const deserializeAws_queryBackupPolicyNotFoundFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBackupPolicyNotFoundFault(body.Error, context);
   const exception = new BackupPolicyNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault(body.Error, context);
+  const exception = new BlueGreenDeploymentAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentNotFoundFault(body.Error, context);
+  const exception = new BlueGreenDeploymentNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -10846,6 +11187,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidBlueGreenDeploymentStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidBlueGreenDeploymentStateFault(body.Error, context);
+  const exception = new InvalidBlueGreenDeploymentStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11392,6 +11746,32 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_querySourceClusterNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceClusterNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceClusterNotSupportedFault(body.Error, context);
+  const exception = new SourceClusterNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceDatabaseNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceDatabaseNotSupportedFault(body.Error, context);
+  const exception = new SourceDatabaseNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_querySourceNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11538,6 +11918,9 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11647,6 +12030,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   const entries: any = {};
   if (input.EnableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableLogTypes, context);
+    if (input.EnableLogTypes?.length === 0) {
+      entries.EnableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableLogTypes.${key}`;
       entries[loc] = value;
@@ -11654,6 +12040,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   }
   if (input.DisableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.DisableLogTypes, context);
+    if (input.DisableLogTypes?.length === 0) {
+      entries.DisableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisableLogTypes.${key}`;
       entries[loc] = value;
@@ -11678,6 +12067,9 @@ const serializeAws_queryConnectionPoolConfiguration = (
   }
   if (input.SessionPinningFilters != null) {
     const memberEntries = serializeAws_queryStringList(input.SessionPinningFilters, context);
+    if (input.SessionPinningFilters?.length === 0) {
+      entries.SessionPinningFilters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SessionPinningFilters.${key}`;
       entries[loc] = value;
@@ -11705,6 +12097,9 @@ const serializeAws_queryCopyDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11735,6 +12130,9 @@ const serializeAws_queryCopyDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11759,6 +12157,9 @@ const serializeAws_queryCopyDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11780,6 +12181,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11797,6 +12201,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   if (input.TargetCustomAvailabilityZone != null) {
     entries["TargetCustomAvailabilityZone"] = input.TargetCustomAvailabilityZone;
   }
+  if (input.CopyOptionGroup != null) {
+    entries["CopyOptionGroup"] = input.CopyOptionGroup;
+  }
   return entries;
 };
 
@@ -11813,6 +12220,42 @@ const serializeAws_queryCopyOptionGroupMessage = (input: CopyOptionGroupMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateBlueGreenDeploymentRequest = (
+  input: CreateBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentName != null) {
+    entries["BlueGreenDeploymentName"] = input.BlueGreenDeploymentName;
+  }
+  if (input.Source != null) {
+    entries["Source"] = input.Source;
+  }
+  if (input.TargetEngineVersion != null) {
+    entries["TargetEngineVersion"] = input.TargetEngineVersion;
+  }
+  if (input.TargetDBParameterGroupName != null) {
+    entries["TargetDBParameterGroupName"] = input.TargetDBParameterGroupName;
+  }
+  if (input.TargetDBClusterParameterGroupName != null) {
+    entries["TargetDBClusterParameterGroupName"] = input.TargetDBClusterParameterGroupName;
+  }
+  if (input.Tags != null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11849,6 +12292,9 @@ const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11873,6 +12319,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -11880,6 +12329,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -11887,6 +12339,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11899,6 +12354,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -11921,6 +12379,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -11958,6 +12419,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11980,6 +12444,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12062,6 +12529,15 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.DBSystemId != null) {
+    entries["DBSystemId"] = input.DBSystemId;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -12081,6 +12557,9 @@ const serializeAws_queryCreateDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12102,6 +12581,9 @@ const serializeAws_queryCreateDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12135,6 +12617,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -12142,6 +12627,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12197,6 +12685,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12255,6 +12746,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12262,6 +12756,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12284,6 +12781,15 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -12328,6 +12834,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12338,6 +12847,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12375,6 +12887,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12382,6 +12897,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12411,6 +12929,12 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.EnableCustomerOwnedIp != null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
   return entries;
 };
 
@@ -12430,6 +12954,9 @@ const serializeAws_queryCreateDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12451,6 +12978,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12458,6 +12988,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12468,6 +13001,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12486,6 +13022,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -12496,6 +13035,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12503,6 +13045,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12519,6 +13064,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12540,6 +13088,9 @@ const serializeAws_queryCreateDBSecurityGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12558,6 +13109,9 @@ const serializeAws_queryCreateDBSnapshotMessage = (input: CreateDBSnapshotMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12579,6 +13133,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -12586,6 +13143,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12610,6 +13170,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -12617,6 +13180,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.SourceIds != null) {
     const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
+    if (input.SourceIds?.length === 0) {
+      entries.SourceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIds.${key}`;
       entries[loc] = value;
@@ -12627,6 +13193,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12680,6 +13249,9 @@ const serializeAws_queryCreateOptionGroupMessage = (input: CreateOptionGroupMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12697,6 +13269,20 @@ const serializeAws_queryDBSecurityGroupNameList = (input: string[], context: __S
     }
     entries[`DBSecurityGroupName.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteBlueGreenDeploymentRequest = (
+  input: DeleteBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.DeleteTarget != null) {
+    entries["DeleteTarget"] = input.DeleteTarget;
   }
   return entries;
 };
@@ -12896,6 +13482,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -12903,6 +13492,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -12919,6 +13511,33 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeBlueGreenDeploymentsRequest = (
+  input: DescribeBlueGreenDeploymentsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeCertificatesMessage = (
   input: DescribeCertificatesMessage,
   context: __SerdeContext
@@ -12929,6 +13548,9 @@ const serializeAws_queryDescribeCertificatesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12956,6 +13578,9 @@ const serializeAws_queryDescribeDBClusterBacktracksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12983,6 +13608,9 @@ const serializeAws_queryDescribeDBClusterEndpointsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13007,6 +13635,9 @@ const serializeAws_queryDescribeDBClusterParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13034,6 +13665,9 @@ const serializeAws_queryDescribeDBClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13058,6 +13692,9 @@ const serializeAws_queryDescribeDBClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13102,6 +13739,9 @@ const serializeAws_queryDescribeDBClusterSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13138,6 +13778,9 @@ const serializeAws_queryDescribeDBEngineVersionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13177,6 +13820,9 @@ const serializeAws_queryDescribeDBInstanceAutomatedBackupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13204,6 +13850,9 @@ const serializeAws_queryDescribeDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13237,6 +13886,9 @@ const serializeAws_queryDescribeDBLogFilesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13261,6 +13913,9 @@ const serializeAws_queryDescribeDBParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13288,6 +13943,9 @@ const serializeAws_queryDescribeDBParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13309,6 +13967,9 @@ const serializeAws_queryDescribeDBProxiesRequest = (input: DescribeDBProxiesRequ
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13336,6 +13997,9 @@ const serializeAws_queryDescribeDBProxyEndpointsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13363,6 +14027,9 @@ const serializeAws_queryDescribeDBProxyTargetGroupsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13390,6 +14057,9 @@ const serializeAws_queryDescribeDBProxyTargetsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13414,6 +14084,9 @@ const serializeAws_queryDescribeDBSecurityGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13455,6 +14128,9 @@ const serializeAws_queryDescribeDBSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13488,6 +14164,9 @@ const serializeAws_queryDescribeDBSubnetGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13512,6 +14191,9 @@ const serializeAws_queryDescribeEngineDefaultClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13536,6 +14218,9 @@ const serializeAws_queryDescribeEngineDefaultParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13560,6 +14245,9 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13587,6 +14275,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -13594,6 +14285,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13618,6 +14312,9 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13645,6 +14342,9 @@ const serializeAws_queryDescribeExportTasksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13672,6 +14372,9 @@ const serializeAws_queryDescribeGlobalClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13699,6 +14402,9 @@ const serializeAws_queryDescribeOptionGroupOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13723,6 +14429,9 @@ const serializeAws_queryDescribeOptionGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13768,6 +14477,9 @@ const serializeAws_queryDescribeOrderableDBInstanceOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13792,6 +14504,9 @@ const serializeAws_queryDescribePendingMaintenanceActionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13837,6 +14552,9 @@ const serializeAws_queryDescribeReservedDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13876,6 +14594,9 @@ const serializeAws_queryDescribeReservedDBInstancesOfferingsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13906,6 +14627,9 @@ const serializeAws_queryDescribeSourceRegionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -14003,6 +14727,9 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -14063,6 +14790,9 @@ const serializeAws_queryListTagsForResourceMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -14165,6 +14895,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -14172,6 +14905,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -14199,6 +14935,9 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14312,6 +15051,15 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14325,6 +15073,9 @@ const serializeAws_queryModifyDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14346,6 +15097,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14353,6 +15107,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14377,6 +15134,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -14384,6 +15144,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14491,6 +15254,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -14526,6 +15292,18 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14539,6 +15317,9 @@ const serializeAws_queryModifyDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14560,6 +15341,9 @@ const serializeAws_queryModifyDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14578,6 +15362,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -14597,6 +15384,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_queryStringList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -14642,6 +15432,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14649,6 +15442,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14684,6 +15480,9 @@ const serializeAws_queryModifyDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -14708,6 +15507,9 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -14749,6 +15551,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToInclude != null) {
     const memberEntries = serializeAws_queryOptionConfigurationList(input.OptionsToInclude, context);
+    if (input.OptionsToInclude?.length === 0) {
+      entries.OptionsToInclude = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToInclude.${key}`;
       entries[loc] = value;
@@ -14756,6 +15561,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionNamesList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -14780,6 +15588,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.DBSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroupMemberships, context);
+    if (input.DBSecurityGroupMemberships?.length === 0) {
+      entries.DBSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14787,6 +15598,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.VpcSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupMemberships, context);
+    if (input.VpcSecurityGroupMemberships?.length === 0) {
+      entries.VpcSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14794,6 +15608,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -14913,6 +15730,9 @@ const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext):
   }
   if (input.SupportedEngineModes != null) {
     const memberEntries = serializeAws_queryEngineModeList(input.SupportedEngineModes, context);
+    if (input.SupportedEngineModes?.length === 0) {
+      entries.SupportedEngineModes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedEngineModes.${key}`;
       entries[loc] = value;
@@ -15008,6 +15828,9 @@ const serializeAws_queryPurchaseReservedDBInstancesOfferingMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15048,6 +15871,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -15055,6 +15881,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -15135,6 +15964,9 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -15156,6 +15988,9 @@ const serializeAws_queryResetDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15177,6 +16012,9 @@ const serializeAws_queryResetDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15192,6 +16030,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15214,6 +16055,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15248,6 +16092,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15282,6 +16129,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15312,6 +16162,12 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -15322,6 +16178,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15353,6 +16212,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15360,6 +16222,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15376,6 +16241,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15465,6 +16333,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15472,6 +16343,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15488,6 +16362,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15595,6 +16472,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15611,6 +16491,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15630,6 +16513,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15637,6 +16523,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15662,6 +16551,12 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.DBClusterSnapshotIdentifier != null) {
+    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
   }
   return entries;
 };
@@ -15694,6 +16589,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -15701,6 +16599,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15750,6 +16651,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15802,6 +16706,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15809,6 +16716,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15825,6 +16735,15 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -15887,6 +16806,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15903,6 +16825,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15919,6 +16844,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15926,6 +16854,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15960,6 +16891,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
   }
   return entries;
 };
@@ -16118,6 +17052,9 @@ const serializeAws_queryStartExportTaskMessage = (input: StartExportTaskMessage,
   }
   if (input.ExportOnly != null) {
     const memberEntries = serializeAws_queryStringList(input.ExportOnly, context);
+    if (input.ExportOnly?.length === 0) {
+      entries.ExportOnly = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportOnly.${key}`;
       entries[loc] = value;
@@ -16196,6 +17133,20 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_querySwitchoverBlueGreenDeploymentRequest = (
+  input: SwitchoverBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.SwitchoverTimeout != null) {
+    entries["SwitchoverTimeout"] = input.SwitchoverTimeout;
+  }
+  return entries;
+};
+
 const serializeAws_querySwitchoverReadReplicaMessage = (
   input: SwitchoverReadReplicaMessage,
   context: __SerdeContext
@@ -16250,6 +17201,9 @@ const serializeAws_queryUserAuthConfig = (input: UserAuthConfig, context: __Serd
   }
   if (input.IAMAuth != null) {
     entries["IAMAuth"] = input.IAMAuth;
+  }
+  if (input.ClientPasswordAuthType != null) {
+    entries["ClientPasswordAuthType"] = input.ClientPasswordAuthType;
   }
   return entries;
 };
@@ -16495,6 +17449,127 @@ const deserializeAws_queryBackupPolicyNotFoundFault = (
   return contents;
 };
 
+const deserializeAws_queryBlueGreenDeployment = (output: any, context: __SerdeContext): BlueGreenDeployment => {
+  const contents: any = {
+    BlueGreenDeploymentIdentifier: undefined,
+    BlueGreenDeploymentName: undefined,
+    Source: undefined,
+    Target: undefined,
+    SwitchoverDetails: undefined,
+    Tasks: undefined,
+    Status: undefined,
+    StatusDetails: undefined,
+    CreateTime: undefined,
+    DeleteTime: undefined,
+    TagList: undefined,
+  };
+  if (output["BlueGreenDeploymentIdentifier"] !== undefined) {
+    contents.BlueGreenDeploymentIdentifier = __expectString(output["BlueGreenDeploymentIdentifier"]);
+  }
+  if (output["BlueGreenDeploymentName"] !== undefined) {
+    contents.BlueGreenDeploymentName = __expectString(output["BlueGreenDeploymentName"]);
+  }
+  if (output["Source"] !== undefined) {
+    contents.Source = __expectString(output["Source"]);
+  }
+  if (output["Target"] !== undefined) {
+    contents.Target = __expectString(output["Target"]);
+  }
+  if (output.SwitchoverDetails === "") {
+    contents.SwitchoverDetails = [];
+  } else if (output["SwitchoverDetails"] !== undefined && output["SwitchoverDetails"]["member"] !== undefined) {
+    contents.SwitchoverDetails = deserializeAws_querySwitchoverDetailList(
+      __getArrayIfSingleItem(output["SwitchoverDetails"]["member"]),
+      context
+    );
+  }
+  if (output.Tasks === "") {
+    contents.Tasks = [];
+  } else if (output["Tasks"] !== undefined && output["Tasks"]["member"] !== undefined) {
+    contents.Tasks = deserializeAws_queryBlueGreenDeploymentTaskList(
+      __getArrayIfSingleItem(output["Tasks"]["member"]),
+      context
+    );
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["StatusDetails"] !== undefined) {
+    contents.StatusDetails = __expectString(output["StatusDetails"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
+  }
+  if (output["DeleteTime"] !== undefined) {
+    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTime(output["DeleteTime"]));
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentAlreadyExistsFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentList = (output: any, context: __SerdeContext): BlueGreenDeployment[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeployment(entry, context);
+    });
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTask = (output: any, context: __SerdeContext): BlueGreenDeploymentTask => {
+  const contents: any = {
+    Name: undefined,
+    Status: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTaskList = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeploymentTask(entry, context);
+    });
+};
+
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {
     CertificateIdentifier: undefined,
@@ -16597,6 +17672,9 @@ const deserializeAws_queryClusterPendingModifiedValues = (
     MasterUserPassword: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     EngineVersion: undefined,
+    BackupRetentionPeriod: undefined,
+    AllocatedStorage: undefined,
+    Iops: undefined,
   };
   if (output["PendingCloudwatchLogsExports"] !== undefined) {
     contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
@@ -16615,6 +17693,15 @@ const deserializeAws_queryClusterPendingModifiedValues = (
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["AllocatedStorage"] !== undefined) {
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   return contents;
 };
@@ -16711,6 +17798,19 @@ const deserializeAws_queryCopyOptionGroupResult = (output: any, context: __Serde
   };
   if (output["OptionGroup"] !== undefined) {
     contents.OptionGroup = deserializeAws_queryOptionGroup(output["OptionGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
   }
   return contents;
 };
@@ -17008,6 +18108,8 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsRetentionPeriod: undefined,
     ServerlessV2ScalingConfiguration: undefined,
     NetworkType: undefined,
+    DBSystemId: undefined,
+    MasterUserSecret: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -17291,6 +18393,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["NetworkType"] !== undefined) {
     contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
   }
   return contents;
 };
@@ -17843,6 +18951,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     SourceDBClusterSnapshotArn: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     TagList: undefined,
+    DBSystemId: undefined,
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -17919,6 +19028,9 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.TagList = [];
   } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };
@@ -18068,6 +19180,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     CreateTime: undefined,
     TagList: undefined,
     SupportsBabelfish: undefined,
+    CustomDBEngineVersionManifest: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -18193,6 +19306,9 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   if (output["SupportsBabelfish"] !== undefined) {
     contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
   }
+  if (output["CustomDBEngineVersionManifest"] !== undefined) {
+    contents.CustomDBEngineVersionManifest = __expectString(output["CustomDBEngineVersionManifest"]);
+  }
   return contents;
 };
 
@@ -18301,6 +19417,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     BackupTarget: undefined,
     NetworkType: undefined,
     ActivityStreamPolicyStatus: undefined,
+    StorageThroughput: undefined,
+    DBSystemId: undefined,
+    MasterUserSecret: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -18628,6 +19747,15 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   if (output["ActivityStreamPolicyStatus"] !== undefined) {
     contents.ActivityStreamPolicyStatus = __expectString(output["ActivityStreamPolicyStatus"]);
   }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
+  }
   return contents;
 };
 
@@ -18676,6 +19804,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     DBInstanceAutomatedBackupsArn: undefined,
     DBInstanceAutomatedBackupsReplications: undefined,
     BackupTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
@@ -18765,6 +19894,9 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
   }
   if (output["BackupTarget"] !== undefined) {
     contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -19683,6 +20815,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     OriginalSnapshotCreateTime: undefined,
     SnapshotDatabaseTime: undefined,
     SnapshotTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
     contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
@@ -19789,6 +20922,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
   }
   if (output["SnapshotTarget"] !== undefined) {
     contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -20054,6 +21190,19 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
   return contents;
 };
 
+const deserializeAws_queryDeleteBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
   const contents: any = {
     DBCluster: undefined,
@@ -20167,6 +21316,28 @@ const deserializeAws_queryDeregisterDBProxyTargetsResponse = (
   context: __SerdeContext
 ): DeregisterDBProxyTargetsResponse => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBlueGreenDeploymentsResponse => {
+  const contents: any = {
+    BlueGreenDeployments: undefined,
+    Marker: undefined,
+  };
+  if (output.BlueGreenDeployments === "") {
+    contents.BlueGreenDeployments = [];
+  } else if (output["BlueGreenDeployments"] !== undefined && output["BlueGreenDeployments"]["member"] !== undefined) {
+    contents.BlueGreenDeployments = deserializeAws_queryBlueGreenDeploymentList(
+      __getArrayIfSingleItem(output["BlueGreenDeployments"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
   return contents;
 };
 
@@ -21183,6 +22354,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidBlueGreenDeploymentStateFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidCustomDBEngineVersionStateFault = (
   output: any,
   context: __SerdeContext
@@ -21539,6 +22723,24 @@ const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_queryMasterUserSecret = (output: any, context: __SerdeContext): MasterUserSecret => {
+  const contents: any = {
+    SecretArn: undefined,
+    SecretStatus: undefined,
+    KmsKeyId: undefined,
+  };
+  if (output["SecretArn"] !== undefined) {
+    contents.SecretArn = __expectString(output["SecretArn"]);
+  }
+  if (output["SecretStatus"] !== undefined) {
+    contents.SecretStatus = __expectString(output["SecretStatus"]);
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryMinimumEngineVersionPerAllowedValue = (
   output: any,
   context: __SerdeContext
@@ -21843,6 +23045,9 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
     AllowsVpcAndNonVpcInstanceMemberships: undefined,
     VpcId: undefined,
     OptionGroupArn: undefined,
+    SourceOptionGroup: undefined,
+    SourceAccountId: undefined,
+    CopyTimestamp: undefined,
   };
   if (output["OptionGroupName"] !== undefined) {
     contents.OptionGroupName = __expectString(output["OptionGroupName"]);
@@ -21869,6 +23074,15 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
   }
   if (output["OptionGroupArn"] !== undefined) {
     contents.OptionGroupArn = __expectString(output["OptionGroupArn"]);
+  }
+  if (output["SourceOptionGroup"] !== undefined) {
+    contents.SourceOptionGroup = __expectString(output["SourceOptionGroup"]);
+  }
+  if (output["SourceAccountId"] !== undefined) {
+    contents.SourceAccountId = __expectString(output["SourceAccountId"]);
+  }
+  if (output["CopyTimestamp"] !== undefined) {
+    contents.CopyTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CopyTimestamp"]));
   }
   return contents;
 };
@@ -21942,6 +23156,7 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     SupportsOptionVersionDowngrade: undefined,
     OptionGroupOptionSettings: undefined,
     OptionGroupOptionVersions: undefined,
+    CopyableCrossAccount: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -22019,6 +23234,9 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
       __getArrayIfSingleItem(output["OptionGroupOptionVersions"]["OptionVersion"]),
       context
     );
+  }
+  if (output["CopyableCrossAccount"] !== undefined) {
+    contents.CopyableCrossAccount = __parseBoolean(output["CopyableCrossAccount"]);
   }
   return contents;
 };
@@ -22287,6 +23505,11 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportsGlobalDatabases: undefined,
     SupportsClusters: undefined,
     SupportedNetworkTypes: undefined,
+    SupportsStorageThroughput: undefined,
+    MinStorageThroughputPerDbInstance: undefined,
+    MaxStorageThroughputPerDbInstance: undefined,
+    MinStorageThroughputPerIops: undefined,
+    MaxStorageThroughputPerIops: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22411,6 +23634,25 @@ const deserializeAws_queryOrderableDBInstanceOption = (
       __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
       context
     );
+  }
+  if (output["SupportsStorageThroughput"] !== undefined) {
+    contents.SupportsStorageThroughput = __parseBoolean(output["SupportsStorageThroughput"]);
+  }
+  if (output["MinStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MinStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MinStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MaxStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MaxStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MaxStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MinStorageThroughputPerIops"] !== undefined) {
+    contents.MinStorageThroughputPerIops = __strictParseFloat(output["MinStorageThroughputPerIops"]) as number;
+  }
+  if (output["MaxStorageThroughputPerIops"] !== undefined) {
+    contents.MaxStorageThroughputPerIops = __strictParseFloat(output["MaxStorageThroughputPerIops"]) as number;
   }
   return contents;
 };
@@ -22651,6 +23893,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     IAMDatabaseAuthenticationEnabled: undefined,
     AutomationMode: undefined,
     ResumeFullAutomationModeTime: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
@@ -22718,6 +23961,9 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.ResumeFullAutomationModeTime = __expectNonNull(
       __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
     );
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -23452,6 +24698,32 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
   return contents;
 };
 
+const deserializeAws_querySourceClusterNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceClusterNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceDatabaseNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -23776,6 +25048,45 @@ const deserializeAws_querySupportedTimezonesList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_querySwitchoverBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): SwitchoverBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetail = (output: any, context: __SerdeContext): SwitchoverDetail => {
+  const contents: any = {
+    SourceMember: undefined,
+    TargetMember: undefined,
+    Status: undefined,
+  };
+  if (output["SourceMember"] !== undefined) {
+    contents.SourceMember = __expectString(output["SourceMember"]);
+  }
+  if (output["TargetMember"] !== undefined) {
+    contents.TargetMember = __expectString(output["TargetMember"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetailList = (output: any, context: __SerdeContext): SwitchoverDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_querySwitchoverDetail(entry, context);
+    });
+};
+
 const deserializeAws_querySwitchoverReadReplicaResult = (
   output: any,
   context: __SerdeContext
@@ -23921,6 +25232,7 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
     AuthScheme: undefined,
     SecretArn: undefined,
     IAMAuth: undefined,
+    ClientPasswordAuthType: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -23936,6 +25248,9 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
   }
   if (output["IAMAuth"] !== undefined) {
     contents.IAMAuth = __expectString(output["IAMAuth"]);
+  }
+  if (output["ClientPasswordAuthType"] !== undefined) {
+    contents.ClientPasswordAuthType = __expectString(output["ClientPasswordAuthType"]);
   }
   return contents;
 };
@@ -23985,6 +25300,8 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
     ProvisionedIops: undefined,
     IopsToStorageRatio: undefined,
     SupportsStorageAutoscaling: undefined,
+    ProvisionedStorageThroughput: undefined,
+    StorageThroughputToIopsRatio: undefined,
   };
   if (output["StorageType"] !== undefined) {
     contents.StorageType = __expectString(output["StorageType"]);
@@ -24015,6 +25332,28 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
   }
   if (output["SupportsStorageAutoscaling"] !== undefined) {
     contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
+  }
+  if (output.ProvisionedStorageThroughput === "") {
+    contents.ProvisionedStorageThroughput = [];
+  } else if (
+    output["ProvisionedStorageThroughput"] !== undefined &&
+    output["ProvisionedStorageThroughput"]["Range"] !== undefined
+  ) {
+    contents.ProvisionedStorageThroughput = deserializeAws_queryRangeList(
+      __getArrayIfSingleItem(output["ProvisionedStorageThroughput"]["Range"]),
+      context
+    );
+  }
+  if (output.StorageThroughputToIopsRatio === "") {
+    contents.StorageThroughputToIopsRatio = [];
+  } else if (
+    output["StorageThroughputToIopsRatio"] !== undefined &&
+    output["StorageThroughputToIopsRatio"]["DoubleRange"] !== undefined
+  ) {
+    contents.StorageThroughputToIopsRatio = deserializeAws_queryDoubleRangeList(
+      __getArrayIfSingleItem(output["StorageThroughputToIopsRatio"]["DoubleRange"]),
+      context
+    );
   }
   return contents;
 };

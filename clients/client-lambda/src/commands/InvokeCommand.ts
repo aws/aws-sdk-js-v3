@@ -35,21 +35,23 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *
  *          <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type,
  *       client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an
- *       error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html">Retry Behavior</a>.</p>
+ *       error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html">Error handling and automatic retries in
+ *           Lambda</a>.</p>
  *
  *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous invocation</a>,
  *       Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity
  *       to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple
- *       times, even if no error occurs. To retain events that were not processed, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a>.</p>
+ *       times, even if no error occurs. To retain events that were not processed, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">dead-letter queue</a>.</p>
  *
  *          <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that
- *       prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limit errors</a>, or issues with your function's code and configuration.
- *       For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to
- *       exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or
- *       function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
+ *       prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">quota</a> errors, or issues with your function's code and
+ *       configuration. For example, Lambda returns <code>TooManyRequestsException</code> if running the
+ *       function would cause you to exceed a concurrency limit at either the account level
+ *         (<code>ConcurrentInvocationLimitExceeded</code>) or function level
+ *         (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
  *
- *          <p>For functions with a long timeout, your client might be disconnected during synchronous invocation while it
- *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
+ *          <p>For functions with a long timeout, your client might disconnect during synchronous invocation while it waits
+ *       for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
  *       connections with timeout or keep-alive settings.</p>
  *
  *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up

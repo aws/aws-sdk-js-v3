@@ -33,10 +33,10 @@ export interface GetRecommendationPreferencesCommandOutput
 /**
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
  *             metrics.</p>
- *         <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
+ *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
  *             specify to return preferences for an organization, a specific account ID, or a specific
  *             EC2 instance or Auto Scaling group Amazon Resource Name (ARN).</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
  * @example

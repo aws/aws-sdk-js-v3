@@ -59,6 +59,10 @@ import {
   DeleteEventDataStoreCommandOutput,
 } from "./commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import {
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
@@ -89,6 +93,10 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommandInput,
@@ -119,6 +127,7 @@ export type ServiceInputTypes =
   | CreateTrailCommandInput
   | DeleteEventDataStoreCommandInput
   | DeleteTrailCommandInput
+  | DeregisterOrganizationDelegatedAdminCommandInput
   | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
   | GetChannelCommandInput
@@ -140,6 +149,7 @@ export type ServiceInputTypes =
   | LookupEventsCommandInput
   | PutEventSelectorsCommandInput
   | PutInsightSelectorsCommandInput
+  | RegisterOrganizationDelegatedAdminCommandInput
   | RemoveTagsCommandInput
   | RestoreEventDataStoreCommandInput
   | StartImportCommandInput
@@ -157,6 +167,7 @@ export type ServiceOutputTypes =
   | CreateTrailCommandOutput
   | DeleteEventDataStoreCommandOutput
   | DeleteTrailCommandOutput
+  | DeregisterOrganizationDelegatedAdminCommandOutput
   | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
   | GetChannelCommandOutput
@@ -178,6 +189,7 @@ export type ServiceOutputTypes =
   | LookupEventsCommandOutput
   | PutEventSelectorsCommandOutput
   | PutInsightSelectorsCommandOutput
+  | RegisterOrganizationDelegatedAdminCommandOutput
   | RemoveTagsCommandOutput
   | RestoreEventDataStoreCommandOutput
   | StartImportCommandOutput
@@ -342,7 +354,6 @@ export interface CloudTrailClientResolvedConfig extends CloudTrailClientResolved
  *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p>
  *          <p>CloudTrail is a web service that records Amazon Web Services API calls for your Amazon Web Services account and delivers log files to an Amazon S3 bucket.
  *          The recorded information includes the identity of the user, the start time of the Amazon Web Services API call, the source IP address, the request parameters, and the response elements returned by the service.</p>
- *
  *          <note>
  *             <p>As an alternative to the API,
  *             you can use one of the Amazon Web Services SDKs, which consist of libraries and sample code for various

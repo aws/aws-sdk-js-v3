@@ -30,23 +30,23 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
 
 /**
  * <p>Updates a response headers policy.</p>
- * 		       <p>When you update a response headers policy, the entire policy is replaced. You cannot
+ *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
  * 			update some policy fields independent of others. To update a response headers policy
  * 			configuration:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy’s
+ *                <p>Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy's
  * 					configuration.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Modify the fields in the response headers policy configuration that you want
+ *                <p>Modify the fields in the response headers policy configuration that you want
  * 					to update.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response
+ *                <p>Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response
  * 					headers policy configuration, including the fields that you modified and those
- * 					that you didn’t.</p>
- * 			         </li>
+ * 					that you didn't.</p>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

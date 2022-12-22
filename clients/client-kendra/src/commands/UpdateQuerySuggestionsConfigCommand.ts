@@ -17,7 +17,7 @@ import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   UpdateQuerySuggestionsConfigRequest,
   UpdateQuerySuggestionsConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateQuerySuggestionsConfigCommand,
   serializeAws_json1_1UpdateQuerySuggestionsConfigCommand,
@@ -28,15 +28,15 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
 
 /**
  * <p>Updates the settings of query suggestions for an index.</p>
- *         <p>Amazon Kendra supports partial updates, so you only need to provide
+ *          <p>Amazon Kendra supports partial updates, so you only need to provide
  *             the fields you want to update.</p>
- *         <p>If an update is currently processing (i.e. 'happening'), you
+ *          <p>If an update is currently processing (i.e. 'happening'), you
  *             need to wait for the update to finish before making another update.</p>
- *         <p>Updates to query suggestions settings might not take effect right away.
+ *          <p>Updates to query suggestions settings might not take effect right away.
  *             The time for your updated settings to take effect depends on the updates
  *             made and the number of search queries in your index.</p>
- *         <p>You can still enable/disable query suggestions at any time.</p>
- *         <p>
+ *          <p>You can still enable/disable query suggestions at any time.</p>
+ *          <p>
  *             <code>UpdateQuerySuggestionsConfig</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

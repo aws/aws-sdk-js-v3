@@ -18,7 +18,7 @@ import {
   UpdateDashboardPublishedVersionRequestFilterSensitiveLog,
   UpdateDashboardPublishedVersionResponse,
   UpdateDashboardPublishedVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
   serializeAws_restJson1UpdateDashboardPublishedVersionCommand,

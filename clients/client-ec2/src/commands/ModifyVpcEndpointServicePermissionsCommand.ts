@@ -19,7 +19,7 @@ import {
   ModifyVpcEndpointServicePermissionsRequestFilterSensitiveLog,
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcEndpointServicePermissionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
   serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
@@ -33,7 +33,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
 /**
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
  * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
- * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
+ *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
  * @example

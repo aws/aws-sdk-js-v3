@@ -19,7 +19,7 @@ import {
   CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
   CreateSpotDatafeedSubscriptionResult,
   CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
@@ -32,9 +32,9 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
 
 /**
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
- * 				You can create one data feed per Amazon Web Services account. For more information, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
- *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             You can create one data feed per Amazon Web Services account. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
+ *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

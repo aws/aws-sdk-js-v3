@@ -18,7 +18,7 @@ import {
   UpdateNotebookInstanceInputFilterSensitiveLog,
   UpdateNotebookInstanceOutput,
   UpdateNotebookInstanceOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceCommand,
   serializeAws_json1_1UpdateNotebookInstanceCommand,

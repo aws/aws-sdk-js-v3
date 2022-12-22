@@ -19,7 +19,7 @@ import {
   DeleteVpcEndpointsRequestFilterSensitiveLog,
   DeleteVpcEndpointsResult,
   DeleteVpcEndpointsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand,
@@ -30,7 +30,7 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
 
 /**
  * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>Gateway endpoint,</p>
  *             </li>
@@ -41,17 +41,17 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  *                <p>Interface endpoint</p>
  *             </li>
  *          </ul>
- *         <p>The following rules apply when you delete a VPC endpoint:</p>
- *         <ul>
+ *          <p>The following rules apply when you delete a VPC endpoint:</p>
+ *          <ul>
  *             <li>
- *                 <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
+ *                <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
  *             </li>
  *             <li>
- *                 <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
- *                 <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+ *                <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
+ *                <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
  *             </li>
  *             <li>
- *                 <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
+ *                <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
  *             </li>
  *          </ul>
  * @example

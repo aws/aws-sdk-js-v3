@@ -58,7 +58,16 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
+import {
+  GetBandwidthRateLimitScheduleCommandInput,
+  GetBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/GetBandwidthRateLimitScheduleCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import { GetHypervisorCommandInput, GetHypervisorCommandOutput } from "./commands/GetHypervisorCommand";
+import {
+  GetHypervisorPropertyMappingsCommandInput,
+  GetHypervisorPropertyMappingsCommandOutput,
+} from "./commands/GetHypervisorPropertyMappingsCommand";
 import { GetVirtualMachineCommandInput, GetVirtualMachineCommandOutput } from "./commands/GetVirtualMachineCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
@@ -75,9 +84,21 @@ import {
   ListVirtualMachinesCommandOutput,
 } from "./commands/ListVirtualMachinesCommand";
 import {
+  PutBandwidthRateLimitScheduleCommandInput,
+  PutBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/PutBandwidthRateLimitScheduleCommand";
+import {
+  PutHypervisorPropertyMappingsCommandInput,
+  PutHypervisorPropertyMappingsCommandOutput,
+} from "./commands/PutHypervisorPropertyMappingsCommand";
+import {
   PutMaintenanceStartTimeCommandInput,
   PutMaintenanceStartTimeCommandOutput,
 } from "./commands/PutMaintenanceStartTimeCommand";
+import {
+  StartVirtualMachinesMetadataSyncCommandInput,
+  StartVirtualMachinesMetadataSyncCommandOutput,
+} from "./commands/StartVirtualMachinesMetadataSyncCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestHypervisorConfigurationCommandInput,
@@ -107,14 +128,20 @@ export type ServiceInputTypes =
   | DeleteGatewayCommandInput
   | DeleteHypervisorCommandInput
   | DisassociateGatewayFromServerCommandInput
+  | GetBandwidthRateLimitScheduleCommandInput
   | GetGatewayCommandInput
+  | GetHypervisorCommandInput
+  | GetHypervisorPropertyMappingsCommandInput
   | GetVirtualMachineCommandInput
   | ImportHypervisorConfigurationCommandInput
   | ListGatewaysCommandInput
   | ListHypervisorsCommandInput
   | ListTagsForResourceCommandInput
   | ListVirtualMachinesCommandInput
+  | PutBandwidthRateLimitScheduleCommandInput
+  | PutHypervisorPropertyMappingsCommandInput
   | PutMaintenanceStartTimeCommandInput
+  | StartVirtualMachinesMetadataSyncCommandInput
   | TagResourceCommandInput
   | TestHypervisorConfigurationCommandInput
   | UntagResourceCommandInput
@@ -128,14 +155,20 @@ export type ServiceOutputTypes =
   | DeleteGatewayCommandOutput
   | DeleteHypervisorCommandOutput
   | DisassociateGatewayFromServerCommandOutput
+  | GetBandwidthRateLimitScheduleCommandOutput
   | GetGatewayCommandOutput
+  | GetHypervisorCommandOutput
+  | GetHypervisorPropertyMappingsCommandOutput
   | GetVirtualMachineCommandOutput
   | ImportHypervisorConfigurationCommandOutput
   | ListGatewaysCommandOutput
   | ListHypervisorsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVirtualMachinesCommandOutput
+  | PutBandwidthRateLimitScheduleCommandOutput
+  | PutHypervisorPropertyMappingsCommandOutput
   | PutMaintenanceStartTimeCommandOutput
+  | StartVirtualMachinesMetadataSyncCommandOutput
   | TagResourceCommandOutput
   | TestHypervisorConfigurationCommandOutput
   | UntagResourceCommandOutput

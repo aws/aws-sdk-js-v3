@@ -26,14 +26,13 @@ export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
- * <p>Searches an active index. Use this API to search your documents
- *          using query. The <code>Query</code> API enables to do faceted
- *          search and to filter results based on document attributes.</p>
- *          <p>It also enables you to provide user context that Amazon Kendra uses
- *          to enforce document access control in the search results.</p>
- *          <p>Amazon Kendra searches your index for text content and question and
- *          answer (FAQ) content. By default the response contains three types of
- *          results.</p>
+ * <p>Searches an active index. Use this API to search your documents using query. The
+ *             <code>Query</code> API enables to do faceted search and to filter results based on
+ *          document attributes.</p>
+ *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce
+ *          document access control in the search results.</p>
+ *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ)
+ *          content. By default the response contains three types of results.</p>
  *          <ul>
  *             <li>
  *                <p>Relevant passages</p>
@@ -45,8 +44,8 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *                <p>Relevant documents</p>
  *             </li>
  *          </ul>
- *          <p>You can specify that the query return only one type of result using
- *          the <code>QueryResultTypeConfig</code> parameter.</p>
+ *          <p>You can specify that the query return only one type of result using the
+ *             <code>QueryResultTypeConfig</code> parameter.</p>
  *          <p>Each query returns the 100 most relevant results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

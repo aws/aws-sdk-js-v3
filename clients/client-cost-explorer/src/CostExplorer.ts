@@ -133,6 +133,11 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "./commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -142,6 +147,11 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartSavingsPlansPurchaseRecommendationGenerationCommand,
+  StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "./commands/StartSavingsPlansPurchaseRecommendationGenerationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -171,20 +181,20 @@ import {
 import { CostExplorerClient } from "./CostExplorerClient";
 
 /**
- * <p>You can use the Cost Explorer API to programmatically query your cost and usage data. You
- *       can query for aggregated data such as total monthly costs or total daily usage. You can also
- *       query for granular data. This might include the number of daily write operations for Amazon
- *       DynamoDB database tables in your production environment. </p>
- * 		       <p>Service Endpoint</p>
- * 		       <p>The Cost Explorer API provides the following endpoint:</p>
- * 		       <ul>
+ * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
+ *       You can query for aggregated data such as total monthly costs or total daily usage. You can
+ *       also query for granular data. This might include the number of daily write operations for
+ *       Amazon DynamoDB database tables in your production environment. </p>
+ *          <p>Service Endpoint</p>
+ *          <p>The Cost Explorer API provides the following endpoint:</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>https://ce.us-east-1.amazonaws.com</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
- * 		       <p>For information about the costs that are associated with the Cost Explorer API, see
+ *          <p>For information about the costs that are associated with the Cost Explorer API, see
  *         <a href="http://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost
  *         Management Pricing</a>.</p>
  */
@@ -223,9 +233,9 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
-   *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
-   *       threshold and a time frequency for receiving notifications. </p>
+   * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
+   *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
+   *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
    */
   public createAnomalySubscription(
     args: CreateAnomalySubscriptionCommandInput,
@@ -353,7 +363,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>
+   * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
+   *       categorized with this Cost Category.</p>
    */
   public deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
@@ -423,7 +434,8 @@ export class CostExplorer extends CostExplorerClient {
 
   /**
    * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
-   *       specified by the <code>DateInterval</code> object. </p>
+   *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
+   *       days.</p>
    */
   public getAnomalies(
     args: GetAnomaliesCommandInput,
@@ -523,7 +535,8 @@ export class CostExplorer extends CostExplorerClient {
    *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
    *       data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific
    *       time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts.</p>
-   * 	        <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+   *          <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a>
+   *       in the <i>Billing and Cost Management User Guide</i>.</p>
    */
   public getCostAndUsage(
     args: GetCostAndUsageCommandInput,
@@ -555,15 +568,17 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves cost and usage metrics with resources for your account. You can specify which cost and
-   * 	    usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that
-   * 	    you want the request to return. You can also filter and group your data by various dimensions,
-   * 	    such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
-   * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts. This API is currently available for the Amazon Elastic Compute Cloud – Compute service only.</p>
-   * 	        <note>
-   *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings
-   *         page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost
-   *           Explorer</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+   * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
+   *       cost and usage-related metric, such as <code>BlendedCosts</code> or
+   *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
+   *       your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a
+   *       specific time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts. This API is currently available for the
+   *       Amazon Elastic Compute Cloud – Compute service only.</p>
+   *          <note>
+   *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer
+   *         Settings page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
+   *           Access for Cost Explorer</a> in the <i>Billing and Cost Management User
+   *           Guide</i>.</p>
    *          </note>
    */
   public getCostAndUsageWithResources(
@@ -598,7 +613,8 @@ export class CostExplorer extends CostExplorerClient {
   /**
    * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
    *          <note>
-   *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
+   *             <p>If some Cost Category names and values are not associated with any cost, they will not
+   *         be returned by this API.</p>
    *          </note>
    */
   public getCostCategories(
@@ -631,7 +647,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs. </p>
+   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
+   *       the forecast time period that you select, based on your past costs. </p>
    */
   public getCostForecast(
     args: GetCostForecastCommandInput,
@@ -663,7 +680,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>
+   * <p>Retrieves all available filter values for a specified filter over a period of time. You
+   *       can search the dimension values for an arbitrary string. </p>
    */
   public getDimensionValues(
     args: GetDimensionValuesCommandInput,
@@ -695,13 +713,13 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the reservation coverage for your account, which you can use to see how much of
-   *       your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or
-   *       Amazon Redshift usage is covered by a reservation. An organization's management account can
+   * <p>Retrieves the reservation coverage for your account, which you can use to see how much
+   *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
+   *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
    *       see the coverage of the associated member accounts. This supports dimensions, Cost Categories,
    *       and nested expressions. For any time period, you can filter data about reservation usage by
    *       the following dimensions:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>AZ</p>
    *             </li>
@@ -739,7 +757,8 @@ export class CostExplorer extends CostExplorerClient {
    *                <p>TENANCY</p>
    *             </li>
    *          </ul>
-   * 		       <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation. </p>
+   *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
+   *       operation. </p>
    */
   public getReservationCoverage(
     args: GetReservationCoverageCommandInput,
@@ -774,12 +793,12 @@ export class CostExplorer extends CostExplorerClient {
    * <p>Gets recommendations for reservation purchases. These recommendations might help you to
    *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
    *       On-Demand pricing.</p>
-   * 		       <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
+   *          <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
    *       during a specific time period and collecting your usage into categories that are eligible for
    *       a reservation. After Amazon Web Services has these categories, it simulates every combination
    *       of reservations in each category of usage to identify the best number of each type of Reserved
    *       Instance (RI) to purchase to maximize your estimated savings. </p>
-   * 		       <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
+   *          <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
    *       tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you buy
    *       size-flexible regional reservations to apply to the c4 family usage. Amazon Web Services
    *       recommends the smallest size instance in an instance family. This makes it easier to purchase
@@ -818,9 +837,10 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts.
-   * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
-   * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
+   * <p>Retrieves the reservation utilization for your account. Management account in an
+   *       organization have access to member accounts. You can filter data by dimensions in a time
+   *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
+   *       values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
    */
   public getReservationUtilization(
     args: GetReservationUtilizationCommandInput,
@@ -852,9 +872,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Creates recommendations that
-   *       help you save cost
-   *       by identifying idle and underutilized Amazon EC2 instances.</p>
+   * <p>Creates recommendations that help you save cost by identifying idle and underutilized
+   *       Amazon EC2 instances.</p>
    *          <p>Recommendations are generated to either downsize or terminate instances, along with
    *       providing savings detail and metrics. For more information about calculation and function, see
    *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -889,8 +908,12 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s management account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
-   * 	        <ul>
+   * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
+   *       your cost is covered by a Savings Plan. An organization’s management account can see the
+   *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
+   *       nested expressions. For any time period, you can filter data for Savings Plans usage with the
+   *       following dimensions:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>LINKED_ACCOUNT</code>
@@ -912,7 +935,8 @@ export class CostExplorer extends CostExplorerClient {
    *                </p>
    *             </li>
    *          </ul>
-   * 	        <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation.</p>
+   *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
+   *       operation.</p>
    */
   public getSavingsPlansCoverage(
     args: GetSavingsPlansCoverageCommandInput,
@@ -944,7 +968,10 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>
+   * <p>Retrieves the Savings Plans recommendations for your account. First use
+   *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
+   *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
+   *       them.</p>
    */
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
@@ -978,9 +1005,13 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
-   * 	        <note>
-   *             <p>You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
+   * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
+   *       monthly granularity. Management account in an organization have access to member accounts. You
+   *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
+   *       possible dimension values.</p>
+   *          <note>
+   *             <p>You can't group by any dimension values for
+   *         <code>GetSavingsPlansUtilization</code>.</p>
    *          </note>
    */
   public getSavingsPlansUtilization(
@@ -1013,10 +1044,17 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves attribute data along with aggregate utilization and savings data for a given time period. This doesn't support granular or grouped data (daily/monthly) in response. You can't retrieve data by dates in a single response similar to <code>GetSavingsPlanUtilization</code>, but you have the option to make multiple calls to <code>GetSavingsPlanUtilizationDetails</code> by providing individual dates. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
-   * 	        <note>
+   * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
+   *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
+   *       can't retrieve data by dates in a single response similar to
+   *         <code>GetSavingsPlanUtilization</code>, but you have the option to make multiple calls to
+   *         <code>GetSavingsPlanUtilizationDetails</code> by providing individual dates. You can use
+   *         <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible
+   *       dimension values.</p>
+   *          <note>
    *             <p>
-   *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.</p>
+   *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by
+   *           <code>SavingsPlansArn</code>.</p>
    *          </note>
    */
   public getSavingsPlansUtilizationDetails(
@@ -1049,7 +1087,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
+   * <p>Queries for available tag keys and tag values for a specified period. You can search
+   *       the tag values for an arbitrary string. </p>
    */
   public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
   public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
@@ -1075,7 +1114,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage. </p>
+   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
+   *       over the forecast time period that you select, based on your past usage. </p>
    */
   public getUsageForecast(
     args: GetUsageForecastCommandInput,
@@ -1178,8 +1218,43 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Returns a list of resource tags associated with the resource specified by the Amazon Resource Name (ARN).
-   *     </p>
+   * <p>Retrieves a list of your historical recommendation generations within the past 30
+   *       days.</p>
+   */
+  public listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
+  public listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  public listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  public listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void),
+    cb?: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> | void {
+    const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of resource tags associated with the resource specified by the Amazon
+   *       Resource Name (ARN). </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1243,8 +1318,53 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
+   *       set of Savings Plans recommendations that takes your latest usage data and current Savings
+   *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
+   *       daily for a consolidated billing family.</p>
+   *          <note>
+   *             <p>
+   *                <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
+   *         because no input parameters are needed to support this operation.</p>
+   *          </note>
+   */
+  public startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
+  public startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  public startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  public startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void),
+    cb?: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> | void {
+    const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>An API operation for adding one or more tags (key-value pairs) to a resource.</p>
-   *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value you specify replaces the previous value for that tag.</p>
+   *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags.
+   *       If you specify a new tag key for the resource, this tag is appended to the list of tags
+   *       associated with the resource. If you specify a tag key that is already associated with the
+   *       resource, the new tag value you specify replaces the previous value for that tag.</p>
    *          <p>Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
    *       are reserved for Amazon Web Services use.</p>
    */
@@ -1405,7 +1525,9 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>
+   * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
+   *       categorize the current month’s expenses and future expenses. This won’t change categorization
+   *       for the previous months.</p>
    */
   public updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,

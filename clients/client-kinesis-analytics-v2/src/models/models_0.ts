@@ -2815,6 +2815,7 @@ export enum ApplicationStatus {
 export enum RuntimeEnvironment {
   FLINK_1_11 = "FLINK-1_11",
   FLINK_1_13 = "FLINK-1_13",
+  FLINK_1_15 = "FLINK-1_15",
   FLINK_1_6 = "FLINK-1_6",
   FLINK_1_8 = "FLINK-1_8",
   SQL_1_0 = "SQL-1_0",
@@ -2843,7 +2844,7 @@ export interface ApplicationDetail {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
+   * <p>The runtime environment for the application.</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
 
@@ -3025,7 +3026,7 @@ export interface CreateApplicationRequest {
   ApplicationDescription?: string;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
+   * <p>The runtime environment for the application.</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
 
@@ -3057,7 +3058,7 @@ export interface CreateApplicationRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics Studio notebook. To create a Kinesis Data Analytics Studio notebook, use the
+   * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the
    *     <code>INTERACTIVE</code> mode.</p>
    */
   ApplicationMode?: ApplicationMode | string;

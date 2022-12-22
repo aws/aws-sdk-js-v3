@@ -30,9 +30,9 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
 
 /**
  * <p>Gets a real-time log configuration.</p>
- * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its Amazon
- * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
- * 			name to identify the real-time log configuration to get.</p>
+ *          <p>To get a real-time log configuration, you can provide the configuration's name or its
+ * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+ * 			uses the name to identify the real-time log configuration to get.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

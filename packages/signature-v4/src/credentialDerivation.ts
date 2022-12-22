@@ -1,4 +1,4 @@
-import { Credentials, HashConstructor, SourceData } from "@aws-sdk/types";
+import { AwsCredentialIdentity, HashConstructor, SourceData } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
@@ -30,7 +30,7 @@ export const createScope = (shortDate: string, region: string, service: string):
  */
 export const getSigningKey = async (
   sha256Constructor: HashConstructor,
-  credentials: Credentials,
+  credentials: AwsCredentialIdentity,
   shortDate: string,
   region: string,
   service: string

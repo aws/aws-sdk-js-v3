@@ -466,7 +466,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1134,6 +1137,9 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1484,6 +1490,9 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1689,10 +1698,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1757,6 +1764,7 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
     ...(input.IncludeEncoderConfigurationInSegments != null && {
       includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
     }),
+    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
     ...(input.PeriodTriggers != null && {
       periodTriggers: serializeAws_restJson1__listOf__PeriodTriggersElement(input.PeriodTriggers, context),
     }),
@@ -1874,10 +1882,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2000,10 +2006,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2082,6 +2086,7 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
     Encryption:
       output.encryption != null ? deserializeAws_restJson1DashEncryption(output.encryption, context) : undefined,
     IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     PeriodTriggers:
       output.periodTriggers != null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
@@ -2205,6 +2210,7 @@ const deserializeAws_restJson1PackagingConfiguration = (
 
 const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup => {
   return {
+    ApproximateAssetCount: __expectInt32(output.approximateAssetCount),
     Arn: __expectString(output.arn),
     Authorization:
       output.authorization != null ? deserializeAws_restJson1Authorization(output.authorization, context) : undefined,
@@ -2244,10 +2250,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

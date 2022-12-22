@@ -117,6 +117,10 @@ import {
 } from "./commands/GetAdministratorAccountCommand";
 import { GetAllowListCommandInput, GetAllowListCommandOutput } from "./commands/GetAllowListCommand";
 import {
+  GetAutomatedDiscoveryConfigurationCommandInput,
+  GetAutomatedDiscoveryConfigurationCommandOutput,
+} from "./commands/GetAutomatedDiscoveryConfigurationCommand";
+import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
 } from "./commands/GetBucketStatisticsCommand";
@@ -124,6 +128,10 @@ import {
   GetClassificationExportConfigurationCommandInput,
   GetClassificationExportConfigurationCommandOutput,
 } from "./commands/GetClassificationExportConfigurationCommand";
+import {
+  GetClassificationScopeCommandInput,
+  GetClassificationScopeCommandOutput,
+} from "./commands/GetClassificationScopeCommand";
 import {
   GetCustomDataIdentifierCommandInput,
   GetCustomDataIdentifierCommandOutput,
@@ -145,6 +153,7 @@ import {
 import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "./commands/GetMacieSessionCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import { GetResourceProfileCommandInput, GetResourceProfileCommandOutput } from "./commands/GetResourceProfileCommand";
 import {
   GetRevealConfigurationCommandInput,
   GetRevealConfigurationCommandOutput,
@@ -157,6 +166,10 @@ import {
   GetSensitiveDataOccurrencesCommandInput,
   GetSensitiveDataOccurrencesCommandOutput,
 } from "./commands/GetSensitiveDataOccurrencesCommand";
+import {
+  GetSensitivityInspectionTemplateCommandInput,
+  GetSensitivityInspectionTemplateCommandOutput,
+} from "./commands/GetSensitivityInspectionTemplateCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
 import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "./commands/ListAllowListsCommand";
@@ -164,6 +177,10 @@ import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "./commands/ListClassificationJobsCommand";
+import {
+  ListClassificationScopesCommandInput,
+  ListClassificationScopesCommandOutput,
+} from "./commands/ListClassificationScopesCommand";
 import {
   ListCustomDataIdentifiersCommandInput,
   ListCustomDataIdentifiersCommandOutput,
@@ -183,6 +200,18 @@ import {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
+import {
+  ListResourceProfileArtifactsCommandInput,
+  ListResourceProfileArtifactsCommandOutput,
+} from "./commands/ListResourceProfileArtifactsCommand";
+import {
+  ListResourceProfileDetectionsCommandInput,
+  ListResourceProfileDetectionsCommandOutput,
+} from "./commands/ListResourceProfileDetectionsCommand";
+import {
+  ListSensitivityInspectionTemplatesCommandInput,
+  ListSensitivityInspectionTemplatesCommandOutput,
+} from "./commands/ListSensitivityInspectionTemplatesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -204,9 +233,17 @@ import {
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "./commands/UpdateAllowListCommand";
 import {
+  UpdateAutomatedDiscoveryConfigurationCommandInput,
+  UpdateAutomatedDiscoveryConfigurationCommandOutput,
+} from "./commands/UpdateAutomatedDiscoveryConfigurationCommand";
+import {
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
 } from "./commands/UpdateClassificationJobCommand";
+import {
+  UpdateClassificationScopeCommandInput,
+  UpdateClassificationScopeCommandOutput,
+} from "./commands/UpdateClassificationScopeCommand";
 import {
   UpdateFindingsFilterCommandInput,
   UpdateFindingsFilterCommandOutput,
@@ -221,9 +258,21 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
+  UpdateResourceProfileCommandInput,
+  UpdateResourceProfileCommandOutput,
+} from "./commands/UpdateResourceProfileCommand";
+import {
+  UpdateResourceProfileDetectionsCommandInput,
+  UpdateResourceProfileDetectionsCommandOutput,
+} from "./commands/UpdateResourceProfileDetectionsCommand";
+import {
   UpdateRevealConfigurationCommandInput,
   UpdateRevealConfigurationCommandOutput,
 } from "./commands/UpdateRevealConfigurationCommand";
+import {
+  UpdateSensitivityInspectionTemplateCommandInput,
+  UpdateSensitivityInspectionTemplateCommandOutput,
+} from "./commands/UpdateSensitivityInspectionTemplateCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -260,8 +309,10 @@ export type ServiceInputTypes =
   | EnableOrganizationAdminAccountCommandInput
   | GetAdministratorAccountCommandInput
   | GetAllowListCommandInput
+  | GetAutomatedDiscoveryConfigurationCommandInput
   | GetBucketStatisticsCommandInput
   | GetClassificationExportConfigurationCommandInput
+  | GetClassificationScopeCommandInput
   | GetCustomDataIdentifierCommandInput
   | GetFindingStatisticsCommandInput
   | GetFindingsCommandInput
@@ -271,13 +322,16 @@ export type ServiceInputTypes =
   | GetMacieSessionCommandInput
   | GetMasterAccountCommandInput
   | GetMemberCommandInput
+  | GetResourceProfileCommandInput
   | GetRevealConfigurationCommandInput
   | GetSensitiveDataOccurrencesAvailabilityCommandInput
   | GetSensitiveDataOccurrencesCommandInput
+  | GetSensitivityInspectionTemplateCommandInput
   | GetUsageStatisticsCommandInput
   | GetUsageTotalsCommandInput
   | ListAllowListsCommandInput
   | ListClassificationJobsCommandInput
+  | ListClassificationScopesCommandInput
   | ListCustomDataIdentifiersCommandInput
   | ListFindingsCommandInput
   | ListFindingsFiltersCommandInput
@@ -285,6 +339,9 @@ export type ServiceInputTypes =
   | ListManagedDataIdentifiersCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
+  | ListResourceProfileArtifactsCommandInput
+  | ListResourceProfileDetectionsCommandInput
+  | ListSensitivityInspectionTemplatesCommandInput
   | ListTagsForResourceCommandInput
   | PutClassificationExportConfigurationCommandInput
   | PutFindingsPublicationConfigurationCommandInput
@@ -293,12 +350,17 @@ export type ServiceInputTypes =
   | TestCustomDataIdentifierCommandInput
   | UntagResourceCommandInput
   | UpdateAllowListCommandInput
+  | UpdateAutomatedDiscoveryConfigurationCommandInput
   | UpdateClassificationJobCommandInput
+  | UpdateClassificationScopeCommandInput
   | UpdateFindingsFilterCommandInput
   | UpdateMacieSessionCommandInput
   | UpdateMemberSessionCommandInput
   | UpdateOrganizationConfigurationCommandInput
-  | UpdateRevealConfigurationCommandInput;
+  | UpdateResourceProfileCommandInput
+  | UpdateResourceProfileDetectionsCommandInput
+  | UpdateRevealConfigurationCommandInput
+  | UpdateSensitivityInspectionTemplateCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -328,8 +390,10 @@ export type ServiceOutputTypes =
   | EnableOrganizationAdminAccountCommandOutput
   | GetAdministratorAccountCommandOutput
   | GetAllowListCommandOutput
+  | GetAutomatedDiscoveryConfigurationCommandOutput
   | GetBucketStatisticsCommandOutput
   | GetClassificationExportConfigurationCommandOutput
+  | GetClassificationScopeCommandOutput
   | GetCustomDataIdentifierCommandOutput
   | GetFindingStatisticsCommandOutput
   | GetFindingsCommandOutput
@@ -339,13 +403,16 @@ export type ServiceOutputTypes =
   | GetMacieSessionCommandOutput
   | GetMasterAccountCommandOutput
   | GetMemberCommandOutput
+  | GetResourceProfileCommandOutput
   | GetRevealConfigurationCommandOutput
   | GetSensitiveDataOccurrencesAvailabilityCommandOutput
   | GetSensitiveDataOccurrencesCommandOutput
+  | GetSensitivityInspectionTemplateCommandOutput
   | GetUsageStatisticsCommandOutput
   | GetUsageTotalsCommandOutput
   | ListAllowListsCommandOutput
   | ListClassificationJobsCommandOutput
+  | ListClassificationScopesCommandOutput
   | ListCustomDataIdentifiersCommandOutput
   | ListFindingsCommandOutput
   | ListFindingsFiltersCommandOutput
@@ -353,6 +420,9 @@ export type ServiceOutputTypes =
   | ListManagedDataIdentifiersCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
+  | ListResourceProfileArtifactsCommandOutput
+  | ListResourceProfileDetectionsCommandOutput
+  | ListSensitivityInspectionTemplatesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutClassificationExportConfigurationCommandOutput
   | PutFindingsPublicationConfigurationCommandOutput
@@ -361,12 +431,17 @@ export type ServiceOutputTypes =
   | TestCustomDataIdentifierCommandOutput
   | UntagResourceCommandOutput
   | UpdateAllowListCommandOutput
+  | UpdateAutomatedDiscoveryConfigurationCommandOutput
   | UpdateClassificationJobCommandOutput
+  | UpdateClassificationScopeCommandOutput
   | UpdateFindingsFilterCommandOutput
   | UpdateMacieSessionCommandOutput
   | UpdateMemberSessionCommandOutput
   | UpdateOrganizationConfigurationCommandOutput
-  | UpdateRevealConfigurationCommandOutput;
+  | UpdateResourceProfileCommandOutput
+  | UpdateResourceProfileDetectionsCommandOutput
+  | UpdateRevealConfigurationCommandOutput
+  | UpdateSensitivityInspectionTemplateCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -518,7 +593,7 @@ type Macie2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface Macie2ClientResolvedConfig extends Macie2ClientResolvedConfigType {}
 
 /**
- * <p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>
+ * <p>Amazon Macie</p>
  */
 export class Macie2Client extends __Client<
   __HttpHandlerOptions,

@@ -1,12 +1,26 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
+  BotAliasLocaleSettings,
+  BotAliasStatus,
+  BotLocaleStatus,
+  BotRecommendationStatus,
+  BotStatus,
   CompositeSlotTypeSetting,
   Condition,
+  ConversationLogSettings,
+  DataPrivacy,
   DialogAction,
   DialogCodeHookSettings,
   ElicitationCodeHookInvocationSetting,
+  EncryptionSetting,
+  EncryptionSettingFilterSensitiveLog,
+  ExportResourceSpecification,
+  ExportStatus,
   ExternalSourceSetting,
   FulfillmentUpdatesSpecification,
+  ImportExportFileFormat,
   InputContext,
   KendraConfiguration,
   MultipleValuesSetting,
@@ -15,6 +29,7 @@ import {
   PromptSpecification,
   ResponseSpecification,
   SampleUtterance,
+  SentimentAnalysisSettings,
   SlotConstraint,
   SlotDefaultValueSpecification,
   SlotPriority,
@@ -23,8 +38,572 @@ import {
   SlotValue,
   SlotValueSelectionSetting,
   SubSlotSetting,
+  TranscriptSourceSetting,
+  VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+export interface UpdateBotRequest {
+  /**
+   * <p>The unique identifier of the bot to update. This identifier is
+   *          returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The new name of the bot. The name must be unique in the account that
+   *          creates the bot.</p>
+   */
+  botName: string | undefined;
+
+  /**
+   * <p>A description of the bot.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions
+   *          to access the bot.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Provides information on additional privacy protections Amazon Lex should
+   *          use with the bot's data.</p>
+   */
+  dataPrivacy: DataPrivacy | undefined;
+
+  /**
+   * <p>The time, in seconds, that Amazon Lex should keep information about a
+   *          user's conversation with the bot.</p>
+   *          <p>A user interaction remains active for the amount of time specified.
+   *          If no conversation occurs during this time, the session expires and
+   *          Amazon Lex deletes any data provided before the timeout.</p>
+   *          <p>You can specify between 60 (1 minute) and 86,400 (24 hours)
+   *          seconds.</p>
+   */
+  idleSessionTTLInSeconds: number | undefined;
+}
+
+export interface UpdateBotResponse {
+  /**
+   * <p>The unique identifier of the bot that was updated.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The name of the bot after the update.</p>
+   */
+  botName?: string;
+
+  /**
+   * <p>The description of the bot after the update.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the bot after
+   *          the update.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The data privacy settings for the bot after the update.</p>
+   */
+  dataPrivacy?: DataPrivacy;
+
+  /**
+   * <p>The session timeout, in seconds, for the bot after the
+   *          update.</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>Shows the current status of the bot. The bot is first in the
+   *             <code>Creating</code> status. Once the bot is read for use, it
+   *          changes to the <code>Available</code> status. After the bot is created,
+   *          you can use the <code>DRAFT</code> version of the bot.</p>
+   */
+  botStatus?: BotStatus | string;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export interface UpdateBotAliasRequest {
+  /**
+   * <p>The unique identifier of the bot alias.</p>
+   */
+  botAliasId: string | undefined;
+
+  /**
+   * <p>The new name to assign to the bot alias.</p>
+   */
+  botAliasName: string | undefined;
+
+  /**
+   * <p>The new description to assign to the bot alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The new bot version to assign to the bot alias.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The new Lambda functions to use in each locale for the bot
+   *          alias.</p>
+   */
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
+
+  /**
+   * <p>The new settings for storing conversation logs in Amazon CloudWatch Logs and
+   *          Amazon S3 buckets.</p>
+   */
+  conversationLogSettings?: ConversationLogSettings;
+
+  /**
+   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
+   *          user utterances.</p>
+   */
+  sentimentAnalysisSettings?: SentimentAnalysisSettings;
+
+  /**
+   * <p>The identifier of the bot with the updated alias.</p>
+   */
+  botId: string | undefined;
+}
+
+export interface UpdateBotAliasResponse {
+  /**
+   * <p>The identifier of the updated bot alias.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The updated name of the bot alias.</p>
+   */
+  botAliasName?: string;
+
+  /**
+   * <p>The updated description of the bot alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The updated version of the bot that the alias points to.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The updated Lambda functions to use in each locale for the bot
+   *          alias.</p>
+   */
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
+
+  /**
+   * <p>The updated settings for storing conversation logs in Amazon CloudWatch Logs and
+   *          Amazon S3 buckets.</p>
+   */
+  conversationLogSettings?: ConversationLogSettings;
+
+  /**
+   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
+   *          user utterances.</p>
+   */
+  sentimentAnalysisSettings?: SentimentAnalysisSettings;
+
+  /**
+   * <p>The current status of the bot alias. When the status is
+   *             <code>Available</code> the alias is ready for use.</p>
+   */
+  botAliasStatus?: BotAliasStatus | string;
+
+  /**
+   * <p>The identifier of the bot with the updated alias.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export interface UpdateBotLocaleRequest {
+  /**
+   * <p>The unique identifier of the bot that contains the locale.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that contains the locale to be updated. The
+   *          version can only be the <code>DRAFT</code> version.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale to update. The string must
+   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The new description of the locale.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The new confidence threshold where Amazon Lex inserts the
+   *             <code>AMAZON.FallbackIntent</code> and
+   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
+   *          possible intents for an utterance.</p>
+   */
+  nluIntentConfidenceThreshold: number | undefined;
+
+  /**
+   * <p>The new Amazon Polly voice Amazon Lex should use for voice interaction with the
+   *          user.</p>
+   */
+  voiceSettings?: VoiceSettings;
+}
+
+export interface UpdateBotLocaleResponse {
+  /**
+   * <p>The identifier of the bot that contains the updated locale.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that contains the updated locale.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The language and locale of the updated bot locale.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The updated locale name for the locale.</p>
+   */
+  localeName?: string;
+
+  /**
+   * <p>The updated description of the locale.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The updated confidence threshold for inserting the
+   *             <code>AMAZON.FallbackIntent</code> and
+   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
+   *          possible intents for an utterance.</p>
+   */
+  nluIntentConfidenceThreshold?: number;
+
+  /**
+   * <p>The updated Amazon Polly voice to use for voice interaction with the
+   *          user.</p>
+   */
+  voiceSettings?: VoiceSettings;
+
+  /**
+   * <p>The current status of the locale. When the bot status is
+   *             <code>Built</code> the locale is ready for use.</p>
+   */
+  botLocaleStatus?: BotLocaleStatus | string;
+
+  /**
+   * <p>If the <code>botLocaleStatus</code> is <code>Failed</code>, the
+   *             <code>failureReasons</code> field lists the errors that occurred
+   *          while building the bot.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>A timestamp of the date and time that the locale was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the locale was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Recommended actions to take to resolve an error in the
+   *             <code>failureReasons</code> field.</p>
+   */
+  recommendedActions?: string[];
+}
+
+export interface UpdateBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot containing the bot recommendation
+   *          to be updated.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation to be
+   *          updated.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to update. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * <p>The object representing the passwords that will be used to encrypt
+   *          the data related to the bot recommendation results, as well as the KMS
+   *          key ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting: EncryptionSetting | undefined;
+}
+
+export interface UpdateBotRecommendationResponse {
+  /**
+   * <p>The unique identifier of the bot containing the bot recommendation
+   *          that has been updated.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation that has
+   *          been updated.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to update. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the bot recommendation.</p>
+   *          <p>If the status is Failed, then the reasons for the failure are listed
+   *          in the failureReasons field. </p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting?: TranscriptSourceSetting;
+
+  /**
+   * <p>The object representing the passwords that were used to encrypt the
+   *          data related to the bot recommendation results, as well as the KMS key
+   *          ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+}
+
+export interface UpdateExportRequest {
+  /**
+   * <p>The unique identifier Amazon Lex assigned to the export.</p>
+   */
+  exportId: string | undefined;
+
+  /**
+   * <p>The new password to use to encrypt the export zip archive.</p>
+   */
+  filePassword?: string;
+}
+
+export interface UpdateExportResponse {
+  /**
+   * <p>The unique identifier Amazon Lex assigned to the export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>A description of the type of resource that was exported, either a
+   *          bot or a bot locale.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used for the files that define the resource. The
+   *             <code>TSV</code> format is required to export a custom vocabulary
+   *          only; otherwise use <code>LexJson</code> format.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Completed</code>
+   *          the export archive is available for download.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The date and time that the export was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the export was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export interface UpdateResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A resource policy to add to the resource. The policy is a JSON
+   *          structure that contains one or more statements that define the policy.
+   *          The policy must follow the IAM syntax. For more information about the
+   *          contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
+   *             reference </a>. </p>
+   *          <p>If the policy isn't valid, Amazon Lex returns a validation
+   *          exception.</p>
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>The identifier of the revision of the policy to update. If this
+   *          revision ID doesn't match the current revision ID, Amazon Lex throws an
+   *          exception.</p>
+   *          <p>If you don't specify a revision, Amazon Lex overwrites the contents of
+   *          the policy with the new values.</p>
+   */
+  expectedRevisionId?: string;
+}
+
+export interface UpdateResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export interface UpdateSlotTypeRequest {
+  /**
+   * <p>The unique identifier of the slot type to update.</p>
+   */
+  slotTypeId: string | undefined;
+
+  /**
+   * <p>The new name of the slot type.</p>
+   */
+  slotTypeName: string | undefined;
+
+  /**
+   * <p>The new description of the slot type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A new list of values and their optional synonyms that define the
+   *          values that the slot type can take.</p>
+   */
+  slotTypeValues?: SlotTypeValue[];
+
+  /**
+   * <p>The strategy that Amazon Lex should use when deciding on a value from the
+   *          list of slot type values.</p>
+   */
+  valueSelectionSetting?: SlotValueSelectionSetting;
+
+  /**
+   * <p>The new built-in slot type that should be used as the parent of this
+   *          slot type.</p>
+   */
+  parentSlotTypeSignature?: string;
+
+  /**
+   * <p>The identifier of the bot that contains the slot type.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that contains the slot type. Must be
+   *             <code>DRAFT</code>.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale that contains the slot
+   *          type. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>Provides information about the external source of the slot type's
+   *          definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
+
+  /**
+   * <p>Specifications for a composite slot type.</p>
+   */
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
+}
 
 export interface UpdateSlotTypeResponse {
   /**
@@ -1605,6 +2184,100 @@ export interface UpdateIntentResponse {
    */
   initialResponseSetting?: InitialResponseSetting;
 }
+
+/**
+ * @internal
+ */
+export const UpdateBotRequestFilterSensitiveLog = (obj: UpdateBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotResponseFilterSensitiveLog = (obj: UpdateBotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotAliasRequestFilterSensitiveLog = (obj: UpdateBotAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotAliasResponseFilterSensitiveLog = (obj: UpdateBotAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotLocaleRequestFilterSensitiveLog = (obj: UpdateBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotLocaleResponseFilterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotRecommendationRequestFilterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotRecommendationResponseFilterSensitiveLog = (obj: UpdateBotRecommendationResponse): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateExportRequestFilterSensitiveLog = (obj: UpdateExportRequest): any => ({
+  ...obj,
+  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateExportResponseFilterSensitiveLog = (obj: UpdateExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePolicyRequestFilterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePolicyResponseFilterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSlotTypeRequestFilterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LexModelsV2Client` and
-the commands you need, for example `BuildBotLocaleCommand`:
+the commands you need, for example `BatchCreateCustomVocabularyItemCommand`:
 
 ```js
 // ES5 example
-const { LexModelsV2Client, BuildBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2");
+const { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2");
 ```
 
 ```ts
 // ES6+ example
-import { LexModelsV2Client, BuildBotLocaleCommand } from "@aws-sdk/client-lex-models-v2";
+import { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new LexModelsV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BuildBotLocaleCommand(params);
+const command = new BatchCreateCustomVocabularyItemCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.LexModelsV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.buildBotLocale(params);
+  const data = await client.batchCreateCustomVocabularyItem(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .buildBotLocale(params)
+  .batchCreateCustomVocabularyItem(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.buildBotLocale(params, (err, data) => {
+client.batchCreateCustomVocabularyItem(params, (err, data) => {
   // process err and data.
 });
 ```

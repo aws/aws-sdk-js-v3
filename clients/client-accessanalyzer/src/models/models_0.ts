@@ -54,7 +54,9 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The criteria to use in the filter that defines the archive rule.</p>
+ * <p>The criteria to use in the filter that defines the archive rule. For more information on
+ *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer
+ *             filter keys</a>.</p>
  */
 export interface Criterion {
   /**
@@ -1893,9 +1895,14 @@ export interface FindingSourceDetail {
    *          whether the ARN represents an access point or a multi-region access point.</p>
    */
   accessPointArn?: string;
+
+  /**
+   * <p>The account of the cross-account access point that generated the finding.</p>
+   */
+  accessPointAccount?: string;
 }
 
-export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT";
+export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S3_ACCESS_POINT_ACCOUNT";
 
 /**
  * <p>The source of the finding. This indicates how the access that generated the finding is
@@ -3429,10 +3436,9 @@ export const RdsDbClusterSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbCl
   ...obj,
   ...(obj.attributes && {
     attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => ({
-        ...acc,
-        [key]: RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3453,10 +3459,9 @@ export const RdsDbSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbSnapshotC
   ...obj,
   ...(obj.attributes && {
     attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => ({
-        ...acc,
-        [key]: RdsDbSnapshotAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3529,10 +3534,9 @@ export const S3BucketConfigurationFilterSensitiveLog = (obj: S3BucketConfigurati
   }),
   ...(obj.accessPoints && {
     accessPoints: Object.entries(obj.accessPoints).reduce(
-      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => ({
-        ...acc,
-        [key]: S3AccessPointConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => (
+        (acc[key] = S3AccessPointConfigurationFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3590,10 +3594,7 @@ export const CreateAccessPreviewRequestFilterSensitiveLog = (obj: CreateAccessPr
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -3627,10 +3628,7 @@ export const AccessPreviewFilterSensitiveLog = (obj: AccessPreview): any => ({
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

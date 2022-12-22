@@ -31,7 +31,7 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
 /**
  * <p>Retrieve a JPG-format screenshot of a running instance to help with
  *             troubleshooting.</p>
- *         <p>The returned content is Base64-encoded.</p>
+ *          <p>The returned content is Base64-encoded.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,8 +32,27 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Uploads one or more pieces of evidence to a control in an Audit Manager
- *          assessment. </p>
+ * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment. You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by specifying
+ *          the S3 URI of the evidence. </p>
+ *          <p>You must upload manual evidence to your S3 bucket before you can upload it to your
+ *          assessment. For instructions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a> in
+ *          the <i>Amazon Simple Storage Service API Reference.</i>
+ *          </p>
+ *          <p>The following restrictions apply to this action:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Maximum size of an individual evidence file: 100 MB</p>
+ *             </li>
+ *             <li>
+ *                <p>Number of daily manual evidence uploads per control: 100</p>
+ *             </li>
+ *             <li>
+ *                <p>Supported file formats: See <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about Audit Manager service restrictions, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
+ *             restrictions for Audit Manager</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

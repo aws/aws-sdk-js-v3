@@ -32,7 +32,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
 
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
- *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

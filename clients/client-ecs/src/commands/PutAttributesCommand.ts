@@ -32,8 +32,7 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
  * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the
- * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

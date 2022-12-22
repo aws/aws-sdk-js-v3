@@ -32,7 +32,7 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<Readable> => {
     transformToString: async (encoding?: string) => {
       const buf = await transformToByteArray();
       if (encoding === undefined || Buffer.isEncoding(encoding)) {
-        return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
+        return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding as BufferEncoding);
       } else {
         const decoder = new TextDecoder(encoding);
         return decoder.decode(buf);

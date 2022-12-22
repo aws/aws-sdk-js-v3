@@ -40,7 +40,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             error.</p>
  *         <p>To register acceptance, specify the ticket ID, a response, and one or more players.
  *             Once all players have registered acceptance, the matchmaking tickets advance to status
- *             <code>PLACING</code>, where a new game session is created for the match. </p>
+ *                 <code>PLACING</code>, where a new game session is created for the match. </p>
  *         <p>If any player rejects the match, or if acceptances are not received before a specified
  *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
  *             of two ways: For tickets where one or more players rejected the match or failed to
@@ -56,18 +56,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *                 Add FlexMatch to a game client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html"> FlexMatch events</a> (reference)</p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>StartMatchmaking</a> |
- *                     <a>DescribeMatchmaking</a> |
- *                     <a>StopMatchmaking</a> |
- *                     <a>AcceptMatch</a> |
- *                     <a>StartMatchBackfill</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
+ *                 FlexMatch events</a> (reference)</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

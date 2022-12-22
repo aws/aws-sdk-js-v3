@@ -29,7 +29,7 @@ export interface DeleteWorkspaceApiKeyCommandInput extends DeleteWorkspaceApiKey
 export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an API key for a workspace.</p>
+ * <p>Deletes a Grafana API key for the workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

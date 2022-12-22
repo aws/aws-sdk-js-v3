@@ -31,7 +31,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update an origin access identity. </p>
+ * <p>Update an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

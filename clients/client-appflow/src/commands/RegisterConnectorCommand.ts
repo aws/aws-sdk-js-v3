@@ -29,8 +29,9 @@ export interface RegisterConnectorCommandInput extends RegisterConnectorRequest 
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new connector with your Amazon Web Services account. Before you can register
- *       the connector, you must deploy lambda in your account.</p>
+ * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
+ *       register the connector, you must deploy the associated AWS lambda function in your
+ *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

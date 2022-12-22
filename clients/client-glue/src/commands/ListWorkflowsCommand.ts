@@ -19,7 +19,7 @@ import {
   ListWorkflowsRequestFilterSensitiveLog,
   ListWorkflowsResponse,
   ListWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListWorkflowsCommand,
   serializeAws_json1_1ListWorkflowsCommand,

@@ -57,6 +57,7 @@ import {
 } from "./commands/CreateComponentTypeCommand";
 import { CreateEntityCommandInput, CreateEntityCommandOutput } from "./commands/CreateEntityCommand";
 import { CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
+import { CreateSyncJobCommandInput, CreateSyncJobCommandOutput } from "./commands/CreateSyncJobCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import {
   DeleteComponentTypeCommandInput,
@@ -64,19 +65,25 @@ import {
 } from "./commands/DeleteComponentTypeCommand";
 import { DeleteEntityCommandInput, DeleteEntityCommandOutput } from "./commands/DeleteEntityCommand";
 import { DeleteSceneCommandInput, DeleteSceneCommandOutput } from "./commands/DeleteSceneCommand";
+import { DeleteSyncJobCommandInput, DeleteSyncJobCommandOutput } from "./commands/DeleteSyncJobCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "./commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "./commands/GetPropertyValueCommand";
 import {
   GetPropertyValueHistoryCommandInput,
   GetPropertyValueHistoryCommandOutput,
 } from "./commands/GetPropertyValueHistoryCommand";
 import { GetSceneCommandInput, GetSceneCommandOutput } from "./commands/GetSceneCommand";
+import { GetSyncJobCommandInput, GetSyncJobCommandOutput } from "./commands/GetSyncJobCommand";
 import { GetWorkspaceCommandInput, GetWorkspaceCommandOutput } from "./commands/GetWorkspaceCommand";
 import { ListComponentTypesCommandInput, ListComponentTypesCommandOutput } from "./commands/ListComponentTypesCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import { ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
+import { ListSyncJobsCommandInput, ListSyncJobsCommandOutput } from "./commands/ListSyncJobsCommand";
+import { ListSyncResourcesCommandInput, ListSyncResourcesCommandOutput } from "./commands/ListSyncResourcesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -89,6 +96,7 @@ import {
   UpdateComponentTypeCommandOutput,
 } from "./commands/UpdateComponentTypeCommand";
 import { UpdateEntityCommandInput, UpdateEntityCommandOutput } from "./commands/UpdateEntityCommand";
+import { UpdatePricingPlanCommandInput, UpdatePricingPlanCommandOutput } from "./commands/UpdatePricingPlanCommand";
 import { UpdateSceneCommandInput, UpdateSceneCommandOutput } from "./commands/UpdateSceneCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
 import {
@@ -104,26 +112,34 @@ export type ServiceInputTypes =
   | CreateComponentTypeCommandInput
   | CreateEntityCommandInput
   | CreateSceneCommandInput
+  | CreateSyncJobCommandInput
   | CreateWorkspaceCommandInput
   | DeleteComponentTypeCommandInput
   | DeleteEntityCommandInput
   | DeleteSceneCommandInput
+  | DeleteSyncJobCommandInput
   | DeleteWorkspaceCommandInput
+  | ExecuteQueryCommandInput
   | GetComponentTypeCommandInput
   | GetEntityCommandInput
+  | GetPricingPlanCommandInput
   | GetPropertyValueCommandInput
   | GetPropertyValueHistoryCommandInput
   | GetSceneCommandInput
+  | GetSyncJobCommandInput
   | GetWorkspaceCommandInput
   | ListComponentTypesCommandInput
   | ListEntitiesCommandInput
   | ListScenesCommandInput
+  | ListSyncJobsCommandInput
+  | ListSyncResourcesCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateComponentTypeCommandInput
   | UpdateEntityCommandInput
+  | UpdatePricingPlanCommandInput
   | UpdateSceneCommandInput
   | UpdateWorkspaceCommandInput;
 
@@ -132,26 +148,34 @@ export type ServiceOutputTypes =
   | CreateComponentTypeCommandOutput
   | CreateEntityCommandOutput
   | CreateSceneCommandOutput
+  | CreateSyncJobCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteComponentTypeCommandOutput
   | DeleteEntityCommandOutput
   | DeleteSceneCommandOutput
+  | DeleteSyncJobCommandOutput
   | DeleteWorkspaceCommandOutput
+  | ExecuteQueryCommandOutput
   | GetComponentTypeCommandOutput
   | GetEntityCommandOutput
+  | GetPricingPlanCommandOutput
   | GetPropertyValueCommandOutput
   | GetPropertyValueHistoryCommandOutput
   | GetSceneCommandOutput
+  | GetSyncJobCommandOutput
   | GetWorkspaceCommandOutput
   | ListComponentTypesCommandOutput
   | ListEntitiesCommandOutput
   | ListScenesCommandOutput
+  | ListSyncJobsCommandOutput
+  | ListSyncResourcesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateComponentTypeCommandOutput
   | UpdateEntityCommandOutput
+  | UpdatePricingPlanCommandOutput
   | UpdateSceneCommandOutput
   | UpdateWorkspaceCommandOutput;
 

@@ -409,10 +409,15 @@ export interface CreateReplicationSetInput {
   regions: Record<string, RegionMapInputValue> | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>A list of tags to add to the replication set.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface CreateReplicationSetOutput {
@@ -604,9 +609,74 @@ export interface IncidentTemplate {
   notificationTargets?: NotificationTargetItem[];
 
   /**
-   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
+   *          called, Incident Manager assigns the tags specified in the template to the incident.</p>
    */
   incidentTags?: Record<string, string>;
+}
+
+/**
+ * <p>Details about the PagerDuty service where the response plan creates an
+ *             incident.</p>
+ */
+export interface PagerDutyIncidentConfiguration {
+  /**
+   * <p>The ID of the PagerDuty service that the response plan associates with an incident
+   *             when it launches.</p>
+   */
+  serviceId: string | undefined;
+}
+
+/**
+ * <p>Details about the PagerDuty configuration for a response plan.</p>
+ */
+export interface PagerDutyConfiguration {
+  /**
+   * <p>The name of the PagerDuty configuration.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or
+   *             User Token REST API Key, and other user credentials.</p>
+   */
+  secretId: string | undefined;
+
+  /**
+   * <p>Details about the PagerDuty service associated with the configuration.</p>
+   */
+  pagerDutyIncidentConfiguration: PagerDutyIncidentConfiguration | undefined;
+}
+
+/**
+ * <p>Information about third-party services integrated into a response plan.</p>
+ */
+export type Integration = Integration.PagerDutyConfigurationMember | Integration.$UnknownMember;
+
+export namespace Integration {
+  /**
+   * <p>Information about the PagerDuty service where the response plan creates an
+   *             incident.</p>
+   */
+  export interface PagerDutyConfigurationMember {
+    pagerDutyConfiguration: PagerDutyConfiguration;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    pagerDutyConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    pagerDutyConfiguration: (value: PagerDutyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Integration, visitor: Visitor<T>): T => {
+    if (value.pagerDutyConfiguration !== undefined) return visitor.pagerDutyConfiguration(value.pagerDutyConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 export interface CreateResponsePlanInput {
@@ -638,8 +708,8 @@ export interface CreateResponsePlanInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that the response plan engages during an
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -652,6 +722,11 @@ export interface CreateResponsePlanInput {
    * <p>A list of tags that you are adding to the response plan.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Information about third-party services integrated into the response plan.</p>
+   */
+  integrations?: Integration[];
 }
 
 export interface CreateResponsePlanOutput {
@@ -692,6 +767,54 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * <p>An item referenced in a <code>TimelineEvent</code> that is involved in or somehow
+ *          associated with an incident. You can specify an Amazon Resource Name (ARN) for an Amazon Web Services resource or a <code>RelatedItem</code> ID.</p>
+ */
+export type EventReference =
+  | EventReference.RelatedItemIdMember
+  | EventReference.ResourceMember
+  | EventReference.$UnknownMember;
+
+export namespace EventReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services resource referenced in a
+   *             <code>TimelineEvent</code>.</p>
+   */
+  export interface ResourceMember {
+    resource: string;
+    relatedItemId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of a <code>RelatedItem</code> referenced in a <code>TimelineEvent</code>.</p>
+   */
+  export interface RelatedItemIdMember {
+    resource?: never;
+    relatedItemId: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    resource?: never;
+    relatedItemId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    resource: (value: string) => T;
+    relatedItemId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventReference, visitor: Visitor<T>): T => {
+    if (value.resource !== undefined) return visitor.resource(value.resource);
+    if (value.relatedItemId !== undefined) return visitor.relatedItemId(value.relatedItemId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
 export interface CreateTimelineEventInput {
   /**
    * <p>A token ensuring that the action is called only once with the specified
@@ -720,6 +843,17 @@ export interface CreateTimelineEventInput {
    * <p>A short description of the event.</p>
    */
   eventData: string | undefined;
+
+  /**
+   * <p>Adds one or more references to the <code>TimelineEvent</code>. A reference can be an
+   *                 Amazon Web Services resource involved in the incident or in some way associated with
+   *             it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the
+   *             resource. You can also specify a related item. As an example, you could specify the ARN
+   *             of an Amazon DynamoDB (DynamoDB) table. The table for this example is
+   *             the resource. You could also specify a Amazon CloudWatch metric for that table. The
+   *             metric is the related item.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface CreateTimelineEventOutput {
@@ -831,6 +965,11 @@ export interface EventSummary {
    * <p>The type of event. The timeline event must be <code>Custom Event</code>.</p>
    */
   eventType: string | undefined;
+
+  /**
+   * <p>A list of references in a <code>TimelineEvent</code>.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 /**
@@ -1106,12 +1245,13 @@ export interface GetReplicationSetOutput {
 
 export interface GetResourcePoliciesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy. </p>
+   * <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy.
+   *         </p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The maximum number of resource policies to display per page of results.</p>
+   * <p>The maximum number of resource policies to display for each page of results.</p>
    */
   maxResults?: number;
 
@@ -1189,8 +1329,8 @@ export interface GetResponsePlanOutput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that the response plan engages during an
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -1198,6 +1338,12 @@ export interface GetResponsePlanOutput {
    * <p>The actions that this response plan takes at the beginning of the incident.</p>
    */
   actions?: Action[];
+
+  /**
+   * <p>Information about third-party services integrated into the Incident Manager response
+   *             plan.</p>
+   */
+  integrations?: Integration[];
 }
 
 export interface GetTimelineEventInput {
@@ -1248,6 +1394,11 @@ export interface TimelineEvent {
    * <p>A short description of the event.</p>
    */
   eventData: string | undefined;
+
+  /**
+   * <p>A list of references in a <code>TimelineEvent</code>.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface GetTimelineEventOutput {
@@ -1311,11 +1462,36 @@ export enum ItemType {
 }
 
 /**
+ * <p>Details about the PagerDuty incident associated with an incident created by an
+ *             Incident Manager response plan.</p>
+ */
+export interface PagerDutyIncidentDetail {
+  /**
+   * <p>The ID of the incident associated with the PagerDuty service for the response
+   *             plan.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Indicates whether to resolve the PagerDuty incident when you resolve the associated
+   *             Incident Manager incident.</p>
+   */
+  autoResolve?: boolean;
+
+  /**
+   * <p>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or
+   *             User Token REST API Key, and other user credentials.</p>
+   */
+  secretId?: string;
+}
+
+/**
  * <p>Describes a related item.</p>
  */
 export type ItemValue =
   | ItemValue.ArnMember
   | ItemValue.MetricDefinitionMember
+  | ItemValue.PagerDutyIncidentDetailMember
   | ItemValue.UrlMember
   | ItemValue.$UnknownMember;
 
@@ -1328,6 +1504,7 @@ export namespace ItemValue {
     arn: string;
     url?: never;
     metricDefinition?: never;
+    pagerDutyIncidentDetail?: never;
     $unknown?: never;
   }
 
@@ -1338,6 +1515,7 @@ export namespace ItemValue {
     arn?: never;
     url: string;
     metricDefinition?: never;
+    pagerDutyIncidentDetail?: never;
     $unknown?: never;
   }
 
@@ -1348,6 +1526,18 @@ export namespace ItemValue {
     arn?: never;
     url?: never;
     metricDefinition: string;
+    pagerDutyIncidentDetail?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an incident that is associated with a PagerDuty incident.</p>
+   */
+  export interface PagerDutyIncidentDetailMember {
+    arn?: never;
+    url?: never;
+    metricDefinition?: never;
+    pagerDutyIncidentDetail: PagerDutyIncidentDetail;
     $unknown?: never;
   }
 
@@ -1355,6 +1545,7 @@ export namespace ItemValue {
     arn?: never;
     url?: never;
     metricDefinition?: never;
+    pagerDutyIncidentDetail?: never;
     $unknown: [string, any];
   }
 
@@ -1362,6 +1553,7 @@ export namespace ItemValue {
     arn: (value: string) => T;
     url: (value: string) => T;
     metricDefinition: (value: string) => T;
+    pagerDutyIncidentDetail: (value: PagerDutyIncidentDetail) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1369,6 +1561,8 @@ export namespace ItemValue {
     if (value.arn !== undefined) return visitor.arn(value.arn);
     if (value.url !== undefined) return visitor.url(value.url);
     if (value.metricDefinition !== undefined) return visitor.metricDefinition(value.metricDefinition);
+    if (value.pagerDutyIncidentDetail !== undefined)
+      return visitor.pagerDutyIncidentDetail(value.pagerDutyIncidentDetail);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1486,6 +1680,15 @@ export interface RelatedItem {
    * <p>The title of the related item.</p>
    */
   title?: string;
+
+  /**
+   * <p>A unique ID for a <code>RelatedItem</code>.</p>
+   *          <important>
+   *             <p>Don't specify this parameter when you add a <code>RelatedItem</code> by using the
+   *                <a>UpdateRelatedItems</a> API action.</p>
+   *          </important>
+   */
+  generatedId?: string;
 }
 
 export interface ListRelatedItemsOutput {
@@ -1667,7 +1870,7 @@ export interface ListTimelineEventsOutput {
 
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response plan you're adding the resource policy
+   * <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy
    *             to.</p>
    */
   resourceArn: string | undefined;
@@ -1840,7 +2043,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags that you are adding to the response plan.</p>
+   * <p>A list of tags to add to the response plan.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1854,7 +2057,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The name of the tag you're removing from the response plan.</p>
+   * <p>The name of the tag to remove from the response plan.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -1863,17 +2066,17 @@ export interface UntagResourceResponse {}
 
 export interface UpdateDeletionProtectionInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>
+   * <p>The Amazon Resource Name (ARN) of the replication set to update.</p>
    */
   arn: string | undefined;
 
   /**
-   * <p>Details if deletion protection is enabled or disabled in your account.</p>
+   * <p>Specifies if deletion protection is turned on or off in your account. </p>
    */
   deletionProtected: boolean | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
@@ -2042,7 +2245,7 @@ export interface UpdateReplicationSetInput {
   actions: UpdateReplicationSetAction[] | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
@@ -2130,8 +2333,8 @@ export interface UpdateResponsePlanInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that Incident Manager engages at the start of the
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -2141,11 +2344,17 @@ export interface UpdateResponsePlanInput {
   actions?: Action[];
 
   /**
-   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.
-   *             To call this action, you must also have permission to call the <code>TagResource</code>
-   *             API action for the incident record resource.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
+   *             called, Incident Manager assigns the tags specified in the template to the
+   *             incident. To call this action, you must also have permission to call the
+   *                 <code>TagResource</code> API action for the incident record resource.</p>
    */
   incidentTemplateTags?: Record<string, string>;
+
+  /**
+   * <p>Information about third-party services integrated into the response plan.</p>
+   */
+  integrations?: Integration[];
 }
 
 export interface UpdateResponsePlanOutput {}
@@ -2183,6 +2392,22 @@ export interface UpdateTimelineEventInput {
    * <p>A short description of the event.</p>
    */
   eventData?: string;
+
+  /**
+   * <p>Updates all existing references in a <code>TimelineEvent</code>. A reference can be an
+   *                 Amazon Web Services resource involved in the incident or in some way associated with
+   *             it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the
+   *             resource. You can also specify a related item. As an example, you could specify the ARN
+   *             of an Amazon DynamoDB (DynamoDB) table. The table for this example is
+   *             the resource. You could also specify a Amazon CloudWatch metric for that table. The
+   *             metric is the related item.</p>
+   *         <important>
+   *             <p>This update action overrides all existing references. If you want to keep existing
+   *                 references, you must specify them in the call. If you don't, this action removes
+   *                 them and enters only new references.</p>
+   *         </important>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface UpdateTimelineEventOutput {}
@@ -2202,10 +2427,9 @@ export const SsmAutomationFilterSensitiveLog = (obj: SsmAutomation): any => ({
   ...obj,
   ...(obj.dynamicParameters && {
     dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
-      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => ({
-        ...acc,
-        [key]: DynamicSsmParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => (
+        (acc[key] = DynamicSsmParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2311,11 +2535,35 @@ export const IncidentTemplateFilterSensitiveLog = (obj: IncidentTemplate): any =
 /**
  * @internal
  */
+export const PagerDutyIncidentConfigurationFilterSensitiveLog = (obj: PagerDutyIncidentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PagerDutyConfigurationFilterSensitiveLog = (obj: PagerDutyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationFilterSensitiveLog = (obj: Integration): any => {
+  if (obj.pagerDutyConfiguration !== undefined)
+    return { pagerDutyConfiguration: PagerDutyConfigurationFilterSensitiveLog(obj.pagerDutyConfiguration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const CreateResponsePlanInputFilterSensitiveLog = (obj: CreateResponsePlanInput): any => ({
   ...obj,
   ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
   ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
   ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2328,8 +2576,20 @@ export const CreateResponsePlanOutputFilterSensitiveLog = (obj: CreateResponsePl
 /**
  * @internal
  */
+export const EventReferenceFilterSensitiveLog = (obj: EventReference): any => {
+  if (obj.resource !== undefined) return { resource: obj.resource };
+  if (obj.relatedItemId !== undefined) return { relatedItemId: obj.relatedItemId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const CreateTimelineEventInputFilterSensitiveLog = (obj: CreateTimelineEventInput): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2421,6 +2681,9 @@ export const DeleteTimelineEventOutputFilterSensitiveLog = (obj: DeleteTimelineE
  */
 export const EventSummaryFilterSensitiveLog = (obj: EventSummary): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2531,6 +2794,7 @@ export const GetResponsePlanOutputFilterSensitiveLog = (obj: GetResponsePlanOutp
   ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
   ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
   ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2545,6 +2809,9 @@ export const GetTimelineEventInputFilterSensitiveLog = (obj: GetTimelineEventInp
  */
 export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2552,6 +2819,7 @@ export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
  */
 export const GetTimelineEventOutputFilterSensitiveLog = (obj: GetTimelineEventOutput): any => ({
   ...obj,
+  ...(obj.event && { event: TimelineEventFilterSensitiveLog(obj.event) }),
 });
 
 /**
@@ -2564,10 +2832,19 @@ export const IncidentRecordSummaryFilterSensitiveLog = (obj: IncidentRecordSumma
 /**
  * @internal
  */
+export const PagerDutyIncidentDetailFilterSensitiveLog = (obj: PagerDutyIncidentDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ItemValueFilterSensitiveLog = (obj: ItemValue): any => {
   if (obj.arn !== undefined) return { arn: obj.arn };
   if (obj.url !== undefined) return { url: obj.url };
   if (obj.metricDefinition !== undefined) return { metricDefinition: obj.metricDefinition };
+  if (obj.pagerDutyIncidentDetail !== undefined)
+    return { pagerDutyIncidentDetail: PagerDutyIncidentDetailFilterSensitiveLog(obj.pagerDutyIncidentDetail) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -2679,6 +2956,7 @@ export const ListTimelineEventsInputFilterSensitiveLog = (obj: ListTimelineEvent
  */
 export const ListTimelineEventsOutputFilterSensitiveLog = (obj: ListTimelineEventsOutput): any => ({
   ...obj,
+  ...(obj.eventSummaries && { eventSummaries: obj.eventSummaries.map((item) => EventSummaryFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2839,6 +3117,7 @@ export const UpdateResponsePlanInputFilterSensitiveLog = (obj: UpdateResponsePla
   }),
   ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
   ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2853,6 +3132,9 @@ export const UpdateResponsePlanOutputFilterSensitiveLog = (obj: UpdateResponsePl
  */
 export const UpdateTimelineEventInputFilterSensitiveLog = (obj: UpdateTimelineEventInput): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**

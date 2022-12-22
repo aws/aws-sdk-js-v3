@@ -29,7 +29,7 @@ export interface ListPrincipalsForPortfolioCommandInput extends ListPrincipalsFo
 export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsForPortfolioOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all principal ARNs associated with the specified portfolio.</p>
+ * <p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

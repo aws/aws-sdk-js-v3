@@ -29,22 +29,16 @@ export interface ListAliasesCommandInput extends ListAliasesInput {}
 export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by
- *             alias name and/or routing strategy type. Use the pagination parameters to retrieve
- *             results in sequential pages.</p>
+ * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
+ *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
+ *             sequential pages.</p>
  *         <note>
  *             <p>Returned aliases are not listed in any particular order.</p>
  *         </note>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateAlias</a> |
- *                     <a>ListAliases</a> |
- *                     <a>DescribeAlias</a> |
- *                     <a>UpdateAlias</a> |
- *                     <a>DeleteAlias</a> |
- *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

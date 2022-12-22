@@ -29,8 +29,11 @@ export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for profiles within a specific domain name using name, phone number, email
- *          address, account number, or a custom defined index.</p>
+ * <p>Searches for profiles within a specific domain using one or more predefined search keys
+ *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
+ *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
+ *          <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and up to
+ *          5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

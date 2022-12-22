@@ -24,7 +24,8 @@ export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPo
 export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+ * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
+ *             topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

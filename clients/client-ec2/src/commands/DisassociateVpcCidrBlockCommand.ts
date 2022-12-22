@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockRequestFilterSensitiveLog } from "../models/models_4";
-import { DisassociateVpcCidrBlockResult, DisassociateVpcCidrBlockResultFilterSensitiveLog } from "../models/models_5";
+import {
+  DisassociateVpcCidrBlockRequest,
+  DisassociateVpcCidrBlockRequestFilterSensitiveLog,
+  DisassociateVpcCidrBlockResult,
+  DisassociateVpcCidrBlockResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateVpcCidrBlockCommand,
   serializeAws_ec2DisassociateVpcCidrBlockCommand,
@@ -29,7 +33,7 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *             specify its association ID. You can get the association ID by using
  *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
  *             are associated with the CIDR block before you can disassociate it. </p>
- * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
+ *          <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
  * 			primary CIDR block).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

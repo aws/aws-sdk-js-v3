@@ -33,7 +33,6 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
  *     Contact Center</a> in the <i>Amazon Connect Administrator
  *    Guide</i>.</p>
- *
  *          <important>
  *             <p>The phone number <code>Arn</code> value that is returned from each of the items in the
  *      <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with

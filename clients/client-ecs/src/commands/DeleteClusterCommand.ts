@@ -33,7 +33,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * 			state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your
  * 			account for a period of time. However, this behavior is subject to change in the future.
  * 			We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p>
- * 		       <p>You must deregister all container instances from this cluster before you may delete
+ *          <p>You must deregister all container instances from this cluster before you may delete
  * 			it. You can list the container instances in a cluster with <a>ListContainerInstances</a> and deregister them with <a>DeregisterContainerInstance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

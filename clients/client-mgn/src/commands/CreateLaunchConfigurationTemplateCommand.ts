@@ -29,7 +29,7 @@ export interface CreateLaunchConfigurationTemplateCommandInput extends CreateLau
 export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**
- * <p>Creates a new ReplicationConfigurationTemplate.</p>
+ * <p>Creates a new Launch Configuration Template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

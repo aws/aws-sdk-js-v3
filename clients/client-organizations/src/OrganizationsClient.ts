@@ -70,6 +70,10 @@ import {
 import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeregisterDelegatedAdministratorCommandInput,
   DeregisterDelegatedAdministratorCommandOutput,
 } from "./commands/DeregisterDelegatedAdministratorCommand";
@@ -92,6 +96,10 @@ import {
   DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand";
 import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
 import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
   DisableAWSServiceAccessCommandInput,
@@ -159,6 +167,7 @@ import {
   ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
 import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   RegisterDelegatedAdministratorCommandInput,
   RegisterDelegatedAdministratorCommandOutput,
@@ -196,6 +205,7 @@ export type ServiceInputTypes =
   | DeleteOrganizationCommandInput
   | DeleteOrganizationalUnitCommandInput
   | DeletePolicyCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeregisterDelegatedAdministratorCommandInput
   | DescribeAccountCommandInput
   | DescribeCreateAccountStatusCommandInput
@@ -204,6 +214,7 @@ export type ServiceInputTypes =
   | DescribeOrganizationCommandInput
   | DescribeOrganizationalUnitCommandInput
   | DescribePolicyCommandInput
+  | DescribeResourcePolicyCommandInput
   | DetachPolicyCommandInput
   | DisableAWSServiceAccessCommandInput
   | DisablePolicyTypeCommandInput
@@ -229,6 +240,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTargetsForPolicyCommandInput
   | MoveAccountCommandInput
+  | PutResourcePolicyCommandInput
   | RegisterDelegatedAdministratorCommandInput
   | RemoveAccountFromOrganizationCommandInput
   | TagResourceCommandInput
@@ -250,6 +262,7 @@ export type ServiceOutputTypes =
   | DeleteOrganizationCommandOutput
   | DeleteOrganizationalUnitCommandOutput
   | DeletePolicyCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeregisterDelegatedAdministratorCommandOutput
   | DescribeAccountCommandOutput
   | DescribeCreateAccountStatusCommandOutput
@@ -258,6 +271,7 @@ export type ServiceOutputTypes =
   | DescribeOrganizationCommandOutput
   | DescribeOrganizationalUnitCommandOutput
   | DescribePolicyCommandOutput
+  | DescribeResourcePolicyCommandOutput
   | DetachPolicyCommandOutput
   | DisableAWSServiceAccessCommandOutput
   | DisablePolicyTypeCommandOutput
@@ -283,6 +297,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTargetsForPolicyCommandOutput
   | MoveAccountCommandOutput
+  | PutResourcePolicyCommandOutput
   | RegisterDelegatedAdministratorCommandOutput
   | RemoveAccountFromOrganizationCommandOutput
   | TagResourceCommandOutput

@@ -1,5 +1,5 @@
 import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { fromProcess } from "./fromProcess";
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
@@ -51,7 +51,7 @@ describe(fromProcess.name, () => {
   });
 
   it("returns resolved process creds", async () => {
-    const expectedCreds: Credentials = {
+    const expectedCreds: AwsCredentialIdentity = {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };

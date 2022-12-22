@@ -31,7 +31,7 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update a field-level encryption profile. </p>
+ * <p>Update a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

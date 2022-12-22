@@ -52,7 +52,7 @@ export interface ExportServerSideEncryption {
  */
 export interface AutoExportRevisionDestinationEntry {
   /**
-   * <p>The S3 bucket that is the destination for the event action.</p>
+   * <p>The Amazon S3 bucket that is the destination for the event action.</p>
    */
   Bucket: string | undefined;
 
@@ -151,7 +151,7 @@ export interface AssetDestinationEntry {
   AssetId: string | undefined;
 
   /**
-   * <p>The S3 bucket that is the destination for the asset.</p>
+   * <p>The Amazon S3 bucket that is the destination for the asset.</p>
    */
   Bucket: string | undefined;
 
@@ -159,6 +159,125 @@ export interface AssetDestinationEntry {
    * <p>The name of the object in Amazon S3 for the asset.</p>
    */
   Key?: string;
+}
+
+/**
+ * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
+ */
+export interface LFTag {
+  /**
+   * <p>The key name for the LF-tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of LF-tag values.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+/**
+ * <p>The LF-tag policy for database resources.</p>
+ */
+export interface DatabaseLFTagPolicy {
+  /**
+   * <p>A list of LF-tag conditions that apply to database resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * <p>The LF-tag policy for a table resource.</p>
+ */
+export interface TableLFTagPolicy {
+  /**
+   * <p>A list of LF-tag conditions that apply to table resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>
+ */
+export interface LFResourceDetails {
+  /**
+   * <p>Details about the database resource included in the AWS Lake Formation data permission.</p>
+   */
+  Database?: DatabaseLFTagPolicy;
+
+  /**
+   * <p>Details about the table resource included in the AWS Lake Formation data permission.</p>
+   */
+  Table?: TableLFTagPolicy;
+}
+
+export enum LFResourceType {
+  DATABASE = "DATABASE",
+  TABLE = "TABLE",
+}
+
+/**
+ * <p>Details about the LF-tag policy.</p>
+ */
+export interface LFTagPolicyDetails {
+  /**
+   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The resource type for which the LF-tag policy applies.</p>
+   */
+  ResourceType: LFResourceType | string | undefined;
+
+  /**
+   * <p>Details for the Lake Formation Resources included in the LF-tag policy.</p>
+   */
+  ResourceDetails: LFResourceDetails | undefined;
+}
+
+/**
+ * <p>Details about the AWS Lake Formation data permission.</p>
+ */
+export interface LakeFormationDataPermissionDetails {
+  /**
+   * <p>Details about the LF-tag policy.</p>
+   */
+  LFTagPolicy?: LFTagPolicyDetails;
+}
+
+export enum LakeFormationDataPermissionType {
+  LFTagPolicy = "LFTagPolicy",
+}
+
+export enum LFPermission {
+  DESCRIBE = "DESCRIBE",
+  SELECT = "SELECT",
+}
+
+/**
+ * <p>The AWS Lake Formation data permission asset.</p>
+ */
+export interface LakeFormationDataPermissionAsset {
+  /**
+   * <p>Details about the AWS Lake Formation data permission.</p>
+   */
+  LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetails | undefined;
+
+  /**
+   * <p>The data permission type.</p>
+   */
+  LakeFormationDataPermissionType: LakeFormationDataPermissionType | string | undefined;
+
+  /**
+   * <p>The permissions granted to the subscribers on the resource.</p>
+   */
+  Permissions: (LFPermission | string)[] | undefined;
+
+  /**
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
+   */
+  RoleArn?: string;
 }
 
 /**
@@ -172,21 +291,51 @@ export interface RedshiftDataShareAsset {
 }
 
 /**
- * <p>The S3 object that is the asset.</p>
+ * <p>The Amazon S3 data access that is the asset.</p>
+ */
+export interface S3DataAccessAsset {
+  /**
+   * <p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
+   */
+  KeyPrefixes?: string[];
+
+  /**
+   * <p>S3 keys made available using this asset.</p>
+   */
+  Keys?: string[];
+
+  /**
+   * <p>The automatically-generated bucket-style alias for your Amazon S3 Access Point. Customers can access their entitled data using the S3 Access Point alias.</p>
+   */
+  S3AccessPointAlias?: string;
+
+  /**
+   * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.</p>
+   */
+  S3AccessPointArn?: string;
+}
+
+/**
+ * <p>The Amazon S3 object that is the asset.</p>
  */
 export interface S3SnapshotAsset {
   /**
-   * <p>The size of the S3 object that is the object.</p>
+   * <p>The size of the Amazon S3 object that is the object.</p>
    */
   Size: number | undefined;
 }
 
 /**
- * <p>Information about the asset.</p>
+ * <p>Details about the asset.</p>
  */
 export interface AssetDetails {
   /**
-   * <p>The S3 object that is the asset.</p>
+   * <p>The Amazon S3 object that is the asset.</p>
    */
   S3SnapshotAsset?: S3SnapshotAsset;
 
@@ -199,16 +348,35 @@ export interface AssetDetails {
    * <p>Information about the API Gateway API asset.</p>
    */
   ApiGatewayApiAsset?: ApiGatewayApiAsset;
+
+  /**
+   * <p>The Amazon S3 data access that is the asset.</p>
+   */
+  S3DataAccessAsset?: S3DataAccessAsset;
+
+  /**
+   * <p>The AWS Lake Formation data permission that is the asset.</p>
+   */
+  LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
 }
 
 export enum AssetType {
   API_GATEWAY_API = "API_GATEWAY_API",
+  LAKE_FORMATION_DATA_PERMISSION = "LAKE_FORMATION_DATA_PERMISSION",
   REDSHIFT_DATA_SHARE = "REDSHIFT_DATA_SHARE",
+  S3_DATA_ACCESS = "S3_DATA_ACCESS",
   S3_SNAPSHOT = "S3_SNAPSHOT",
 }
 
 /**
- * <p>An asset in AWS Data Exchange is a piece of data (S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API). The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare. When you create an import job for your files, API Gateway APIs, or Amazon Redshift datashares, you create an asset in AWS Data Exchange.</p>
+ * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of
+ *          fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation
+ *          data permission, or Amazon S3 data access). The asset can be a structured data file, an
+ *          image file, or some other data file that can be stored as an Amazon S3 object, an Amazon
+ *          API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or
+ *          an Amazon S3 data access. When you create an import job for your files, API Gateway APIs,
+ *          Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access,
+ *          you create an asset in AWS Data Exchange.</p>
  */
 export interface AssetEntry {
   /**
@@ -217,7 +385,7 @@ export interface AssetEntry {
   Arn: string | undefined;
 
   /**
-   * <p>Information about the asset.</p>
+   * <p>Details about the asset.</p>
    */
   AssetDetails: AssetDetails | undefined;
 
@@ -242,7 +410,13 @@ export interface AssetEntry {
   Id: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
+   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
+   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
+   *          included in LF-tag policy" or "Table(s) included in LF-tag policy" are used as the asset
+   *          name.</p>
    */
   Name: string | undefined;
 
@@ -267,7 +441,7 @@ export interface AssetEntry {
  */
 export interface AssetSourceEntry {
   /**
-   * <p>The S3 bucket that's part of the source of the asset.</p>
+   * <p>The Amazon S3 bucket that's part of the source of the asset.</p>
    */
   Bucket: string | undefined;
 
@@ -485,7 +659,7 @@ export enum Origin {
 }
 
 /**
- * <p>Information about the origin of the data set.</p>
+ * <p>Details about the origin of the data set.</p>
  */
 export interface OriginDetails {
   /**
@@ -552,14 +726,17 @@ export interface CreateDataSetResponse {
 }
 
 export enum LimitName {
+  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
   Amazon_API_Gateway_API_assets_per_revision = "Amazon API Gateway API assets per revision",
   Amazon_Redshift_datashare_assets_per_import_job_from_Redshift = "Amazon Redshift datashare assets per import job from Redshift",
   Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
   Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
   Asset_size_in_GB = "Asset size in GB",
   Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
   Assets_per_revision = "Assets per revision",
   Auto_export_event_actions_per_data_set = "Auto export event actions per data set",
+  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets = "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
   Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
   Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
   Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3 = "Concurrent in progress jobs to export revisions to Amazon S3",
@@ -567,12 +744,15 @@ export enum LimitName {
   Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
   Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
   Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API = "Concurrent in progress jobs to import assets from an API Gateway API",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy = "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
   Event_actions_per_account = "Event actions per account",
   Products_per_account = "Products per account",
+  Revisions_per_AWS_Lake_Formation_data_permission_data_set = "Revisions per AWS Lake Formation data permission data set",
   Revisions_per_Amazon_API_Gateway_API_data_set = "Revisions per Amazon API Gateway API data set",
   Revisions_per_Amazon_Redshift_datashare_data_set = "Revisions per Amazon Redshift datashare data set",
+  Revisions_per_Amazon_S3_data_access_data_set = "Revisions per Amazon S3 data access data set",
   Revisions_per_data_set = "Revisions per data set",
 }
 
@@ -677,6 +857,46 @@ export interface CreateEventActionResponse {
 }
 
 /**
+ * <p>Source details for an Amazon S3 data access asset.</p>
+ */
+export interface S3DataAccessAssetSourceEntry {
+  /**
+   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</p>
+   */
+  KeyPrefixes?: string[];
+
+  /**
+   * <p>The keys used to create the Amazon S3 data access.</p>
+   */
+  Keys?: string[];
+}
+
+/**
+ * <p>Details of the operation to create an Amazon S3 data access from an S3 bucket.</p>
+ */
+export interface CreateS3DataAccessFromS3BucketRequestDetails {
+  /**
+   * <p>Details about the S3 data access source asset.</p>
+   */
+  AssetSource: S3DataAccessAssetSourceEntry | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with the creation of this Amazon S3 data access.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a revision.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+/**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetsToS3RequestDetails {
@@ -726,7 +946,7 @@ export interface ExportAssetToSignedUrlRequestDetails {
  */
 export interface RevisionDestinationEntry {
   /**
-   * <p>The S3 bucket that is the destination for the assets in the revision.</p>
+   * <p>The Amazon S3 bucket that is the destination for the assets in the revision.</p>
    */
   Bucket: string | undefined;
 
@@ -816,7 +1036,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.</p>
    */
   AssetName: string | undefined;
 
@@ -832,6 +1052,80 @@ export interface ImportAssetFromSignedUrlRequestDetails {
 
   /**
    * <p>The unique identifier for the revision associated with this import request.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+export enum DatabaseLFTagPolicyPermission {
+  DESCRIBE = "DESCRIBE",
+}
+
+/**
+ * <p>The LF-tag policy and permissions for database resources.</p>
+ */
+export interface DatabaseLFTagPolicyAndPermissions {
+  /**
+   * <p>A list of LF-tag conditions that apply to database resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+
+  /**
+   * <p>The permissions granted to subscribers on database resources.</p>
+   */
+  Permissions: (DatabaseLFTagPolicyPermission | string)[] | undefined;
+}
+
+export enum TableTagPolicyLFPermission {
+  DESCRIBE = "DESCRIBE",
+  SELECT = "SELECT",
+}
+
+/**
+ * <p>The LF-tag policy and permissions that apply to table resources.</p>
+ */
+export interface TableLFTagPolicyAndPermissions {
+  /**
+   * <p>A list of LF-tag conditions that apply to table resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+
+  /**
+   * <p>The permissions granted to subscribers on table resources.</p>
+   */
+  Permissions: (TableTagPolicyLFPermission | string)[] | undefined;
+}
+
+/**
+ * <p>Details about the assets imported from an AWS Lake Formation tag policy request.</p>
+ */
+export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
+  /**
+   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>A structure for the database object.</p>
+   */
+  Database?: DatabaseLFTagPolicyAndPermissions;
+
+  /**
+   * <p>A structure for the table object.</p>
+   */
+  Table?: TableLFTagPolicyAndPermissions;
+
+  /**
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions of subscribers to AWS Lake Formation data permissions.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this import job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this import job.</p>
    */
   RevisionId: string | undefined;
 }
@@ -871,7 +1165,7 @@ export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
  */
 export interface ImportAssetsFromS3RequestDetails {
   /**
-   * <p>Is a list of S3 bucket and object key pairs.</p>
+   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
    */
   AssetSources: AssetSourceEntry[] | undefined;
 
@@ -911,7 +1205,7 @@ export interface RequestDetails {
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
 
   /**
-   * <p>Information about the import asset from API Gateway API request.</p>
+   * <p>Details about the import asset from API Gateway API request.</p>
    */
   ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
 
@@ -924,12 +1218,24 @@ export interface RequestDetails {
    * <p>Details about the import from signed URL request.</p>
    */
   ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails;
+
+  /**
+   * <p>Details of the request to create S3 data access from the Amazon S3 bucket.</p>
+   */
+  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketRequestDetails;
+
+  /**
+   * <p>Request details for the ImportAssetsFromLakeFormationTagPolicy job.</p>
+   */
+  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails;
 }
 
 export enum Type {
+  CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET = "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
   EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
   EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
+  IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY = "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
   IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES = "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
   IMPORT_ASSET_FROM_API_GATEWAY_API = "IMPORT_ASSET_FROM_API_GATEWAY_API",
@@ -946,6 +1252,26 @@ export interface CreateJobRequest {
    * <p>The type of job to be created.</p>
    */
   Type: Type | string | undefined;
+}
+
+/**
+ * <p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>
+ */
+export interface CreateS3DataAccessFromS3BucketResponseDetails {
+  /**
+   * <p>Details about the asset source from an Amazon S3 bucket.</p>
+   */
+  AssetSource: S3DataAccessAssetSourceEntry | undefined;
+
+  /**
+   * <p>The unique identifier for this data set.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  RevisionId: string | undefined;
 }
 
 /**
@@ -1124,6 +1450,41 @@ export interface ImportAssetFromSignedUrlResponseDetails {
 }
 
 /**
+ * <p>Details from an import AWS Lake Formation tag policy job response.</p>
+ */
+export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
+  /**
+   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>A structure for the database object.</p>
+   */
+  Database?: DatabaseLFTagPolicyAndPermissions;
+
+  /**
+   * <p>A structure for the table object.</p>
+   */
+  Table?: TableLFTagPolicyAndPermissions;
+
+  /**
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this import job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this import job.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+/**
  * <p>Details from an import from Amazon Redshift datashare response.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
@@ -1201,14 +1562,24 @@ export interface ResponseDetails {
    * <p>The response details.</p>
    */
   ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiResponseDetails;
+
+  /**
+   * <p>Response details from the CreateS3DataAccessFromS3Bucket job.</p>
+   */
+  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketResponseDetails;
+
+  /**
+   * <p>Response details from the ImportAssetsFromLakeFormationTagPolicy job.</p>
+   */
+  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyResponseDetails;
 }
 
 /**
- * <p>Information about the job error.</p>
+ * <p>Details about the job error.</p>
  */
 export interface ImportAssetFromSignedUrlJobErrorDetails {
   /**
-   * <p>Information about the job error.</p>
+   * <p>Details about the job error.</p>
    */
   AssetName: string | undefined;
 }
@@ -1223,13 +1594,15 @@ export interface Details {
   ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
 
   /**
-   * <p>Information about the job error.</p>
+   * <p>Details about the job error.</p>
    */
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
 }
 
 export enum JobErrorLimitName {
+  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
   Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
   Asset_size_in_GB = "Asset size in GB",
   Assets_per_revision = "Assets per revision",
 }
@@ -1365,7 +1738,7 @@ export interface CreateRevisionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
+   * <p>The unique identifier for the data set associated with the data set revision.</p>
    */
   DataSetId?: string;
 
@@ -1477,7 +1850,7 @@ export interface GetAssetResponse {
   Arn?: string;
 
   /**
-   * <p>Information about the asset.</p>
+   * <p>Details about the asset.</p>
    */
   AssetDetails?: AssetDetails;
 
@@ -1502,7 +1875,13 @@ export interface GetAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
+   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
+   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s) included
+   *          in the LF-tag policy" or "Table(s) included in the LF-tag policy" are used as the asset
+   *          name.</p>
    */
   Name?: string;
 
@@ -1703,7 +2082,7 @@ export interface GetRevisionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
+   * <p>The unique identifier for the data set associated with the data set revision.</p>
    */
   DataSetId?: string;
 
@@ -1785,7 +2164,7 @@ export interface RevisionEntry {
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
+   * <p>The unique identifier for the data set associated with the data set revision.</p>
    */
   DataSetId: string | undefined;
 
@@ -2146,7 +2525,7 @@ export interface RevokeRevisionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
+   * <p>The unique identifier for the data set associated with the data set revision.</p>
    */
   DataSetId?: string;
 
@@ -2285,7 +2664,13 @@ export interface UpdateAssetRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
+   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
+   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
+   *          included in the LF-tag policy" or "Table(s) included in LF-tag policy" are used as the
+   *          name.</p>
    */
   Name: string | undefined;
 
@@ -2302,7 +2687,7 @@ export interface UpdateAssetResponse {
   Arn?: string;
 
   /**
-   * <p>Information about the asset.</p>
+   * <p>Details about the asset.</p>
    */
   AssetDetails?: AssetDetails;
 
@@ -2327,7 +2712,13 @@ export interface UpdateAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
+   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
+   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
+   *          included in the LF-tag policy"- or "Table(s) included in LF-tag policy" are used as the
+   *          asset name.</p>
    */
   Name?: string;
 
@@ -2499,7 +2890,7 @@ export interface UpdateRevisionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
+   * <p>The unique identifier for the data set associated with the data set revision.</p>
    */
   DataSetId?: string;
 
@@ -2586,7 +2977,63 @@ export const AssetDestinationEntryFilterSensitiveLog = (obj: AssetDestinationEnt
 /**
  * @internal
  */
+export const LFTagFilterSensitiveLog = (obj: LFTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseLFTagPolicyFilterSensitiveLog = (obj: DatabaseLFTagPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableLFTagPolicyFilterSensitiveLog = (obj: TableLFTagPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFResourceDetailsFilterSensitiveLog = (obj: LFResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFTagPolicyDetailsFilterSensitiveLog = (obj: LFTagPolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LakeFormationDataPermissionDetailsFilterSensitiveLog = (obj: LakeFormationDataPermissionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LakeFormationDataPermissionAssetFilterSensitiveLog = (obj: LakeFormationDataPermissionAsset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedshiftDataShareAssetFilterSensitiveLog = (obj: RedshiftDataShareAsset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DataAccessAssetFilterSensitiveLog = (obj: S3DataAccessAsset): any => ({
   ...obj,
 });
 
@@ -2677,6 +3124,22 @@ export const CreateEventActionResponseFilterSensitiveLog = (obj: CreateEventActi
 /**
  * @internal
  */
+export const S3DataAccessAssetSourceEntryFilterSensitiveLog = (obj: S3DataAccessAssetSourceEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateS3DataAccessFromS3BucketRequestDetailsFilterSensitiveLog = (
+  obj: CreateS3DataAccessFromS3BucketRequestDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ExportAssetsToS3RequestDetailsFilterSensitiveLog = (obj: ExportAssetsToS3RequestDetails): any => ({
   ...obj,
 });
@@ -2725,6 +3188,29 @@ export const ImportAssetFromSignedUrlRequestDetailsFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DatabaseLFTagPolicyAndPermissionsFilterSensitiveLog = (obj: DatabaseLFTagPolicyAndPermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableLFTagPolicyAndPermissionsFilterSensitiveLog = (obj: TableLFTagPolicyAndPermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAssetsFromLakeFormationTagPolicyRequestDetailsFilterSensitiveLog = (
+  obj: ImportAssetsFromLakeFormationTagPolicyRequestDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedshiftDataShareAssetSourceEntryFilterSensitiveLog = (obj: RedshiftDataShareAssetSourceEntry): any => ({
   ...obj,
 });
@@ -2756,6 +3242,15 @@ export const RequestDetailsFilterSensitiveLog = (obj: RequestDetails): any => ({
  * @internal
  */
 export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateS3DataAccessFromS3BucketResponseDetailsFilterSensitiveLog = (
+  obj: CreateS3DataAccessFromS3BucketResponseDetails
+): any => ({
   ...obj,
 });
 
@@ -2796,6 +3291,15 @@ export const ImportAssetFromApiGatewayApiResponseDetailsFilterSensitiveLog = (
  */
 export const ImportAssetFromSignedUrlResponseDetailsFilterSensitiveLog = (
   obj: ImportAssetFromSignedUrlResponseDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAssetsFromLakeFormationTagPolicyResponseDetailsFilterSensitiveLog = (
+  obj: ImportAssetsFromLakeFormationTagPolicyResponseDetails
 ): any => ({
   ...obj,
 });

@@ -2369,6 +2369,9 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -2408,6 +2411,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2415,6 +2421,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -2433,6 +2442,9 @@ const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -2451,6 +2463,9 @@ const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2516,6 +2531,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
@@ -2523,6 +2541,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -2530,6 +2551,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2537,6 +2561,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -2547,6 +2574,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -2599,6 +2629,9 @@ const serializeAws_queryCreateLoadBalancerListenerInput = (
   }
   if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
@@ -2623,6 +2656,9 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
   }
   if (input.PolicyAttributes != null) {
     const memberEntries = serializeAws_queryPolicyAttributes(input.PolicyAttributes, context);
+    if (input.PolicyAttributes?.length === 0) {
+      entries.PolicyAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyAttributes.${key}`;
       entries[loc] = value;
@@ -2657,6 +2693,9 @@ const serializeAws_queryDeleteLoadBalancerListenerInput = (
   }
   if (input.LoadBalancerPorts != null) {
     const memberEntries = serializeAws_queryPorts(input.LoadBalancerPorts, context);
+    if (input.LoadBalancerPorts?.length === 0) {
+      entries.LoadBalancerPorts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerPorts.${key}`;
       entries[loc] = value;
@@ -2686,6 +2725,9 @@ const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsIn
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -2701,6 +2743,9 @@ const serializeAws_queryDescribeAccessPointsInput = (
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2739,6 +2784,9 @@ const serializeAws_queryDescribeEndPointStateInput = (
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -2768,6 +2816,9 @@ const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -2783,6 +2834,9 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
   const entries: any = {};
   if (input.PolicyTypeNames != null) {
     const memberEntries = serializeAws_queryPolicyTypeNames(input.PolicyTypeNames, context);
+    if (input.PolicyTypeNames?.length === 0) {
+      entries.PolicyTypeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypeNames.${key}`;
       entries[loc] = value;
@@ -2795,6 +2849,9 @@ const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: 
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNamesMax20(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2813,6 +2870,9 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2933,6 +2993,9 @@ const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes,
   }
   if (input.AdditionalAttributes != null) {
     const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
+    if (input.AdditionalAttributes?.length === 0) {
+      entries.AdditionalAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalAttributes.${key}`;
       entries[loc] = value;
@@ -3058,6 +3121,9 @@ const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput,
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -3076,6 +3142,9 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -3088,6 +3157,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -3095,6 +3167,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3146,6 +3221,9 @@ const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -3167,6 +3245,9 @@ const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;

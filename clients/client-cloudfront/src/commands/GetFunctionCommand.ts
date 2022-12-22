@@ -31,7 +31,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
 /**
  * <p>Gets the code of a CloudFront function. To get configuration information and metadata about
  * 			a function, use <code>DescribeFunction</code>.</p>
- * 		       <p>To get a function’s code, you must provide the function’s name and stage. To get these
+ *          <p>To get a function's code, you must provide the function's name and stage. To get these
  * 			values, you can use <code>ListFunctions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

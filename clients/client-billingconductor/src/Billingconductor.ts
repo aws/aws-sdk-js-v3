@@ -93,6 +93,11 @@ import {
   ListCustomLineItemsCommandOutput,
 } from "./commands/ListCustomLineItemsCommand";
 import {
+  ListCustomLineItemVersionsCommand,
+  ListCustomLineItemVersionsCommandInput,
+  ListCustomLineItemVersionsCommandOutput,
+} from "./commands/ListCustomLineItemVersionsCommand";
+import {
   ListPricingPlansAssociatedWithPricingRuleCommand,
   ListPricingPlansAssociatedWithPricingRuleCommandInput,
   ListPricingPlansAssociatedWithPricingRuleCommandOutput,
@@ -151,7 +156,7 @@ import {
 
 /**
  * <p>Amazon Web Services Billing Conductor is a fully managed service that you can use
- *       to customize a <a href="https://docs.aws.amazon.com/enterprisebilling/6b7c01c5-b592-467e-9769-90052eaf359c/userguide/understanding-eb.html#eb-other-definitions">pro forma</a> version of your billing data each month, to accurately show or chargeback
+ *       to customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">pro forma</a> version of your billing data each month, to accurately show or chargeback
  *       your end customers. Amazon Web Services Billing Conductor doesn't change the way
  *       you're billed by Amazon Web Services each month by design. Instead, it provides you with a
  *       mechanism to configure, generate, and display rates to certain customers over a given billing
@@ -160,9 +165,8 @@ import {
  *       custom rate applied on the billing details page of the <a href="https://console.aws.amazon.com/billing">Amazon Web Services Billing console</a>, or configure a cost and usage report per
  *       billing group.</p>
  *          <p>This documentation shows how you can configure Amazon Web Services Billing Conductor using its
- *       API. For more information about using the <a href="https://console.aws.amazon.com/enterprisebilling/">Amazon Web Services
- *         Billing Conductor</a> user interface, see the <a href="https://docs.aws.amazon.com/enterprisebilling/6b7c01c5-b592-467e-9769-90052eaf359c/userguide/what-is-enterprisebilling.html"> Amazon Web Services Enterprise
- *         Billing Console User Guide</a>.</p>
+ *       API. For more information about using the <a href="https://console.aws.amazon.com/billingconductor/">Amazon Web Services
+ *         Billing Conductor</a> user interface, see the <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html"> Amazon Web Services Billing Conductor User Guide</a>.</p>
  */
 export class Billingconductor extends BillingconductorClient {
   /**
@@ -542,7 +546,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
-   * <p> Deletes the pricing rule identified by the input Amazon Resource Name (ARN). </p>
+   * <p> Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN). </p>
    */
   public deletePricingRule(
     args: DeletePricingRuleCommandInput,
@@ -640,14 +644,9 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
-   * <p>
-   *             <i>
-   *                <b>Amazon Web Services Billing Conductor is in beta release and is subject to change. Your use of Amazon Web Services Billing Conductor is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
-   *             </i>
-   *          </p>
-   *          <p> This is a paginated call to list linked accounts that are linked to the payer account for
+   * <p> This is a paginated call to list linked accounts that are linked to the payer account for
    *       the specified time period. If no information is provided, the current billing period is used.
-   *       The response will optionally include the billing group associated with the linked
+   *       The response will optionally include the billing group that's associated with the linked
    *       account.</p>
    */
   public listAccountAssociations(
@@ -779,6 +778,38 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * <p>A paginated call to get a list of all custom line item versions.</p>
+   */
+  public listCustomLineItemVersions(
+    args: ListCustomLineItemVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomLineItemVersionsCommandOutput>;
+  public listCustomLineItemVersions(
+    args: ListCustomLineItemVersionsCommandInput,
+    cb: (err: any, data?: ListCustomLineItemVersionsCommandOutput) => void
+  ): void;
+  public listCustomLineItemVersions(
+    args: ListCustomLineItemVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomLineItemVersionsCommandOutput) => void
+  ): void;
+  public listCustomLineItemVersions(
+    args: ListCustomLineItemVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomLineItemVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomLineItemVersionsCommandOutput) => void
+  ): Promise<ListCustomLineItemVersionsCommandOutput> | void {
+    const command = new ListCustomLineItemVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>A paginated call to get pricing plans for the given billing period. If you don't provide a billing period, the current billing period is used.
    *     </p>
    */
@@ -813,7 +844,7 @@ export class Billingconductor extends BillingconductorClient {
 
   /**
    * <p>
-   *       A list of the pricing plans associated with a pricing rule.
+   *       A list of the pricing plans that are associated with a pricing rule.
    *     </p>
    */
   public listPricingPlansAssociatedWithPricingRule(
@@ -883,7 +914,7 @@ export class Billingconductor extends BillingconductorClient {
 
   /**
    * <p>
-   *       Lists the pricing rules associated with a pricing plan.
+   *       Lists the pricing rules that are associated with a pricing plan.
    *     </p>
    */
   public listPricingRulesAssociatedToPricingPlan(
@@ -919,7 +950,7 @@ export class Billingconductor extends BillingconductorClient {
 
   /**
    * <p>
-   *       List the resources associated to a custom line item.
+   *       List the resources that are associated to a custom line item.
    *     </p>
    */
   public listResourcesAssociatedToCustomLineItem(

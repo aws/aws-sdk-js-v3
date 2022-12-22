@@ -29,10 +29,12 @@ export interface UpdateDomainContactCommandInput extends UpdateDomainContactRequ
 export interface UpdateDomainContactCommandOutput extends UpdateDomainContactResponse, __MetadataBearer {}
 
 /**
- * <p>This operation updates the contact information for a particular domain. You must specify information for at least one contact:
- * 			registrant, administrator, or technical.</p>
- * 		       <p>If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action.
- * 			If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ * <p>This operation updates the contact information for a particular domain. You must
+ * 			specify information for at least one contact: registrant, administrator, or
+ * 			technical.</p>
+ *          <p>If the update is successful, this method returns an operation ID that you can use to
+ * 			track the progress and completion of the operation. If the request is not completed
+ * 			successfully, the domain registrant will be notified by email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

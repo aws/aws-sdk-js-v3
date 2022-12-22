@@ -46,6 +46,10 @@ import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "../co
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "../commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "../commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "../commands/DescribeAddonVersionsCommand";
@@ -118,6 +122,8 @@ import {
   Compatibility,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
+  ControlPlanePlacementRequest,
+  ControlPlanePlacementResponse,
   EncryptionConfig,
   ErrorDetail,
   FargateProfile,
@@ -134,6 +140,7 @@ import {
   Logging,
   LogSetup,
   LogType,
+  MarketplaceInformation,
   Nodegroup,
   NodegroupHealth,
   NodegroupResources,
@@ -238,6 +245,7 @@ export const serializeAws_restJson1CreateAddonCommand = async (
     ...(input.addonName != null && { addonName: input.addonName }),
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -533,6 +541,31 @@ export const serializeAws_restJson1DescribeAddonCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  input: DescribeAddonConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/configuration-schemas";
+  const query: any = map({
+    addonName: [, __expectNonNull(input.addonName!, `addonName`)],
+    addonVersion: [, __expectNonNull(input.addonVersion!, `addonVersion`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
   input: DescribeAddonVersionsCommandInput,
   context: __SerdeContext
@@ -546,6 +579,9 @@ export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     addonName: [, input.addonName!],
+    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
+    publishers: [() => input.publishers !== void 0, () => (input.publishers! || []).map((_entry) => _entry as any)],
+    owners: [() => input.owners !== void 0, () => (input.owners! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -966,7 +1002,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -998,6 +1037,7 @@ export const serializeAws_restJson1UpdateAddonCommand = async (
   body = JSON.stringify({
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
   });
@@ -1801,6 +1841,59 @@ const deserializeAws_restJson1DescribeAddonCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.eks#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAddonConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.addonName != null) {
+    contents.addonName = __expectString(data.addonName);
+  }
+  if (data.addonVersion != null) {
+    contents.addonVersion = __expectString(data.addonVersion);
+  }
+  if (data.configurationSchema != null) {
+    contents.configurationSchema = __expectString(data.configurationSchema);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeAddonConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.eks#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3272,6 +3365,15 @@ const serializeAws_restJson1ConnectorConfigRequest = (input: ConnectorConfigRequ
   };
 };
 
+const serializeAws_restJson1ControlPlanePlacementRequest = (
+  input: ControlPlanePlacementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.groupName != null && { groupName: input.groupName }),
+  };
+};
+
 const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.provider != null && { provider: serializeAws_restJson1Provider(input.provider, context) }),
@@ -3292,10 +3394,8 @@ const serializeAws_restJson1FargateProfileLabel = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3347,10 +3447,8 @@ const serializeAws_restJson1labelsMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3432,6 +3530,9 @@ const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
 const serializeAws_restJson1OutpostConfigRequest = (input: OutpostConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.controlPlaneInstanceType != null && { controlPlaneInstanceType: input.controlPlaneInstanceType }),
+    ...(input.controlPlanePlacement != null && {
+      controlPlanePlacement: serializeAws_restJson1ControlPlanePlacementRequest(input.controlPlanePlacement, context),
+    }),
     ...(input.outpostArns != null && { outpostArns: serializeAws_restJson1StringList(input.outpostArns, context) }),
   };
 };
@@ -3456,10 +3557,8 @@ const serializeAws_restJson1requiredClaimsMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3476,10 +3575,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3539,11 +3636,18 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
     addonName: __expectString(output.addonName),
     addonVersion: __expectString(output.addonVersion),
     clusterName: __expectString(output.clusterName),
+    configurationValues: __expectString(output.configurationValues),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     health: output.health != null ? deserializeAws_restJson1AddonHealth(output.health, context) : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
     modifiedAt:
       output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -3563,6 +3667,12 @@ const deserializeAws_restJson1AddonInfo = (output: any, context: __SerdeContext)
       output.addonVersions != null
         ? deserializeAws_restJson1AddonVersionInfoList(output.addonVersions, context)
         : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     type: __expectString(output.type),
   } as any;
 };
@@ -3609,6 +3719,7 @@ const deserializeAws_restJson1AddonVersionInfo = (output: any, context: __SerdeC
       output.compatibilities != null
         ? deserializeAws_restJson1Compatibilities(output.compatibilities, context)
         : undefined,
+    requiresConfiguration: __expectBoolean(output.requiresConfiguration),
   } as any;
 };
 
@@ -3758,6 +3869,15 @@ const deserializeAws_restJson1ConnectorConfigResponse = (
   } as any;
 };
 
+const deserializeAws_restJson1ControlPlanePlacementResponse = (
+  output: any,
+  context: __SerdeContext
+): ControlPlanePlacementResponse => {
+  return {
+    groupName: __expectString(output.groupName),
+  } as any;
+};
+
 const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
   return {
     provider: output.provider != null ? deserializeAws_restJson1Provider(output.provider, context) : undefined,
@@ -3819,10 +3939,8 @@ const deserializeAws_restJson1FargateProfileLabel = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3928,10 +4046,8 @@ const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3982,6 +4098,16 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1MarketplaceInformation = (
+  output: any,
+  context: __SerdeContext
+): MarketplaceInformation => {
+  return {
+    productId: __expectString(output.productId),
+    productUrl: __expectString(output.productUrl),
+  } as any;
 };
 
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
@@ -4094,6 +4220,10 @@ const deserializeAws_restJson1OidcIdentityProviderConfig = (
 const deserializeAws_restJson1OutpostConfigResponse = (output: any, context: __SerdeContext): OutpostConfigResponse => {
   return {
     controlPlaneInstanceType: __expectString(output.controlPlaneInstanceType),
+    controlPlanePlacement:
+      output.controlPlanePlacement != null
+        ? deserializeAws_restJson1ControlPlanePlacementResponse(output.controlPlanePlacement, context)
+        : undefined,
     outpostArns:
       output.outpostArns != null ? deserializeAws_restJson1StringList(output.outpostArns, context) : undefined,
   } as any;
@@ -4120,10 +4250,8 @@ const deserializeAws_restJson1requiredClaimsMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4144,10 +4272,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

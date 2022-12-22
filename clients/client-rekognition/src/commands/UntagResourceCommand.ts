@@ -29,11 +29,10 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Removes one or more tags from an Amazon Rekognition collection, stream processor, or Custom Labels model.
- *     </p>
+ * <p> Removes one or more tags from an Amazon Rekognition collection, stream processor, or Custom Labels
+ *       model. </p>
  *          <p>This operation requires permissions to perform the
- *       <code>rekognition:UntagResource</code> action. </p>
+ *         <code>rekognition:UntagResource</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -42,10 +42,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *                <p>Head cover</p>
  *             </li>
  *          </ul>
- *
  *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
  *          The image must be either a PNG or JPG formatted file. </p>
- *
  *          <p>
  *             <code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected in an image.</p>
  *          <p>For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand).
@@ -67,7 +65,6 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *             </li>
  *          </ul>
  *          <p>This is a stateless API operation. That is, the operation does not persist any data.</p>
- *
  *          <p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

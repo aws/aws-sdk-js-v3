@@ -28,10 +28,10 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
 
 /**
  * <p>Deletes a block list used for query suggestions for an index.</p>
- *         <p>A deleted block list might not take effect right away. Amazon Kendra
+ *          <p>A deleted block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to add back the
  *             queries that were previously blocked.</p>
- *         <p>
+ *          <p>
  *             <code>DeleteQuerySuggestionsBlockList</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

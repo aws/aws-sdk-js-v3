@@ -33,8 +33,7 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  *       volume that is restored to the original root volume's launch state, that is restored to a
  *       specific snapshot taken from the original root volume, or that is restored from an AMI
  *       that has the same key characteristics as that of the instance.</p>
- *
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

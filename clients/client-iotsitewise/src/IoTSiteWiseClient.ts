@@ -152,7 +152,15 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
+import {
+  ListAssetModelPropertiesCommandInput,
+  ListAssetModelPropertiesCommandOutput,
+} from "./commands/ListAssetModelPropertiesCommand";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "./commands/ListAssetModelsCommand";
+import {
+  ListAssetPropertiesCommandInput,
+  ListAssetPropertiesCommandOutput,
+} from "./commands/ListAssetPropertiesCommand";
 import {
   ListAssetRelationshipsCommandInput,
   ListAssetRelationshipsCommandOutput,
@@ -253,7 +261,9 @@ export type ServiceInputTypes =
   | GetAssetPropertyValueHistoryCommandInput
   | GetInterpolatedAssetPropertyValuesCommandInput
   | ListAccessPoliciesCommandInput
+  | ListAssetModelPropertiesCommandInput
   | ListAssetModelsCommandInput
+  | ListAssetPropertiesCommandInput
   | ListAssetRelationshipsCommandInput
   | ListAssetsCommandInput
   | ListAssociatedAssetsCommandInput
@@ -326,7 +336,9 @@ export type ServiceOutputTypes =
   | GetAssetPropertyValueHistoryCommandOutput
   | GetInterpolatedAssetPropertyValuesCommandOutput
   | ListAccessPoliciesCommandOutput
+  | ListAssetModelPropertiesCommandOutput
   | ListAssetModelsCommandOutput
+  | ListAssetPropertiesCommandOutput
   | ListAssetRelationshipsCommandOutput
   | ListAssetsCommandOutput
   | ListAssociatedAssetsCommandOutput

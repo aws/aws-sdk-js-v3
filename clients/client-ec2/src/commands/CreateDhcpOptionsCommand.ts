@@ -42,7 +42,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *                     IP addresses in a single parameter, separated by commas. To have your instance
  *                     receive a custom DNS hostname as specified in <code>domain-name</code>, you must
  *                     set <code>domain-name-servers</code> to a custom DNS server.</p>
- *            </li>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>domain-name</code> - If you're using AmazonProvidedDNS in
@@ -57,25 +57,24 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *                    domain, which results in unexpected behavior. If your DHCP options set is
  *                    associated with a VPC that has instances with multiple operating systems,
  *                    specify only one domain name.</p>
- *            </li>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
  *                    servers.</p>
- *            </li>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name
  *                    servers.</p>
- *            </li>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
  *                    you specify 2 (broadcast and multicast are not currently supported). For more information
  *                    about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
- *            </li>
+ *             </li>
  *          </ul>
- *
  *          <p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS
  * 			server that we provide (AmazonProvidedDNS). If you create a set of options, and if your
  * 			VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>

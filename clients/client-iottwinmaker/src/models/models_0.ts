@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
@@ -233,6 +234,25 @@ export enum Type {
   STRING = "STRING",
 }
 
+export enum GroupType {
+  TABULAR = "TABULAR",
+}
+
+/**
+ * <p/>
+ */
+export interface PropertyGroupRequest {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType?: GroupType | string;
+
+  /**
+   * <p>The names of properties.</p>
+   */
+  propertyNames?: string[];
+}
+
 export enum State {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -281,6 +301,32 @@ export enum PropertyUpdateType {
   CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
+}
+
+export enum PropertyGroupUpdateType {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPDATE = "UPDATE",
+}
+
+/**
+ * <p/>
+ */
+export interface ComponentPropertyGroupRequest {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType?: GroupType | string;
+
+  /**
+   * <p>The property names.</p>
+   */
+  propertyNames?: string[];
+
+  /**
+   * <p>The update type.</p>
+   */
+  updateType?: PropertyGroupUpdateType | string;
 }
 
 export interface CreateEntityResponse {
@@ -347,6 +393,57 @@ export interface CreateSceneResponse {
    * <p>The date and time when the scene was created.</p>
    */
   creationDateTime: Date | undefined;
+}
+
+export interface CreateSyncJobRequest {
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync source.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The SyncJob IAM role. This IAM role is used by the sync job to read from the syncSource, and create,
+   *          update or delete the corresponding resources.</p>
+   */
+  syncRole: string | undefined;
+
+  /**
+   * <p>The SyncJob tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export enum SyncJobState {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  ERROR = "ERROR",
+  INITIALIZING = "INITIALIZING",
+}
+
+export interface CreateSyncJobResponse {
+  /**
+   * <p>The SyncJob ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The date and time for the SyncJob creation.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * <p>The SyncJob response state.</p>
+   */
+  state: SyncJobState | string | undefined;
 }
 
 export interface CreateWorkspaceRequest {
@@ -445,6 +542,28 @@ export interface DeleteSceneRequest {
 
 export interface DeleteSceneResponse {}
 
+export interface DeleteSyncJobRequest {
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync source.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+}
+
+export interface DeleteSyncJobResponse {
+  /**
+   * <p>The SyncJob response state.</p>
+   */
+  state: SyncJobState | string | undefined;
+}
+
 export interface DeleteWorkspaceRequest {
   /**
    * <p>The ID of the workspace to delete.</p>
@@ -453,6 +572,97 @@ export interface DeleteWorkspaceRequest {
 }
 
 export interface DeleteWorkspaceResponse {}
+
+export interface ExecuteQueryRequest {
+  /**
+   * <p>The ID of the workspace.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The query statement.</p>
+   */
+  queryStatement: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export enum ColumnType {
+  EDGE = "EDGE",
+  NODE = "NODE",
+  VALUE = "VALUE",
+}
+
+/**
+ * <p>A description of the column in the query results.</p>
+ */
+export interface ColumnDescription {
+  /**
+   * <p>The name of the column description.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of the column description.</p>
+   */
+  type?: ColumnType | string;
+}
+
+/**
+ * <p>Represents a single row in the query results.</p>
+ */
+export interface Row {
+  /**
+   * <p>The data in a row of query results.</p>
+   */
+  rowData?: __DocumentType[];
+}
+
+export interface ExecuteQueryResponse {
+  /**
+   * <p>A list of ColumnDescription objects.</p>
+   */
+  columnDescriptions?: ColumnDescription[];
+
+  /**
+   * <p>Represents a single row in the query results.</p>
+   */
+  rows?: Row[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The query timeout exception.</p>
+ */
+export class QueryTimeoutException extends __BaseException {
+  readonly name: "QueryTimeoutException" = "QueryTimeoutException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryTimeoutException, __BaseException>) {
+    super({
+      name: "QueryTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryTimeoutException.prototype);
+  }
+}
 
 export interface GetComponentTypeRequest {
   /**
@@ -491,8 +701,31 @@ export interface FunctionResponse {
   isInherited?: boolean;
 }
 
+/**
+ * <p>The property group response</p>
+ */
+export interface PropertyGroupResponse {
+  /**
+   * <p>The group types.</p>
+   */
+  groupType: GroupType | string | undefined;
+
+  /**
+   * <p>The names of properties.</p>
+   */
+  propertyNames: string[] | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   */
+  isInherited: boolean | undefined;
+}
+
 export enum ErrorCode {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
+  SYNC_CREATING_ERROR = "SYNC_CREATING_ERROR",
+  SYNC_INITIALIZING_ERROR = "SYNC_INITIALIZING_ERROR",
+  SYNC_PROCESSING_ERROR = "SYNC_PROCESSING_ERROR",
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
@@ -539,6 +772,111 @@ export interface GetEntityRequest {
 }
 
 /**
+ * <p>The component property group response.</p>
+ */
+export interface ComponentPropertyGroupResponse {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType: GroupType | string | undefined;
+
+  /**
+   * <p>The names of properties</p>
+   */
+  propertyNames: string[] | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   */
+  isInherited: boolean | undefined;
+}
+
+export interface GetPricingPlanRequest {}
+
+export enum PricingTier {
+  TIER_1 = "TIER_1",
+  TIER_2 = "TIER_2",
+  TIER_3 = "TIER_3",
+  TIER_4 = "TIER_4",
+}
+
+/**
+ * <p>Information about pricing bundle.</p>
+ */
+export interface BundleInformation {
+  /**
+   * <p>The bundle names.</p>
+   */
+  bundleNames: string[] | undefined;
+
+  /**
+   * <p>The pricing tier.</p>
+   */
+  pricingTier?: PricingTier | string;
+}
+
+export enum PricingMode {
+  BASIC = "BASIC",
+  STANDARD = "STANDARD",
+  TIERED_BUNDLE = "TIERED_BUNDLE",
+}
+
+export enum UpdateReason {
+  DEFAULT = "DEFAULT",
+  ENTITY_COUNT_UPDATE = "ENTITY_COUNT_UPDATE",
+  OVERWRITTEN = "OVERWRITTEN",
+  PRICING_MODE_UPDATE = "PRICING_MODE_UPDATE",
+  PRICING_TIER_UPDATE = "PRICING_TIER_UPDATE",
+}
+
+/**
+ * <p>The pricing plan.</p>
+ */
+export interface PricingPlan {
+  /**
+   * <p>The billable entity count.</p>
+   */
+  billableEntityCount?: number;
+
+  /**
+   * <p>The pricing plan's bundle information.</p>
+   */
+  bundleInformation?: BundleInformation;
+
+  /**
+   * <p>The effective date and time of the pricing plan.</p>
+   */
+  effectiveDateTime: Date | undefined;
+
+  /**
+   * <p>The pricing mode.</p>
+   */
+  pricingMode: PricingMode | string | undefined;
+
+  /**
+   * <p>The set date and time for updating a pricing plan.</p>
+   */
+  updateDateTime: Date | undefined;
+
+  /**
+   * <p>The update reason, for changing a pricing plan.</p>
+   */
+  updateReason: UpdateReason | string | undefined;
+}
+
+export interface GetPricingPlanResponse {
+  /**
+   * <p>The chosen pricing plan for the current billing cycle.</p>
+   */
+  currentPricingPlan: PricingPlan | undefined;
+
+  /**
+   * <p>The pending pricing plan.</p>
+   */
+  pendingPricingPlan?: PricingPlan;
+}
+
+/**
  * <p>The connector failed.</p>
  */
 export class ConnectorFailureException extends __BaseException {
@@ -576,31 +914,24 @@ export class ConnectorTimeoutException extends __BaseException {
   }
 }
 
-export interface GetPropertyValueRequest {
+export enum Order {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>Filter criteria that orders the return output. It can be sorted in ascending or descending order.</p>
+ */
+export interface OrderBy {
   /**
-   * <p>The name of the component whose property values the operation returns.</p>
+   * <p>The set order that filters results.</p>
    */
-  componentName?: string;
+  order?: Order | string;
 
   /**
-   * <p>The ID of the component type whose property values the operation returns.</p>
+   * <p>The property name.</p>
    */
-  componentTypeId?: string;
-
-  /**
-   * <p>The ID of the entity whose property values the operation returns.</p>
-   */
-  entityId?: string;
-
-  /**
-   * <p>The properties whose values the operation returns.</p>
-   */
-  selectedProperties: string[] | undefined;
-
-  /**
-   * <p>The ID of the workspace whose values the operation returns.</p>
-   */
-  workspaceId: string | undefined;
+  propertyName: string | undefined;
 }
 
 export enum InterpolationType {
@@ -679,6 +1010,76 @@ export interface GetSceneResponse {
    * <p>A list of capabilities that the scene uses to render.</p>
    */
   capabilities?: string[];
+}
+
+export interface GetSyncJobRequest {
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId?: string;
+}
+
+/**
+ * <p>The SyncJob status.</p>
+ */
+export interface SyncJobStatus {
+  /**
+   * <p>The SyncJob status state.</p>
+   */
+  state?: SyncJobState | string;
+
+  /**
+   * <p>The SyncJob error.</p>
+   */
+  error?: ErrorDetails;
+}
+
+export interface GetSyncJobResponse {
+  /**
+   * <p>The sync job ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The sync IAM role.</p>
+   */
+  syncRole: string | undefined;
+
+  /**
+   * <p>The SyncJob response status.</p>
+   */
+  status: SyncJobStatus | undefined;
+
+  /**
+   * <p>The creation date and time.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime: Date | undefined;
 }
 
 export interface GetWorkspaceRequest {
@@ -807,7 +1208,8 @@ export interface ListComponentTypesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 }
@@ -845,6 +1247,11 @@ export interface ComponentTypeSummary {
    * <p>The current status of the component type.</p>
    */
   status?: Status;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface ListComponentTypesResponse {
@@ -946,7 +1353,8 @@ export interface ListEntitiesRequest {
   filters?: ListEntitiesFilter[];
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1082,6 +1490,252 @@ export interface ListScenesResponse {
   nextToken?: string;
 }
 
+export interface ListSyncJobsRequest {
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 50.</p>
+   *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The SyncJob summary.</p>
+ */
+export interface SyncJobSummary {
+  /**
+   * <p>The SyncJob summary ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId?: string;
+
+  /**
+   * <p>The sync source.</p>
+   */
+  syncSource?: string;
+
+  /**
+   * <p>The SyncJob summaries status.</p>
+   */
+  status?: SyncJobStatus;
+
+  /**
+   * <p>The creation date and time.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime?: Date;
+}
+
+export interface ListSyncJobsResponse {
+  /**
+   * <p>The listed SyncJob summaries.</p>
+   */
+  syncJobSummaries?: SyncJobSummary[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export enum SyncResourceType {
+  COMPONENT_TYPE = "COMPONENT_TYPE",
+  ENTITY = "ENTITY",
+}
+
+export enum SyncResourceState {
+  DELETED = "DELETED",
+  ERROR = "ERROR",
+  INITIALIZING = "INITIALIZING",
+  IN_SYNC = "IN_SYNC",
+  PROCESSING = "PROCESSING",
+}
+
+/**
+ * <p>The sync resource filter.</p>
+ */
+export type SyncResourceFilter =
+  | SyncResourceFilter.ExternalIdMember
+  | SyncResourceFilter.ResourceIdMember
+  | SyncResourceFilter.ResourceTypeMember
+  | SyncResourceFilter.StateMember
+  | SyncResourceFilter.$UnknownMember;
+
+export namespace SyncResourceFilter {
+  /**
+   * <p>The sync resource filter's state.</p>
+   */
+  export interface StateMember {
+    state: SyncResourceState | string;
+    resourceType?: never;
+    resourceId?: never;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sync resource filter resoucre type</p>
+   */
+  export interface ResourceTypeMember {
+    state?: never;
+    resourceType: SyncResourceType | string;
+    resourceId?: never;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sync resource filter resource Id.</p>
+   */
+  export interface ResourceIdMember {
+    state?: never;
+    resourceType?: never;
+    resourceId: string;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The external Id.</p>
+   */
+  export interface ExternalIdMember {
+    state?: never;
+    resourceType?: never;
+    resourceId?: never;
+    externalId: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    state?: never;
+    resourceType?: never;
+    resourceId?: never;
+    externalId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    state: (value: SyncResourceState | string) => T;
+    resourceType: (value: SyncResourceType | string) => T;
+    resourceId: (value: string) => T;
+    externalId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SyncResourceFilter, visitor: Visitor<T>): T => {
+    if (value.state !== undefined) return visitor.state(value.state);
+    if (value.resourceType !== undefined) return visitor.resourceType(value.resourceType);
+    if (value.resourceId !== undefined) return visitor.resourceId(value.resourceId);
+    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface ListSyncResourcesRequest {
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>A list of objects that filter the request.</p>
+   */
+  filters?: SyncResourceFilter[];
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 50.</p>
+   *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The sync resource status.</p>
+ */
+export interface SyncResourceStatus {
+  /**
+   * <p>The sync resource status state.</p>
+   */
+  state?: SyncResourceState | string;
+
+  /**
+   * <p>The status error.</p>
+   */
+  error?: ErrorDetails;
+}
+
+/**
+ * <p>The sync resource summary.</p>
+ */
+export interface SyncResourceSummary {
+  /**
+   * <p>The resource type.</p>
+   */
+  resourceType?: SyncResourceType | string;
+
+  /**
+   * <p>The external Id.</p>
+   */
+  externalId?: string;
+
+  /**
+   * <p>The resource Id.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The sync resource summary status.</p>
+   */
+  status?: SyncResourceStatus;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime?: Date;
+}
+
+export interface ListSyncResourcesResponse {
+  /**
+   * <p>The sync resources.</p>
+   */
+  syncResources?: SyncResourceSummary[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1089,7 +1743,8 @@ export interface ListTagsForResourceRequest {
   resourceARN: string | undefined;
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1113,7 +1768,8 @@ export interface ListTagsForResourceResponse {
 
 export interface ListWorkspacesRequest {
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1270,6 +1926,30 @@ export interface UpdateEntityResponse {
    * <p>The current state of the entity update.</p>
    */
   state: State | string | undefined;
+}
+
+export interface UpdatePricingPlanRequest {
+  /**
+   * <p>The pricing mode.</p>
+   */
+  pricingMode: PricingMode | string | undefined;
+
+  /**
+   * <p>The bundle names.</p>
+   */
+  bundleNames?: string[];
+}
+
+export interface UpdatePricingPlanResponse {
+  /**
+   * <p>Update the current pricing plan.</p>
+   */
+  currentPricingPlan: PricingPlan | undefined;
+
+  /**
+   * <p>Update the pending pricing plan.</p>
+   */
+  pendingPricingPlan?: PricingPlan;
 }
 
 export interface UpdateSceneRequest {
@@ -1565,7 +2245,8 @@ export interface GetPropertyValueHistoryRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1576,23 +2257,15 @@ export interface GetPropertyValueHistoryRequest {
 
   /**
    * <p>The ISO8601 DateTime of the earliest property value to return.</p>
-   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   startTime?: string;
 
   /**
    * <p>The ISO8601 DateTime of the latest property value to return.</p>
-   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   endTime?: string;
-}
-
-export interface GetPropertyValueResponse {
-  /**
-   * <p>An object that maps strings to the properties and latest property values in the response. Each string
-   *        in the mapping must be unique to this object.</p>
-   */
-  propertyValues: Record<string, PropertyLatestValue> | undefined;
 }
 
 /**
@@ -1626,6 +2299,24 @@ export interface PropertyValueHistory {
 }
 
 /**
+ * <p>The tabular conditions.</p>
+ */
+export interface TabularConditions {
+  /**
+   * <p>Filter criteria that orders the output. It can be sorted in ascending or descending order.</p>
+   */
+  orderBy?: OrderBy[];
+
+  /**
+   * <p>You can filter the request using various logical operators and a key-value format. For example:</p>
+   *          <p>
+   *             <code>{"key": "serverType", "value": "webServer"}</code>
+   *          </p>
+   */
+  propertyFilters?: PropertyFilter[];
+}
+
+/**
  * <p>An error returned by the <code>BatchPutProperty</code> action.</p>
  */
 export interface BatchPutPropertyError {
@@ -1643,6 +2334,54 @@ export interface BatchPutPropertyError {
    * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
    */
   entry: PropertyValueEntry | undefined;
+}
+
+export interface GetPropertyValueRequest {
+  /**
+   * <p>The name of the component whose property values the operation returns.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The ID of the component type whose property values the operation returns.</p>
+   */
+  componentTypeId?: string;
+
+  /**
+   * <p>The ID of the entity whose property values the operation returns.</p>
+   */
+  entityId?: string;
+
+  /**
+   * <p>The properties whose values the operation returns.</p>
+   */
+  selectedProperties: string[] | undefined;
+
+  /**
+   * <p>The ID of the workspace whose values the operation returns.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The property group name.</p>
+   */
+  propertyGroupName?: string;
+
+  /**
+   * <p>The tabular conditions.</p>
+   */
+  tabularConditions?: TabularConditions;
 }
 
 export interface BatchPutPropertyValuesRequest {
@@ -1721,6 +2460,11 @@ export interface PropertyDefinitionRequest {
    *          specify information that you read from and write to an external source.</p>
    */
   configuration?: Record<string, string>;
+
+  /**
+   * <p>A friendly name for the property.</p>
+   */
+  displayName?: string;
 }
 
 /**
@@ -1776,6 +2520,11 @@ export interface PropertyDefinitionResponse {
    * <p>A mapping that specifies configuration information about the property.</p>
    */
   configuration?: Record<string, string>;
+
+  /**
+   * <p>A friendly name for the property.</p>
+   */
+  displayName?: string;
 }
 
 export interface BatchPutPropertyValuesResponse {
@@ -1783,6 +2532,24 @@ export interface BatchPutPropertyValuesResponse {
    * <p>Entries that caused errors in the batch put operation.</p>
    */
   errorEntries: BatchPutPropertyErrorEntry[] | undefined;
+}
+
+export interface GetPropertyValueResponse {
+  /**
+   * <p>An object that maps strings to the properties and latest property values in the response. Each string
+   *        in the mapping must be unique to this object.</p>
+   */
+  propertyValues?: Record<string, PropertyLatestValue>;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A table of property values.</p>
+   */
+  tabularPropertyValues?: Record<string, DataValue>[][];
 }
 
 export interface CreateComponentTypeRequest {
@@ -1828,6 +2595,16 @@ export interface CreateComponentTypeRequest {
    * <p>Metadata that you can use to manage the component type.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p/>
+   */
+  propertyGroups?: Record<string, PropertyGroupRequest>;
+
+  /**
+   * <p>A friendly name for the component type.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface GetComponentTypeResponse {
@@ -1899,11 +2676,27 @@ export interface GetComponentTypeResponse {
    * <p>The current status of the component type.</p>
    */
   status?: Status;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  propertyGroups?: Record<string, PropertyGroupResponse>;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface UpdateComponentTypeRequest {
   /**
-   * <p>The ID of the workspace that contains the component type.</p>
+   * <p>The ID of the workspace.</p>
    */
   workspaceId: string | undefined;
 
@@ -1939,6 +2732,16 @@ export interface UpdateComponentTypeRequest {
    *        in the mapping must be unique to this object.</p>
    */
   functions?: Record<string, FunctionRequest>;
+
+  /**
+   * <p>The property groups</p>
+   */
+  propertyGroups?: Record<string, PropertyGroupRequest>;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 /**
@@ -1995,6 +2798,11 @@ export interface ComponentRequest {
    *        in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyRequest>;
+
+  /**
+   * <p>The property groups.</p>
+   */
+  propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 /**
@@ -2031,6 +2839,16 @@ export interface ComponentResponse {
    *        in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyResponse>;
+
+  /**
+   * <p>The property groups.</p>
+   */
+  propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
 }
 
 /**
@@ -2057,6 +2875,11 @@ export interface ComponentUpdateRequest {
    *        in the mapping must be unique to this object.</p>
    */
   propertyUpdates?: Record<string, PropertyRequest>;
+
+  /**
+   * <p>The property group updates.</p>
+   */
+  propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 export interface CreateEntityRequest {
@@ -2153,6 +2976,11 @@ export interface GetEntityResponse {
    * <p>The date and time when the entity was last updated.</p>
    */
   updateDateTime: Date | undefined;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
 }
 
 export interface UpdateEntityRequest {
@@ -2233,7 +3061,21 @@ export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
 /**
  * @internal
  */
+export const PropertyGroupRequestFilterSensitiveLog = (obj: PropertyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateComponentTypeResponseFilterSensitiveLog = (obj: CreateComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentPropertyGroupRequestFilterSensitiveLog = (obj: ComponentPropertyGroupRequest): any => ({
   ...obj,
 });
 
@@ -2255,6 +3097,20 @@ export const CreateSceneRequestFilterSensitiveLog = (obj: CreateSceneRequest): a
  * @internal
  */
 export const CreateSceneResponseFilterSensitiveLog = (obj: CreateSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSyncJobRequestFilterSensitiveLog = (obj: CreateSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSyncJobResponseFilterSensitiveLog = (obj: CreateSyncJobResponse): any => ({
   ...obj,
 });
 
@@ -2317,6 +3173,20 @@ export const DeleteSceneResponseFilterSensitiveLog = (obj: DeleteSceneResponse):
 /**
  * @internal
  */
+export const DeleteSyncJobRequestFilterSensitiveLog = (obj: DeleteSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSyncJobResponseFilterSensitiveLog = (obj: DeleteSyncJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
   ...obj,
 });
@@ -2331,6 +3201,34 @@ export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceRe
 /**
  * @internal
  */
+export const ExecuteQueryRequestFilterSensitiveLog = (obj: ExecuteQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowFilterSensitiveLog = (obj: Row): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteQueryResponseFilterSensitiveLog = (obj: ExecuteQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetComponentTypeRequestFilterSensitiveLog = (obj: GetComponentTypeRequest): any => ({
   ...obj,
 });
@@ -2339,6 +3237,13 @@ export const GetComponentTypeRequestFilterSensitiveLog = (obj: GetComponentTypeR
  * @internal
  */
 export const FunctionResponseFilterSensitiveLog = (obj: FunctionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyGroupResponseFilterSensitiveLog = (obj: PropertyGroupResponse): any => ({
   ...obj,
 });
 
@@ -2366,7 +3271,42 @@ export const GetEntityRequestFilterSensitiveLog = (obj: GetEntityRequest): any =
 /**
  * @internal
  */
-export const GetPropertyValueRequestFilterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
+export const ComponentPropertyGroupResponseFilterSensitiveLog = (obj: ComponentPropertyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPricingPlanRequestFilterSensitiveLog = (obj: GetPricingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BundleInformationFilterSensitiveLog = (obj: BundleInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PricingPlanFilterSensitiveLog = (obj: PricingPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPricingPlanResponseFilterSensitiveLog = (obj: GetPricingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderByFilterSensitiveLog = (obj: OrderBy): any => ({
   ...obj,
 });
 
@@ -2388,6 +3328,27 @@ export const GetSceneRequestFilterSensitiveLog = (obj: GetSceneRequest): any => 
  * @internal
  */
 export const GetSceneResponseFilterSensitiveLog = (obj: GetSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSyncJobRequestFilterSensitiveLog = (obj: GetSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncJobStatusFilterSensitiveLog = (obj: SyncJobStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSyncJobResponseFilterSensitiveLog = (obj: GetSyncJobResponse): any => ({
   ...obj,
 });
 
@@ -2493,6 +3454,67 @@ export const ListScenesResponseFilterSensitiveLog = (obj: ListScenesResponse): a
 /**
  * @internal
  */
+export const ListSyncJobsRequestFilterSensitiveLog = (obj: ListSyncJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncJobSummaryFilterSensitiveLog = (obj: SyncJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSyncJobsResponseFilterSensitiveLog = (obj: ListSyncJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceFilterFilterSensitiveLog = (obj: SyncResourceFilter): any => {
+  if (obj.state !== undefined) return { state: obj.state };
+  if (obj.resourceType !== undefined) return { resourceType: obj.resourceType };
+  if (obj.resourceId !== undefined) return { resourceId: obj.resourceId };
+  if (obj.externalId !== undefined) return { externalId: obj.externalId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListSyncResourcesRequestFilterSensitiveLog = (obj: ListSyncResourcesRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => SyncResourceFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceStatusFilterSensitiveLog = (obj: SyncResourceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceSummaryFilterSensitiveLog = (obj: SyncResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSyncResourcesResponseFilterSensitiveLog = (obj: ListSyncResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
   ...obj,
 });
@@ -2577,6 +3599,20 @@ export const UpdateEntityResponseFilterSensitiveLog = (obj: UpdateEntityResponse
 /**
  * @internal
  */
+export const UpdatePricingPlanRequestFilterSensitiveLog = (obj: UpdatePricingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingPlanResponseFilterSensitiveLog = (obj: UpdatePricingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateSceneRequestFilterSensitiveLog = (obj: UpdateSceneRequest): any => ({
   ...obj,
 });
@@ -2647,13 +3683,6 @@ export const GetPropertyValueHistoryRequestFilterSensitiveLog = (obj: GetPropert
 /**
  * @internal
  */
-export const GetPropertyValueResponseFilterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PropertyValueEntryFilterSensitiveLog = (obj: PropertyValueEntry): any => ({
   ...obj,
 });
@@ -2668,7 +3697,21 @@ export const PropertyValueHistoryFilterSensitiveLog = (obj: PropertyValueHistory
 /**
  * @internal
  */
+export const TabularConditionsFilterSensitiveLog = (obj: TabularConditions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchPutPropertyErrorFilterSensitiveLog = (obj: BatchPutPropertyError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueRequestFilterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
   ...obj,
 });
 
@@ -2711,6 +3754,13 @@ export const PropertyDefinitionResponseFilterSensitiveLog = (obj: PropertyDefini
  * @internal
  */
 export const BatchPutPropertyValuesResponseFilterSensitiveLog = (obj: BatchPutPropertyValuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueResponseFilterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
   ...obj,
 });
 

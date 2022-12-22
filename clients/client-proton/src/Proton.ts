@@ -2301,7 +2301,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List service instances with summary data.</p>
+   * <p>List service instances with summary data. This action lists service instances of all services in the Amazon Web Services account.</p>
    */
   public listServiceInstances(
     args: ListServiceInstancesCommandInput,

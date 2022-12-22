@@ -31,6 +31,78 @@ export class AccountHasOngoingImportException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when when the specified account is not found or not part of an organization.</p>
+ */
+export class AccountNotFoundException extends __BaseException {
+  readonly name: "AccountNotFoundException" = "AccountNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountNotFoundException, __BaseException>) {
+    super({
+      name: "AccountNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.</p>
+ */
+export class AccountNotRegisteredException extends __BaseException {
+  readonly name: "AccountNotRegisteredException" = "AccountNotRegisteredException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountNotRegisteredException, __BaseException>) {
+    super({
+      name: "AccountNotRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountNotRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the account is already registered as the CloudTrail delegated administrator.</p>
+ */
+export class AccountRegisteredException extends __BaseException {
+  readonly name: "AccountRegisteredException" = "AccountRegisteredException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountRegisteredException, __BaseException>) {
+    super({
+      name: "AccountRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
  */
 export interface Tag {
@@ -233,6 +305,32 @@ export class InvalidTrailNameException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidTrailNameException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *          This exception is thrown when the management account does not have a service-linked role.
+ *       </p>
+ */
+export class NoManagementAccountSLRExistsException extends __BaseException {
+  readonly name: "NoManagementAccountSLRExistsException" = "NoManagementAccountSLRExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoManagementAccountSLRExistsException, __BaseException>) {
+    super({
+      name: "NoManagementAccountSLRExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoManagementAccountSLRExistsException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -708,9 +806,11 @@ export interface AdvancedEventSelector {
 
 export interface CancelQueryRequest {
   /**
+   * @deprecated
+   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query is running.</p>
    */
-  EventDataStore: string | undefined;
+  EventDataStore?: string;
 
   /**
    * <p>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the response of a <code>StartQuery</code>
@@ -834,6 +934,30 @@ export class QueryIdNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, QueryIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the management account of an organization is registered as the CloudTrail delegated administrator.</p>
+ */
+export class CannotDelegateManagementAccountException extends __BaseException {
+  readonly name: "CannotDelegateManagementAccountException" = "CannotDelegateManagementAccountException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotDelegateManagementAccountException, __BaseException>) {
+    super({
+      name: "CannotDelegateManagementAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDelegateManagementAccountException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -972,6 +1096,45 @@ export interface CreateEventDataStoreRequest {
    * <p>A list of tags.</p>
    */
   TagsList?: Tag[];
+
+  /**
+   * <p>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The
+   *          value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully
+   *          specified ARN to a key, or a globally unique identifier.</p>
+   *          <important>
+   *             <p>Disabling or deleting the KMS key, or removing CloudTrail
+   *          permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users
+   *          from querying the data in the event data store that was encrypted with the key.
+   *          After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or
+   *          delete a KMS key that you are using with an event data store, delete or back up your event data store.</p>
+   *          </important>
+   *          <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys,
+   *          see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
 }
 
 export enum EventDataStoreStatus {
@@ -1036,6 +1199,15 @@ export interface CreateEventDataStoreResponse {
    *          <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail.
+   *          The value is a fully specified ARN to a KMS key in the following format.</p>
+   *          <p>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  KmsKeyId?: string;
 }
 
 /**
@@ -1109,6 +1281,150 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientDependencyServiceAccessPermissionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p>
+ */
+export class InsufficientEncryptionPolicyException extends __BaseException {
+  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientEncryptionPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event
+ *          selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and
+ *          data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum
+ *          of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
+ *          <p>You can:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Specify a valid number of event selectors (1 to 5) for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify a valid number of data resources (1 to 250) for an event selector.
+ *                The limit of number of resources on an individual event selector is configurable up to 250.
+ *                However, this upper limit is allowed only if the total number of data resources does not
+ *                exceed 250 across all event selectors for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+ *                parameter with a value of <code>read-only</code> is not valid.</p>
+ *             </li>
+ *          </ul>
+ */
+export class InvalidEventSelectorsException extends __BaseException {
+  readonly name: "InvalidEventSelectorsException" = "InvalidEventSelectorsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventSelectorsException, __BaseException>) {
+    super({
+      name: "InvalidEventSelectorsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventSelectorsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the KMS key ARN is not valid.</p>
+ */
+export class InvalidKmsKeyIdException extends __BaseException {
+  readonly name: "InvalidKmsKeyIdException" = "InvalidKmsKeyIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKmsKeyIdException, __BaseException>) {
+    super({
+      name: "InvalidKmsKeyIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKmsKeyIdException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+ */
+export class KmsException extends __BaseException {
+  readonly name: "KmsException" = "KmsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsException, __BaseException>) {
+    super({
+      name: "KmsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the
+ *          KMS key are not in the same region, or when the KMS key associated with the Amazon SNS
+ *          topic either does not exist or is not in the same region.</p>
+ */
+export class KmsKeyNotFoundException extends __BaseException {
+  readonly name: "KmsKeyNotFoundException" = "KmsKeyNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyNotFoundException, __BaseException>) {
+    super({
+      name: "KmsKeyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1421,30 +1737,6 @@ export interface CreateTrailResponse {
 }
 
 /**
- * <p>This exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p>
- */
-export class InsufficientEncryptionPolicyException extends __BaseException {
-  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
-    super({
-      name: "InsufficientEncryptionPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
 export class InsufficientS3BucketPolicyException extends __BaseException {
@@ -1536,30 +1828,6 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidCloudWatchLogsRoleArnException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the KMS key ARN is not valid.</p>
- */
-export class InvalidKmsKeyIdException extends __BaseException {
-  readonly name: "InvalidKmsKeyIdException" = "InvalidKmsKeyIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKmsKeyIdException, __BaseException>) {
-    super({
-      name: "InvalidKmsKeyIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKmsKeyIdException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1661,30 +1929,6 @@ export class InvalidSnsTopicNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.</p>
- */
-export class KmsException extends __BaseException {
-  readonly name: "KmsException" = "KmsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsException, __BaseException>) {
-    super({
-      name: "KmsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @deprecated
  *
  * <p>This exception is no longer in use.</p>
@@ -1706,32 +1950,6 @@ export class KmsKeyDisabledException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, KmsKeyDisabledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the
- *          KMS key are not in the same region, or when the KMS key associated with the Amazon SNS
- *          topic either does not exist or is not in the same region.</p>
- */
-export class KmsKeyNotFoundException extends __BaseException {
-  readonly name: "KmsKeyNotFoundException" = "KmsKeyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsKeyNotFoundException, __BaseException>) {
-    super({
-      name: "KmsKeyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsKeyNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1957,11 +2175,56 @@ export class TrailNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * <p>Removes CloudTrail delegated administrator permissions from a specified member account in an organization
+ *          that is currently designated as a delegated administrator.</p>
+ */
+export interface DeregisterOrganizationDelegatedAdminRequest {
+  /**
+   * <p>A delegated administrator account ID. This is a member account in an organization
+   *          that is currently designated as a delegated administrator.</p>
+   */
+  DelegatedAdminAccountId: string | undefined;
+}
+
+/**
+ * <p>Returns the following response if successful. Otherwise, returns an error.</p>
+ */
+export interface DeregisterOrganizationDelegatedAdminResponse {}
+
+/**
+ * <p>
+ *          This exception is thrown when the account making the request is not the organization's management account.
+ *       </p>
+ */
+export class NotOrganizationManagementAccountException extends __BaseException {
+  readonly name: "NotOrganizationManagementAccountException" = "NotOrganizationManagementAccountException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotOrganizationManagementAccountException, __BaseException>) {
+    super({
+      name: "NotOrganizationManagementAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotOrganizationManagementAccountException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DescribeQueryRequest {
   /**
+   * @deprecated
+   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query was run.</p>
    */
-  EventDataStore: string | undefined;
+  EventDataStore?: string;
 
   /**
    * <p>The query ID.</p>
@@ -2062,7 +2325,6 @@ export interface DescribeTrailsRequest {
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
-   *
    *          <p>If an empty list is specified, information for the trail in the current region is returned.</p>
    *          <ul>
    *             <li>
@@ -2339,6 +2601,15 @@ export interface GetEventDataStoreResponse {
    * <p>Shows the time that an event data store was updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail.
+   *          The value is a fully specified ARN to a KMS key in the following format.</p>
+   *          <p>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  KmsKeyId?: string;
 }
 
 export interface GetEventSelectorsRequest {
@@ -2446,7 +2717,6 @@ export interface DataResource {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following resource types are also available through <i>advanced</i> event selectors.
    *          Basic event selector resource types are valid in advanced event selectors, but
    *          advanced event selector resource types are not valid in basic event selectors.
@@ -2567,7 +2837,6 @@ export interface EventSelector {
    * <p>Specify if you want your event selector to include management events for your trail.</p>
    *          <p>
    *          For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Management Events</a> in the <i>CloudTrail User Guide</i>.</p>
-   *
    *          <p>By default, the value is <code>true</code>.</p>
    *          <p>The first copy of management events is free. You are charged for additional copies of management
    *          events that you are logging on any subsequent trail in the same region. For more information about
@@ -2895,9 +3164,11 @@ export class InsightNotEnabledException extends __BaseException {
 
 export interface GetQueryResultsRequest {
   /**
+   * @deprecated
+   *
    * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was run.</p>
    */
-  EventDataStore: string | undefined;
+  EventDataStore?: string;
 
   /**
    * <p>The ID of the query for which you want to get results.</p>
@@ -3033,7 +3304,7 @@ export interface GetTrailStatusRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a
    *          shadow trail (a replication of the trail in another region), you must specify its ARN. The following is the format of a trail ARN.</p>
-   *           <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -3977,52 +4248,6 @@ export interface LookupEventsResponse {
   NextToken?: string;
 }
 
-/**
- * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event
- *          selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and
- *          data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum
- *          of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
- *          <p>You can:</p>
- *          <ul>
- *             <li>
- *                <p>Specify a valid number of event selectors (1 to 5) for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid number of data resources (1 to 250) for an event selector.
- *                The limit of number of resources on an individual event selector is configurable up to 250.
- *                However, this upper limit is allowed only if the total number of data resources does not
- *                exceed 250 across all event selectors for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
- *                parameter with a value of <code>read-only</code> is not valid.</p>
- *             </li>
- *          </ul>
- */
-export class InvalidEventSelectorsException extends __BaseException {
-  readonly name: "InvalidEventSelectorsException" = "InvalidEventSelectorsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventSelectorsException, __BaseException>) {
-    super({
-      name: "InvalidEventSelectorsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventSelectorsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -4144,6 +4369,45 @@ export interface PutInsightSelectorsResponse {
 }
 
 /**
+ * <p>This exception is thrown when the maximum number of CloudTrail delegated administrators is reached.</p>
+ */
+export class DelegatedAdminAccountLimitExceededException extends __BaseException {
+  readonly name: "DelegatedAdminAccountLimitExceededException" = "DelegatedAdminAccountLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DelegatedAdminAccountLimitExceededException, __BaseException>) {
+    super({
+      name: "DelegatedAdminAccountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegatedAdminAccountLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Specifies an organization member account ID as a CloudTrail delegated administrator.</p>
+ */
+export interface RegisterOrganizationDelegatedAdminRequest {
+  /**
+   * <p>An organization member account ID that you want to designate as a delegated administrator.</p>
+   */
+  MemberAccountId: string | undefined;
+}
+
+/**
+ * <p>Returns the following response if successful. Otherwise, returns an error.</p>
+ */
+export interface RegisterOrganizationDelegatedAdminResponse {}
+
+/**
  * <p>Specifies the tags to remove from a trail or event data store.</p>
  */
 export interface RemoveTagsRequest {
@@ -4251,6 +4515,15 @@ export interface RestoreEventDataStoreResponse {
    *          <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail.
+   *          The value is a fully specified ARN to a KMS key in the following format.</p>
+   *          <p>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  KmsKeyId?: string;
 }
 
 /**
@@ -4414,7 +4687,7 @@ export interface StartLoggingRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs Amazon Web Services API calls.
    *          The following is the format of a trail ARN.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -4581,7 +4854,7 @@ export interface StopLoggingRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging Amazon Web Services
    *          API calls. The following is the format of a trail ARN.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -4628,6 +4901,45 @@ export interface UpdateEventDataStoreRequest {
    * <p>Indicates that termination protection is enabled and the event data store cannot be automatically deleted.</p>
    */
   TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The
+   *          value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully
+   *          specified ARN to a key, or a globally unique identifier.</p>
+   *          <important>
+   *             <p>Disabling or deleting the KMS key, or removing CloudTrail
+   *          permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users
+   *          from querying the data in the event data store that was encrypted with the key.
+   *          After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or
+   *          delete a KMS key that you are using with an event data store, delete or back up your event data store.</p>
+   *          </important>
+   *          <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys,
+   *          see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
 }
 
 export interface UpdateEventDataStoreResponse {
@@ -4680,6 +4992,15 @@ export interface UpdateEventDataStoreResponse {
    * <p>The timestamp that shows when the event data store was last updated. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail.
+   *          The value is a fully specified ARN to a KMS key in the following format.</p>
+   *          <p>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  KmsKeyId?: string;
 }
 
 /**
@@ -4708,7 +5029,7 @@ export interface UpdateTrailRequest {
    *             </li>
    *          </ul>
    *          <p>If <code>Name</code> is a trail ARN, it must be in the following format.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -4871,7 +5192,6 @@ export interface UpdateTrailResponse {
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the following format.</p>
-   *
    *          <p>
    *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *          </p>
@@ -4993,6 +5313,24 @@ export const DeleteTrailRequestFilterSensitiveLog = (obj: DeleteTrailRequest): a
  * @internal
  */
 export const DeleteTrailResponseFilterSensitiveLog = (obj: DeleteTrailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog = (
+  obj: DeregisterOrganizationDelegatedAdminRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog = (
+  obj: DeregisterOrganizationDelegatedAdminResponse
+): any => ({
   ...obj,
 });
 
@@ -5434,6 +5772,24 @@ export const PutInsightSelectorsRequestFilterSensitiveLog = (obj: PutInsightSele
  * @internal
  */
 export const PutInsightSelectorsResponseFilterSensitiveLog = (obj: PutInsightSelectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog = (
+  obj: RegisterOrganizationDelegatedAdminRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog = (
+  obj: RegisterOrganizationDelegatedAdminResponse
+): any => ({
   ...obj,
 });
 

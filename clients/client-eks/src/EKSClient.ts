@@ -72,6 +72,10 @@ import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./com
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "./commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
@@ -147,6 +151,7 @@ export type ServiceInputTypes =
   | DeleteNodegroupCommandInput
   | DeregisterClusterCommandInput
   | DescribeAddonCommandInput
+  | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
   | DescribeFargateProfileCommandInput
@@ -183,6 +188,7 @@ export type ServiceOutputTypes =
   | DeleteNodegroupCommandOutput
   | DeregisterClusterCommandOutput
   | DescribeAddonCommandOutput
+  | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
   | DescribeFargateProfileCommandOutput
@@ -360,7 +366,7 @@ export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
  *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
  *             your own Kubernetes control plane. Kubernetes is an open-source system for automating
  *             the deployment, scaling, and management of containerized applications. </p>
- *         <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
+ *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
  *             you can use all the existing plugins and tooling from the Kubernetes community.
  *             Applications running on Amazon EKS are fully compatible with applications
  *             running on any standard Kubernetes environment, whether running in on-premises data

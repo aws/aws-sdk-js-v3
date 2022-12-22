@@ -19,7 +19,7 @@ import {
   DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog,
   DeregisterTransitGatewayMulticastGroupMembersResult,
   DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,
   serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,

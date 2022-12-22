@@ -85,7 +85,7 @@
       "type": "structure",
       "members": {
         "pipelineServiceRoleArn": {
-          "target": "com.amazonaws.proton#PipelineRoleArn",
+          "target": "com.amazonaws.proton#RoleArnOrEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by\n      customer-owned automation for self-managed provisioning.</p>"
           }
@@ -94,6 +94,12 @@
           "target": "com.amazonaws.proton#RepositoryBranch",
           "traits": {
             "smithy.api#documentation": "<p>The linked repository for pipeline provisioning. Required if you have environments configured for self-managed provisioning with services that include\n      pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>"
+          }
+        },
+        "pipelineCodebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArnOrEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for CodeBuild-based\n      provisioning.</p>"
           }
         }
       },
@@ -116,7 +122,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 200
-        }
+        },
+        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov):[a-zA-Z0-9-]+:[a-zA-Z0-9-]*:\\d{12}:([\\w+=,.@-]+[/:])*[\\w+=,.@-]+$"
       }
     },
     "com.amazonaws.proton#AwsAccountId": {
@@ -231,9 +238,6 @@
       "traits": {
         "aws.api#service": {
           "sdkId": "Proton",
-          "arnNamespace": "awsproton20200720",
-          "cloudFormationName": "AwsProton20200720",
-          "cloudTrailEventSource": "awsproton20200720.amazonaws.com",
           "endpointPrefix": "proton"
         },
         "aws.auth#sigv4": {
@@ -247,7 +251,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -567,8 +571,8 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
+                "Region": "ca-central-1",
                 "UseFIPS": true
               }
             },
@@ -580,8 +584,8 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
+                "Region": "ca-central-1",
                 "UseFIPS": true
               }
             },
@@ -593,8 +597,8 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
+                "Region": "ca-central-1",
                 "UseFIPS": false
               }
             },
@@ -606,8 +610,8 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
+                "Region": "ca-central-1",
                 "UseFIPS": false
               }
             },
@@ -619,8 +623,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
+                "Region": "eu-central-1",
                 "UseFIPS": true
               }
             },
@@ -632,8 +636,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
+                "Region": "eu-central-1",
                 "UseFIPS": true
               }
             },
@@ -645,8 +649,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
+                "Region": "eu-central-1",
                 "UseFIPS": false
               }
             },
@@ -658,8 +662,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
+                "Region": "eu-central-1",
                 "UseFIPS": false
               }
             },
@@ -671,8 +675,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
+                "Region": "us-west-2",
                 "UseFIPS": true
               }
             },
@@ -684,8 +688,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
+                "Region": "us-west-2",
                 "UseFIPS": true
               }
             },
@@ -697,8 +701,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
+                "Region": "us-west-2",
                 "UseFIPS": false
               }
             },
@@ -710,8 +714,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
+                "Region": "us-west-2",
                 "UseFIPS": false
               }
             },
@@ -723,8 +727,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
+                "Region": "eu-west-2",
                 "UseFIPS": true
               }
             },
@@ -736,8 +740,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
+                "Region": "eu-west-2",
                 "UseFIPS": true
               }
             },
@@ -749,8 +753,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
+                "Region": "eu-west-2",
                 "UseFIPS": false
               }
             },
@@ -762,8 +766,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
+                "Region": "eu-west-2",
                 "UseFIPS": false
               }
             },
@@ -775,8 +779,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
+                "Region": "eu-west-1",
                 "UseFIPS": true
               }
             },
@@ -788,8 +792,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
+                "Region": "eu-west-1",
                 "UseFIPS": true
               }
             },
@@ -801,8 +805,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
+                "Region": "eu-west-1",
                 "UseFIPS": false
               }
             },
@@ -814,8 +818,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
+                "Region": "eu-west-1",
                 "UseFIPS": false
               }
             },
@@ -827,8 +831,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
+                "Region": "ap-northeast-2",
                 "UseFIPS": true
               }
             },
@@ -840,8 +844,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": true
               }
             },
@@ -853,8 +857,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false
               }
             },
@@ -866,8 +870,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false
               }
             },
@@ -879,8 +883,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
+                "Region": "ap-northeast-1",
                 "UseFIPS": true
               }
             },
@@ -892,8 +896,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": true
               }
             },
@@ -905,8 +909,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false
               }
             },
@@ -918,8 +922,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false
               }
             },
@@ -931,8 +935,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
+                "Region": "ap-southeast-1",
                 "UseFIPS": true
               }
             },
@@ -944,8 +948,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
+                "Region": "ap-southeast-1",
                 "UseFIPS": true
               }
             },
@@ -957,8 +961,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
+                "Region": "ap-southeast-1",
                 "UseFIPS": false
               }
             },
@@ -970,8 +974,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
+                "Region": "ap-southeast-1",
                 "UseFIPS": false
               }
             },
@@ -983,8 +987,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
+                "Region": "ap-southeast-2",
                 "UseFIPS": true
               }
             },
@@ -996,8 +1000,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
+                "Region": "ap-southeast-2",
                 "UseFIPS": true
               }
             },
@@ -1009,8 +1013,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
+                "Region": "ap-southeast-2",
                 "UseFIPS": false
               }
             },
@@ -1022,8 +1026,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
+                "Region": "ap-southeast-2",
                 "UseFIPS": false
               }
             },
@@ -1035,8 +1039,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": true
               }
             },
@@ -1048,8 +1052,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true
               }
             },
@@ -1061,8 +1065,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false
               }
             },
@@ -1074,8 +1078,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false
               }
             },
@@ -1087,8 +1091,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
+                "Region": "us-east-2",
                 "UseFIPS": true
               }
             },
@@ -1100,8 +1104,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
+                "Region": "us-east-2",
                 "UseFIPS": true
               }
             },
@@ -1113,8 +1117,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
+                "Region": "us-east-2",
                 "UseFIPS": false
               }
             },
@@ -1126,8 +1130,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
+                "Region": "us-east-2",
                 "UseFIPS": false
               }
             },
@@ -1139,8 +1143,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -1151,8 +1155,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
@@ -1163,8 +1167,8 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -1684,10 +1688,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "component/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "component/{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -1991,10 +1992,9 @@
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure\n      resources in the associated environment account.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure\n      resources in the associated environment account.</p>"
           }
         },
         "environmentName": {
@@ -2011,9 +2011,15 @@
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated\n      environment account. It determines the scope of infrastructure that a component can provision in the account.</p>\n         <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this\n      account.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources\n      using CodeBuild-based provisioning in the associated environment account.</p>"
           }
         }
       }
@@ -2098,9 +2104,15 @@
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It\n      determines the scope of infrastructure that a component can provision.</p>\n         <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your\n      behalf.</p>\n         <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the\n      <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>"
           }
         }
       }
@@ -3454,36 +3466,36 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
+            "name": "IN_PROGRESS",
+            "value": "IN_PROGRESS"
           },
           {
-            "value": "FAILED",
-            "name": "FAILED"
+            "name": "FAILED",
+            "value": "FAILED"
           },
           {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
+            "name": "SUCCEEDED",
+            "value": "SUCCEEDED"
           },
           {
-            "value": "DELETE_IN_PROGRESS",
-            "name": "DELETE_IN_PROGRESS"
+            "name": "DELETE_IN_PROGRESS",
+            "value": "DELETE_IN_PROGRESS"
           },
           {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
+            "name": "DELETE_FAILED",
+            "value": "DELETE_FAILED"
           },
           {
-            "value": "DELETE_COMPLETE",
-            "name": "DELETE_COMPLETE"
+            "name": "DELETE_COMPLETE",
+            "value": "DELETE_COMPLETE"
           },
           {
-            "value": "CANCELLING",
-            "name": "CANCELLING"
+            "name": "CANCELLING",
+            "value": "CANCELLING"
           },
           {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
+            "name": "CANCELLED",
+            "value": "CANCELLED"
           }
         ]
       }
@@ -3655,9 +3667,15 @@
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It\n      determines the scope of infrastructure that a component can provision.</p>\n         <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your\n      behalf.</p>"
           }
         }
       },
@@ -3732,9 +3750,15 @@
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated\n      environment account. It determines the scope of infrastructure that a component can provision in the account.</p>\n         <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any\n      environments running in the account.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources\n      using CodeBuild-based provisioning in the associated environment account.</p>"
           }
         }
       },
@@ -3803,10 +3827,7 @@
       ],
       "traits": {
         "aws.api#arn": {
-          "template": "environment-account-connection/{id}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "environment-account-connection/{id}"
         }
       }
     },
@@ -3978,10 +3999,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "environment/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "environment/{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -4231,10 +4249,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "environment-template/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "environment-template/{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -4424,10 +4439,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "environment-template/{templateName}:{majorVersion}.{minorVersion}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "environment-template/{templateName}:{majorVersion}.{minorVersion}"
         }
       }
     },
@@ -4603,6 +4615,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "ComponentDeployed": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until a Component is deployed. Use this after invoking CreateComponent or UpdateComponent",
             "acceptors": [
               {
@@ -4625,11 +4639,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           },
           "ComponentDeleted": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until a Component is deleted. Use this after invoking DeleteComponent",
             "acceptors": [
               {
@@ -4648,9 +4662,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           }
         }
       }
@@ -4715,6 +4727,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "EnvironmentDeployed": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until an Environment is deployed. Use this after invoking CreateEnvironment or UpdateEnvironment",
             "acceptors": [
               {
@@ -4737,9 +4751,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           }
         }
       }
@@ -4920,6 +4932,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "EnvironmentTemplateVersionRegistered": {
+            "minDelay": 2,
+            "maxDelay": 300,
             "documentation": "Wait until an EnvironmentTemplateVersion is registered. Use this after invoking CreateEnvironmentTemplateVersion",
             "acceptors": [
               {
@@ -4952,8 +4966,7 @@
                   }
                 }
               }
-            ],
-            "maxDelay": 300
+            ]
           }
         }
       }
@@ -5174,6 +5187,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "ServiceCreated": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until an Service has deployed its instances and possibly pipeline. Use this after invoking CreateService",
             "acceptors": [
               {
@@ -5216,11 +5231,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           },
           "ServiceUpdated": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until a Service, its instances, and possibly pipeline have been deployed after UpdateService is invoked",
             "acceptors": [
               {
@@ -5273,11 +5288,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           },
           "ServiceDeleted": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until a Service, its instances, and possibly pipeline have been deleted after DeleteService is invoked",
             "acceptors": [
               {
@@ -5296,11 +5311,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           },
           "ServicePipelineDeployed": {
+            "minDelay": 10,
+            "maxDelay": 3600,
             "documentation": "Wait until an ServicePipeline is deployed. Use this after invoking CreateService or UpdateServicePipeline",
             "acceptors": [
               {
@@ -5323,9 +5338,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 10,
-            "maxDelay": 3600
+            ]
           }
         }
       }
@@ -5379,6 +5392,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "ServiceInstanceDeployed": {
+            "minDelay": 5,
+            "maxDelay": 4999,
             "documentation": "Wait until a ServiceInstance is deployed. Use this after invoking CreateService or UpdateServiceInstance",
             "acceptors": [
               {
@@ -5401,9 +5416,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 4999
+            ]
           }
         }
       }
@@ -5548,6 +5561,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "ServiceTemplateVersionRegistered": {
+            "minDelay": 2,
+            "maxDelay": 300,
             "documentation": "Wait until a ServiceTemplateVersion is registered. Use this after invoking CreateServiceTemplateVersion",
             "acceptors": [
               {
@@ -5580,8 +5595,7 @@
                   }
                 }
               }
-            ],
-            "maxDelay": 300
+            ]
           }
         }
       }
@@ -5964,8 +5978,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "components",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "components"
         },
         "smithy.api#readonly": {}
       }
@@ -6050,8 +6064,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "environmentAccountConnections",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "environmentAccountConnections"
         },
         "smithy.api#readonly": {}
       }
@@ -6282,8 +6296,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "templateVersions",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "templateVersions"
         },
         "smithy.api#readonly": {}
       }
@@ -6363,8 +6377,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "templates",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "templates"
         },
         "smithy.api#readonly": {}
       }
@@ -6434,8 +6448,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "environments",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "environments"
         },
         "smithy.api#readonly": {}
       }
@@ -6511,8 +6525,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "repositories",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "repositories"
         },
         "smithy.api#readonly": {}
       }
@@ -6816,15 +6830,91 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>List service instances with summary data.</p>",
+        "smithy.api#documentation": "<p>List service instances with summary data. This action lists service instances of all services in the Amazon Web Services account.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "serviceInstances",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "serviceInstances"
         },
         "smithy.api#readonly": {}
       }
+    },
+    "com.amazonaws.proton#ListServiceInstancesFilter": {
+      "type": "structure",
+      "members": {
+        "key": {
+          "target": "com.amazonaws.proton#ListServiceInstancesFilterBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a filtering criterion.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.proton#ListServiceInstancesFilterValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A value to filter by.</p>\n         <p>With the date/time keys (<code>*At{Before,After}</code>), the value is a valid <a href=\"https://datatracker.ietf.org/doc/html/rfc3339.html\">RFC\n        3339</a> string with no UTC offset and with an optional fractional precision (for example, <code>1985-04-12T23:20:50.52Z</code>).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A filtering criterion to scope down the result list of the <a>ListServiceInstances</a> action.</p>"
+      }
+    },
+    "com.amazonaws.proton#ListServiceInstancesFilterBy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "name",
+            "name": "NAME"
+          },
+          {
+            "value": "deploymentStatus",
+            "name": "DEPLOYMENT_STATUS"
+          },
+          {
+            "value": "templateName",
+            "name": "TEMPLATE_NAME"
+          },
+          {
+            "value": "serviceName",
+            "name": "SERVICE_NAME"
+          },
+          {
+            "value": "deployedTemplateVersionStatus",
+            "name": "DEPLOYED_TEMPLATE_VERSION_STATUS"
+          },
+          {
+            "value": "environmentName",
+            "name": "ENVIRONMENT_NAME"
+          },
+          {
+            "value": "lastDeploymentAttemptedAtBefore",
+            "name": "LAST_DEPLOYMENT_ATTEMPTED_AT_BEFORE"
+          },
+          {
+            "value": "lastDeploymentAttemptedAtAfter",
+            "name": "LAST_DEPLOYMENT_ATTEMPTED_AT_AFTER"
+          },
+          {
+            "value": "createdAtBefore",
+            "name": "CREATED_AT_BEFORE"
+          },
+          {
+            "value": "createdAtAfter",
+            "name": "CREATED_AT_AFTER"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.proton#ListServiceInstancesFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.proton#ListServiceInstancesFilter"
+      }
+    },
+    "com.amazonaws.proton#ListServiceInstancesFilterValue": {
+      "type": "string"
     },
     "com.amazonaws.proton#ListServiceInstancesInput": {
       "type": "structure",
@@ -6846,6 +6936,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of service instances to list.</p>"
           }
+        },
+        "filters": {
+          "target": "com.amazonaws.proton#ListServiceInstancesFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>"
+          }
+        },
+        "sortBy": {
+          "target": "com.amazonaws.proton#ListServiceInstancesSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The field that the result list is sorted by.</p>\n         <p>When you choose to sort by <code>serviceName</code>, service instances within each service are sorted by service instance name.</p>\n         <p>Default: <code>serviceName</code>\n         </p>"
+          }
+        },
+        "sortOrder": {
+          "target": "com.amazonaws.proton#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>Result list sort order.</p>\n         <p>Default: <code>ASCENDING</code>\n         </p>"
+          }
         }
       }
     },
@@ -6865,6 +6973,41 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.proton#ListServiceInstancesSortBy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "name",
+            "name": "NAME"
+          },
+          {
+            "value": "deploymentStatus",
+            "name": "DEPLOYMENT_STATUS"
+          },
+          {
+            "value": "templateName",
+            "name": "TEMPLATE_NAME"
+          },
+          {
+            "value": "serviceName",
+            "name": "SERVICE_NAME"
+          },
+          {
+            "value": "environmentName",
+            "name": "ENVIRONMENT_NAME"
+          },
+          {
+            "value": "lastDeploymentAttemptedAt",
+            "name": "LAST_DEPLOYMENT_ATTEMPTED_AT"
+          },
+          {
+            "value": "createdAt",
+            "name": "CREATED_AT"
+          }
+        ]
       }
     },
     "com.amazonaws.proton#ListServicePipelineOutputs": {
@@ -7039,8 +7182,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "templateVersions",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "templateVersions"
         },
         "smithy.api#readonly": {}
       }
@@ -7120,8 +7263,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "templates",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "templates"
         },
         "smithy.api#readonly": {}
       }
@@ -7188,8 +7331,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "services",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "services"
         },
         "smithy.api#readonly": {}
       }
@@ -7259,8 +7402,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "tags",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "tags"
         },
         "smithy.api#readonly": {}
       }
@@ -7373,8 +7516,7 @@
         "status": {
           "target": "com.amazonaws.proton#ResourceDeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The status of your provisioned resource.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The status of your provisioned resource.</p>"
           }
         },
         "outputs": {
@@ -7454,16 +7596,6 @@
         "target": "com.amazonaws.proton#Output"
       }
     },
-    "com.amazonaws.proton#PipelineRoleArn": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 2048
-        },
-        "smithy.api#pattern": "(^$)|(^arn:[a-zA-Z-]+:[a-zA-Z0-9-]+:[a-zA-Z0-9-]*:\\d*:[\\w+=\\/:,\\.@-]*)"
-      }
-    },
     "com.amazonaws.proton#ProvisionedResource": {
       "type": "structure",
       "members": {
@@ -7496,12 +7628,12 @@
         "smithy.api#documentation": "List of provisioning engines",
         "smithy.api#enum": [
           {
-            "value": "CLOUDFORMATION",
-            "name": "CLOUDFORMATION"
+            "name": "CLOUDFORMATION",
+            "value": "CLOUDFORMATION"
           },
           {
-            "value": "TERRAFORM",
-            "name": "TERRAFORM"
+            "name": "TERRAFORM",
+            "value": "TERRAFORM"
           }
         ]
       }
@@ -7782,10 +7914,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "repository/{provider}:{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "repository/{provider}:{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -7975,16 +8104,16 @@
         "smithy.api#documentation": "The state that a PR-based deployment can be updated to.",
         "smithy.api#enum": [
           {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
+            "name": "IN_PROGRESS",
+            "value": "IN_PROGRESS"
           },
           {
-            "value": "FAILED",
-            "name": "FAILED"
+            "name": "FAILED",
+            "value": "FAILED"
           },
           {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
+            "name": "SUCCEEDED",
+            "value": "SUCCEEDED"
           }
         ]
       }
@@ -8184,6 +8313,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Revision detail data for a commit and push that activates a sync attempt</p>"
+      }
+    },
+    "com.amazonaws.proton#RoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:role/([\\w+=,.@-]{1,512}[/:])*([\\w+=,.@-]{1,64})$"
+      }
+    },
+    "com.amazonaws.proton#RoleArnOrEmptyString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "(^$)|(^arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:role/([\\w+=,.@-]{1,512}[/:])*([\\w+=,.@-]{1,64})$)"
       }
     },
     "com.amazonaws.proton#S3Bucket": {
@@ -8502,10 +8651,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "service/{serviceName}/service-instance/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "service/{serviceName}/service-instance/{name}"
         }
       }
     },
@@ -8766,10 +8912,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "service/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "service/{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -8779,60 +8922,60 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "CREATE_IN_PROGRESS",
-            "name": "CREATE_IN_PROGRESS"
+            "name": "CREATE_IN_PROGRESS",
+            "value": "CREATE_IN_PROGRESS"
           },
           {
-            "value": "CREATE_FAILED_CLEANUP_IN_PROGRESS",
-            "name": "CREATE_FAILED_CLEANUP_IN_PROGRESS"
+            "name": "CREATE_FAILED_CLEANUP_IN_PROGRESS",
+            "value": "CREATE_FAILED_CLEANUP_IN_PROGRESS"
           },
           {
-            "value": "CREATE_FAILED_CLEANUP_COMPLETE",
-            "name": "CREATE_FAILED_CLEANUP_COMPLETE"
+            "name": "CREATE_FAILED_CLEANUP_COMPLETE",
+            "value": "CREATE_FAILED_CLEANUP_COMPLETE"
           },
           {
-            "value": "CREATE_FAILED_CLEANUP_FAILED",
-            "name": "CREATE_FAILED_CLEANUP_FAILED"
+            "name": "CREATE_FAILED_CLEANUP_FAILED",
+            "value": "CREATE_FAILED_CLEANUP_FAILED"
           },
           {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
+            "name": "CREATE_FAILED",
+            "value": "CREATE_FAILED"
           },
           {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
+            "name": "ACTIVE",
+            "value": "ACTIVE"
           },
           {
-            "value": "DELETE_IN_PROGRESS",
-            "name": "DELETE_IN_PROGRESS"
+            "name": "DELETE_IN_PROGRESS",
+            "value": "DELETE_IN_PROGRESS"
           },
           {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
+            "name": "DELETE_FAILED",
+            "value": "DELETE_FAILED"
           },
           {
-            "value": "UPDATE_IN_PROGRESS",
-            "name": "UPDATE_IN_PROGRESS"
+            "name": "UPDATE_IN_PROGRESS",
+            "value": "UPDATE_IN_PROGRESS"
           },
           {
-            "value": "UPDATE_FAILED_CLEANUP_IN_PROGRESS",
-            "name": "UPDATE_FAILED_CLEANUP_IN_PROGRESS"
+            "name": "UPDATE_FAILED_CLEANUP_IN_PROGRESS",
+            "value": "UPDATE_FAILED_CLEANUP_IN_PROGRESS"
           },
           {
-            "value": "UPDATE_FAILED_CLEANUP_COMPLETE",
-            "name": "UPDATE_FAILED_CLEANUP_COMPLETE"
+            "name": "UPDATE_FAILED_CLEANUP_COMPLETE",
+            "value": "UPDATE_FAILED_CLEANUP_COMPLETE"
           },
           {
-            "value": "UPDATE_FAILED_CLEANUP_FAILED",
-            "name": "UPDATE_FAILED_CLEANUP_FAILED"
+            "name": "UPDATE_FAILED_CLEANUP_FAILED",
+            "value": "UPDATE_FAILED_CLEANUP_FAILED"
           },
           {
-            "value": "UPDATE_FAILED",
-            "name": "UPDATE_FAILED"
+            "name": "UPDATE_FAILED",
+            "value": "UPDATE_FAILED"
           },
           {
-            "value": "UPDATE_COMPLETE_CLEANUP_FAILED",
-            "name": "UPDATE_COMPLETE_CLEANUP_FAILED"
+            "name": "UPDATE_COMPLETE_CLEANUP_FAILED",
+            "value": "UPDATE_COMPLETE_CLEANUP_FAILED"
           }
         ]
       }
@@ -9003,10 +9146,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "service-template/{name}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "service-template/{name}"
         },
         "smithy.api#noReplace": {}
       }
@@ -9226,10 +9366,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "service-template/{templateName}:{majorVersion}.{minorVersion}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "service-template/{templateName}:{majorVersion}.{minorVersion}"
         }
       }
     },
@@ -9312,6 +9449,21 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.proton#ServiceTemplateVersionSummary"
+      }
+    },
+    "com.amazonaws.proton#SortOrder": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ASCENDING",
+            "name": "ASCENDING"
+          },
+          {
+            "value": "DESCENDING",
+            "name": "DESCENDING"
+          }
+        ]
       }
     },
     "com.amazonaws.proton#SpecContents": {
@@ -9574,12 +9726,12 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "ENVIRONMENT",
-            "name": "ENVIRONMENT"
+            "name": "ENVIRONMENT",
+            "value": "ENVIRONMENT"
           },
           {
-            "value": "SERVICE",
-            "name": "SERVICE"
+            "name": "SERVICE",
+            "value": "SERVICE"
           }
         ]
       }
@@ -9613,20 +9765,20 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "REGISTRATION_IN_PROGRESS",
-            "name": "REGISTRATION_IN_PROGRESS"
+            "name": "REGISTRATION_IN_PROGRESS",
+            "value": "REGISTRATION_IN_PROGRESS"
           },
           {
-            "value": "REGISTRATION_FAILED",
-            "name": "REGISTRATION_FAILED"
+            "name": "REGISTRATION_FAILED",
+            "value": "REGISTRATION_FAILED"
           },
           {
-            "value": "DRAFT",
-            "name": "DRAFT"
+            "name": "DRAFT",
+            "value": "DRAFT"
           },
           {
-            "value": "PUBLISHED",
-            "name": "PUBLISHED"
+            "name": "PUBLISHED",
+            "value": "PUBLISHED"
           }
         ]
       }
@@ -9740,7 +9892,7 @@
       "type": "structure",
       "members": {
         "pipelineServiceRoleArn": {
-          "target": "com.amazonaws.proton#PipelineRoleArn",
+          "target": "com.amazonaws.proton#RoleArnOrEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by\n      customer-owned automation for self-managed provisioning.</p>\n         <p>To remove a previously configured ARN, specify an empty string.</p>"
           }
@@ -9755,6 +9907,12 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured\n      pipeline repository.</p>"
+          }
+        },
+        "pipelineCodebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArnOrEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based\n      provisioning.</p>"
           }
         }
       }
@@ -9950,15 +10108,21 @@
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>"
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated\n      environment account. It determines the scope of infrastructure that a component can provision in the account.</p>\n         <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any\n      environments running in the account.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources\n      using CodeBuild-based provisioning in the associated environment account.</p>"
           }
         }
       },
@@ -10042,9 +10206,15 @@
           }
         },
         "componentRoleArn": {
-          "target": "com.amazonaws.proton#Arn",
+          "target": "com.amazonaws.proton#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It\n      determines the scope of infrastructure that a component can provision.</p>\n         <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>\n         <p>For more information about components, see\n  <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the\n  <i>Proton User Guide</i>.</p>"
+          }
+        },
+        "codebuildRoleArn": {
+          "target": "com.amazonaws.proton#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your\n      behalf.</p>"
           }
         }
       },

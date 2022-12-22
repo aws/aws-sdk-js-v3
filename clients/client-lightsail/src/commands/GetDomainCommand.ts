@@ -19,7 +19,7 @@ import {
   GetDomainRequestFilterSensitiveLog,
   GetDomainResult,
   GetDomainResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { deserializeAws_json1_1GetDomainCommand, serializeAws_json1_1GetDomainCommand } from "../protocols/Aws_json1_1";
 
 export interface GetDomainCommandInput extends GetDomainRequest {}

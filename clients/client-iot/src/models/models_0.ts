@@ -939,6 +939,91 @@ export interface OpenSearchAction {
 }
 
 /**
+ * <p>A key-value pair that you define in the header. Both the key and the value are either
+ *          literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+ *             templates</a>.</p>
+ */
+export interface UserProperty {
+  /**
+   * <p>A key to be specified in <code>UserProperty</code>.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>A value to be specified in <code>UserProperty</code>.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from
+ *          Amazon Web Services IoT Core Developer Guide.</p>
+ */
+export interface MqttHeaders {
+  /**
+   * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as
+   *          UTF-8.</p>
+   *          <p>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111">
+   *          Payload Format Indicator</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  payloadFormatIndicator?: string;
+
+  /**
+   * <p>A UTF-8 encoded string that describes the content of the publishing message.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118">
+   *          Content Type</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe
+   *          the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard
+   *          characters.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114">
+   *          Response Topic</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  responseTopic?: string;
+
+  /**
+   * <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is
+   *          for when it's received.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115">
+   *          Correlation Data</a> from the MQTT Version 5.0 specification.</p>
+   *          <note>
+   *             <p>
+   *          This binary data must be based64-encoded.
+   *       </p>
+   *          </note>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  correlationData?: string;
+
+  /**
+   * <p>A user-defined integer value that will persist a message at the message broker for a
+   *          specified amount of time to ensure that the message will expire if it's no longer relevant to
+   *          the subscriber. The value of <code>messageExpiry</code> represents the number of seconds
+   *          before it expires. For more information about the limits of <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon Web Services IoT Core message broker and protocol
+   *             limits and quotas </a> from the Amazon Web Services Reference Guide.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  messageExpiry?: string;
+
+  /**
+   * <p>An array of key-value pairs that you define in the MQTT5 header.</p>
+   */
+  userProperties?: UserProperty[];
+}
+
+/**
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
@@ -957,6 +1042,12 @@ export interface RepublishAction {
    *          is 0.</p>
    */
   qos?: number;
+
+  /**
+   * <p>MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">
+   *          MQTT</a> from the Amazon Web Services IoT Core Developer Guide.</p>
+   */
+  headers?: MqttHeaders;
 }
 
 export enum CannedAccessControlList {
@@ -2002,6 +2093,26 @@ export interface AuditCheckDetails {
 }
 
 /**
+ * <p>The certificate issuer indentifier.</p>
+ */
+export interface IssuerCertificateIdentifier {
+  /**
+   * <p>The subject of the issuer certificate.</p>
+   */
+  issuerCertificateSubject?: string;
+
+  /**
+   * <p>The issuer ID.</p>
+   */
+  issuerId?: string;
+
+  /**
+   * <p>The issuer certificate serial number.</p>
+   */
+  issuerCertificateSerialNumber?: string;
+}
+
+/**
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
@@ -2059,6 +2170,16 @@ export interface ResourceIdentifier {
    * <p>The ARN of the role alias that has overly permissive actions.</p>
    */
   roleAliasArn?: string;
+
+  /**
+   * <p>The issuer certificate identifier.</p>
+   */
+  issuerCertificateIdentifier?: IssuerCertificateIdentifier;
+
+  /**
+   * <p>The ARN of the identified device certificate.</p>
+   */
+  deviceCertificateArn?: string;
 }
 
 export enum ResourceType {
@@ -2069,6 +2190,7 @@ export enum ResourceType {
   DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
   IAM_ROLE = "IAM_ROLE",
   IOT_POLICY = "IOT_POLICY",
+  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
   ROLE_ALIAS = "ROLE_ALIAS",
 }
 
@@ -3598,6 +3720,41 @@ export interface PresignedUrlConfig {
   expiresInSec?: number;
 }
 
+export enum JobEndBehavior {
+  CANCEL = "CANCEL",
+  FORCE_CANCEL = "FORCE_CANCEL",
+  STOP_ROLLOUT = "STOP_ROLLOUT",
+}
+
+/**
+ * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
+ */
+export interface SchedulingConfig {
+  /**
+   * <p>The time a job will begin rollout of the job document to all devices in the target
+   *             group for a job. The <code>startTime</code> can be scheduled up to a year in advance and
+   *             must be scheduled a minimum of thirty minutes from the current time.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The time a job will stop rollout of the job document to all devices in the target
+   *             group for a job. The <code>endTime</code> must take place no later than two years from
+   *             the current time and be scheduled a minimum of thirty minutes from the current time. The
+   *             minimum duration between <code>startTime</code> and <code>endTime</code> is thirty
+   *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
+   *             two years. </p>
+   */
+  endTime?: string;
+
+  /**
+   * <p>Specifies the end behavior for all job executions after a job reaches the selected
+   *                 <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
+   *             then <code>endBehavior</code> does not apply.</p>
+   */
+  endBehavior?: JobEndBehavior | string;
+}
+
 export enum TargetSelection {
   CONTINUOUS = "CONTINUOUS",
   SNAPSHOT = "SNAPSHOT",
@@ -3729,6 +3886,12 @@ export interface CreateJobRequest {
    *         </note>
    */
   documentParameters?: Record<string, string>;
+
+  /**
+   * <p>The configuration that allows you to schedule a job for a future date and time in
+   *             addition to specifying the end behavior for each job execution.</p>
+   */
+  schedulingConfig?: SchedulingConfig;
 }
 
 export interface CreateJobResponse {
@@ -5784,34 +5947,6 @@ export interface DeletePolicyVersionRequest {
   policyVersionId: string | undefined;
 }
 
-export interface DeleteProvisioningTemplateRequest {
-  /**
-   * <p>The name of the fleet provision template to delete.</p>
-   */
-  templateName: string | undefined;
-}
-
-export interface DeleteProvisioningTemplateResponse {}
-
-export interface DeleteProvisioningTemplateVersionRequest {
-  /**
-   * <p>The name of the provisioning template version to delete.</p>
-   */
-  templateName: string | undefined;
-
-  /**
-   * <p>The provisioning template version ID to delete.</p>
-   */
-  versionId: number | undefined;
-}
-
-export interface DeleteProvisioningTemplateVersionResponse {}
-
-/**
- * <p>The input for the DeleteRegistrationCode operation.</p>
- */
-export interface DeleteRegistrationCodeRequest {}
-
 /**
  * @internal
  */
@@ -6013,6 +6148,20 @@ export const LocationActionFilterSensitiveLog = (obj: LocationAction): any => ({
  * @internal
  */
 export const OpenSearchActionFilterSensitiveLog = (obj: OpenSearchAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPropertyFilterSensitiveLog = (obj: UserProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MqttHeadersFilterSensitiveLog = (obj: MqttHeaders): any => ({
   ...obj,
 });
 
@@ -6286,6 +6435,13 @@ export const AuditCheckConfigurationFilterSensitiveLog = (obj: AuditCheckConfigu
  * @internal
  */
 export const AuditCheckDetailsFilterSensitiveLog = (obj: AuditCheckDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssuerCertificateIdentifierFilterSensitiveLog = (obj: IssuerCertificateIdentifier): any => ({
   ...obj,
 });
 
@@ -6725,6 +6881,13 @@ export const JobExecutionsRolloutConfigFilterSensitiveLog = (obj: JobExecutionsR
  * @internal
  */
 export const PresignedUrlConfigFilterSensitiveLog = (obj: PresignedUrlConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchedulingConfigFilterSensitiveLog = (obj: SchedulingConfig): any => ({
   ...obj,
 });
 
@@ -7457,44 +7620,5 @@ export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest):
  * @internal
  */
 export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateRequestFilterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateResponseFilterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
-  obj: DeleteProvisioningTemplateVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
-  obj: DeleteProvisioningTemplateVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
   ...obj,
 });

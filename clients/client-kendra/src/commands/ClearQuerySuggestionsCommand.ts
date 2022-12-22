@@ -25,13 +25,13 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Clears existing query suggestions from an index.</p>
- *         <p>This deletes existing suggestions only, not the queries
+ *          <p>This deletes existing suggestions only, not the queries
  *             in the query log. After you clear suggestions, Amazon Kendra learns
  *             new suggestions based on new queries added to the query log
  *             from the time you cleared suggestions. If you do not see any
  *             new suggestions, then please allow Amazon Kendra to collect
  *             enough queries to learn new suggestions.</p>
- *         <p>
+ *          <p>
  *             <code>ClearQuerySuggestions</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

@@ -114,6 +114,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -480,7 +481,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -515,6 +519,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   );
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -1412,10 +1417,8 @@ const serializeAws_restJson1InitialCapacityConfigMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1InitialCapacityConfig(value, context),
-    };
+    acc[key] = serializeAws_restJson1InitialCapacityConfig(value, context);
+    return acc;
   }, {});
 };
 
@@ -1500,10 +1503,8 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1530,10 +1531,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1548,6 +1547,7 @@ const serializeAws_restJson1WorkerResourceConfig = (input: WorkerResourceConfig,
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
   return {
     applicationId: __expectString(output.applicationId),
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     autoStartConfiguration:
       output.autoStartConfiguration != null
@@ -1596,6 +1596,7 @@ const deserializeAws_restJson1ApplicationList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -1703,10 +1704,8 @@ const deserializeAws_restJson1InitialCapacityConfigMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1InitialCapacityConfig(value, context),
-    };
+    acc[key] = deserializeAws_restJson1InitialCapacityConfig(value, context);
+    return acc;
   }, {});
 };
 
@@ -1871,10 +1870,8 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1906,10 +1903,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -34,22 +34,6 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *          <p>A task includes a source location, a destination location, and the preferences for how and
  *       when you want to transfer your data (such as bandwidth limits, scheduling, among other
  *       options).</p>
- *          <p>When you create a task that transfers data between Amazon Web Services services in
- *       different Amazon Web Services Regions, one of your locations must reside in the Region where
- *       you're using DataSync.</p>
- *          <p>For more information, see the following topics:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working with DataSync locations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure DataSync task settings</a>
- *                </p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

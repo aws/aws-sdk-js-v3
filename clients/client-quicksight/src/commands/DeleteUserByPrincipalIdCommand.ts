@@ -18,7 +18,7 @@ import {
   DeleteUserByPrincipalIdRequestFilterSensitiveLog,
   DeleteUserByPrincipalIdResponse,
   DeleteUserByPrincipalIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteUserByPrincipalIdCommand,
   serializeAws_restJson1DeleteUserByPrincipalIdCommand,

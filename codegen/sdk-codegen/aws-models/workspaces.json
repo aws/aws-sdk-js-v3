@@ -416,6 +416,70 @@
     "com.amazonaws.workspaces#BundleOwner": {
       "type": "string"
     },
+    "com.amazonaws.workspaces#BundleType": {
+      "type": "enum",
+      "members": {
+        "REGULAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGULAR"
+          }
+        },
+        "STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDBY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#CertificateAuthorityArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 200
+        },
+        "smithy.api#pattern": "^arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]*:[\\w+=,.@-]+(/[\\w+=,.@-]+)*$"
+      }
+    },
+    "com.amazonaws.workspaces#CertificateBasedAuthProperties": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the certificate-based authentication properties.</p>"
+          }
+        },
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.workspaces#CertificateAuthorityArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the properties of the certificate-based authentication you want to use\n         with your WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CertificateBasedAuthStatusEnum": {
+      "type": "enum",
+      "members": {
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#ClientDeviceType": {
       "type": "enum",
       "members": {
@@ -1166,6 +1230,71 @@
         }
       }
     },
+    "com.amazonaws.workspaces#CreateStandbyWorkspaces": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#CreateStandbyWorkspacesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#CreateStandbyWorkspacesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a Standby WorkSpace in a secondary region.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "PrimaryRegion": {
+          "target": "com.amazonaws.workspaces#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the primary WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StandbyWorkspaces": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Standby WorkSpace to be created.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#CreateStandbyWorkspacesResult": {
+      "type": "structure",
+      "members": {
+        "FailedStandbyRequests": {
+          "target": "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequestList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Standby WorkSpace that could not be created. </p>"
+          }
+        },
+        "PendingStandbyRequests": {
+          "target": "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequestList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Standby WorkSpace that was created.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#CreateTags": {
       "type": "operation",
       "input": {
@@ -1739,6 +1868,23 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the default values that are used to create WorkSpaces. For more information,\n         see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html\">Update Directory\n            Details for Your WorkSpaces</a>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DeletableCertificateBasedAuthPropertiesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DeletableCertificateBasedAuthProperty"
+      }
+    },
+    "com.amazonaws.workspaces#DeletableCertificateBasedAuthProperty": {
+      "type": "enum",
+      "members": {
+        "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#DeletableSamlPropertiesList": {
@@ -3218,6 +3364,38 @@
     "com.amazonaws.workspaces#ExceptionMessage": {
       "type": "string"
     },
+    "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "StandbyWorkspaceRequest": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspace",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Standby WorkSpace that could not be created.</p>"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code that is returned if the Standby WorkSpace could not be created.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the error message that is returned if the Standby WorkSpace could not be created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Standby WorkSpace that could not be created.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequestList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequest"
+      }
+    },
     "com.amazonaws.workspaces#FailedCreateWorkspaceRequest": {
       "type": "structure",
       "members": {
@@ -4054,6 +4232,60 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthProperties": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the properties of the certificate-based authentication you want\n         to use with your WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource identifiers, in the form of directory IDs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateBasedAuthProperties": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the certificate-based authentication.</p>"
+          }
+        },
+        "PropertiesToDelete": {
+          "target": "com.amazonaws.workspaces#DeletableCertificateBasedAuthPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the certificate-based authentication you want to delete.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesResult": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.workspaces#ModifyClientProperties": {
       "type": "operation",
       "input": {
@@ -4366,6 +4598,9 @@
           "target": "com.amazonaws.workspaces#InvalidResourceStateException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         }
       ],
@@ -4477,6 +4712,67 @@
         }
       }
     },
+    "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "UserName": {
+          "target": "com.amazonaws.workspaces#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the Standby WorkSpace that was created.</p>\n         <p>Because this operation is asynchronous, the identifier returned is not immediately \n         available for use with other operations. For example, if you call \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\">\n            DescribeWorkspaces</a> \n         before the WorkSpace is created, the information returned can be incomplete. </p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for the Standby WorkSpace.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The operational state of the Standby WorkSpace.</p>"
+          }
+        },
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Standby WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the Standby WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequestList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest"
+      }
+    },
+    "com.amazonaws.workspaces#Protocol": {
+      "type": "enum",
+      "members": {
+        "PCOIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PCOIP"
+          }
+        },
+        "WSP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WSP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#ProtocolList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#Protocol"
+      }
+    },
     "com.amazonaws.workspaces#RebootRequest": {
       "type": "structure",
       "members": {
@@ -4512,6 +4808,11 @@
       "output": {
         "target": "com.amazonaws.workspaces#RebootWorkspacesResult"
       },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        }
+      ],
       "traits": {
         "smithy.api#documentation": "<p>Reboots the specified WorkSpaces.</p>\n         <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or\n            <code>UNHEALTHY</code>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>"
       }
@@ -4574,6 +4875,11 @@
       "output": {
         "target": "com.amazonaws.workspaces#RebuildWorkspacesResult"
       },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        }
+      ],
       "traits": {
         "smithy.api#documentation": "<p>Rebuilds the specified WorkSpace.</p>\n         <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,\n            <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or\n            <code>REBOOTING</code>.</p>\n         <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss\n         of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         rebuilt.</p>"
       }
@@ -4722,6 +5028,44 @@
         }
       }
     },
+    "com.amazonaws.workspaces#RelatedWorkspaceProperties": {
+      "type": "structure",
+      "members": {
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the related WorkSpace.</p>"
+          }
+        },
+        "Region": {
+          "target": "com.amazonaws.workspaces#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the related WorkSpace.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceState",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the state of the WorkSpace.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspaceRelationshipType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the type of WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the related WorkSpace. The related WorkSpace could be a Standby WorkSpace or \n         Primary WorkSpace related to the specified WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#RelatedWorkspaces": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#RelatedWorkspaceProperties"
+      }
+    },
     "com.amazonaws.workspaces#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
@@ -4841,6 +5185,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
         },
         {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
@@ -5083,6 +5430,63 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.workspaces#Snapshot"
+      }
+    },
+    "com.amazonaws.workspaces#StandbyWorkspace": {
+      "type": "structure",
+      "members": {
+        "PrimaryWorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Standby WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VolumeEncryptionKey": {
+          "target": "com.amazonaws.workspaces#VolumeEncryptionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The volume encryption key of the Standby WorkSpace.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for the Standby WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the Standby WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a Standby WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StandbyWorkspaceRelationshipType": {
+      "type": "enum",
+      "members": {
+        "PRIMARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRIMARY"
+          }
+        },
+        "STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDBY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StandbyWorkspacesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#StandbyWorkspace"
       }
     },
     "com.amazonaws.workspaces#StartRequest": {
@@ -5617,6 +6021,9 @@
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         },
         {
@@ -5828,6 +6235,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The modification states of the WorkSpace.</p>"
           }
+        },
+        "RelatedWorkspaces": {
+          "target": "com.amazonaws.workspaces#RelatedWorkspaces",
+          "traits": {
+            "smithy.api#documentation": "<p>The Standby WorkSpace or Primary WorkSpace related to the specified WorkSpace.</p>"
+          }
         }
       },
       "traits": {
@@ -5952,6 +6365,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The time when the bundle was created.</p>"
           }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceBundleState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the WorkSpace bundle.</p>"
+          }
+        },
+        "BundleType": {
+          "target": "com.amazonaws.workspaces#BundleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of WorkSpace bundle.</p>"
+          }
         }
       },
       "traits": {
@@ -5976,6 +6401,29 @@
           "max": 64
         },
         "smithy.api#pattern": "^[a-zA-Z0-9_./()\\\\-]+$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspaceBundleState": {
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceConnectionStatus": {
@@ -6163,6 +6611,12 @@
           "target": "com.amazonaws.workspaces#SamlProperties",
           "traits": {
             "smithy.api#documentation": "<p>Describes the enablement status, user access URL, and relay state parameter name that are used for configuring \n         federation with an SAML 2.0 identity provider.</p>"
+          }
+        },
+        "CertificateBasedAuthProperties": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)\n         user identities to Active Directory for WorkSpaces login.</p>"
           }
         }
       },
@@ -6489,6 +6943,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces\n         Bundles</a>.</p>"
           }
+        },
+        "Protocols": {
+          "target": "com.amazonaws.workspaces#ProtocolList",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html\">\n            Protocols for Amazon WorkSpaces</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only available for WorkSpaces created with PCoIP bundles.</p>\n               </li>\n               <li>\n                  <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>\n               </li>\n               <li>\n                  <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles \n               (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>\n               </li>\n            </ul>\n         </note>"
+          }
         }
       },
       "traits": {
@@ -6749,6 +7209,9 @@
           "target": "com.amazonaws.workspaces#CreateIpGroup"
         },
         {
+          "target": "com.amazonaws.workspaces#CreateStandbyWorkspaces"
+        },
+        {
           "target": "com.amazonaws.workspaces#CreateTags"
         },
         {
@@ -6855,6 +7318,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#ModifyAccount"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthProperties"
         },
         {
           "target": "com.amazonaws.workspaces#ModifyClientProperties"
@@ -7259,9 +7725,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7272,9 +7738,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7285,9 +7751,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7298,9 +7764,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7311,9 +7777,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7324,9 +7790,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7337,9 +7803,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7350,9 +7816,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7363,9 +7829,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7376,9 +7842,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7389,9 +7855,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7402,9 +7868,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7413,9 +7879,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -7426,9 +7892,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -7437,9 +7903,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -7450,9 +7916,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -7463,9 +7929,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -7476,9 +7942,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -7489,9 +7955,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -7502,9 +7968,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -7515,9 +7981,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -7528,9 +7994,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -7541,9 +8007,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -7554,9 +8020,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -7567,9 +8033,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7580,9 +8046,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7593,9 +8059,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7606,9 +8072,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7619,9 +8085,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7632,9 +8098,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7645,9 +8111,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7658,9 +8124,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7671,9 +8137,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7684,9 +8150,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7697,9 +8163,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7710,9 +8176,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7723,9 +8189,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -7736,9 +8202,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -7749,9 +8215,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -7762,9 +8228,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -7775,9 +8241,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -7788,9 +8254,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -7801,9 +8267,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -7814,9 +8280,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -7827,9 +8293,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -7840,9 +8306,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -7853,9 +8319,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -7866,9 +8332,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -7879,9 +8345,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -7892,9 +8358,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -7905,9 +8371,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -7918,9 +8384,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -7931,9 +8397,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -7944,9 +8410,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -7957,9 +8423,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -7970,9 +8436,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -7981,9 +8447,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -7994,9 +8460,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -8005,9 +8471,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -8018,9 +8484,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -8031,9 +8497,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -8044,9 +8510,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -8057,9 +8523,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -8070,9 +8536,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -8083,9 +8549,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -8096,9 +8562,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -8109,9 +8575,9 @@
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -8122,9 +8588,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -8133,9 +8599,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -8146,9 +8612,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -8157,9 +8623,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -8170,9 +8636,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -8183,9 +8649,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -8195,9 +8661,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -8207,9 +8673,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }

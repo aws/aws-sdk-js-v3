@@ -30,7 +30,7 @@ export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the access points currently associated with the specified bucket. You can
+ * <p>Returns a list of the access points owned by the current account associated with the specified bucket. You can
  *          retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or
  *          the number specified in <code>maxResults</code>, whichever is less), the response will
  *          include a continuation token that you can use to list the additional access points.</p>
@@ -79,6 +79,7 @@ export class ListAccessPointsCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
       AccountId: { type: "contextParams", name: "AccountId" },
       Bucket: { type: "contextParams", name: "Bucket" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },

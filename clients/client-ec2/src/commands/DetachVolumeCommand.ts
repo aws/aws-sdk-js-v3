@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { VolumeAttachment, VolumeAttachmentFilterSensitiveLog } from "../models/models_0";
-import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../models/models_4";
+import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../models/models_5";
 import { deserializeAws_ec2DetachVolumeCommand, serializeAws_ec2DetachVolumeCommand } from "../protocols/Aws_ec2";
 
 export interface DetachVolumeCommandInput extends DetachVolumeRequest {}

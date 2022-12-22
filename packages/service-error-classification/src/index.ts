@@ -27,3 +27,14 @@ export const isTransientError = (error: SdkError) =>
   TRANSIENT_ERROR_CODES.includes(error.name) ||
   NODEJS_TIMEOUT_ERROR_CODES.includes((error as { code?: string })?.code || "") ||
   TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0);
+
+export const isServerError = (error: SdkError) => {
+  if (error.$metadata?.httpStatusCode !== undefined) {
+    const statusCode = error.$metadata.httpStatusCode;
+    if (500 <= statusCode && statusCode <= 599 && !isTransientError(error)) {
+      return true;
+    }
+    return false;
+  }
+  return false;
+};

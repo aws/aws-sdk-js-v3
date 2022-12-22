@@ -1345,8 +1345,8 @@ export const serializeAws_restJson1DisassociateLinkCommand = async (
     false
   );
   const query: any = map({
-    deviceId: [, input.DeviceId!],
-    linkId: [, input.LinkId!],
+    deviceId: [, __expectNonNull(input.DeviceId!, `DeviceId`)],
+    linkId: [, __expectNonNull(input.LinkId!, `LinkId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2794,7 +2794,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -8126,10 +8129,8 @@ const serializeAws_restJson1FilterMap = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FilterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1FilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -8157,10 +8158,8 @@ const serializeAws_restJson1NetworkResourceMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8231,6 +8230,7 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1VpcOptions = (input: VpcOptions, context: __SerdeContext): any => {
   return {
+    ...(input.ApplianceModeSupport != null && { ApplianceModeSupport: input.ApplianceModeSupport }),
     ...(input.Ipv6Support != null && { Ipv6Support: input.Ipv6Support }),
   };
 };
@@ -8821,10 +8821,8 @@ const deserializeAws_restJson1ExceptionContextMap = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8986,10 +8984,8 @@ const deserializeAws_restJson1NetworkResourceMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -9161,10 +9157,8 @@ const deserializeAws_restJson1ReasonContextMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -9436,6 +9430,7 @@ const deserializeAws_restJson1VpcAttachment = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1VpcOptions = (output: any, context: __SerdeContext): VpcOptions => {
   return {
+    ApplianceModeSupport: __expectBoolean(output.ApplianceModeSupport),
     Ipv6Support: __expectBoolean(output.Ipv6Support),
   } as any;
 };

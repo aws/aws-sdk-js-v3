@@ -107,6 +107,10 @@ import {
 } from "./commands/GetLaunchProfileMemberCommand";
 import { GetStreamingImageCommandInput, GetStreamingImageCommandOutput } from "./commands/GetStreamingImageCommand";
 import {
+  GetStreamingSessionBackupCommandInput,
+  GetStreamingSessionBackupCommandOutput,
+} from "./commands/GetStreamingSessionBackupCommand";
+import {
   GetStreamingSessionCommandInput,
   GetStreamingSessionCommandOutput,
 } from "./commands/GetStreamingSessionCommand";
@@ -131,6 +135,10 @@ import {
   ListStreamingImagesCommandInput,
   ListStreamingImagesCommandOutput,
 } from "./commands/ListStreamingImagesCommand";
+import {
+  ListStreamingSessionBackupsCommandInput,
+  ListStreamingSessionBackupsCommandOutput,
+} from "./commands/ListStreamingSessionBackupsCommand";
 import {
   ListStreamingSessionsCommandInput,
   ListStreamingSessionsCommandOutput,
@@ -210,6 +218,7 @@ export type ServiceInputTypes =
   | GetLaunchProfileInitializationCommandInput
   | GetLaunchProfileMemberCommandInput
   | GetStreamingImageCommandInput
+  | GetStreamingSessionBackupCommandInput
   | GetStreamingSessionCommandInput
   | GetStreamingSessionStreamCommandInput
   | GetStudioCommandInput
@@ -220,6 +229,7 @@ export type ServiceInputTypes =
   | ListLaunchProfileMembersCommandInput
   | ListLaunchProfilesCommandInput
   | ListStreamingImagesCommandInput
+  | ListStreamingSessionBackupsCommandInput
   | ListStreamingSessionsCommandInput
   | ListStudioComponentsCommandInput
   | ListStudioMembersCommandInput
@@ -259,6 +269,7 @@ export type ServiceOutputTypes =
   | GetLaunchProfileInitializationCommandOutput
   | GetLaunchProfileMemberCommandOutput
   | GetStreamingImageCommandOutput
+  | GetStreamingSessionBackupCommandOutput
   | GetStreamingSessionCommandOutput
   | GetStreamingSessionStreamCommandOutput
   | GetStudioCommandOutput
@@ -269,6 +280,7 @@ export type ServiceOutputTypes =
   | ListLaunchProfileMembersCommandOutput
   | ListLaunchProfilesCommandOutput
   | ListStreamingImagesCommandOutput
+  | ListStreamingSessionBackupsCommandOutput
   | ListStreamingSessionsCommandOutput
   | ListStudioComponentsCommandOutput
   | ListStudioMembersCommandOutput

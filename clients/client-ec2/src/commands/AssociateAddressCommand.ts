@@ -54,7 +54,6 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *           Addresses</i> section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2
  *           Pricing</a>.</p>
  *          </important>
- *
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>

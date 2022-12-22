@@ -18,7 +18,7 @@ import {
   GetFindingsRequestFilterSensitiveLog,
   GetFindingsResponse,
   GetFindingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetFindingsCommand,
   serializeAws_restJson1GetFindingsCommand,

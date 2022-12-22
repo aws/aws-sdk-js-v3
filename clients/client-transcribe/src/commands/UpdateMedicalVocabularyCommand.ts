@@ -29,9 +29,9 @@ export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabu
 export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing custom medical vocabulary with new values. This operation overwrites
- *             all existing information with your new values; you cannot append new terms onto an existing
- *             vocabulary.</p>
+ * <p>Updates an existing custom medical vocabulary with new values. This operation
+ *             overwrites all existing information with your new values; you cannot append new terms
+ *             onto an existing custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

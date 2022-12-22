@@ -473,6 +473,14 @@ export interface ComputeResource {
    * <p>The VPC subnets where the compute resources are launched. These subnets must be within the same VPC. Fargate
    *    compute resources can contain up to 16 subnets. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and subnets</a> in the <i>Amazon VPC User
    *    Guide</i>.</p>
+   *          <note>
+   *             <p>Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones"> Local Zones</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html">Amazon EKS and Amazon Web Services Local
+   *       Zones</a> in the <i>Amazon EKS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones">
+   *        Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a> in the
+   *     <i>Amazon ECS Developer Guide</i>.</p>
+   *             <p>Batch on Fargate doesn't currently support Local Zones.</p>
+   *          </note>
    */
   subnets: string[] | undefined;
 
@@ -541,7 +549,8 @@ export interface ComputeResource {
    *    instance type before instances are launched. For example, if your maximum percentage is 20%, then the Spot price must
    *    be less than 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and
    *    never more than your maximum percentage. If you leave this field empty, the default value is 100% of the On-Demand
-   *    price.</p>
+   *    price. For most use cases, we recommend
+   *    leaving this field empty.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -1014,8 +1023,8 @@ export enum CEStatus {
 
 /**
  * <p>Specifies the infrastructure update policy for the compute environment. For more information about
- *    infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.html">Infrastructure
- *    updates</a> in the <i>Batch User Guide</i>.</p>
+ *    infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+ *     compute environments</a> in the <i>Batch User Guide</i>.</p>
  */
 export interface UpdatePolicy {
   /**
@@ -1617,17 +1626,42 @@ export interface ResourceRequirement {
    *                   <dt>value = 8192</dt>
    *                   <dd>
    *                      <p>
-   *                         <code>VCPU</code> = 1, 2, or 4</p>
+   *                         <code>VCPU</code> = 1, 2, 4, or 8</p>
    *                   </dd>
-   *                   <dt>value = 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384</dt>
+   *                   <dt>value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 2 or 4</p>
    *                   </dd>
-   *                   <dt>value = 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720</dt>
+   *                   <dt>value = 16384</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 2, 4, or 8</p>
+   *                   </dd>
+   *                   <dt>value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 4</p>
+   *                   </dd>
+   *                   <dt>value = 20480, 24576, or 28672</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 4 or 8</p>
+   *                   </dd>
+   *                   <dt>value = 36864, 45056, 53248, or 61440</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 8</p>
+   *                   </dd>
+   *                   <dt>value = 32768, 40960, 49152, or 57344</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 8 or 16</p>
+   *                   </dd>
+   *                   <dt>value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 16</p>
    *                   </dd>
    *                </dl>
    *             </dd>
@@ -1638,9 +1672,11 @@ export interface ResourceRequirement {
    *       <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares. For EC2
    *       resources, you must specify at least one vCPU. This is required but can be specified in several places; it must be
    *       specified for each node at least once.</p>
+   *                <p>The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more information about
+   *       Fargate quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate">Fargate quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *                <p>For jobs that are running on Fargate resources, then <code>value</code> must match one of the supported
    *       values and the <code>MEMORY</code> values must be one of the values supported for that <code>VCPU</code> value.
-   *       The supported values are 0.25, 0.5, 1, 2, and 4</p>
+   *       The supported values are 0.25, 0.5, 1, 2, 4, 8, and 16</p>
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
@@ -1667,6 +1703,18 @@ export interface ResourceRequirement {
    *                      <p>
    *                         <code>MEMORY</code> = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384, 17408, 18432, 19456,
    *      20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720</p>
+   *                   </dd>
+   *                   <dt>value = 8</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>MEMORY</code> = 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, or 61440
+   * </p>
+   *                   </dd>
+   *                   <dt>value = 16</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>MEMORY</code> = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
+   * </p>
    *                   </dd>
    *                </dl>
    *             </dd>
@@ -2411,8 +2459,7 @@ export interface EksPodProperties {
    *    that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver
    *    inherited from the node. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
    *    policy</a> in the <i>Kubernetes documentation</i>.</p>
-   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code> |
-   *    <code>None</code>
+   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code>
    *          </p>
    */
   dnsPolicy?: string;
@@ -2556,6 +2603,8 @@ export interface JobTimeout {
    * <p>The job timeout time (in seconds) that's measured from the job attempt's <code>startedAt</code> timestamp. After
    *    this time passes, Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60
    *    seconds.</p>
+   *          <p>For array jobs, the timeout applies to the child jobs, not to the parent array job.</p>
+   *          <p>For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.</p>
    */
   attemptDurationSeconds?: number;
 }
@@ -3189,10 +3238,12 @@ export interface EksPodPropertiesDetail {
    * <p>The DNS policy for the pod. The default value is <code>ClusterFirst</code>. If the <code>hostNetwork</code>
    *    parameter is not specified, the default is <code>ClusterFirstWithHostNet</code>. <code>ClusterFirst</code> indicates
    *    that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver
-   *    inherited from the node. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
+   *    inherited from the node. If no value was specified for <code>dnsPolicy</code> in the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html">RegisterJobDefinition</a> API operation, then no
+   *    value will be returned for <code>dnsPolicy</code> by either of <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobDefinitions.html">DescribeJobDefinitions</a> or <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html">DescribeJobs</a> API operations. The
+   *    pod spec setting will contain either <code>ClusterFirst</code> or <code>ClusterFirstWithHostNet</code>, depending
+   *    on the value of the <code>hostNetwork</code> parameter. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
    *    policy</a> in the <i>Kubernetes documentation</i>.</p>
-   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code> |
-   *    <code>None</code>
+   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code>
    *          </p>
    */
   dnsPolicy?: string;
@@ -3407,6 +3458,16 @@ export interface JobDetail {
    * <p>A list of job attempts that are associated with this job.</p>
    */
   eksAttempts?: EksAttemptDetail[];
+
+  /**
+   * <p>Indicates whether the job is canceled.</p>
+   */
+  isCancelled?: boolean;
+
+  /**
+   * <p>Indicates whether the job is terminated.</p>
+   */
+  isTerminated?: boolean;
 }
 
 export interface DescribeJobsResponse {
@@ -4309,16 +4370,31 @@ export interface ComputeResourceUpdate {
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
+   *          <note>
+   *             <p>Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify
+   *     this parameter for compute environments using Amazon EKS clusters.</p>
+   *          </note>
    */
   desiredvCpus?: number;
 
   /**
-   * <p>The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16
-   *    subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't
-   *    specified and no change is made. For EC2 compute resources, providing an empty list removes the VPC subnets from the
-   *    compute resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
-   *          <p>When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute
-   *    environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
+   * <p>The VPC subnets where the compute resources are launched. Fargate compute resources can
+   *    contain up to 16 subnets. For Fargate compute resources, providing an empty list will be
+   *    handled as if this parameter wasn't specified and no change is made. For EC2 compute resources,
+   *    providing an empty list removes the VPC subnets from the compute resource. For more information,
+   *    see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and
+   *     subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          <p>When updating a compute environment, changing the VPC subnets requires an infrastructure
+   *    update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
+   *     <i>Batch User Guide</i>.</p>
+   *          <note>
+   *             <p>Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones"> Local Zones</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html">Amazon EKS and Amazon Web Services Local
+   *       Zones</a> in the <i>Amazon EKS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones">
+   *        Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a> in the
+   *     <i>Amazon ECS Developer Guide</i>.</p>
+   *             <p>Batch on Fargate doesn't currently support Local Zones.</p>
+   *          </note>
    */
   subnets?: string[];
 
@@ -4451,7 +4527,8 @@ export interface ComputeResourceUpdate {
    * <p>The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that
    *    instance type before instances are launched. For example, if your maximum percentage is 20%, the Spot price must be
    *    less than 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and
-   *    never more than your maximum percentage.</p>
+   *    never more than your maximum percentage. For
+   *    most use cases, we recommend leaving this field empty.</p>
    *          <p>When updating a compute environment, changing the bid percentage requires an infrastructure update of the
    *    compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
    *    <i>Batch User Guide</i>.</p>

@@ -29,7 +29,7 @@ export interface ListStudioComponentsCommandInput extends ListStudioComponentsRe
 export interface ListStudioComponentsCommandOutput extends ListStudioComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the StudioComponents in a studio.</p>
+ * <p>Lists the <code>StudioComponents</code> in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

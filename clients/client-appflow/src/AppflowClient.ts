@@ -95,6 +95,10 @@ import {
   UpdateConnectorProfileCommandInput,
   UpdateConnectorProfileCommandOutput,
 } from "./commands/UpdateConnectorProfileCommand";
+import {
+  UpdateConnectorRegistrationCommandInput,
+  UpdateConnectorRegistrationCommandOutput,
+} from "./commands/UpdateConnectorRegistrationCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
   ClientInputEndpointParameters,
@@ -126,6 +130,7 @@ export type ServiceInputTypes =
   | UnregisterConnectorCommandInput
   | UntagResourceCommandInput
   | UpdateConnectorProfileCommandInput
+  | UpdateConnectorRegistrationCommandInput
   | UpdateFlowCommandInput;
 
 export type ServiceOutputTypes =
@@ -150,6 +155,7 @@ export type ServiceOutputTypes =
   | UnregisterConnectorCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectorProfileCommandOutput
+  | UpdateConnectorRegistrationCommandOutput
   | UpdateFlowCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

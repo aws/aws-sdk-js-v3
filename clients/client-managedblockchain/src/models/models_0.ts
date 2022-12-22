@@ -693,6 +693,11 @@ export interface CreateNodeInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>n-ethereum-goerli</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
@@ -850,6 +855,11 @@ export interface DeleteNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-mainnet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1062,6 +1072,10 @@ export interface NetworkEthereumAttributes {
    *                </p>
    *             </li>
    *             <li>
+   *                <p>goerli = <code>5</code>
+   *                </p>
+   *             </li>
+   *             <li>
    *                <p>rinkeby = <code>4</code>
    *                </p>
    *             </li>
@@ -1213,7 +1227,7 @@ export interface NodeEthereumAttributes {
   HttpEndpoint?: string;
 
   /**
-   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSockets connections from a client. Use this endpoint in client code for smart contracts when using a WebSockets connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSocket connections from a client. Use this endpoint in client code for smart contracts when using a WebSocket connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    */
   WebSocketEndpoint?: string;
 }

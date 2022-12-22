@@ -31,9 +31,9 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
 /**
  * <p>Deletes streaming session resource.</p>
  *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
- *             transitions to a DELETED state.</p>
+ *             transitions to a <code>DELETED</code> state.</p>
  *         <p>A streaming session will count against your streaming session quota until it is marked
- *             DELETED.</p>
+ *                 <code>DELETED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

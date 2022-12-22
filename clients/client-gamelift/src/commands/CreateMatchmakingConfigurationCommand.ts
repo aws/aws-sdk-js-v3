@@ -36,8 +36,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *             configuration sets out rules for matching players and forming teams. If you're also
  *             using GameLift hosting, it defines how to start game sessions for each match. Your
  *             matchmaking system can use multiple configurations to handle different game scenarios.
- *             All matchmaking requests (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) identify the matchmaking configuration to use and
- *             provide player attributes consistent with that configuration. </p>
+ *             All matchmaking requests identify the matchmaking configuration to use and provide
+ *             player attributes consistent with that configuration. </p>
  *         <p>To create a matchmaking configuration, you must provide the following: configuration
  *             name and FlexMatch mode (with or without GameLift hosting); a rule set that specifies how
  *             to evaluate players and find acceptable matches; whether player acceptance is required;
@@ -45,33 +45,17 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *             hosting, you also need to identify the game session queue to use when starting a game
  *             session for the match.</p>
  *         <p>In addition, you must set up an Amazon Simple Notification Service topic to receive matchmaking notifications.
- *             Provide the topic ARN in the matchmaking configuration. An alternative method,
- *             continuously polling ticket status with <a>DescribeMatchmaking</a>, is only
- *             suitable for games in development with low matchmaking usage.</p>
+ *             Provide the topic ARN in the matchmaking configuration.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
- *                 Design a FlexMatch matchmaker</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html"> Design a FlexMatch
+ *                 matchmaker</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
- *             Set up FlexMatch event notification</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html"> Set up FlexMatch event
+ *                 notification</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

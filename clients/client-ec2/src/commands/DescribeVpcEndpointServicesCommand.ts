@@ -19,7 +19,7 @@ import {
   DescribeVpcEndpointServicesRequestFilterSensitiveLog,
   DescribeVpcEndpointServicesResult,
   DescribeVpcEndpointServicesResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcEndpointServicesCommand,
   serializeAws_ec2DescribeVpcEndpointServicesCommand,
@@ -30,7 +30,7 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
 
 /**
  * <p>Describes available services to which you can create a VPC endpoint.</p>
- *         <p>When the service provider and the consumer have different accounts in multiple
+ *          <p>When the service provider and the consumer have different accounts in multiple
  *             Availability Zones, and the consumer views the VPC endpoint service information, the
  *             response only includes the common Availability Zones. For example, when the service
  *             provider account uses <code>us-east-1a</code> and <code>us-east-1c</code> and the

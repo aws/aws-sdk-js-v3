@@ -36,14 +36,10 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *             target-based and rule-based. Use a target-based policy to quickly and efficiently manage
  *             fleet scaling; this option is the most commonly used. Use rule-based policies when you
  *             need to exert fine-grained control over auto-scaling. </p>
- *         <p>Fleets can have multiple scaling policies of each type in force at the same time;
- *             you can have one target-based policy, one or multiple rule-based scaling policies, or
- *             both. We recommend caution, however, because multiple auto-scaling policies can have
+ *         <p>Fleets can have multiple scaling policies of each type in force at the same time; you
+ *             can have one target-based policy, one or multiple rule-based scaling policies, or both.
+ *             We recommend caution, however, because multiple auto-scaling policies can have
  *             unintended consequences.</p>
- *         <p>You can temporarily suspend all scaling policies for a fleet by calling <a>StopFleetActions</a> with the fleet action AUTO_SCALING. To resume scaling
- *             policies, call <a>StartFleetActions</a> with the same fleet action. To stop
- *             just one scaling policy--or to permanently remove it, you must delete the policy with
- *                 <a>DeleteScalingPolicy</a>.</p>
  *         <p>Learn more about how to work with auto-scaling in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html">Set Up Fleet Automatic
  *                 Scaling</a>.</p>
  *         <p>
@@ -53,20 +49,20 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *             metric tells us how much of a fleet's hosting capacity is ready to host game sessions
  *             but is not currently in use. This is the fleet's buffer; it measures the additional
  *             player demand that the fleet could handle at current capacity. With a target-based
- *             policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action
- *             is needed to maintain that target. </p>
+ *             policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action is
+ *             needed to maintain that target. </p>
  *         <p>For example, you might choose to maintain a 10% buffer for a fleet that has the
- *             capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take
- *             action whenever the fleet's available capacity falls below or rises above 10 game
- *             sessions. Amazon GameLift will start new instances or stop unused instances in order to return
- *             to the 10% buffer. </p>
+ *             capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take action
+ *             whenever the fleet's available capacity falls below or rises above 10 game sessions.
+ *             Amazon GameLift will start new instances or stop unused instances in order to return to the 10%
+ *             buffer. </p>
  *         <p>To create or update a target-based policy, specify a fleet ID and name, and set the
  *             policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)
- *             and reference a <a>TargetConfiguration</a> object with your desired buffer
- *             value. Exclude all other parameters. On a successful request, the policy name is
- *             returned. The scaling policy is automatically in force as soon as it's successfully
- *             created. If the fleet's auto-scaling actions are temporarily suspended, the new policy
- *             will be in force once the fleet actions are restarted.</p>
+ *             and reference a <code>TargetConfiguration</code> object with your desired buffer value.
+ *             Exclude all other parameters. On a successful request, the policy name is returned. The
+ *             scaling policy is automatically in force as soon as it's successfully created. If the
+ *             fleet's auto-scaling actions are temporarily suspended, the new policy will be in force
+ *             once the fleet actions are restarted.</p>
  *         <p>
  *             <b>Rule-based policy</b>
  *          </p>
@@ -80,32 +76,17 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *         <p>A policy's rule statement has the following structure:</p>
  *         <p>If <code>[MetricName]</code> is <code>[ComparisonOperator]</code>
  *             <code>[Threshold]</code> for <code>[EvaluationPeriods]</code> minutes, then
- *                 <code>[ScalingAdjustmentType]</code> to/by
- *             <code>[ScalingAdjustment]</code>.</p>
+ *                 <code>[ScalingAdjustmentType]</code> to/by <code>[ScalingAdjustment]</code>.</p>
  *         <p>To implement the example, the rule statement would look like this:</p>
  *         <p>If <code>[PercentIdleInstances]</code> is <code>[GreaterThanThreshold]</code>
  *             <code>[20]</code> for <code>[15]</code> minutes, then
  *                 <code>[PercentChangeInCapacity]</code> to/by <code>[10]</code>.</p>
- *         <p>To create or update a scaling policy, specify a unique combination of name and
- *             fleet ID, and set the policy type to "RuleBased". Specify the parameter values for a
- *             policy rule statement. On a successful request, the policy name is returned. Scaling
- *             policies are automatically in force as soon as they're successfully created. If the
- *             fleet's auto-scaling actions are temporarily suspended, the new policy will be in force
- *             once the fleet actions are restarted.</p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>DescribeFleetCapacity</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeScalingPolicies</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *         <p>To create or update a scaling policy, specify a unique combination of name and fleet
+ *             ID, and set the policy type to "RuleBased". Specify the parameter values for a policy
+ *             rule statement. On a successful request, the policy name is returned. Scaling policies
+ *             are automatically in force as soon as they're successfully created. If the fleet's
+ *             auto-scaling actions are temporarily suspended, the new policy will be in force once the
+ *             fleet actions are restarted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

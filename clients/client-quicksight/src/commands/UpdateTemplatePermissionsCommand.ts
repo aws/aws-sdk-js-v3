@@ -18,7 +18,7 @@ import {
   UpdateTemplatePermissionsRequestFilterSensitiveLog,
   UpdateTemplatePermissionsResponse,
   UpdateTemplatePermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateTemplatePermissionsCommand,
   serializeAws_restJson1UpdateTemplatePermissionsCommand,

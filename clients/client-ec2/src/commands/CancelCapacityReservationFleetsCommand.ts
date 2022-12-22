@@ -33,18 +33,18 @@ export interface CancelCapacityReservationFleetsCommandOutput
 /**
  * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
  * 			Fleet, the following happens:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
- * 			         </li>
+ *                <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
+ *             </li>
  *             <li>
- * 				           <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
+ *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
  * 					in the Capacity Reservations at the time of cancelling the Fleet continue to run in
  * 					shared capacity.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>The Fleet stops creating new Capacity Reservations.</p>
- * 			         </li>
+ *                <p>The Fleet stops creating new Capacity Reservations.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

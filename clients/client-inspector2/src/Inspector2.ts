@@ -363,7 +363,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
-   * <p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization</p>
+   * <p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>
    */
   public describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,

@@ -31,7 +31,7 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new ReplicationConfigurationTemplate.</p>
+ * <p>Deletes a single Launch Configuration Template by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

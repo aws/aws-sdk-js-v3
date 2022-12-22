@@ -19,7 +19,7 @@ import {
   DescribeIpv6PoolsRequestFilterSensitiveLog,
   DescribeIpv6PoolsResult,
   DescribeIpv6PoolsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand,

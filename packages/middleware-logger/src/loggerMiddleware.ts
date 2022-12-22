@@ -16,9 +16,17 @@ export const loggerMiddleware =
     context: HandlerExecutionContext
   ): InitializeHandler<any, Output> =>
   async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
-    const { clientName, commandName, inputFilterSensitiveLog, logger, outputFilterSensitiveLog } = context;
-
     const response = await next(args);
+    const {
+      clientName,
+      commandName,
+      logger,
+      inputFilterSensitiveLog,
+      outputFilterSensitiveLog,
+      dynamoDbDocumentClientOptions = {},
+    } = context;
+
+    const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
 
     if (!logger) {
       return response;
@@ -26,11 +34,12 @@ export const loggerMiddleware =
 
     if (typeof logger.info === "function") {
       const { $metadata, ...outputWithoutMetadata } = response.output;
+
       logger.info({
         clientName,
         commandName,
-        input: inputFilterSensitiveLog(args.input),
-        output: outputFilterSensitiveLog(outputWithoutMetadata),
+        input: (overrideInputFilterSensitiveLog ?? inputFilterSensitiveLog)(args.input),
+        output: (overrideOutputFilterSensitiveLog ?? outputFilterSensitiveLog)(outputWithoutMetadata),
         metadata: $metadata,
       });
     }

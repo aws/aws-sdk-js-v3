@@ -18,7 +18,7 @@ import {
   DeleteGroupRequestFilterSensitiveLog,
   DeleteGroupResponse,
   DeleteGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteGroupCommand,
   serializeAws_restJson1DeleteGroupCommand,

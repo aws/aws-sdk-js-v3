@@ -19,7 +19,7 @@ import {
   DisassociateTransitGatewayPolicyTableRequestFilterSensitiveLog,
   DisassociateTransitGatewayPolicyTableResult,
   DisassociateTransitGatewayPolicyTableResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommand,
   serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand,
