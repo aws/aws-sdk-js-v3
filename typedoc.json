@@ -1,6 +1,21 @@
 {
-  "clientDocs": "clients/{{CLIENT}}/docs",
-  "exclude": ["**/node_modules/**", "**/*.spec.ts", "private/**"],
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.spec.ts",
+    "private/**",
+    "tests/**",
+    "scripts/**",
+    "clients/**",
+    "benchmark/**",
+    "features/**",
+    "codegen/**",
+    // "lib/**",
+    // "packages/**",
+    "private/**",
+    "scripts/**",
+    "tests/**",
+    "verdaccio/**"
+  ],
   "excludeExternals": true,
   "hideGenerator": true,
   "skipErrorChecking": true,

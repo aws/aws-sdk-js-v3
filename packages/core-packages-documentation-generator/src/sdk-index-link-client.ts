@@ -1,3 +1,4 @@
+import { readdir } from "fs";
 import { isAbsolute, join, relative, resolve, sep } from "path";
 import {
   BindOption,
@@ -7,6 +8,7 @@ import {
   Logger,
   Options,
   PageEvent,
+  ProjectReflection,
   Reflection,
   ReflectionCategory,
   ReflectionGroup,
@@ -37,7 +39,7 @@ export class SdkIndexLinkClientPlugin {
     this.renderer.on(Renderer.EVENT_BEGIN_PAGE, this.onPageBegin);
   }
 
-  private onConverterEnd = (context: Context) => {
+  private onConverterEnd = async (context: Context): Promise<void> => {
     const project = context.project;
 
     if (!project.groups) {
@@ -52,15 +54,13 @@ export class SdkIndexLinkClientPlugin {
     }
 
     const modules = project.getChildrenByKind(ReflectionKind.SomeModule);
+
+    await this.registerClients(project, modules);
+
     group.categories = this.defineCategories(group, modules);
   };
 
   private onPageBegin = (page: PageEvent<Reflection>) => {
-    const out = isAbsolute(this.outputDirectory) ? this.outputDirectory : resolve(this.outputDirectory);
-    const clientDocs = isAbsolute(this.clientDocs) ? this.clientDocs : resolve(this.clientDocs);
-    // Get relative path from core packages doc to clients' doc.
-    const clientDocsPattern = relative(out, clientDocs);
-
     // Skip rendering empty landing page for each client.
     if (page.model.flags.includes("SkipRendering")) {
       page.preventDefault();
@@ -69,14 +69,31 @@ export class SdkIndexLinkClientPlugin {
     if (page.model.isProject()) {
       const group = page.model.groups.find((value) => value.title === this.defaultGroup);
       const clientsCategory = group.categories.find((value) => value.title === "Clients");
+
       for (const child of clientsCategory.children || []) {
-        // "clients/service" => "service"
-        const clientName = child.sources?.[0].fileName.split(sep)[1];
-        const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
-        child.url = join(clientDocDir, "index.html");
+        child.url = `/clients/${child.originalName}/docs/`;
+        child.name = `@aws-sdk/${child.originalName.replace("client-", "")}`;
       }
     }
   };
+
+  private async registerClients(project: ProjectReflection, modules: DeclarationReflection[]): Promise<void> {
+    return new Promise((resolvePromise, rejectPromise) => {
+      const clientPath = resolve("./clientDocs/clients");
+      readdir(clientPath, (err, clientFiles) => {
+        if (err) rejectPromise(err);
+
+        clientFiles.forEach((clientName) => {
+          if (clientName.includes("client") && !clientName.includes("documentation")) {
+            const clientDeclaration = new DeclarationReflection(clientName, ReflectionKind.Module, project);
+            project.registerReflection(clientDeclaration);
+            modules.push(clientDeclaration);
+          }
+        });
+        resolvePromise();
+      });
+    });
+  }
 
   /**
    * Define navigation categories in Client, Packages and Libraries sections. It will update the
@@ -115,7 +132,7 @@ export class SdkIndexLinkClientPlugin {
   }
 
   private isClient(item: DeclarationReflection): boolean {
-    return isClientModel(item);
+    return isClientModel(item) || item.name.includes("client-");
   }
 
   private isLib(item: DeclarationReflection): boolean {

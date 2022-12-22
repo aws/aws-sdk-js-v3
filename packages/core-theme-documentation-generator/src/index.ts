@@ -1,4 +1,4 @@
-import { Application } from "typedoc";
+import { Application, Context, Converter } from "typedoc";
 
 import { SdkTheme } from "./theme";
 

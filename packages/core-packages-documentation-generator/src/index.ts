@@ -1,4 +1,4 @@
-import { Application, ParameterType } from "typedoc";
+import { Application, Context, Converter, ParameterType } from "typedoc";
 
 import { SdkIndexLinkClientPlugin } from "./sdk-index-link-client";
 
@@ -9,7 +9,7 @@ export function load(app: Application) {
     help:
       'The path pattern denotes the location of individual service client doc. "{{CLIENT}}" will be replaced with the ' +
       "client name. For example: `path/{{CLIENT}}/docs` will target service docs at `path/service/docs`",
-    defaultValue: "clients/{{CLIENT}}/docs",
+    defaultValue: "docs/clients/{{CLIENT}}/docs",
     type: ParameterType.String,
   });
   app.options.addDeclaration({
@@ -18,5 +18,6 @@ export function load(app: Application) {
     defaultValue: "Modules",
     type: ParameterType.String,
   });
+
   new SdkIndexLinkClientPlugin(app.options, app.logger, app.renderer);
 }
