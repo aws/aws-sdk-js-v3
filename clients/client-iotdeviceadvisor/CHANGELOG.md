@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.237.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.236.0...v3.237.0) (2022-12-22)
+
+
+### Features
+
+* **client-iotdeviceadvisor:** This release adds the following new features: 1) Documentation updates for IoT Device Advisor APIs. 2) Updated required request parameters for IoT Device Advisor APIs. 3) Added new service feature: ability to provide the test endpoint when customer executing the StartSuiteRun API. ([204efd5](https://github.com/aws/aws-sdk-js-v3/commit/204efd51b5a501f8cab1445f6b909faf7ebb09a4))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 **Note:** Version bump only for package @aws-sdk/client-iotdeviceadvisor

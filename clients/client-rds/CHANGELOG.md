@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.237.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.236.0...v3.237.0) (2022-12-22)
+
+
+### Features
+
+* **client-rds:** Add support for managing master user password in AWS Secrets Manager for the DBInstance and DBCluster. ([03a5d7b](https://github.com/aws/aws-sdk-js-v3/commit/03a5d7b27c8f5d0386381c99010e538bc23644b5))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

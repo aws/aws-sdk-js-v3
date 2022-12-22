@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.237.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.236.0...v3.237.0) (2022-12-22)
+
+
+### Features
+
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate optimization recommendations for ecs services running on Fargate. ([a13751f](https://github.com/aws/aws-sdk-js-v3/commit/a13751f0dbd59c851b732e93da2e76b70cee869e))
+* **client-connect:** Amazon Connect Chat introduces the Idle Participant/Autodisconnect feature, which allows users to set timeouts relating to the activity of chat participants, using the new UpdateParticipantRoleConfig API. ([0285aa9](https://github.com/aws/aws-sdk-js-v3/commit/0285aa92ec63904bed121700e28dca1943749f49))
+* **client-iotdeviceadvisor:** This release adds the following new features: 1) Documentation updates for IoT Device Advisor APIs. 2) Updated required request parameters for IoT Device Advisor APIs. 3) Added new service feature: ability to provide the test endpoint when customer executing the StartSuiteRun API. ([204efd5](https://github.com/aws/aws-sdk-js-v3/commit/204efd51b5a501f8cab1445f6b909faf7ebb09a4))
+* **client-kinesis-video-webrtc-storage:** Amazon Kinesis Video Streams offers capabilities to stream video and audio in real-time via WebRTC to the cloud for storage, playback, and analytical processing. Customers can use our enhanced WebRTC SDK and cloud APIs to enable real-time streaming, as well as media ingestion to the cloud. ([d1a5de1](https://github.com/aws/aws-sdk-js-v3/commit/d1a5de1ea4dfb665b3205c3ec107e0fb08e97d23))
+* **client-rds:** Add support for managing master user password in AWS Secrets Manager for the DBInstance and DBCluster. ([03a5d7b](https://github.com/aws/aws-sdk-js-v3/commit/03a5d7b27c8f5d0386381c99010e538bc23644b5))
+* **clients:** update client endpoints as of 2022-12-22 ([f14a5cd](https://github.com/aws/aws-sdk-js-v3/commit/f14a5cd4f2c043541414881c726eb5fb07fba8ec))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 

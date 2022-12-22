@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.237.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.236.0...v3.237.0) (2022-12-22)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Chat introduces the Idle Participant/Autodisconnect feature, which allows users to set timeouts relating to the activity of chat participants, using the new UpdateParticipantRoleConfig API. ([0285aa9](https://github.com/aws/aws-sdk-js-v3/commit/0285aa92ec63904bed121700e28dca1943749f49))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
