@@ -47,10 +47,6 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
-import {
-  JoinStorageSessionAsViewerCommandInput,
-  JoinStorageSessionAsViewerCommandOutput,
-} from "./commands/JoinStorageSessionAsViewerCommand";
 import { JoinStorageSessionCommandInput, JoinStorageSessionCommandOutput } from "./commands/JoinStorageSessionCommand";
 import {
   ClientInputEndpointParameters,
@@ -60,9 +56,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = JoinStorageSessionAsViewerCommandInput | JoinStorageSessionCommandInput;
+export type ServiceInputTypes = JoinStorageSessionCommandInput;
 
-export type ServiceOutputTypes = JoinStorageSessionAsViewerCommandOutput | JoinStorageSessionCommandOutput;
+export type ServiceOutputTypes = JoinStorageSessionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

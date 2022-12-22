@@ -12,10 +12,6 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  JoinStorageSessionAsViewerCommandInput,
-  JoinStorageSessionAsViewerCommandOutput,
-} from "../commands/JoinStorageSessionAsViewerCommand";
 import { JoinStorageSessionCommandInput, JoinStorageSessionCommandOutput } from "../commands/JoinStorageSessionCommand";
 import { KinesisVideoWebRTCStorageServiceException as __BaseException } from "../models/KinesisVideoWebRTCStorageServiceException";
 import {
@@ -49,32 +45,6 @@ export const serializeAws_restJson1JoinStorageSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1JoinStorageSessionAsViewerCommand = async (
-  input: JoinStorageSessionAsViewerCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/joinStorageSessionAsViewer";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.clientId != null && { clientId: input.clientId }),
-  });
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
 export const deserializeAws_restJson1JoinStorageSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -93,53 +63,6 @@ const deserializeAws_restJson1JoinStorageSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinStorageSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideowebrtcstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideowebrtcstorage#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideowebrtcstorage#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideowebrtcstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      throwDefaultError({
-        output,
-        parsedBody,
-        exceptionCtor: __BaseException,
-        errorCode,
-      });
-  }
-};
-
-export const deserializeAws_restJson1JoinStorageSessionAsViewerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JoinStorageSessionAsViewerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1JoinStorageSessionAsViewerCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-const deserializeAws_restJson1JoinStorageSessionAsViewerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JoinStorageSessionAsViewerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

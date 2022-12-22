@@ -2,11 +2,6 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
-  JoinStorageSessionAsViewerCommand,
-  JoinStorageSessionAsViewerCommandInput,
-  JoinStorageSessionAsViewerCommandOutput,
-} from "./commands/JoinStorageSessionAsViewerCommand";
-import {
   JoinStorageSessionCommand,
   JoinStorageSessionCommandInput,
   JoinStorageSessionCommandOutput,
@@ -61,55 +56,6 @@ export class KinesisVideoWebRTCStorage extends KinesisVideoWebRTCStorageClient {
     cb?: (err: any, data?: JoinStorageSessionCommandOutput) => void
   ): Promise<JoinStorageSessionCommandOutput> | void {
     const command = new JoinStorageSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>
-   *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
-   *       a viewer for an input channel. If there’s
-   *       no existing session for the channel, create a new streaming session and provide
-   *       the Amazon Resource Name (ARN) of the signaling channel (<code>channelArn</code>)
-   *       and client id (<code>clientId</code>).
-   *     </p>
-   *          <p>Currently for <code>SINGLE_MASTER</code> type, a video producing device
-   *       is able to ingest both audio and video media into a stream, while viewers
-   *       can only ingest audio. Both a video producing device and viewers can join
-   *       a session first and wait for other participants. While participants are having peer to peer conversations through webRTC,
-   *       the ingested media session will be stored into the Kinesis Video Stream.
-   *       Multiple viewers are able to playback real-time media.
-   *     </p>
-   *          <p>Customers can also use existing Kinesis Video Streams features like
-   *       <code>HLS</code> or <code>DASH</code> playback, Image generation, and more
-   *       with ingested WebRTC media. If there’s an existing session with the same
-   *       <code>clientId</code> that's found in the join session request, the new request takes precedence.</p>
-   */
-  public joinStorageSessionAsViewer(
-    args: JoinStorageSessionAsViewerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<JoinStorageSessionAsViewerCommandOutput>;
-  public joinStorageSessionAsViewer(
-    args: JoinStorageSessionAsViewerCommandInput,
-    cb: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
-  ): void;
-  public joinStorageSessionAsViewer(
-    args: JoinStorageSessionAsViewerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
-  ): void;
-  public joinStorageSessionAsViewer(
-    args: JoinStorageSessionAsViewerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void),
-    cb?: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
-  ): Promise<JoinStorageSessionAsViewerCommandOutput> | void {
-    const command = new JoinStorageSessionAsViewerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
