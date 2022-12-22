@@ -435,6 +435,10 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdateParticipantRoleConfigCommandInput,
+  UpdateParticipantRoleConfigCommandOutput,
+} from "./commands/UpdateParticipantRoleConfigCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -666,6 +670,7 @@ export type ServiceInputTypes =
   | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
+  | UpdateParticipantRoleConfigCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdateQueueHoursOfOperationCommandInput
   | UpdateQueueMaxContactsCommandInput
@@ -836,6 +841,7 @@ export type ServiceOutputTypes =
   | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
+  | UpdateParticipantRoleConfigCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdateQueueHoursOfOperationCommandOutput
   | UpdateQueueMaxContactsCommandOutput

@@ -2334,12 +2334,22 @@ export interface SearchVocabulariesResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>.</p>
+   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the chat message.</p>
+   * <p>The content of the chat message. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are
+   *      Minimum of 1, Maximum of 1024. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of
+   *      12000. </p>
+   *             </li>
+   *          </ul>
    */
   Content: string | undefined;
 }
@@ -2406,8 +2416,10 @@ export interface StartChatContactRequest {
   ChatDurationInMinutes?: number;
 
   /**
-   * <p>The supported chat message content types. Content types can be text/plain or both text/plain
-   *    and text/markdown.</p>
+   * <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You
+   *    can then put any other supported type in the list. For example, all the following lists are valid
+   *    because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown,
+   *    text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
    */
   SupportedMessagingContentTypes?: string[];
 }
@@ -3011,8 +3023,8 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact
-   *     flow in Amazon Connect Flow language</a>. </p>
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     contact flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
@@ -3207,6 +3219,159 @@ export interface UpdateInstanceStorageConfigRequest {
    */
   StorageConfig: InstanceStorageConfig | undefined;
 }
+
+export enum TimerEligibleParticipantRoles {
+  AGENT = "AGENT",
+  CUSTOMER = "CUSTOMER",
+}
+
+export enum ParticipantTimerType {
+  DISCONNECT_NONCUSTOMER = "DISCONNECT_NONCUSTOMER",
+  IDLE = "IDLE",
+}
+
+export enum ParticipantTimerAction {
+  Unset = "Unset",
+}
+
+/**
+ * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
+ *    the duration of the timer in minutes. Only one value can be set.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+export type ParticipantTimerValue =
+  | ParticipantTimerValue.ParticipantTimerActionMember
+  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
+  | ParticipantTimerValue.$UnknownMember;
+
+export namespace ParticipantTimerValue {
+  /**
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+   */
+  export interface ParticipantTimerActionMember {
+    ParticipantTimerAction: ParticipantTimerAction | string;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The duration of a timer, in minutes. </p>
+   */
+  export interface ParticipantTimerDurationInMinutesMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes: number;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ParticipantTimerAction: (value: ParticipantTimerAction | string) => T;
+    ParticipantTimerDurationInMinutes: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
+    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
+    if (value.ParticipantTimerDurationInMinutes !== undefined)
+      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration information for the timer. After the timer configuration is set, it persists
+ *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
+ *    contacts.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+export interface ParticipantTimerConfiguration {
+  /**
+   * <p>The role of the participant in the chat conversation.</p>
+   */
+  ParticipantRole: TimerEligibleParticipantRoles | string | undefined;
+
+  /**
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle.
+   *     <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to
+   *    idleness.</p>
+   */
+  TimerType: ParticipantTimerType | string | undefined;
+
+  /**
+   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
+   *    of the timer in minutes. Only one value can be set.</p>
+   */
+  TimerValue: ParticipantTimerValue | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ */
+export interface ChatParticipantRoleConfig {
+  /**
+   * <p>A list of participant timers. You can specify any unique combination of role and timer type.
+   *    Duplicate entries error out the request with a 400.</p>
+   */
+  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ */
+export type UpdateParticipantRoleConfigChannelInfo =
+  | UpdateParticipantRoleConfigChannelInfo.ChatMember
+  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
+
+export namespace UpdateParticipantRoleConfigChannelInfo {
+  /**
+   * <p>Configuration information for the chat participant role.</p>
+   */
+  export interface ChatMember {
+    Chat: ChatParticipantRoleConfig;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    Chat?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Chat: (value: ChatParticipantRoleConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
+    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface UpdateParticipantRoleConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Amazon Connect channel you want to configure.</p>
+   */
+  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
+}
+
+export interface UpdateParticipantRoleConfigResponse {}
 
 export interface UpdatePhoneNumberRequest {
   /**
@@ -5124,6 +5289,65 @@ export const UpdateInstanceAttributeRequestFilterSensitiveLog = (obj: UpdateInst
  * @internal
  */
 export const UpdateInstanceStorageConfigRequestFilterSensitiveLog = (obj: UpdateInstanceStorageConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParticipantTimerValueFilterSensitiveLog = (obj: ParticipantTimerValue): any => {
+  if (obj.ParticipantTimerAction !== undefined) return { ParticipantTimerAction: obj.ParticipantTimerAction };
+  if (obj.ParticipantTimerDurationInMinutes !== undefined)
+    return { ParticipantTimerDurationInMinutes: obj.ParticipantTimerDurationInMinutes };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ParticipantTimerConfigurationFilterSensitiveLog = (obj: ParticipantTimerConfiguration): any => ({
+  ...obj,
+  ...(obj.TimerValue && { TimerValue: ParticipantTimerValueFilterSensitiveLog(obj.TimerValue) }),
+});
+
+/**
+ * @internal
+ */
+export const ChatParticipantRoleConfigFilterSensitiveLog = (obj: ChatParticipantRoleConfig): any => ({
+  ...obj,
+  ...(obj.ParticipantTimerConfigList && {
+    ParticipantTimerConfigList: obj.ParticipantTimerConfigList.map((item) =>
+      ParticipantTimerConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateParticipantRoleConfigChannelInfoFilterSensitiveLog = (
+  obj: UpdateParticipantRoleConfigChannelInfo
+): any => {
+  if (obj.Chat !== undefined) return { Chat: ChatParticipantRoleConfigFilterSensitiveLog(obj.Chat) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdateParticipantRoleConfigRequestFilterSensitiveLog = (obj: UpdateParticipantRoleConfigRequest): any => ({
+  ...obj,
+  ...(obj.ChannelConfiguration && {
+    ChannelConfiguration: UpdateParticipantRoleConfigChannelInfoFilterSensitiveLog(obj.ChannelConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateParticipantRoleConfigResponseFilterSensitiveLog = (
+  obj: UpdateParticipantRoleConfigResponse
+): any => ({
   ...obj,
 });
 

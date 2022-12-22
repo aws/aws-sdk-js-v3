@@ -144,6 +144,7 @@ export * from "./UpdateContactScheduleCommand";
 export * from "./UpdateHoursOfOperationCommand";
 export * from "./UpdateInstanceAttributeCommand";
 export * from "./UpdateInstanceStorageConfigCommand";
+export * from "./UpdateParticipantRoleConfigCommand";
 export * from "./UpdatePhoneNumberCommand";
 export * from "./UpdateQueueHoursOfOperationCommand";
 export * from "./UpdateQueueMaxContactsCommand";

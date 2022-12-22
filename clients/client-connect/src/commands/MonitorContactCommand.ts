@@ -31,7 +31,7 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
 /**
  * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
  *    specified by <i>userId</i> will be set to silent monitoring mode on the
- *    contact.</p>
+ *    contact. Supports voice and chat contacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

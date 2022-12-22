@@ -1858,8 +1858,8 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string>;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> |
-   *    <code>RoutingProfile</code>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> |
+   *     <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code>
    *          </p>
    */
   TagRestrictedResources?: string[];

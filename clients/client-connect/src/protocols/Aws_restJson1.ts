@@ -413,6 +413,10 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "../commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdateParticipantRoleConfigCommandInput,
+  UpdateParticipantRoleConfigCommandOutput,
+} from "../commands/UpdateParticipantRoleConfigCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -615,6 +619,7 @@ import {
   AnswerMachineDetectionConfig,
   AvailableNumberSummary,
   ChatMessage,
+  ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactNotFoundException,
   ControlPlaneTagFilter,
@@ -629,6 +634,8 @@ import {
   ListPhoneNumbersSummary,
   OutboundContactNotPermittedException,
   ParticipantDetails,
+  ParticipantTimerConfiguration,
+  ParticipantTimerValue,
   PhoneNumberSummary,
   PromptSummary,
   QueueSearchCriteria,
@@ -651,6 +658,7 @@ import {
   TagCondition,
   TaskTemplateMetadata,
   TrafficDistributionGroupSummary,
+  UpdateParticipantRoleConfigChannelInfo,
   UrlReference,
   UseCase,
   UserIdentityInfoLite,
@@ -4952,6 +4960,39 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateParticipantRoleConfigCommand = async (
+  input: UpdateParticipantRoleConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact/participant-role-config/{InstanceId}/{ContactId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelConfiguration != null && {
+      ChannelConfiguration: serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo(
+        input.ChannelConfiguration,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -13695,6 +13736,59 @@ const deserializeAws_restJson1UpdateInstanceStorageConfigCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateParticipantRoleConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParticipantRoleConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateParticipantRoleConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateParticipantRoleConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParticipantRoleConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdatePhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -15328,6 +15422,20 @@ const serializeAws_restJson1ChatMessage = (input: ChatMessage, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1ChatParticipantRoleConfig = (
+  input: ChatParticipantRoleConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParticipantTimerConfigList != null && {
+      ParticipantTimerConfigList: serializeAws_restJson1ParticipantTimerConfigList(
+        input.ParticipantTimerConfigList,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1ChatStreamingConfiguration = (
   input: ChatStreamingConfiguration,
   context: __SerdeContext
@@ -15626,6 +15734,38 @@ const serializeAws_restJson1ParticipantDetails = (input: ParticipantDetails, con
   return {
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
   };
+};
+
+const serializeAws_restJson1ParticipantTimerConfigList = (
+  input: ParticipantTimerConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ParticipantTimerConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ParticipantTimerConfiguration = (
+  input: ParticipantTimerConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
+    ...(input.TimerType != null && { TimerType: input.TimerType }),
+    ...(input.TimerValue != null && {
+      TimerValue: serializeAws_restJson1ParticipantTimerValue(input.TimerValue, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParticipantTimerValue = (input: ParticipantTimerValue, context: __SerdeContext): any => {
+  return ParticipantTimerValue.visit(input, {
+    ParticipantTimerAction: (value) => ({ ParticipantTimerAction: value }),
+    ParticipantTimerDurationInMinutes: (value) => ({ ParticipantTimerDurationInMinutes: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1PermissionsList = (input: string[], context: __SerdeContext): any => {
@@ -16127,6 +16267,16 @@ const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeConte
     ...(input.Comparison != null && { Comparison: input.Comparison }),
     ...(input.ThresholdValue != null && { ThresholdValue: __serializeFloat(input.ThresholdValue) }),
   };
+};
+
+const serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo = (
+  input: UpdateParticipantRoleConfigChannelInfo,
+  context: __SerdeContext
+): any => {
+  return UpdateParticipantRoleConfigChannelInfo.visit(input, {
+    Chat: (value) => ({ Chat: serializeAws_restJson1ChatParticipantRoleConfig(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1UserDataFilters = (input: UserDataFilters, context: __SerdeContext): any => {

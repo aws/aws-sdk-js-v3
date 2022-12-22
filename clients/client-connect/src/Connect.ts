@@ -671,6 +671,11 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateParticipantRoleConfigCommand,
+  UpdateParticipantRoleConfigCommandInput,
+  UpdateParticipantRoleConfigCommandOutput,
+} from "./commands/UpdateParticipantRoleConfigCommand";
+import {
   UpdatePhoneNumberCommand,
   UpdatePhoneNumberCommandInput,
   UpdatePhoneNumberCommandOutput,
@@ -1148,8 +1153,8 @@ export class Connect extends ConnectClient {
    *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
    *     Guide</i>. </p>
    *          <important>
-   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
-   *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call
+   *     the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
    *     operation.</p>
    *          </important>
    */
@@ -1489,8 +1494,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -3139,7 +3144,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
    *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
    *     Event Stream</a>.</p>
    */
@@ -4460,7 +4465,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
    *    specified by <i>userId</i> will be set to silent monitoring mode on the
-   *    contact.</p>
+   *    contact. Supports voice and chat contacts.</p>
    */
   public monitorContact(
     args: MonitorContactCommandInput,
@@ -5723,6 +5728,55 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
+   *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Customer idle timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Customer auto-disconnect timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Agent idle timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Agent auto-disconnect timeout</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about how chat timeouts work, see
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+   */
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateParticipantRoleConfigCommandOutput>;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    cb: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): void;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): void;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): Promise<UpdateParticipantRoleConfigCommandOutput> | void {
+    const command = new UpdateParticipantRoleConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
    *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
    *          <important>
@@ -6136,8 +6190,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
