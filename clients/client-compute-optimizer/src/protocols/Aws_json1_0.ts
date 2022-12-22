@@ -40,6 +40,10 @@ import {
   ExportEC2InstanceRecommendationsCommandOutput,
 } from "../commands/ExportEC2InstanceRecommendationsCommand";
 import {
+  ExportECSServiceRecommendationsCommandInput,
+  ExportECSServiceRecommendationsCommandOutput,
+} from "../commands/ExportECSServiceRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "../commands/ExportLambdaFunctionRecommendationsCommand";
@@ -59,6 +63,14 @@ import {
   GetEC2RecommendationProjectedMetricsCommandInput,
   GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "../commands/GetEC2RecommendationProjectedMetricsCommand";
+import {
+  GetECSServiceRecommendationProjectedMetricsCommandInput,
+  GetECSServiceRecommendationProjectedMetricsCommandOutput,
+} from "../commands/GetECSServiceRecommendationProjectedMetricsCommand";
+import {
+  GetECSServiceRecommendationsCommandInput,
+  GetECSServiceRecommendationsCommandOutput,
+} from "../commands/GetECSServiceRecommendationsCommand";
 import {
   GetEffectiveRecommendationPreferencesCommandInput,
   GetEffectiveRecommendationPreferencesCommandOutput,
@@ -98,6 +110,8 @@ import {
   AutoScalingGroupConfiguration,
   AutoScalingGroupRecommendation,
   AutoScalingGroupRecommendationOption,
+  ContainerConfiguration,
+  ContainerRecommendation,
   CpuVendorArchitecture,
   CurrentPerformanceRiskRatings,
   DeleteRecommendationPreferencesRequest,
@@ -106,10 +120,19 @@ import {
   DescribeRecommendationExportJobsResponse,
   EBSFilter,
   EBSUtilizationMetric,
+  ECSServiceProjectedMetric,
+  ECSServiceProjectedUtilizationMetric,
+  ECSServiceRecommendation,
+  ECSServiceRecommendationFilter,
+  ECSServiceRecommendationFindingReasonCode,
+  ECSServiceRecommendationOption,
+  ECSServiceRecommendedOptionProjectedMetric,
+  ECSServiceUtilizationMetric,
   EffectiveRecommendationPreferences,
   EnrollmentFilter,
   EstimatedMonthlySavings,
   ExportableAutoScalingGroupField,
+  ExportableECSServiceField,
   ExportableInstanceField,
   ExportableLambdaFunctionField,
   ExportableVolumeField,
@@ -120,6 +143,8 @@ import {
   ExportEBSVolumeRecommendationsResponse,
   ExportEC2InstanceRecommendationsRequest,
   ExportEC2InstanceRecommendationsResponse,
+  ExportECSServiceRecommendationsRequest,
+  ExportECSServiceRecommendationsResponse,
   ExportLambdaFunctionRecommendationsRequest,
   ExportLambdaFunctionRecommendationsResponse,
   ExternalMetricsPreference,
@@ -132,6 +157,10 @@ import {
   GetEC2InstanceRecommendationsResponse,
   GetEC2RecommendationProjectedMetricsRequest,
   GetEC2RecommendationProjectedMetricsResponse,
+  GetECSServiceRecommendationProjectedMetricsRequest,
+  GetECSServiceRecommendationProjectedMetricsResponse,
+  GetECSServiceRecommendationsRequest,
+  GetECSServiceRecommendationsResponse,
   GetEffectiveRecommendationPreferencesRequest,
   GetEffectiveRecommendationPreferencesResponse,
   GetEnrollmentStatusesForOrganizationRequest,
@@ -159,6 +188,7 @@ import {
   LambdaFunctionRecommendationFindingReasonCode,
   LambdaFunctionUtilizationMetric,
   LimitExceededException,
+  MemorySizeConfiguration,
   MissingAuthenticationToken,
   OptInRequiredException,
   PlatformDifference,
@@ -178,6 +208,7 @@ import {
   S3DestinationConfig,
   SavingsOpportunity,
   Scope,
+  ServiceConfiguration,
   ServiceUnavailableException,
   Summary,
   ThrottlingException,
@@ -254,6 +285,19 @@ export const serializeAws_json1_0ExportEC2InstanceRecommendationsCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ExportECSServiceRecommendationsCommand = async (
+  input: ExportECSServiceRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.ExportECSServiceRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExportECSServiceRecommendationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand = async (
   input: ExportLambdaFunctionRecommendationsCommandInput,
   context: __SerdeContext
@@ -316,6 +360,32 @@ export const serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand = a
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand = async (
+  input: GetECSServiceRecommendationProjectedMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetECSServiceRecommendationsCommand = async (
+  input: GetECSServiceRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.GetECSServiceRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetECSServiceRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -733,6 +803,68 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommandError = async
   }
 };
 
+export const deserializeAws_json1_0ExportECSServiceRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportECSServiceRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExportECSServiceRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExportECSServiceRecommendationsResponse(data, context);
+  const response: ExportECSServiceRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExportECSServiceRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportECSServiceRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      throw await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      throw await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context);
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      throw await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      throw await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1002,6 +1134,130 @@ const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      throw await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      throw await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context);
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      throw await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      throw await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsResponse(data, context);
+  const response: GetECSServiceRecommendationProjectedMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      throw await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      throw await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context);
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      throw await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      throw await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetECSServiceRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetECSServiceRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetECSServiceRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetECSServiceRecommendationsResponse(data, context);
+  const response: GetECSServiceRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetECSServiceRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetECSServiceRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1705,6 +1961,27 @@ const serializeAws_json1_0EBSFilters = (input: EBSFilter[], context: __SerdeCont
     });
 };
 
+const serializeAws_json1_0ECSServiceRecommendationFilter = (
+  input: ECSServiceRecommendationFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_json1_0FilterValues(input.values, context) }),
+  };
+};
+
+const serializeAws_json1_0ECSServiceRecommendationFilters = (
+  input: ECSServiceRecommendationFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ECSServiceRecommendationFilter(entry, context);
+    });
+};
+
 const serializeAws_json1_0EnrollmentFilter = (input: EnrollmentFilter, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -1722,6 +1999,17 @@ const serializeAws_json1_0EnrollmentFilters = (input: EnrollmentFilter[], contex
 
 const serializeAws_json1_0ExportableAutoScalingGroupFields = (
   input: (ExportableAutoScalingGroupField | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_0ExportableECSServiceFields = (
+  input: (ExportableECSServiceField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1824,6 +2112,26 @@ const serializeAws_json1_0ExportEC2InstanceRecommendationsRequest = (
         context
       ),
     }),
+    ...(input.s3DestinationConfig != null && {
+      s3DestinationConfig: serializeAws_json1_0S3DestinationConfig(input.s3DestinationConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_0ExportECSServiceRecommendationsRequest = (
+  input: ExportECSServiceRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountIds != null && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.fieldsToExport != null && {
+      fieldsToExport: serializeAws_json1_0ExportableECSServiceFields(input.fieldsToExport, context),
+    }),
+    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
+    ...(input.filters != null && {
+      filters: serializeAws_json1_0ECSServiceRecommendationFilters(input.filters, context),
+    }),
+    ...(input.includeMemberAccounts != null && { includeMemberAccounts: input.includeMemberAccounts }),
     ...(input.s3DestinationConfig != null && {
       s3DestinationConfig: serializeAws_json1_0S3DestinationConfig(input.s3DestinationConfig, context),
     }),
@@ -1959,6 +2267,34 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
     }),
     ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.stat != null && { stat: input.stat }),
+  };
+};
+
+const serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsRequest = (
+  input: GetECSServiceRecommendationProjectedMetricsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.period != null && { period: input.period }),
+    ...(input.serviceArn != null && { serviceArn: input.serviceArn }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.stat != null && { stat: input.stat }),
+  };
+};
+
+const serializeAws_json1_0GetECSServiceRecommendationsRequest = (
+  input: GetECSServiceRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountIds != null && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.filters != null && {
+      filters: serializeAws_json1_0ECSServiceRecommendationFilters(input.filters, context),
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceArns != null && { serviceArns: serializeAws_json1_0ServiceArns(input.serviceArns, context) }),
   };
 };
 
@@ -2135,6 +2471,14 @@ const serializeAws_json1_0Scope = (input: Scope, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_json1_0ServiceArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
   input: UpdateEnrollmentStatusRequest,
   context: __SerdeContext
@@ -2292,6 +2636,61 @@ const deserializeAws_json1_0AutoScalingGroupRecommendations = (
   return retVal;
 };
 
+const deserializeAws_json1_0ContainerConfiguration = (output: any, context: __SerdeContext): ContainerConfiguration => {
+  return {
+    containerName: __expectString(output.containerName),
+    cpu: __expectInt32(output.cpu),
+    memorySizeConfiguration:
+      output.memorySizeConfiguration != null
+        ? deserializeAws_json1_0MemorySizeConfiguration(output.memorySizeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ContainerConfigurations = (
+  output: any,
+  context: __SerdeContext
+): ContainerConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ContainerConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ContainerRecommendation = (
+  output: any,
+  context: __SerdeContext
+): ContainerRecommendation => {
+  return {
+    containerName: __expectString(output.containerName),
+    cpu: __expectInt32(output.cpu),
+    memorySizeConfiguration:
+      output.memorySizeConfiguration != null
+        ? deserializeAws_json1_0MemorySizeConfiguration(output.memorySizeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ContainerRecommendations = (
+  output: any,
+  context: __SerdeContext
+): ContainerRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ContainerRecommendation(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0CpuVendorArchitectures = (
   output: any,
   context: __SerdeContext
@@ -2359,6 +2758,222 @@ const deserializeAws_json1_0EBSUtilizationMetrics = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_json1_0ECSServiceProjectedMetric = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceProjectedMetric => {
+  return {
+    lowerBoundValues:
+      output.lowerBoundValues != null
+        ? deserializeAws_json1_0MetricValues(output.lowerBoundValues, context)
+        : undefined,
+    name: __expectString(output.name),
+    timestamps: output.timestamps != null ? deserializeAws_json1_0Timestamps(output.timestamps, context) : undefined,
+    upperBoundValues:
+      output.upperBoundValues != null
+        ? deserializeAws_json1_0MetricValues(output.upperBoundValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceProjectedMetrics = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceProjectedMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceProjectedMetric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceProjectedUtilizationMetric = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceProjectedUtilizationMetric => {
+  return {
+    lowerBoundValue: __limitedParseDouble(output.lowerBoundValue),
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    upperBoundValue: __limitedParseDouble(output.upperBoundValue),
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceProjectedUtilizationMetrics = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceProjectedUtilizationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceProjectedUtilizationMetric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendation = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendation => {
+  return {
+    accountId: __expectString(output.accountId),
+    currentPerformanceRisk: __expectString(output.currentPerformanceRisk),
+    currentServiceConfiguration:
+      output.currentServiceConfiguration != null
+        ? deserializeAws_json1_0ServiceConfiguration(output.currentServiceConfiguration, context)
+        : undefined,
+    finding: __expectString(output.finding),
+    findingReasonCodes:
+      output.findingReasonCodes != null
+        ? deserializeAws_json1_0ECSServiceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
+        : undefined,
+    lastRefreshTimestamp:
+      output.lastRefreshTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
+        : undefined,
+    launchType: __expectString(output.launchType),
+    lookbackPeriodInDays: __limitedParseDouble(output.lookbackPeriodInDays),
+    serviceArn: __expectString(output.serviceArn),
+    serviceRecommendationOptions:
+      output.serviceRecommendationOptions != null
+        ? deserializeAws_json1_0ECSServiceRecommendationOptions(output.serviceRecommendationOptions, context)
+        : undefined,
+    utilizationMetrics:
+      output.utilizationMetrics != null
+        ? deserializeAws_json1_0ECSServiceUtilizationMetrics(output.utilizationMetrics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendationFindingReasonCodes = (
+  output: any,
+  context: __SerdeContext
+): (ECSServiceRecommendationFindingReasonCode | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendationOption = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendationOption => {
+  return {
+    containerRecommendations:
+      output.containerRecommendations != null
+        ? deserializeAws_json1_0ContainerRecommendations(output.containerRecommendations, context)
+        : undefined,
+    cpu: __expectInt32(output.cpu),
+    memory: __expectInt32(output.memory),
+    projectedUtilizationMetrics:
+      output.projectedUtilizationMetrics != null
+        ? deserializeAws_json1_0ECSServiceProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
+        : undefined,
+    savingsOpportunity:
+      output.savingsOpportunity != null
+        ? deserializeAws_json1_0SavingsOpportunity(output.savingsOpportunity, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendationOptions = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceRecommendationOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendations = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceRecommendation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendedOptionProjectedMetric = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendedOptionProjectedMetric => {
+  return {
+    projectedMetrics:
+      output.projectedMetrics != null
+        ? deserializeAws_json1_0ECSServiceProjectedMetrics(output.projectedMetrics, context)
+        : undefined,
+    recommendedCpuUnits: __expectInt32(output.recommendedCpuUnits),
+    recommendedMemorySize: __expectInt32(output.recommendedMemorySize),
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceRecommendedOptionProjectedMetrics = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceRecommendedOptionProjectedMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceRecommendedOptionProjectedMetric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ECSServiceUtilizationMetric = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceUtilizationMetric => {
+  return {
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    value: __limitedParseDouble(output.value),
+  } as any;
+};
+
+const deserializeAws_json1_0ECSServiceUtilizationMetrics = (
+  output: any,
+  context: __SerdeContext
+): ECSServiceUtilizationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ECSServiceUtilizationMetric(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0EffectiveRecommendationPreferences = (
   output: any,
   context: __SerdeContext
@@ -2419,6 +3034,17 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): ExportEC2InstanceRecommendationsResponse => {
+  return {
+    jobId: __expectString(output.jobId),
+    s3Destination:
+      output.s3Destination != null ? deserializeAws_json1_0S3Destination(output.s3Destination, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportECSServiceRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ExportECSServiceRecommendationsResponse => {
   return {
     jobId: __expectString(output.jobId),
     s3Destination:
@@ -2497,6 +3123,35 @@ const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse = (
       output.recommendedOptionProjectedMetrics != null
         ? deserializeAws_json1_0RecommendedOptionProjectedMetrics(output.recommendedOptionProjectedMetrics, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetECSServiceRecommendationProjectedMetricsResponse => {
+  return {
+    recommendedOptionProjectedMetrics:
+      output.recommendedOptionProjectedMetrics != null
+        ? deserializeAws_json1_0ECSServiceRecommendedOptionProjectedMetrics(
+            output.recommendedOptionProjectedMetrics,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetECSServiceRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetECSServiceRecommendationsResponse => {
+  return {
+    ecsServiceRecommendations:
+      output.ecsServiceRecommendations != null
+        ? deserializeAws_json1_0ECSServiceRecommendations(output.ecsServiceRecommendations, context)
+        : undefined,
+    errors: output.errors != null ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context) : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -2887,6 +3542,16 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_0MemorySizeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MemorySizeConfiguration => {
+  return {
+    memory: __expectInt32(output.memory),
+    memoryReservation: __expectInt32(output.memoryReservation),
+  } as any;
+};
+
 const deserializeAws_json1_0MetricValues = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3183,6 +3848,19 @@ const deserializeAws_json1_0Scope = (output: any, context: __SerdeContext): Scop
   return {
     name: __expectString(output.name),
     value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_json1_0ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
+  return {
+    autoScalingConfiguration: __expectString(output.autoScalingConfiguration),
+    containerConfigurations:
+      output.containerConfigurations != null
+        ? deserializeAws_json1_0ContainerConfigurations(output.containerConfigurations, context)
+        : undefined,
+    cpu: __expectInt32(output.cpu),
+    memory: __expectInt32(output.memory),
+    taskDefinitionArn: __expectString(output.taskDefinitionArn),
   } as any;
 };
 

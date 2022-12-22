@@ -35,7 +35,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
- *         <p>When you create a recommendation preference, you can set its status to
+ *          <p>When you create a recommendation preference, you can set its status to
  *                 <code>Active</code> or <code>Inactive</code>. Use this action to view the
  *             recommendation preferences that are in effect, or <code>Active</code>.</p>
  * @example

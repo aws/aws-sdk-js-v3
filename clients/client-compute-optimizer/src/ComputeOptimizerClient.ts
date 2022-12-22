@@ -68,6 +68,10 @@ import {
   ExportEC2InstanceRecommendationsCommandOutput,
 } from "./commands/ExportEC2InstanceRecommendationsCommand";
 import {
+  ExportECSServiceRecommendationsCommandInput,
+  ExportECSServiceRecommendationsCommandOutput,
+} from "./commands/ExportECSServiceRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
@@ -87,6 +91,14 @@ import {
   GetEC2RecommendationProjectedMetricsCommandInput,
   GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetEC2RecommendationProjectedMetricsCommand";
+import {
+  GetECSServiceRecommendationProjectedMetricsCommandInput,
+  GetECSServiceRecommendationProjectedMetricsCommandOutput,
+} from "./commands/GetECSServiceRecommendationProjectedMetricsCommand";
+import {
+  GetECSServiceRecommendationsCommandInput,
+  GetECSServiceRecommendationsCommandOutput,
+} from "./commands/GetECSServiceRecommendationsCommand";
 import {
   GetEffectiveRecommendationPreferencesCommandInput,
   GetEffectiveRecommendationPreferencesCommandOutput,
@@ -133,11 +145,14 @@ export type ServiceInputTypes =
   | ExportAutoScalingGroupRecommendationsCommandInput
   | ExportEBSVolumeRecommendationsCommandInput
   | ExportEC2InstanceRecommendationsCommandInput
+  | ExportECSServiceRecommendationsCommandInput
   | ExportLambdaFunctionRecommendationsCommandInput
   | GetAutoScalingGroupRecommendationsCommandInput
   | GetEBSVolumeRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
   | GetEC2RecommendationProjectedMetricsCommandInput
+  | GetECSServiceRecommendationProjectedMetricsCommandInput
+  | GetECSServiceRecommendationsCommandInput
   | GetEffectiveRecommendationPreferencesCommandInput
   | GetEnrollmentStatusCommandInput
   | GetEnrollmentStatusesForOrganizationCommandInput
@@ -153,11 +168,14 @@ export type ServiceOutputTypes =
   | ExportAutoScalingGroupRecommendationsCommandOutput
   | ExportEBSVolumeRecommendationsCommandOutput
   | ExportEC2InstanceRecommendationsCommandOutput
+  | ExportECSServiceRecommendationsCommandOutput
   | ExportLambdaFunctionRecommendationsCommandOutput
   | GetAutoScalingGroupRecommendationsCommandOutput
   | GetEBSVolumeRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
   | GetEC2RecommendationProjectedMetricsCommandOutput
+  | GetECSServiceRecommendationProjectedMetricsCommandOutput
+  | GetECSServiceRecommendationsCommandOutput
   | GetEffectiveRecommendationPreferencesCommandOutput
   | GetEnrollmentStatusCommandOutput
   | GetEnrollmentStatusesForOrganizationCommandOutput
@@ -319,7 +337,8 @@ export interface ComputeOptimizerClientResolvedConfig extends ComputeOptimizerCl
 /**
  * <p>Compute Optimizer is a service that analyzes the configuration and utilization
  *             metrics of your Amazon Web Services compute resources, such as Amazon EC2
- *             instances, Amazon EC2 Auto Scaling groups, Lambda functions, and Amazon EBS volumes. It reports whether your resources are optimal, and generates
+ *             instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
+ *             It reports whether your resources are optimal, and generates
  *             optimization recommendations to reduce the cost and improve the performance of your
  *             workloads. Compute Optimizer also provides recent utilization metric data, in addition
  *             to projected utilization metric data for the recommendations, which you can use to

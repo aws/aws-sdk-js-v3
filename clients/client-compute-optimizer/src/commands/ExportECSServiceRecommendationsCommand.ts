@@ -15,43 +15,48 @@ import {
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
-  GetEnrollmentStatusesForOrganizationRequest,
-  GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
-  GetEnrollmentStatusesForOrganizationResponse,
-  GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
+  ExportECSServiceRecommendationsRequest,
+  ExportECSServiceRecommendationsRequestFilterSensitiveLog,
+  ExportECSServiceRecommendationsResponse,
+  ExportECSServiceRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
-  serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
+  deserializeAws_json1_0ExportECSServiceRecommendationsCommand,
+  serializeAws_json1_0ExportECSServiceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnrollmentStatusesForOrganizationRequest {}
-export interface GetEnrollmentStatusesForOrganizationCommandOutput
-  extends GetEnrollmentStatusesForOrganizationResponse,
+export interface ExportECSServiceRecommendationsCommandInput extends ExportECSServiceRecommendationsRequest {}
+export interface ExportECSServiceRecommendationsCommandOutput
+  extends ExportECSServiceRecommendationsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
- *             accounts, if your account is an organization management account.</p>
- *          <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
+ * <p>
+ *             Exports optimization recommendations for Amazon ECS services on Fargate.
+ *         </p>
+ *          <p>Recommendations are exported in a CSV file, and its metadata
+ *             in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+ *                 Recommendations</a> in the <i>Compute Optimizer User
+ *                     Guide</i>.</p>
+ *          <p>You can only have one Amazon ECS service export job in progress per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const command = new GetEnrollmentStatusesForOrganizationCommand(input);
+ * const command = new ExportECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetEnrollmentStatusesForOrganizationCommandInput} for command's `input` shape.
- * @see {@link GetEnrollmentStatusesForOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link ExportECSServiceRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link ExportECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
-export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
-  GetEnrollmentStatusesForOrganizationCommandInput,
-  GetEnrollmentStatusesForOrganizationCommandOutput,
+export class ExportECSServiceRecommendationsCommand extends $Command<
+  ExportECSServiceRecommendationsCommandInput,
+  ExportECSServiceRecommendationsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +71,7 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetEnrollmentStatusesForOrganizationCommandInput) {
+  constructor(readonly input: ExportECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +84,23 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetEnrollmentStatusesForOrganizationCommandInput, GetEnrollmentStatusesForOrganizationCommandOutput> {
+  ): Handler<ExportECSServiceRecommendationsCommandInput, ExportECSServiceRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEnrollmentStatusesForOrganizationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ExportECSServiceRecommendationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ComputeOptimizerClient";
-    const commandName = "GetEnrollmentStatusesForOrganizationCommand";
+    const commandName = "ExportECSServiceRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ExportECSServiceRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportECSServiceRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,17 +111,17 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
   }
 
   private serialize(
-    input: GetEnrollmentStatusesForOrganizationCommandInput,
+    input: ExportECSServiceRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(input, context);
+    return serializeAws_json1_0ExportECSServiceRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> {
-    return deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(output, context);
+  ): Promise<ExportECSServiceRecommendationsCommandOutput> {
+    return deserializeAws_json1_0ExportECSServiceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

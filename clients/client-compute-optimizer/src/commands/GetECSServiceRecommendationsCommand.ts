@@ -15,45 +15,50 @@ import {
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
-  PutRecommendationPreferencesRequest,
-  PutRecommendationPreferencesRequestFilterSensitiveLog,
-  PutRecommendationPreferencesResponse,
-  PutRecommendationPreferencesResponseFilterSensitiveLog,
+  GetECSServiceRecommendationsRequest,
+  GetECSServiceRecommendationsRequestFilterSensitiveLog,
+  GetECSServiceRecommendationsResponse,
+  GetECSServiceRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0PutRecommendationPreferencesCommand,
-  serializeAws_json1_0PutRecommendationPreferencesCommand,
+  deserializeAws_json1_0GetECSServiceRecommendationsCommand,
+  serializeAws_json1_0GetECSServiceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface PutRecommendationPreferencesCommandInput extends PutRecommendationPreferencesRequest {}
-export interface PutRecommendationPreferencesCommandOutput
-  extends PutRecommendationPreferencesResponse,
+export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceRecommendationsRequest {}
+export interface GetECSServiceRecommendationsCommandOutput
+  extends GetECSServiceRecommendationsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Creates a new recommendation preference or updates an existing recommendation
- *             preference, such as enhanced infrastructure metrics.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
- *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
- *                 Guide</i>.</p>
+ * <p>
+ *             Returns Amazon ECS service recommendations.
+ *         </p>
+ *          <p>
+ *             Compute Optimizer generates recommendations for Amazon ECS services on
+ *             Fargate that meet a specific set of requirements. For more
+ *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+ *                 requirements</a> in the <i>Compute Optimizer User
+ *                     Guide</i>.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, PutRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const command = new PutRecommendationPreferencesCommand(input);
+ * const command = new GetECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link PutRecommendationPreferencesCommandInput} for command's `input` shape.
- * @see {@link PutRecommendationPreferencesCommandOutput} for command's `response` shape.
+ * @see {@link GetECSServiceRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link GetECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
-export class PutRecommendationPreferencesCommand extends $Command<
-  PutRecommendationPreferencesCommandInput,
-  PutRecommendationPreferencesCommandOutput,
+export class GetECSServiceRecommendationsCommand extends $Command<
+  GetECSServiceRecommendationsCommandInput,
+  GetECSServiceRecommendationsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +73,7 @@ export class PutRecommendationPreferencesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: PutRecommendationPreferencesCommandInput) {
+  constructor(readonly input: GetECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +86,23 @@ export class PutRecommendationPreferencesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutRecommendationPreferencesCommandInput, PutRecommendationPreferencesCommandOutput> {
+  ): Handler<GetECSServiceRecommendationsCommandInput, GetECSServiceRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutRecommendationPreferencesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetECSServiceRecommendationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ComputeOptimizerClient";
-    const commandName = "PutRecommendationPreferencesCommand";
+    const commandName = "GetECSServiceRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetECSServiceRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetECSServiceRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +112,15 @@ export class PutRecommendationPreferencesCommand extends $Command<
     );
   }
 
-  private serialize(input: PutRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutRecommendationPreferencesCommand(input, context);
+  private serialize(input: GetECSServiceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0GetECSServiceRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<PutRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0PutRecommendationPreferencesCommand(output, context);
+  ): Promise<GetECSServiceRecommendationsCommandOutput> {
+    return deserializeAws_json1_0GetECSServiceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra
