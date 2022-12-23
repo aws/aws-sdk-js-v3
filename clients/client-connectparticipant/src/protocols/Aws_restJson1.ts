@@ -44,6 +44,8 @@ import {
   ConnectionType,
   InternalServerException,
   Item,
+  MessageMetadata,
+  Receipt,
   ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
@@ -858,10 +860,41 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     ContentType: __expectString(output.ContentType),
     DisplayName: __expectString(output.DisplayName),
     Id: __expectString(output.Id),
+    MessageMetadata:
+      output.MessageMetadata != null
+        ? deserializeAws_restJson1MessageMetadata(output.MessageMetadata, context)
+        : undefined,
     ParticipantId: __expectString(output.ParticipantId),
     ParticipantRole: __expectString(output.ParticipantRole),
     Type: __expectString(output.Type),
   } as any;
+};
+
+const deserializeAws_restJson1MessageMetadata = (output: any, context: __SerdeContext): MessageMetadata => {
+  return {
+    MessageId: __expectString(output.MessageId),
+    Receipts: output.Receipts != null ? deserializeAws_restJson1Receipts(output.Receipts, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Receipt = (output: any, context: __SerdeContext): Receipt => {
+  return {
+    DeliveredTimestamp: __expectString(output.DeliveredTimestamp),
+    ReadTimestamp: __expectString(output.ReadTimestamp),
+    RecipientParticipantId: __expectString(output.RecipientParticipantId),
+  } as any;
+};
+
+const deserializeAws_restJson1Receipts = (output: any, context: __SerdeContext): Receipt[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Receipt(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Item[] => {
