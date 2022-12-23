@@ -520,11 +520,11 @@ import {
   CurrentMetric,
   CurrentMetricData,
   CurrentMetricResult,
+  CurrentMetricSortCriteria,
   DateReference,
   Dimensions,
   Distribution,
   DuplicateResourceException,
-  EmailReference,
   EncryptionConfig,
   EventBridgeActionDefinition,
   Filters,
@@ -562,7 +562,6 @@ import {
   MediaConcurrency,
   MonitorCapability,
   NotificationRecipientType,
-  NumberReference,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
@@ -625,6 +624,7 @@ import {
   ControlPlaneTagFilter,
   DefaultVocabulary,
   DestinationNotAllowedException,
+  EmailReference,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
@@ -632,6 +632,7 @@ import {
   InstanceSummary,
   IntegrationAssociationSummary,
   ListPhoneNumbersSummary,
+  NumberReference,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
@@ -2799,6 +2800,9 @@ export const serializeAws_restJson1GetCurrentMetricDataCommand = async (
     ...(input.Groupings != null && { Groupings: serializeAws_restJson1Groupings(input.Groupings, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortCriteria != null && {
+      SortCriteria: serializeAws_restJson1CurrentMetricSortCriteriaMaxOne(input.SortCriteria, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -9680,6 +9684,9 @@ export const deserializeAws_restJson1GetCurrentMetricDataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount != null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
   if (data.DataSnapshotTime != null) {
     contents.DataSnapshotTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DataSnapshotTime)));
   }
@@ -9739,6 +9746,9 @@ export const deserializeAws_restJson1GetCurrentUserDataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount != null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -15354,6 +15364,14 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AgentsMinOneMaxHundred = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1AllowedAccessControlTags = (
   input: Record<string, string>,
   context: __SerdeContext
@@ -15500,6 +15518,27 @@ const serializeAws_restJson1CurrentMetrics = (input: CurrentMetric[], context: _
     });
 };
 
+const serializeAws_restJson1CurrentMetricSortCriteria = (
+  input: CurrentMetricSortCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SortByMetric != null && { SortByMetric: input.SortByMetric }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_restJson1CurrentMetricSortCriteriaMaxOne = (
+  input: CurrentMetricSortCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CurrentMetricSortCriteria(entry, context);
+    });
+};
+
 const serializeAws_restJson1Distribution = (input: Distribution, context: __SerdeContext): any => {
   return {
     ...(input.Percentage != null && { Percentage: input.Percentage }),
@@ -15535,6 +15574,9 @@ const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext):
   return {
     ...(input.Channels != null && { Channels: serializeAws_restJson1Channels(input.Channels, context) }),
     ...(input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.RoutingProfiles != null && {
+      RoutingProfiles: serializeAws_restJson1RoutingProfiles(input.RoutingProfiles, context),
+    }),
   };
 };
 
@@ -15956,6 +15998,14 @@ const serializeAws_restJson1RoutingProfileQueueReferenceList = (
     });
 };
 
+const serializeAws_restJson1RoutingProfiles = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1RoutingProfileSearchConditionList = (
   input: RoutingProfileSearchCriteria[],
   context: __SerdeContext
@@ -16281,11 +16331,26 @@ const serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo = (
 
 const serializeAws_restJson1UserDataFilters = (input: UserDataFilters, context: __SerdeContext): any => {
   return {
+    ...(input.Agents != null && { Agents: serializeAws_restJson1AgentsMinOneMaxHundred(input.Agents, context) }),
     ...(input.ContactFilter != null && {
       ContactFilter: serializeAws_restJson1ContactFilter(input.ContactFilter, context),
     }),
     ...(input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.RoutingProfiles != null && {
+      RoutingProfiles: serializeAws_restJson1RoutingProfiles(input.RoutingProfiles, context),
+    }),
+    ...(input.UserHierarchyGroups != null && {
+      UserHierarchyGroups: serializeAws_restJson1UserDataHierarchyGroups(input.UserHierarchyGroups, context),
+    }),
   };
+};
+
+const serializeAws_restJson1UserDataHierarchyGroups = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1UserIdentityInfo = (input: UserIdentityInfo, context: __SerdeContext): any => {
@@ -16451,6 +16516,7 @@ const deserializeAws_restJson1AgentStatus = (output: any, context: __SerdeContex
 const deserializeAws_restJson1AgentStatusReference = (output: any, context: __SerdeContext): AgentStatusReference => {
   return {
     StatusArn: __expectString(output.StatusArn),
+    StatusName: __expectString(output.StatusName),
     StatusStartTimestamp:
       output.StatusStartTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusStartTimestamp)))
@@ -16806,6 +16872,10 @@ const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext
   return {
     Channel: __expectString(output.Channel),
     Queue: output.Queue != null ? deserializeAws_restJson1QueueReference(output.Queue, context) : undefined,
+    RoutingProfile:
+      output.RoutingProfile != null
+        ? deserializeAws_restJson1RoutingProfileReference(output.RoutingProfile, context)
+        : undefined,
   } as any;
 };
 
@@ -18371,6 +18441,7 @@ const deserializeAws_restJson1UserData = (output: any, context: __SerdeContext):
       output.MaxSlotsByChannel != null
         ? deserializeAws_restJson1ChannelToCountMap(output.MaxSlotsByChannel, context)
         : undefined,
+    NextStatus: __expectString(output.NextStatus),
     RoutingProfile:
       output.RoutingProfile != null
         ? deserializeAws_restJson1RoutingProfileReference(output.RoutingProfile, context)

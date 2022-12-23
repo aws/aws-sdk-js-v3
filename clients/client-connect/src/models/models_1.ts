@@ -14,8 +14,6 @@ import {
   DateReference,
   DateReferenceFilterSensitiveLog,
   DirectoryType,
-  EmailReference,
-  EmailReferenceFilterSensitiveLog,
   EventSourceName,
   HierarchyGroupSummary,
   HoursOfOperationConfig,
@@ -27,8 +25,6 @@ import {
   LexBot,
   MediaConcurrency,
   MonitorCapability,
-  NumberReference,
-  NumberReferenceFilterSensitiveLog,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -54,6 +50,38 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+ *    Otherwise, null.</p>
+ */
+export interface EmailReference {
+  /**
+   * <p>Identifier of the email reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid email address.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+ *    Otherwise, null.</p>
+ */
+export interface NumberReference {
+  /**
+   * <p>Identifier of the number reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid number.</p>
+   */
+  Value?: string;
+}
 
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
@@ -3023,8 +3051,8 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact
+   *     flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
@@ -3299,7 +3327,7 @@ export interface ParticipantTimerConfiguration {
 
   /**
    * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle.
-   *     <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to
+   *    <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to
    *    idleness.</p>
    */
   TimerType: ParticipantTimerType | string | undefined;
@@ -4221,6 +4249,20 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const EmailReferenceFilterSensitiveLog = (obj: EmailReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberReferenceFilterSensitiveLog = (obj: NumberReference): any => ({
+  ...obj,
+});
 
 /**
  * @internal

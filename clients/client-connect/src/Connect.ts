@@ -1153,8 +1153,8 @@ export class Connect extends ConnectClient {
    *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
    *     Guide</i>. </p>
    *          <important>
-   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call
-   *     the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
+   *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
    *     operation.</p>
    *          </important>
    */
@@ -1494,8 +1494,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
-   *    code conditions for the rule. </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
+   *   </p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -3144,7 +3144,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
    *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
    *     Event Stream</a>.</p>
    */
@@ -4465,7 +4465,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
    *    specified by <i>userId</i> will be set to silent monitoring mode on the
-   *    contact. Supports voice and chat contacts.</p>
+   *    contact.</p>
    */
   public monitorContact(
     args: MonitorContactCommandInput,
@@ -6190,8 +6190,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
-   *    code conditions for the rule. </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
+   *   </p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
