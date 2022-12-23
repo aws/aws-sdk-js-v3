@@ -6,24 +6,24 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/detective.json */
 
-const p="required",
-q="fn",
+const q="fn",
 r="argv",
 s="ref";
-const a="PartitionResult",
-b="tree",
-c="error",
-d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://api.detective-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://api.detective-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://api.detective.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://api.detective.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+const a=true,
+b=false,
+c="String",
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h={"required":true,"default":false,"type":"Boolean"},
+i={[s]:"Endpoint"},
+j={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
+k={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
+l={},
+m={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:d},"supportsFIPS"]}]},
+n={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:d},"supportsDualStack"]}]},
+o=[j],
+p=[k];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[q]:"isSet",[r]:[i]}],type:e,rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:p,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:i,properties:l,headers:l},type:g}]}]},{conditions:[j,k],type:e,rules:[{conditions:[m,n],type:e,rules:[{endpoint:{url:"https://api.detective-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:o,type:e,rules:[{conditions:[m],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://api.detective-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:p,type:e,rules:[{conditions:[n],type:e,rules:[{endpoint:{url:"https://api.detective.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://api.detective.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]};
 export const ruleSet: RuleSetObject = _data;
