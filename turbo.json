@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build:types": {
+      "outputs": ["dist-types"],
+      "dependsOn": ["^build:types"]
+    },
+    "build:cjs": {
+      "outputs": ["dist-cjs"],
+      "dependsOn": ["build:types", "^build:types"]
+    },
+    "build:es": {
+      "outputs": ["dist-es"],
+      "dependsOn": ["build:types", "^build:types"]
+    },
+    "build": {
+      "dependsOn": ["build:types", "build:cjs", "build:es"]
+    },
+    "test": {
+      "dependsOn": ["^build:cjs"]
+    }
+  }
+}
