@@ -134,6 +134,16 @@ const copyToClients = async (sourceDir, destinationDir) => {
         };
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
+
+        const serviceName = clientName.replace("client-", "");
+        const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
+
+        if (existsSync(modelFile)) {
+          mergedManifest.scripts[
+            "generate:client"
+          ] = `(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/${serviceName}.json --keepFiles)`;
+        }
+
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
