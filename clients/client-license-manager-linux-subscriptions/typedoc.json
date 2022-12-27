@@ -1,3 +1,4 @@
 {
-  "extends": "../../typedoc.client.json"
+  "extends": ["../../typedoc.client.json"],
+  "entryPoints": ["src/index.ts"]
 }
