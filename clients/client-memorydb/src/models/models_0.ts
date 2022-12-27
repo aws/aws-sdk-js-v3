@@ -1118,9 +1118,7 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.</p>
-   *
    *          <p>    Example: 05:00-09:00</p>
-   *
    *          <p>    If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.</p>
    */
   SnapshotWindow?: string;
@@ -2269,6 +2267,251 @@ export interface DescribeParametersResponse {
   Parameters?: Parameter[];
 }
 
+export interface DescribeReservedNodesRequest {
+  /**
+   * <p>The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.</p>
+   */
+  ReservationId?: string;
+
+  /**
+   * <p>The offering identifier filter value. Use this parameter to show only purchased reservations matching the specified offering identifier.</p>
+   */
+  ReservedNodesOfferingId?: string;
+
+  /**
+   * <p>The node type filter value. Use this parameter to show only those reservations matching the specified  node type. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The duration filter value, specified in years or seconds. Use this parameter to show only reservations for this duration.</p>
+   */
+  Duration?: string;
+
+  /**
+   * <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
+   *          Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The recurring charge to run this reserved node.</p>
+ */
+export interface RecurringCharge {
+  /**
+   * <p>The amount of the recurring charge to run this reserved node.</p>
+   */
+  RecurringChargeAmount?: number;
+
+  /**
+   * <p>The frequency of the recurring price charged to run this reserved node.</p>
+   */
+  RecurringChargeFrequency?: string;
+}
+
+/**
+ * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
+ */
+export interface ReservedNode {
+  /**
+   * <p>A customer-specified identifier to track this reservation.</p>
+   */
+  ReservationId?: string;
+
+  /**
+   * <p>The ID of the reserved node offering to purchase.</p>
+   */
+  ReservedNodesOfferingId?: string;
+
+  /**
+   * <p>The node type for the reserved nodes.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The time the reservation started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The duration of the reservation in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The fixed price charged for this reserved node.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The number of nodes that have been reserved.</p>
+   */
+  NodeCount?: number;
+
+  /**
+   * <p>The offering type of this reserved node.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The state of the reserved node.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The recurring price charged to run this reserved node.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the reserved node.</p>
+   */
+  ARN?: string;
+}
+
+export interface DescribeReservedNodesResponse {
+  /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+   */
+  ReservedNodes?: ReservedNode[];
+}
+
+/**
+ * <p>The requested node does not exist.</p>
+ */
+export class ReservedNodeNotFoundFault extends __BaseException {
+  readonly name: "ReservedNodeNotFoundFault" = "ReservedNodeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedNodeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeNotFoundFault.prototype);
+  }
+}
+
+export interface DescribeReservedNodesOfferingsRequest {
+  /**
+   * <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
+   */
+  ReservedNodesOfferingId?: string;
+
+  /**
+   * <p>The node type for the reserved nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>Duration filter value, specified in years or seconds. Use this parameter to show only reservations for a given duration.</p>
+   */
+  Duration?: string;
+
+  /**
+   * <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
+   *          Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The offering type of this node.</p>
+ */
+export interface ReservedNodesOffering {
+  /**
+   * <p>The offering identifier.</p>
+   */
+  ReservedNodesOfferingId?: string;
+
+  /**
+   * <p>The node type for the reserved nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The duration of the reservation in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The fixed price charged for this reserved node.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The offering type of this reserved node.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The recurring price charged to run this reserved node.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+}
+
+export interface DescribeReservedNodesOfferingsResponse {
+  /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Lists available reserved node offerings.</p>
+   */
+  ReservedNodesOfferings?: ReservedNodesOffering[];
+}
+
+/**
+ * <p>The requested node offering does not exist.
+ *
+ *       </p>
+ */
+export class ReservedNodesOfferingNotFoundFault extends __BaseException {
+  readonly name: "ReservedNodesOfferingNotFoundFault" = "ReservedNodesOfferingNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodesOfferingNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedNodesOfferingNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodesOfferingNotFoundFault.prototype);
+  }
+}
+
 export interface DescribeServiceUpdatesRequest {
   /**
    * <p>The unique ID of the service update to describe.</p>
@@ -2625,6 +2868,73 @@ export interface ListTagsResponse {
    * <p>A list of tags as key-value pairs.</p>
    */
   TagList?: Tag[];
+}
+
+export interface PurchaseReservedNodesOfferingRequest {
+  /**
+   * <p>The ID of the reserved node offering to purchase.</p>
+   */
+  ReservedNodesOfferingId: string | undefined;
+
+  /**
+   * <p>A customer-specified identifier to track this reservation.</p>
+   */
+  ReservationId?: string;
+
+  /**
+   * <p>The number of node instances to reserve.</p>
+   */
+  NodeCount?: number;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface PurchaseReservedNodesOfferingResponse {
+  /**
+   * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
+   */
+  ReservedNode?: ReservedNode;
+}
+
+/**
+ * <p>You already have a reservation with the given identifier.</p>
+ */
+export class ReservedNodeAlreadyExistsFault extends __BaseException {
+  readonly name: "ReservedNodeAlreadyExistsFault" = "ReservedNodeAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ReservedNodeAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * <p>The request cannot be processed because it would exceed the user's node quota.</p>
+ */
+export class ReservedNodeQuotaExceededFault extends __BaseException {
+  readonly name: "ReservedNodeQuotaExceededFault" = "ReservedNodeQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ReservedNodeQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeQuotaExceededFault.prototype);
+  }
 }
 
 export interface ResetParameterGroupRequest {
@@ -3499,6 +3809,59 @@ export const DescribeParametersResponseFilterSensitiveLog = (obj: DescribeParame
 /**
  * @internal
  */
+export const DescribeReservedNodesRequestFilterSensitiveLog = (obj: DescribeReservedNodesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodeFilterSensitiveLog = (obj: ReservedNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodesResponseFilterSensitiveLog = (obj: DescribeReservedNodesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodesOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeReservedNodesOfferingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodesOfferingFilterSensitiveLog = (obj: ReservedNodesOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodesOfferingsResponseFilterSensitiveLog = (
+  obj: DescribeReservedNodesOfferingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeServiceUpdatesRequestFilterSensitiveLog = (obj: DescribeServiceUpdatesRequest): any => ({
   ...obj,
 });
@@ -3605,6 +3968,24 @@ export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => 
  * @internal
  */
 export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedNodesOfferingRequestFilterSensitiveLog = (
+  obj: PurchaseReservedNodesOfferingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedNodesOfferingResponseFilterSensitiveLog = (
+  obj: PurchaseReservedNodesOfferingResponse
+): any => ({
   ...obj,
 });
 

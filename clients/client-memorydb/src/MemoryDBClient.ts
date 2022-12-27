@@ -80,6 +80,14 @@ import {
 } from "./commands/DescribeParameterGroupsCommand";
 import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
 import {
+  DescribeReservedNodesCommandInput,
+  DescribeReservedNodesCommandOutput,
+} from "./commands/DescribeReservedNodesCommand";
+import {
+  DescribeReservedNodesOfferingsCommandInput,
+  DescribeReservedNodesOfferingsCommandOutput,
+} from "./commands/DescribeReservedNodesOfferingsCommand";
+import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
@@ -95,6 +103,10 @@ import {
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "./commands/ListAllowedNodeTypeUpdatesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import {
+  PurchaseReservedNodesOfferingCommandInput,
+  PurchaseReservedNodesOfferingCommandOutput,
+} from "./commands/PurchaseReservedNodesOfferingCommand";
 import {
   ResetParameterGroupCommandInput,
   ResetParameterGroupCommandOutput,
@@ -138,6 +150,8 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeParameterGroupsCommandInput
   | DescribeParametersCommandInput
+  | DescribeReservedNodesCommandInput
+  | DescribeReservedNodesOfferingsCommandInput
   | DescribeServiceUpdatesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeSubnetGroupsCommandInput
@@ -145,6 +159,7 @@ export type ServiceInputTypes =
   | FailoverShardCommandInput
   | ListAllowedNodeTypeUpdatesCommandInput
   | ListTagsCommandInput
+  | PurchaseReservedNodesOfferingCommandInput
   | ResetParameterGroupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -175,6 +190,8 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeParameterGroupsCommandOutput
   | DescribeParametersCommandOutput
+  | DescribeReservedNodesCommandOutput
+  | DescribeReservedNodesOfferingsCommandOutput
   | DescribeServiceUpdatesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeSubnetGroupsCommandOutput
@@ -182,6 +199,7 @@ export type ServiceOutputTypes =
   | FailoverShardCommandOutput
   | ListAllowedNodeTypeUpdatesCommandOutput
   | ListTagsCommandOutput
+  | PurchaseReservedNodesOfferingCommandOutput
   | ResetParameterGroupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
