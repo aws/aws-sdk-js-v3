@@ -31,7 +31,6 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
 /**
  * <p>Describes a file transfer protocol-enabled server that you specify by passing the
  *         <code>ServerId</code> parameter.</p>
- *
  *          <p>The response contains a description of a server's properties. When you set
  *         <code>EndpointType</code> to VPC, the response will contain the
  *       <code>EndpointDetails</code>.</p>

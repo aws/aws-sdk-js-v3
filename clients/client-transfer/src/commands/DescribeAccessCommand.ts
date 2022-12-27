@@ -32,7 +32,6 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
  *       server, as identified by its <code>ServerId</code> property and its
  *       <code>ExternalId</code>.</p>
- *
  *          <p>The response from this call returns the properties of the access that is associated with
  *       the <code>ServerId</code> value that was specified.</p>
  * @example
