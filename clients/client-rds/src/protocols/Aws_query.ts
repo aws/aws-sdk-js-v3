@@ -551,6 +551,7 @@ import {
   CreateOptionGroupResult,
   CustomAvailabilityZoneNotFoundFault,
   CustomDBEngineVersionAlreadyExistsFault,
+  CustomDBEngineVersionAMI,
   CustomDBEngineVersionNotFoundFault,
   CustomDBEngineVersionQuotaExceededFault,
   DBCluster,
@@ -678,10 +679,9 @@ import {
   DescribeDBLogFilesResponse,
   DescribeDBParameterGroupsMessage,
   DescribeDBParametersMessage,
-  DescribeDBProxiesRequest,
-  DescribeDBProxiesResponse,
   DomainMembership,
   DomainNotFoundFault,
+  Ec2ImagePropertiesNotSupportedFault,
   EC2SecurityGroup,
   Endpoint,
   EventSubscription,
@@ -785,6 +785,8 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxiesRequest,
+  DescribeDBProxiesResponse,
   DescribeDBProxyEndpointsRequest,
   DescribeDBProxyEndpointsResponse,
   DescribeDBProxyTargetGroupsRequest,
@@ -3956,6 +3958,9 @@ const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
     case "CustomDBEngineVersionQuotaExceededFault":
     case "com.amazonaws.rds#CustomDBEngineVersionQuotaExceededFault":
       throw await deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse(parsedOutput, context);
+    case "Ec2ImagePropertiesNotSupportedFault":
+    case "com.amazonaws.rds#Ec2ImagePropertiesNotSupportedFault":
+      throw await deserializeAws_queryEc2ImagePropertiesNotSupportedFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
@@ -11018,6 +11023,19 @@ const deserializeAws_queryDomainNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryEc2ImagePropertiesNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<Ec2ImagePropertiesNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEc2ImagePropertiesNotSupportedFault(body.Error, context);
+  const exception = new Ec2ImagePropertiesNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12280,6 +12298,9 @@ const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   }
   if (input.DatabaseInstallationFilesS3Prefix != null) {
     entries["DatabaseInstallationFilesS3Prefix"] = input.DatabaseInstallationFilesS3Prefix;
+  }
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
   }
   if (input.KMSKeyId != null) {
     entries["KMSKeyId"] = input.KMSKeyId;
@@ -18011,6 +18032,23 @@ const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFault = (
   return contents;
 };
 
+const deserializeAws_queryCustomDBEngineVersionAMI = (
+  output: any,
+  context: __SerdeContext
+): CustomDBEngineVersionAMI => {
+  const contents: any = {
+    ImageId: undefined,
+    Status: undefined,
+  };
+  if (output["ImageId"] !== undefined) {
+    contents.ImageId = __expectString(output["ImageId"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryCustomDBEngineVersionNotFoundFault = (
   output: any,
   context: __SerdeContext
@@ -19160,6 +19198,8 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     DBEngineDescription: undefined,
     DBEngineVersionDescription: undefined,
     DefaultCharacterSet: undefined,
+    Image: undefined,
+    DBEngineMediaType: undefined,
     SupportedCharacterSets: undefined,
     SupportedNcharCharacterSets: undefined,
     ValidUpgradeTarget: undefined,
@@ -19199,6 +19239,12 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["DefaultCharacterSet"] !== undefined) {
     contents.DefaultCharacterSet = deserializeAws_queryCharacterSet(output["DefaultCharacterSet"], context);
+  }
+  if (output["Image"] !== undefined) {
+    contents.Image = deserializeAws_queryCustomDBEngineVersionAMI(output["Image"], context);
+  }
+  if (output["DBEngineMediaType"] !== undefined) {
+    contents.DBEngineMediaType = __expectString(output["DBEngineMediaType"]);
   }
   if (output.SupportedCharacterSets === "") {
     contents.SupportedCharacterSets = [];
@@ -21636,6 +21682,19 @@ const deserializeAws_queryDownloadDBLogFilePortionDetails = (
   }
   if (output["AdditionalDataPending"] !== undefined) {
     contents.AdditionalDataPending = __parseBoolean(output["AdditionalDataPending"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEc2ImagePropertiesNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): Ec2ImagePropertiesNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
