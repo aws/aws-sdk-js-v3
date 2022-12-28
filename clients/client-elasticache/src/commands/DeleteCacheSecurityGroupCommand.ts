@@ -25,7 +25,7 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Deletes a cache security group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
  *          </note>
  * @example

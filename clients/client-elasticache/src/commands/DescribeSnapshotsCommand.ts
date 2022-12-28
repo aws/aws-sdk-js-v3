@@ -33,8 +33,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *             By default, <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
  *             describe a single snapshot, or just the snapshots associated with a particular cache
  *             cluster.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example

@@ -32,7 +32,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * <p>Creates a cluster. All nodes in the
  *             cluster run the same protocol-compliant cache engine software, either Memcached
  *             or Redis.</p>
- *         <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
+ *          <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

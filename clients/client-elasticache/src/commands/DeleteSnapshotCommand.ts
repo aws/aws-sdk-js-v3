@@ -32,8 +32,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * <p>Deletes an existing snapshot. When you receive a
  *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
  *             you cannot cancel or revert this operation.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
