@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.240.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.239.0...v3.240.0) (2022-12-28)
+
+
+### Features
+
+* **client-elasticache:** This release allows you to modify the encryption in transit setting, for existing Redis clusters. You can now change the TLS configuration of your Redis clusters without the need to re-build or re-provision the clusters or impact application availability. ([7c53c4a](https://github.com/aws/aws-sdk-js-v3/commit/7c53c4a5ae779a2d9a4ae25e3b669adeff3823b7))
+* **client-network-firewall:** AWS Network Firewall now provides status messages for firewalls to help you troubleshoot when your endpoint fails. ([fcc316c](https://github.com/aws/aws-sdk-js-v3/commit/fcc316c7e68c1b7c90a78f5fcae40d234c988995))
+* **client-rds:** This release adds support for Custom Engine Version (CEV) on RDS Custom SQL Server. ([9468d16](https://github.com/aws/aws-sdk-js-v3/commit/9468d16ceedda66a1477efd6624a1730f286a1c3))
+* **client-route53-recovery-control-config:** Added support for Python paginators in the route53-recovery-control-config List* APIs. ([91839b3](https://github.com/aws/aws-sdk-js-v3/commit/91839b3e56881cabe7cad685f3855db7aef8bef1))
+
+
+
+
+
 # [3.239.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.238.0...v3.239.0) (2022-12-27)
 
 

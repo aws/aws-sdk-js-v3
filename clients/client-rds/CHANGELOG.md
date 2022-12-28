@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.240.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.239.0...v3.240.0) (2022-12-28)
+
+
+### Features
+
+* **client-rds:** This release adds support for Custom Engine Version (CEV) on RDS Custom SQL Server. ([9468d16](https://github.com/aws/aws-sdk-js-v3/commit/9468d16ceedda66a1477efd6624a1730f286a1c3))
+
+
+
+
+
 # [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

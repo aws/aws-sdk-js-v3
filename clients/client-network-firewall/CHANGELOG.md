@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.240.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.239.0...v3.240.0) (2022-12-28)
+
+
+### Features
+
+* **client-network-firewall:** AWS Network Firewall now provides status messages for firewalls to help you troubleshoot when your endpoint fails. ([fcc316c](https://github.com/aws/aws-sdk-js-v3/commit/fcc316c7e68c1b7c90a78f5fcae40d234c988995))
+
+
+
+
+
 # [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall
