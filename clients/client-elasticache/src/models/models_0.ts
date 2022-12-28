@@ -28,7 +28,7 @@ export interface AddTagsToResourceMessage {
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
    *             ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 
@@ -285,7 +285,7 @@ export interface AllowedNodeTypeModificationsMessage {
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use
    *             to scale your cluster or replication group.</p>
-   *         <p>When scaling up a Redis cluster or replication group using <code>ModifyCacheCluster</code> or
+   *          <p>When scaling up a Redis cluster or replication group using <code>ModifyCacheCluster</code> or
    *             <code>ModifyReplicationGroup</code>,
    *             use a value from this list for the <code>CacheNodeType</code> parameter.</p>
    */
@@ -362,7 +362,7 @@ export interface EC2SecurityGroup {
 
 /**
  * <p>Represents the output of one of the following operations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <code>AuthorizeCacheSecurityGroupIngress</code>
@@ -410,7 +410,7 @@ export interface CacheSecurityGroup {
 export interface AuthorizeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AuthorizeCacheSecurityGroupIngress</code>
@@ -917,6 +917,11 @@ export interface ReshardingStatus {
   SlotMigration?: SlotMigration;
 }
 
+export enum TransitEncryptionMode {
+  PREFERRED = "preferred",
+  REQUIRED = "required",
+}
+
 /**
  * <p>The status of the user group update.</p>
  */
@@ -967,6 +972,16 @@ export interface ReplicationGroupPendingModifiedValues {
    * <p>The log delivery configurations being modified </p>
    */
   LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to true.</p>
+   */
+  TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 /**
@@ -1044,7 +1059,7 @@ export interface ReplicationGroup {
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
    *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a
    *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <important>
+   *          <important>
    *             <p>
    *             If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are turned off.</p>
    *          </important>
@@ -1053,10 +1068,10 @@ export interface ReplicationGroup {
 
   /**
    * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of your node group (shard).</p>
-   *         <p>Example: <code>05:00-09:00</code>
-   *         </p>
-   *         <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
-   *         <note>
+   *          <p>Example: <code>05:00-09:00</code>
+   *          </p>
+   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
+   *          <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
    */
@@ -1065,7 +1080,7 @@ export interface ReplicationGroup {
   /**
    * <p>A flag indicating whether or not this replication group is cluster enabled;
    *             i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups).</p>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
    */
   ClusterEnabled?: boolean;
@@ -1078,7 +1093,7 @@ export interface ReplicationGroup {
   /**
    * <p>A flag that enables using an <code>AuthToken</code> (password)
    *             when issuing Redis commands.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AuthTokenEnabled?: boolean;
@@ -1090,28 +1105,24 @@ export interface ReplicationGroup {
 
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
-   *             after the cluster is created. To enable in-transit encryption on a cluster
-   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
-   *             when you create a cluster.</p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   TransitEncryptionEnabled?: boolean;
 
   /**
    * <p>A flag that enables encryption at-rest when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code>
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code>
    *             after the cluster is created. To enable encryption at-rest on a cluster
    *             you must set <code>AtRestEncryptionEnabled</code> to <code>true</code>
    *             when you create a cluster.</p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AtRestEncryptionEnabled?: boolean;
@@ -1153,7 +1164,7 @@ export interface ReplicationGroup {
   DataTiering?: DataTieringStatus | string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
    *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
@@ -1169,6 +1180,11 @@ export interface ReplicationGroup {
    *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
   IpDiscovery?: IpDiscovery | string;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 export interface CompleteMigrationResponse {
@@ -1216,11 +1232,10 @@ export interface CopySnapshotMessage {
   /**
    * <p>The Amazon S3 bucket to which the snapshot is exported.
    *             This parameter is used only when exporting a snapshot for external access.</p>
-   *         <p>When using this parameter to export a snapshot,
+   *          <p>When using this parameter to export a snapshot,
    *             be sure Amazon ElastiCache has the needed permissions to this S3 bucket.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
    */
   TargetBucket?: string;
 
@@ -1250,7 +1265,7 @@ export interface NodeGroupConfiguration {
    * <p>A string that specifies the keyspace for a particular node group.
    *             Keyspaces range from 0 to 16,383.
    *             The string is in the format <code>startkey-endkey</code>.</p>
-   *         <p>Example: <code>"0-3999"</code>
+   *          <p>Example: <code>"0-3999"</code>
    *          </p>
    */
   Slots?: string;
@@ -1363,18 +1378,16 @@ export interface Snapshot {
 
   /**
    * <p>The name of the compute and memory capacity node type for the source cluster.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -1384,198 +1397,145 @@ export interface Snapshot {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -1606,7 +1566,7 @@ export interface Snapshot {
 
   /**
    * <p>The number of cache nodes in the source cluster.</p>
-   *         <p>For clusters running Redis, this value must be 1.
+   *          <p>For clusters running Redis, this value must be 1.
    *             For clusters running Memcached, this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
@@ -1707,11 +1667,11 @@ export interface Snapshot {
 
   /**
    * <p>For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it.</p>
-   *         <p>For manual snapshots, this field reflects the <code>SnapshotRetentionLimit</code> for the
+   *          <p>For manual snapshots, this field reflects the <code>SnapshotRetentionLimit</code> for the
    *             source cluster when the snapshot was created. This field is otherwise ignored:
    *             Manual snapshots do not expire, and can only be deleted using the <code>DeleteSnapshot</code>
    *             operation. </p>
-   *         <p>
+   *          <p>
    *             <b>Important</b>
    *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
    */
@@ -1923,8 +1883,8 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.</p>
-   *         <p>If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.</p>
-   *         <note>
+   *          <p>If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.</p>
+   *          <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
    */
@@ -1933,54 +1893,54 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or
    *             created across multiple Availability Zones in the cluster's region.</p>
-   *         <p>This parameter is only supported for Memcached clusters.</p>
-   *         <p>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
+   *          <p>This parameter is only supported for Memcached clusters.</p>
+   *          <p>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
    *             ElastiCache assumes <code>single-az</code> mode.</p>
    */
   AZMode?: AZMode | string;
 
   /**
    * <p>The EC2 Availability Zone in which the cluster is created.</p>
-   *         <p>All nodes belonging to this cluster are placed in the preferred Availability Zone.
+   *          <p>All nodes belonging to this cluster are placed in the preferred Availability Zone.
    *             If you want to create your nodes across multiple Availability Zones, use <code>PreferredAvailabilityZones</code>.</p>
-   *         <p>Default: System chosen Availability Zone.</p>
+   *          <p>Default: System chosen Availability Zone.</p>
    */
   PreferredAvailabilityZone?: string;
 
   /**
    * <p>A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.</p>
-   *         <p>This option is only supported on Memcached.</p>
-   *         <note>
+   *          <p>This option is only supported on Memcached.</p>
+   *          <note>
    *             <p>If you are creating your cluster in an Amazon VPC (recommended) you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group.</p>
    *             <p>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</p>
-   *         </note>
-   *         <p>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code> instead, or
+   *          </note>
+   *          <p>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code> instead, or
    *             repeat the Availability Zone multiple times in the list.</p>
-   *         <p>Default: System chosen Availability Zones.</p>
+   *          <p>Default: System chosen Availability Zones.</p>
    */
   PreferredAvailabilityZones?: string[];
 
   /**
    * <p>The initial number of cache nodes that the cluster has.</p>
-   *         <p>For clusters running Redis, this value must be 1.
+   *          <p>For clusters running Redis, this value must be 1.
    *     For clusters running Memcached, this value must be between 1 and 40.</p>
-   *         <p>If you need more than 40 nodes for your Memcached cluster,
+   *          <p>If you need more than 40 nodes for your Memcached cluster,
    *             please fill out the ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
    */
   NumCacheNodes?: number;
 
   /**
    * <p>The compute and memory capacity of the nodes in the node group (shard).</p>
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -1990,196 +1950,145 @@ export interface CreateCacheClusterMessage {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -2199,7 +2108,7 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>The name of the cache engine to be used for this cluster.</p>
-   *         <p>Valid values for this parameter are: <code>memcached</code> | <code>redis</code>
+   *          <p>Valid values for this parameter are: <code>memcached</code> | <code>redis</code>
    *          </p>
    */
   Engine?: string;
@@ -2207,8 +2116,7 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>The version number of the cache engine to be used for this cluster.
    *             To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
    *             If you want to use an earlier engine version,
    *             you must delete the existing cluster or replication group and create it anew with the earlier engine version. </p>
@@ -2224,8 +2132,8 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>The name of the subnet group to be used for the cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <important>
+   *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <important>
    *             <p>If you're going to launch your cluster in an Amazon VPC,
    *                 you need to create a subnet group before you start creating a cluster.
    *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
@@ -2235,13 +2143,13 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>A list of security group names to associate with this cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
   CacheSecurityGroupNames?: string[];
 
   /**
    * <p>One or more VPC security groups associated with the cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
   SecurityGroupIds?: string[];
 
@@ -2255,10 +2163,10 @@ export interface CreateCacheClusterMessage {
    *             a Redis RDB snapshot file stored in Amazon S3.
    *             The snapshot file is used to populate the node group (shard).
    *             The Amazon S3 object name in the ARN cannot contain any commas.</p>
-   *         <note>
+   *          <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
-   *         <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
+   *          <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
    *          </p>
    */
   SnapshotArns?: string[];
@@ -2266,7 +2174,7 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>The name of a Redis snapshot from which to restore data into the new node group (shard).
    *             The snapshot status changes to <code>restoring</code> while the new node group (shard) is being created.</p>
-   *         <note>
+   *          <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
    */
@@ -2317,7 +2225,7 @@ export interface CreateCacheClusterMessage {
    *          <p>Example: <code>05:00-09:00</code>
    *          </p>
    *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
-   *         <note>
+   *          <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
    */
@@ -2327,8 +2235,8 @@ export interface CreateCacheClusterMessage {
    * <p>
    *             <b>Reserved parameter.</b>
    *             The password used to access a password protected server.</p>
-   *         <p>Password constraints:</p>
-   *         <ul>
+   *          <p>Password constraints:</p>
+   *          <ul>
    *             <li>
    *                <p>Must be only printable ASCII characters.</p>
    *             </li>
@@ -2340,7 +2248,7 @@ export interface CreateCacheClusterMessage {
    *                <p>The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at http://redis.io/commands/AUTH.</p>
+   *          <p>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at http://redis.io/commands/AUTH.</p>
    */
   AuthToken?: string;
 
@@ -2365,10 +2273,8 @@ export interface CreateCacheClusterMessage {
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 
   /**
-   * <p>A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created.
-   *             To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster.</p>
-   *
-   *           <p> Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.</p>
+   * <p>A flag that enables in-transit encryption when set to true.</p>
+   *          <p> Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.</p>
    */
   TransitEncryptionEnabled?: boolean;
 
@@ -2389,17 +2295,16 @@ export interface CreateCacheClusterMessage {
  * <p>Represents an individual cache node within a cluster. Each cache node runs its own
  *             instance of the cluster's protocol-compliant caching software - either Memcached or
  *             Redis.</p>
- *
- *         <p>The following node types are supported by ElastiCache.
+ *          <p>The following node types are supported by ElastiCache.
  * 				Generally speaking, the current generation types provide more memory and computational power
  * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
- * 	        <ul>
+ *          <ul>
  *             <li>
  *                <p>General purpose:</p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>Current generation: </p>
- * 					                <p>
+ *                      <p>
  *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
  *
  * 					 	<code>cache.m6g.large</code>,
@@ -2409,198 +2314,145 @@ export interface CreateCacheClusterMessage {
  * 							<code>cache.m6g.8xlarge</code>,
  * 							<code>cache.m6g.12xlarge</code>,
  * 							<code>cache.m6g.16xlarge</code>
- *
- *
- *
- * 						               </p>
- *
- * 						               <note>
+ *                      </p>
+ *                      <note>
  *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
  *                         </p>
  *                      </note>
- *
- *
- *     					            <p>
+ *                      <p>
  *                         <b>M5 node types:</b>
- *     						              <code>cache.m5.large</code>,
+ *                         <code>cache.m5.large</code>,
  *     						<code>cache.m5.xlarge</code>,
  *     						<code>cache.m5.2xlarge</code>,
  *     						<code>cache.m5.4xlarge</code>,
  *     						<code>cache.m5.12xlarge</code>,
  *     						<code>cache.m5.24xlarge</code>
- *
- *
- *     						           </p>
- *
- *
- * 						               <p>
+ *                      </p>
+ *                      <p>
  *                         <b>M4 node types:</b>
- *     						              <code>cache.m4.large</code>,
+ *                         <code>cache.m4.large</code>,
  *     						<code>cache.m4.xlarge</code>,
  *     						<code>cache.m4.2xlarge</code>,
  *     						<code>cache.m4.4xlarge</code>,
  *     						<code>cache.m4.10xlarge</code>
  *                      </p>
- *
- * 					                <p>
+ *                      <p>
  *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
  * 					        <code>cache.t4g.micro</code>,
  * 					        <code>cache.t4g.small</code>,
  * 					        <code>cache.t4g.medium</code>
- * 					                </p>
- *
- *
- * 					                <p>
+ *                      </p>
+ *                      <p>
  *                         <b>T3 node types:</b>
- * 					                   <code>cache.t3.micro</code>,
+ *                         <code>cache.t3.micro</code>,
  *     						<code>cache.t3.small</code>,
  *     						<code>cache.t3.medium</code>
  *                      </p>
- *
- *
- *     				             <p>
+ *                      <p>
  *                         <b>T2 node types:</b>
- * 					                   <code>cache.t2.micro</code>,
+ *                         <code>cache.t2.micro</code>,
  *     						<code>cache.t2.small</code>,
  *     						<code>cache.t2.medium</code>
  *                      </p>
- *
- *
- *
- *
- *     						        </li>
+ *                   </li>
  *                   <li>
  *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
- * 						               <p>
+ *                      <p>
  *                         <b>T1 node types:</b>
- * 					                   <code>cache.t1.micro</code>
+ *                         <code>cache.t1.micro</code>
  *                      </p>
- *
- * 						               <p>
+ *                      <p>
  *                         <b>M1 node types:</b>
- * 						                  <code>cache.m1.small</code>,
+ *                         <code>cache.m1.small</code>,
  * 						   <code>cache.m1.medium</code>,
  * 						   <code>cache.m1.large</code>,
  * 						   <code>cache.m1.xlarge</code>
  *                      </p>
- *
- * 						               <p>
+ *                      <p>
  *                         <b>M3 node types:</b>
- *     						              <code>cache.m3.medium</code>,
+ *                         <code>cache.m3.medium</code>,
  *     						<code>cache.m3.large</code>,
  *     						<code>cache.m3.xlarge</code>,
  *     						<code>cache.m3.2xlarge</code>
  *                      </p>
- *
- * 						            </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
  *                <p>Compute optimized:</p>
- *
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
- * 			                  <p>
+ *                      <p>
  *                         <b>C1 node types:</b>
- * 			                     <code>cache.c1.xlarge</code>
+ *                         <code>cache.c1.xlarge</code>
  *                      </p>
  *                   </li>
  *                </ul>
  *             </li>
  *             <li>
  *                <p>Memory optimized:</p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>Current generation: </p>
- *
- *
- *
- *
- * 											          <p>
+ *                      <p>
  *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
- *
- *
- *
- * 						               <p>
- * 							                 <code>cache.r6g.large</code>,
+ *                      <p>
+ *                         <code>cache.r6g.large</code>,
  * 							<code>cache.r6g.xlarge</code>,
  * 							<code>cache.r6g.2xlarge</code>,
  * 							<code>cache.r6g.4xlarge</code>,
  * 							<code>cache.r6g.8xlarge</code>,
  * 							<code>cache.r6g.12xlarge</code>,
  * 							<code>cache.r6g.16xlarge</code>
- *
- *
- *
- *
- *
- *
- * 						               </p>
- * 						               <note>
+ *                      </p>
+ *                      <note>
  *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
  *                         </p>
  *                      </note>
- * 					                <p>
+ *                      <p>
  *                         <b>R5 node types:</b>
- *     					               <code>cache.r5.large</code>,
+ *                         <code>cache.r5.large</code>,
  *     					   <code>cache.r5.xlarge</code>,
  *     					   <code>cache.r5.2xlarge</code>,
  *     					   <code>cache.r5.4xlarge</code>,
  *     					   <code>cache.r5.12xlarge</code>,
  *     					   <code>cache.r5.24xlarge</code>
  *                      </p>
- *
- *     					            <p>
+ *                      <p>
  *                         <b>R4 node types:</b>
- *     					               <code>cache.r4.large</code>,
+ *                         <code>cache.r4.large</code>,
  *     					   <code>cache.r4.xlarge</code>,
  *     					   <code>cache.r4.2xlarge</code>,
  *     					   <code>cache.r4.4xlarge</code>,
  *     					   <code>cache.r4.8xlarge</code>,
  *     					   <code>cache.r4.16xlarge</code>
  *                      </p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *     					         </li>
+ *                   </li>
  *                   <li>
  *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
- *                         <p>
+ *                      <p>
  *                         <b>M2 node types:</b>
- *     					               <code>cache.m2.xlarge</code>,
+ *                         <code>cache.m2.xlarge</code>,
  *     						<code>cache.m2.2xlarge</code>,
  *     						<code>cache.m2.4xlarge</code>
  *                      </p>
- *
- *     						           <p>
+ *                      <p>
  *                         <b>R3 node types:</b>
- *     					               <code>cache.r3.large</code>,
+ *                         <code>cache.r3.large</code>,
  *     						<code>cache.r3.xlarge</code>,
  *     						<code>cache.r3.2xlarge</code>,
  *     						<code>cache.r3.4xlarge</code>,
  *     						<code>cache.r3.8xlarge</code>
  *                      </p>
- *
- *     						        </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
- *
- * 		       <p>
+ *          <p>
  *             <b>Additional node type info</b>
  *          </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>All current generation instance types are created in Amazon VPC by default.</p>
  *             </li>
@@ -2719,7 +2571,7 @@ export interface NotificationConfiguration {
 export interface PendingModifiedValues {
   /**
    * <p>The new number of cache nodes for the cluster.</p>
-   *         <p>For clusters running Redis, this value must be 1.
+   *          <p>For clusters running Redis, this value must be 1.
    *             For clusters running Memcached, this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
@@ -2749,6 +2601,16 @@ export interface PendingModifiedValues {
    * <p>The log delivery configurations being modified </p>
    */
   LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to true.</p>
+   */
+  TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 /**
@@ -2781,7 +2643,7 @@ export interface CacheCluster {
   /**
    * <p>Represents a Memcached cluster endpoint which can be used by an application to connect to any node in the cluster.
    *             The configuration endpoint will always have <code>.cfg</code> in it.</p>
-   *         <p>Example: <code>mem-3.9dvc4r<u>.cfg</u>.usw2.cache.amazonaws.com:11211</code>
+   *          <p>Example: <code>mem-3.9dvc4r<u>.cfg</u>.usw2.cache.amazonaws.com:11211</code>
    *          </p>
    */
   ConfigurationEndpoint?: Endpoint;
@@ -2793,17 +2655,16 @@ export interface CacheCluster {
 
   /**
    * <p>The name of the compute and memory capacity node type for the cluster.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -2813,198 +2674,145 @@ export interface CacheCluster {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -3049,7 +2857,7 @@ export interface CacheCluster {
 
   /**
    * <p>The number of cache nodes in the cluster.</p>
-   *         <p>For clusters running Redis, this value must be 1. For clusters running Memcached,
+   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached,
    *             this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
@@ -3171,7 +2979,7 @@ export interface CacheCluster {
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
    *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5,  a
    *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <important>
+   *          <important>
    *             <p>
    *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
    *          </important>
@@ -3181,7 +2989,7 @@ export interface CacheCluster {
   /**
    * <p>The daily time range (in UTC) during which ElastiCache begins taking a
    *             daily snapshot of your cluster.</p>
-   *         <p>Example: <code>05:00-09:00</code>
+   *          <p>Example: <code>05:00-09:00</code>
    *          </p>
    */
   SnapshotWindow?: string;
@@ -3189,7 +2997,7 @@ export interface CacheCluster {
   /**
    * <p>A flag that enables using an <code>AuthToken</code> (password)
    *             when issuing Redis commands.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AuthTokenEnabled?: boolean;
@@ -3201,28 +3009,24 @@ export interface CacheCluster {
 
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
-   *             after the cluster is created. To enable in-transit encryption on a cluster
-   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
-   *             when you create a cluster.</p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   TransitEncryptionEnabled?: boolean;
 
   /**
    * <p>A flag that enables encryption at-rest when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code>
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code>
    *             after the cluster is created. To enable at-rest encryption on a cluster
    *             you must set <code>AtRestEncryptionEnabled</code> to <code>true</code>
    *             when you create a cluster.</p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AtRestEncryptionEnabled?: boolean;
@@ -3253,6 +3057,11 @@ export interface CacheCluster {
    *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
   IpDiscovery?: IpDiscovery | string;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 export interface CreateCacheClusterResult {
@@ -3388,7 +3197,7 @@ export interface CreateCacheParameterGroupMessage {
 
   /**
    * <p>The name of the cache parameter group family that the cache parameter group can be used with.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -3424,7 +3233,7 @@ export interface CacheParameterGroup {
 
   /**
    * <p>The name of the cache parameter group family that this cache parameter group is compatible with.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -3524,8 +3333,8 @@ export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
 export interface CreateCacheSecurityGroupMessage {
   /**
    * <p>A name for the cache security group. This value is stored as a lowercase string.</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".</p>
-   *         <p>Example: <code>mysecuritygroup</code>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".</p>
+   *          <p>Example: <code>mysecuritygroup</code>
    *          </p>
    */
   CacheSecurityGroupName: string | undefined;
@@ -3544,7 +3353,7 @@ export interface CreateCacheSecurityGroupMessage {
 export interface CreateCacheSecurityGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AuthorizeCacheSecurityGroupIngress</code>
@@ -3628,8 +3437,8 @@ export class CacheSubnetQuotaExceededFault extends __BaseException {
 export interface CreateCacheSubnetGroupMessage {
   /**
    * <p>A name for the cache subnet group. This value is stored as a lowercase string.</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
-   *         <p>Example: <code>mysubnetgroup</code>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
+   *          <p>Example: <code>mysubnetgroup</code>
    *          </p>
    */
   CacheSubnetGroupName: string | undefined;
@@ -3699,7 +3508,7 @@ export interface Subnet {
 
 /**
  * <p>Represents the output of one of the following operations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <code>CreateCacheSubnetGroup</code>
@@ -3748,7 +3557,7 @@ export interface CacheSubnetGroup {
 export interface CreateCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreateCacheSubnetGroup</code>
@@ -3807,7 +3616,7 @@ export interface CreateGlobalReplicationGroupMessage {
   /**
    * <p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix
    *             to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  </p>
-   *         <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the Amazon CLI with Global datastores </a>.</p>
+   *          <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the Amazon CLI with Global datastores </a>.</p>
    */
   GlobalReplicationGroupIdSuffix: string | undefined;
 
@@ -3870,9 +3679,7 @@ export interface GlobalReplicationGroupMember {
 /**
  * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
  *         cluster automatically replicates updates to the secondary cluster.</p>
- *
- *
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
  *             which is what you use to associate a secondary cluster.</p>
@@ -3928,16 +3735,14 @@ export interface GlobalReplicationGroup {
   /**
    * <p>A flag that enables using an <code>AuthToken</code> (password)
    *             when issuing Redis commands.</p>
-   *             <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AuthTokenEnabled?: boolean;
 
   /**
-   * <p>A flag that enables in-transit encryption when set to true.
-   *
-   *             You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster. </p>
-   *         <p>
+   * <p>A flag that enables in-transit encryption when set to true.</p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
    */
@@ -3945,11 +3750,11 @@ export interface GlobalReplicationGroup {
 
   /**
    * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
-   *             <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
    *                 group is created.
    *                 To enable encryption at rest on a replication group you must set <code>AtRestEncryptionEnabled</code> to
    *                 <code>true</code> when you create the replication group. </p>
-   *             <p>
+   *          <p>
    *             <b>Required:</b>
    *                 Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
    */
@@ -3965,9 +3770,7 @@ export interface CreateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -4021,7 +3824,6 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 export interface CreateReplicationGroupMessage {
   /**
    * <p>The replication group identifier. This parameter is stored as a lowercase string.</p>
-   *
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4050,7 +3852,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>The identifier of the cluster that serves as the primary for this replication
    *             group. This cluster must already exist and have a status of <code>available</code>.</p>
-   *         <p>This parameter is not required if <code>NumCacheClusters</code>,
+   *          <p>This parameter is not required if <code>NumCacheClusters</code>,
    *             <code>NumNodeGroups</code>, or
    *             <code>ReplicasPerNodeGroup</code> is specified.</p>
    */
@@ -4058,11 +3860,9 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.</p>
-   *
-   *         <p>
+   *          <p>
    *             <code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled) replication groups.</p>
-   *
-   *         <p>Default: false</p>
+   *          <p>Default: false</p>
    */
   AutomaticFailoverEnabled?: boolean;
 
@@ -4073,12 +3873,12 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>The number of clusters this replication group initially has.</p>
-   *         <p>This parameter is not used if there is more than one node group (shard).
+   *          <p>This parameter is not used if there is more than one node group (shard).
    *             You should use <code>ReplicasPerNodeGroup</code> instead.</p>
-   *         <p>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter must be at least 2.
+   *          <p>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter must be at least 2.
    *             If <code>AutomaticFailoverEnabled</code> is <code>false</code> you can omit this parameter (it will default to 1), or you
    *             can explicitly set it to a value between 2 and 6.</p>
-   *         <p>The maximum permitted value for <code>NumCacheClusters</code> is 6 (1 primary plus 5 replicas).</p>
+   *          <p>The maximum permitted value for <code>NumCacheClusters</code> is 6 (1 primary plus 5 replicas).</p>
    */
   NumCacheClusters?: number;
 
@@ -4086,21 +3886,21 @@ export interface CreateReplicationGroupMessage {
    * <p>A list of EC2 Availability Zones in which the replication group's clusters are created.
    *             The order of the Availability Zones in the list is the order in which clusters are allocated.
    *             The primary cluster is created in the first AZ in the list.</p>
-   *         <p>This parameter is not used if there is more than one node group (shard).
+   *          <p>This parameter is not used if there is more than one node group (shard).
    *             You should use <code>NodeGroupConfiguration</code> instead.</p>
-   *         <note>
+   *          <note>
    *             <p>If you are creating your replication group in an Amazon VPC (recommended),
    *             you can only locate clusters in Availability Zones associated with the subnets in the selected subnet group.</p>
    *             <p>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</p>
    *          </note>
-   *         <p>Default: system chosen Availability Zones.</p>
+   *          <p>Default: system chosen Availability Zones.</p>
    */
   PreferredCacheClusterAZs?: string[];
 
   /**
    * <p>An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group.
    *             For Redis (cluster mode disabled) either omit this parameter or set it to 1.</p>
-   *         <p>Default: 1</p>
+   *          <p>Default: 1</p>
    */
   NumNodeGroups?: number;
 
@@ -4117,7 +3917,7 @@ export interface CreateReplicationGroupMessage {
    *             <code>ReplicaAvailabilityZones</code>,
    *             <code>ReplicaCount</code>, and
    *             <code>Slots</code>.</p>
-   *         <p>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to
+   *          <p>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to
    *             individually configure each node group (shard), or you can omit this parameter. However, it is required when seeding a
    *             Redis (cluster mode enabled) cluster from a S3 rdb file. You must configure each node group (shard) using this parameter
    *             because you must specify the slots for each node group.</p>
@@ -4126,16 +3926,16 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>The compute and memory capacity of the nodes in the node group (shard).</p>
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -4145,197 +3945,145 @@ export interface CreateReplicationGroupMessage {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -4354,15 +4102,14 @@ export interface CreateReplicationGroupMessage {
   CacheNodeType?: string;
 
   /**
-   * <p>The name of the cache engine to be used for the clusters in this replication group. Must be Redis.</p>
+   * <p>The name of the cache engine to be used for the clusters in this replication group. The value must be set to <code>Redis</code>.</p>
    */
   Engine?: string;
 
   /**
    * <p>The version number of the cache engine to be used for the clusters in this replication group.
    *             To view the supported cache engine versions, use the <code>DescribeCacheEngineVersions</code> operation.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>) in the <i>ElastiCache User Guide</i>,
    *             but you cannot downgrade to an earlier engine version.
    *             If you want to use an earlier engine version,
@@ -4375,10 +4122,9 @@ export interface CreateReplicationGroupMessage {
    * <p>The name of the parameter group to associate with this replication group.
    *             If this argument is omitted, the default cache parameter group for the specified engine is
    *             used.</p>
-   *
-   *         <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group,
+   *          <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group,
    *             we recommend that you specify the parameter group by name. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>To create a Redis (cluster mode disabled) replication group, use <code>CacheParameterGroupName=default.redis3.2</code>.</p>
    *             </li>
@@ -4391,7 +4137,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>The name of the cache subnet group to be used for the replication group.</p>
-   *         <important>
+   *          <important>
    *             <p>If you're going to launch your cluster in an Amazon VPC,
    *                 you need to create a subnet group before you start creating a cluster.
    *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
@@ -4406,7 +4152,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>One or more Amazon VPC security groups associated with this replication group.</p>
-   *         <p>Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
   SecurityGroupIds?: string[];
 
@@ -4443,7 +4189,6 @@ export interface CreateReplicationGroupMessage {
    *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
    *             maintenance window is a 60 minute period.
    *             Valid values for <code>ddd</code> are:</p>
-   *
    *          <p>Specifies the weekly time range during which maintenance
    *    on the cluster is performed. It is specified as a range in
    *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
@@ -4499,7 +4244,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
    *             topic to which notifications are sent.</p>
-   *         <note>
+   *          <note>
    *             <p>The Amazon SNS topic owner must be the same as the cluster owner.</p>
    *          </note>
    */
@@ -4531,15 +4276,15 @@ export interface CreateReplicationGroupMessage {
    * <p>
    *             <b>Reserved parameter.</b>
    *             The password used to access a password protected server.</p>
-   *         <p>
+   *          <p>
    *             <code>AuthToken</code> can be specified only on replication groups where <code>TransitEncryptionEnabled</code> is
    *             <code>true</code>.</p>
-   *         <important>
+   *          <important>
    *             <p>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
    *             an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</p>
    *          </important>
-   *         <p>Password constraints:</p>
-   *         <ul>
+   *          <p>Password constraints:</p>
+   *          <ul>
    *             <li>
    *                <p>Must be only printable ASCII characters.</p>
    *             </li>
@@ -4551,27 +4296,23 @@ export interface CreateReplicationGroupMessage {
    *                <p>The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at http://redis.io/commands/AUTH.</p>
+   *          <p>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at http://redis.io/commands/AUTH.</p>
    */
   AuthToken?: string;
 
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
-   *             after the cluster is created. To enable in-transit encryption on a cluster
-   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
-   *             when you create a cluster.</p>
-   *         <p>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
+   *          <p>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
    *             the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or later,
    *             and the cluster is being created in an Amazon VPC.</p>
-   *         <p>If you enable in-transit encryption, you must also specify a value for
+   *          <p>If you enable in-transit encryption, you must also specify a value for
    *             <code>CacheSubnetGroup</code>.</p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
-   *         <important>
+   *          <important>
    *             <p>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
    *             an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</p>
    *          </important>
@@ -4580,14 +4321,14 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
    *             group is created.
    *             To enable encryption at rest on a replication group you must set <code>AtRestEncryptionEnabled</code> to
    *             <code>true</code> when you create the replication group. </p>
-   *         <p>
+   *          <p>
    *             <b>Required:</b>
    *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   AtRestEncryptionEnabled?: boolean;
@@ -4624,6 +4365,15 @@ export interface CreateReplicationGroupMessage {
    *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
   IpDiscovery?: IpDiscovery | string;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   *          <p>When setting <code>TransitEncryptionEnabled</code> to <code>true</code>, you can set your <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request, to allow both encrypted and
+   * unencrypted connections at the same time. Once you migrate all your Redis clients to use encrypted connections you can modify the value to <code>required</code> to allow encrypted connections only.</p>
+   *          <p>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code> first, after that you can set  <code>TransitEncryptionMode</code> to <code>required</code>.
+   * </p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 export interface CreateReplicationGroupResult {
@@ -4787,7 +4537,7 @@ export interface CreateSnapshotResult {
 
 /**
  * <p>You attempted one of the following operations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
  *                     node.</p>
@@ -4796,7 +4546,7 @@ export interface CreateSnapshotResult {
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
  *             </li>
  *          </ul>
- *         <p>Neither of these are supported by ElastiCache.</p>
+ *          <p>Neither of these are supported by ElastiCache.</p>
  */
 export class SnapshotFeatureNotSupportedFault extends __BaseException {
   readonly name: "SnapshotFeatureNotSupportedFault" = "SnapshotFeatureNotSupportedFault";
@@ -5174,9 +4924,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -5202,21 +4950,21 @@ export interface ConfigureShard {
    * <p>The number of replicas you want  in this node group at the end of this operation.
    *             The maximum value for <code>NewReplicaCount</code> is 5.
    *             The minimum value depends upon the type of Redis replication group you are working with.</p>
-   *         <p>The minimum number of replicas in a shard or replication group is:</p>
-   *         <ul>
+   *          <p>The minimum number of replicas in a shard or replication group is:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Redis (cluster mode disabled)</p>
-   *                 <ul>
+   *                <p>Redis (cluster mode disabled)</p>
+   *                <ul>
    *                   <li>
-   *                         <p>If Multi-AZ: 1</p>
+   *                      <p>If Multi-AZ: 1</p>
    *                   </li>
    *                   <li>
-   *                         <p>If Multi-AZ: 0</p>
+   *                      <p>If Multi-AZ: 0</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)</p>
+   *                <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)</p>
    *             </li>
    *          </ul>
    */
@@ -5248,21 +4996,21 @@ export interface DecreaseReplicaCountMessage {
    *             For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the
    *             replication group. For Redis (cluster mode enabled) replication groups, this is the number of
    *             replica nodes in each of the replication group's node groups.</p>
-   *         <p>The minimum number of replicas in a shard or replication group is:</p>
-   *         <ul>
+   *          <p>The minimum number of replicas in a shard or replication group is:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Redis (cluster mode disabled)</p>
-   *                 <ul>
+   *                <p>Redis (cluster mode disabled)</p>
+   *                <ul>
    *                   <li>
-   *                         <p>If Multi-AZ is enabled: 1</p>
+   *                      <p>If Multi-AZ is enabled: 1</p>
    *                   </li>
    *                   <li>
-   *                         <p>If Multi-AZ is not enabled: 0</p>
+   *                      <p>If Multi-AZ is not enabled: 0</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)</p>
+   *                <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)</p>
    *             </li>
    *          </ul>
    */
@@ -5343,7 +5091,7 @@ export interface DeleteCacheClusterResult {
 export interface DeleteCacheParameterGroupMessage {
   /**
    * <p>The name of the cache parameter group to delete.</p>
-   *         <note>
+   *          <note>
    *             <p>The specified cache security group must not be associated with any clusters.</p>
    *          </note>
    */
@@ -5356,7 +5104,7 @@ export interface DeleteCacheParameterGroupMessage {
 export interface DeleteCacheSecurityGroupMessage {
   /**
    * <p>The name of the cache security group to delete.</p>
-   *         <note>
+   *          <note>
    *             <p>You cannot delete the default security group.</p>
    *          </note>
    */
@@ -5388,7 +5136,7 @@ export class CacheSubnetGroupInUse extends __BaseException {
 export interface DeleteCacheSubnetGroupMessage {
   /**
    * <p>The name of the cache subnet group to delete.</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
    */
   CacheSubnetGroupName: string | undefined;
 }
@@ -5409,9 +5157,7 @@ export interface DeleteGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -5550,9 +5296,8 @@ export interface DescribeCacheClustersMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -5594,7 +5339,7 @@ export interface CacheEngineVersion {
 
   /**
    * <p>The name of the cache parameter group family associated with this cache engine.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -5647,14 +5392,14 @@ export interface DescribeCacheEngineVersionsMessage {
 
   /**
    * <p>The cache engine version to return.</p>
-   *         <p>Example: <code>1.4.14</code>
+   *          <p>Example: <code>1.4.14</code>
    *          </p>
    */
   EngineVersion?: string;
 
   /**
    * <p>The name of a specific cache parameter group family to return details for.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -5664,10 +5409,11 @@ export interface DescribeCacheEngineVersionsMessage {
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
    *       <code>redis6.x</code> |
-   *             <code>redis6.2</code>
+   *     <code>redis6.2</code> |
+   *     <code>redis7</code>
    *          </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
    *                <p>Must be 1 to 255 alphanumeric characters</p>
    *             </li>
@@ -5685,9 +5431,8 @@ export interface DescribeCacheEngineVersionsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -5734,9 +5479,8 @@ export interface DescribeCacheParameterGroupsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -5911,7 +5655,7 @@ export interface DescribeCacheParametersMessage {
 
   /**
    * <p>The parameter types to return.</p>
-   *         <p>Valid values: <code>user</code> | <code>system</code> | <code>engine-default</code>
+   *          <p>Valid values: <code>user</code> | <code>system</code> | <code>engine-default</code>
    *          </p>
    */
   Source?: string;
@@ -5920,9 +5664,8 @@ export interface DescribeCacheParametersMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -5963,9 +5706,8 @@ export interface DescribeCacheSecurityGroupsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6005,9 +5747,8 @@ export interface DescribeCacheSubnetGroupsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6026,7 +5767,7 @@ export interface DescribeCacheSubnetGroupsMessage {
 export interface DescribeEngineDefaultParametersMessage {
   /**
    * <p>The name of the cache parameter group family.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -6036,7 +5777,8 @@ export interface DescribeEngineDefaultParametersMessage {
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
    *       <code>redis6.x</code> |
-   *             <code>redis6.2</code>
+   *     <code>redis6.2</code> |
+   *     <code>redis7</code>
    *          </p>
    */
   CacheParameterGroupFamily: string | undefined;
@@ -6045,9 +5787,8 @@ export interface DescribeEngineDefaultParametersMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6065,7 +5806,7 @@ export interface DescribeEngineDefaultParametersMessage {
 export interface EngineDefaults {
   /**
    * <p>Specifies the name of the cache parameter group family to which the engine default parameters apply.</p>
-   *         <p>Valid values are:
+   *          <p>Valid values are:
    *     <code>memcached1.4</code> |
    *      <code>memcached1.5</code> |
    *       <code>memcached1.6</code> |
@@ -6131,14 +5872,14 @@ export interface DescribeEventsMessage {
 
   /**
    * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</p>
-   *         <p>
+   *          <p>
    *             <b>Example:</b> 2017-03-30T07:03:49.555Z</p>
    */
   StartTime?: Date;
 
   /**
    * <p>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</p>
-   *         <p>
+   *          <p>
    *             <b>Example:</b> 2017-03-30T07:03:49.555Z</p>
    */
   EndTime?: Date;
@@ -6152,9 +5893,8 @@ export interface DescribeEventsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6250,7 +5990,7 @@ export interface DescribeGlobalReplicationGroupsResult {
 export interface DescribeReplicationGroupsMessage {
   /**
    * <p>The identifier for the replication group to be described. This parameter is not case sensitive.</p>
-   *         <p>If you do not specify this parameter, information about all replication groups is returned.</p>
+   *          <p>If you do not specify this parameter, information about all replication groups is returned.</p>
    */
   ReplicationGroupId?: string;
 
@@ -6258,9 +5998,8 @@ export interface DescribeReplicationGroupsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6306,18 +6045,16 @@ export interface DescribeReservedCacheNodesMessage {
   /**
    * <p>The cache node type filter value.
    *             Use this parameter to show only those reservations matching the specified cache node type.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -6327,197 +6064,145 @@ export interface DescribeReservedCacheNodesMessage {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -6538,7 +6223,7 @@ export interface DescribeReservedCacheNodesMessage {
   /**
    * <p>The duration filter value, specified in years or seconds.
    *             Use this parameter to show only reservations for this duration.</p>
-   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
    *          </p>
    */
   Duration?: string;
@@ -6551,7 +6236,7 @@ export interface DescribeReservedCacheNodesMessage {
   /**
    * <p>The offering type filter value.
    *             Use this parameter to show only the available offerings matching the specified offering type.</p>
-   *         <p>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"|"All Upfront"|"Partial Upfront"| "No Upfront"</code>
+   *          <p>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"|"All Upfront"|"Partial Upfront"| "No Upfront"</code>
    *          </p>
    */
   OfferingType?: string;
@@ -6560,9 +6245,8 @@ export interface DescribeReservedCacheNodesMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -6607,17 +6291,16 @@ export interface ReservedCacheNode {
 
   /**
    * <p>The cache node type for the reserved cache nodes.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -6627,198 +6310,145 @@ export interface ReservedCacheNode {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -6883,7 +6513,7 @@ export interface ReservedCacheNode {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the reserved cache node.</p>
-   *         <p>Example: <code>arn:aws:elasticache:us-east-1:123456789012:reserved-instance:ri-2017-03-27-08-33-25-582</code>
+   *          <p>Example: <code>arn:aws:elasticache:us-east-1:123456789012:reserved-instance:ri-2017-03-27-08-33-25-582</code>
    *          </p>
    */
   ReservationARN?: string;
@@ -6911,7 +6541,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
    * <p>The offering identifier filter value.
    *             Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
-   *         <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
+   *          <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
    *          </p>
    */
   ReservedCacheNodesOfferingId?: string;
@@ -6919,17 +6549,16 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
    * <p>The cache node type filter value.
    *             Use this parameter to show only the available offerings matching the specified cache node type.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -6939,198 +6568,145 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -7151,7 +6727,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
    * <p>Duration filter value, specified in years or seconds.
    *             Use this parameter to show only reservations for a given duration.</p>
-   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
    *          </p>
    */
   Duration?: string;
@@ -7165,7 +6741,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
    * <p>The offering type filter value.
    *             Use this parameter to show only the available offerings matching the specified offering type.</p>
-   *         <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization" |"All Upfront"|"Partial Upfront"| "No Upfront"</code>
+   *          <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization" |"All Upfront"|"Partial Upfront"| "No Upfront"</code>
    *          </p>
    */
   OfferingType?: string;
@@ -7174,9 +6750,8 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -7200,17 +6775,16 @@ export interface ReservedCacheNodesOffering {
 
   /**
    * <p>The cache node type for the reserved cache node.</p>
-   *         <p>The following node types are supported by ElastiCache.
+   *          <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>General purpose:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 					                <p>
+   *                      <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
@@ -7220,197 +6794,145 @@ export interface ReservedCacheNodesOffering {
    * 							<code>cache.m6g.8xlarge</code>,
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
-   *
-   *
-   *
-   * 						               </p>
-   *
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   *
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
+   *                         <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
    *     						<code>cache.m5.2xlarge</code>,
    *     						<code>cache.m5.4xlarge</code>,
    *     						<code>cache.m5.12xlarge</code>,
    *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
+   *                      </p>
+   *                      <p>
    *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
+   *                         <code>cache.m4.large</code>,
    *     						<code>cache.m4.xlarge</code>,
    *     						<code>cache.m4.2xlarge</code>,
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *
-   * 					                <p>
+   *                      <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
-   * 					                </p>
-   *
-   *
-   * 					                <p>
+   *                      </p>
+   *                      <p>
    *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
+   *                         <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
    *     						<code>cache.t3.medium</code>
    *                      </p>
-   *
-   *
-   *     				             <p>
+   *                      <p>
    *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
+   *                         <code>cache.t2.micro</code>,
    *     						<code>cache.t2.small</code>,
    *     						<code>cache.t2.medium</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 						               <p>
+   *                      <p>
    *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
+   *                         <code>cache.t1.micro</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
+   *                         <code>cache.m1.small</code>,
    * 						   <code>cache.m1.medium</code>,
    * 						   <code>cache.m1.large</code>,
    * 						   <code>cache.m1.xlarge</code>
    *                      </p>
-   *
-   * 						               <p>
+   *                      <p>
    *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
+   *                         <code>cache.m3.medium</code>,
    *     						<code>cache.m3.large</code>,
    *     						<code>cache.m3.xlarge</code>,
    *     						<code>cache.m3.2xlarge</code>
    *                      </p>
-   *
-   * 						            </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   * 			                  <p>
+   *                      <p>
    *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
+   *                         <code>cache.c1.xlarge</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   * 											          <p>
+   *                      <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
+   *                      <p>
+   *                         <code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
    * 							<code>cache.r6g.4xlarge</code>,
    * 							<code>cache.r6g.8xlarge</code>,
    * 							<code>cache.r6g.12xlarge</code>,
    * 							<code>cache.r6g.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 						               </p>
-   * 						               <note>
+   *                      </p>
+   *                      <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
-   * 					                <p>
+   *                      <p>
    *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
+   *                         <code>cache.r5.large</code>,
    *     					   <code>cache.r5.xlarge</code>,
    *     					   <code>cache.r5.2xlarge</code>,
    *     					   <code>cache.r5.4xlarge</code>,
    *     					   <code>cache.r5.12xlarge</code>,
    *     					   <code>cache.r5.24xlarge</code>
    *                      </p>
-   *
-   *     					            <p>
+   *                      <p>
    *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
+   *                         <code>cache.r4.large</code>,
    *     					   <code>cache.r4.xlarge</code>,
    *     					   <code>cache.r4.2xlarge</code>,
    *     					   <code>cache.r4.4xlarge</code>,
    *     					   <code>cache.r4.8xlarge</code>,
    *     					   <code>cache.r4.16xlarge</code>
    *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
+   *                   </li>
    *                   <li>
    *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
-   *                         <p>
+   *                      <p>
    *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
+   *                         <code>cache.m2.xlarge</code>,
    *     						<code>cache.m2.2xlarge</code>,
    *     						<code>cache.m2.4xlarge</code>
    *                      </p>
-   *
-   *     						           <p>
+   *                      <p>
    *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
+   *                         <code>cache.r3.large</code>,
    *     						<code>cache.r3.xlarge</code>,
    *     						<code>cache.r3.2xlarge</code>,
    *     						<code>cache.r3.4xlarge</code>,
    *     						<code>cache.r3.8xlarge</code>
    *                      </p>
-   *
-   *     						        </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *
-   *
-   * 		       <p>
+   *          <p>
    *             <b>Additional node type info</b>
    *          </p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>All current generation instance types are created in Amazon VPC by default.</p>
    *             </li>
@@ -7674,8 +7196,8 @@ export interface DescribeSnapshotsMessage {
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
-   *         <p>Default: 50</p>
-   *         <p>Constraints: minimum 20; maximum 50.</p>
+   *          <p>Default: 50</p>
+   *          <p>Constraints: minimum 20; maximum 50.</p>
    */
   MaxRecords?: number;
 
@@ -8095,9 +7617,7 @@ export interface DisassociateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -8128,9 +7648,7 @@ export interface FailoverGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -8203,9 +7721,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -8277,8 +7793,7 @@ export interface ListAllowedNodeTypeModificationsMessage {
   /**
    * <p>The name of the cluster you want to scale up to a larger node instanced type.
    *             ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.</p>
-   *
-   *         <important>
+   *          <important>
    *             <p>You must provide a value for either the <code>CacheClusterId</code> or the
    *             <code>ReplicationGroupId</code>.</p>
    *          </important>
@@ -8289,8 +7804,7 @@ export interface ListAllowedNodeTypeModificationsMessage {
    * <p>The name of the replication group want to scale up to a larger node type.
    *         ElastiCache uses the replication group id to identify the current node type being used by
    *         this replication group, and from that to create a list of node types you can scale up to.</p>
-   *
-   *         <important>
+   *          <important>
    *             <p>You must provide a value for either the <code>CacheClusterId</code> or the
    *             <code>ReplicationGroupId</code>.</p>
    *          </important>
@@ -8306,7 +7820,7 @@ export interface ListTagsForResourceMessage {
    * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 }
@@ -8333,12 +7847,11 @@ export interface ModifyCacheClusterMessage {
    *             If the value is less than the number of existing cache nodes,  nodes are removed.
    *             If the value is equal to the number of current cache nodes,
    *              any pending add or remove requests are canceled.</p>
-   *         <p>If you are removing cache nodes, you must
+   *          <p>If you are removing cache nodes, you must
    *             use the <code>CacheNodeIdsToRemove</code> parameter to provide the IDs of the specific cache nodes to remove.</p>
-   *         <p>For clusters running Redis, this value must be 1.
+   *          <p>For clusters running Redis, this value must be 1.
    *     For clusters running Memcached, this value must be between 1 and 40.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Adding or removing Memcached cache nodes can be applied immediately or as a pending operation (see <code>ApplyImmediately</code>).</p>
    *             <p>A pending operation to modify the number of cache nodes in a cluster during its maintenance window,
    *             whether by adding or removing nodes in accordance with the scale out architecture, is not queued.
@@ -8363,7 +7876,7 @@ export interface ModifyCacheClusterMessage {
    *             of cache nodes. The number of cache node IDs supplied in this parameter must match the
    *             difference between the existing number of cache nodes in the cluster or pending cache nodes, whichever is
    *             greater, and the value of <code>NumCacheNodes</code> in the request.</p>
-   *         <p>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number of cache nodes in this
+   *          <p>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number of cache nodes in this
    *         <code>ModifyCacheCluster</code> call is 5, you must list 2 (7 - 5) cache node IDs to remove.</p>
    */
   CacheNodeIdsToRemove?: string[];
@@ -8371,14 +7884,14 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>Specifies whether the new nodes in this Memcached cluster are all created in a
    *             single Availability Zone or created across multiple Availability Zones.</p>
-   *         <p>Valid values: <code>single-az</code> | <code>cross-az</code>.</p>
-   *         <p>This option is only supported for Memcached clusters.</p>
-   *         <note>
+   *          <p>Valid values: <code>single-az</code> | <code>cross-az</code>.</p>
+   *          <p>This option is only supported for Memcached clusters.</p>
+   *          <note>
    *             <p>You cannot specify <code>single-az</code> if the Memcached cluster already has cache nodes in different Availability Zones.
    *             If <code>cross-az</code> is specified, existing Memcached nodes remain in their current Availability Zone.</p>
    *             <p>Only newly created nodes are located in different Availability Zones.
    *                 </p>
-   *         </note>
+   *          </note>
    */
   AZMode?: AZMode | string;
 
@@ -8386,40 +7899,37 @@ export interface ModifyCacheClusterMessage {
    * <note>
    *             <p>This option is only supported on Memcached clusters.</p>
    *          </note>
-   *         <p>The list of Availability Zones where the new Memcached cache nodes are created.</p>
-   *         <p>This parameter is only valid when <code>NumCacheNodes</code> in the request is greater
+   *          <p>The list of Availability Zones where the new Memcached cache nodes are created.</p>
+   *          <p>This parameter is only valid when <code>NumCacheNodes</code> in the request is greater
    *             than the sum of the number of active cache nodes and the number of cache nodes pending creation (which may be zero).
    *             The number of Availability Zones supplied in this list must match the cache nodes being added in this request.</p>
-   *
-   *         <p>Scenarios:</p>
-   *             <ul>
+   *          <p>Scenarios:</p>
+   *          <ul>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <b>Scenario 1:</b> You have 3 active nodes and wish to add 2 nodes.
    *                         Specify <code>NumCacheNodes=5</code> (3 + 2) and optionally specify two Availability Zones
    *                         for the two new nodes.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <b>Scenario 2:</b> You have 3 active nodes and 2 nodes pending creation
    *                         (from the scenario 1 call) and want to add 1 more node.
    *                         Specify <code>NumCacheNodes=6</code> ((3 + 2) + 1) and
    *                         optionally specify an Availability Zone for the new node.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>
+   *                <p>
    *                   <b>Scenario 3:</b> You want to cancel all pending operations.
    *                         Specify <code>NumCacheNodes=3</code> to cancel all pending operations.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
-   *
-   *         <p>The Availability Zone placement of nodes pending creation cannot be modified. If you wish to cancel any nodes pending creation,
+   *          <p>The Availability Zone placement of nodes pending creation cannot be modified. If you wish to cancel any nodes pending creation,
    *             add 0 nodes by setting <code>NumCacheNodes</code> to the number of current nodes.</p>
-   *         <p>If <code>cross-az</code> is specified, existing Memcached nodes remain in their current Availability Zone.
+   *          <p>If <code>cross-az</code> is specified, existing Memcached nodes remain in their current Availability Zone.
    *             Only newly created nodes can be located in different Availability Zones.
    *             For guidance on how to move existing Memcached nodes to different Availability Zones, see the
    *             <b>Availability Zone Considerations</b> section of <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html">Cache Node Considerations for Memcached</a>.</p>
-   *
    *          <p>
    *             <b>Impact of new add/remove requests upon pending requests</b>
    *          </p>
@@ -8495,14 +8005,14 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>A list of cache security group names to authorize on this cluster.
    *             This change is asynchronously applied as soon as possible.</p>
-   *         <p>You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</p>
+   *          <p>You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</p>
    */
   CacheSecurityGroupNames?: string[];
 
   /**
    * <p>Specifies the VPC Security Groups associated with the cluster.</p>
-   *         <p>This parameter can be used only with clusters that are created in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>This parameter can be used only with clusters that are created in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
   SecurityGroupIds?: string[];
 
@@ -8556,7 +8066,7 @@ export interface ModifyCacheClusterMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
-   *         <note>
+   *          <note>
    *             <p>The Amazon SNS topic owner must be same as the cluster owner.</p>
    *          </note>
    */
@@ -8572,7 +8082,7 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>The status of the Amazon SNS notification topic. Notifications are sent only if the
    *             status is <code>active</code>.</p>
-   *         <p>Valid values: <code>active</code> | <code>inactive</code>
+   *          <p>Valid values: <code>active</code> | <code>inactive</code>
    *          </p>
    */
   NotificationTopicStatus?: string;
@@ -8581,23 +8091,22 @@ export interface ModifyCacheClusterMessage {
    * <p>If <code>true</code>, this parameter causes the modifications in this request and any
    *             pending modifications to be applied, asynchronously and as soon as possible, regardless
    *             of the <code>PreferredMaintenanceWindow</code> setting for the cluster.</p>
-   *         <p>If <code>false</code>, changes to the cluster are applied on the next
+   *          <p>If <code>false</code>, changes to the cluster are applied on the next
    *             maintenance reboot, or the next failure reboot, whichever occurs first.</p>
-   *         <important>
+   *          <important>
    *             <p>If you perform a <code>ModifyCacheCluster</code> before a pending modification is applied,
    *             the pending modification is replaced by the newer modification.</p>
    *          </important>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   ApplyImmediately?: boolean;
 
   /**
    * <p>The upgraded version of the cache engine to be run on the cache nodes.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version
    *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
    *             If you want to use an earlier engine version,
@@ -8615,7 +8124,7 @@ export interface ModifyCacheClusterMessage {
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
    *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5,  a
    *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <note>
+   *          <note>
    *             <p>If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are turned off.</p>
    *          </note>
    */
@@ -8635,7 +8144,7 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>Reserved parameter. The password used to access a password protected server. This parameter must be specified with the <code>auth-token-update</code> parameter.
    *             Password constraints:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Must be only printable ASCII characters</p>
    *             </li>
@@ -8655,7 +8164,7 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
    *             Possible values:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Rotate</p>
    *             </li>
@@ -8663,7 +8172,7 @@ export interface ModifyCacheClusterMessage {
    *                <p>Set</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
@@ -8690,7 +8199,7 @@ export interface ModifyCacheClusterResult {
 
 /**
  * <p>Represents the output of one of the following operations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <code>ModifyCacheParameterGroup</code>
@@ -8746,8 +8255,8 @@ export interface ModifyCacheParameterGroupMessage {
 export interface ModifyCacheSubnetGroupMessage {
   /**
    * <p>The name for the cache subnet group. This value is stored as a lowercase string.</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
-   *         <p>Example: <code>mysubnetgroup</code>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
+   *          <p>Example: <code>mysubnetgroup</code>
    *          </p>
    */
   CacheSubnetGroupName: string | undefined;
@@ -8766,7 +8275,7 @@ export interface ModifyCacheSubnetGroupMessage {
 export interface ModifyCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreateCacheSubnetGroup</code>
@@ -8844,9 +8353,7 @@ export interface ModifyGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -8885,7 +8392,7 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure.</p>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
    */
   AutomaticFailoverEnabled?: boolean;
@@ -8904,14 +8411,14 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>A list of cache security group names to authorize for the clusters in this replication group. This change is asynchronously applied as soon as possible.</p>
-   *         <p>This parameter can be used only with replication group containing clusters running outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</p>
+   *          <p>This parameter can be used only with replication group containing clusters running outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</p>
    */
   CacheSecurityGroupNames?: string[];
 
   /**
    * <p>Specifies the VPC Security Groups associated with the clusters in the replication group.</p>
-   *         <p>This parameter can be used only with replication group containing clusters running in
+   *          <p>This parameter can be used only with replication group containing clusters running in
    *             an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
   SecurityGroupIds?: string[];
@@ -8966,7 +8473,7 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
-   *         <note>
+   *          <note>
    *             <p>The Amazon SNS topic owner must be same as the replication group owner. </p>
    *          </note>
    */
@@ -8982,7 +8489,7 @@ export interface ModifyReplicationGroupMessage {
   /**
    * <p>The status of the Amazon SNS notification topic for the replication group.
    *             Notifications are sent only if the status is <code>active</code>.</p>
-   *         <p>Valid values: <code>active</code> | <code>inactive</code>
+   *          <p>Valid values: <code>active</code> | <code>inactive</code>
    *          </p>
    */
   NotificationTopicStatus?: string;
@@ -8991,19 +8498,18 @@ export interface ModifyReplicationGroupMessage {
    * <p>If <code>true</code>, this parameter causes the modifications in this request and any
    *             pending modifications to be applied, asynchronously and as soon as possible, regardless
    *             of the <code>PreferredMaintenanceWindow</code> setting for the replication group.</p>
-   *         <p>If <code>false</code>, changes to the nodes in the replication group are applied on
+   *          <p>If <code>false</code>, changes to the nodes in the replication group are applied on
    *             the next maintenance reboot, or the next failure reboot, whichever occurs first.</p>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
-   *         <p>Default: <code>false</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    */
   ApplyImmediately?: boolean;
 
   /**
    * <p>The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
    *             If you want to use an earlier engine version,
    *             you must delete the existing replication group and create it anew with the earlier engine version. </p>
@@ -9020,7 +8526,7 @@ export interface ModifyReplicationGroupMessage {
    * <p>The number of days for which ElastiCache retains automatic node group (shard) snapshots before
    *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a
    *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <p>
+   *          <p>
    *             <b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0),
    *             backups are turned off.</p>
    */
@@ -9029,9 +8535,9 @@ export interface ModifyReplicationGroupMessage {
   /**
    * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
    *             the node group (shard) specified by <code>SnapshottingClusterId</code>.</p>
-   *         <p>Example: <code>05:00-09:00</code>
+   *          <p>Example: <code>05:00-09:00</code>
    *          </p>
-   *         <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
+   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
    */
   SnapshotWindow?: string;
 
@@ -9044,7 +8550,7 @@ export interface ModifyReplicationGroupMessage {
    * <p>Reserved parameter. The password used to access a password protected server. This parameter must be specified with the <code>auth-token-update-strategy </code>
    *             parameter.
    *             Password constraints:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Must be only printable ASCII characters</p>
    *             </li>
@@ -9055,7 +8561,7 @@ export interface ModifyReplicationGroupMessage {
    *                <p>Cannot contain any of the following characters: '/', '"', or '@', '%'</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *
    *             For more information, see AUTH password at <a href="http://redis.io/commands/AUTH">AUTH</a>.</p>
    */
@@ -9064,7 +8570,7 @@ export interface ModifyReplicationGroupMessage {
   /**
    * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
    *                 Possible values:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Rotate</p>
    *             </li>
@@ -9072,7 +8578,7 @@ export interface ModifyReplicationGroupMessage {
    *                <p>Set</p>
    *             </li>
    *          </ul>
-   *             <p>
+   *          <p>
    *                 For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
@@ -9103,6 +8609,20 @@ export interface ModifyReplicationGroupMessage {
    *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
   IpDiscovery?: IpDiscovery | string;
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to true. If you are enabling in-transit encryption for an existing cluster, you must also set <code>TransitEncryptionMode</code> to <code>preferred</code>.</p>
+   */
+  TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.</p>
+   *          <p>You must set <code>TransitEncryptionEnabled</code> to <code>true</code>, for your existing cluster, and set <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request to allow both encrypted and
+   * unencrypted connections at the same time. Once you migrate all your Redis clients to use encrypted connections you can set the value to <code>required</code> to allow encrypted connections only.</p>
+   *          <p>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step process that requires you to first set the <code>TransitEncryptionMode</code> to  <code>preferred</code> first, after that you can set  <code>TransitEncryptionMode</code> to <code>required</code>.
+   * </p>
+   */
+  TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
 export interface ModifyReplicationGroupResult {
@@ -9131,7 +8651,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
   /**
    * <p>Indicates that the shard reconfiguration process begins immediately.
    *             At present, the only permitted value for this parameter is <code>true</code>.</p>
-   *         <p>Value: true</p>
+   *          <p>Value: true</p>
    */
   ApplyImmediately: boolean | undefined;
 
@@ -9141,7 +8661,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             of node groups (shards), you can use this parameter to specify the preferred
    *             availability zones of the cluster's shards.
    *             If you omit this parameter ElastiCache selects availability zones for you.</p>
-   *         <p>You can specify this parameter only if the value of <code>NodeGroupCount</code>
+   *          <p>You can specify this parameter only if the value of <code>NodeGroupCount</code>
    *             is greater than the current number of node groups (shards).</p>
    */
   ReshardingConfiguration?: ReshardingConfiguration[];
@@ -9152,7 +8672,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             <code>NodeGroupsToRetain</code> is required.
    *             <code>NodeGroupsToRemove</code> is a list of <code>NodeGroupId</code>s to remove
    *             from the cluster.</p>
-   *         <p>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
+   *          <p>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
    *             from the cluster.</p>
    */
   NodeGroupsToRemove?: string[];
@@ -9163,7 +8683,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             <code>NodeGroupsToRetain</code> is required.
    *             <code>NodeGroupsToRetain</code> is a list of <code>NodeGroupId</code>s to retain
    *             in the cluster.</p>
-   *         <p>ElastiCache for Redis will attempt to remove all node groups except those listed by <code>NodeGroupsToRetain</code>
+   *          <p>ElastiCache for Redis will attempt to remove all node groups except those listed by <code>NodeGroupsToRetain</code>
    *             from the cluster.</p>
    */
   NodeGroupsToRetain?: string[];
@@ -9231,25 +8751,25 @@ export interface ModifyUserGroupMessage {
 export interface PurchaseReservedCacheNodesOfferingMessage {
   /**
    * <p>The ID of the reserved cache node offering to purchase.</p>
-   *         <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
+   *          <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
    *          </p>
    */
   ReservedCacheNodesOfferingId: string | undefined;
 
   /**
    * <p>A customer-specified identifier to track this reservation.</p>
-   *         <note>
+   *          <note>
    *             <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation.
    *                 If this parameter is not specified,
    *                 ElastiCache automatically generates an identifier for the reservation.</p>
    *          </note>
-   *         <p>Example: myreservationID</p>
+   *          <p>Example: myreservationID</p>
    */
   ReservedCacheNodeId?: string;
 
   /**
    * <p>The number of cache node instances to reserve.</p>
-   *         <p>Default: <code>1</code>
+   *          <p>Default: <code>1</code>
    *          </p>
    */
   CacheNodeCount?: number;
@@ -9321,9 +8841,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
@@ -9363,7 +8881,7 @@ export interface RemoveTagsFromResourceMessage {
    * <p>The Amazon Resource Name (ARN) of the resource from which you want the tags removed,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 
@@ -9406,7 +8924,7 @@ export interface ResetCacheParameterGroupMessage {
    *             all parameters in the cache parameter group are reset to their default values.
    *             If <code>false</code>, only the parameters listed by <code>ParameterNameValues</code>
    *             are reset to their default values.</p>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
    */
   ResetAllParameters?: boolean;
@@ -9465,7 +8983,7 @@ export interface RevokeCacheSecurityGroupIngressMessage {
 export interface RevokeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AuthorizeCacheSecurityGroupIngress</code>

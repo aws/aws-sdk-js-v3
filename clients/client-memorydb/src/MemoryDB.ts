@@ -86,6 +86,16 @@ import {
   DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand";
 import {
+  DescribeReservedNodesCommand,
+  DescribeReservedNodesCommandInput,
+  DescribeReservedNodesCommandOutput,
+} from "./commands/DescribeReservedNodesCommand";
+import {
+  DescribeReservedNodesOfferingsCommand,
+  DescribeReservedNodesOfferingsCommandInput,
+  DescribeReservedNodesOfferingsCommandOutput,
+} from "./commands/DescribeReservedNodesOfferingsCommand";
+import {
   DescribeServiceUpdatesCommand,
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
@@ -116,6 +126,11 @@ import {
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "./commands/ListAllowedNodeTypeUpdatesCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import {
+  PurchaseReservedNodesOfferingCommand,
+  PurchaseReservedNodesOfferingCommandInput,
+  PurchaseReservedNodesOfferingCommandOutput,
+} from "./commands/PurchaseReservedNodesOfferingCommand";
 import {
   ResetParameterGroupCommand,
   ResetParameterGroupCommandInput,
@@ -772,6 +787,70 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+   */
+  public describeReservedNodes(
+    args: DescribeReservedNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReservedNodesCommandOutput>;
+  public describeReservedNodes(
+    args: DescribeReservedNodesCommandInput,
+    cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
+  ): void;
+  public describeReservedNodes(
+    args: DescribeReservedNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
+  ): void;
+  public describeReservedNodes(
+    args: DescribeReservedNodesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedNodesCommandOutput) => void
+  ): Promise<DescribeReservedNodesCommandOutput> | void {
+    const command = new DescribeReservedNodesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists available reserved node offerings.</p>
+   */
+  public describeReservedNodesOfferings(
+    args: DescribeReservedNodesOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReservedNodesOfferingsCommandOutput>;
+  public describeReservedNodesOfferings(
+    args: DescribeReservedNodesOfferingsCommandInput,
+    cb: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
+  ): void;
+  public describeReservedNodesOfferings(
+    args: DescribeReservedNodesOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
+  ): void;
+  public describeReservedNodesOfferings(
+    args: DescribeReservedNodesOfferingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
+  ): Promise<DescribeReservedNodesOfferingsCommandOutput> | void {
+    const command = new DescribeReservedNodesOfferingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns details of the service updates</p>
    */
   public describeServiceUpdates(
@@ -998,6 +1077,38 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
+   */
+  public purchaseReservedNodesOffering(
+    args: PurchaseReservedNodesOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseReservedNodesOfferingCommandOutput>;
+  public purchaseReservedNodesOffering(
+    args: PurchaseReservedNodesOfferingCommandInput,
+    cb: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
+  ): void;
+  public purchaseReservedNodesOffering(
+    args: PurchaseReservedNodesOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
+  ): void;
+  public purchaseReservedNodesOffering(
+    args: PurchaseReservedNodesOfferingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
+  ): Promise<PurchaseReservedNodesOfferingCommandOutput> | void {
+    const command = new PurchaseReservedNodesOfferingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the parameters of a parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire parameter group, specify the AllParameters and ParameterGroupName parameters.</p>
    */
   public resetParameterGroup(
@@ -1035,7 +1146,6 @@ export class MemoryDB extends MemoryDBClient {
    *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see
    *
    *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html">Resource-level permissions</a>.</p>
-   *
    *          <p>For example, you can use cost-allocation tags to your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
    *           (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories
    *           (such as cost centers, application names, or owners) to organize your costs across multiple services.

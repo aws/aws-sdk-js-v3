@@ -6626,6 +6626,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   if (input.IpDiscovery != null) {
     entries["IpDiscovery"] = input.IpDiscovery;
   }
+  if (input.TransitEncryptionMode != null) {
+    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  }
   return entries;
 };
 
@@ -7931,6 +7934,12 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   if (input.IpDiscovery != null) {
     entries["IpDiscovery"] = input.IpDiscovery;
   }
+  if (input.TransitEncryptionEnabled != null) {
+    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
+  if (input.TransitEncryptionMode != null) {
+    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  }
   return entries;
 };
 
@@ -8772,6 +8781,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     LogDeliveryConfigurations: undefined,
     NetworkType: undefined,
     IpDiscovery: undefined,
+    TransitEncryptionMode: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
@@ -8903,6 +8913,9 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
   }
   if (output["IpDiscovery"] !== undefined) {
     contents.IpDiscovery = __expectString(output["IpDiscovery"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
   }
   return contents;
 };
@@ -11165,6 +11178,8 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     CacheNodeType: undefined,
     AuthTokenStatus: undefined,
     LogDeliveryConfigurations: undefined,
+    TransitEncryptionEnabled: undefined,
+    TransitEncryptionMode: undefined,
   };
   if (output["NumCacheNodes"] !== undefined) {
     contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
@@ -11199,6 +11214,12 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
       context
     );
+  }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
   }
   return contents;
 };
@@ -11331,6 +11352,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     AutoMinorVersionUpgrade: undefined,
     NetworkType: undefined,
     IpDiscovery: undefined,
+    TransitEncryptionMode: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -11456,6 +11478,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   if (output["IpDiscovery"] !== undefined) {
     contents.IpDiscovery = __expectString(output["IpDiscovery"]);
   }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
   return contents;
 };
 
@@ -11560,6 +11585,8 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
     AuthTokenStatus: undefined,
     UserGroups: undefined,
     LogDeliveryConfigurations: undefined,
+    TransitEncryptionEnabled: undefined,
+    TransitEncryptionMode: undefined,
   };
   if (output["PrimaryClusterId"] !== undefined) {
     contents.PrimaryClusterId = __expectString(output["PrimaryClusterId"]);
@@ -11586,6 +11613,12 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
       context
     );
+  }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
   }
   return contents;
 };

@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.240.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.239.0...v3.240.0) (2022-12-28)
+
+
+### Features
+
+* **client-elasticache:** This release allows you to modify the encryption in transit setting, for existing Redis clusters. You can now change the TLS configuration of your Redis clusters without the need to re-build or re-provision the clusters or impact application availability. ([7c53c4a](https://github.com/aws/aws-sdk-js-v3/commit/7c53c4a5ae779a2d9a4ae25e3b669adeff3823b7))
+* **client-network-firewall:** AWS Network Firewall now provides status messages for firewalls to help you troubleshoot when your endpoint fails. ([fcc316c](https://github.com/aws/aws-sdk-js-v3/commit/fcc316c7e68c1b7c90a78f5fcae40d234c988995))
+* **client-rds:** This release adds support for Custom Engine Version (CEV) on RDS Custom SQL Server. ([9468d16](https://github.com/aws/aws-sdk-js-v3/commit/9468d16ceedda66a1477efd6624a1730f286a1c3))
+* **client-route53-recovery-control-config:** Added support for Python paginators in the route53-recovery-control-config List* APIs. ([91839b3](https://github.com/aws/aws-sdk-js-v3/commit/91839b3e56881cabe7cad685f3855db7aef8bef1))
+
+
+
+
+
+# [3.239.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.238.0...v3.239.0) (2022-12-27)
+
+
+### Features
+
+* **client-memorydb:** This release adds support for MemoryDB Reserved nodes which provides a significant discount compared to on-demand node pricing. Reserved nodes are not physical nodes, but rather a billing discount applied to the use of on-demand nodes in your account. ([bd42342](https://github.com/aws/aws-sdk-js-v3/commit/bd42342150b43f59ea451254bf2d209e046cafd2))
+* **client-transfer:** Add additional operations to throw ThrottlingExceptions ([4a66ecf](https://github.com/aws/aws-sdk-js-v3/commit/4a66ecf4f0b09192d2540ebfc4e3fa65a7bda040))
+
+
+
+
+
+# [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
+
+
+### Features
+
+* **client-connectparticipant:** Amazon Connect Chat introduces the Message Receipts feature. This feature allows agents and customers to receive message delivered and read receipts after they send a chat message. ([a55a3c2](https://github.com/aws/aws-sdk-js-v3/commit/a55a3c2448329e2549381a33b1675cca7782ad37))
+* **client-connect:** Support for Routing Profile filter, SortCriteria, and grouping by Routing Profiles for GetCurrentMetricData API. Support for RoutingProfiles, UserHierarchyGroups, and Agents as filters, NextStatus and AgentStatusName for GetCurrentUserData. Adds ApproximateTotalCount to both APIs. ([52f8d57](https://github.com/aws/aws-sdk-js-v3/commit/52f8d57014a921cf013800981fbe8f8c1ef2b828))
+* **client-detective:** This release adds a missed AccessDeniedException type to several endpoints. ([7fa35f3](https://github.com/aws/aws-sdk-js-v3/commit/7fa35f3e0737e9d5fb61e1e077721ad7a7f44a8a))
+* **client-fsx:** Fix a bug where a recent release might break certain existing SDKs. ([788acba](https://github.com/aws/aws-sdk-js-v3/commit/788acba4a3a9f9a43c04fb2df899ee7ff634e368))
+* **client-inspector2:** Amazon Inspector adds support for scanning NodeJS 18.x and Go 1.x AWS Lambda function runtimes. ([0bef0a3](https://github.com/aws/aws-sdk-js-v3/commit/0bef0a3620382b51f82b47bec96e269f05b398b7))
+* **clients:** update client endpoints as of 2022-12-23 ([7c21c4c](https://github.com/aws/aws-sdk-js-v3/commit/7c21c4c7da51387ce6218f008ae67b56d2de6d32))
+
+
+
+
+
 # [3.237.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.236.0...v3.237.0) (2022-12-22)
 
 

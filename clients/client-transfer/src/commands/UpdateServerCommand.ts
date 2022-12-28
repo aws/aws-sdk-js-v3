@@ -31,7 +31,6 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
 /**
  * <p>Updates the file transfer protocol-enabled server's properties after that server has
  *       been created.</p>
- *
  *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
  *       updated.</p>
  * @example

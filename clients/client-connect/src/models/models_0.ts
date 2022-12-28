@@ -208,6 +208,11 @@ export interface AgentStatusReference {
    * <p>The Amazon Resource Name (ARN) of the agent's status.</p>
    */
   StatusArn?: string;
+
+  /**
+   * <p>The name of the agent status.</p>
+   */
+  StatusName?: string;
 }
 
 /**
@@ -1576,8 +1581,8 @@ export interface CreateRoutingProfileResponse {
 
 /**
  * <p>This action must be set if <code>TriggerEventSource</code> is one of the following values:
- *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
- *     <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
+ *    <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+ *    <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
  *          <p>
  *             <code>RuleName</code> is used as <code>ContactCategory</code>.</p>
  */
@@ -1720,7 +1725,7 @@ export interface RuleAction {
   /**
    * <p>Information about the task action. This field is required if <code>TriggerEventSource</code>
    *    is one of the following values: <code>OnZendeskTicketCreate</code> |
-   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *    <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
    *          </p>
    */
   TaskAction?: TaskActionDefinition;
@@ -1758,7 +1763,7 @@ export enum EventSourceName {
 /**
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
  *    following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
- *     <code>OnSalesforceCaseCreate</code>
+ *    <code>OnSalesforceCaseCreate</code>
  *          </p>
  */
 export interface RuleTriggerEventSource {
@@ -1858,8 +1863,8 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string>;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> |
-   *     <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> |
+   *    <code>RoutingProfile</code>
    *          </p>
    */
   TagRestrictedResources?: string[];
@@ -4591,11 +4596,39 @@ export interface Filters {
    * <p>The channel to use to filter the metrics.</p>
    */
   Channels?: (Channel | string)[];
+
+  /**
+   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
+   */
+  RoutingProfiles?: string[];
 }
 
 export enum Grouping {
   CHANNEL = "CHANNEL",
   QUEUE = "QUEUE",
+  ROUTING_PROFILE = "ROUTING_PROFILE",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>The way to sort the resulting response based on metrics. By default resources are sorted
+ *    based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted
+ *    based on the input metrics.</p>
+ */
+export interface CurrentMetricSortCriteria {
+  /**
+   * <p>The current metric names.</p>
+   */
+  SortByMetric?: CurrentMetricName | string;
+
+  /**
+   * <p>The way to sort.</p>
+   */
+  SortOrder?: SortOrder | string;
 }
 
 export interface GetCurrentMetricDataRequest {
@@ -4605,9 +4638,21 @@ export interface GetCurrentMetricDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
-   *    retrieved only for the resources associated with the queues or channels included in the filter.
-   *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+   * <p>The filters to apply to returned metrics. You can filter up to the following limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Queues: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Routing profiles: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metric data is retrieved only for the resources associated with the queues or routing
+   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
+   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: Filters | undefined;
 
@@ -4622,7 +4667,9 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *             <li>
    *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-   *      profile filter.</p>
+   *      profile filter. In addition, a routing profile filter is
+   *      required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and
+   *      <code> OLDEST_CONTACT_AGE</code>.</p>
    *             </li>
    *             <li>
    *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
@@ -4741,6 +4788,19 @@ export interface GetCurrentMetricDataRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By
+   *    default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The
+   *    metric collection is sorted based on the input metrics.</p>
+   *          <p>Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p>
+   *             </li>
+   *          </ul>
+   */
+  SortCriteria?: CurrentMetricSortCriteria[];
 }
 
 /**
@@ -4759,6 +4819,21 @@ export interface CurrentMetricData {
 }
 
 /**
+ * <p>Information about the routing profile assigned to the user.</p>
+ */
+export interface RoutingProfileReference {
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+   */
+  Arn?: string;
+}
+
+/**
  * <p>Contains information about the dimensions for a set of metrics.</p>
  */
 export interface Dimensions {
@@ -4771,6 +4846,11 @@ export interface Dimensions {
    * <p>The channel used for grouping and filters.</p>
    */
   Channel?: Channel | string;
+
+  /**
+   * <p>Information about the routing profile assigned to the user.</p>
+   */
+  RoutingProfile?: RoutingProfileReference;
 }
 
 /**
@@ -4805,6 +4885,11 @@ export interface GetCurrentMetricDataResponse {
    * <p>The time at which the metrics were retrieved and cached for pagination.</p>
    */
   DataSnapshotTime?: Date;
+
+  /**
+   * <p>The total count of the result, regardless of the current page size. </p>
+   */
+  ApproximateTotalCount?: number;
 }
 
 /**
@@ -4823,7 +4908,7 @@ export interface ContactFilter {
  */
 export interface UserDataFilters {
   /**
-   * <p>Contains information about a queue resource for which metrics are returned.</p>
+   * <p>A list of up to 100 queues or ARNs.</p>
    */
   Queues?: string[];
 
@@ -4832,6 +4917,21 @@ export interface UserDataFilters {
    *    It contains a list of contact states. </p>
    */
   ContactFilter?: ContactFilter;
+
+  /**
+   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
+   */
+  RoutingProfiles?: string[];
+
+  /**
+   * <p>A list of up to 100 agent IDs or ARNs.</p>
+   */
+  Agents?: string[];
+
+  /**
+   * <p>A UserHierarchyGroup ID or ARN.</p>
+   */
+  UserHierarchyGroups?: string[];
 }
 
 export interface GetCurrentUserDataRequest {
@@ -4841,9 +4941,28 @@ export interface GetCurrentUserDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data
-   *    is retrieved only for those users who are associated with the queues and have contacts that are
-   *    in the specified <code>ContactState</code>. </p>
+   * <p>The filters to apply to returned user data. You can filter up to the following limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Queues: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Routing profiles: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Agents: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Contact states: 9</p>
+   *             </li>
+   *             <li>
+   *                <p>User hierarchy groups: 1</p>
+   *             </li>
+   *          </ul>
+   *          <p> The user data is retrieved for only the specified
+   *   values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles,
+   *   agents, and user hierarchy groups. </p>
+   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: UserDataFilters | undefined;
 
@@ -4902,21 +5021,6 @@ export interface HierarchyPathReference {
    * <p>Information about level five.</p>
    */
   LevelFive?: HierarchyGroupSummaryReference;
-}
-
-/**
- * <p>Information about the routing profile assigned to the user.</p>
- */
-export interface RoutingProfileReference {
-  /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-   */
-  Arn?: string;
 }
 
 /**
@@ -4983,6 +5087,11 @@ export interface UserData {
    * <p>A list of contact reference information.</p>
    */
   Contacts?: AgentContactReference[];
+
+  /**
+   * <p>The Next status of the agent.</p>
+   */
+  NextStatus?: string;
 }
 
 export interface GetCurrentUserDataResponse {
@@ -4995,6 +5104,11 @@ export interface GetCurrentUserDataResponse {
    * <p>A list of the user data that is returned.</p>
    */
   UserDataList?: UserData[];
+
+  /**
+   * <p>The total count of the result, regardless of the current page size.</p>
+   */
+  ApproximateTotalCount?: number;
 }
 
 export interface GetFederationTokenRequest {
@@ -5843,38 +5957,6 @@ export interface DateReference {
 
   /**
    * <p>A valid date.</p>
-   */
-  Value?: string;
-}
-
-/**
- * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
- *    Otherwise, null.</p>
- */
-export interface EmailReference {
-  /**
-   * <p>Identifier of the email reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A valid email address.</p>
-   */
-  Value?: string;
-}
-
-/**
- * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
- *    Otherwise, null.</p>
- */
-export interface NumberReference {
-  /**
-   * <p>Identifier of the number reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A valid number.</p>
    */
   Value?: string;
 }
@@ -7247,6 +7329,13 @@ export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
 /**
  * @internal
  */
+export const CurrentMetricSortCriteriaFilterSensitiveLog = (obj: CurrentMetricSortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetCurrentMetricDataRequestFilterSensitiveLog = (obj: GetCurrentMetricDataRequest): any => ({
   ...obj,
 });
@@ -7255,6 +7344,13 @@ export const GetCurrentMetricDataRequestFilterSensitiveLog = (obj: GetCurrentMet
  * @internal
  */
 export const CurrentMetricDataFilterSensitiveLog = (obj: CurrentMetricData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileReferenceFilterSensitiveLog = (obj: RoutingProfileReference): any => ({
   ...obj,
 });
 
@@ -7311,13 +7407,6 @@ export const HierarchyGroupSummaryReferenceFilterSensitiveLog = (obj: HierarchyG
  * @internal
  */
 export const HierarchyPathReferenceFilterSensitiveLog = (obj: HierarchyPathReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoutingProfileReferenceFilterSensitiveLog = (obj: RoutingProfileReference): any => ({
   ...obj,
 });
 
@@ -7559,19 +7648,5 @@ export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference):
  * @internal
  */
 export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailReferenceFilterSensitiveLog = (obj: EmailReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumberReferenceFilterSensitiveLog = (obj: NumberReference): any => ({
   ...obj,
 });

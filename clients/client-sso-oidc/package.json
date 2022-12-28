@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sso-oidc",
   "description": "AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native",
-  "version": "3.236.0",
+  "version": "3.238.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -10,7 +10,8 @@
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo"
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "generate:client": "(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/sso-oidc.json --keepFiles)"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

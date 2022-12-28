@@ -3080,13 +3080,18 @@ export interface CreateCustomDBEngineVersionMessage {
    * <p>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid
    *             bucket name is <code>my-custom-installation-files</code>.</p>
    */
-  DatabaseInstallationFilesS3BucketName: string | undefined;
+  DatabaseInstallationFilesS3BucketName?: string;
 
   /**
    * <p>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid
    *             bucket name is <code>123456789012/cev1</code>. If this setting isn't specified, no prefix is assumed.</p>
    */
   DatabaseInstallationFilesS3Prefix?: string;
+
+  /**
+   * <p>The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom for SQL Server.</p>
+   */
+  ImageId?: string;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for
@@ -3098,7 +3103,7 @@ export interface CreateCustomDBEngineVersionMessage {
    *                     Developer Guide</i>.</p>
    *          <p>You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.</p>
    */
-  KMSKeyId: string | undefined;
+  KMSKeyId?: string;
 
   /**
    * <p>An optional description of your CEV.</p>
@@ -3136,7 +3141,7 @@ export interface CreateCustomDBEngineVersionMessage {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
    *             Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
-  Manifest: string | undefined;
+  Manifest?: string;
 
   /**
    * <p>A list of tags.
@@ -3197,6 +3202,21 @@ export interface CharacterSet {
    * <p>The description of the character set.</p>
    */
   CharacterSetDescription?: string;
+}
+
+/**
+ * <p>A value that indicates the AMI information.</p>
+ */
+export interface CustomDBEngineVersionAMI {
+  /**
+   * <p>A value that indicates the ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>A value that indicates the status of a custom engine version (CEV).</p>
+   */
+  Status?: string;
 }
 
 /**
@@ -3301,6 +3321,16 @@ export interface DBEngineVersion {
    *             isn't specified.</p>
    */
   DefaultCharacterSet?: CharacterSet;
+
+  /**
+   * <p>The EC2 image</p>
+   */
+  Image?: CustomDBEngineVersionAMI;
+
+  /**
+   * <p>A value that indicates the source media provider of the AMI based on the usage operation.  Applicable for RDS Custom for SQL Server.</p>
+   */
+  DBEngineMediaType?: string;
 
   /**
    * <p>A list of the character sets supported by this engine for the <code>CharacterSetName</code> parameter of the <code>CreateDBInstance</code> operation.</p>
@@ -3427,6 +3457,25 @@ export interface DBEngineVersion {
    *       </p>
    */
   CustomDBEngineVersionManifest?: string;
+}
+
+/**
+ * <p>The AMI configuration prerequisite has not been met.</p>
+ */
+export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
+  readonly name: "Ec2ImagePropertiesNotSupportedFault" = "Ec2ImagePropertiesNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Ec2ImagePropertiesNotSupportedFault, __BaseException>) {
+    super({
+      name: "Ec2ImagePropertiesNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Ec2ImagePropertiesNotSupportedFault.prototype);
+  }
 }
 
 /**
@@ -12421,50 +12470,6 @@ export interface DescribeDBParametersMessage {
   Marker?: string;
 }
 
-export interface DescribeDBProxiesRequest {
-  /**
-   * <p>The name of the DB proxy. If you omit this parameter,
-   *         the output includes information about all DB proxies owned by
-   *         your Amazon Web Services account ID.</p>
-   */
-  DBProxyName?: string;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist
-   *           than the specified <code>MaxRecords</code> value, a pagination token called a marker is
-   *           included in the response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export interface DescribeDBProxiesResponse {
-  /**
-   * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
-   */
-  DBProxies?: DBProxy[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
 /**
  * @internal
  */
@@ -12817,6 +12822,13 @@ export const CreateCustomDBEngineVersionMessageFilterSensitiveLog = (obj: Create
  * @internal
  */
 export const CharacterSetFilterSensitiveLog = (obj: CharacterSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomDBEngineVersionAMIFilterSensitiveLog = (obj: CustomDBEngineVersionAMI): any => ({
   ...obj,
 });
 
@@ -13767,19 +13779,5 @@ export const DBParameterGroupDetailsFilterSensitiveLog = (obj: DBParameterGroupD
  * @internal
  */
 export const DescribeDBParametersMessageFilterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxiesRequestFilterSensitiveLog = (obj: DescribeDBProxiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxiesResponseFilterSensitiveLog = (obj: DescribeDBProxiesResponse): any => ({
   ...obj,
 });

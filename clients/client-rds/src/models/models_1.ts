@@ -36,6 +36,50 @@ import {
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
+export interface DescribeDBProxiesRequest {
+  /**
+   * <p>The name of the DB proxy. If you omit this parameter,
+   *         the output includes information about all DB proxies owned by
+   *         your Amazon Web Services account ID.</p>
+   */
+  DBProxyName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *           than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *           included in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export interface DescribeDBProxiesResponse {
+  /**
+   * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
+   */
+  DBProxies?: DBProxy[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
 export interface DescribeDBProxyEndpointsRequest {
   /**
    * <p>The name of the DB proxy whose endpoints you want to describe. If you omit
@@ -9277,6 +9321,20 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBProxiesRequestFilterSensitiveLog = (obj: DescribeDBProxiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxiesResponseFilterSensitiveLog = (obj: DescribeDBProxiesResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

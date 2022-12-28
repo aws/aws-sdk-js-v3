@@ -25,7 +25,7 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a cache subnet group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
  *          </note>
  * @example

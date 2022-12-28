@@ -25,7 +25,6 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
- *
  *          <p>No response returns from this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

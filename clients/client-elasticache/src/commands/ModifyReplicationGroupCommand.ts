@@ -30,20 +30,19 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
 
 /**
  * <p>Modifies the settings for a replication group.</p>
- *
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a>
  *                     in the ElastiCache User Guide</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
  *                     in the ElastiCache API Reference</p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example

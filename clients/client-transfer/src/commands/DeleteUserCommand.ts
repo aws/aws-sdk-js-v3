@@ -25,9 +25,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
- *
  *          <p>No response returns from this operation.</p>
- *
  *          <note>
  *             <p>When you delete a user from a server, the user's information is lost.</p>
  *          </note>

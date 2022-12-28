@@ -28,16 +28,13 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
  *       jobs. Information tied to your server, such as server and user properties, are not affected by
  *       stopping your server.</p>
- *
  *          <note>
  *             <p>Stopping the server does not reduce or impact your file transfer protocol endpoint
  *         billing; you must delete the server to stop being billed.</p>
  *          </note>
- *
  *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
  *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>
  *       can indicate an error condition.</p>
- *
  *          <p>No response is returned from this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

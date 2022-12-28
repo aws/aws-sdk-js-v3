@@ -26,7 +26,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
  *       (ARN). Resources are users, servers, roles, and other entities.</p>
- *
  *          <p>No response is returned from this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

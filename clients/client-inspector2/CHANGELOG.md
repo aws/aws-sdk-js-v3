@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
+
+
+### Features
+
+* **client-inspector2:** Amazon Inspector adds support for scanning NodeJS 18.x and Go 1.x AWS Lambda function runtimes. ([0bef0a3](https://github.com/aws/aws-sdk-js-v3/commit/0bef0a3620382b51f82b47bec96e269f05b398b7))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

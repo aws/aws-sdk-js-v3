@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
+
+
+### Features
+
+* **client-fsx:** Fix a bug where a recent release might break certain existing SDKs. ([788acba](https://github.com/aws/aws-sdk-js-v3/commit/788acba4a3a9f9a43c04fb2df899ee7ff634e368))
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

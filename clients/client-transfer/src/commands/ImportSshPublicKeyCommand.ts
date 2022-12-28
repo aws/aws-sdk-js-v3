@@ -32,7 +32,6 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
  *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
  *       identified by <code>ServerId</code>.</p>
- *
  *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
  *       the name of the <code>SshPublicKeyId</code>.</p>
  * @example

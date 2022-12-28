@@ -3403,6 +3403,7 @@ const deserializeAws_json1_0Attachment = (output: any, context: __SerdeContext):
   return {
     EndpointId: __expectString(output.EndpointId),
     Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
     SubnetId: __expectString(output.SubnetId),
   } as any;
 };

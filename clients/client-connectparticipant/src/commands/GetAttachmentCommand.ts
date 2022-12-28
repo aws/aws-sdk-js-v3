@@ -35,6 +35,11 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example

@@ -4132,7 +4132,9 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html">Deployment type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html"> File system performance</a>in the<i>Amazon FSx for OpenZFS User Guide</i>.</p>
+   *          <p>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment type availability</a>
+   *             and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File system performance</a>
+   *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
   DeploymentType: OpenZFSDeploymentType | string | undefined;
 
@@ -5086,6 +5088,13 @@ export enum StorageVirtualMachineLifecycle {
   PENDING = "PENDING",
 }
 
+export enum StorageVirtualMachineSubtype {
+  DEFAULT = "DEFAULT",
+  DP_DESTINATION = "DP_DESTINATION",
+  SYNC_DESTINATION = "SYNC_DESTINATION",
+  SYNC_SOURCE = "SYNC_SOURCE",
+}
+
 /**
  * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
  */
@@ -5162,6 +5171,11 @@ export interface StorageVirtualMachine {
    * <p>The SVM's system generated unique ID.</p>
    */
   StorageVirtualMachineId?: string;
+
+  /**
+   * <p>Describes the SVM's subtype.</p>
+   */
+  Subtype?: StorageVirtualMachineSubtype | string;
 
   /**
    * <p>The SVM's UUID (universally unique identifier).</p>

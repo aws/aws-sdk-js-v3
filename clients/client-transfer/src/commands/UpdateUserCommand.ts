@@ -32,7 +32,6 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
  *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
  *       you specify.</p>
- *
  *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
  *       updated user.</p>
  * @example

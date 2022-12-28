@@ -33,8 +33,12 @@ export interface SendMessageCommandInput extends SendMessageRequest {}
 export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
- *             ParticipantToken.</p>
+ * <p>Sends a message.</p>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example

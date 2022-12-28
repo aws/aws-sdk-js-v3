@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.239.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.238.0...v3.239.0) (2022-12-27)
+
+
+### Features
+
+* **client-transfer:** Add additional operations to throw ThrottlingExceptions ([4a66ecf](https://github.com/aws/aws-sdk-js-v3/commit/4a66ecf4f0b09192d2540ebfc4e3fa65a7bda040))
+
+
+
+
+
+# [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
+
+**Note:** Version bump only for package @aws-sdk/client-transfer
+
+
+
+
+
 # [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
 
 

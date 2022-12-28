@@ -31,7 +31,6 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 /**
  * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
  *       identified by its <code>ServerId</code> property.</p>
- *
  *          <p>The response from this call returns the properties of the user associated with the
  *         <code>ServerId</code> value that was specified.</p>
  * @example

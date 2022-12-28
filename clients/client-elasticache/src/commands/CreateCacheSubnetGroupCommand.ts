@@ -30,7 +30,7 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
 
 /**
  * <p>Creates a new cache subnet group.</p>
- *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+ *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

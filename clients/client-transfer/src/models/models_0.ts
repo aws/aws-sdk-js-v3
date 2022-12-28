@@ -169,7 +169,6 @@ export class ConflictException extends __BaseException {
 /**
  * <p>Reserved for future use.</p>
  *          <p>
- *
  *     </p>
  */
 export interface EfsFileLocation {
@@ -360,7 +359,6 @@ export interface CreateAccessRequest {
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-   *
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -401,13 +399,10 @@ export interface CreateAccessRequest {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -624,6 +619,27 @@ export interface CreateAgreementResponse {
   AgreementId: string | undefined;
 }
 
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
+}
+
 export interface CreateConnectorRequest {
   /**
    * <p>The URL of the partner's AS2 endpoint.</p>
@@ -732,7 +748,6 @@ export enum Domain {
  *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
  *         you will not be affected. After this date, use
  *         <code>EndpointType</code>=<code>VPC</code>.</p>
- *
  *             <p>For more information, see
  *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
  *          </note>
@@ -741,9 +756,7 @@ export interface EndpointDetails {
   /**
    * <p>A list of address allocation IDs that are required to attach an Elastic IP address to your
    *       server's endpoint.</p>
-   *
    *          <note>
-   *
    *             <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>
    *         and it is only valid in the <code>UpdateServer</code> API.</p>
    *          </note>
@@ -752,7 +765,6 @@ export interface EndpointDetails {
 
   /**
    * <p>A list of subnet IDs that are required to host your server endpoint in your VPC.</p>
-   *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *         <code>VPC</code>.</p>
@@ -762,11 +774,9 @@ export interface EndpointDetails {
 
   /**
    * <p>The identifier of the VPC endpoint.</p>
-   *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *           <code>VPC_ENDPOINT</code>.</p>
-   *
    *             <p>For more information, see
    *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *          </note>
@@ -775,7 +785,6 @@ export interface EndpointDetails {
 
   /**
    * <p>The VPC identifier of the VPC in which a server's endpoint will be hosted.</p>
-   *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *         <code>VPC</code>.</p>
@@ -786,11 +795,9 @@ export interface EndpointDetails {
   /**
    * <p>A list of security groups IDs that are available to attach to your server's
    *       endpoint.</p>
-   *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *         <code>VPC</code>.</p>
-   *
    *             <p>You can edit the <code>SecurityGroupIds</code> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a> API only if you are changing the <code>EndpointType</code> from
    *           <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>. To change security
    *         groups associated with your server's VPC endpoint after creation, use the Amazon EC2
@@ -876,7 +883,6 @@ export interface ProtocolDetails {
    *          <p>
    *             <i>Special values</i>
    *          </p>
-   *
    *          <p>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code> parameter. The value <code>PassiveIp=AUTO</code>
    *       is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response.
    *       <code>PassiveIp=0.0.0.0</code> has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment,
@@ -990,20 +996,15 @@ export interface CreateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required
    *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
-   *
    *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
    *       in the <i>Certificate Manager User Guide</i>.</p>
-   *
    *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
    *       in the <i>Certificate Manager User Guide</i>.</p>
-   *
    *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
    *         private certificate</a> in the <i>Certificate Manager User
    *       Guide</i>.</p>
-   *
    *          <p>Certificates with the following cryptographic algorithms and key sizes are
    *       supported:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>2048-bit RSA (RSA_2048)</p>
@@ -1021,7 +1022,6 @@ export interface CreateServerRequest {
    *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
    *         address specified and information about the issuer.</p>
@@ -1033,7 +1033,6 @@ export interface CreateServerRequest {
    * <p>The domain of the storage system that is used for file transfers. There are two domains
    *       available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The
    *       default value is S3.</p>
-   *
    *          <note>
    *             <p>After the server is created, the domain cannot be changed.</p>
    *          </note>
@@ -1060,7 +1059,6 @@ export interface CreateServerRequest {
    *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021,
    *         you will not be affected. After this date, use
    *         <code>EndpointType</code>=<code>VPC</code>.</p>
-   *
    *             <p>For more information, see
    *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
@@ -1075,31 +1073,23 @@ export interface CreateServerRequest {
   /**
    * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
    *      to rotate keys, or have a set of active keys that use different algorithms.</p>
-   *
    *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
    *          <p>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger key by using 3072 or 4096.</p>
-   *
    *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
    *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
-   *
    *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
-   *
    *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
-   *
    *          <important>
    *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
    *         server to a new server, don't update the host key. Accidentally changing a
    *         server's host key can be disruptive.</p>
    *          </important>
-   *
-   *
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
@@ -1148,7 +1138,6 @@ export interface CreateServerRequest {
   /**
    * <p>Specifies a string to display when users connect to a server. This string is displayed before the user authenticates.
    *     For example, the following banner displays details about using the system:</p>
-   *
    *          <p>
    *             <code>This system is for the use of authorized users only. Individuals using this computer system without authority,
    *     or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by
@@ -1180,7 +1169,6 @@ export interface CreateServerRequest {
    *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <ul>
    *                <li>
@@ -1266,27 +1254,6 @@ export interface CreateServerResponse {
   ServerId: string | undefined;
 }
 
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  RetryAfterSeconds?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
 export interface CreateUserRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
@@ -1311,14 +1278,11 @@ export interface CreateUserRequest {
    *       role provides access to paths in <code>Target</code>. This value
    *       can be set only when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
-   *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
-   *
    *          <p>
    *             <code>[ { "Entry": "/directory1", "Target":
    *         "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
    *          <p>In most cases, you can use this value instead of the session policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
@@ -1334,20 +1298,13 @@ export interface CreateUserRequest {
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-   *
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
    *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
    *         it in the <code>Policy</code> argument.</p>
-   *
-   *
-   *
    *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html">Example session
    *         policy</a>.</p>
-   *
-   *
-   *
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services
    *           Security Token Service API Reference</i>.</p>
    *          </note>
@@ -1693,13 +1650,10 @@ export interface DeleteAccessRequest {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -1807,13 +1761,10 @@ export interface DescribeAccessRequest {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -1839,7 +1790,6 @@ export interface DescribedAccess {
    *       role provides access to paths in <code>Target</code>. This value
    *       can be set only when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
-   *
    *          <p>In most cases, you can use this value instead of the session policy to lock down the
    *       associated access to the designated home directory ("<code>chroot</code>"). To do this, you
    *       can set <code>Entry</code> to '/' and set <code>Target</code> to the
@@ -1884,13 +1834,10 @@ export interface DescribedAccess {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -2696,7 +2643,6 @@ export interface DescribedServer {
   /**
    * <p>Specifies a string to display when users connect to a server. This string is displayed before the user authenticates.
    *     For example, the following banner displays details about using the system:</p>
-   *
    *          <p>
    *             <code>This system is for the use of authorized users only. Individuals using this computer system without authority,
    *     or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by
@@ -2728,7 +2674,6 @@ export interface DescribedServer {
    *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <ul>
    *                <li>
@@ -2774,7 +2719,6 @@ export interface DescribedServer {
    *         <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A
    *         <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file
    *       transfer operations.</p>
-   *
    *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
    *       in an intermediate state, either not fully able to respond, or not fully offline. The values
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
@@ -2855,7 +2799,6 @@ export interface DescribedUser {
    *       role provides access to paths in <code>Target</code>. This value
    *       can be set only when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
-   *
    *          <p>In most cases, you can use this value instead of the session policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
@@ -3274,13 +3217,10 @@ export interface ListedAccess {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -3680,7 +3620,6 @@ export interface ListedServer {
    *         <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A
    *         <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file
    *       transfer operations.</p>
-   *
    *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
    *       in an intermediate state, either not fully able to respond, or not fully offline. The values
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
@@ -3725,12 +3664,10 @@ export interface ListedUser {
    *       when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust
    *       relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
    *          <note>
-   *
    *             <p>The IAM role that controls your users' access to your Amazon S3 bucket for servers with <code>Domain=S3</code>, or your EFS file system for servers with <code>Domain=EFS</code>.
    *         </p>
    *             <p>The policies attached to this role determine the level of access you want to provide your users when
    *         transferring files into and out of your S3 buckets or EFS file systems.</p>
-   *
    *          </note>
    */
   Role?: string;
@@ -4175,9 +4112,7 @@ export interface TestIdentityProviderRequest {
 
   /**
    * <p>The type of file transfer protocol to be tested.</p>
-   *
    *          <p>The available protocols are:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Secure Shell (SSH) File Transfer Protocol (SFTP)</p>
@@ -4290,7 +4225,6 @@ export interface UpdateAccessRequest {
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-   *
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -4331,13 +4265,10 @@ export interface UpdateAccessRequest {
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
-   *
    *          <p>
    *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
-   *
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
-   *
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
@@ -4548,20 +4479,15 @@ export interface UpdateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required
    *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
-   *
    *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
    *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
-   *
    *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
    *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
-   *
    *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
    *         private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User
    *       Guide</i>.</p>
-   *
    *          <p>Certificates with the following cryptographic algorithms and key sizes are
    *       supported:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>2048-bit RSA (RSA_2048)</p>
@@ -4579,7 +4505,6 @@ export interface UpdateServerRequest {
    *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
    *         address specified and information about the issuer.</p>
@@ -4636,7 +4561,6 @@ export interface UpdateServerRequest {
    *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
    *         you will not be affected. After this date, use
    *         <code>EndpointType</code>=<code>VPC</code>.</p>
-   *
    *             <p>For more information, see
    *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
@@ -4651,31 +4575,23 @@ export interface UpdateServerRequest {
   /**
    * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
    *      to rotate keys, or have a set of active keys that use different algorithms.</p>
-   *
    *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
    *          <p>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger key by using 3072 or 4096.</p>
-   *
    *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
    *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
-   *
    *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
    *          <p>
    *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
-   *
    *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
-   *
    *          <important>
    *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
    *         server to a new server, don't update the host key. Accidentally changing a
    *         server's host key can be disruptive.</p>
    *          </important>
-   *
-   *
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
@@ -4704,7 +4620,6 @@ export interface UpdateServerRequest {
   /**
    * <p>Specifies a string to display when users connect to a server. This string is displayed before the user authenticates.
    *     For example, the following banner displays details about using the system:</p>
-   *
    *          <p>
    *             <code>This system is for the use of authorized users only. Individuals using this computer system without authority,
    *     or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by
@@ -4736,7 +4651,6 @@ export interface UpdateServerRequest {
    *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <ul>
    *                <li>
@@ -4823,17 +4737,14 @@ export interface UpdateUserRequest {
    *       role provides access to paths in <code>Target</code>. This value
    *       can be set only when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
-   *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
    *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
-   *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
    *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
@@ -4845,20 +4756,13 @@ export interface UpdateUserRequest {
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
-   *
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
    *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
    *         it in the <code>Policy</code> argument.</p>
-   *
-   *
-   *
    *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy">Creating a session
    *           policy</a>.</p>
-   *
-   *
-   *
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services
    *           Security Token Service API Reference</i>.</p>
    *          </note>

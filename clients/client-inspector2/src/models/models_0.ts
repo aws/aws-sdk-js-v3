@@ -1733,6 +1733,7 @@ export enum PackageType {
 }
 
 export enum Runtime {
+  GO_1_X = "GO_1_X",
   JAVA_11 = "JAVA_11",
   JAVA_8 = "JAVA_8",
   JAVA_8_AL2 = "JAVA_8_AL2",
@@ -1740,6 +1741,7 @@ export enum Runtime {
   NODEJS_12_X = "NODEJS_12_X",
   NODEJS_14_X = "NODEJS_14_X",
   NODEJS_16_X = "NODEJS_16_X",
+  NODEJS_18_X = "NODEJS_18_X",
   PYTHON_3_7 = "PYTHON_3_7",
   PYTHON_3_8 = "PYTHON_3_8",
   PYTHON_3_9 = "PYTHON_3_9",

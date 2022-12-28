@@ -6674,6 +6674,7 @@ const deserializeAws_json1_1StorageVirtualMachine = (output: any, context: __Ser
     ResourceARN: __expectString(output.ResourceARN),
     RootVolumeSecurityStyle: __expectString(output.RootVolumeSecurityStyle),
     StorageVirtualMachineId: __expectString(output.StorageVirtualMachineId),
+    Subtype: __expectString(output.Subtype),
     Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     UUID: __expectString(output.UUID),
   } as any;

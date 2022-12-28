@@ -38,7 +38,6 @@ export interface CreateGlobalReplicationGroupCommandOutput
  *             and disaster recovery across regions. For more information,
  *
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication Across Regions Using Global Datastore</a>. </p>
- *
  *          <ul>
  *             <li>
  *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global datastore.</p>

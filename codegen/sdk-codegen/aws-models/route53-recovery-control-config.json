@@ -73,7 +73,7 @@
         "RuleConfig": {
           "target": "com.amazonaws.route53recoverycontrolconfig#RuleConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria that you set for specific assertion routing controls (AssertedControls) that designate how many routing control states must be ON as the result of a transaction. For example, if you have three assertion routing controls, you might specify atleast 2 for your rule configuration. This means that at least two assertion routing control states must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>",
+            "smithy.api#documentation": "<p>The criteria that you set for specific assertion routing controls (AssertedControls) that designate how many routing control states must be ON as the result of a transaction. For example, if you have three assertion routing controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion routing control states must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>",
             "smithy.api#required": {}
           }
         },
@@ -101,7 +101,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transation so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>"
+        "smithy.api#documentation": "<p>An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>"
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#AssertionRuleUpdate": {
@@ -517,7 +517,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a safety rule in a control panel. Safety rules let you add safeguards around changing routing control states, and for enabling and disabling routing controls, to help prevent unexpected outcomes.</p> <p>There are two types of safety rules: assertion rules and gating rules.</p> <p>Assertion rule: An assertion rule enforces that, when you change a routing control state, that a certain criteria is met. For example, the criteria might be that at least one routing control state is On after the transation so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p> <p>Gating rule: A gating rule lets you configure a gating routing control as an overall \"on/off\" switch for a group of routing controls. Or, you can configure more complex gating scenarios, for example by configuring multiple gating routing controls.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html\">Safety rules</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>",
+        "smithy.api#documentation": "<p>Creates a safety rule in a control panel. Safety rules let you add safeguards around changing routing control states, and for enabling and disabling routing controls, to help prevent unexpected outcomes.</p> <p>There are two types of safety rules: assertion rules and gating rules.</p> <p>Assertion rule: An assertion rule enforces that, when you change a routing control state, that a certain criteria is met. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p> <p>Gating rule: A gating rule lets you configure a gating routing control as an overall \"on/off\" switch for a group of routing controls. Or, you can configure more complex gating scenarios, for example by configuring multiple gating routing controls.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html\">Safety rules</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/safetyrule",
@@ -1233,7 +1233,7 @@
         "RuleConfig": {
           "target": "com.amazonaws.route53recoverycontrolconfig#RuleConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria that you set for gating routing controls that designates how many of the routing control states must be ON to allow you to update target routing control states.</p>",
+            "smithy.api#documentation": "<p>The criteria that you set for gating routing controls that designate how many of the routing control states must be ON to allow you to update target routing control states.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1254,7 +1254,7 @@
         "TargetControls": {
           "target": "com.amazonaws.route53recoverycontrolconfig#__listOf__stringMin1Max256PatternAZaZ09",
           "traits": {
-            "smithy.api#documentation": "<p>An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall \"on/off\" switch for a set of target routing controls. You can use this to manually override automated fail over, for example.</p>",
+            "smithy.api#documentation": "<p>An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall \"on/off\" switch for a set of target routing controls. You can use this to manually override automated failover, for example.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1268,7 +1268,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A gating rule verifies that a gating routing control or set of gating rounting controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control \"switch\" to be \"On\". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>"
+        "smithy.api#documentation": "<p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control \"switch\" to be \"On\". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>"
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#GatingRuleUpdate": {
@@ -1347,6 +1347,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "HealthCheckIds",
           "pageSize": "MaxResults"
         }
       }
@@ -1431,6 +1432,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "Clusters",
           "pageSize": "MaxResults"
         }
       }
@@ -1507,6 +1509,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "ControlPanels",
           "pageSize": "MaxResults"
         }
       }
@@ -1590,6 +1593,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "RoutingControls",
           "pageSize": "MaxResults"
         }
       }
@@ -1674,6 +1678,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "SafetyRules",
           "pageSize": "MaxResults"
         }
       }
@@ -1812,7 +1817,7 @@
         "RuleConfig": {
           "target": "com.amazonaws.route53recoverycontrolconfig#RuleConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be ON as the result of a transaction. For example, if you have three assertion controls, you might specify ATLEAST 2for your rule configuration. This means that at least two assertion controls must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>",
+            "smithy.api#documentation": "<p>The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be ON as the result of a transaction. For example, if you have three assertion controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion controls must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1856,14 +1861,14 @@
         "RuleConfig": {
           "target": "com.amazonaws.route53recoverycontrolconfig#RuleConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria that you set for specific gating controls (routing controls) that designates how many control states must be ON to allow you to change (set or unset) the target control states.</p>",
+            "smithy.api#documentation": "<p>The criteria that you set for specific gating controls (routing controls) that designate how many control states must be ON to allow you to change (set or unset) the target control states.</p>",
             "smithy.api#required": {}
           }
         },
         "TargetControls": {
           "target": "com.amazonaws.route53recoverycontrolconfig#__listOf__stringMin1Max256PatternAZaZ09",
           "traits": {
-            "smithy.api#documentation": "<p>Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three Amazon Web Services Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.</p> <p>In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</p>",
+            "smithy.api#documentation": "<p>Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.</p> <p>In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1892,7 +1897,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found..</p>",
+        "smithy.api#documentation": "<p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1990,7 +1995,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2039,15 +2044,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -2309,8 +2305,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "route53-recovery-control-config",
-                              "signingRegion": "us-west-2"
+                              "signingRegion": "us-west-2",
+                              "signingName": "route53-recovery-control-config"
                             }
                           ]
                         },
@@ -2342,9 +2338,9 @@
                   "properties": {
                     "authSchemes": [
                       {
+                        "signingRegion": "us-west-2",
                         "name": "sigv4",
-                        "signingName": "route53-recovery-control-config",
-                        "signingRegion": "us-west-2"
+                        "signingName": "route53-recovery-control-config"
                       }
                     ]
                   },
@@ -2352,9 +2348,9 @@
                 }
               },
               "params": {
-                "Region": "aws-global",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "aws-global"
               }
             },
             {
@@ -2365,9 +2361,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2377,9 +2373,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2389,9 +2385,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2438,13 +2434,13 @@
         "ASSERTION": {
           "target": "com.amazonaws.route53recoverycontrolconfig#AssertionRule",
           "traits": {
-            "smithy.api#documentation": "<p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transation so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>"
+            "smithy.api#documentation": "<p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>"
           }
         },
         "GATING": {
           "target": "com.amazonaws.route53recoverycontrolconfig#GatingRule",
           "traits": {
-            "smithy.api#documentation": "<p>A gating rule verifies that a gating routing control or set of gating rounting controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control \"switch\" to be \"On\". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>"
+            "smithy.api#documentation": "<p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control \"switch\" to be \"On\". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>"
           }
         }
       },
@@ -2484,23 +2480,29 @@
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#RuleType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>An enumerated type that determines how the evaluated rules are processed. RuleType can be one of the following:</p> <p>ATLEAST - At least N routing controls must be set. You specify N as the Threshold in the rule configuration.</p> <p>AND - All routing controls must be set. This is a shortcut for \"At least N,\" where N is the total number of controls in the rule.</p> <p>OR - Any control must be set. This is a shortcut for \"At least N,\" where N is 1.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "ATLEAST",
-            "name": "ATLEAST"
-          },
-          {
-            "value": "AND",
-            "name": "AND"
-          },
-          {
-            "value": "OR",
-            "name": "OR"
+      "type": "enum",
+      "members": {
+        "ATLEAST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ATLEAST"
           }
-        ]
+        },
+        "AND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AND"
+          }
+        },
+        "OR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OR"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An enumerated type that determines how the evaluated rules are processed. RuleType can be one of the following:</p> <p>ATLEAST - At least N routing controls must be set. You specify N as the Threshold in the rule configuration.</p> <p>AND - All routing controls must be set. This is a shortcut for \"At least N,\" where N is the total number of controls in the rule.</p> <p>OR - Any control must be set. This is a shortcut for \"At least N,\" where N is 1.</p>"
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#ServiceQuotaExceededException": {
@@ -2521,23 +2523,29 @@
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The deployment status of a resource. Status can be one of the following:</p> <p>PENDING: Amazon Route 53 Application Recovery Controller is creating the resource.</p> <p>DEPLOYED: The resource is deployed and ready to use.</p> <p>PENDING_DELETION: Amazon Route 53 Application Recovery Controller is deleting the resource.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "DEPLOYED",
-            "name": "DEPLOYED"
-          },
-          {
-            "value": "PENDING_DELETION",
-            "name": "PENDING_DELETION"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "DEPLOYED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPLOYED"
+          }
+        },
+        "PENDING_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETION"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The deployment status of a resource. Status can be one of the following:</p> <p>PENDING: Amazon Route 53 Application Recovery Controller is creating the resource.</p> <p>DEPLOYED: The resource is deployed and ready to use.</p> <p>PENDING_DELETION: Amazon Route 53 Application Recovery Controller is deleting the resource.</p>"
       }
     },
     "com.amazonaws.route53recoverycontrolconfig#TagResource": {

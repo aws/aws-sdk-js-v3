@@ -31,8 +31,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
 /**
  * <p>Creates a copy of an entire cluster or replication group at a
  *             specific moment in time.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example

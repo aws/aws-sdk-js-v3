@@ -703,7 +703,6 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
-   *
    *          <p>No response returns from this operation.</p>
    */
   public deleteServer(
@@ -766,9 +765,7 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
-   *
    *          <p>No response returns from this operation.</p>
-   *
    *          <note>
    *             <p>When you delete a user from a server, the user's information is lost.</p>
    *          </note>
@@ -832,7 +829,6 @@ export class Transfer extends TransferClient {
    * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
    *       server, as identified by its <code>ServerId</code> property and its
    *       <code>ExternalId</code>.</p>
-   *
    *          <p>The response from this call returns the properties of the access that is associated with
    *       the <code>ServerId</code> value that was specified.</p>
    */
@@ -1096,7 +1092,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Describes a file transfer protocol-enabled server that you specify by passing the
    *         <code>ServerId</code> parameter.</p>
-   *
    *          <p>The response contains a description of a server's properties. When you set
    *         <code>EndpointType</code> to VPC, the response will contain the
    *       <code>EndpointDetails</code>.</p>
@@ -1133,7 +1128,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
    *       identified by its <code>ServerId</code> property.</p>
-   *
    *          <p>The response from this call returns the properties of the user associated with the
    *         <code>ServerId</code> value that was specified.</p>
    */
@@ -1266,7 +1260,6 @@ export class Transfer extends TransferClient {
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
-   *
    *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
    *       the name of the <code>SshPublicKeyId</code>.</p>
    */
@@ -1751,11 +1744,9 @@ export class Transfer extends TransferClient {
    * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
    *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
    *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
-   *
    *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
    *       can indicate an error condition.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public startServer(args: StartServerCommandInput, options?: __HttpHandlerOptions): Promise<StartServerCommandOutput>;
@@ -1786,16 +1777,13 @@ export class Transfer extends TransferClient {
    *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
    *       jobs. Information tied to your server, such as server and user properties, are not affected by
    *       stopping your server.</p>
-   *
    *          <note>
    *             <p>Stopping the server does not reduce or impact your file transfer protocol endpoint
    *         billing; you must delete the server to stop being billed.</p>
    *          </note>
-   *
    *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>
    *       can indicate an error condition.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public stopServer(args: StopServerCommandInput, options?: __HttpHandlerOptions): Promise<StopServerCommandOutput>;
@@ -1824,7 +1812,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
    *       Resources are users, servers, roles, and other entities.</p>
-   *
    *          <p>There is no response returned from this call.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1923,7 +1910,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public untagResource(
@@ -2155,7 +2141,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Updates the file transfer protocol-enabled server's properties after that server has
    *       been created.</p>
-   *
    *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
    *       updated.</p>
    */
@@ -2189,7 +2174,6 @@ export class Transfer extends TransferClient {
    * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
    *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
    *       you specify.</p>
-   *
    *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
    *       updated user.</p>
    */

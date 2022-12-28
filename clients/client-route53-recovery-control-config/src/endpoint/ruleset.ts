@@ -6,25 +6,25 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/route53-recovery-control-config.json */
 
-const q="required",
-r="fn",
+const r="fn",
 s="argv",
 t="ref";
-const a="PartitionResult",
-b="tree",
-c="error",
-d="endpoint",
-e={[q]:false,"type":"String"},
-f={[q]:true,"default":false,"type":"Boolean"},
-g={[t]:"Region"},
-h={[t]:"Endpoint"},
-i={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
-j={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
-k={},
-l={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:a},"supportsFIPS"]}]},
-m={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:a},"supportsDualStack"]}]},
-n=[h],
-o=[i],
-p=[j];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[r]:"aws.partition",[s]:[g],assign:a}],type:b,rules:[{conditions:[{[r]:"isSet",[s]:n},{[r]:"parseURL",[s]:n,assign:"url"}],type:b,rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:p,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:h,properties:k,headers:k},type:d}]}]},{conditions:[i,j],type:b,rules:[{conditions:[l,m],type:b,rules:[{endpoint:{url:"https://route53-recovery-control-config-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://route53-recovery-control-config-fips.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:p,type:b,rules:[{conditions:[m],type:b,rules:[{endpoint:{url:"https://route53-recovery-control-config.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{type:b,rules:[{conditions:[{[r]:"stringEquals",[s]:[g,"aws-global"]}],endpoint:{url:"https://route53-recovery-control-config.us-west-2.amazonaws.com",properties:{authSchemes:[{name:"sigv4",signingName:"route53-recovery-control-config",signingRegion:"us-west-2"}]},headers:k},type:d},{endpoint:{url:"https://route53-recovery-control-config.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:d}]}]}]};
+const a=true,
+b=false,
+c="String",
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h={"required":true,"default":false,"type":"Boolean"},
+i={[t]:"Region"},
+j={[t]:"Endpoint"},
+k={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
+l={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
+m={},
+n={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsFIPS"]}]},
+o={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsDualStack"]}]},
+p=[k],
+q=[l];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[r]:"aws.partition",[s]:[i],assign:d}],type:e,rules:[{conditions:[{[r]:"isSet",[s]:[j]}],type:e,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,o],type:e,rules:[{endpoint:{url:"https://route53-recovery-control-config-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:p,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://route53-recovery-control-config-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:q,type:e,rules:[{conditions:[o],type:e,rules:[{endpoint:{url:"https://route53-recovery-control-config.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{conditions:[{[r]:"stringEquals",[s]:[i,"aws-global"]}],endpoint:{url:"https://route53-recovery-control-config.us-west-2.amazonaws.com",properties:{authSchemes:[{name:"sigv4",signingRegion:"us-west-2",signingName:"route53-recovery-control-config"}]},headers:m},type:g},{endpoint:{url:"https://route53-recovery-control-config.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]}]};
 export const ruleSet: RuleSetObject = _data;
