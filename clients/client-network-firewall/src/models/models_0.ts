@@ -78,13 +78,13 @@ export interface AssociateFirewallPolicyRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *         <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -282,13 +282,13 @@ export interface AssociateSubnetsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -375,9 +375,14 @@ export interface Attachment {
    *          the <code>Config</code> settings. When this value is <code>READY</code>, the endpoint is
    *          available and configured properly to handle network traffic. When the endpoint isn't
    *          available for traffic, this value will reflect its state, for example
-   *          <code>CREATING</code>, <code>DELETING</code>, or <code>FAILED</code>.</p>
+   *          <code>CREATING</code> or <code>DELETING</code>.</p>
    */
   Status?: AttachmentStatus | string;
+
+  /**
+   * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the failure and how to resolve it. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  StatusMessage?: string;
 }
 
 /**
@@ -1139,7 +1144,7 @@ export interface RulesSourceList {
    *             </li>
    *             <li>
    *                <p>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'. For example,<code>.example.com</code> matches <code>example.com</code> and matches all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and <code>www.example.com</code>. </p>
-   * 	           </li>
+   *             </li>
    *          </ul>
    */
   Targets: string[] | undefined;
@@ -1364,10 +1369,10 @@ export interface TCPFlagField {
    *          <ul>
    *             <li>
    *                <p>The ones that are set in this flags setting must be set in the packet. </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>The ones that are not set in this flags setting must also not be set in the packet. </p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   Flags: (TCPFlag | string)[] | undefined;
@@ -1874,13 +1879,13 @@ export interface CreateRuleGroupResponse {
 export interface DeleteFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 }
@@ -2006,13 +2011,13 @@ export interface DeleteRuleGroupResponse {
 export interface DescribeFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 }
@@ -2039,13 +2044,13 @@ export interface DescribeFirewallResponse {
 export interface DescribeFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
 }
@@ -2071,13 +2076,13 @@ export interface DescribeFirewallPolicyResponse {
 export interface DescribeLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 }
@@ -2190,20 +2195,20 @@ export interface DescribeResourcePolicyResponse {
 export interface DescribeRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
-   *            <note>
+   *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
@@ -2314,13 +2319,13 @@ export interface DisassociateSubnetsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2690,13 +2695,13 @@ export interface UpdateFirewallDeleteProtectionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2744,13 +2749,13 @@ export interface UpdateFirewallDescriptionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2842,13 +2847,13 @@ export interface UpdateFirewallPolicyRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
 
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
@@ -2901,13 +2906,13 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2948,13 +2953,13 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2991,13 +2996,13 @@ export interface UpdateRuleGroupRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
-   *           <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
@@ -3023,7 +3028,7 @@ export interface UpdateRuleGroupRequest {
   /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
-   *            <note>
+   *          <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
@@ -3084,7 +3089,7 @@ export interface UpdateSubnetChangeProtectionRequest {
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *            <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 

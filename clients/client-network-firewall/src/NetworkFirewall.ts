@@ -934,11 +934,11 @@ export class NetworkFirewall extends NetworkFirewallClient {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareInvitations.html">GetResourceShareInvitations</a> - Returns the Amazon Resource Names (ARNs) of the resource share invitations.  </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html">AcceptResourceShareInvitation</a> - Accepts the share invitation for a specified resource share. </p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>For additional information about resource sharing using RAM, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">Resource Access Manager User Guide</a>.</p>
    */
