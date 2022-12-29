@@ -95,6 +95,10 @@ import {
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  GetClusterSessionCredentialsCommandInput,
+  GetClusterSessionCredentialsCommandOutput,
+} from "./commands/GetClusterSessionCredentialsCommand";
+import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
@@ -215,6 +219,7 @@ export type ServiceInputTypes =
   | DescribeStudioCommandInput
   | GetAutoTerminationPolicyCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
+  | GetClusterSessionCredentialsCommandInput
   | GetManagedScalingPolicyCommandInput
   | GetStudioSessionMappingCommandInput
   | ListBootstrapActionsCommandInput
@@ -269,6 +274,7 @@ export type ServiceOutputTypes =
   | DescribeStudioCommandOutput
   | GetAutoTerminationPolicyCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
+  | GetClusterSessionCredentialsCommandOutput
   | GetManagedScalingPolicyCommandOutput
   | GetStudioSessionMappingCommandOutput
   | ListBootstrapActionsCommandOutput

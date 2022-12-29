@@ -34,9 +34,7 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
  *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
  *          various ways, including using SSH to connect to the master node and submitting queries
- *          directly to the software running on the master node, such as Hive and Hadoop. For more
- *          information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
- *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
+ *          directly to the software running on the master node, such as Hive and Hadoop.</p>
  *          <p>A step specifies the location of a JAR file stored either on the master node of the
  *          cluster or in Amazon S3. Each step is performed by the main function of the main
  *          class of the JAR file. The main class can be specified either in the manifest of the JAR or
