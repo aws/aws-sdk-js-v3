@@ -1834,6 +1834,7 @@ const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest,
 const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filters != null && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
+    ...(input.IncludePlannedDeletion != null && { IncludePlannedDeletion: input.IncludePlannedDeletion }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
@@ -2106,6 +2107,10 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
+    NextRotationDate:
+      output.NextRotationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
+        : undefined,
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     ReplicationStatus:
@@ -2407,6 +2412,10 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
+    NextRotationDate:
+      output.NextRotationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
+        : undefined,
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     RotationEnabled: __expectBoolean(output.RotationEnabled),

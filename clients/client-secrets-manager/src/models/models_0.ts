@@ -715,6 +715,7 @@ export interface DescribeSecretResponse {
    */
   DeletedDate?: Date;
 
+  NextRotationDate?: Date;
   /**
    * <p>The list of tags attached to the secret. To add tags to a
    *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
@@ -789,6 +790,7 @@ export enum FilterNameStringType {
   all = "all",
   description = "description",
   name = "name",
+  owning_service = "owning-service",
   primary_region = "primary-region",
   tag_key = "tag-key",
   tag_value = "tag-value",
@@ -1025,6 +1027,7 @@ export enum SortOrderType {
 }
 
 export interface ListSecretsRequest {
+  IncludePlannedDeletion?: boolean;
   /**
    * <p>The number of results to include in the response.</p>
    *          <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
@@ -1124,6 +1127,7 @@ export interface SecretListEntry {
    */
   DeletedDate?: Date;
 
+  NextRotationDate?: Date;
   /**
    * <p>The list of user-defined tags associated with the secret. To add tags to a
    *       secret, use <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_TagResource.html">
@@ -1518,8 +1522,7 @@ export interface RotateSecretRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>For secrets that use a Lambda rotation function to rotate, the ARN of the Lambda rotation function. </p>
-   *          <p>For secrets that use <i>managed rotation</i>, omit this field. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html">Managed rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
+   * <p>The ARN of the Lambda rotation function that can rotate the secret.</p>
    */
   RotationLambdaARN?: string;
 
@@ -1531,7 +1534,7 @@ export interface RotateSecretRequest {
   /**
    * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
    *     The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p>
-   *          <p>For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
+   *          <p>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
    *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
    *                <code>testSecret</code>
    *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
