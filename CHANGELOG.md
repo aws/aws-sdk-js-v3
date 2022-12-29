@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
+
+
+### Features
+
+* **client-emr:** Added GetClusterSessionCredentials API to allow Amazon SageMaker Studio to connect to EMR on EC2 clusters with runtime roles and AWS Lake Formation-based access control for Apache Spark, Apache Hive, and Presto queries. ([200974a](https://github.com/aws/aws-sdk-js-v3/commit/200974a9cb26d34aaf29cf6ca2d69ad6e14c5259))
+* **client-secrets-manager:** Added owning service filter, include planned deletion flag, and next rotation date response parameter in ListSecrets. ([9a693c7](https://github.com/aws/aws-sdk-js-v3/commit/9a693c73a997f03fd9b3deb2954d76943e0a083e))
+* **client-wisdom:** This release extends Wisdom CreateContent and StartContentUpload APIs to support PDF and MicrosoftWord docx document uploading. ([16bb484](https://github.com/aws/aws-sdk-js-v3/commit/16bb4847c8c6eb4bb80b7352b6872255fd73956e))
+
+
+
+
+
 # [3.240.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.239.0...v3.240.0) (2022-12-28)
 
 
