@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.242.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.241.0...v3.242.0) (2022-12-30)
+
+
+### Features
+
+* **client-cloudfront:** Extend response headers policy to support removing headers from viewer responses ([81d10cb](https://github.com/aws/aws-sdk-js-v3/commit/81d10cbd46de3a4bf991fa0874f49e485e1f0ebb))
+* **clients:** update client endpoints as of 2022-12-30 ([0cbd298](https://github.com/aws/aws-sdk-js-v3/commit/0cbd29896dcc296ce21bd78f3da146b39f912dfa))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 
