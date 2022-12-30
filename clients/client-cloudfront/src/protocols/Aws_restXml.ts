@@ -501,7 +501,6 @@ import {
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
   ResponseHeadersPolicyAccessControlAllowOrigins,
   ResponseHeadersPolicyAccessControlExposeHeaders,
-  ResponseHeadersPolicyAlreadyExists,
   ResponseHeadersPolicyConfig,
   ResponseHeadersPolicyContentSecurityPolicy,
   ResponseHeadersPolicyContentTypeOptions,
@@ -510,6 +509,8 @@ import {
   ResponseHeadersPolicyCustomHeadersConfig,
   ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyReferrerPolicy,
+  ResponseHeadersPolicyRemoveHeader,
+  ResponseHeadersPolicyRemoveHeadersConfig,
   ResponseHeadersPolicySecurityHeadersConfig,
   ResponseHeadersPolicyServerTimingHeadersConfig,
   ResponseHeadersPolicyStrictTransportSecurity,
@@ -622,6 +623,7 @@ import {
   RealtimeLogConfigInUse,
   RealtimeLogConfigs,
   ResourceInUse,
+  ResponseHeadersPolicyAlreadyExists,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicySummary,
@@ -639,6 +641,7 @@ import {
   TestResult,
   TooLongCSPInResponseHeadersPolicy,
   TooManyCustomHeadersInResponseHeadersPolicy,
+  TooManyRemoveHeadersInResponseHeadersPolicy,
   TooManyResponseHeadersPolicies,
   TooManyStreamingDistributionCNAMEs,
   TooManyStreamingDistributions,
@@ -5214,6 +5217,9 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
+    case "TooManyRemoveHeadersInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyRemoveHeadersInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooManyRemoveHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
     case "TooManyResponseHeadersPolicies":
     case "com.amazonaws.cloudfront#TooManyResponseHeadersPolicies":
       throw await deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse(parsedOutput, context);
@@ -9766,6 +9772,9 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
+    case "TooManyRemoveHeadersInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyRemoveHeadersInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooManyRemoveHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -12033,6 +12042,22 @@ const deserializeAws_restXmlTooManyRealtimeLogConfigsResponse = async (
   return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
+const deserializeAws_restXmlTooManyRemoveHeadersInResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyRemoveHeadersInResponseHeadersPolicy> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new TooManyRemoveHeadersInResponseHeadersPolicy({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
 const deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13988,6 +14013,13 @@ const serializeAws_restXmlResponseHeadersPolicyConfig = (
     ).withName("CustomHeadersConfig");
     bodyNode.addChildNode(node);
   }
+  if (input.RemoveHeadersConfig != null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyRemoveHeadersConfig(
+      input.RemoveHeadersConfig,
+      context
+    ).withName("RemoveHeadersConfig");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -14149,6 +14181,50 @@ const serializeAws_restXmlResponseHeadersPolicyReferrerPolicy = (
   if (input.ReferrerPolicy != null) {
     const node = __XmlNode.of("ReferrerPolicyList", input.ReferrerPolicy).withName("ReferrerPolicy");
     bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyRemoveHeader = (
+  input: ResponseHeadersPolicyRemoveHeader,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyRemoveHeader");
+  if (input.Header != null) {
+    const node = __XmlNode.of("string", input.Header).withName("Header");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyRemoveHeaderList = (
+  input: ResponseHeadersPolicyRemoveHeader[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = serializeAws_restXmlResponseHeadersPolicyRemoveHeader(entry, context);
+      return node.withName("ResponseHeadersPolicyRemoveHeader");
+    });
+};
+
+const serializeAws_restXmlResponseHeadersPolicyRemoveHeadersConfig = (
+  input: ResponseHeadersPolicyRemoveHeadersConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyRemoveHeadersConfig");
+  if (input.Quantity != null) {
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items != null) {
+    const nodes = serializeAws_restXmlResponseHeadersPolicyRemoveHeaderList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   return bodyNode;
 };
@@ -17846,6 +17922,7 @@ const deserializeAws_restXmlResponseHeadersPolicyConfig = (
     SecurityHeadersConfig: undefined,
     ServerTimingHeadersConfig: undefined,
     CustomHeadersConfig: undefined,
+    RemoveHeadersConfig: undefined,
   };
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
@@ -17871,6 +17948,12 @@ const deserializeAws_restXmlResponseHeadersPolicyConfig = (
   if (output["CustomHeadersConfig"] !== undefined) {
     contents.CustomHeadersConfig = deserializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig(
       output["CustomHeadersConfig"],
+      context
+    );
+  }
+  if (output["RemoveHeadersConfig"] !== undefined) {
+    contents.RemoveHeadersConfig = deserializeAws_restXmlResponseHeadersPolicyRemoveHeadersConfig(
+      output["RemoveHeadersConfig"],
       context
     );
   }
@@ -18070,6 +18153,52 @@ const deserializeAws_restXmlResponseHeadersPolicyReferrerPolicy = (
   }
   if (output["ReferrerPolicy"] !== undefined) {
     contents.ReferrerPolicy = __expectString(output["ReferrerPolicy"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyRemoveHeader = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyRemoveHeader => {
+  const contents: any = {
+    Header: undefined,
+  };
+  if (output["Header"] !== undefined) {
+    contents.Header = __expectString(output["Header"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyRemoveHeaderList = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyRemoveHeader[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_restXmlResponseHeadersPolicyRemoveHeader(entry, context);
+    });
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyRemoveHeadersConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyRemoveHeadersConfig => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyRemoveHeader"] !== undefined) {
+    contents.Items = deserializeAws_restXmlResponseHeadersPolicyRemoveHeaderList(
+      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicyRemoveHeader"]),
+      context
+    );
   }
   return contents;
 };
