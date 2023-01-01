@@ -25,7 +25,7 @@ describe("loadConfig", () => {
     (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
     const mockFromStatic = "mockFromStatic";
     (fromStatic as jest.Mock).mockReturnValueOnce(mockFromStatic);
-    const envVarSelector = (env: NodeJS.ProcessEnv) => env["AWS_CONFIG_FOO"];
+    const envVarSelector = (env: Record<string, string | undefined>) => env["AWS_CONFIG_FOO"];
     const configKey = (profile: Profile) => profile["aws_config_foo"];
     const defaultValue = "foo-value";
     loadConfig(

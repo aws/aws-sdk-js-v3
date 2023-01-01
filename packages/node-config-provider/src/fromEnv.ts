@@ -1,7 +1,7 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
-export type GetterFromEnv<T> = (env: NodeJS.ProcessEnv) => T | undefined;
+export type GetterFromEnv<T> = (env: Record<string, string | undefined>) => T | undefined;
 
 /**
  * Get config value given the environment variable name or getter from
