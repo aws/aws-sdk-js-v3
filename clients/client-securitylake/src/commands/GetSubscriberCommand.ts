@@ -29,7 +29,8 @@ export interface GetSubscriberCommandInput extends GetSubscriberRequest {}
 export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves subscription information for the specified subscription ID.</p>
+ * <p>Retrieves the subscription information for the specified subscription ID. You can get
+ *          information about a specific subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

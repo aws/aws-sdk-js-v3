@@ -31,7 +31,9 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the Security Lake administrator account for the organization. This API can only be called by the organization management account. The organization management account cannot be the delegated administrator account.</p>
+ * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
+ *          can only be called by the organization management account. The organization management
+ *          account cannot be the delegated administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,7 +31,8 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update the subscription notification for exception notification.</p>
+ * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
+ *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

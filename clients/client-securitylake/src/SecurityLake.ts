@@ -151,37 +151,53 @@ import { SecurityLakeClient } from "./SecurityLakeClient";
 
 /**
  * <note>
- *             <p>Amazon Security Lake is in preview release. Your use of the Amazon Security Lake
- *             preview is subject to Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>("Betas and Previews").</p>
+ *             <p>Amazon Security Lake is in preview release. Your use of the Security Lake preview is subject to
+ *             Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
+ *                Terms</a>("Betas and Previews").</p>
  *          </note>
- *          <p>Amazon Security Lake is a fully-managed security data lake service. You can use Security Lake to automatically centralize
- *          security data from cloud, on-premises, and custom sources into a data lake that's stored in your account. Security Lake
- *          helps you analyze security data, so you can get a more complete understanding of your security posture across the entire organization and improve the protection of your workloads, applications, and data.</p>
- *          <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and
- *          you retain ownership over your data.</p>
- *          <p>Security Lake automates the collection of security-related log and event data from integrated
- *          Amazon Web Services. and third-party services and manages the lifecycle of data with customizable
- *          retention and replication settings. Security Lake also converts ingested data into Apache Parquet format and a
- *          standard open-source schema called the Open Cybersecurity Schema Framework (OCSF).</p>
+ *          <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
+ *          automatically centralize security data from cloud, on-premises, and custom sources into a
+ *          data lake that's stored in your Amazon Web Servicesaccount. Amazon Web Services Organizations
+ *          is an account management service that lets you consolidate multiple Amazon Web Services
+ *          accounts into an organization that you create and centrally manage. With Organizations, you
+ *          can create member accounts and invite existing accounts to join your organization.
+ *          Security Lake helps you analyze security data for a more complete understanding of your
+ *          security posture across the entire organization. It can also help you improve the
+ *          protection of your workloads, applications, and data.</p>
+ *          <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and you
+ *          retain ownership over your data.   </p>
+ *          <p>Amazon Security Lake integrates with CloudTrail, a service that provides a record of
+ *          actions taken by a user, role, or an Amazon Web Services service in Security Lake CloudTrail captures API calls for Security Lake as events. The calls captured include calls
+ *          from the Security Lake console and code calls to the Security Lake API operations. If you create a
+ *          trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Lake. If you don't configure a trail, you can still
+ *          view the most recent events in the CloudTrail console in Event history. Using the
+ *          information collected by CloudTrail you can determine the request that was made to
+ *          Security Lake, the IP address from which the request was made, who made the request, when it
+ *          was made, and additional details. To learn more about Security Lake information in CloudTrail, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/securitylake-cloudtrail.html">Amazon Security Lake User Guide</a>.</p>
+ *          <p>Security Lake automates the collection of security-related log and event data from
+ *          integrated Amazon Web Services and third-party services. It also helps you manage
+ *          the lifecycle of data with customizable retention and replication settings. Security Lake
+ *          converts ingested data into Apache Parquet format and a standard open-source schema called
+ *          the Open Cybersecurity Schema Framework (OCSF).</p>
  *          <p>Other Amazon Web Services and third-party services can subscribe to the data that's stored in Security Lake for
  *          incident response and security data analytics.</p>
  */
 export class SecurityLake extends SecurityLakeClient {
   /**
-   * <p>Adds a natively-supported Amazon Web Services service as a Security Lake source. Enables
-   *          source types for member accounts in required Regions, based on specified parameters. You
-   *          can choose any source type in any Region for accounts that are either part of a trusted
-   *          organization or standalone accounts. At least one of the three dimensions is a mandatory
-   *          input to this API. However, any combination of the three dimensions can be supplied to this
-   *          API. </p>
-   *          <p>By default, dimension refers to the entire set. When you don't provide a dimension,
+   * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
+   *          source types for member accounts in required Amazon Web Services Regions, based on the
+   *          parameters you specify. You can choose any source type in any Region for either accounts
+   *          that are part of a trusted organization or standalone accounts. At least one of the three
+   *          dimensions is a mandatory input to this API. However, you can supply any combination of the
+   *          three dimensions to this API. </p>
+   *          <p>By default, a dimension refers to the entire set. When you don't provide a dimension,
    *          Security Lake assumes that the missing dimension refers to the entire set. This is overridden
-   *          when you supply any one of the inputs. For instance, when members is not specified, the API
-   *          disables all Security Lake member accounts for sources. Similarly, when Regions are not
-   *          specified, Security Lake is disabled for all the Regions where Security Lake is available as a
+   *          when you supply any one of the inputs. For instance, when you do not specify members, the
+   *          API enables all Security Lake member accounts for all sources. Similarly, when you do not
+   *          specify Regions, Security Lake is enabled for all the Regions where Security Lake is available as a
    *          service.</p>
-   *          <p>You can use this API only to enable a natively-supported Amazon Web Services services as
-   *          a source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
+   *          <p>You can use this API only to enable natively supported Amazon Web Services as a
+   *          source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
    *          source. </p>
    */
   public createAwsLogSource(
@@ -214,12 +230,12 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Adds a third-party custom source in Amazon Security Lake, from the Region where you want to
-   *          create a custom source. Security Lake can collect logs and events from third-party custom
-   *          sources. After creating the appropriate API roles, use this API to add a custom source name
-   *          in Security Lake. This operation creates a partition in the Security Lake S3 bucket as the target
-   *          location for log files from the custom source, an associated Glue table, and
-   *          an Glue crawler.</p>
+   * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
+   *          where you want to create a custom source. Security Lake can collect logs and events from
+   *          third-party custom sources. After creating the appropriate IAM role to
+   *          invoke Glue crawler, use this API to add a custom source name in Security Lake. This
+   *          operation creates a partition in the Amazon S3 bucket for Security Lake as the target
+   *          location for log files from the custom source in addition to an associated Glue table and an Glue crawler.</p>
    */
   public createCustomLogSource(
     args: CreateCustomLogSourceCommandInput,
@@ -251,19 +267,22 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You can enable Security Lake in Regions with customized settings in advance before enabling log collection in Regions. You can either use the <code>enableAll</code> parameter to
-   *          specify all Regions or you can specify the Regions you want to enable Security Lake using the
-   *          <code>Regions</code> parameter and configure these Regions using the
-   *          <code>configurations</code> parameter. When the <code>CreateDataLake</code> API is called
-   *          multiple times, if that Region is already enabled, it will update the Region if
-   *          configuration for that Region is provided. If that Region is a new Region, it will be set
-   *          up with the customized configurations if it is specified. </p>
+   * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
+   *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
+   *          log collection in Regions. You can either use the <code>enableAll</code> parameter to
+   *          specify all Regions or specify the Regions where you want to enable Security Lake. To specify
+   *          particular Regions, use the <code>Regions</code> parameter and then configure these Regions
+   *          using the <code>configurations</code> parameter. If you have already enabled Security Lake in a
+   *          Region when you call this command, the command will update the Region if you provide new
+   *          configuration parameters. If you have not already enabled Security Lake in the Region when you
+   *          call this API, it will set up the data lake in the Region with the specified
+   *          configurations.</p>
    *          <p>When you enable Security Lake, it starts ingesting security data after the
-   *          <code>CreateAwsLogSource</code> call. This includes ingesting security
-   *          data from sources, storing data, and making data accessible to subscribers. Security Lake also
-   *          enables all the existing settings and resources that it stores or maintains for your
-   *          account in the current Region, including security log and event data. For more information,
-   *          see the Amazon Security Lake User Guide.</p>
+   *             <code>CreateAwsLogSource</code> call. This includes ingesting security data from
+   *          sources, storing data, and making data accessible to subscribers. Security Lake also enables
+   *          all the existing settings and resources that it stores or maintains for your Amazon Web Services account in the current Region, including security log and event data. For
+   *          more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html">Amazon Security Lake User
+   *             Guide</a>.</p>
    */
   public createDatalake(
     args: CreateDatalakeCommandInput,
@@ -295,8 +314,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Automatically enable Security Lake in the specified Regions to begin ingesting security
-   *          data. When you choose to enable organization accounts automatically, then Security Lake begins to enable new accounts as member accounts as they are added to the organization. Security Lake does not enable existing organization accounts that are not yet enabled.</p>
+   * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
+   *          Security Lake is not automatically enabled for any existing member accounts in your
+   *          organization.</p>
    */
   public createDatalakeAutoEnable(
     args: CreateDatalakeAutoEnableCommandInput,
@@ -328,9 +348,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Designates the Security Lake administrator account for the organization. This API can only
-   *          be called by the organization management account. The organization management account
-   *          cannot be the delegated administrator account.</p>
+   * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This
+   *          API can only be called by the organization management account. The organization management
+   *          account cannot be the delegated administrator account.</p>
    */
   public createDatalakeDelegatedAdmin(
     args: CreateDatalakeDelegatedAdminCommandInput,
@@ -362,8 +382,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Creates the specified notification subscription in Security Lake. Creates the specified
-   *          subscription notifications in the specified organization. </p>
+   * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
+   *          you specify.</p>
    */
   public createDatalakeExceptionsSubscription(
     args: CreateDatalakeExceptionsSubscriptionCommandInput,
@@ -395,7 +415,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Creates a subscription permission for accounts that are already enabled in Security Lake.</p>
+   * <p>Creates a subscription permission for accounts that are already enabled in
+   *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
    */
   public createSubscriber(
     args: CreateSubscriberCommandInput,
@@ -427,8 +448,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Creates the specified notification subscription in Security Lake. Creates the specified
-   *          subscription notifications from the specified organization. </p>
+   * <p>Notifies the subscriber when new data is written to the data lake for the sources that
+   *          the subscriber consumes in Security Lake.</p>
    */
   public createSubscriptionNotificationConfiguration(
     args: CreateSubscriptionNotificationConfigurationCommandInput,
@@ -462,20 +483,18 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Removes a natively-supported Amazon Web Services service as a Amazon Security Lake source. When you remove the
-   *          source, Security Lake stops collecting data from that source, and subscribers can no
-   *          longer consume new data from the source. Subscribers can still consume data that Amazon
+   * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
+   *          you remove the source, Security Lake stops collecting data from that source, and subscribers
+   *          can no longer consume new data from the source. Subscribers can still consume data that
    *          Security Lake collected from the source before disablement.</p>
-   *          <p>You can choose any source type in any Region for accounts that are either part of a
-   *          trusted organization or standalone accounts. At least one of the three dimensions is a
-   *          mandatory input to this API. However, any combination of the three dimensions can be
-   *          supplied to this API. </p>
-   *          <p>By default, dimension refers to the entire set. This is overridden when you supply any
-   *          one of the inputs. For instance, when members is not specified, the API disables all
-   *          Security Lake member accounts for sources. Similarly, when Regions are not specified, Security Lake
-   *          is disabled for all the Regions where Security Lake is available as a service.</p>
-   *          <p>You can use this API to remove a natively-supported Amazon Web Services service as a source. Use
-   *             <code>DeregisterCustomData</code> to remove a custom source.</p>
+   *          <p>You can choose any source type in any Amazon Web Services Region for either accounts that
+   *          are part of a trusted organization or standalone accounts. At least one of the three
+   *          dimensions is a mandatory input to this API. However, you can supply any combination of the
+   *          three dimensions to this API. </p>
+   *          <p>By default, a dimension refers to the entire set. This is overridden when you supply any
+   *          one of the inputs. For instance, when you do not specify members, the API disables all
+   *          Security Lake member accounts for sources. Similarly, when you do not specify Regions,
+   *          Security Lake is disabled for all the Regions where Security Lake is available as a service.</p>
    *          <p>When you don't provide a dimension, Security Lake  assumes that the missing dimension refers
    *          to the entire set. For example, if you don't provide specific accounts, the API applies to
    *          the entire set of accounts in your organization.</p>
@@ -510,7 +529,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Removes a custom log source from Security Lake.</p>
+   * <p>Removes a custom log source from Amazon Security Lake.</p>
    */
   public deleteCustomLogSource(
     args: DeleteCustomLogSourceCommandInput,
@@ -542,13 +561,14 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>When you delete Amazon Security Lake from your account, Security Lake is disabled in all Regions.
-   *          Also, this API automatically performs the off-boarding steps to off-board the account from
-   *          Security Lake . This includes ingesting security data from sources, storing data, and making
-   *          data accessible to subscribers. Security Lake also deletes all the existing settings and
-   *          resources that it stores or maintains for your account in the current Region, including
-   *          security log and event data. <code>DeleteDatalake</code> does not delete the S3 bucket
-   *          which is owned by the Amazon Web Services account. For more information, see the Amazon Security Lake User Guide.</p>
+   * <p>When you delete Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions. Also, this API automatically takes steps to remove the account from
+   *          Security Lake . </p>
+   *          <p>This operation disables security data collection from sources, deletes data stored, and
+   *          stops making data accessible to subscribers. Security Lake also deletes all the existing
+   *          settings and resources that it stores or maintains for your Amazon Web Services account in
+   *          the current Region, including security log and event data. The <code>DeleteDatalake</code>
+   *          operation does not delete the Amazon S3 bucket, which is owned by your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon Security Lake User
+   *             Guide</a>.</p>
    */
   public deleteDatalake(
     args: DeleteDatalakeCommandInput,
@@ -580,12 +600,15 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Automatically delete Security Lake in the specified Regions to stop ingesting security data. When you delete Amazon Security Lake from your account, Security Lake is disabled in all Regions. Also, this API
-   *          automatically performs the off-boarding steps to off-board the account from Security Lake .
-   *          This includes ingesting security data from sources, storing data, and making data
-   *          accessible to subscribers. Security Lake also deletes all the existing settings and resources that
-   *          it stores or maintains for your account in the current Region, including security log and
-   *          event data. For more information, see the Amazon Security Lake User Guide. </p>
+   * <p>Automatically deletes Amazon Security Lake to stop collecting security data. When you delete
+   *          Amazon Security Lake from your account, Security Lake is disabled in all Regions. Also, this API
+   *          automatically takes steps to remove the account from Security Lake . </p>
+   *          <p>This operation disables security data collection from sources, deletes data stored, and
+   *          stops making data accessible to subscribers. Security Lake also deletes all the existing
+   *          settings and resources that it stores or maintains for your Amazon Web Services account in
+   *          the current Region, including security log and event data. The <code>DeleteDatalake</code>
+   *          operation does not delete the Amazon S3 bucket, which is owned by your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon Security Lake User
+   *             Guide</a>.</p>
    */
   public deleteDatalakeAutoEnable(
     args: DeleteDatalakeAutoEnableCommandInput,
@@ -617,7 +640,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Deletes the Security Lake administrator account for the organization. This API can only be called by the organization management account. The organization management account cannot be the delegated administrator account.</p>
+   * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
+   *          can only be called by the organization management account. The organization management
+   *          account cannot be the delegated administrator account.</p>
    */
   public deleteDatalakeDelegatedAdmin(
     args: DeleteDatalakeDelegatedAdminCommandInput,
@@ -649,7 +674,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Deletes the specified notification subscription in Security Lake. Deletes the specified subscription notifications in the specified organization.</p>
+   * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+   *          you specify.</p>
    */
   public deleteDatalakeExceptionsSubscription(
     args: DeleteDatalakeExceptionsSubscriptionCommandInput,
@@ -681,7 +707,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Deletes the specified subscription permissions to Security Lake. Deletes the specified subscription permissions from the specified organization. </p>
+   * <p>Deletes the subscription permission for accounts that are already enabled in
+   *          Amazon Security Lake. You can delete a subscriber and remove access to data in the current Amazon Web Services
+   *          Region.</p>
    */
   public deleteSubscriber(
     args: DeleteSubscriberCommandInput,
@@ -713,8 +741,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Deletes the specified notification subscription in Security Lake. Deletes the specified
-   *          subscription notifications from the specified organization. </p>
+   * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+   *          you specify.</p>
    */
   public deleteSubscriptionNotificationConfiguration(
     args: DeleteSubscriptionNotificationConfigurationCommandInput,
@@ -748,7 +776,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Retrieve the Security Lake configuration object for the specified account ID. This API does not take input parameters. </p>
+   * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>GetDatalake</code> API to know whether
+   *          Security Lake is enabled for the current Region. This API does not take input parameters. </p>
    */
   public getDatalake(args: GetDatalakeCommandInput, options?: __HttpHandlerOptions): Promise<GetDatalakeCommandOutput>;
   public getDatalake(args: GetDatalakeCommandInput, cb: (err: any, data?: GetDatalakeCommandOutput) => void): void;
@@ -774,7 +803,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Retrieves the configuration that will be automatically set up for accounts added to the organization after the organization has on boarded to Amazon Security Lake. This API does not take input parameters.</p>
+   * <p>Retrieves the configuration that will be automatically set up for accounts added to the
+   *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
+   *          input parameters.</p>
    */
   public getDatalakeAutoEnable(
     args: GetDatalakeAutoEnableCommandInput,
@@ -806,8 +837,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message will remain. Exceptions are stored by default, for a 2 week period of time from when a record was
-   *          created in Security Lake. This API does not take input parameters. This API does not take input parameters.</p>
+   * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
+   *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
+   *          in Amazon Security Lake. This API does not take input parameters.</p>
    */
   public getDatalakeExceptionsExpiry(
     args: GetDatalakeExceptionsExpiryCommandInput,
@@ -871,7 +903,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Retrieve the Security Lake configuration object for the specified account ID. This API does not take input parameters. </p>
+   * <p>Retrieves a snapshot of the current Region, including whether Amazon Security Lake is enabled
+   *          for those accounts and which sources Security Lake is collecting data from. </p>
    */
   public getDatalakeStatus(
     args: GetDatalakeStatusCommandInput,
@@ -903,7 +936,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Retrieves subscription information for the specified subscription ID.</p>
+   * <p>Retrieves the subscription information for the specified subscription ID. You can get
+   *          information about a specific subscriber.</p>
    */
   public getSubscriber(
     args: GetSubscriberCommandInput,
@@ -935,7 +969,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>List the Amazon Security Lake exceptions that you can use to find the source of problems and fix them.</p>
+   * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
+   *          fix them.</p>
    */
   public listDatalakeExceptions(
     args: ListDatalakeExceptionsCommandInput,
@@ -967,7 +1002,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Lists the log sources in the current region.</p>
+   * <p>Retrieves the log sources in the current Amazon Web Services Region. </p>
    */
   public listLogSources(
     args: ListLogSourcesCommandInput,
@@ -999,7 +1034,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>List all subscribers for the specific Security Lake account ID.</p>
+   * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
+   *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
    */
   public listSubscribers(
     args: ListSubscribersCommandInput,
@@ -1031,10 +1067,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Amazon Security Lake allows you to specify where to store your security data and for how long.
-   *          You can specify a rollup Region to consolidate data from multiple regions. </p>
-   *          <p>You can update the properties of a Region or source. Input can either be directly
-   *          specified to the API. </p>
+   * <p>Specifies where to store your security data and for how long. You can add a rollup
+   *          Region to consolidate data from multiple Amazon Web Services Regions. </p>
    */
   public updateDatalake(
     args: UpdateDatalakeCommandInput,
@@ -1066,10 +1100,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Update the expiration period for the exception message to your preferred time, and control
-   *          the time-to-live (TTL) for the exception message to remain.
-   *          Exceptions are stored by default, for a 2 week period of time from when a record was
-   *          created in Security Lake. </p>
+   * <p>Update the expiration period for the exception message to your preferred time, and
+   *          control the time-to-live (TTL) for the exception message to remain. Exceptions are stored
+   *          by default for 2 weeks from when a record was created in Amazon Security Lake. </p>
    */
   public updateDatalakeExceptionsExpiry(
     args: UpdateDatalakeExceptionsExpiryCommandInput,
@@ -1101,7 +1134,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Update the subscription notification for exception notification.</p>
+   * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
+   *          you specify.</p>
    */
   public updateDatalakeExceptionsSubscription(
     args: UpdateDatalakeExceptionsSubscriptionCommandInput,
@@ -1133,7 +1167,8 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Update the subscription permission for the given Security Lake account ID.</p>
+   * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
+   *          a subscriber by changing the sources that the subscriber consumes data from. </p>
    */
   public updateSubscriber(
     args: UpdateSubscriberCommandInput,
@@ -1165,7 +1200,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Create a new subscription notification or add the existing subscription notification
+   * <p>Creates a new subscription notification or adds the existing subscription notification
    *          setting for the specified subscription ID.</p>
    */
   public updateSubscriptionNotificationConfiguration(

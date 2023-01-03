@@ -29,10 +29,8 @@ export interface UpdateDatalakeCommandInput extends UpdateDatalakeRequest {}
 export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __MetadataBearer {}
 
 /**
- * <p>Amazon Security Lake allows you to specify where to store your security data and for how long.
- *          You can specify a rollup Region to consolidate data from multiple regions. </p>
- *          <p>You can update the properties of a Region or source. Input can either be directly
- *          specified to the API. </p>
+ * <p>Specifies where to store your security data and for how long. You can add a rollup
+ *          Region to consolidate data from multiple Amazon Web Services Regions. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

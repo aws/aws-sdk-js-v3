@@ -31,7 +31,8 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the specified notification subscription in Security Lake. Deletes the specified subscription notifications in the specified organization.</p>
+ * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+ *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

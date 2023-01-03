@@ -29,7 +29,8 @@ export interface GetDatalakeCommandInput extends GetDatalakeRequest {}
 export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the Security Lake configuration object for the specified account ID. This API does not take input parameters. </p>
+ * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>GetDatalake</code> API to know whether
+ *          Security Lake is enabled for the current Region. This API does not take input parameters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

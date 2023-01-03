@@ -29,7 +29,7 @@ export interface DeleteCustomLogSourceCommandInput extends DeleteCustomLogSource
 export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a custom log source from Security Lake.</p>
+ * <p>Removes a custom log source from Amazon Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

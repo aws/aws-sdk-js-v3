@@ -29,7 +29,8 @@ export interface UpdateSubscriberCommandInput extends UpdateSubscriberRequest {}
 export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse, __MetadataBearer {}
 
 /**
- * <p>Update the subscription permission for the given Security Lake account ID.</p>
+ * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
+ *          a subscriber by changing the sources that the subscriber consumes data from. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

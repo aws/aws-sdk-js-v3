@@ -29,20 +29,18 @@ export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceReques
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a natively-supported Amazon Web Services service as a Amazon Security Lake source. When you remove the
- *          source, Security Lake stops collecting data from that source, and subscribers can no
- *          longer consume new data from the source. Subscribers can still consume data that Amazon
+ * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
+ *          you remove the source, Security Lake stops collecting data from that source, and subscribers
+ *          can no longer consume new data from the source. Subscribers can still consume data that
  *          Security Lake collected from the source before disablement.</p>
- *          <p>You can choose any source type in any Region for accounts that are either part of a
- *          trusted organization or standalone accounts. At least one of the three dimensions is a
- *          mandatory input to this API. However, any combination of the three dimensions can be
- *          supplied to this API. </p>
- *          <p>By default, dimension refers to the entire set. This is overridden when you supply any
- *          one of the inputs. For instance, when members is not specified, the API disables all
- *          Security Lake member accounts for sources. Similarly, when Regions are not specified, Security Lake
- *          is disabled for all the Regions where Security Lake is available as a service.</p>
- *          <p>You can use this API to remove a natively-supported Amazon Web Services service as a source. Use
- *             <code>DeregisterCustomData</code> to remove a custom source.</p>
+ *          <p>You can choose any source type in any Amazon Web Services Region for either accounts that
+ *          are part of a trusted organization or standalone accounts. At least one of the three
+ *          dimensions is a mandatory input to this API. However, you can supply any combination of the
+ *          three dimensions to this API. </p>
+ *          <p>By default, a dimension refers to the entire set. This is overridden when you supply any
+ *          one of the inputs. For instance, when you do not specify members, the API disables all
+ *          Security Lake member accounts for sources. Similarly, when you do not specify Regions,
+ *          Security Lake is disabled for all the Regions where Security Lake is available as a service.</p>
  *          <p>When you don't provide a dimension, Security Lake  assumes that the missing dimension refers
  *          to the entire set. For example, if you don't provide specific accounts, the API applies to
  *          the entire set of accounts in your organization.</p>

@@ -32,7 +32,7 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Create a new subscription notification or add the existing subscription notification
+ * <p>Creates a new subscription notification or adds the existing subscription notification
  *          setting for the specified subscription ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -29,20 +29,20 @@ export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceReques
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a natively-supported Amazon Web Services service as a Security Lake source. Enables
- *          source types for member accounts in required Regions, based on specified parameters. You
- *          can choose any source type in any Region for accounts that are either part of a trusted
- *          organization or standalone accounts. At least one of the three dimensions is a mandatory
- *          input to this API. However, any combination of the three dimensions can be supplied to this
- *          API. </p>
- *          <p>By default, dimension refers to the entire set. When you don't provide a dimension,
+ * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
+ *          source types for member accounts in required Amazon Web Services Regions, based on the
+ *          parameters you specify. You can choose any source type in any Region for either accounts
+ *          that are part of a trusted organization or standalone accounts. At least one of the three
+ *          dimensions is a mandatory input to this API. However, you can supply any combination of the
+ *          three dimensions to this API. </p>
+ *          <p>By default, a dimension refers to the entire set. When you don't provide a dimension,
  *          Security Lake assumes that the missing dimension refers to the entire set. This is overridden
- *          when you supply any one of the inputs. For instance, when members is not specified, the API
- *          disables all Security Lake member accounts for sources. Similarly, when Regions are not
- *          specified, Security Lake is disabled for all the Regions where Security Lake is available as a
+ *          when you supply any one of the inputs. For instance, when you do not specify members, the
+ *          API enables all Security Lake member accounts for all sources. Similarly, when you do not
+ *          specify Regions, Security Lake is enabled for all the Regions where Security Lake is available as a
  *          service.</p>
- *          <p>You can use this API only to enable a natively-supported Amazon Web Services services as
- *          a source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
+ *          <p>You can use this API only to enable natively supported Amazon Web Services as a
+ *          source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
  *          source. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
