@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.243.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.242.0...v3.243.0) (2023-01-03)
+
+
+### Features
+
+* **client-securitylake:** Allow CreateSubscriber API to take string input that allows setting more descriptive SubscriberDescription field. Make souceTypes field required in model level for UpdateSubscriberRequest as it is required for every API call on the backend. Allow ListSubscribers take any String as nextToken param. ([4e4ac79](https://github.com/aws/aws-sdk-js-v3/commit/4e4ac793fd5f65ad3fa4c9b26b66ef4b2cded232))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-securitylake
