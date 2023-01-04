@@ -77,6 +77,7 @@ import {
   InvalidNextTokenException,
   LimitExceededException,
   MetricDimension,
+  NotScaledReason,
   ObjectNotFoundException,
   PredefinedMetricSpecification,
   PutScalingPolicyRequest,
@@ -898,6 +899,7 @@ const serializeAws_json1_1DescribeScalingActivitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.IncludeNotScaledActivities != null && { IncludeNotScaledActivities: input.IncludeNotScaledActivities }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
@@ -1270,6 +1272,27 @@ const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1NotScaledReason = (output: any, context: __SerdeContext): NotScaledReason => {
+  return {
+    Code: __expectString(output.Code),
+    CurrentCapacity: __expectInt32(output.CurrentCapacity),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MinCapacity: __expectInt32(output.MinCapacity),
+  } as any;
+};
+
+const deserializeAws_json1_1NotScaledReasons = (output: any, context: __SerdeContext): NotScaledReason[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NotScaledReason(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ObjectNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -1369,6 +1392,10 @@ const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeCont
     Details: __expectString(output.Details),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    NotScaledReasons:
+      output.NotScaledReasons != null
+        ? deserializeAws_json1_1NotScaledReasons(output.NotScaledReasons, context)
+        : undefined,
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ServiceNamespace: __expectString(output.ServiceNamespace),

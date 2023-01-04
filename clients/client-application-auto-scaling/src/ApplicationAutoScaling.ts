@@ -276,6 +276,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          from the previous six weeks.</p>
    *          <p>You can filter the results using <code>ResourceId</code> and
    *             <code>ScalableDimension</code>.</p>
+   *          <p>For information about viewing scaling activities using the Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
    */
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
@@ -480,14 +481,17 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Registers or updates a scalable target. </p>
-   *          <p>A scalable target is a resource that Application Auto Scaling can scale out and scale in. Scalable
-   *          targets are uniquely identified by the combination of resource ID, scalable dimension, and
-   *          namespace. </p>
-   *          <p>When you register a new scalable target, you must specify values for minimum and maximum
-   *          capacity. Current capacity will be adjusted within the specified range when scaling starts.
-   *          Application Auto Scaling scaling policies will not scale capacity to values that are outside of this
-   *          range.</p>
+   * <p>Registers or updates a scalable target, the resource that you want to scale.</p>
+   *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
+   *          dimension, and namespace, which represents some capacity dimension of the underlying
+   *          service.</p>
+   *          <p>When you register a new scalable target, you must specify values for the minimum and
+   *          maximum capacity. If the specified resource is not active in the target service, this
+   *          operation does not change the resource's current capacity. Otherwise, it changes the
+   *          resource's current capacity to a value that is inside of this range.</p>
+   *          <p>If you choose to add a scaling policy, current capacity is adjustable within the
+   *          specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to
+   *          values that are outside of the minimum and maximum range.</p>
    *          <p>After you register a scalable target, you do not need to register it again to use other
    *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
    *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can

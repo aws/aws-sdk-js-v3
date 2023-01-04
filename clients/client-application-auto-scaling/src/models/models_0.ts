@@ -209,7 +209,7 @@ export interface DeleteScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -449,7 +449,7 @@ export interface DeleteScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -617,7 +617,7 @@ export interface DeregisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -785,7 +785,7 @@ export interface DescribeScalableTargetsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -997,7 +997,7 @@ export interface ScalableTarget {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1224,7 +1224,7 @@ export interface DescribeScalingActivitiesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1285,6 +1285,60 @@ export interface DescribeScalingActivitiesRequest {
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies whether to include activities that aren't scaled (<i>not scaled
+   *             activities</i>) in the response. Not scaled activities are activities that aren't
+   *          completed or started for various reasons, such as preventing infinite scaling loops. For
+   *          help interpreting the not scaled reason details in the response, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
+   */
+  IncludeNotScaledActivities?: boolean;
+}
+
+/**
+ * <p>Describes the reason for an activity that isn't scaled (<i>not scaled
+ *             activity</i>), in machine-readable format. For help interpreting the not scaled
+ *          reason details, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
+ */
+export interface NotScaledReason {
+  /**
+   * <p>A code that represents the reason for not scaling.</p>
+   *          <p>Valid values:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>AutoScalingAnticipatedFlapping</p>
+   *             </li>
+   *             <li>
+   *                <p>TargetServicePutResourceAsUnscalable</p>
+   *             </li>
+   *             <li>
+   *                <p>AlreadyAtMaxCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>AlreadyAtMinCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>AlreadyAtDesiredCapacity</p>
+   *             </li>
+   *          </ul>
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The maximum capacity.</p>
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>The minimum capacity.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The current capacity.</p>
+   */
+  CurrentCapacity?: number;
 }
 
 export enum ScalingActivityStatusCode {
@@ -1422,7 +1476,7 @@ export interface ScalingActivity {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1502,6 +1556,12 @@ export interface ScalingActivity {
    * <p>The details about the scaling activity.</p>
    */
   Details?: string;
+
+  /**
+   * <p>Machine-readable data that describes the reason for a not scaled activity. Only
+   *          available when <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> includes not scaled activities.</p>
+   */
+  NotScaledReasons?: NotScaledReason[];
 }
 
 export interface DescribeScalingActivitiesResponse {
@@ -1641,7 +1701,7 @@ export interface DescribeScalingPoliciesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1913,15 +1973,15 @@ export enum MetricStatistic {
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>For information about the available metrics for a service, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
- *             Services That Publish CloudWatch Metrics</a> in the <i>Amazon CloudWatch User
+ *             services that publish CloudWatch metrics</a> in the <i>Amazon CloudWatch User
  *             Guide</i>.</p>
  *          <p>To create your customized metric specification:</p>
  *          <ul>
  *             <li>
  *                <p>Add values for each required parameter from CloudWatch. You can use an existing metric,
  *                or a new metric that you create. To use your own metric, you must first publish the
- *                metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish Custom
- *                   Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ *                metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish custom
+ *                   metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>Choose a metric that changes proportionally with capacity. The value of the metric
@@ -1930,12 +1990,17 @@ export enum MetricStatistic {
  *                increase when capacity decreases. </p>
  *             </li>
  *          </ul>
- *          <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
- *             Concepts</a>. </p>
+ *          <p>For an example of how creating new metrics can be useful, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html">Scaling
+ *             based on Amazon SQS</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. This topic
+ *          mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking
+ *          scaling policies that you create for a Spot Fleet by using the Application Auto Scaling API.</p>
+ *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
  */
 export interface CustomizedMetricSpecification {
   /**
-   * <p>The name of the metric. </p>
+   * <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
+   *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    */
   MetricName: string | undefined;
 
@@ -1957,7 +2022,9 @@ export interface CustomizedMetricSpecification {
   Statistic: MetricStatistic | string | undefined;
 
   /**
-   * <p>The unit of the metric.</p>
+   * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
+   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data
+   *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
    */
   Unit?: string;
 }
@@ -1997,14 +2064,14 @@ export enum MetricType {
 export interface PredefinedMetricSpecification {
   /**
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
-   *          Spot Fleet requests and ECS services.</p>
+   *          Spot Fleets and ECS services.</p>
    */
   PredefinedMetricType: MetricType | string | undefined;
 
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
-   *          group attached to the Spot Fleet request or ECS service.</p>
+   *          group attached to the Spot Fleet or ECS service.</p>
    *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
@@ -2037,6 +2104,11 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For
    *          example, if the metric is CPU utilization, then the target value is a percent value that
    *          represents how much of the CPU can be used before scaling out. </p>
+   *          <note>
+   *             <p>If the scaling policy specifies the <code>ALBRequestCountPerTarget</code> predefined
+   *             metric, specify the target utilization as the optimal average request count per target
+   *             during any one-minute interval.</p>
+   *          </note>
    */
   TargetValue: number | undefined;
 
@@ -2181,7 +2253,8 @@ export interface TargetTrackingScalingPolicyConfiguration {
 /**
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  *          <p>For more information about configuring scaling policies for a specific service, see
- *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html">Getting started with Application Auto Scaling</a> in the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html">Amazon Web Services services
+ *             that you can use with Application Auto Scaling</a> in the
  *          <i>Application Auto Scaling User Guide</i>.</p>
  */
 export interface ScalingPolicy {
@@ -2312,7 +2385,7 @@ export interface ScalingPolicy {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2360,6 +2433,12 @@ export interface ScalingPolicy {
 
   /**
    * <p>The scaling policy type.</p>
+   *          <p>The following policy types are supported: </p>
+   *          <p>
+   *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR</p>
+   *          <p>
+   *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
+   *       Neptune.</p>
    */
   PolicyType: PolicyType | string | undefined;
 
@@ -2545,7 +2624,7 @@ export interface DescribeScheduledActionsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2614,9 +2693,9 @@ export interface DescribeScheduledActionsRequest {
 export interface ScalableTargetAction {
   /**
    * <p>The minimum capacity.</p>
-   *          <p>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
-   *       concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources.
-   *       For all other resources, the minimum value allowed is 1.</p>
+   *          <p>When the scheduled action runs, the resource will have at least this much capacity, but it
+   *       might have more depending on other settings, such as the target utilization level of a target
+   *       tracking scaling policy.</p>
    */
   MinCapacity?: number;
 
@@ -2626,8 +2705,8 @@ export interface ScalableTargetAction {
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
    *          resource. If you want to specify a higher limit, you can request an increase. For more
    *          information, consult the documentation for that service. For information about the default
-   *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service Endpoints and
-   *             Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service endpoints and
+   *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   MaxCapacity?: number;
 }
@@ -2795,7 +2874,7 @@ export interface ScheduledAction {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2902,6 +2981,8 @@ export class LimitExceededException extends __BaseException {
 export interface PutScalingPolicyRequest {
   /**
    * <p>The name of the scaling policy.</p>
+   *          <p>You cannot change the name of a scaling policy, but you can delete the original scaling
+   *          policy and create a new scaling policy with the same settings and a different name.</p>
    */
   PolicyName: string | undefined;
 
@@ -3022,7 +3103,7 @@ export interface PutScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3069,7 +3150,8 @@ export interface PutScalingPolicyRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   * <p>The policy type. This parameter is required if you are creating a scaling policy.</p>
+   * <p>The scaling policy type. This parameter is required if you are creating a scaling
+   *       policy.</p>
    *          <p>The following policy types are supported: </p>
    *          <p>
    *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR</p>
@@ -3267,7 +3349,7 @@ export interface PutScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3453,7 +3535,7 @@ export interface RegisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3503,9 +3585,40 @@ export interface RegisterScalableTargetRequest {
    * <p>The minimum value that you plan to scale in to. When a scaling policy is in effect,
    *       Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to
    *       changing demand. This property is required when registering a new scalable target.</p>
-   *          <p>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
-   *       concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources.
-   *       For all other resources, the minimum value allowed is 1.</p>
+   *          <p>For the following resources, the minimum value allowed is 0.</p>
+   *          <ul>
+   *             <li>
+   *                <p>AppStream 2.0 fleets</p>
+   *             </li>
+   *             <li>
+   *                <p> Aurora DB clusters</p>
+   *             </li>
+   *             <li>
+   *                <p>ECS services</p>
+   *             </li>
+   *             <li>
+   *                <p>EMR clusters</p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda provisioned concurrency</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker endpoint variants</p>
+   *             </li>
+   *             <li>
+   *                <p>Spot Fleets</p>
+   *             </li>
+   *             <li>
+   *                <p>custom resources</p>
+   *             </li>
+   *          </ul>
+   *          <p>It's strongly recommended that you specify a value greater than 0. A value greater than 0
+   *       means that data points are continuously reported to CloudWatch that scaling policies can use to
+   *       scale on a metric like average CPU utilization.</p>
+   *          <p>For all other resources, the minimum allowed value depends on the type of resource that
+   *       you are using. If you provide a value that is lower than what a resource can accept, an error
+   *       occurs. In which case, the error message will provide the minimum value that the resource can
+   *       accept.</p>
    */
   MinCapacity?: number;
 
@@ -3517,8 +3630,8 @@ export interface RegisterScalableTargetRequest {
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
    *          resource. If you want to specify a higher limit, you can request an increase. For more
    *          information, consult the documentation for that service. For information about the default
-   *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service Endpoints and
-   *             Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service endpoints and
+   *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   MaxCapacity?: number;
 
@@ -3642,6 +3755,13 @@ export const DescribeScalableTargetsResponseFilterSensitiveLog = (obj: DescribeS
  * @internal
  */
 export const DescribeScalingActivitiesRequestFilterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotScaledReasonFilterSensitiveLog = (obj: NotScaledReason): any => ({
   ...obj,
 });
 
