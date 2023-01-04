@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.244.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.243.0...v3.244.0) (2023-01-04)
+
+
+### Features
+
+* **client-application-auto-scaling:** Customers can now use the existing DescribeScalingActivities API to also see the detailed and machine-readable reasons for Application Auto Scaling not scaling their resources and, if needed, take the necessary corrective actions. ([d6bcb03](https://github.com/aws/aws-sdk-js-v3/commit/d6bcb0309b047cedd21b185553e892bc637c349e))
+* **client-ssm:** Adding support for QuickSetup Document Type in Systems Manager ([124b702](https://github.com/aws/aws-sdk-js-v3/commit/124b702f387d1c0539b9e9091a57169d387294e3))
+
+
+
+
+
 # [3.243.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.242.0...v3.243.0) (2023-01-03)
 
 

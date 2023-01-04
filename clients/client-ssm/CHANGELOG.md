@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.244.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.243.0...v3.244.0) (2023-01-04)
+
+
+### Features
+
+* **client-ssm:** Adding support for QuickSetup Document Type in Systems Manager ([124b702](https://github.com/aws/aws-sdk-js-v3/commit/124b702f387d1c0539b9e9091a57169d387294e3))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm
