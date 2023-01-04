@@ -248,6 +248,13 @@ export interface CreateLogStreamRequest {
 
 /**
  * <p>The event was already logged.</p>
+ *          <important>
+ *             <p>
+ *                <code>PutLogEvents</code>
+ *       actions are now always accepted and never return
+ *       <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log events
+ *       has already been accepted. </p>
+ *          </important>
  */
 export class DataAlreadyAcceptedException extends __BaseException {
   readonly name: "DataAlreadyAcceptedException" = "DataAlreadyAcceptedException";
@@ -581,9 +588,6 @@ export interface DescribeLogGroupsRequest {
    * that match the string based on a case-sensitive substring search. For example, if you specify <code>Foo</code>, log groups
    * named <code>FooBar</code>, <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>,
    * <code>F/o/o</code> and <code>Froo</code> would not match.</p>
-   *
-   *
-   *
    *          <note>
    *             <p>
    *                <code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually exclusive.
@@ -608,8 +612,6 @@ export interface DescribeLogGroupsRequest {
    * <p>If you are using a monitoring account, set this to <code>True</code> to have the operation
    *       return log groups in
    *       the accounts listed in <code>accountIdentifiers</code>.</p>
-   *
-   *
    *          <p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
    *
    *       contains a null value, the operation returns all log groups in the monitoring account
@@ -785,12 +787,19 @@ export interface LogStream {
 
   /**
    * <p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970
-   *         00:00:00 UTC</code>.</p>
+   *       00:00:00 UTC</code> The <code>lastIngestionTime</code> value updates on an eventual consistency basis. It
+   *       typically updates in less than an hour after ingestion, but in rare situations might take longer.</p>
    */
   lastIngestionTime?: number;
 
   /**
    * <p>The sequence token.</p>
+   *          <important>
+   *             <p>The sequence token is now ignored in
+   *       <code>PutLogEvents</code>
+   *       actions. <code>PutLogEvents</code> actions are always accepted regardless of receiving an invalid sequence token.
+   *     You don't need to obtain <code>uploadSequenceToken</code> to use a <code>PutLogEvents</code> action.</p>
+   *          </important>
    */
   uploadSequenceToken?: string;
 
@@ -1723,6 +1732,12 @@ export interface InputLogEvent {
  * <p>The sequence token is not valid. You can get the correct sequence token in
  *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
  *     message. </p>
+ *          <important>
+ *             <p>
+ *                <code>PutLogEvents</code>
+ *       actions are now always accepted and never return
+ *       <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence token. </p>
+ *          </important>
  */
 export class InvalidSequenceTokenException extends __BaseException {
   readonly name: "InvalidSequenceTokenException" = "InvalidSequenceTokenException";
@@ -1917,10 +1932,13 @@ export interface PutLogEventsRequest {
 
   /**
    * <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code>
-   *       call. An upload in a newly created log stream does not require a sequence token. You can also
-   *       get the sequence token using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html">DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow
-   *       time period using the same value for <code>sequenceToken</code>, both calls might be
-   *       successful or one might be rejected.</p>
+   *       call.</p>
+   *          <important>
+   *             <p>The <code>sequenceToken</code> parameter is now ignored in <code>PutLogEvents</code>
+   *       actions. <code>PutLogEvents</code>
+   *       actions are now accepted and never return <code>InvalidSequenceTokenException</code> or
+   *       <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid.</p>
+   *          </important>
    */
   sequenceToken?: string;
 }
@@ -1948,6 +1966,15 @@ export interface RejectedLogEventsInfo {
 export interface PutLogEventsResponse {
   /**
    * <p>The next sequence token.</p>
+   *          <important>
+   *             <p>This field has been deprecated.</p>
+   *             <p>The sequence token is now ignored in <code>PutLogEvents</code>
+   *         actions. <code>PutLogEvents</code>
+   *         actions are always accepted even if the sequence token is not valid. You can use
+   *         parallel <code>PutLogEvents</code> actions on the same log stream and you do not need
+   *       to wait for the response of a previous <code>PutLogEvents</code> action to obtain
+   *       the <code>nextSequenceToken</code> value.</p>
+   *          </important>
    */
   nextSequenceToken?: string;
 
@@ -2083,7 +2110,6 @@ export interface PutResourcePolicyRequest {
    *         }
    *       ]
    * }</code>
-   *
    *          </p>
    */
   policyDocument?: string;

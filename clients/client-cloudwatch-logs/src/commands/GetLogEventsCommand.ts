@@ -31,11 +31,9 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
 /**
  * <p>Lists log events from the specified log stream. You can list all of the log events or
  *       filter using a time range.</p>
- *
  *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
  *       You can get additional log events by specifying one of the tokens in a subsequent call.
  *       This operation can return empty results while there are more log events available through the token.</p>
- *
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
  *       view data from the linked source accounts. For more information, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>

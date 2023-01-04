@@ -31,7 +31,6 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
 /**
  * <p>Creates or updates a query definition for CloudWatch Logs Insights. For
  *       more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
- *
  *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
  *       The values of <code>name</code>, <code>queryString</code>, and <code>logGroupNames</code> are
  *       changed to the values that you specify in your update operation. No current values are
