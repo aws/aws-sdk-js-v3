@@ -37,7 +37,6 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
  *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
  *    parameters required for your <code>UpdateAssociation</code> call.</p>
- *
  *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
  *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
  *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred

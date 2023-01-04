@@ -2599,7 +2599,6 @@ export interface MaintenanceWindowAutomationParameters {
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
    *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *
    *             <p>
    *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
    *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2621,7 +2620,6 @@ export interface MaintenanceWindowAutomationParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2711,7 +2709,6 @@ export interface NotificationConfig {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2804,7 +2801,6 @@ export interface MaintenanceWindowRunCommandParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -4082,7 +4078,6 @@ export interface Association {
    * <p>The version of the document used in the association. If you change a document version for a
    *    State Manager association, Systems Manager immediately runs the association unless you previously specifed
    *    the <code>apply-only-at-cron-interval</code> parameter.</p>
-   *
    *          <important>
    *             <p>State Manager doesn't support running associations that use a new version of a document if
    *     that document is shared from another account. State Manager always runs the <code>default</code>
@@ -6587,10 +6582,8 @@ export interface ListTagsForResourceResult {
 /**
  * <p>The document can't be shared with more Amazon Web Services user accounts. You can specify a maximum of
  *    20 accounts per API operation to share a private document.</p>
- *
  *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
  *    share up to five documents.</p>
- *
  *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
  *    Amazon Web Services Support.</p>
  */
@@ -7688,7 +7681,6 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *          <p>
    *             <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
    *          </p>
-   *
    *          <p>
    *             <b>Example 4</b>: Use resource group names</p>
    *          <p>
@@ -7706,7 +7698,6 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *                <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
    *             </p>
    *          </note>
-   *
    *          <p>For more information about these examples formats, including the best use case for each one,
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register
    *     targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>

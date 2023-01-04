@@ -12432,7 +12432,9 @@ const serializeAws_json1_1DocumentKeyValuesFilterValues = (input: string[], cont
 const serializeAws_json1_1DocumentRequires = (input: DocumentRequires, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RequireType != null && { RequireType: input.RequireType }),
     ...(input.Version != null && { Version: input.Version }),
+    ...(input.VersionName != null && { VersionName: input.VersionName }),
   };
 };
 
@@ -16463,7 +16465,9 @@ const deserializeAws_json1_1DocumentPermissionLimit = (
 const deserializeAws_json1_1DocumentRequires = (output: any, context: __SerdeContext): DocumentRequires => {
   return {
     Name: __expectString(output.Name),
+    RequireType: __expectString(output.RequireType),
     Version: __expectString(output.Version),
+    VersionName: __expectString(output.VersionName),
   } as any;
 };
 
