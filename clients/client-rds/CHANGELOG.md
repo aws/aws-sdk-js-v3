@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+
+### Features
+
+* **client-rds:** This release adds support for specifying which certificate authority (CA) to use for a DB instance's server certificate during DB instance creation, as well as other CA enhancements. ([c090672](https://github.com/aws/aws-sdk-js-v3/commit/c0906726a74c22ffc0b7d0f1b485641bfa087123))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+
+### Features
+
+* **client-apprunner:** This release adds support of securely referencing secrets and configuration data that are stored in Secrets Manager and SSM Parameter Store by adding them as environment secrets in your App Runner service. ([285e1c2](https://github.com/aws/aws-sdk-js-v3/commit/285e1c20f587f7da856d0d1d13824765f94db1f3))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-apprunner

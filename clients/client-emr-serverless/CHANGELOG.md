@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+
+### Features
+
+* **client-emr-serverless:** Adds support for customized images. You can now provide runtime images when creating or updating EMR Serverless Applications. ([6c6ec95](https://github.com/aws/aws-sdk-js-v3/commit/6c6ec958ba17cd9d13775949259156b6536e1b22))
+
+
+
+
+
 # [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+
+### Features
+
+* **client-amplifybackend:** Updated GetBackendAPIModels response to include ModelIntrospectionSchema json string ([eff2ce7](https://github.com/aws/aws-sdk-js-v3/commit/eff2ce7f3b51a4d0c028975691ec9e2652bbb7f0))
+* **client-apprunner:** This release adds support of securely referencing secrets and configuration data that are stored in Secrets Manager and SSM Parameter Store by adding them as environment secrets in your App Runner service. ([285e1c2](https://github.com/aws/aws-sdk-js-v3/commit/285e1c20f587f7da856d0d1d13824765f94db1f3))
+* **client-connect:** Documentation update for a new Initiation Method value in DescribeContact API ([62552ab](https://github.com/aws/aws-sdk-js-v3/commit/62552ab372456b3960fb87de4d2c5d34d2a8ac60))
+* **client-emr-serverless:** Adds support for customized images. You can now provide runtime images when creating or updating EMR Serverless Applications. ([6c6ec95](https://github.com/aws/aws-sdk-js-v3/commit/6c6ec958ba17cd9d13775949259156b6536e1b22))
+* **client-rds:** This release adds support for specifying which certificate authority (CA) to use for a DB instance's server certificate during DB instance creation, as well as other CA enhancements. ([c090672](https://github.com/aws/aws-sdk-js-v3/commit/c0906726a74c22ffc0b7d0f1b485641bfa087123))
+
+
+
+
+
 # [3.244.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.243.0...v3.244.0) (2023-01-04)
 
 
