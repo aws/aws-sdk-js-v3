@@ -31,7 +31,6 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
 /**
  * <p>Returns the container images that are registered to your Amazon Lightsail container
  *       service.</p>
- *
  *          <note>
  *             <p>If you created a deployment on your Lightsail container service that uses container
  *         images from a public registry like Docker Hub, those images are not returned as part of this

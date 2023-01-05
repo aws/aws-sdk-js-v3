@@ -34,7 +34,6 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
  *       key pair will not be created unless you launch an instance without specifying a custom key
  *       pair, or you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a> API. </p>
- *
  *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>key pair name</code>. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>

@@ -30,7 +30,6 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
 
 /**
  * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
- *
  *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
  *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
  *       IPv4 only.</p>
