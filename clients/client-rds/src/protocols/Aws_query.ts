@@ -503,6 +503,7 @@ import {
   BlueGreenDeploymentTask,
   CancelExportTaskMessage,
   Certificate,
+  CertificateDetails,
   CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
@@ -678,7 +679,6 @@ import {
   DescribeDBLogFilesMessage,
   DescribeDBLogFilesResponse,
   DescribeDBParameterGroupsMessage,
-  DescribeDBParametersMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -785,6 +785,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
   DescribeDBProxyEndpointsRequest,
@@ -4253,6 +4254,9 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
+    case "CertificateNotFound":
+    case "com.amazonaws.rds#CertificateNotFoundFault":
+      throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -12812,6 +12816,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
+  if (input.CACertificateIdentifier != null) {
+    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  }
   return entries;
 };
 
@@ -17591,6 +17598,14 @@ const deserializeAws_queryBlueGreenDeploymentTaskList = (
     });
 };
 
+const deserializeAws_queryCACertificateIdentifiersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {
     CertificateIdentifier: undefined,
@@ -17625,6 +17640,20 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
   }
   if (output["CustomerOverrideValidTill"] !== undefined) {
     contents.CustomerOverrideValidTill = __expectNonNull(__parseRfc3339DateTime(output["CustomerOverrideValidTill"]));
+  }
+  return contents;
+};
+
+const deserializeAws_queryCertificateDetails = (output: any, context: __SerdeContext): CertificateDetails => {
+  const contents: any = {
+    CAIdentifier: undefined,
+    ValidTill: undefined,
+  };
+  if (output["CAIdentifier"] !== undefined) {
+    contents.CAIdentifier = __expectString(output["CAIdentifier"]);
+  }
+  if (output["ValidTill"] !== undefined) {
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTime(output["ValidTill"]));
   }
   return contents;
 };
@@ -19221,6 +19250,8 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     TagList: undefined,
     SupportsBabelfish: undefined,
     CustomDBEngineVersionManifest: undefined,
+    SupportsCertificateRotationWithoutRestart: undefined,
+    SupportedCACertificateIdentifiers: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -19355,6 +19386,22 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   if (output["CustomDBEngineVersionManifest"] !== undefined) {
     contents.CustomDBEngineVersionManifest = __expectString(output["CustomDBEngineVersionManifest"]);
   }
+  if (output["SupportsCertificateRotationWithoutRestart"] !== undefined) {
+    contents.SupportsCertificateRotationWithoutRestart = __parseBoolean(
+      output["SupportsCertificateRotationWithoutRestart"]
+    );
+  }
+  if (output.SupportedCACertificateIdentifiers === "") {
+    contents.SupportedCACertificateIdentifiers = [];
+  } else if (
+    output["SupportedCACertificateIdentifiers"] !== undefined &&
+    output["SupportedCACertificateIdentifiers"]["member"] !== undefined
+  ) {
+    contents.SupportedCACertificateIdentifiers = deserializeAws_queryCACertificateIdentifiersList(
+      __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
+      context
+    );
+  }
   return contents;
 };
 
@@ -19466,6 +19513,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     StorageThroughput: undefined,
     DBSystemId: undefined,
     MasterUserSecret: undefined,
+    CertificateDetails: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -19801,6 +19849,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["MasterUserSecret"] !== undefined) {
     contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
+  }
+  if (output["CertificateDetails"] !== undefined) {
+    contents.CertificateDetails = deserializeAws_queryCertificateDetails(output["CertificateDetails"], context);
   }
   return contents;
 };

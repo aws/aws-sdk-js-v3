@@ -3457,6 +3457,22 @@ export interface DBEngineVersion {
    *       </p>
    */
   CustomDBEngineVersionManifest?: string;
+
+  /**
+   * <p>A value that indicates whether the engine version supports rotating the server certificate without
+   *               rebooting the DB instance.</p>
+   */
+  SupportsCertificateRotationWithoutRestart?: boolean;
+
+  /**
+   * <p>A list of the supported CA certificate identifiers.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  SupportedCACertificateIdentifiers?: string[];
 }
 
 /**
@@ -5691,6 +5707,27 @@ export class BackupPolicyNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
+ */
+export class CertificateNotFoundFault extends __BaseException {
+  readonly name: "CertificateNotFoundFault" = "CertificateNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateNotFoundFault, __BaseException>) {
+    super({
+      name: "CertificateNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateNotFoundFault.prototype);
+  }
+}
+
+/**
  * <p></p>
  */
 export interface CreateDBInstanceMessage {
@@ -6868,6 +6905,17 @@ export interface CreateDBInstanceMessage {
    *             has a different default KMS key for each Amazon Web Services Region.</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * <p>Specifies the CA certificate identifier to use for the DB instance’s server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
@@ -6912,6 +6960,26 @@ export interface DBInstanceRole {
 export enum AutomationMode {
   ALL_PAUSED = "all-paused",
   FULL = "full",
+}
+
+/**
+ * <p>Returns the details of the DB instance’s server certificate.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+ *             instance</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+ *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface CertificateDetails {
+  /**
+   * <p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>
+   */
+  CAIdentifier?: string;
+
+  /**
+   * <p>The expiration date of the DB instance’s server certificate.</p>
+   */
+  ValidTill?: Date;
 }
 
 /**
@@ -7216,6 +7284,11 @@ export interface PendingModifiedValues {
 
   /**
    * <p>The identifier of the CA certificate for the DB instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
    */
   CACertificateIdentifier?: string;
 
@@ -7559,6 +7632,11 @@ export interface DBInstance {
 
   /**
    * <p>The identifier of the CA certificate for this DB instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
    */
   CACertificateIdentifier?: string;
 
@@ -7860,6 +7938,11 @@ export interface DBInstance {
    *          </p>
    */
   MasterUserSecret?: MasterUserSecret;
+
+  /**
+   * <p>The details of the DB instance's server certificate.</p>
+   */
+  CertificateDetails?: CertificateDetails;
 }
 
 export interface CreateDBInstanceResult {
@@ -11035,6 +11118,11 @@ export interface DescribeBlueGreenDeploymentsResponse {
 
 /**
  * <p>A CA certificate for an Amazon Web Services account.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+ *             instance</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+ *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
  */
 export interface Certificate {
   /**
@@ -11096,27 +11184,6 @@ export interface CertificateMessage {
    *             up to the value specified by <code>MaxRecords</code> .</p>
    */
   Marker?: string;
-}
-
-/**
- * <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
- */
-export class CertificateNotFoundFault extends __BaseException {
-  readonly name: "CertificateNotFoundFault" = "CertificateNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateNotFoundFault, __BaseException>) {
-    super({
-      name: "CertificateNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -12425,51 +12492,6 @@ export interface DBParameterGroupDetails {
   Marker?: string;
 }
 
-export interface DescribeDBParametersMessage {
-  /**
-   * <p>The name of a specific DB parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName: string | undefined;
-
-  /**
-   * <p>The parameter types to return.</p>
-   *          <p>Default: All parameter types returned</p>
-   *          <p>Valid Values: <code>user | system | engine-default</code>
-   *          </p>
-   */
-  Source?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBParameters</code> request.
-   *             If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
 /**
  * @internal
  */
@@ -13010,6 +13032,13 @@ export const CreateDBInstanceMessageFilterSensitiveLog = (obj: CreateDBInstanceM
  * @internal
  */
 export const DBInstanceRoleFilterSensitiveLog = (obj: DBInstanceRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateDetailsFilterSensitiveLog = (obj: CertificateDetails): any => ({
   ...obj,
 });
 
@@ -13772,12 +13801,5 @@ export const DescribeDBParameterGroupsMessageFilterSensitiveLog = (obj: Describe
  * @internal
  */
 export const DBParameterGroupDetailsFilterSensitiveLog = (obj: DBParameterGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBParametersMessageFilterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
   ...obj,
 });
