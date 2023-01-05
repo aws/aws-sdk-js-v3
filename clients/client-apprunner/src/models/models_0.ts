@@ -753,10 +753,30 @@ export interface CodeConfigurationValues {
   Port?: string;
 
   /**
-   * <p>The environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of
-   *         <code>AWSAPPRUNNER</code> are reserved for system use and aren't valid.</p>
+   * <p>The environment variables that are available to your running App Runner service. An array of key-value pairs.</p>
    */
   RuntimeEnvironmentVariables?: Record<string, string>;
+
+  /**
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
+   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
+   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
+   *           </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
+   *           </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  RuntimeEnvironmentSecrets?: Record<string, string>;
 }
 
 export enum ConfigurationSource {
@@ -842,8 +862,7 @@ export interface CodeRepository {
  */
 export interface ImageConfiguration {
   /**
-   * <p>Environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of <code>AWSAPPRUNNER</code>
-   *       are reserved for system use and aren't valid.</p>
+   * <p>Environment variables that are available to your running App Runner service. An array of key-value pairs.</p>
    */
   RuntimeEnvironmentVariables?: Record<string, string>;
 
@@ -859,6 +878,27 @@ export interface ImageConfiguration {
    *          </p>
    */
   Port?: string;
+
+  /**
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
+   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
+   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
+   *           </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
+   *           </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  RuntimeEnvironmentSecrets?: Record<string, string>;
 }
 
 export enum ImageRepositoryType {
@@ -2431,6 +2471,7 @@ export const CodeConfigurationValuesFilterSensitiveLog = (obj: CodeConfiguration
   ...(obj.BuildCommand && { BuildCommand: SENSITIVE_STRING }),
   ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
   ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
+  ...(obj.RuntimeEnvironmentSecrets && { RuntimeEnvironmentSecrets: SENSITIVE_STRING }),
 });
 
 /**
@@ -2465,6 +2506,7 @@ export const ImageConfigurationFilterSensitiveLog = (obj: ImageConfiguration): a
   ...obj,
   ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
   ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
+  ...(obj.RuntimeEnvironmentSecrets && { RuntimeEnvironmentSecrets: SENSITIVE_STRING }),
 });
 
 /**
