@@ -62,7 +62,9 @@ export enum Channel {
 export enum ContactInitiationMethod {
   API = "API",
   CALLBACK = "CALLBACK",
+  DISCONNECT = "DISCONNECT",
   INBOUND = "INBOUND",
+  MONITOR = "MONITOR",
   OUTBOUND = "OUTBOUND",
   QUEUE_TRANSFER = "QUEUE_TRANSFER",
   TRANSFER = "TRANSFER",
