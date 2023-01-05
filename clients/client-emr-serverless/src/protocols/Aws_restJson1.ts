@@ -55,6 +55,8 @@ import {
   ConfigurationOverrides,
   ConflictException,
   Hive,
+  ImageConfiguration,
+  ImageConfigurationInput,
   InitialCapacityConfig,
   InternalServerException,
   JobDriver,
@@ -71,6 +73,8 @@ import {
   TotalResourceUtilization,
   ValidationException,
   WorkerResourceConfig,
+  WorkerTypeSpecification,
+  WorkerTypeSpecificationInput,
 } from "../models/models_0";
 
 export const serializeAws_restJson1CancelJobRunCommand = async (
@@ -122,6 +126,9 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
       autoStopConfiguration: serializeAws_restJson1AutoStopConfig(input.autoStopConfiguration, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
     ...(input.initialCapacity != null && {
       initialCapacity: serializeAws_restJson1InitialCapacityConfigMap(input.initialCapacity, context),
     }),
@@ -135,6 +142,12 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.type != null && { type: input.type }),
+    ...(input.workerTypeSpecifications != null && {
+      workerTypeSpecifications: serializeAws_restJson1WorkerTypeSpecificationInputMap(
+        input.workerTypeSpecifications,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -527,6 +540,9 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
       autoStopConfiguration: serializeAws_restJson1AutoStopConfig(input.autoStopConfiguration, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
     ...(input.initialCapacity != null && {
       initialCapacity: serializeAws_restJson1InitialCapacityConfigMap(input.initialCapacity, context),
     }),
@@ -535,6 +551,12 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
     }),
     ...(input.networkConfiguration != null && {
       networkConfiguration: serializeAws_restJson1NetworkConfiguration(input.networkConfiguration, context),
+    }),
+    ...(input.workerTypeSpecifications != null && {
+      workerTypeSpecifications: serializeAws_restJson1WorkerTypeSpecificationInputMap(
+        input.workerTypeSpecifications,
+        context
+      ),
     }),
   });
   return new __HttpRequest({
@@ -637,6 +659,9 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.emrserverless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrserverless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrserverless#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1400,6 +1425,15 @@ const serializeAws_restJson1Hive = (input: Hive, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_restJson1ImageConfigurationInput = (
+  input: ImageConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.imageUri != null && { imageUri: input.imageUri }),
+  };
+};
+
 const serializeAws_restJson1InitialCapacityConfig = (input: InitialCapacityConfig, context: __SerdeContext): any => {
   return {
     ...(input.workerConfiguration != null && {
@@ -1544,6 +1578,30 @@ const serializeAws_restJson1WorkerResourceConfig = (input: WorkerResourceConfig,
   };
 };
 
+const serializeAws_restJson1WorkerTypeSpecificationInput = (
+  input: WorkerTypeSpecificationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WorkerTypeSpecificationInputMap = (
+  input: Record<string, WorkerTypeSpecificationInput>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1WorkerTypeSpecificationInput(value, context);
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
   return {
     applicationId: __expectString(output.applicationId),
@@ -1559,6 +1617,10 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
         : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    imageConfiguration:
+      output.imageConfiguration != null
+        ? deserializeAws_restJson1ImageConfiguration(output.imageConfiguration, context)
+        : undefined,
     initialCapacity:
       output.initialCapacity != null
         ? deserializeAws_restJson1InitialCapacityConfigMap(output.initialCapacity, context)
@@ -1579,6 +1641,10 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
     type: __expectString(output.type),
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+    workerTypeSpecifications:
+      output.workerTypeSpecifications != null
+        ? deserializeAws_restJson1WorkerTypeSpecificationMap(output.workerTypeSpecifications, context)
+        : undefined,
   } as any;
 };
 
@@ -1683,6 +1749,13 @@ const deserializeAws_restJson1Hive = (output: any, context: __SerdeContext): Hiv
     initQueryFile: __expectString(output.initQueryFile),
     parameters: __expectString(output.parameters),
     query: __expectString(output.query),
+  } as any;
+};
+
+const deserializeAws_restJson1ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
+  return {
+    imageUri: __expectString(output.imageUri),
+    resolvedImageDigest: __expectString(output.resolvedImageDigest),
   } as any;
 };
 
@@ -1925,6 +1998,31 @@ const deserializeAws_restJson1WorkerResourceConfig = (output: any, context: __Se
     disk: __expectString(output.disk),
     memory: __expectString(output.memory),
   } as any;
+};
+
+const deserializeAws_restJson1WorkerTypeSpecification = (
+  output: any,
+  context: __SerdeContext
+): WorkerTypeSpecification => {
+  return {
+    imageConfiguration:
+      output.imageConfiguration != null
+        ? deserializeAws_restJson1ImageConfiguration(output.imageConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorkerTypeSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, WorkerTypeSpecification> => {
+  return Object.entries(output).reduce((acc: Record<string, WorkerTypeSpecification>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1WorkerTypeSpecification(value, context);
+    return acc;
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

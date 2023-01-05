@@ -38,6 +38,22 @@ export interface AutoStopConfig {
 }
 
 /**
+ * <p>The applied image configuration.</p>
+ */
+export interface ImageConfiguration {
+  /**
+   * <p>The image URI.</p>
+   */
+  imageUri: string | undefined;
+
+  /**
+   * <p>The SHA256 digest of the image URI. This indicates which specific image
+   *          the application is configured for. The image digest doesn't exist until an application has started.</p>
+   */
+  resolvedImageDigest?: string;
+}
+
+/**
  * <p>The cumulative configuration requirements for every worker instance of the worker
  *          type.</p>
  */
@@ -120,6 +136,16 @@ export enum ApplicationState {
 }
 
 /**
+ * <p>The specifications for a worker type.</p>
+ */
+export interface WorkerTypeSpecification {
+  /**
+   * <p>The image configuration for a worker type.</p>
+   */
+  imageConfiguration?: ImageConfiguration;
+}
+
+/**
  * <p>Information about an application. EMR Serverless uses applications to run jobs.</p>
  */
 export interface Application {
@@ -139,7 +165,7 @@ export interface Application {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -205,6 +231,16 @@ export interface Application {
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration applied to all worker types.</p>
+   */
+  imageConfiguration?: ImageConfiguration;
+
+  /**
+   * <p>The specification applied to each worker type.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
 }
 
 /**
@@ -227,7 +263,7 @@ export interface ApplicationSummary {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -282,6 +318,27 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * <p>The image configuration.</p>
+ */
+export interface ImageConfigurationInput {
+  /**
+   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a new
+   *          application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>
+   */
+  imageUri?: string;
+}
+
+/**
+ * <p>The specifications for a worker type.</p>
+ */
+export interface WorkerTypeSpecificationInput {
+  /**
+   * <p>The image configuration for a worker type.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+}
+
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -289,7 +346,7 @@ export interface CreateApplicationRequest {
   name?: string;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -341,6 +398,20 @@ export interface CreateApplicationRequest {
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code>
+   *          for each worker type in <code>workerTypeSpecifications</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
+   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
+   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
+   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
 export interface CreateApplicationResponse {
@@ -380,6 +451,25 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>The specified resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -406,25 +496,6 @@ export interface DeleteApplicationRequest {
 }
 
 export interface DeleteApplicationResponse {}
-
-/**
- * <p>The specified resource was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 export interface GetApplicationRequest {
   /**
@@ -552,6 +623,20 @@ export interface UpdateApplicationRequest {
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code>
+   *          for each worker type in <code>WorkerTypeSpecificationInput</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
+   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
+   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
+   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
 export interface UpdateApplicationResponse {
@@ -869,7 +954,7 @@ export interface JobRunSummary {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application your job is running on.</p>
+   * <p>The EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1051,7 +1136,7 @@ export interface JobRun {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application your job is running on.</p>
+   * <p>The EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1157,6 +1242,13 @@ export const AutoStopConfigFilterSensitiveLog = (obj: AutoStopConfig): any => ({
 /**
  * @internal
  */
+export const ImageConfigurationFilterSensitiveLog = (obj: ImageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const WorkerResourceConfigFilterSensitiveLog = (obj: WorkerResourceConfig): any => ({
   ...obj,
 });
@@ -1185,6 +1277,13 @@ export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration
 /**
  * @internal
  */
+export const WorkerTypeSpecificationFilterSensitiveLog = (obj: WorkerTypeSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
   ...obj,
 });
@@ -1193,6 +1292,20 @@ export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
  * @internal
  */
 export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigurationInputFilterSensitiveLog = (obj: ImageConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerTypeSpecificationInputFilterSensitiveLog = (obj: WorkerTypeSpecificationInput): any => ({
   ...obj,
 });
 
