@@ -228,6 +228,7 @@ import {
   CreateDelegationRequest,
   Delegation,
   DelegationMetadata,
+  DeregistrationPolicy,
   Evidence,
   EvidenceFinderEnablement,
   EvidenceInsights,
@@ -2040,6 +2041,9 @@ export const serializeAws_restJson1UpdateSettingsCommand = async (
     }),
     ...(input.defaultProcessOwners != null && {
       defaultProcessOwners: serializeAws_restJson1Roles(input.defaultProcessOwners, context),
+    }),
+    ...(input.deregistrationPolicy != null && {
+      deregistrationPolicy: serializeAws_restJson1DeregistrationPolicy(input.deregistrationPolicy, context),
     }),
     ...(input.evidenceFinderEnabled != null && { evidenceFinderEnabled: input.evidenceFinderEnabled }),
     ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
@@ -5429,6 +5433,12 @@ const serializeAws_restJson1DelegationIds = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1DeregistrationPolicy = (input: DeregistrationPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.deleteResources != null && { deleteResources: input.deleteResources }),
+  };
+};
+
 const serializeAws_restJson1EvidenceIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -6297,6 +6307,12 @@ const deserializeAws_restJson1Delegations = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_restJson1DeregistrationPolicy = (output: any, context: __SerdeContext): DeregistrationPolicy => {
+  return {
+    deleteResources: __expectString(output.deleteResources),
+  } as any;
+};
+
 const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext): Evidence => {
   return {
     assessmentReportSelection: __expectString(output.assessmentReportSelection),
@@ -6601,6 +6617,10 @@ const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext):
     defaultProcessOwners:
       output.defaultProcessOwners != null
         ? deserializeAws_restJson1Roles(output.defaultProcessOwners, context)
+        : undefined,
+    deregistrationPolicy:
+      output.deregistrationPolicy != null
+        ? deserializeAws_restJson1DeregistrationPolicy(output.deregistrationPolicy, context)
         : undefined,
     evidenceFinderEnablement:
       output.evidenceFinderEnablement != null

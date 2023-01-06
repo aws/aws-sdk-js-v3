@@ -506,13 +506,13 @@ export interface AuditManagerClientResolvedConfig extends AuditManagerClientReso
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
- *          <p>Audit Manager is a service that provides automated evidence collection so that
- *          you can continually audit your Amazon Web Services usage. You can use it to assess the
+ *          <p>Audit Manager is a service that provides automated evidence collection so that you
+ *          can continually audit your Amazon Web Services usage. You can use it to assess the
  *          effectiveness of your controls, manage risk, and simplify compliance.</p>
- *          <p>Audit Manager provides prebuilt frameworks that structure and automate
- *          assessments for a given compliance standard. Frameworks include a prebuilt collection of
- *          controls with descriptions and testing procedures. These controls are grouped according to
- *          the requirements of the specified compliance standard or regulation. You can also customize
+ *          <p>Audit Manager provides prebuilt frameworks that structure and automate assessments
+ *          for a given compliance standard. Frameworks include a prebuilt collection of controls with
+ *          descriptions and testing procedures. These controls are grouped according to the
+ *          requirements of the specified compliance standard or regulation. You can also customize
  *          frameworks and controls to support internal audits with specific requirements. </p>
  *          <p>Use the following links to get started with the Audit Manager API:</p>
  *          <ul>
@@ -529,7 +529,7 @@ export interface AuditManagerClientResolvedConfig extends AuditManagerClientReso
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html">Common
- *                   parameters</a>: Parameters that all Query operations can use.</p>
+ *                   parameters</a>: Parameters that all operations can use.</p>
  *             </li>
  *             <li>
  *                <p>

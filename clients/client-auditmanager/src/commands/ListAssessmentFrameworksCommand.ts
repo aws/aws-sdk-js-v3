@@ -29,8 +29,8 @@ export interface ListAssessmentFrameworksCommandInput extends ListAssessmentFram
 export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFrameworksResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of the frameworks that are available in the Audit Manager
- *          framework library. </p>
+ * <p> Returns a list of the frameworks that are available in the Audit Manager framework
+ *          library. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

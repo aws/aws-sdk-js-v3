@@ -32,8 +32,9 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment. You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by specifying
- *          the S3 URI of the evidence. </p>
+ * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
+ *          You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by
+ *          specifying the S3 URI of the evidence. </p>
  *          <p>You must upload manual evidence to your S3 bucket before you can upload it to your
  *          assessment. For instructions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a> in
  *          the <i>Amazon Simple Storage Service API Reference.</i>

@@ -135,7 +135,7 @@ export interface AssessmentControl {
   evidenceSources?: string[];
 
   /**
-   * <p> The amount of evidence that's generated for the control. </p>
+   * <p> The amount of evidence that's collected for the control. </p>
    */
   evidenceCount?: number;
 
@@ -225,9 +225,8 @@ export interface Delegation {
 }
 
 /**
- * <p> The wrapper that contains the Audit Manager role information of the current
- *          user. This includes the role type and IAM Amazon Resource Name (ARN).
- *       </p>
+ * <p> The wrapper that contains the Audit Manager role information of the current user.
+ *          This includes the role type and IAM Amazon Resource Name (ARN). </p>
  */
 export interface Role {
   /**
@@ -271,7 +270,7 @@ export interface AssessmentControlSet {
   description?: string;
 
   /**
-   * <p> Specifies the current status of the control set. </p>
+   * <p> The current status of the control set. </p>
    */
   status?: ControlSetStatus | string;
 
@@ -473,8 +472,7 @@ export interface AssessmentMetadata {
 
 /**
  * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
- *          An Audit Manager assessment is an implementation of an Audit Manager
- *          framework. </p>
+ *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
  */
 export interface Assessment {
   /**
@@ -661,12 +659,12 @@ export interface AssessmentFrameworkMetadata {
   controlSetsCount?: number;
 
   /**
-   * <p> Specifies when the framework was created. </p>
+   * <p> The time when the framework was created. </p>
    */
   createdAt?: Date;
 
   /**
-   * <p> Specifies when the framework was most recently updated. </p>
+   * <p> The time when the framework was most recently updated. </p>
    */
   lastUpdatedAt?: Date;
 }
@@ -1343,8 +1341,7 @@ export interface CreateAssessmentRequest {
 export interface CreateAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
-   *          An Audit Manager assessment is an implementation of an Audit Manager
-   *          framework. </p>
+   *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
    */
   assessment?: Assessment;
 }
@@ -1574,7 +1571,7 @@ export interface ControlMappingSource {
   sourceSetUpOption?: SourceSetUpOption | string;
 
   /**
-   * <p> Specifies one of the five types of data sources for evidence collection. </p>
+   * <p> Specifies one of the five data source types for evidence collection. </p>
    */
   sourceType?: SourceType | string;
 
@@ -1672,8 +1669,8 @@ export interface Control {
   actionPlanInstructions?: string;
 
   /**
-   * <p> The data source types that determine where Audit Manager collects evidence from
-   *          for the control. </p>
+   * <p> The data source types that determine where Audit Manager collects evidence from for
+   *          the control. </p>
    */
   controlSources?: string;
 
@@ -1683,12 +1680,12 @@ export interface Control {
   controlMappingSources?: ControlMappingSource[];
 
   /**
-   * <p> Specifies when the control was created. </p>
+   * <p> The time when the control was created. </p>
    */
   createdAt?: Date;
 
   /**
-   * <p> Specifies when the control was most recently updated. </p>
+   * <p> The time when the control was most recently updated. </p>
    */
   lastUpdatedAt?: Date;
 
@@ -1781,12 +1778,12 @@ export interface Framework {
   controlSets?: ControlSet[];
 
   /**
-   * <p> Specifies when the framework was created. </p>
+   * <p> The time when the framework was created. </p>
    */
   createdAt?: Date;
 
   /**
-   * <p> Specifies when the framework was most recently updated. </p>
+   * <p> The time when the framework was most recently updated. </p>
    */
   lastUpdatedAt?: Date;
 
@@ -1835,11 +1832,12 @@ export interface CreateAssessmentReportRequest {
    *          <p>Provide this parameter when you want to generate an assessment report from the results
    *          of an evidence finder search query. When you use this parameter, Audit Manager
    *          generates a one-time report using only the evidence from the query output. This report does
-   *          not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added to a report using the console</a>, or <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html">associated with a report using the API</a>. </p>
-   *          <p>To use this parameter, the <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p>
+   *          not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added to a report using the console</a>, or <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html">associated with a report using the API</a>. </p>
+   *          <p>To use this parameter, the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p>
    *          <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see
-   *             <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions">Troubleshooting evidence finder issues</a> in the AWS Audit
-   *          Manager User Guide. </p>
+   *             <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions">Troubleshooting evidence finder issues</a> in the
+   *                <i>Audit Manager User Guide.</i>
+   *          </p>
    */
   queryStatement?: string;
 }
@@ -2077,15 +2075,13 @@ export interface GetAssessmentRequest {
 export interface GetAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
-   *          An Audit Manager assessment is an implementation of an Audit Manager
-   *          framework. </p>
+   *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
    */
   assessment?: Assessment;
 
   /**
-   * <p> The wrapper that contains the Audit Manager role information of the current
-   *          user. This includes the role type and IAM Amazon Resource Name (ARN).
-   *       </p>
+   * <p> The wrapper that contains the Audit Manager role information of the current user.
+   *          This includes the role type and IAM Amazon Resource Name (ARN). </p>
    */
   userRole?: Role;
 }
@@ -2361,7 +2357,7 @@ export interface Resource {
 
 /**
  * <p> A record that contains the information needed to demonstrate compliance with the
- *          requirements specified by a control. Examples of evidence include change activity triggered
+ *          requirements specified by a control. Examples of evidence include change activity invoked
  *          by a user, or a system configuration snapshot. </p>
  */
 export interface Evidence {
@@ -2468,7 +2464,7 @@ export interface Evidence {
 
 export interface GetEvidenceResponse {
   /**
-   * <p> The evidence that the <code>GetEvidenceResponse</code> API returned. </p>
+   * <p> The evidence that the <code>GetEvidence</code> API returned. </p>
    */
   evidence?: Evidence;
 }
@@ -2845,6 +2841,7 @@ export enum SettingAttribute {
   ALL = "ALL",
   DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
   DEFAULT_PROCESS_OWNERS = "DEFAULT_PROCESS_OWNERS",
+  DEREGISTRATION_POLICY = "DEREGISTRATION_POLICY",
   EVIDENCE_FINDER_ENABLEMENT = "EVIDENCE_FINDER_ENABLEMENT",
   IS_AWS_ORG_ENABLED = "IS_AWS_ORG_ENABLED",
   SNS_TOPIC = "SNS_TOPIC",
@@ -2852,9 +2849,51 @@ export enum SettingAttribute {
 
 export interface GetSettingsRequest {
   /**
-   * <p> The list of <code>SettingAttribute</code> enum values. </p>
+   * <p> The list of setting attribute enum values. </p>
    */
   attribute: SettingAttribute | string | undefined;
+}
+
+export enum DeleteResources {
+  ALL = "ALL",
+  DEFAULT = "DEFAULT",
+}
+
+/**
+ * <p>The deregistration policy for the data that's stored in Audit Manager. You can
+ *          use this attribute to determine how your data is handled when you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister Audit Manager</a>.</p>
+ *          <p>By default, Audit Manager retains evidence data for two years from the time of its
+ *          creation. Other Audit Manager resources (including assessments, custom controls, and
+ *          custom frameworks) remain in Audit Manager indefinitely, and are available if you
+ *             <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html">re-register Audit Manager</a> in the future. For more
+ *          information about data retention, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html">Data
+ *             Protection</a> in the <i>Audit Manager User Guide</i>.</p>
+ *          <important>
+ *             <p>If you choose to delete all data, this action permanently deletes all evidence data
+ *             in your account within seven days. It also deletes all of the Audit Manager
+ *             resources that you created, including assessments, custom controls, and custom
+ *             frameworks. Your data will not be available if you re-register Audit Manager in the
+ *             future.</p>
+ *          </important>
+ */
+export interface DeregistrationPolicy {
+  /**
+   * <p>Specifies which Audit Manager data will be deleted when you deregister Audit Manager.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you set the value to <code>ALL</code>, all of your data is deleted within seven
+   *                days of deregistration.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you set the value to <code>DEFAULT</code>, none of your data is deleted at the
+   *                time of deregistration. However, keep in mind that the Audit Manager data
+   *                retention policy still applies. As a result, any evidence data will be deleted two
+   *                years after its creation date. Your other Audit Manager resources will continue
+   *                to exist indefinitely.</p>
+   *             </li>
+   *          </ul>
+   */
+  deleteResources?: DeleteResources | string;
 }
 
 export enum EvidenceFinderBackfillStatus {
@@ -2895,9 +2934,10 @@ export interface EvidenceFinderEnablement {
    *             <li>
    *                <p>
    *                   <code>ENABLED</code> means that an event data store was successfully created and
-   *                evidence finder is enabled. We recommend that you wait 24 hours until the event data
-   *                store is backfilled with your past evidence data. You can use evidence finder in the
-   *                meantime, but not all data might be available until the backfill is complete.</p>
+   *                evidence finder is enabled. We recommend that you wait 7 days until the event data
+   *                store is backfilled with your past two years’ worth of evidence data. You can use
+   *                evidence finder in the meantime, but not all data might be available until the
+   *                backfill is complete.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2916,8 +2956,8 @@ export interface EvidenceFinderEnablement {
 
   /**
    * <p>The current status of the evidence data backfill process. </p>
-   *          <p>The backfill starts after you enable evidence finder. During this task, Audit Manager populates an event data store with your past evidence data so that your evidence can be
-   *          queried.</p>
+   *          <p>The backfill starts after you enable evidence finder. During this task, Audit Manager populates an event data store with your past two years’ worth of evidence data so that
+   *          your evidence can be queried.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2925,8 +2965,8 @@ export interface EvidenceFinderEnablement {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> means that the backfill is in progress. This can take up to 24 hours
-   *                to complete, depending on the amount of evidence data. </p>
+   *                   <code>IN_PROGRESS</code> means that the backfill is in progress. This can take up
+   *                to 7 days to complete, depending on the amount of evidence data. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2976,6 +3016,12 @@ export interface Settings {
    * <p>The current evidence finder status and event data store details.</p>
    */
   evidenceFinderEnablement?: EvidenceFinderEnablement;
+
+  /**
+   * <p>The deregistration policy for your Audit Manager data. You can
+   *       use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
+   */
+  deregistrationPolicy?: DeregistrationPolicy;
 }
 
 export interface GetSettingsResponse {
@@ -3391,18 +3437,18 @@ export interface ControlMetadata {
   name?: string;
 
   /**
-   * <p> The data source that determines where Audit Manager collects evidence from for
-   *          the control. </p>
+   * <p> The data source that determines where Audit Manager collects evidence from for the
+   *          control. </p>
    */
   controlSources?: string;
 
   /**
-   * <p> Specifies when the control was created. </p>
+   * <p> The time when the control was created. </p>
    */
   createdAt?: Date;
 
   /**
-   * <p> Specifies when the control was most recently updated. </p>
+   * <p> The time when the control was most recently updated. </p>
    */
   lastUpdatedAt?: Date;
 }
@@ -3684,8 +3730,8 @@ export interface UpdateAssessmentRequest {
 
 export interface UpdateAssessmentResponse {
   /**
-   * <p> The response object for the <code>UpdateAssessmentRequest</code> API. This is the name
-   *          of the updated assessment.</p>
+   * <p> The response object for the <code>UpdateAssessment</code> API. This is the name of the
+   *          updated assessment.</p>
    */
   assessment?: Assessment;
 }
@@ -3936,12 +3982,15 @@ export interface UpdateSettingsRequest {
    *             event data store that’s used to query your evidence data. As a result, you can’t
    *             re-enable evidence finder and use the feature again. Your only alternative is to <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister</a> and then <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html">re-register</a>
    *             Audit Manager. </p>
-   *             <p>Disabling evidence finder is permanent, so consider this decision carefully before
-   *             you proceed. If you’re using Audit Manager as a delegated administrator, keep in
-   *             mind that this action applies to all member accounts in your organization.</p>
    *          </important>
    */
   evidenceFinderEnabled?: boolean;
+
+  /**
+   * <p>The deregistration policy for your Audit Manager data. You can
+   *          use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
+   */
+  deregistrationPolicy?: DeregistrationPolicy;
 }
 
 export interface UpdateSettingsResponse {
@@ -4817,6 +4866,13 @@ export const GetServicesInScopeResponseFilterSensitiveLog = (obj: GetServicesInS
  * @internal
  */
 export const GetSettingsRequestFilterSensitiveLog = (obj: GetSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregistrationPolicyFilterSensitiveLog = (obj: DeregistrationPolicy): any => ({
   ...obj,
 });
 

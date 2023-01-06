@@ -292,13 +292,13 @@ import {
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
- *          <p>Audit Manager is a service that provides automated evidence collection so that
- *          you can continually audit your Amazon Web Services usage. You can use it to assess the
+ *          <p>Audit Manager is a service that provides automated evidence collection so that you
+ *          can continually audit your Amazon Web Services usage. You can use it to assess the
  *          effectiveness of your controls, manage risk, and simplify compliance.</p>
- *          <p>Audit Manager provides prebuilt frameworks that structure and automate
- *          assessments for a given compliance standard. Frameworks include a prebuilt collection of
- *          controls with descriptions and testing procedures. These controls are grouped according to
- *          the requirements of the specified compliance standard or regulation. You can also customize
+ *          <p>Audit Manager provides prebuilt frameworks that structure and automate assessments
+ *          for a given compliance standard. Frameworks include a prebuilt collection of controls with
+ *          descriptions and testing procedures. These controls are grouped according to the
+ *          requirements of the specified compliance standard or regulation. You can also customize
  *          frameworks and controls to support internal audits with specific requirements. </p>
  *          <p>Use the following links to get started with the Audit Manager API:</p>
  *          <ul>
@@ -315,7 +315,7 @@ import {
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html">Common
- *                   parameters</a>: Parameters that all Query operations can use.</p>
+ *                   parameters</a>: Parameters that all operations can use.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -328,7 +328,7 @@ import {
  */
 export class AuditManager extends AuditManagerClient {
   /**
-   * <p> Associates an evidence folder to an assessment report in a Audit Manager
+   * <p> Associates an evidence folder to an assessment report in an Audit Manager
    *          assessment. </p>
    */
   public associateAssessmentReportEvidenceFolder(
@@ -497,8 +497,9 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment. You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by specifying
-   *          the S3 URI of the evidence. </p>
+   * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
+   *          You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by
+   *          specifying the S3 URI of the evidence. </p>
    *          <p>You must upload manual evidence to your S3 bucket before you can upload it to your
    *          assessment. For instructions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a> in
    *          the <i>Amazon Simple Storage Service API Reference.</i>
@@ -862,43 +863,13 @@ export class AuditManager extends AuditManagerClient {
   /**
    * <p> Deregisters an account in Audit Manager. </p>
    *          <note>
-   *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If
-   *             you want to delete your resource data, you must perform that task separately before you
-   *             deregister your account. Either, you can do this in the Audit Manager console. Or,
-   *             you can use one of the delete API operations that are provided by Audit Manager. </p>
-   *             <p>To delete your Audit Manager resource data, see the following instructions: </p>
-   *             <ul>
-   *                <li>
-   *                   <p>
-   *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html">DeleteAssessment</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html">Deleting an
-   *                      assessment</a> in the <i>Audit Manager User
-   *                   Guide</i>)</p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html">DeleteAssessmentFramework</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html">Deleting a
-   *                      custom framework</a> in the <i>Audit Manager User
-   *                      Guide</i>)</p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html">DeleteAssessmentFrameworkShare</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html">Deleting a share request</a> in the <i>Audit Manager User
-   *                      Guide</i>)</p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting an assessment report</a> in the <i>Audit Manager
-   *                      User Guide</i>)</p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html">DeleteControl</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html">Deleting a custom
-   *                      control</a> in the <i>Audit Manager User
-   *                   Guide</i>)</p>
-   *                </li>
-   *             </ul>
-   *             <p>At this time, Audit Manager doesn't provide an option to delete evidence. All
-   *             available delete operations are listed above.</p>
+   *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
+   *             default, Audit Manager retains your data. If you want to delete your data, you can
+   *             use the <code>DeregistrationPolicy</code> attribute to request the deletion of your
+   *             data. </p>
+   *             <p>For more information about data retention, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html">Data
+   *                Protection</a> in the <i>Audit Manager User Guide</i>.
+   *          </p>
    *          </note>
    */
   public deregisterAccount(
@@ -933,12 +904,10 @@ export class AuditManager extends AuditManagerClient {
   /**
    * <p>Removes the specified Amazon Web Services account as a delegated administrator for
    *             Audit Manager. </p>
-   *
    *          <p>When you remove a delegated administrator from your Audit Manager settings, you
-   *             continue to have access to the evidence that you previously collected under that
-   *             account. This is also the case when you deregister a delegated administrator from
-   *                Organizations. However, Audit Manager will stop collecting and attaching
-   *             evidence to that delegated administrator account moving forward.</p>
+   *          continue to have access to the evidence that you previously collected under that account.
+   *          This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to
+   *          that delegated administrator account moving forward.</p>
    *          <important>
    *             <p>Keep in mind the following cleanup task if you use evidence finder:</p>
    *             <p>Before you use your management account to remove a delegated administrator, make sure
@@ -947,52 +916,52 @@ export class AuditManager extends AuditManagerClient {
    *             event data store that was created in their account when they enabled evidence finder. If
    *             this task isn’t completed, the event data store remains in their account. In this case,
    *             we recommend that the original delegated administrator goes to CloudTrail Lake
-   *             and manually <a href="https://docs.aws.amazon.com/userguide/awscloudtrail/latest/userguide/query-eds-disable-termination.html">deletes the event data store</a>.</p>
+   *             and manually <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html">deletes the
+   *                event data store</a>.</p>
    *             <p>This cleanup task is necessary to ensure that you don't end up with multiple event
-   *             data stores. Audit Manager will ignore an unused event data store after you remove
-   *             or change a delegated administrator account. However, the unused event data store
-   *             continues to incur storage costs from CloudTrail Lake if you don't delete
-   *             it.</p>
+   *             data stores. Audit Manager ignores an unused event data store after you remove or
+   *             change a delegated administrator account. However, the unused event data store continues
+   *             to incur storage costs from CloudTrail Lake if you don't delete it.</p>
    *          </important>
-   *
    *          <p>When you deregister a delegated administrator account for Audit Manager, the data
-   *             for that account isn’t deleted. If you want to delete resource data for a delegated
-   *             administrator account, you must perform that task separately before you deregister the
-   *             account. Either, you can do this in the Audit Manager console. Or, you can use one
-   *             of the delete API operations that are provided by Audit Manager. </p>
+   *          for that account isn’t deleted. If you want to delete resource data for a delegated
+   *          administrator account, you must perform that task separately before you deregister the
+   *          account. Either, you can do this in the Audit Manager console. Or, you can use one of
+   *          the delete API operations that are provided by Audit Manager. </p>
    *          <p>To delete your Audit Manager resource data, see the following instructions: </p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html">DeleteAssessment</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html">Deleting an
-   *                      assessment</a> in the <i>Audit Manager User
-   *                   Guide</i>)</p>
+   *                   assessment</a> in the <i>Audit Manager User
+   *                Guide</i>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html">DeleteAssessmentFramework</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html">Deleting a
-   *                      custom framework</a> in the <i>Audit Manager User
-   *                      Guide</i>)</p>
+   *                   custom framework</a> in the <i>Audit Manager User
+   *                   Guide</i>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html">DeleteAssessmentFrameworkShare</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html">Deleting a share request</a> in the <i>Audit Manager User
-   *                      Guide</i>)</p>
+   *                   Guide</i>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting an assessment report</a> in the <i>Audit Manager
-   *                      User Guide</i>)</p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting an assessment report</a> in the <i>Audit Manager User
+   *                   Guide</i>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html">DeleteControl</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html">Deleting a custom
-   *                      control</a> in the <i>Audit Manager User
-   *                   Guide</i>)</p>
+   *                   control</a> in the <i>Audit Manager User
+   *                Guide</i>)</p>
    *             </li>
    *          </ul>
-   *          <p>At this time, Audit Manager doesn't provide an option to delete evidence. All
-   *             available delete operations are listed above.</p>
+   *          <p>At this time, Audit Manager doesn't provide an option to delete evidence for a
+   *          specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the
+   *          time of deregistration.</p>
    */
   public deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
@@ -1400,8 +1369,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Returns a list of evidence folders that are associated with a specified control of an
-   *          assessment in Audit Manager. </p>
+   * <p> Returns a list of evidence folders that are associated with a specified control in an
+   *             Audit Manager assessment. </p>
    */
   public getEvidenceFoldersByAssessmentControl(
     args: GetEvidenceFoldersByAssessmentControlCommandInput,
@@ -1627,8 +1596,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Returns a list of the frameworks that are available in the Audit Manager
-   *          framework library. </p>
+   * <p> Returns a list of the frameworks that are available in the Audit Manager framework
+   *          library. </p>
    */
   public listAssessmentFrameworks(
     args: ListAssessmentFrameworksCommandInput,
