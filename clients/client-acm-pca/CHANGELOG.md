@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.246.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.245.0...v3.246.0) (2023-01-06)
+
+
+### Features
+
+* **client-acm-pca:** Added revocation parameter validation: bucket names must match S3 bucket naming rules and CNAMEs conform to RFC2396 restrictions on the use of special characters in URIs. ([63138a5](https://github.com/aws/aws-sdk-js-v3/commit/63138a524265966b788d2922e54ca039e7aaaa3a))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-acm-pca

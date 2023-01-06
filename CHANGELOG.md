@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.246.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.245.0...v3.246.0) (2023-01-06)
+
+
+### Features
+
+* **client-acm-pca:** Added revocation parameter validation: bucket names must match S3 bucket naming rules and CNAMEs conform to RFC2396 restrictions on the use of special characters in URIs. ([63138a5](https://github.com/aws/aws-sdk-js-v3/commit/63138a524265966b788d2922e54ca039e7aaaa3a))
+* **client-auditmanager:** This release introduces a new data retention option in your Audit Manager settings. You can now use the DeregistrationPolicy parameter to specify if you want to delete your data when you deregister Audit Manager. ([5b81cc6](https://github.com/aws/aws-sdk-js-v3/commit/5b81cc673616b2274b34811480f442aec735bc23))
+* **clients:** update client endpoints as of 2023-01-06 ([8508413](https://github.com/aws/aws-sdk-js-v3/commit/8508413f593e3f6be5837f8ef1814c97539046df))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 
