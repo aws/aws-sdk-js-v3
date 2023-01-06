@@ -13,13 +13,13 @@ import {
   TokenIdentity
 } from "@aws-sdk/types";
 
-import { IdentityResolvedConfig } from "./configurations";
-import { getDateHeader } from "./util/getDateHeader";
-import { getSkewCorrectedDate } from "./util/getSkewCorrectedDate";
-import { getUpdatedSystemClockOffset } from "./util/getUpdatedSystemClockOffset";
-import { isAwsCredentialIdentity } from "./util/isAwsCredentialIdentity";
-import { isLoginIdentity } from "./util/isLoginIdentity";
-import { isTokenIdentity } from "./util/isTokenIdentity";
+import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
+import { isAwsCredentialIdentity } from "./util/identity/isAwsCredentialIdentity";
+import { isLoginIdentity } from "./util/identity/isLoginIdentity";
+import { isTokenIdentity } from "./util/identity/isTokenIdentity";
+import { getDateHeader } from "./util/time/getDateHeader";
+import { getSkewCorrectedDate } from "./util/time/getSkewCorrectedDate";
+import { getUpdatedSystemClockOffset } from "./util/time/getUpdatedSystemClockOffset";
 
 export const IdentityMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "identityMiddleware",
