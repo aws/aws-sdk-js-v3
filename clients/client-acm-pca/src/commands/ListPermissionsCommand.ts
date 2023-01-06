@@ -31,31 +31,31 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
 /**
  * <p>List all permissions on a private CA, if any, granted to the Certificate Manager (ACM) service
  * 			principal (acm.amazonaws.com). </p>
- * 		       <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
+ *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
  * 			same Amazon Web Services account as the CA. </p>
- * 		       <p>Permissions can be granted with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html">CreatePermission</a> action and
- * 			revoked with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html">DeletePermission</a> action.</p>
- * 		       <p class="title">
+ *          <p>Permissions can be granted with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html">CreatePermission</a> action and
+ * 			revoked with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html">DeletePermission</a> action.</p>
+ *          <p class="title">
  *             <b>About Permissions</b>
  *          </p>
  *          <ul>
  *             <li>
- * 			            <p>If the private CA and the certificates it issues reside in the same
+ *                <p>If the private CA and the certificates it issues reside in the same
  * 			account, you can use <code>CreatePermission</code> to grant permissions for ACM to
  * 			carry out automatic certificate renewals.</p>
- * 		          </li>
+ *             </li>
  *             <li>
- * 			            <p>For automatic certificate renewal to succeed, the ACM service principal
+ *                <p>For automatic certificate renewal to succeed, the ACM service principal
  * 			needs permissions to create, retrieve, and list certificates.</p>
- * 		          </li>
+ *             </li>
  *             <li>
- * 			            <p>If the private CA and the ACM certificates reside in different accounts,
+ *                <p>If the private CA and the ACM certificates reside in different accounts,
  * 			then permissions cannot be used to enable automatic renewals. Instead,
  * 			the ACM certificate owner must set up a resource-based policy to enable
  * 			cross-account issuance and renewals. For more information, see
- * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
- * 			Based Policy with ACM Private CA</a>.</p>
- * 		          </li>
+ * 			<a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a Resource
+ * 			Based Policy with Amazon Web Services Private CA</a>.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
