@@ -30,8 +30,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
 
 /**
  * <p>Deletes a repository in a public registry. If the repository contains images, you must
- *          either delete all images in the repository or use the <code>force</code> option which
- *          deletes all images on your behalf before deleting the repository.</p>
+ *          either manually delete all images in the repository or use the <code>force</code> option.
+ *          This option deletes all images on your behalf before deleting the repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

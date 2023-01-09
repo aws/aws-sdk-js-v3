@@ -29,12 +29,13 @@ export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a list of specified images within a repository in a public registry. Images are
- *          specified with either an <code>imageTag</code> or <code>imageDigest</code>.</p>
+ * <p>Deletes a list of specified images that are within a repository in a public registry.
+ *          Images are specified with either an <code>imageTag</code> or
+ *          <code>imageDigest</code>.</p>
  *          <p>You can remove a tag from an image by specifying the image's tag in your request. When
  *          you remove the last tag from an image, the image is deleted from your repository.</p>
- *          <p>You can completely delete an image (and all of its tags) by specifying the image's
- *          digest in your request.</p>
+ *          <p>You can completely delete an image (and all of its tags) by specifying the digest of the
+ *          image in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
