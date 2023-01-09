@@ -437,6 +437,7 @@ export const serializeAws_restJson1CreatePortalCommand = async (
         context
       ),
     }),
+    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.customerManagedKey != null && { customerManagedKey: input.customerManagedKey }),
     ...(input.displayName != null && { displayName: input.displayName }),
@@ -1478,6 +1479,7 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
   body = JSON.stringify({
+    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
     ...(input.displayName != null && { displayName: input.displayName }),
   });
   return new __HttpRequest({
@@ -4786,6 +4788,7 @@ const deserializeAws_restJson1NetworkSettingsSummary = (
 
 const deserializeAws_restJson1Portal = (output: any, context: __SerdeContext): Portal => {
   return {
+    authenticationType: __expectString(output.authenticationType),
     browserSettingsArn: __expectString(output.browserSettingsArn),
     browserType: __expectString(output.browserType),
     creationDate:
@@ -4819,6 +4822,7 @@ const deserializeAws_restJson1PortalList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
   return {
+    authenticationType: __expectString(output.authenticationType),
     browserSettingsArn: __expectString(output.browserSettingsArn),
     browserType: __expectString(output.browserType),
     creationDate:
