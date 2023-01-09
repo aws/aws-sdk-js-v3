@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
+
+
+### Features
+
+* **client-ecr-public:** This release for Amazon ECR Public makes several change to bring the SDK into sync with the API. ([f2e9a5f](https://github.com/aws/aws-sdk-js-v3/commit/f2e9a5f288e961bf6284e8109951a1ada79083a3))
+* **client-kendra-ranking:** Introducing Amazon Kendra Intelligent Ranking, a new set of Kendra APIs that leverages Kendra semantic ranking capabilities to improve the quality of search results from other search services (i.e. OpenSearch, ElasticSearch, Solr). ([f187559](https://github.com/aws/aws-sdk-js-v3/commit/f187559370d7e5594df02a985c2bd1de21725ece))
+* **client-network-firewall:** Network Firewall now supports the Suricata rule action reject, in addition to the actions pass, drop, and alert. ([5949102](https://github.com/aws/aws-sdk-js-v3/commit/5949102ea400fcec2d909f93b474a475cf82fd35))
+* **client-ram:** Enabled FIPS aws-us-gov endpoints in SDK. ([5e8a433](https://github.com/aws/aws-sdk-js-v3/commit/5e8a433f38e4889d16396eada5249c570f2cadf0))
+* **client-workspaces-web:** This release adds support for a new portal authentication type: AWS IAM Identity Center (successor to AWS Single Sign-On). ([8b7c2eb](https://github.com/aws/aws-sdk-js-v3/commit/8b7c2eb6e7a72264b022fcc45df8c53943dcd542))
+* **clients:** update client endpoints as of 2023-01-09 ([3f1b40a](https://github.com/aws/aws-sdk-js-v3/commit/3f1b40ae4b5b8825eb47b4c5d75e44b10fa1f2a8))
+
+
+
+
+
 # [3.246.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.245.0...v3.246.0) (2023-01-06)
 
 

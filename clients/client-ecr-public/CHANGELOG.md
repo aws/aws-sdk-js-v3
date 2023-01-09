@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
+
+
+### Features
+
+* **client-ecr-public:** This release for Amazon ECR Public makes several change to bring the SDK into sync with the API. ([f2e9a5f](https://github.com/aws/aws-sdk-js-v3/commit/f2e9a5f288e961bf6284e8109951a1ada79083a3))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr-public

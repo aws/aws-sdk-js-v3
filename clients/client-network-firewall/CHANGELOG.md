@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
+
+
+### Features
+
+* **client-network-firewall:** Network Firewall now supports the Suricata rule action reject, in addition to the actions pass, drop, and alert. ([5949102](https://github.com/aws/aws-sdk-js-v3/commit/5949102ea400fcec2d909f93b474a475cf82fd35))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

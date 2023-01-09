@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
+
+
+### Features
+
+* **client-workspaces-web:** This release adds support for a new portal authentication type: AWS IAM Identity Center (successor to AWS Single Sign-On). ([8b7c2eb](https://github.com/aws/aws-sdk-js-v3/commit/8b7c2eb6e7a72264b022fcc45df8c53943dcd542))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web
