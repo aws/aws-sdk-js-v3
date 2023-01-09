@@ -38,7 +38,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  *             the OU's ID. Until you enable sharing within the organization, you can specify only
  *             individual Amazon Web Services accounts, or for supported resource types, IAM users and
  *             roles.</p>
- *         <p>You must call this operation from an IAM user or role in the organization's
+ *          <p>You must call this operation from an IAM user or role in the organization's
  *             management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

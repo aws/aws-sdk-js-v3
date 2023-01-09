@@ -342,16 +342,15 @@ export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
  *             accounts. If you use Organizations to manage your accounts, then you share your resources
  *             with your organization or organizational units (OUs). For supported resource types, you
  *             can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
- *
- *         <p>To learn more about RAM, see the following resources:</p>
- *         <ul>
+ *          <p>To learn more about RAM, see the following resources:</p>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
+ *                <p>
+ *                   <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/ram/latest/userguide/">Resource Access Manager User
  *                         Guide</a>
  *                </p>
