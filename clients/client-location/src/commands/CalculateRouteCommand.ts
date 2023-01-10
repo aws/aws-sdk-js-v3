@@ -34,30 +34,30 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
  *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
  *                 route calculator resource</a>.</p>
- *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+ *          <p>By default, a request that doesn't specify a departure time uses the best time of day
  *             to travel with the best traffic conditions when calculating the route.</p>
- *         <p>Additional options include:</p>
- *         <ul>
+ *          <p>Additional options include:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a
  *                         departure time</a> using either <code>DepartureTime</code> or
  *                         <code>DepartNow</code>. This calculates a route based on predictive traffic
  *                     data at the given time. </p>
- *                 <note>
- *                     <p>You can't specify both <code>DepartureTime</code> and
+ *                <note>
+ *                   <p>You can't specify both <code>DepartureTime</code> and
  *                             <code>DepartNow</code> in a single request. Specifying both parameters
  *                         returns a validation error.</p>
- *                 </note>
+ *                </note>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
  *                         mode</a> using TravelMode sets the transportation mode used to calculate
  *                     the routes. This also lets you specify additional route preferences in
  *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
  *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
- *                 <note>
+ *                <note>
  *                   <p>If you specify <code>walking</code> for the travel mode and your data
  *                     provider is Esri, the start and destination must be within 40km.</p>
  *                </note>

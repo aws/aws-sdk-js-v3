@@ -32,7 +32,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * <p>Retrieves the device position history from a tracker resource within a specified range
  *             of time.</p>
  *          <note>
- *            <p>Device positions are deleted after 30 days.</p>
+ *             <p>Device positions are deleted after 30 days.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
