@@ -5715,8 +5715,13 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Starts a database activity stream to monitor activity on the database.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
-   *             in the <i>Amazon Aurora User Guide</i>.</p>
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+   *                 Monitoring Amazon Aurora with Database Activity Streams</a>
+   *             in the <i>Amazon Aurora User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+   *                 Monitoring Amazon RDS with Database Activity Streams</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   public startActivityStream(
     args: StartActivityStreamCommandInput,
@@ -5903,8 +5908,12 @@ export class RDS extends RDSClient {
    * <p>Stops a database activity stream that was started using the Amazon Web Services console,
    *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
    *          <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
-   *             in the <i>Amazon Aurora User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+   *                 Monitoring Amazon Aurora with Database Activity Streams</a>
+   *             in the <i>Amazon Aurora User Guide</i>
+   *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+   *                 Monitoring Amazon RDS with Database Activity Streams</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   public stopActivityStream(
     args: StopActivityStreamCommandInput,

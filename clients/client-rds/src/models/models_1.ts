@@ -7792,6 +7792,16 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </ul>
    */
   DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in
+   *             CreateDBInstance.</p>
+   *          <note>
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed. You can also
+   *                 allocate additional memory for future growth.</p>
+   *          </note>
+   */
+  AllocatedStorage?: number;
 }
 
 export interface RestoreDBInstanceFromDBSnapshotResult {
@@ -7833,11 +7843,10 @@ export interface RestoreDBInstanceFromS3Message {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The amount of storage (in gigabytes) to allocate initially for the DB instance.
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance
-   *                 so that the restore operation can succeed.
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
    *                 You can also allocate additional memory for future growth.</p>
    *          </note>
    */
@@ -8792,6 +8801,16 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
+   *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <note>
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
+   *                 You can also allocate additional memory for future growth.</p>
+   *          </note>
+   */
+  AllocatedStorage?: number;
 }
 
 export interface RestoreDBInstanceToPointInTimeResult {

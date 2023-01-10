@@ -8568,6 +8568,16 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate initially for the read replica.
+   *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <note>
+   *             <p>Be sure to allocate enough memory for your read replica so that the create operation can succeed.
+   *                 You can also allocate additional memory for future growth.</p>
+   *          </note>
+   */
+  AllocatedStorage?: number;
 }
 
 export interface CreateDBInstanceReadReplicaResult {

@@ -12963,6 +12963,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   if (input.EnableCustomerOwnedIp != null) {
     entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
   }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
   return entries;
 };
 
@@ -16586,6 +16589,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   if (input.DBClusterSnapshotIdentifier != null) {
     entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
   }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
   return entries;
 };
 
@@ -16922,6 +16928,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
   }
   return entries;
 };
