@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.248.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.247.0...v3.248.0) (2023-01-10)
+
+
+### Features
+
+* **client-rds:** This release adds support for configuring allocated storage on the CreateDBInstanceReadReplica, RestoreDBInstanceFromDBSnapshot, and RestoreDBInstanceToPointInTime APIs. ([85724bc](https://github.com/aws/aws-sdk-js-v3/commit/85724bc8be686da8570061f155ea7357a9918e55))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 

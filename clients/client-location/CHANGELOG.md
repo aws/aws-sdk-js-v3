@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.248.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.247.0...v3.248.0) (2023-01-10)
+
+
+### Features
+
+* **client-location:** This release adds support for two new route travel models, Bicycle and Motorcycle which can be used with Grab data source. ([507b255](https://github.com/aws/aws-sdk-js-v3/commit/507b2557379e33ff5502b2c56f2d52a4c31a660d))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-location

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.248.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.247.0...v3.248.0) (2023-01-10)
+
+
+### Features
+
+* **client-location:** This release adds support for two new route travel models, Bicycle and Motorcycle which can be used with Grab data source. ([507b255](https://github.com/aws/aws-sdk-js-v3/commit/507b2557379e33ff5502b2c56f2d52a4c31a660d))
+* **client-rds:** This release adds support for configuring allocated storage on the CreateDBInstanceReadReplica, RestoreDBInstanceFromDBSnapshot, and RestoreDBInstanceToPointInTime APIs. ([85724bc](https://github.com/aws/aws-sdk-js-v3/commit/85724bc8be686da8570061f155ea7357a9918e55))
+* **clients:** update client endpoints as of 2023-01-10 ([62c308e](https://github.com/aws/aws-sdk-js-v3/commit/62c308e5c9d495b160cb2252ef60b8e51f498176))
+
+
+
+
+
 # [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
 
 
