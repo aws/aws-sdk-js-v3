@@ -76,6 +76,33 @@ describe(XhrHttpHandler.name, () => {
     global.TransformStream = originalTransformStream;
   });
 
+  it("should wrap errors in a consistent SDK identifier", async () => {
+    const handler = new XhrHttpHandler();
+
+    handler.on(XhrHttpHandler.EVENTS.BEFORE_XHR_SEND, (xhr) => {
+      xhr.eventListeners.error.forEach((handler) => handler(new Error("Network Failure")));
+    });
+
+    try {
+      await handler.handle(
+        new HttpRequest({
+          method: "PUT",
+          hostname: "localhost",
+          port: 3000,
+          query: { k: "v" },
+          headers: { h: "1" },
+          body: "hello",
+          protocol: "http:",
+          path: "/api",
+        })
+      );
+      expect("this line").toBe("not reached");
+    } catch (e) {
+      expect(e.toString()).toContain(XhrHttpHandler.ERROR_IDENTIFIER);
+      expect(e.toString()).toBe(`Error: XHR_HTTP_HANDLER_ERROR: Error: Network Failure`);
+    }
+  });
+
   it("should use global XMLHttpRequest to handle requests by default", async () => {
     const handler = new XhrHttpHandler();
 
