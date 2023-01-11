@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.249.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.248.0...v3.249.0) (2023-01-11)
+
+
+### Features
+
+* **client-kendra:** This release adds support to new document types - RTF, XML, XSLT, MS_EXCEL, CSV, JSON, MD ([2d7aad5](https://github.com/aws/aws-sdk-js-v3/commit/2d7aad5768ac0b7b13ce2117e7325644f6660bf7))
+* **xhr-http-handler:** add consistent wrapper to XHR error handler ([#4334](https://github.com/aws/aws-sdk-js-v3/issues/4334)) ([99dab91](https://github.com/aws/aws-sdk-js-v3/commit/99dab91912bed6e6adcf5506b89fe0d96ca375d3))
+
+
+
+
+
 # [3.248.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.247.0...v3.248.0) (2023-01-10)
 
 
