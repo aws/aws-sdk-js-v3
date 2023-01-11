@@ -2,6 +2,9 @@
   "name": "@aws-sdk/middleware-identity",
   "version": "3.0.0",
   "description": "Middleware and Plugin for resolving identity.",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -12,20 +15,20 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest --passWithNoTests"
   },
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "browser": {
-    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
-  },
-  "react-native": {
-    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
-  },
+  "keywords": [
+    "identity"
+  ],
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-identity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/middleware-identity"
+  },
   "dependencies": {
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/protocol-http": "*",
@@ -34,6 +37,15 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-middleware": "*",
     "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^14.14.31",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typedoc": "0.19.2",
+    "typescript": "~4.6.2"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -48,19 +60,10 @@
   "files": [
     "dist-*"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-identity",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-identity"
+  "browser": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/util/provider/tokenDefaultProvider.browser"
   },
-  "devDependencies": {
-    "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^14.14.31",
-    "concurrently": "7.0.0",
-    "downlevel-dts": "0.10.1",
-    "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+  "react-native": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/util/provider/tokenDefaultProvider.browser"
   }
 }
