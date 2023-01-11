@@ -1,3 +1,3 @@
-module.exports = function getTeams(request, reply) {
+module.exports = async function getTeams(request, reply) {
   reply.send("GET teams");
 };
