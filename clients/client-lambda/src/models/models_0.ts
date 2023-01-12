@@ -654,6 +654,16 @@ export enum FunctionResponseType {
   ReportBatchItemFailures = "ReportBatchItemFailures",
 }
 
+/**
+ * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
+ */
+export interface ScalingConfig {
+  /**
+   * <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
+   */
+  MaximumConcurrency?: number;
+}
+
 export enum EndPointType {
   KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
 }
@@ -701,41 +711,41 @@ export interface SourceAccessConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>
+   *                   <code>BASIC_AUTH</code> – (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>
+   *                   <code>BASIC_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SUBNET</code> - (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
+   *                   <code>VPC_SUBNET</code> – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SECURITY_GROUP</code> - (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
+   *                   <code>VPC_SECURITY_GROUP</code> – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_256_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_256_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_512_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_512_AUTH</code> – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VIRTUAL_HOST</code> - (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+   *                   <code>VIRTUAL_HOST</code> –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
    *   This property cannot be specified in an UpdateEventSourceMapping API call.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
+   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
    *   private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+   *                   <code>SERVER_ROOT_CA_CERTIFICATE</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
    *   </p>
    *             </li>
    *          </ul>
@@ -760,23 +770,23 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *                   <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *                   <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
+   *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -790,19 +800,19 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -822,27 +832,27 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
@@ -941,6 +951,11 @@ export interface CreateEventSourceMappingRequest {
    * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 /**
@@ -1085,6 +1100,11 @@ export interface EventSourceMappingConfiguration {
    * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 /**
@@ -1306,9 +1326,10 @@ export enum SnapStartApplyOn {
 }
 
 /**
- * <p>The function's SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
- *       snapshot of the initialized execution environment when you publish a function version. For more information, see
- *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda
+ * <p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
+ *       snapshot of the initialized execution environment when you publish a function version.</p>
+ *          <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see
+ *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda
  *         SnapStart</a>.</p>
  */
 export interface SnapStart {
@@ -1882,7 +1903,7 @@ export interface FunctionConfiguration {
 
   /**
    * <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution
-   *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+   *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
    */
   SnapStart?: SnapStartResponse;
 }
@@ -3769,23 +3790,23 @@ export interface ListEventSourceMappingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *                   <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *                   <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
+   *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -3799,19 +3820,19 @@ export interface ListEventSourceMappingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -4922,19 +4943,19 @@ export interface UpdateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -4954,27 +4975,27 @@ export interface UpdateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
@@ -5035,6 +5056,11 @@ export interface UpdateEventSourceMappingRequest {
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 export interface UpdateFunctionCodeRequest {
@@ -5527,6 +5553,13 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
  * @internal
  */
 export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingConfigFilterSensitiveLog = (obj: ScalingConfig): any => ({
   ...obj,
 });
 

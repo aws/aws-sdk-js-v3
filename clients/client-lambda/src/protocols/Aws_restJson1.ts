@@ -275,6 +275,7 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   Runtime,
+  ScalingConfig,
   SelfManagedEventSource,
   SelfManagedKafkaEventSourceConfig,
   ServiceException,
@@ -490,6 +491,9 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
     ...(input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.ScalingConfig != null && {
+      ScalingConfig: serializeAws_restJson1ScalingConfig(input.ScalingConfig, context),
+    }),
     ...(input.SelfManagedEventSource != null && {
       SelfManagedEventSource: serializeAws_restJson1SelfManagedEventSource(input.SelfManagedEventSource, context),
     }),
@@ -507,7 +511,7 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     }),
     ...(input.StartingPosition != null && { StartingPosition: input.StartingPosition }),
     ...(input.StartingPositionTimestamp != null && {
-      StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000),
+      StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000).toString(),
     }),
     ...(input.Topics != null && { Topics: serializeAws_restJson1Topics(input.Topics, context) }),
     ...(input.TumblingWindowInSeconds != null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
@@ -2247,6 +2251,9 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ...(input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds }),
     ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
+    ...(input.ScalingConfig != null && {
+      ScalingConfig: serializeAws_restJson1ScalingConfig(input.ScalingConfig, context),
+    }),
     ...(input.SourceAccessConfigurations != null && {
       SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
         input.SourceAccessConfigurations,
@@ -2742,6 +2749,9 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
@@ -3206,6 +3216,9 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
   }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
@@ -3848,6 +3861,9 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
   }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
@@ -6361,6 +6377,9 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
@@ -7897,6 +7916,12 @@ const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext):
     });
 };
 
+const serializeAws_restJson1ScalingConfig = (input: ScalingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumConcurrency != null && { MaximumConcurrency: input.MaximumConcurrency }),
+  };
+};
+
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8313,6 +8338,8 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
     ParallelizationFactor: __expectInt32(output.ParallelizationFactor),
     Queues: output.Queues != null ? deserializeAws_restJson1Queues(output.Queues, context) : undefined,
+    ScalingConfig:
+      output.ScalingConfig != null ? deserializeAws_restJson1ScalingConfig(output.ScalingConfig, context) : undefined,
     SelfManagedEventSource:
       output.SelfManagedEventSource != null
         ? deserializeAws_restJson1SelfManagedEventSource(output.SelfManagedEventSource, context)
@@ -8735,6 +8762,12 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ScalingConfig = (output: any, context: __SerdeContext): ScalingConfig => {
+  return {
+    MaximumConcurrency: __expectInt32(output.MaximumConcurrency),
+  } as any;
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
