@@ -37,6 +37,9 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
  *       view data from the linked source accounts. For more information, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+ *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>.
+ *       You must include one of these two parameters, but you can't include both.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

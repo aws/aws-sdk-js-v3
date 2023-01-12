@@ -704,14 +704,17 @@ export interface DescribeLogStreamsRequest {
    *       </p>
    *          </note>
    */
-  logGroupName: string | undefined;
+  logGroupName?: string;
 
   /**
    * <p>Specify either the name or ARN of the log group to view. If the log group is in a source account
    *     and you are using a monitoring account, you must use the log group ARN.</p>
-   *          <p>If you specify values for both <code>logGroupName</code> and
-   *         <code>logGroupIdentifier</code>, the action returns an
-   *         <code>InvalidParameterException</code> error.</p>
+   *          <note>
+   *             <p>
+   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+   *         the action returns an <code>InvalidParameterException</code> error.
+   *       </p>
+   *          </note>
    */
   logGroupIdentifier?: string;
 
@@ -1312,14 +1315,17 @@ export interface FilterLogEventsRequest {
    *       </p>
    *          </note>
    */
-  logGroupName: string | undefined;
+  logGroupName?: string;
 
   /**
    * <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account
    *       and you are using a monitoring account, you must use the log group ARN.</p>
-   *          <p>If you specify values for both <code>logGroupName</code> and
-   *         <code>logGroupIdentifier</code>, the action returns an
-   *         <code>InvalidParameterException</code> error.</p>
+   *          <note>
+   *             <p>
+   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+   *         the action returns an <code>InvalidParameterException</code> error.
+   *       </p>
+   *          </note>
    */
   logGroupIdentifier?: string;
 
@@ -1460,13 +1466,17 @@ export interface GetLogEventsRequest {
    *       </p>
    *          </note>
    */
-  logGroupName: string | undefined;
+  logGroupName?: string;
 
   /**
    * <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account
    *       and you are using a monitoring account, you must use the log group ARN.</p>
-   *          <p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *       the action returns an <code>InvalidParameterException</code> error.</p>
+   *          <note>
+   *             <p>
+   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+   *         the action returns an <code>InvalidParameterException</code> error.
+   *       </p>
+   *          </note>
    */
   logGroupIdentifier?: string;
 
@@ -1564,11 +1574,14 @@ export interface GetLogEventsResponse {
 export interface GetLogGroupFieldsRequest {
   /**
    * <p>The name of the log group to search.</p>
-   *          <p>If you specify values for both <code>logGroupName</code> and
-   *         <code>logGroupIdentifier</code>, the action returns an
-   *         <code>InvalidParameterException</code> error.</p>
+   *          <note>
+   *             <p>
+   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+   *         the action returns an <code>InvalidParameterException</code> error.
+   *       </p>
+   *          </note>
    */
-  logGroupName: string | undefined;
+  logGroupName?: string;
 
   /**
    * <p>The time to set as the center of the query. If you specify <code>time</code>, the 15
@@ -1582,9 +1595,12 @@ export interface GetLogGroupFieldsRequest {
   /**
    * <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and
    *     you are using a monitoring account, you must specify the ARN.</p>
-   *          <p>If you specify values for both <code>logGroupName</code> and
-   *         <code>logGroupIdentifier</code>, the action returns an
-   *         <code>InvalidParameterException</code> error.</p>
+   *          <note>
+   *             <p>
+   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+   *         the action returns an <code>InvalidParameterException</code> error.
+   *       </p>
+   *          </note>
    */
   logGroupIdentifier?: string;
 }
