@@ -1,60 +1,107 @@
+import { AwsCredentialIdentity, Identity, TokenIdentity } from "@aws-sdk/types";
+
+import { IdentityInputConfig } from "./configurations";
 import { resolveIdentityConfig } from "./resolveIdentityConfig";
-import { normalizeTokenProvider } from "./util/normalizeTokenProvider";
-import { tokenDefaultProvider } from "./util/tokenDefaultProvider";
-
-jest.mock("./normalizeTokenProvider");
-jest.mock("./tokenDefaultProvider");
-
-const ONE_HOUR_IN_MS = 3600 * 1000;
+import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
 
 describe(resolveIdentityConfig.name, () => {
-    
-    describe('resolve tokenMiddleware config', () => {
+  describe("resolve identity config", () => {
+    const MOCK_IDENTITY: Identity = {
+      expiration: new Date(),
+    };
+    const MOCK_IDENTITY_PROVIDER = normalizeIdentityProvider(MOCK_IDENTITY);
 
-        const mockInput = {};
-        const mockOutputToken = () =>
-            Promise.resolve({
-                token: "mockOutputAccessToken",
-                expiration: new Date(Date.now() + 2 * ONE_HOUR_IN_MS),
-            });
-
-        afterEach(() => {
-            jest.clearAllMocks();
-        });
-
-        describe("sets token from normalizeTokenProvider if token is provided", () => {
-            beforeEach(() => {
-                (normalizeTokenProvider as jest.Mock).mockReturnValue(mockOutputToken);
-                (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
-            });
-
-            afterEach(() => {
-                expect(tokenDefaultProvider).not.toHaveBeenCalled();
-            });
-
-            const testTokenProviderWithToken = (token) => {
-                expect(resolveIdentityConfig({ ...mockInput, token })).toEqual({ ...mockInput, token: mockOutputToken });
-                expect(normalizeTokenProvider).toHaveBeenCalledWith(token);
-            };
-
-            it("when token is a function", () => {
-                testTokenProviderWithToken(jest.fn());
-            });
-
-            it("when token is an object", () => {
-                testTokenProviderWithToken({
-                    token: "mockAccessToken",
-                    expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
-                });
-            });
-        });
-
-        it("sets token from tokenDefaultProvider if token is not provided", () => {
-            (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
-            expect(resolveIdentityConfig(mockInput)).toEqual({ ...mockInput, token: mockOutputToken });
-            expect(tokenDefaultProvider).toHaveBeenCalledWith(mockInput);
-            expect(normalizeTokenProvider).not.toHaveBeenCalled();
-        });
+    it("gets identity from config identity", async () => {
+      const MOCK_CONFIG = {
+        identity: MOCK_IDENTITY,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
     });
 
+    it("gets identity from config identity provider", async () => {
+      const MOCK_CONFIG = {
+        identity: MOCK_IDENTITY_PROVIDER,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+  });
+
+  describe("resolve token config", () => {
+    const MOCK_IDENTITY: TokenIdentity = {
+      token: "mockToken",
+      expiration: new Date(),
+    };
+    const MOCK_IDENTITY_PROVIDER = normalizeIdentityProvider(MOCK_IDENTITY);
+
+    it("gets identity from config token", async () => {
+      const MOCK_CONFIG = {
+        token: MOCK_IDENTITY,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+
+    it("gets identity from config token provider", async () => {
+      const MOCK_CONFIG = {
+        token: MOCK_IDENTITY_PROVIDER,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+  });
+
+  describe("resolve credentials config", () => {
+    const MOCK_IDENTITY: AwsCredentialIdentity = {
+      secretAccessKey: "mockSecretAcessKey",
+      accessKeyId: "mockAccessKeyId",
+      sessionToken: "mockSessionToken",
+      expiration: new Date(),
+    };
+    const MOCK_IDENTITY_PROVIDER = normalizeIdentityProvider(MOCK_IDENTITY);
+
+    it("gets identity from config credentials", async () => {
+      const MOCK_CONFIG = {
+        credentials: MOCK_IDENTITY,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+
+    it("gets identity from config credentials provider", async () => {
+      const MOCK_CONFIG = {
+        credentials: MOCK_IDENTITY_PROVIDER,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+  });
+
+  describe("resolve defaultIdentityProvider config", () => {
+    const MOCK_IDENTITY: AwsCredentialIdentity = {
+      secretAccessKey: "mockSecretAcessKey",
+      accessKeyId: "mockAccessKeyId",
+      sessionToken: "mockSessionToken",
+      expiration: new Date(),
+    };
+    const MOCK_IDENTITY_PROVIDER = normalizeIdentityProvider(MOCK_IDENTITY);
+    const MOCK_DEFAULT_WRAPPER = () => MOCK_IDENTITY_PROVIDER;
+
+    const MOCK_ANONYMOUS_IDENTITY = {};
+
+    it("gets anonymous identity with no identity and defaultIdentityProvider", async () => {
+      const MOCK_CONFIG = {} as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_ANONYMOUS_IDENTITY);
+    });
+
+    it("gets default identity with defaultIdentityProvider", async () => {
+      const MOCK_CONFIG = {
+        defaultIdentityProvider: MOCK_DEFAULT_WRAPPER,
+      } as IdentityInputConfig;
+      const output = resolveIdentityConfig(MOCK_CONFIG);
+      expect(await output.identity()).toEqual(MOCK_IDENTITY);
+    });
+  });
 });
