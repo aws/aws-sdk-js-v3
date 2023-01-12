@@ -31,6 +31,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
 /**
  * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
  *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
+ *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
  *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more than
  *       once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret value, Secrets Manager creates a new version
  *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not

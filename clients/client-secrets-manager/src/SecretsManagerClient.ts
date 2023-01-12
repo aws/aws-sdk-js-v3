@@ -304,6 +304,8 @@ export interface SecretsManagerClientResolvedConfig extends SecretsManagerClient
  *             <b>API Version</b>
  *          </p>
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
+ *          <p>For a list of endpoints, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/asm_access.html#endpoints">Amazon Web Services Secrets Manager
+ *       endpoints</a>.</p>
  *          <p>
  *             <b>Support and Feedback for Amazon Web Services Secrets Manager</b>
  *          </p>

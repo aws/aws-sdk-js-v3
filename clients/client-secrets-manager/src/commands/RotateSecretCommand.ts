@@ -29,31 +29,13 @@ export interface RotateSecretCommandInput extends RotateSecretRequest {}
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Configures and starts the asynchronous process of rotating the secret. For more information about rotation,
- *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a>.</p>
- *          <p>If you include the
- *       configuration parameters, the operation sets the values for the secret and then immediately
- *       starts a rotation. If you don't include the configuration parameters, the operation starts a
- *       rotation with the values already stored in the secret. </p>
- *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the secret, you must
- *       make sure the secret value is in the
- *         <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html"> JSON structure
- *         of a database secret</a>. In particular, if you want to use the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users"> alternating users strategy</a>, your secret must contain the ARN of a superuser
- *       secret.</p>
- *          <p>To configure rotation, you also need the ARN of an Amazon Web Services Lambda function and the schedule
- *       for the rotation. The Lambda rotation function creates a new
- *       version of the secret and creates or updates the credentials on the database or service to
- *       match. After testing the new credentials, the function marks the new secret version with the staging
- *       label <code>AWSCURRENT</code>. Then anyone who retrieves the secret gets the new version. For more
- *       information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation works</a>.</p>
- *          <p>You can create the Lambda rotation function based on the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html">rotation function templates</a> that Secrets Manager provides. Choose
- *       a template that matches your <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html">Rotation strategy</a>.</p>
+ * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
+ *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
  *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
  *       to the same version as the <code>AWSCURRENT</code> version, or it might not be attached to any
  *       version. If the <code>AWSPENDING</code> staging label is present but not attached to the same
  *       version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
- *       assumes that a previous rotation request is still in progress and returns an error.</p>
- *          <p>When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
+ *       assumes that a previous rotation request is still in progress and returns an error. When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
