@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.250.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.249.0...v3.250.0) (2023-01-12)
+
+
+### Features
+
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has added support for compact DASH manifest generation, audio normalization using TruePeak measurements, and the ability to clip the sample range in the color corrector. ([4efbbe0](https://github.com/aws/aws-sdk-js-v3/commit/4efbbe00aad3899b5214b7ce2c81c42a6759a3b0))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

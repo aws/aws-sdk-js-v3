@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.250.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.249.0...v3.250.0) (2023-01-12)
+
+
+### Features
+
+* **client-cleanrooms:** Initial release of AWS Clean Rooms ([901b20b](https://github.com/aws/aws-sdk-js-v3/commit/901b20ba83b5f502f93746cfef95cca613b1c06a))
+* **client-cloudwatch-logs:** Bug fix: logGroupName is now not a required field in GetLogEvents, FilterLogEvents, GetLogGroupFields, and DescribeLogStreams APIs as logGroupIdentifier can be provided instead ([29745f0](https://github.com/aws/aws-sdk-js-v3/commit/29745f01901d713a1d3b0f466ba5d04babcccfc2))
+* **client-lambda:** Add support for MaximumConcurrency parameter for SQS event source. Customers can now limit the maximum concurrent invocations for their SQS Event Source Mapping. ([35feff4](https://github.com/aws/aws-sdk-js-v3/commit/35feff4cf3cedcc150854fbc673a4451252baaa9))
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has added support for compact DASH manifest generation, audio normalization using TruePeak measurements, and the ability to clip the sample range in the color corrector. ([4efbbe0](https://github.com/aws/aws-sdk-js-v3/commit/4efbbe00aad3899b5214b7ce2c81c42a6759a3b0))
+* **clients:** update client endpoints as of 2023-01-12 ([2d83794](https://github.com/aws/aws-sdk-js-v3/commit/2d8379450872d2982c07d353b70f67f5d143f449))
+
+
+
+
+
 # [3.249.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.248.0...v3.249.0) (2023-01-11)
 
 

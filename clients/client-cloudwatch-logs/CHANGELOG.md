@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.250.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.249.0...v3.250.0) (2023-01-12)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Bug fix: logGroupName is now not a required field in GetLogEvents, FilterLogEvents, GetLogGroupFields, and DescribeLogStreams APIs as logGroupIdentifier can be provided instead ([29745f0](https://github.com/aws/aws-sdk-js-v3/commit/29745f01901d713a1d3b0f466ba5d04babcccfc2))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

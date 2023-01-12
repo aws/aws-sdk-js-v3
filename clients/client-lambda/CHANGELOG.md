@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.250.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.249.0...v3.250.0) (2023-01-12)
+
+
+### Features
+
+* **client-lambda:** Add support for MaximumConcurrency parameter for SQS event source. Customers can now limit the maximum concurrent invocations for their SQS Event Source Mapping. ([35feff4](https://github.com/aws/aws-sdk-js-v3/commit/35feff4cf3cedcc150854fbc673a4451252baaa9))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
