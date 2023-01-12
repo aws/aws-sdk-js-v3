@@ -5,7 +5,6 @@ import {
   JobStatus,
   JobTemplate,
   JobTemplateSettings,
-  Policy,
   Preset,
   PresetSettings,
   Queue,
@@ -13,6 +12,31 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+export enum InputPolicy {
+  ALLOWED = "ALLOWED",
+  DISALLOWED = "DISALLOWED",
+}
+
+/**
+ * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ */
+export interface Policy {
+  /**
+   * Allow or disallow jobs that specify HTTP inputs.
+   */
+  HttpInputs?: InputPolicy | string;
+
+  /**
+   * Allow or disallow jobs that specify HTTPS inputs.
+   */
+  HttpsInputs?: InputPolicy | string;
+
+  /**
+   * Allow or disallow jobs that specify Amazon S3 inputs.
+   */
+  S3Inputs?: InputPolicy | string;
+}
 
 export interface GetPolicyResponse {
   /**
@@ -404,6 +428,13 @@ export interface UpdateQueueResponse {
    */
   Queue?: Queue;
 }
+
+/**
+ * @internal
+ */
+export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
+  ...obj,
+});
 
 /**
  * @internal

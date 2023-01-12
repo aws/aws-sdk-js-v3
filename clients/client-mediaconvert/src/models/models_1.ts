@@ -37,10 +37,16 @@ import {
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
   OutputGroupSettings,
-  OutputSdt,
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum OutputSdt {
+  SDT_FOLLOW = "SDT_FOLLOW",
+  SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
+  SDT_MANUAL = "SDT_MANUAL",
+  SDT_NONE = "SDT_NONE",
+}
 
 /**
  * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
@@ -651,7 +657,7 @@ export interface MpdSettings {
   KlvMetadata?: MpdKlvMetadata | string;
 
   /**
-   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled.
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough.
    */
   ManifestMetadataSignaling?: MpdManifestMetadataSignaling | string;
 
@@ -3014,6 +3020,31 @@ export enum VideoTimecodeInsertion {
   PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
+/**
+ * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+ */
+export interface ClipLimits {
+  /**
+   * Specify the Maximum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the upper tolerance that you specify. Enter an integer from 90 to 105 as an offset percentage to the maximum possible value. Leave blank to use the default value 100. When you specify a value for Maximum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   */
+  MaximumRGBTolerance?: number;
+
+  /**
+   * Specify the Maximum YUV color sample limit. MediaConvert conforms any pixels in your input above the value that you specify to typical limited range bounds. Enter an integer from 920 to 1023. Leave blank to use the default value 940. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Maximum YUV, you must set Sample range conversion to Limited range clip.
+   */
+  MaximumYUV?: number;
+
+  /**
+   * Specify the Minimum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the lower tolerance that you specify. Enter an integer from -5 to 10 as an offset percentage to the minimum possible value. Leave blank to use the default value 0. When you specify a value for Minimum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   */
+  MinimumRGBTolerance?: number;
+
+  /**
+   * Specify the Minimum YUV color sample limit. MediaConvert conforms any pixels in your input below the value that you specify to typical limited range bounds. Enter an integer from 0 to 128. Leave blank to use the default value 64. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Minumum YUV, you must set Sample range conversion to Limited range clip.
+   */
+  MinimumYUV?: number;
+}
+
 export enum ColorSpaceConversion {
   FORCE_601 = "FORCE_601",
   FORCE_709 = "FORCE_709",
@@ -3025,6 +3056,7 @@ export enum ColorSpaceConversion {
 }
 
 export enum SampleRangeConversion {
+  LIMITED_RANGE_CLIP = "LIMITED_RANGE_CLIP",
   LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
   NONE = "NONE",
 }
@@ -3037,6 +3069,11 @@ export interface ColorCorrector {
    * Brightness level.
    */
   Brightness?: number;
+
+  /**
+   * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+   */
+  ClipLimits?: ClipLimits;
 
   /**
    * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR. Select Force P3D65 (SDR) to set the output color space metadata to the following: * Color primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix coefficients: BT.709
@@ -3059,7 +3096,7 @@ export interface ColorCorrector {
   Hue?: number;
 
   /**
-   * Specify the video color sample range for this output. To create a full range output, you must start with a full range YUV input and keep the default value, None (NONE). To create a limited range output from a full range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB inputs, your output is always limited range, regardless of your choice here. When you create a limited range output from a full range input, MediaConvert limits the active pixel values in a way that depends on the output's bit depth: 8-bit outputs contain only values from 16 through 235 and 10-bit outputs contain only values from 64 through 940. With this conversion, MediaConvert also changes the output metadata to note the limited range.
+   * Specify how MediaConvert limits the color sample range for this output. To create a limited range output from a full range input: Choose Limited range squeeze. For full range inputs, MediaConvert performs a linear offset to color samples equally across all pixels and frames. Color samples in 10-bit outputs are limited to 64 through 940, and 8-bit outputs are limited to 16 through 235. Note: For limited range inputs, values for color samples are passed through to your output unchanged. MediaConvert does not limit the sample range. To correct pixels in your input that are out of range or out of gamut: Choose Limited range clip. Use for broadcast applications. MediaConvert conforms any pixels outside of the values that you specify under Minimum YUV and Maximum YUV to limited range bounds. MediaConvert also corrects any YUV values that, when converted to RGB, would be outside the bounds you specify under Minimum RGB tolerance and Maximum RGB tolerance. With either limited range conversion, MediaConvert writes the sample range metadata in the output.
    */
   SampleRangeConversion?: SampleRangeConversion | string;
 
@@ -4338,7 +4375,7 @@ export interface CreateJobRequest {
   BillingTagsSource?: BillingTagsSource | string;
 
   /**
-   * Optional. Idempotency token for CreateJob operation.
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
    */
   ClientRequestToken?: string;
 
@@ -4659,31 +4696,6 @@ export interface GetJobTemplateResponse {
 
 export interface GetPolicyRequest {}
 
-export enum InputPolicy {
-  ALLOWED = "ALLOWED",
-  DISALLOWED = "DISALLOWED",
-}
-
-/**
- * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
- */
-export interface Policy {
-  /**
-   * Allow or disallow jobs that specify HTTP inputs.
-   */
-  HttpInputs?: InputPolicy | string;
-
-  /**
-   * Allow or disallow jobs that specify HTTPS inputs.
-   */
-  HttpsInputs?: InputPolicy | string;
-
-  /**
-   * Allow or disallow jobs that specify Amazon S3 inputs.
-   */
-  S3Inputs?: InputPolicy | string;
-}
-
 /**
  * @internal
  */
@@ -4919,6 +4931,13 @@ export const XavcSettingsFilterSensitiveLog = (obj: XavcSettings): any => ({
  * @internal
  */
 export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClipLimitsFilterSensitiveLog = (obj: ClipLimits): any => ({
   ...obj,
 });
 
@@ -5318,12 +5337,5 @@ export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResp
  * @internal
  */
 export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
   ...obj,
 });
