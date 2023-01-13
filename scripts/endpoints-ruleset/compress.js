@@ -12,7 +12,7 @@ const main = (singleModel = undefined) => {
   const root = path.join(__dirname, "..", "..");
   const clientsFolder = path.join(root, "clients");
   const modelsFolder = path.join(root, "codegen", "sdk-codegen", "aws-models");
-  const modelsList = singleModel ? [/aws-models\/(.*?\.json)/.exec(singleModel)[1]] : fs.readdirSync(modelsFolder);
+  const modelsList = singleModel ? [`${singleModel}.json`] : fs.readdirSync(modelsFolder);
   const tempFolder = path.join(__dirname, "temp");
 
   // clean temp folder.
