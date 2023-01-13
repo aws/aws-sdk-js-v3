@@ -653,7 +653,6 @@ export interface Order {
    *                   <code>ERROR</code> - Customer should contact support.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The following status are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
@@ -871,6 +870,7 @@ export enum PowerConnector {
 export enum PowerDrawKva {
   POWER_10_KVA = "POWER_10_KVA",
   POWER_15_KVA = "POWER_15_KVA",
+  POWER_30_KVA = "POWER_30_KVA",
   POWER_5_KVA = "POWER_5_KVA",
 }
 
@@ -1438,7 +1438,6 @@ export interface OrderSummary {
    *                   <code>ERROR</code> - Customer should contact support.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
