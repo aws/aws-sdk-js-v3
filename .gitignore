@@ -38,6 +38,7 @@ codegen/sdk-codegen/smithy-build.json
 */*/out/
 workspace
 
+.turbo
 coverage
 dist
 dist-*
