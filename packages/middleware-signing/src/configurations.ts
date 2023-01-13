@@ -61,6 +61,7 @@ export interface AuthPreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   sha256: HashConstructor;
+  authScheme?: AuthScheme;
 }
 
 export interface AwsAuthPreviouslyResolved extends AuthPreviouslyResolved {
