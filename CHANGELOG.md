@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.251.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.250.0...v3.251.0) (2023-01-13)
+
+
+### Features
+
+* **client-connect:** This release updates the responses of UpdateContactFlowContent, UpdateContactFlowMetadata, UpdateContactFlowName and DeleteContactFlow API with empty responses. ([0ad2c42](https://github.com/aws/aws-sdk-js-v3/commit/0ad2c423339869c4db2b8d1183b1caba9c847d09))
+* **client-ec2:** Documentation updates for EC2. ([975395f](https://github.com/aws/aws-sdk-js-v3/commit/975395f139e53dd47ac063d0ad950031ddcb6cba))
+* **client-outposts:** This release adds POWER_30_KVA as an option for PowerDrawKva. PowerDrawKva is part of the RackPhysicalProperties structure in the CreateSite request. ([881a1ee](https://github.com/aws/aws-sdk-js-v3/commit/881a1eec10b26b2eb62c32581510dc961a29ba31))
+* **client-resource-groups:** AWS Resource Groups customers can now turn on Group Lifecycle Events in their AWS account. When you turn this on, Resource Groups monitors your groups for changes to group state or membership. Those changes are sent to Amazon EventBridge as events that you can respond to using rules you create. ([a6d2b3a](https://github.com/aws/aws-sdk-js-v3/commit/a6d2b3ab2726696d7cdfbf2a84621d2cf14ac0e4))
+* **clients:** update client endpoints as of 2023-01-13 ([16d918c](https://github.com/aws/aws-sdk-js-v3/commit/16d918c0e97cc1f3dcde3e5562e60c17b3607b82))
+
+
+
+
+
 # [3.250.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.249.0...v3.250.0) (2023-01-12)
 
 
