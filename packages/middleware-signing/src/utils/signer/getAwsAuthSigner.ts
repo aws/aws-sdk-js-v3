@@ -11,7 +11,7 @@ export const getAwsAuthSigner = (
   input.regionInfoProvider
     ? // This branch is for endpoints V1.
       // construct a provider inferring signing from region.
-      getEndpointsV1Signer(credentials, input, input.regionInfoProvider)
+      getEndpointsV1Signer(credentials, { ...input, regionInfoProvider: input.regionInfoProvider })
     : // This branch is for endpoints V2.
       // Handle endpoints v2 that resolved per-command
       // TODO: need total refactor for reference auth architecture.

@@ -11,11 +11,11 @@ export const getEndpointsV2Signer =
   ): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
   async (authScheme?: AuthScheme) => {
     const decoratedAuthScheme = {
-      ...authScheme,
       name: "sigv4",
       signingName: input.signingName || input.defaultSigningName!,
       signingRegion: await normalizeProvider(input.region)(),
       properties: {},
+      ...authScheme,
     };
 
     // update client's singing region and signing service config if they are resolved.

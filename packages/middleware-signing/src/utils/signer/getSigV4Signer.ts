@@ -9,7 +9,7 @@ import {
 } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
-interface GetSigV4SignerOptions {
+export interface GetSigV4SignerOptions {
   region: string | Provider<string>;
   service: string;
   sha256: HashConstructor;

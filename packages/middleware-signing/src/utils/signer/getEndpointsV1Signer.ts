@@ -7,12 +7,11 @@ import { AwsAuthInputConfig, AwsAuthPreviouslyResolved } from "../../configurati
 export const getEndpointsV1Signer =
   (
     credentials: MemoizedProvider<AwsCredentialIdentity>,
-    input: AwsAuthInputConfig & AwsAuthPreviouslyResolved,
-    regionInfoProvider: RegionInfoProvider
+    input: AwsAuthInputConfig & AwsAuthPreviouslyResolved & { regionInfoProvider: RegionInfoProvider }
   ): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
   async () => {
     const region = await normalizeProvider(input.region)();
-    const regionInfo = await regionInfoProvider(region, {
+    const regionInfo = await input.regionInfoProvider(region, {
       useFipsEndpoint: await input.useFipsEndpoint(),
       useDualstackEndpoint: await input.useDualstackEndpoint(),
     });
