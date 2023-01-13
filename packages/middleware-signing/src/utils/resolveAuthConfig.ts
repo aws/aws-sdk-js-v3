@@ -1,9 +1,9 @@
 import { AuthInputConfig, AuthPreviouslyResolved, AuthResolvedConfig } from "../configurations";
 import { normalizeCredentialProvider } from "./normalizeCredentialProvider";
 
-export const resolveAuthConfig = (
-  input: AuthInputConfig & AuthPreviouslyResolved
-): Omit<AuthResolvedConfig, "signer"> => {
+export const resolveAuthConfig = <T>(
+  input: T & AuthInputConfig & AuthPreviouslyResolved
+): T & Omit<AuthResolvedConfig, "signer"> => {
   const normalizedCreds = input.credentials
     ? normalizeCredentialProvider(input.credentials)
     : input.credentialDefaultProvider(input as any);

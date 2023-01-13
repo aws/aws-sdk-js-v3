@@ -1,5 +1,12 @@
 import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { Credentials, HashConstructor, MemoizedProvider, Provider } from "@aws-sdk/types";
+import {
+  AuthScheme,
+  AwsCredentialIdentity,
+  HashConstructor,
+  MemoizedProvider,
+  Provider,
+  RequestSigner,
+} from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 interface GetSigV4SignerOptions {
@@ -9,7 +16,10 @@ interface GetSigV4SignerOptions {
   uriEscapePath: boolean;
 }
 
-export const getSigV4Signer = (credentials: MemoizedProvider<Credentials>, options: GetSigV4SignerOptions) =>
+export const getSigV4Signer = (
+  credentials: MemoizedProvider<AwsCredentialIdentity>,
+  options: GetSigV4SignerOptions
+): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
   normalizeProvider(
     new SignatureV4({
       credentials,
