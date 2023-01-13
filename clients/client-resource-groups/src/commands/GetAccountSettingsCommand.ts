@@ -13,55 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetAccountSettingsOutput, GetAccountSettingsOutputFilterSensitiveLog } from "../models/models_0";
 import {
-  UngroupResourcesInput,
-  UngroupResourcesInputFilterSensitiveLog,
-  UngroupResourcesOutput,
-  UngroupResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UngroupResourcesCommand,
-  serializeAws_restJson1UngroupResourcesCommand,
+  deserializeAws_restJson1GetAccountSettingsCommand,
+  serializeAws_restJson1GetAccountSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
-export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
-export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
+export interface GetAccountSettingsCommandInput {}
+export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified resources from the specified group. This operation works only
- *             with static groups that you populated using the <a>GroupResources</a>
- *             operation. It doesn't work with any resource groups that are automatically populated by
- *             tag-based or CloudFormation stack-based queries.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:UngroupResources</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Retrieves the current status of optional features in Resource Groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UngroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UngroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, GetAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, GetAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const command = new UngroupResourcesCommand(input);
+ * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
- * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
+ * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
-export class UngroupResourcesCommand extends $Command<
-  UngroupResourcesCommandInput,
-  UngroupResourcesCommandOutput,
+export class GetAccountSettingsCommand extends $Command<
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
   ResourceGroupsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -76,7 +57,7 @@ export class UngroupResourcesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UngroupResourcesCommandInput) {
+  constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -89,23 +70,23 @@ export class UngroupResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UngroupResourcesCommandInput, UngroupResourcesCommandOutput> {
+  ): Handler<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UngroupResourcesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetAccountSettingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ResourceGroupsClient";
-    const commandName = "UngroupResourcesCommand";
+    const commandName = "GetAccountSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UngroupResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UngroupResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GetAccountSettingsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +96,12 @@ export class UngroupResourcesCommand extends $Command<
     );
   }
 
-  private serialize(input: UngroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UngroupResourcesCommand(input, context);
+  private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetAccountSettingsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UngroupResourcesCommandOutput> {
-    return deserializeAws_restJson1UngroupResourcesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
+    return deserializeAws_restJson1GetAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

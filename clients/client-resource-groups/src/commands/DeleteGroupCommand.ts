@@ -31,13 +31,13 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
 /**
  * <p>Deletes the specified resource group. Deleting a resource group does not delete any
  *             resources that are members of the group; it only deletes the group structure.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:DeleteGroup</code>
  *                </p>
  *             </li>

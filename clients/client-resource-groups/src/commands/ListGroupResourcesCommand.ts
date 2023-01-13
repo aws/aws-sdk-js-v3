@@ -31,28 +31,28 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
 /**
  * <p>Returns a list of ARNs of the resources that are members of a specified resource
  *             group.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:ListGroupResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:DescribeStacks</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:ListStackResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:GetResources</code>
  *                </p>
  *             </li>

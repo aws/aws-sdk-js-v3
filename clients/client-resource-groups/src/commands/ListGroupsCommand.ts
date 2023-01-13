@@ -29,14 +29,14 @@ export interface ListGroupsCommandInput extends ListGroupsInput {}
 export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of existing resource groups in your account.</p>
- *         <p>
+ * <p>Returns a list of existing Resource Groups in your account.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:ListGroups</code>
  *                </p>
  *             </li>

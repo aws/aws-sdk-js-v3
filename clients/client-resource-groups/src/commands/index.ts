@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CreateGroupCommand";
 export * from "./DeleteGroupCommand";
+export * from "./GetAccountSettingsCommand";
 export * from "./GetGroupCommand";
 export * from "./GetGroupConfigurationCommand";
 export * from "./GetGroupQueryCommand";
@@ -13,5 +14,6 @@ export * from "./SearchResourcesCommand";
 export * from "./TagCommand";
 export * from "./UngroupResourcesCommand";
 export * from "./UntagCommand";
+export * from "./UpdateAccountSettingsCommand";
 export * from "./UpdateGroupCommand";
 export * from "./UpdateGroupQueryCommand";

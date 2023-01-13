@@ -14,54 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UngroupResourcesInput,
-  UngroupResourcesInputFilterSensitiveLog,
-  UngroupResourcesOutput,
-  UngroupResourcesOutputFilterSensitiveLog,
+  UpdateAccountSettingsInput,
+  UpdateAccountSettingsInputFilterSensitiveLog,
+  UpdateAccountSettingsOutput,
+  UpdateAccountSettingsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UngroupResourcesCommand,
-  serializeAws_restJson1UngroupResourcesCommand,
+  deserializeAws_restJson1UpdateAccountSettingsCommand,
+  serializeAws_restJson1UpdateAccountSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
-export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
-export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
+export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsInput {}
+export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified resources from the specified group. This operation works only
- *             with static groups that you populated using the <a>GroupResources</a>
- *             operation. It doesn't work with any resource groups that are automatically populated by
- *             tag-based or CloudFormation stack-based queries.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:UngroupResources</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Turns on or turns off optional features in Resource Groups.</p>
+ *          <p>The preceding example shows that the request to turn on group lifecycle events is
+ *                 <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a>
+ *             operation to check for completion by looking for <code>GroupLifecycleEventsStatus</code>
+ *             to change to <code>ACTIVE</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UngroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UngroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const command = new UngroupResourcesCommand(input);
+ * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
- * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
+ * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
-export class UngroupResourcesCommand extends $Command<
-  UngroupResourcesCommandInput,
-  UngroupResourcesCommandOutput,
+export class UpdateAccountSettingsCommand extends $Command<
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
   ResourceGroupsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -76,7 +66,7 @@ export class UngroupResourcesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UngroupResourcesCommandInput) {
+  constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -89,23 +79,23 @@ export class UngroupResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UngroupResourcesCommandInput, UngroupResourcesCommandOutput> {
+  ): Handler<UpdateAccountSettingsCommandInput, UpdateAccountSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UngroupResourcesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateAccountSettingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ResourceGroupsClient";
-    const commandName = "UngroupResourcesCommand";
+    const commandName = "UpdateAccountSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UngroupResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UngroupResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAccountSettingsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAccountSettingsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +105,12 @@ export class UngroupResourcesCommand extends $Command<
     );
   }
 
-  private serialize(input: UngroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UngroupResourcesCommand(input, context);
+  private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateAccountSettingsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UngroupResourcesCommandOutput> {
-    return deserializeAws_restJson1UngroupResourcesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
+    return deserializeAws_restJson1UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra
