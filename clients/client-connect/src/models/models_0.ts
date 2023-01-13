@@ -2492,6 +2492,8 @@ export interface DeleteContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
+export interface DeleteContactFlowResponse {}
+
 export interface DeleteContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -5948,22 +5950,6 @@ export interface AttachmentReference {
 }
 
 /**
- * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
- *    Otherwise, null.</p>
- */
-export interface DateReference {
-  /**
-   * <p>Identifier of the date reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A valid date.</p>
-   */
-  Value?: string;
-}
-
-/**
  * @internal
  */
 export const ActionSummaryFilterSensitiveLog = (obj: ActionSummary): any => ({
@@ -6646,6 +6632,13 @@ export const CreateVocabularyResponseFilterSensitiveLog = (obj: CreateVocabulary
  * @internal
  */
 export const DeleteContactFlowRequestFilterSensitiveLog = (obj: DeleteContactFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactFlowResponseFilterSensitiveLog = (obj: DeleteContactFlowResponse): any => ({
   ...obj,
 });
 
@@ -7643,12 +7636,5 @@ export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactR
  * @internal
  */
 export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
   ...obj,
 });

@@ -17,6 +17,8 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   UpdateContactFlowMetadataRequest,
   UpdateContactFlowMetadataRequestFilterSensitiveLog,
+  UpdateContactFlowMetadataResponse,
+  UpdateContactFlowMetadataResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactFlowMetadataCommand,
@@ -24,7 +26,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface UpdateContactFlowMetadataCommandInput extends UpdateContactFlowMetadataRequest {}
-export interface UpdateContactFlowMetadataCommandOutput extends __MetadataBearer {}
+export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlowMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates metadata about specified flow.</p>
@@ -89,7 +91,7 @@ export class UpdateContactFlowMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactFlowMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: UpdateContactFlowMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

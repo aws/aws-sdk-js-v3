@@ -11,8 +11,6 @@ import {
   Channel,
   ContactFlowModuleState,
   ContactFlowState,
-  DateReference,
-  DateReferenceFilterSensitiveLog,
   DirectoryType,
   EventSourceName,
   HierarchyGroupSummary,
@@ -50,6 +48,22 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+ *    Otherwise, null.</p>
+ */
+export interface DateReference {
+  /**
+   * <p>Identifier of the date reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid date.</p>
+   */
+  Value?: string;
+}
 
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
@@ -3057,6 +3071,8 @@ export interface UpdateContactFlowContentRequest {
   Content: string | undefined;
 }
 
+export interface UpdateContactFlowContentResponse {}
+
 export interface UpdateContactFlowMetadataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -3083,6 +3099,8 @@ export interface UpdateContactFlowMetadataRequest {
    */
   ContactFlowState?: ContactFlowState | string;
 }
+
+export interface UpdateContactFlowMetadataResponse {}
 
 export interface UpdateContactFlowModuleContentRequest {
   /**
@@ -3153,6 +3171,8 @@ export interface UpdateContactFlowNameRequest {
    */
   Description?: string;
 }
+
+export interface UpdateContactFlowNameResponse {}
 
 export interface UpdateContactScheduleRequest {
   /**
@@ -4253,6 +4273,13 @@ export interface SearchUsersRequest {
 /**
  * @internal
  */
+export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const EmailReferenceFilterSensitiveLog = (obj: EmailReference): any => ({
   ...obj,
 });
@@ -5252,7 +5279,21 @@ export const UpdateContactFlowContentRequestFilterSensitiveLog = (obj: UpdateCon
 /**
  * @internal
  */
+export const UpdateContactFlowContentResponseFilterSensitiveLog = (obj: UpdateContactFlowContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateContactFlowMetadataRequestFilterSensitiveLog = (obj: UpdateContactFlowMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactFlowMetadataResponseFilterSensitiveLog = (obj: UpdateContactFlowMetadataResponse): any => ({
   ...obj,
 });
 
@@ -5296,6 +5337,13 @@ export const UpdateContactFlowModuleMetadataResponseFilterSensitiveLog = (
  * @internal
  */
 export const UpdateContactFlowNameRequestFilterSensitiveLog = (obj: UpdateContactFlowNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactFlowNameResponseFilterSensitiveLog = (obj: UpdateContactFlowNameResponse): any => ({
   ...obj,
 });
 
