@@ -1,3 +1,5 @@
+it("test", () => {});
+
 // import { HttpRequest } from "@aws-sdk/protocol-http";
 
 // import { identityMiddleware } from "./identityMiddleware";

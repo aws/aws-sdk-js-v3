@@ -1,4 +1,4 @@
-import { AnonymousIdentity, Identity, IdentityProvider } from "@aws-sdk/types";
+import { AnonymousIdentity, AwsCredentialIdentity, Identity, IdentityProvider } from "@aws-sdk/types";
 
 import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
 import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
@@ -21,11 +21,9 @@ export const resolveIdentityConfig = <T>(
     identity = normalizeIdentityProvider(input.credentials);
   }
   // TODO(identityandauth): resolve identity from {@link IdentityPreviouslyResolved.AuthScheme}
-  /*
   else if (input.authScheme) {
     // Get Identity Resolver from AuthScheme
   }
-  */
 
   // Default Identity
   if (identity === undefined) {
