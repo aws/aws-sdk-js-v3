@@ -29,31 +29,11 @@ export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsReques
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
- *          <ul>
- *             <li>
- *                <p>Gateway endpoint,</p>
- *             </li>
- *             <li>
- *                <p>Gateway Load Balancer endpoint,</p>
- *             </li>
- *             <li>
- *                <p>Interface endpoint</p>
- *             </li>
- *          </ul>
- *          <p>The following rules apply when you delete a VPC endpoint:</p>
- *          <ul>
- *             <li>
- *                <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
- *             </li>
- *             <li>
- *                <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
- *                <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
- *             </li>
- *             <li>
- *                <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
- *             </li>
- *          </ul>
+ * <p>Deletes the specified VPC endpoints.</p>
+ *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
+ *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
+ *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+ *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

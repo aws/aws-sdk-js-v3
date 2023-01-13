@@ -32,9 +32,9 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
- *             delete the endpoint service configuration, you must reject any <code>Available</code> or
- *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+ * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
+ *             an endpoint service configuration, you must reject any <code>Available</code> or
+ *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
  *             the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

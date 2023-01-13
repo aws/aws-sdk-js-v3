@@ -1661,12 +1661,12 @@ export interface TargetCapacitySpecificationRequest {
 
   /**
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *             <code>On-Demand</code>.</p>
+   *          <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -4301,17 +4301,27 @@ export enum LaunchTemplateInstanceMetadataTagsState {
  */
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
+   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
+   *                 <code>required</code> (in other words, set the use of IMDSv2 to
+   *                 <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: LaunchTemplateHttpTokensState | string;
 
@@ -4869,7 +4879,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Indicates whether to enable the instance for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
+   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DisableApiStop?: boolean;
 }
@@ -5358,17 +5368,18 @@ export interface LaunchTemplateInstanceMetadataOptions {
   State?: LaunchTemplateInstanceMetadataOptionsState | string;
 
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   * <p>Indicates whether IMDSv2 is <code>optional</code> or <code>required</code>.</p>
+   *          <p>
+   *             <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *          <p>
+   *             <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *          <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: LaunchTemplateHttpTokensState | string;
 
@@ -5817,7 +5828,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Indicates whether the instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
+   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DisableApiStop?: boolean;
 }

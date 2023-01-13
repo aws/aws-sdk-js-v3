@@ -3052,9 +3052,6 @@ export enum VpcEndpointType {
   Interface = "Interface",
 }
 
-/**
- * <p>Contains the parameters for CreateVpcEndpoint.</p>
- */
 export interface CreateVpcEndpointRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3070,13 +3067,12 @@ export interface CreateVpcEndpointRequest {
   VpcEndpointType?: VpcEndpointType | string;
 
   /**
-   * <p>The ID of the VPC in which the endpoint will be used.</p>
+   * <p>The ID of the VPC for the endpoint.</p>
    */
   VpcId: string | undefined;
 
   /**
-   * <p>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a> request, or get the name from the service
-   *             provider.</p>
+   * <p>The service name.</p>
    */
   ServiceName: string | undefined;
 
@@ -3088,19 +3084,20 @@ export interface CreateVpcEndpointRequest {
   PolicyDocument?: string;
 
   /**
-   * <p>(Gateway endpoint) One or more route table IDs.</p>
+   * <p>(Gateway endpoint) The route table IDs.</p>
    */
   RouteTableIds?: string[];
 
   /**
-   * <p>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create an endpoint
-   *             network interface. For a Gateway Load Balancer endpoint, you can specify one subnet only.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint
+   *             network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
    */
   SubnetIds?: string[];
 
   /**
-   * <p>(Interface endpoint) The ID of one or more security groups to associate with the
-   *             endpoint network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to associate with the
+   *             endpoint network interface. If this parameter is not specified, we use the default
+   *             security group for the VPC.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -3245,7 +3242,7 @@ export interface VpcEndpoint {
   PolicyDocument?: string;
 
   /**
-   * <p>(Gateway endpoint) One or more route tables associated with the endpoint.</p>
+   * <p>(Gateway endpoint) The IDs of the route tables associated with the endpoint.</p>
    */
   RouteTableIds?: string[];
 
@@ -3281,7 +3278,7 @@ export interface VpcEndpoint {
   RequesterManaged?: boolean;
 
   /**
-   * <p>(Interface endpoint) One or more network interfaces for the endpoint.</p>
+   * <p>(Interface endpoint) The network interfaces for the endpoint.</p>
    */
   NetworkInterfaceIds?: string[];
 
@@ -3296,7 +3293,7 @@ export interface VpcEndpoint {
   CreationTimestamp?: Date;
 
   /**
-   * <p>Any tags assigned to the endpoint.</p>
+   * <p>The tags assigned to the endpoint.</p>
    */
   Tags?: Tag[];
 
@@ -3311,9 +3308,6 @@ export interface VpcEndpoint {
   LastError?: LastError;
 }
 
-/**
- * <p>Contains the output of CreateVpcEndpoint.</p>
- */
 export interface CreateVpcEndpointResult {
   /**
    * <p>Information about the endpoint.</p>
@@ -3351,7 +3345,7 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
   ConnectionNotificationArn: string | undefined;
 
   /**
-   * <p>One or more endpoint events for which to receive notifications. Valid values are
+   * <p>The endpoint events for which to receive notifications. Valid values are
    *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
    *                 <code>Reject</code>.</p>
    */
@@ -3449,13 +3443,12 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
   PrivateDnsName?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
-   *             service.</p>
+   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers.</p>
    */
   NetworkLoadBalancerArns?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers.</p>
    */
   GatewayLoadBalancerArns?: string[];
 
@@ -3620,7 +3613,7 @@ export interface ServiceConfiguration {
   PayerResponsibility?: PayerResponsibility | string;
 
   /**
-   * <p>Any tags assigned to the service.</p>
+   * <p>The tags assigned to the service.</p>
    */
   Tags?: Tag[];
 }

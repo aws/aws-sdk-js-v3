@@ -369,17 +369,27 @@ export interface ModifyInstanceMetadataOptionsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a session token on your request. If you retrieve the IAM
-   *             role credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid session token, the
-   *             version 2.0 role credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a session token with any instance
-   *             metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
-   *             not available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
+   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
+   *                 <code>required</code> (in other words, set the use of IMDSv2 to
+   *                 <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: HttpTokensState | string;
 
@@ -1008,12 +1018,16 @@ export interface SecurityGroupRuleRequest {
   IpProtocol?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -2189,9 +2203,6 @@ export interface ModifyVpcAttributeRequest {
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
 
-/**
- * <p>Contains the parameters for ModifyVpcEndpoint.</p>
- */
 export interface ModifyVpcEndpointRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2218,32 +2229,33 @@ export interface ModifyVpcEndpointRequest {
   PolicyDocument?: string;
 
   /**
-   * <p>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</p>
+   * <p>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</p>
    */
   AddRouteTableIds?: string[];
 
   /**
-   * <p>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</p>
+   * <p>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</p>
    */
   RemoveRouteTableIds?: string[];
 
   /**
-   * <p>(Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to serve the endpoint.
+   *             For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
    */
   AddSubnetIds?: string[];
 
   /**
-   * <p>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</p>
+   * <p>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</p>
    */
   RemoveSubnetIds?: string[];
 
   /**
-   * <p>(Interface endpoint) One or more security group IDs to associate with the network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to associate with the network interface.</p>
    */
   AddSecurityGroupIds?: string[];
 
   /**
-   * <p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to disassociate from the network interface.</p>
    */
   RemoveSecurityGroupIds?: string[];
 
@@ -2290,7 +2302,7 @@ export interface ModifyVpcEndpointConnectionNotificationRequest {
   ConnectionNotificationArn?: string;
 
   /**
-   * <p>One or more events for the endpoint. Valid values are <code>Accept</code>,
+   * <p>The events for the endpoint. Valid values are <code>Accept</code>,
    *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
    */
   ConnectionEvents?: string[];
@@ -2415,14 +2427,14 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of one or more principals.
+   * <p>The Amazon Resource Names (ARN) of the principals.
    * 	        Permissions are granted to the principals in this list.
    * 	        To grant permissions to all principals, specify an asterisk (*).</p>
    */
   AddAllowedPrincipals?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARN) of one or more principals.
+   * <p>The Amazon Resource Names (ARN) of the principals.
    * 	        Permissions are revoked for principals in this list.</p>
    */
   RemoveAllowedPrincipals?: string[];
@@ -3715,7 +3727,7 @@ export interface RejectVpcEndpointConnectionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The IDs of one or more VPC endpoints.</p>
+   * <p>The IDs of the VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
@@ -4918,8 +4930,8 @@ export interface RevokeSecurityGroupIngressRequest {
   CidrIp?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,
-   *         use <code>-1</code> to specify all ICMP types.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.</p>
    */
   FromPort?: number;
 
@@ -4960,8 +4972,8 @@ export interface RevokeSecurityGroupIngressRequest {
   SourceSecurityGroupOwnerId?: string;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number,
-   *         use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *          If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.</p>
    */
   ToPort?: number;
 
@@ -5186,16 +5198,25 @@ export interface InstanceMaintenanceOptionsRequest {
  */
 export interface InstanceMetadataOptionsRequest {
   /**
-   * <p>The state of token usage for your instance metadata requests.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a session token on your request. If you retrieve the IAM
-   *             role credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid session token, the
-   *             version 2.0 role credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a session token with any instance
-   *             metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
-   *             not available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
+   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
+   *                 <code>required</code> (in other words, set the use of IMDSv2 to
+   *                 <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
    *          <p>Default: <code>optional</code>
    *          </p>
    */
@@ -5375,8 +5396,7 @@ export interface RunInstancesRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you
-   *             must use security group IDs instead.</p>
+   * <p>[EC2-Classic, default VPC] The names of the security groups.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
    *             the network interface.</p>
    *          <p>Default: Amazon EC2 uses the default security group.</p>

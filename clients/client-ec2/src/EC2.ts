@@ -2830,19 +2830,19 @@ import { EC2Client } from "./EC2Client";
  *          <p>To learn more, see the following resources:</p>
  *          <ul>
  *             <li>
- *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a>
+ *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="https://docs.aws.amazon.com/ec2/index.html">Amazon EC2 documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
+ *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/ebs/index.html">Amazon EBS documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a>
+ *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="https://docs.aws.amazon.com/vpc/index.html">Amazon VPC documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a>
+ *                <p>VPN: <a href="http://aws.amazon.com/vpn">VPN product page</a>, <a href="https://docs.aws.amazon.com/vpn/index.html">VPN documentation</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -3017,7 +3017,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
+   * <p>Accepts connection requests to your VPC endpoint service.</p>
    */
   public acceptVpcEndpointConnections(
     args: AcceptVpcEndpointConnectionsCommandInput,
@@ -6668,24 +6668,23 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a subnet in a specified VPC.</p>
-   *          <p>You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you
-   *             can't change its CIDR block. The allowed block size is between a /16 netmask (65,536 IP
-   *             addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with the
-   *             CIDR block of an existing subnet in the VPC.</p>
-   *          <p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an
-   *             IPv6 CIDR block that uses a /64 prefix length. </p>
-   *          <important>
-   *             <p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR
-   *                 block. They're not available for use.</p>
-   *          </important>
+   * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
+   *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
+   *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
+   *             an IPv4 CIDR block and an IPv6 CIDR block.</p>
+   *          <p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC.
+   *             After you create a subnet, you can't change its CIDR block.</p>
+   *          <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
+   *             a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
+   *             the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p>
+   *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block
+   *             with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p>
    *          <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
    *             logical router in the middle.</p>
    *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
    *             therefore possible to have a subnet with no running instances (they're all stopped), but
    *             no remaining IP addresses available.</p>
-   *          <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createSubnet(
     args: CreateSubnetCommandInput,
@@ -7480,16 +7479,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
-   * 			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
-   * 			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and
-   * 				subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Creates a VPC with the specified CIDR blocks. For more information, see
+   * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
    *            IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address
    *            pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
-   *          <p>By default, each instance you launch in the VPC has the default DHCP options, which
+   *          <p>By default, each instance that you launch in the VPC has the default DHCP options, which
    * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
-   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can specify the instance tenancy value for the VPC when you create it. You can't change
    *           this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -7592,7 +7589,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
-   *             IAM users, and IAM roles) can connect.</p>
+   *             users, and IAM roles) can connect.</p>
    *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
    *          <ul>
    *             <li>
@@ -9958,7 +9955,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint connection notifications.</p>
+   * <p>Deletes the specified VPC endpoint connection notifications.</p>
    */
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -9992,31 +9989,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
-   *          <ul>
-   *             <li>
-   *                <p>Gateway endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Gateway Load Balancer endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Interface endpoint</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following rules apply when you delete a VPC endpoint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
-   *                <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
-   *             </li>
-   *          </ul>
+   * <p>Deletes the specified VPC endpoints.</p>
+   *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
+   *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
+   *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+   *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
    */
   public deleteVpcEndpoints(
     args: DeleteVpcEndpointsCommandInput,
@@ -10048,9 +10025,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
-   *             delete the endpoint service configuration, you must reject any <code>Available</code> or
-   *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+   * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
+   *             an endpoint service configuration, you must reject any <code>Available</code> or
+   *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
    *             the service.</p>
    */
   public deleteVpcEndpointServiceConfigurations(
@@ -15244,7 +15221,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more of your VPC endpoints.</p>
+   * <p>Describes your VPC endpoints.</p>
    */
   public describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
@@ -20964,8 +20941,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
-   * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
+   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
+   *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
+   *             your endpoint service.</p>
    *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
    * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
    * 	        attachments are automatically approved.</p>
@@ -21938,8 +21916,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint
-   *             service.</p>
+   * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
    */
   public rejectVpcEndpointConnections(
     args: RejectVpcEndpointConnectionsCommandInput,

@@ -29,7 +29,7 @@ export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRe
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your VPC endpoints.</p>
+ * <p>Describes your VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

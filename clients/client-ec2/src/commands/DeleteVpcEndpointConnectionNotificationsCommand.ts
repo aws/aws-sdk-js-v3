@@ -32,7 +32,7 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes one or more VPC endpoint connection notifications.</p>
+ * <p>Deletes the specified VPC endpoint connection notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

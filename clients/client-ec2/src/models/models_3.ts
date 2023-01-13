@@ -296,7 +296,7 @@ export interface DeleteVpcEndpointConnectionNotificationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more notification IDs.</p>
+   * <p>The IDs of the notifications.</p>
    */
   ConnectionNotificationIds: string[] | undefined;
 }
@@ -309,9 +309,6 @@ export interface DeleteVpcEndpointConnectionNotificationsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
-/**
- * <p>Contains the parameters for DeleteVpcEndpoints.</p>
- */
 export interface DeleteVpcEndpointsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -321,14 +318,11 @@ export interface DeleteVpcEndpointsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more VPC endpoint IDs.</p>
+   * <p>The IDs of the VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
 
-/**
- * <p>Contains the output of DeleteVpcEndpoints.</p>
- */
 export interface DeleteVpcEndpointsResult {
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
@@ -345,7 +339,7 @@ export interface DeleteVpcEndpointServiceConfigurationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The IDs of one or more services.</p>
+   * <p>The IDs of the services.</p>
    */
   ServiceIds: string[] | undefined;
 }
@@ -4372,12 +4366,12 @@ export interface TargetCapacitySpecification {
 
   /**
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *             <code>On-Demand</code>.</p>
+   *          <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -5059,6 +5053,9 @@ export interface FpgaImage {
    */
   DataRetentionSupport?: boolean;
 
+  /**
+   * <p>The instance types supported by the AFI.</p>
+   */
   InstanceTypes?: string[];
 }
 
@@ -7227,14 +7224,21 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>metadata-options.http-put-response-hop-limit</code> - The http metadata
+   *                   <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata
    *                     request put response hop limit (integer, possible values <code>1</code> to
    *                         <code>64</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>metadata-options.http-endpoint</code> - Enable or disable metadata
-   *                     access on http endpoint (<code>enabled</code> | <code>disabled</code>)</p>
+   *                   <code>metadata-options.http-endpoint</code> - The status of access to the HTTP
+   *                     metadata endpoint on your instance (<code>enabled</code> |
+   *                     <code>disabled</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>metadata-options.instance-metadata-tags</code> - The status of access to
+   *                     instance tags from the instance metadata (<code>enabled</code> |
+   *                         <code>disabled</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7751,16 +7755,25 @@ export interface InstanceMetadataOptionsResponse {
   State?: InstanceMetadataOptionsState | string;
 
   /**
-   * <p>The state of token usage for your instance metadata requests.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a session token on your request. If you retrieve the IAM
-   *             role credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid session token, the
-   *             version 2.0 role credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a session token with any instance
-   *             metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
-   *             not available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is
+   *                 <code>optional</code> (in other words, indicates whether the use of IMDSv2 is
+   *                 <code>optional</code>) or <code>required</code> (in other words, indicates whether
+   *             the use of IMDSv2 is <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
    *          <p>Default: <code>optional</code>
    *          </p>
    */

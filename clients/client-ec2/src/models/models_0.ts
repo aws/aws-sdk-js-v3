@@ -704,7 +704,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The IDs of one or more interface VPC endpoints.</p>
+   * <p>The IDs of the interface VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
@@ -4290,9 +4290,9 @@ export interface UserIdGroupPair {
  */
 export interface IpPermission {
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
-   *         A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all
-   * 		ICMP/ICMPv6 types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *         If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *         If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
@@ -4324,9 +4324,9 @@ export interface IpPermission {
   PrefixListIds?: PrefixListId[];
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
-   * 		of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types,
-   *         you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *           If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4456,14 +4456,16 @@ export interface SecurityGroupRule {
   IpProtocol?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value
-   *             of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must
-   *             specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4519,9 +4521,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   CidrIp?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number.
-   * 			For the ICMP type number, use <code>-1</code> to specify all types. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   FromPort?: number;
@@ -4574,9 +4576,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   SourceSecurityGroupOwnerId?: string;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number.
-   * 			For the ICMP code number, use <code>-1</code> to specify all codes. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *            If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   ToPort?: number;
@@ -7018,7 +7020,7 @@ export enum TransportProtocol {
 
 export interface CreateClientVpnEndpointRequest {
   /**
-   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.</p>
+   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
    */
   ClientCidrBlock: string | undefined;
 

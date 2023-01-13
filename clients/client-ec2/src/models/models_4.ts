@@ -6300,7 +6300,7 @@ export interface SpotFleetRequestConfigData {
   Context?: string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -7042,7 +7042,7 @@ export interface DescribeStaleSecurityGroupsRequest {
 export interface StaleIpPermission {
   /**
    * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
+   *         -1 indicates all ICMP types. </p>
    */
   FromPort?: number;
 
@@ -9603,7 +9603,7 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
   ConnectionNotificationId?: string;
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9651,7 +9651,7 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
 
 export interface DescribeVpcEndpointConnectionNotificationsResult {
   /**
-   * <p>One or more notifications.</p>
+   * <p>The notifications.</p>
    */
   ConnectionNotificationSet?: ConnectionNotification[];
 
@@ -9671,7 +9671,7 @@ export interface DescribeVpcEndpointConnectionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9778,7 +9778,7 @@ export interface VpcEndpointConnection {
 
 export interface DescribeVpcEndpointConnectionsResult {
   /**
-   * <p>Information about one or more VPC endpoint connections.</p>
+   * <p>Information about the VPC endpoint connections.</p>
    */
   VpcEndpointConnections?: VpcEndpointConnection[];
 
@@ -9788,9 +9788,6 @@ export interface DescribeVpcEndpointConnectionsResult {
   NextToken?: string;
 }
 
-/**
- * <p>Contains the parameters for DescribeVpcEndpoints.</p>
- */
 export interface DescribeVpcEndpointsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9800,12 +9797,12 @@ export interface DescribeVpcEndpointsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more endpoint IDs.</p>
+   * <p>The IDs of the VPC endpoints.</p>
    */
   VpcEndpointIds?: string[];
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9858,9 +9855,6 @@ export interface DescribeVpcEndpointsRequest {
   NextToken?: string;
 }
 
-/**
- * <p>Contains the output of DescribeVpcEndpoints.</p>
- */
 export interface DescribeVpcEndpointsResult {
   /**
    * <p>Information about the endpoints.</p>
@@ -9882,12 +9876,12 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The IDs of one or more services.</p>
+   * <p>The IDs of the endpoint services.</p>
    */
   ServiceIds?: string[];
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
