@@ -35,8 +35,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
  * 			action uses those files to import your VM and create an AMI. To import using the
  * 			CLI command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
- * 		       </p>
- * 		       <p>You can reference the task ID from the VM import to pull in the AMI that
+ *          </p>
+ *          <p>You can reference the task ID from the VM import to pull in the AMI that
  * 			the import created as the base image for your Image Builder recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

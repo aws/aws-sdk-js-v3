@@ -31,7 +31,7 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 /**
  * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images.</p>
- * 		       <note>
+ *          <note>
  *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
  * 			You must specify all of the required properties in the update request, not just
  * 			the properties that have changed.</p>

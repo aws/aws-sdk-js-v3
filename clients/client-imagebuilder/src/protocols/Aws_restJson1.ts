@@ -5652,12 +5652,14 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
     encrypted: __expectBoolean(output.encrypted),
     kmsKeyId: __expectString(output.kmsKeyId),
     name: __expectString(output.name),
+    obfuscate: __expectBoolean(output.obfuscate),
     owner: __expectString(output.owner),
     parameters:
       output.parameters != null
         ? deserializeAws_restJson1ComponentParameterDetailList(output.parameters, context)
         : undefined,
     platform: __expectString(output.platform),
+    publisher: __expectString(output.publisher),
     state: output.state != null ? deserializeAws_restJson1ComponentState(output.state, context) : undefined,
     supportedOsVersions:
       output.supportedOsVersions != null
@@ -5773,8 +5775,10 @@ const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeC
     dateCreated: __expectString(output.dateCreated),
     description: __expectString(output.description),
     name: __expectString(output.name),
+    obfuscate: __expectBoolean(output.obfuscate),
     owner: __expectString(output.owner),
     platform: __expectString(output.platform),
+    publisher: __expectString(output.publisher),
     state: output.state != null ? deserializeAws_restJson1ComponentState(output.state, context) : undefined,
     supportedOsVersions:
       output.supportedOsVersions != null
@@ -6100,6 +6104,7 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
     enhancedImageMetadataEnabled: __expectBoolean(output.enhancedImageMetadataEnabled),
     imageRecipe:
       output.imageRecipe != null ? deserializeAws_restJson1ImageRecipe(output.imageRecipe, context) : undefined,
+    imageSource: __expectString(output.imageSource),
     imageTestsConfiguration:
       output.imageTestsConfiguration != null
         ? deserializeAws_restJson1ImageTestsConfiguration(output.imageTestsConfiguration, context)
@@ -6244,6 +6249,7 @@ const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
+    imageSource: __expectString(output.imageSource),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
     outputResources:
@@ -6286,6 +6292,7 @@ const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
+    imageSource: __expectString(output.imageSource),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
     owner: __expectString(output.owner),

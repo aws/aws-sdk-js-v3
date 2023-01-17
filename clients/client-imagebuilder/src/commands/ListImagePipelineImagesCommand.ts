@@ -29,7 +29,7 @@ export interface ListImagePipelineImagesCommandInput extends ListImagePipelineIm
 export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineImagesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of images created by the specified pipeline.</p>
+ * <p>Returns a list of images created by the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
