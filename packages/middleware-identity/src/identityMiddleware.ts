@@ -48,10 +48,8 @@ export const identityMiddleware =
       return next(args);
     }
 
-    // awsAuthMiddleware
     if (isAwsCredentialIdentity(identity)) {
-      // middleware-signing resolvers signer?
-      // return resolveSigner(options, context, args, next);
+      // signer resolved elsewhere
     }
 
     return next(args);

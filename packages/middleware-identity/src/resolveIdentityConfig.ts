@@ -1,8 +1,19 @@
-import { AnonymousIdentity, AwsCredentialIdentity, Identity, IdentityProvider } from "@aws-sdk/types";
+import { AnonymousIdentity, Identity, IdentityProvider } from "@aws-sdk/types";
 
 import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
 import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
 
+/**
+ * Resolves identity in the following precedence:
+ * 
+ * - identity: user-provided identity
+ * - token: backwards compatible token identity
+ * - credentials: backwards compatible credentials identity
+ * - authScheme: populated from AuthSchemeResolver from config
+ * 
+ * @param input configuration object
+ * @returns input with an identity provider
+ */
 export const resolveIdentityConfig = <T>(
   input: T & IdentityInputConfig & IdentityPreviouslyResolved
 ): T & IdentityResolvedConfig => {
@@ -21,15 +32,15 @@ export const resolveIdentityConfig = <T>(
     identity = normalizeIdentityProvider(input.credentials);
   }
   // TODO(identityandauth): resolve identity from {@link IdentityPreviouslyResolved.AuthScheme}
-  else if (input.authScheme) {
-    // Get Identity Resolver from AuthScheme
-  }
+  // else if (input.authScheme) {
+  //   // Get Identity Resolver from AuthScheme
+  // }
 
   // Default Identity
-  if (identity === undefined) {
-    identity = input.defaultIdentityProvider
-      ? input.defaultIdentityProvider(input as any)
-      : normalizeIdentityProvider({} as AnonymousIdentity);
+  if (identity === undefined && input.defaultIdentityProvider) {
+    identity = input.defaultIdentityProvider(input as any);
+  } else {
+    throw new Error("identity is missing");
   }
 
   return {

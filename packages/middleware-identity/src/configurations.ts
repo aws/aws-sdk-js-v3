@@ -4,8 +4,6 @@ import { AuthScheme, Credentials, Identity, IdentityProvider, Provider, Token, T
 export const CREDENTIAL_EXPIRE_WINDOW = 300_000;
 
 export interface IdentityInputConfig {
-  // Signer will be discussed in later section.
-
   /**
    * @deprecated Use {@link identity}
    */
@@ -21,10 +19,6 @@ export interface IdentityInputConfig {
    */
   identity?: Identity | IdentityProvider<Identity>;
 
-  /**
-   * Default identity provider given {@link identity} is not present
-   */
-  defaultIdentityProvider?: (input: any) => IdentityProvider<Identity>;
 }
 
 export interface IdentityPreviouslyResolved {
@@ -32,6 +26,11 @@ export interface IdentityPreviouslyResolved {
    * Previously resolved Auth Scheme
    */
   authScheme?: AuthScheme;
+
+  /**
+   * Default identity provider given {@link identity} is not present
+   */
+  defaultIdentityProvider?: (input: any) => IdentityProvider<Identity>;
 }
 
 export interface IdentityResolvedConfig {
