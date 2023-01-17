@@ -2157,7 +2157,7 @@ export interface CreatePricingRuleInput {
 
   /**
    * <p>
-   *       If the <code>Scope</code> attribute is set to <code>SERVICE</code>, the attribute indicates which service the <code>PricingRule</code> is applicable for.
+   *       If the <code>Scope</code> attribute is set to <code>SERVICE</code> or <code>SKU</code>, the attribute indicates which service the <code>PricingRule</code> is applicable for.
    *     </p>
    */
   Service?: string;
@@ -2182,6 +2182,23 @@ export interface CreatePricingRuleInput {
    *     </p>
    */
   Tiering?: CreateTieringInput;
+
+  /**
+   * <p>
+   *       Usage type is the unit that each service uses to measure the usage of a specific type of resource.</p>
+   *          <p>If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which usage type the <code>PricingRule</code> is modifying. For example, <code>USW2-BoxUsage:m2.2xlarge</code> describes an<code> M2 High Memory Double Extra Large</code> instance in the US West (Oregon) Region.
+   *
+   *     </p>
+   */
+  UsageType?: string;
+
+  /**
+   * <p>
+   *       Operation is the specific Amazon Web Services action covered by this line item. This describes the specific usage of the line item.</p>
+   *          <p>
+   *         If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which operation the <code>PricingRule</code> is modifying. For example, a value of <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.</p>
+   */
+  Operation?: string;
 }
 
 export interface CreatePricingRuleOutput {
@@ -2584,6 +2601,20 @@ export interface UpdatePricingRuleOutput {
    *     </p>
    */
   Tiering?: UpdateTieringInput;
+
+  /**
+   * <p>Usage type is the unit that each service uses to measure the usage of a specific type of resource.</p>
+   *          <p>If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which usage type the <code>PricingRule</code> is modifying. For example, <code>USW2-BoxUsage:m2.2xlarge</code> describes an <code>M2 High Memory Double Extra Large</code> instance in the US West (Oregon) Region.
+   *     </p>
+   */
+  UsageType?: string;
+
+  /**
+   * <p>Operation refers to the specific Amazon Web Services covered by this line item. This describes the specific usage of the line item.</p>
+   *          <p>
+   *       If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which operation the <code>PricingRule</code> is modifying. For example, a value of <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.</p>
+   */
+  Operation?: string;
 }
 
 export interface TagResourceRequest {
