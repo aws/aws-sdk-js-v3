@@ -7,10 +7,27 @@ const {
   CODE_GEN_ROOT,
   CODE_GEN_SDK_ROOT,
   CODE_GEN_SDK_OUTPUT_DIR,
+  DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_SDK_OUTPUT_DIR,
 } = require("./code-gen-dir");
 const { getModelFilepaths } = require("./get-model-filepaths");
+
+const generateClient = async (clientName) => {
+  const TEMP_CODE_GEN_INPUT_DIR_SERVICE = join(TEMP_CODE_GEN_INPUT_DIR, clientName);
+
+  const options = [
+    ":sdk-codegen:build",
+    `-PmodelsDirProp=${relative(CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR_SERVICE)}`,
+  ];
+
+  emptyDirSync(TEMP_CODE_GEN_INPUT_DIR_SERVICE);
+
+  const filename = `${clientName}.json`;
+  copyFileSync(join(DEFAULT_CODE_GEN_INPUT_DIR, filename), join(TEMP_CODE_GEN_INPUT_DIR_SERVICE, filename));
+
+  await spawnProcess("./gradlew", options, { cwd: CODE_GEN_ROOT });
+};
 
 const generateClients = async (models, batchSize) => {
   const filepaths = getModelFilepaths(models);
@@ -51,6 +68,7 @@ const generateGenericClient = async () => {
 };
 
 module.exports = {
+  generateClient,
   generateClients,
   generateGenericClient,
   generateProtocolTests,

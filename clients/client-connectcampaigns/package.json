@@ -11,7 +11,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "generate:client": "(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/connectcampaigns.json --keepFiles)"
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo connectcampaigns"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

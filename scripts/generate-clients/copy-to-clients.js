@@ -141,7 +141,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
         if (existsSync(modelFile)) {
           mergedManifest.scripts[
             "generate:client"
-          ] = `(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/${serviceName}.json --keepFiles)`;
+          ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
         }
 
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
