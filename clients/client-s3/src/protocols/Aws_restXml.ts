@@ -525,14 +525,14 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
     "x-amz-copy-source-if-modified-since": [
       () => isSerializableHeaderValue(input.CopySourceIfModifiedSince),
-      () => __dateToUtcString(input.CopySourceIfModifiedSince!).toString(),
+      () => __dateToUtcString(input.CopySourceIfModifiedSince!),
     ],
     "x-amz-copy-source-if-none-match": input.CopySourceIfNoneMatch!,
     "x-amz-copy-source-if-unmodified-since": [
       () => isSerializableHeaderValue(input.CopySourceIfUnmodifiedSince),
-      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!).toString(),
+      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!),
     ],
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
+    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!)],
     "x-amz-grant-full-control": input.GrantFullControl!,
     "x-amz-grant-read": input.GrantRead!,
     "x-amz-grant-read-acp": input.GrantReadACP!,
@@ -559,7 +559,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-amz-object-lock-mode": input.ObjectLockMode!,
     "x-amz-object-lock-retain-until-date": [
       () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z",
     ],
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -644,7 +644,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "content-encoding": input.ContentEncoding!,
     "content-language": input.ContentLanguage!,
     "content-type": input.ContentType!,
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
+    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!)],
     "x-amz-grant-full-control": input.GrantFullControl!,
     "x-amz-grant-read": input.GrantRead!,
     "x-amz-grant-read-acp": input.GrantReadACP!,
@@ -666,7 +666,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-amz-object-lock-mode": input.ObjectLockMode!,
     "x-amz-object-lock-retain-until-date": [
       () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z",
     ],
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -1701,12 +1701,12 @@ export const serializeAws_restXmlGetObjectCommand = async (
     "if-match": input.IfMatch!,
     "if-modified-since": [
       () => isSerializableHeaderValue(input.IfModifiedSince),
-      () => __dateToUtcString(input.IfModifiedSince!).toString(),
+      () => __dateToUtcString(input.IfModifiedSince!),
     ],
     "if-none-match": input.IfNoneMatch!,
     "if-unmodified-since": [
       () => isSerializableHeaderValue(input.IfUnmodifiedSince),
-      () => __dateToUtcString(input.IfUnmodifiedSince!).toString(),
+      () => __dateToUtcString(input.IfUnmodifiedSince!),
     ],
     range: input.Range!,
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
@@ -1726,10 +1726,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
     "response-content-encoding": [, input.ResponseContentEncoding!],
     "response-content-language": [, input.ResponseContentLanguage!],
     "response-content-type": [, input.ResponseContentType!],
-    "response-expires": [
-      () => input.ResponseExpires !== void 0,
-      () => __dateToUtcString(input.ResponseExpires!).toString(),
-    ],
+    "response-expires": [() => input.ResponseExpires !== void 0, () => __dateToUtcString(input.ResponseExpires!)],
     versionId: [, input.VersionId!],
     partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
   });
@@ -2011,12 +2008,12 @@ export const serializeAws_restXmlHeadObjectCommand = async (
     "if-match": input.IfMatch!,
     "if-modified-since": [
       () => isSerializableHeaderValue(input.IfModifiedSince),
-      () => __dateToUtcString(input.IfModifiedSince!).toString(),
+      () => __dateToUtcString(input.IfModifiedSince!),
     ],
     "if-none-match": input.IfNoneMatch!,
     "if-unmodified-since": [
       () => isSerializableHeaderValue(input.IfUnmodifiedSince),
-      () => __dateToUtcString(input.IfUnmodifiedSince!).toString(),
+      () => __dateToUtcString(input.IfUnmodifiedSince!),
     ],
     range: input.Range!,
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
@@ -3067,7 +3064,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-amz-checksum-crc32c": input.ChecksumCRC32C!,
     "x-amz-checksum-sha1": input.ChecksumSHA1!,
     "x-amz-checksum-sha256": input.ChecksumSHA256!,
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
+    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!)],
     "x-amz-grant-full-control": input.GrantFullControl!,
     "x-amz-grant-read": input.GrantRead!,
     "x-amz-grant-read-acp": input.GrantReadACP!,
@@ -3089,7 +3086,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-amz-object-lock-mode": input.ObjectLockMode!,
     "x-amz-object-lock-retain-until-date": [
       () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z",
     ],
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3552,12 +3549,12 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
     "x-amz-copy-source-if-modified-since": [
       () => isSerializableHeaderValue(input.CopySourceIfModifiedSince),
-      () => __dateToUtcString(input.CopySourceIfModifiedSince!).toString(),
+      () => __dateToUtcString(input.CopySourceIfModifiedSince!),
     ],
     "x-amz-copy-source-if-none-match": input.CopySourceIfNoneMatch!,
     "x-amz-copy-source-if-unmodified-since": [
       () => isSerializableHeaderValue(input.CopySourceIfUnmodifiedSince),
-      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!).toString(),
+      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!),
     ],
     "x-amz-copy-source-range": input.CopySourceRange!,
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
@@ -3623,12 +3620,12 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
     "x-amz-fwd-header-etag": input.ETag!,
     "x-amz-fwd-header-expires": [
       () => isSerializableHeaderValue(input.Expires),
-      () => __dateToUtcString(input.Expires!).toString(),
+      () => __dateToUtcString(input.Expires!),
     ],
     "x-amz-fwd-header-x-amz-expiration": input.Expiration!,
     "x-amz-fwd-header-last-modified": [
       () => isSerializableHeaderValue(input.LastModified),
-      () => __dateToUtcString(input.LastModified!).toString(),
+      () => __dateToUtcString(input.LastModified!),
     ],
     "x-amz-fwd-header-x-amz-missing-meta": [
       () => isSerializableHeaderValue(input.MissingMeta),
@@ -3638,7 +3635,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
     "x-amz-fwd-header-x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-fwd-header-x-amz-object-lock-retain-until-date": [
       () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z",
     ],
     "x-amz-fwd-header-x-amz-mp-parts-count": [
       () => isSerializableHeaderValue(input.PartsCount),

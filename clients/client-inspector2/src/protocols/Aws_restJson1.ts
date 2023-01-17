@@ -3052,8 +3052,10 @@ const serializeAws_restJson1CoverageStringFilterList = (
 
 const serializeAws_restJson1DateFilter = (input: DateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.endInclusive != null && { endInclusive: Math.round(input.endInclusive.getTime() / 1000) }),
-    ...(input.startInclusive != null && { startInclusive: Math.round(input.startInclusive.getTime() / 1000) }),
+    ...(input.endInclusive != null && { endInclusive: Math.round(input.endInclusive.getTime() / 1000).toString() }),
+    ...(input.startInclusive != null && {
+      startInclusive: Math.round(input.startInclusive.getTime() / 1000).toString(),
+    }),
   };
 };
 

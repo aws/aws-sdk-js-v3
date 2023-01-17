@@ -1367,7 +1367,9 @@ export const serializeAws_restJson1CreateAuditSuppressionCommand = async (
     ...(input.checkName != null && { checkName: input.checkName }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
-    ...(input.expirationDate != null && { expirationDate: Math.round(input.expirationDate.getTime() / 1000) }),
+    ...(input.expirationDate != null && {
+      expirationDate: Math.round(input.expirationDate.getTime() / 1000).toString(),
+    }),
     ...(input.resourceIdentifier != null && {
       resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
     }),
@@ -4608,14 +4610,14 @@ export const serializeAws_restJson1ListAuditFindingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.checkName != null && { checkName: input.checkName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.listSuppressedFindings != null && { listSuppressedFindings: input.listSuppressedFindings }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.resourceIdentifier != null && {
       resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
     }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.taskId != null && { taskId: input.taskId }),
   });
   return new __HttpRequest({
@@ -4673,11 +4675,11 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
     nextToken: [, input.nextToken!],
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime!.toISOString().split(".")[0] + "Z",
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;
@@ -4734,11 +4736,11 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   const query: any = map({
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime!.toISOString().split(".")[0] + "Z",
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime!.toISOString().split(".")[0] + "Z",
     ],
     taskType: [, input.taskType!],
     taskStatus: [, input.taskStatus!],
@@ -4930,11 +4932,8 @@ export const serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand 
     taskId: [, input.taskId!],
     violationId: [, input.violationId!],
     thingName: [, input.thingName!],
-    startTime: [
-      () => input.startTime !== void 0,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    startTime: [() => input.startTime !== void 0, () => input.startTime!.toISOString().split(".")[0] + "Z"],
+    endTime: [() => input.endTime !== void 0, () => input.endTime!.toISOString().split(".")[0] + "Z"],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -4964,11 +4963,11 @@ export const serializeAws_restJson1ListDetectMitigationActionsTasksCommand = asy
     nextToken: [, input.nextToken!],
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime!.toISOString().split(".")[0] + "Z",
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;
@@ -5227,11 +5226,11 @@ export const serializeAws_restJson1ListMetricValuesCommand = async (
     dimensionValueOperator: [, input.dimensionValueOperator!],
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime!.toISOString().split(".")[0] + "Z",
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime!.toISOString().split(".")[0] + "Z",
     ],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -6089,11 +6088,11 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   const query: any = map({
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime!.toISOString().split(".")[0] + "Z",
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime!.toISOString().split(".")[0] + "Z",
     ],
     thingName: [, input.thingName!],
     securityProfileName: [, input.securityProfileName!],
@@ -6905,7 +6904,9 @@ export const serializeAws_restJson1UpdateAuditSuppressionCommand = async (
   body = JSON.stringify({
     ...(input.checkName != null && { checkName: input.checkName }),
     ...(input.description != null && { description: input.description }),
-    ...(input.expirationDate != null && { expirationDate: Math.round(input.expirationDate.getTime() / 1000) }),
+    ...(input.expirationDate != null && {
+      expirationDate: Math.round(input.expirationDate.getTime() / 1000).toString(),
+    }),
     ...(input.resourceIdentifier != null && {
       resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
     }),
@@ -23345,8 +23346,8 @@ const serializeAws_restJson1ViolationEventOccurrenceRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
   };
 };
 

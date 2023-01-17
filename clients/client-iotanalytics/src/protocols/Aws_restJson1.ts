@@ -704,11 +704,11 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     scheduledOnOrAfter: [
       () => input.scheduledOnOrAfter !== void 0,
-      () => (input.scheduledOnOrAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.scheduledOnOrAfter!.toISOString().split(".")[0] + "Z",
     ],
     scheduledBefore: [
       () => input.scheduledBefore !== void 0,
-      () => (input.scheduledBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.scheduledBefore!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;
@@ -884,11 +884,8 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "channelName", () => input.channelName!, "{channelName}", false);
   const query: any = map({
     maxMessages: [() => input.maxMessages !== void 0, () => input.maxMessages!.toString()],
-    startTime: [
-      () => input.startTime !== void 0,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    startTime: [() => input.startTime !== void 0, () => input.startTime!.toISOString().split(".")[0] + "Z"],
+    endTime: [() => input.endTime !== void 0, () => input.endTime!.toISOString().split(".")[0] + "Z"],
   });
   let body: any;
   return new __HttpRequest({
@@ -926,8 +923,8 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
     ...(input.channelMessages != null && {
       channelMessages: serializeAws_restJson1ChannelMessages(input.channelMessages, context),
     }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
   });
   return new __HttpRequest({
     protocol,

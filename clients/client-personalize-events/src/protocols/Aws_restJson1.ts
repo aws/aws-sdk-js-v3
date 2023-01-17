@@ -292,7 +292,7 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
     }),
     ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
     ...(input.recommendationId != null && { recommendationId: input.recommendationId }),
-    ...(input.sentAt != null && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
+    ...(input.sentAt != null && { sentAt: Math.round(input.sentAt.getTime() / 1000).toString() }),
   };
 };
 

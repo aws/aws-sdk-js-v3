@@ -1351,7 +1351,9 @@ const serializeAws_json1_1ActivatePipelineInput = (input: ActivatePipelineInput,
       parameterValues: serializeAws_json1_1ParameterValueList(input.parameterValues, context),
     }),
     ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.startTimestamp != null && { startTimestamp: Math.round(input.startTimestamp.getTime() / 1000) }),
+    ...(input.startTimestamp != null && {
+      startTimestamp: Math.round(input.startTimestamp.getTime() / 1000).toString(),
+    }),
   };
 };
 

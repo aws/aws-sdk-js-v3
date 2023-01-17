@@ -7875,7 +7875,7 @@ const serializeAws_restJson1TypedAttributeValue = (input: TypedAttributeValue, c
   return TypedAttributeValue.visit(input, {
     BinaryValue: (value) => ({ BinaryValue: context.base64Encoder(value) }),
     BooleanValue: (value) => ({ BooleanValue: value }),
-    DatetimeValue: (value) => ({ DatetimeValue: Math.round(value.getTime() / 1000) }),
+    DatetimeValue: (value) => ({ DatetimeValue: Math.round(value.getTime() / 1000).toString() }),
     NumberValue: (value) => ({ NumberValue: value }),
     StringValue: (value) => ({ StringValue: value }),
     _: (name, value) => ({ name: value } as any),

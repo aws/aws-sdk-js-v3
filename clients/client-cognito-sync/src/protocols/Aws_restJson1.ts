@@ -1848,7 +1848,7 @@ const serializeAws_restJson1PushSync = (input: PushSync, context: __SerdeContext
 const serializeAws_restJson1RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
   return {
     ...(input.DeviceLastModifiedDate != null && {
-      DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000),
+      DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000).toString(),
     }),
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Op != null && { Op: input.Op }),

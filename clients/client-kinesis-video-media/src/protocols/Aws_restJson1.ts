@@ -211,7 +211,9 @@ const serializeAws_restJson1StartSelector = (input: StartSelector, context: __Se
     ...(input.AfterFragmentNumber != null && { AfterFragmentNumber: input.AfterFragmentNumber }),
     ...(input.ContinuationToken != null && { ContinuationToken: input.ContinuationToken }),
     ...(input.StartSelectorType != null && { StartSelectorType: input.StartSelectorType }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && {
+      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
+    }),
   };
 };
 

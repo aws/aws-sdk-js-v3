@@ -484,7 +484,7 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
     ...(input.AdditionalMetrics != null && {
       AdditionalMetrics: serializeAws_json1_1AdditionalMetricsList(input.AdditionalMetrics, context),
     }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
     ...(input.Filter != null && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
     ...(input.GroupBy != null && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
     ...(input.Identifier != null && { Identifier: input.Identifier }),
@@ -494,7 +494,7 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
     ...(input.PartitionBy != null && { PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context) }),
     ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
     ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -544,7 +544,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
     ...(input.Identifier != null && { Identifier: input.Identifier }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.MetricQueries != null && {
@@ -553,7 +553,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
     ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
   };
 };
 

@@ -4531,11 +4531,11 @@ const serializeAws_json1_1ImportCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
+    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000).toString() }),
     ...(input.Certificate != null && { Certificate: input.Certificate }),
     ...(input.CertificateChain != null && { CertificateChain: input.CertificateChain }),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000) }),
+    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000).toString() }),
     ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.Usage != null && { Usage: input.Usage }),
@@ -4886,10 +4886,10 @@ const serializeAws_json1_1UpdateCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
+    ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000).toString() }),
     ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000) }),
+    ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000).toString() }),
   };
 };
 

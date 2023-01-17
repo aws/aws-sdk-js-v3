@@ -3544,8 +3544,8 @@ const serializeAws_json1_1DescribeClusterInput = (input: DescribeClusterInput, c
 
 const serializeAws_json1_1DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __SerdeContext): any => {
   return {
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000).toString() }),
+    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000).toString() }),
     ...(input.JobFlowIds != null && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
     ...(input.JobFlowStates != null && {
       JobFlowStates: serializeAws_json1_1JobFlowExecutionStateList(input.JobFlowStates, context),
@@ -3972,8 +3972,8 @@ const serializeAws_json1_1ListClustersInput = (input: ListClustersInput, context
     ...(input.ClusterStates != null && {
       ClusterStates: serializeAws_json1_1ClusterStateList(input.ClusterStates, context),
     }),
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000).toString() }),
+    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000).toString() }),
     ...(input.Marker != null && { Marker: input.Marker }),
   };
 };
@@ -4014,10 +4014,10 @@ const serializeAws_json1_1ListNotebookExecutionsInput = (
 ): any => {
   return {
     ...(input.EditorId != null && { EditorId: input.EditorId }),
-    ...(input.From != null && { From: Math.round(input.From.getTime() / 1000) }),
+    ...(input.From != null && { From: Math.round(input.From.getTime() / 1000).toString() }),
     ...(input.Marker != null && { Marker: input.Marker }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.To != null && { To: Math.round(input.To.getTime() / 1000) }),
+    ...(input.To != null && { To: Math.round(input.To.getTime() / 1000).toString() }),
   };
 };
 

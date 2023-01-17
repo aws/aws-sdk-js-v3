@@ -4366,7 +4366,7 @@ export const serializeInputAndOutputWithHeadersResponse = async (
     ],
     "x-timestamplist": [
       () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
+      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry) as any).join(", "),
     ],
     "x-enum": input.headerEnum!,
     "x-enumlist": [
@@ -4618,9 +4618,9 @@ export const serializeJsonTimestampsResponse = async (
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
+    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000).toString() }),
     ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
-    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
+    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000).toString() }),
   });
   if (
     body &&
@@ -6574,15 +6574,15 @@ export const serializeTimestampFormatHeadersResponse = async (
     ],
     "x-memberhttpdate": [
       () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!).toString(),
+      () => __dateToUtcString(input.memberHttpDate!),
     ],
     "x-memberdatetime": [
       () => isSerializableHeaderValue(input.memberDateTime),
-      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.memberDateTime!.toISOString().split(".")[0] + "Z",
     ],
     "x-defaultformat": [
       () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!).toString(),
+      () => __dateToUtcString(input.defaultFormat!),
     ],
     "x-targetepochseconds": [
       () => isSerializableHeaderValue(input.targetEpochSeconds),
@@ -6590,11 +6590,11 @@ export const serializeTimestampFormatHeadersResponse = async (
     ],
     "x-targethttpdate": [
       () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!).toString(),
+      () => __dateToUtcString(input.targetHttpDate!),
     ],
     "x-targetdatetime": [
       () => isSerializableHeaderValue(input.targetDateTime),
-      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.targetDateTime!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;
@@ -6896,7 +6896,7 @@ const serializeAws_restJson1MyUnion = (input: MyUnion, context: __SerdeContext):
     }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: serializeAws_restJson1GreetingStruct(value, context) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000).toString() }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -7131,7 +7131,7 @@ const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return Math.round(entry.getTime() / 1000).toString();
     });
 };
 

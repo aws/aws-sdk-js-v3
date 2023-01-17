@@ -6023,12 +6023,14 @@ const serializeAws_json1_1ListTestGridSessionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.creationTimeAfter != null && { creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000) }),
-    ...(input.creationTimeBefore != null && {
-      creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
+    ...(input.creationTimeAfter != null && {
+      creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000).toString(),
     }),
-    ...(input.endTimeAfter != null && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
-    ...(input.endTimeBefore != null && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
+    ...(input.creationTimeBefore != null && {
+      creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000).toString(),
+    }),
+    ...(input.endTimeAfter != null && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000).toString() }),
+    ...(input.endTimeBefore != null && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000).toString() }),
     ...(input.maxResult != null && { maxResult: input.maxResult }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.projectArn != null && { projectArn: input.projectArn }),

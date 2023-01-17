@@ -16474,7 +16474,7 @@ const serializeAws_restJson1DateTimeDefaultValueList = (input: Date[], context: 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return Math.round(entry.getTime() / 1000).toString();
     });
 };
 
@@ -16570,7 +16570,7 @@ const serializeAws_restJson1DateTimeValueWhenUnsetConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomValue != null && { CustomValue: Math.round(input.CustomValue.getTime() / 1000) }),
+    ...(input.CustomValue != null && { CustomValue: Math.round(input.CustomValue.getTime() / 1000).toString() }),
     ...(input.ValueWhenUnsetOption != null && { ValueWhenUnsetOption: input.ValueWhenUnsetOption }),
   };
 };
@@ -20790,7 +20790,7 @@ const serializeAws_restJson1SensitiveTimestampList = (input: Date[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return Math.round(entry.getTime() / 1000).toString();
     });
 };
 
@@ -21711,7 +21711,7 @@ const serializeAws_restJson1TimeEqualityFilter = (input: TimeEqualityFilter, con
     ...(input.FilterId != null && { FilterId: input.FilterId }),
     ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
     ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
-    ...(input.Value != null && { Value: Math.round(input.Value.getTime() / 1000) }),
+    ...(input.Value != null && { Value: Math.round(input.Value.getTime() / 1000).toString() }),
   };
 };
 
@@ -21721,8 +21721,8 @@ const serializeAws_restJson1TimeRangeDrillDownFilter = (
 ): any => {
   return {
     ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
-    ...(input.RangeMaximum != null && { RangeMaximum: Math.round(input.RangeMaximum.getTime() / 1000) }),
-    ...(input.RangeMinimum != null && { RangeMinimum: Math.round(input.RangeMinimum.getTime() / 1000) }),
+    ...(input.RangeMaximum != null && { RangeMaximum: Math.round(input.RangeMaximum.getTime() / 1000).toString() }),
+    ...(input.RangeMinimum != null && { RangeMinimum: Math.round(input.RangeMinimum.getTime() / 1000).toString() }),
     ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
   };
 };
@@ -21756,7 +21756,7 @@ const serializeAws_restJson1TimeRangeFilterValue = (input: TimeRangeFilterValue,
     ...(input.RollingDate != null && {
       RollingDate: serializeAws_restJson1RollingDateConfiguration(input.RollingDate, context),
     }),
-    ...(input.StaticValue != null && { StaticValue: Math.round(input.StaticValue.getTime() / 1000) }),
+    ...(input.StaticValue != null && { StaticValue: Math.round(input.StaticValue.getTime() / 1000).toString() }),
   };
 };
 
@@ -22359,15 +22359,15 @@ const serializeAws_restJson1WaterfallVisual = (input: WaterfallVisual, context: 
 
 const serializeAws_restJson1WhatIfPointScenario = (input: WhatIfPointScenario, context: __SerdeContext): any => {
   return {
-    ...(input.Date != null && { Date: Math.round(input.Date.getTime() / 1000) }),
+    ...(input.Date != null && { Date: Math.round(input.Date.getTime() / 1000).toString() }),
     ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
 const serializeAws_restJson1WhatIfRangeScenario = (input: WhatIfRangeScenario, context: __SerdeContext): any => {
   return {
-    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
-    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000).toString() }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000).toString() }),
     ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };

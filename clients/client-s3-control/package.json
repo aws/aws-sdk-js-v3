@@ -11,9 +11,9 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "generate:client": "(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/s3-control.json --keepFiles)",
     "test": "yarn test:unit",
-    "test:unit": "ts-mocha test/**/*.spec.ts",
-    "generate:client": "(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/s3-control.json --keepFiles)"
+    "test:unit": "ts-mocha test/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

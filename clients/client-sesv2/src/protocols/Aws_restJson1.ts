@@ -1408,11 +1408,11 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   const query: any = map({
     StartDate: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.StartDate!.toISOString().split(".")[0] + "Z",
     ],
     EndDate: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.EndDate!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;
@@ -1749,11 +1749,11 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   const query: any = map({
     StartDate: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.StartDate!.toISOString().split(".")[0] + "Z",
     ],
     EndDate: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.EndDate!.toISOString().split(".")[0] + "Z",
     ],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
@@ -1885,11 +1885,8 @@ export const serializeAws_restJson1ListSuppressedDestinationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/suppression/addresses";
   const query: any = map({
     Reason: [() => input.Reasons !== void 0, () => (input.Reasons! || []).map((_entry) => _entry as any)],
-    StartDate: [
-      () => input.StartDate !== void 0,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
+    StartDate: [() => input.StartDate !== void 0, () => input.StartDate!.toISOString().split(".")[0] + "Z"],
+    EndDate: [() => input.EndDate !== void 0, () => input.EndDate!.toISOString().split(".")[0] + "Z"],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
   });
@@ -7492,11 +7489,11 @@ const serializeAws_restJson1BatchGetMetricDataQuery = (
 ): any => {
   return {
     ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1Dimensions(input.Dimensions, context) }),
-    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000).toString() }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Metric != null && { Metric: input.Metric }),
     ...(input.Namespace != null && { Namespace: input.Namespace }),
-    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000).toString() }),
   };
 };
 
@@ -7644,7 +7641,7 @@ const serializeAws_restJson1DomainDeliverabilityTrackingOption = (
       ),
     }),
     ...(input.SubscriptionStartDate != null && {
-      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000),
+      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000).toString(),
     }),
   };
 };
@@ -7863,7 +7860,9 @@ const serializeAws_restJson1ReplacementTemplate = (input: ReplacementTemplate, c
 
 const serializeAws_restJson1ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.LastFreshStart != null && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
+    ...(input.LastFreshStart != null && {
+      LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000).toString(),
+    }),
     ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
   };
 };

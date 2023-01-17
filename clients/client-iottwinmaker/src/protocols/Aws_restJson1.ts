@@ -731,7 +731,7 @@ export const serializeAws_restJson1GetPropertyValueHistoryCommand = async (
   body = JSON.stringify({
     ...(input.componentName != null && { componentName: input.componentName }),
     ...(input.componentTypeId != null && { componentTypeId: input.componentTypeId }),
-    ...(input.endDateTime != null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000) }),
+    ...(input.endDateTime != null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000).toString() }),
     ...(input.endTime != null && { endTime: input.endTime }),
     ...(input.entityId != null && { entityId: input.entityId }),
     ...(input.interpolation != null && {
@@ -746,7 +746,7 @@ export const serializeAws_restJson1GetPropertyValueHistoryCommand = async (
     ...(input.selectedProperties != null && {
       selectedProperties: serializeAws_restJson1SelectedPropertyList(input.selectedProperties, context),
     }),
-    ...(input.startDateTime != null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000) }),
+    ...(input.startDateTime != null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000).toString() }),
     ...(input.startTime != null && { startTime: input.startTime }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3959,7 +3959,7 @@ const serializeAws_restJson1PropertyRequests = (
 const serializeAws_restJson1PropertyValue = (input: PropertyValue, context: __SerdeContext): any => {
   return {
     ...(input.time != null && { time: input.time }),
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
     ...(input.value != null && { value: serializeAws_restJson1DataValue(input.value, context) }),
   };
 };

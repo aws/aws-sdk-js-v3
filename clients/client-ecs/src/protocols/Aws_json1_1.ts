@@ -5895,13 +5895,13 @@ const serializeAws_json1_1SubmitTaskStateChangeRequest = (
       containers: serializeAws_json1_1ContainerStateChanges(input.containers, context),
     }),
     ...(input.executionStoppedAt != null && {
-      executionStoppedAt: Math.round(input.executionStoppedAt.getTime() / 1000),
+      executionStoppedAt: Math.round(input.executionStoppedAt.getTime() / 1000).toString(),
     }),
     ...(input.managedAgents != null && {
       managedAgents: serializeAws_json1_1ManagedAgentStateChanges(input.managedAgents, context),
     }),
-    ...(input.pullStartedAt != null && { pullStartedAt: Math.round(input.pullStartedAt.getTime() / 1000) }),
-    ...(input.pullStoppedAt != null && { pullStoppedAt: Math.round(input.pullStoppedAt.getTime() / 1000) }),
+    ...(input.pullStartedAt != null && { pullStartedAt: Math.round(input.pullStartedAt.getTime() / 1000).toString() }),
+    ...(input.pullStoppedAt != null && { pullStoppedAt: Math.round(input.pullStoppedAt.getTime() / 1000).toString() }),
     ...(input.reason != null && { reason: input.reason }),
     ...(input.status != null && { status: input.status }),
     ...(input.task != null && { task: input.task }),

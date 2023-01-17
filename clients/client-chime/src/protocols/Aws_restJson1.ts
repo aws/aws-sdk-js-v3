@@ -4331,14 +4331,8 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     "sort-order": [, input.SortOrder!],
-    "not-before": [
-      () => input.NotBefore !== void 0,
-      () => (input.NotBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "not-after": [
-      () => input.NotAfter !== void 0,
-      () => (input.NotAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    "not-before": [() => input.NotBefore !== void 0, () => input.NotBefore!.toISOString().split(".")[0] + "Z"],
+    "not-after": [() => input.NotAfter !== void 0, () => input.NotAfter!.toISOString().split(".")[0] + "Z"],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     "next-token": [, input.NextToken!],
   });

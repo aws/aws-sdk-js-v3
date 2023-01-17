@@ -84,7 +84,7 @@ const serializeAws_restJson1RawMetricData = (input: RawMetricData, context: __Se
   return {
     ...(input.MetricName != null && { MetricName: input.MetricName }),
     ...(input.Step != null && { Step: input.Step }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
     ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };

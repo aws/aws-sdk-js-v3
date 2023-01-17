@@ -1190,7 +1190,9 @@ const serializeAws_json1_0ExecuteScheduledQueryRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.InvocationTime != null && { InvocationTime: Math.round(input.InvocationTime.getTime() / 1000) }),
+    ...(input.InvocationTime != null && {
+      InvocationTime: Math.round(input.InvocationTime.getTime() / 1000).toString(),
+    }),
     ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
