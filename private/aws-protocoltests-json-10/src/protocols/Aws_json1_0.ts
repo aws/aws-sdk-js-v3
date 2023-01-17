@@ -590,7 +590,7 @@ const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): a
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: serializeAws_json1_0GreetingStruct(value, context) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000).toString() }),
     _: (name, value) => ({ name: value } as any),
   });
 };

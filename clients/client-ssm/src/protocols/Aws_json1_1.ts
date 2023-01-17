@@ -11370,7 +11370,7 @@ const serializeAws_json1_1AssociationIdList = (input: string[], context: __Serde
 const serializeAws_json1_1AssociationStatus = (input: AssociationStatus, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalInfo != null && { AdditionalInfo: input.AdditionalInfo }),
-    ...(input.Date != null && { Date: Math.round(input.Date.getTime() / 1000) }),
+    ...(input.Date != null && { Date: Math.round(input.Date.getTime() / 1000).toString() }),
     ...(input.Message != null && { Message: input.Message }),
     ...(input.Name != null && { Name: input.Name }),
   };
@@ -11527,7 +11527,7 @@ const serializeAws_json1_1ComplianceExecutionSummary = (
 ): any => {
   return {
     ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
-    ...(input.ExecutionTime != null && { ExecutionTime: Math.round(input.ExecutionTime.getTime() / 1000) }),
+    ...(input.ExecutionTime != null && { ExecutionTime: Math.round(input.ExecutionTime.getTime() / 1000).toString() }),
     ...(input.ExecutionType != null && { ExecutionType: input.ExecutionType }),
   };
 };
@@ -11607,7 +11607,9 @@ const serializeAws_json1_1CreateActivationRequest = (input: CreateActivationRequ
   return {
     ...(input.DefaultInstanceName != null && { DefaultInstanceName: input.DefaultInstanceName }),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.ExpirationDate != null && { ExpirationDate: Math.round(input.ExpirationDate.getTime() / 1000) }),
+    ...(input.ExpirationDate != null && {
+      ExpirationDate: Math.round(input.ExpirationDate.getTime() / 1000).toString(),
+    }),
     ...(input.IamRole != null && { IamRole: input.IamRole }),
     ...(input.RegistrationLimit != null && { RegistrationLimit: input.RegistrationLimit }),
     ...(input.RegistrationMetadata != null && {
@@ -11754,8 +11756,10 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
 const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActualEndTime != null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000) }),
-    ...(input.ActualStartTime != null && { ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000) }),
+    ...(input.ActualEndTime != null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000).toString() }),
+    ...(input.ActualStartTime != null && {
+      ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000).toString(),
+    }),
     ...(input.Category != null && { Category: input.Category }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Notifications != null && {
@@ -11765,8 +11769,12 @@ const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, c
       OperationalData: serializeAws_json1_1OpsItemOperationalData(input.OperationalData, context),
     }),
     ...(input.OpsItemType != null && { OpsItemType: input.OpsItemType }),
-    ...(input.PlannedEndTime != null && { PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000) }),
-    ...(input.PlannedStartTime != null && { PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000) }),
+    ...(input.PlannedEndTime != null && {
+      PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000).toString(),
+    }),
+    ...(input.PlannedStartTime != null && {
+      PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000).toString(),
+    }),
     ...(input.Priority != null && { Priority: input.Priority }),
     ...(input.RelatedOpsItems != null && {
       RelatedOpsItems: serializeAws_json1_1RelatedOpsItems(input.RelatedOpsItems, context),
@@ -14206,8 +14214,10 @@ const serializeAws_json1_1StartChangeRequestExecutionRequest = (
       Parameters: serializeAws_json1_1AutomationParameterMap(input.Parameters, context),
     }),
     ...(input.Runbooks != null && { Runbooks: serializeAws_json1_1Runbooks(input.Runbooks, context) }),
-    ...(input.ScheduledEndTime != null && { ScheduledEndTime: Math.round(input.ScheduledEndTime.getTime() / 1000) }),
-    ...(input.ScheduledTime != null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000) }),
+    ...(input.ScheduledEndTime != null && {
+      ScheduledEndTime: Math.round(input.ScheduledEndTime.getTime() / 1000).toString(),
+    }),
+    ...(input.ScheduledTime != null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000).toString() }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
@@ -14541,8 +14551,10 @@ const serializeAws_json1_1UpdateManagedInstanceRoleRequest = (
 
 const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ActualEndTime != null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000) }),
-    ...(input.ActualStartTime != null && { ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000) }),
+    ...(input.ActualEndTime != null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000).toString() }),
+    ...(input.ActualStartTime != null && {
+      ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000).toString(),
+    }),
     ...(input.Category != null && { Category: input.Category }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Notifications != null && {
@@ -14556,8 +14568,12 @@ const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, c
     }),
     ...(input.OpsItemArn != null && { OpsItemArn: input.OpsItemArn }),
     ...(input.OpsItemId != null && { OpsItemId: input.OpsItemId }),
-    ...(input.PlannedEndTime != null && { PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000) }),
-    ...(input.PlannedStartTime != null && { PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000) }),
+    ...(input.PlannedEndTime != null && {
+      PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000).toString(),
+    }),
+    ...(input.PlannedStartTime != null && {
+      PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000).toString(),
+    }),
     ...(input.Priority != null && { Priority: input.Priority }),
     ...(input.RelatedOpsItems != null && {
       RelatedOpsItems: serializeAws_json1_1RelatedOpsItems(input.RelatedOpsItems, context),

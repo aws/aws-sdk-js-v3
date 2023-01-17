@@ -209,13 +209,13 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
   const query: any = map({
     fromTimeStamp: [
       __expectNonNull(input.FromTimeStamp, `FromTimeStamp`) != null,
-      () => (input.FromTimeStamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.FromTimeStamp!.toISOString().split(".")[0] + "Z",
     ],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
     toTimeStamp: [
       __expectNonNull(input.ToTimeStamp, `ToTimeStamp`) != null,
-      () => (input.ToTimeStamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ToTimeStamp!.toISOString().split(".")[0] + "Z",
     ],
   });
   let body: any;

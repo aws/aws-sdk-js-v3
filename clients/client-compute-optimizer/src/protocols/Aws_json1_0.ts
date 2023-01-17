@@ -2256,7 +2256,7 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.instanceArn != null && { instanceArn: input.instanceArn }),
     ...(input.period != null && { period: input.period }),
     ...(input.recommendationPreferences != null && {
@@ -2265,7 +2265,7 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
         context
       ),
     }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.stat != null && { stat: input.stat }),
   };
 };
@@ -2275,10 +2275,10 @@ const serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.period != null && { period: input.period }),
     ...(input.serviceArn != null && { serviceArn: input.serviceArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.stat != null && { stat: input.stat }),
   };
 };

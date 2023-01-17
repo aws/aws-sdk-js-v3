@@ -12392,7 +12392,7 @@ const serializeAws_json1_1CreateRelationalDatabaseFromSnapshotRequest = (
     ...(input.relationalDatabaseSnapshotName != null && {
       relationalDatabaseSnapshotName: input.relationalDatabaseSnapshotName,
     }),
-    ...(input.restoreTime != null && { restoreTime: Math.round(input.restoreTime.getTime() / 1000) }),
+    ...(input.restoreTime != null && { restoreTime: Math.round(input.restoreTime.getTime() / 1000).toString() }),
     ...(input.sourceRelationalDatabaseName != null && {
       sourceRelationalDatabaseName: input.sourceRelationalDatabaseName,
     }),
@@ -12794,10 +12794,10 @@ const serializeAws_json1_1GetBucketMetricDataRequest = (
 ): any => {
   return {
     ...(input.bucketName != null && { bucketName: input.bucketName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
     ...(input.unit != null && { unit: input.unit }),
   };
@@ -12865,11 +12865,11 @@ const serializeAws_json1_1GetContainerImagesRequest = (
 const serializeAws_json1_1GetContainerLogRequest = (input: GetContainerLogRequest, context: __SerdeContext): any => {
   return {
     ...(input.containerName != null && { containerName: input.containerName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.filterPattern != null && { filterPattern: input.filterPattern }),
     ...(input.pageToken != null && { pageToken: input.pageToken }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -12887,11 +12887,11 @@ const serializeAws_json1_1GetContainerServiceMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
   };
 };
@@ -12958,10 +12958,10 @@ const serializeAws_json1_1GetDistributionMetricDataRequest = (
 ): any => {
   return {
     ...(input.distributionName != null && { distributionName: input.distributionName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
     ...(input.unit != null && { unit: input.unit }),
   };
@@ -13010,11 +13010,11 @@ const serializeAws_json1_1GetInstanceMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.instanceName != null && { instanceName: input.instanceName }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
     ...(input.unit != null && { unit: input.unit }),
   };
@@ -13083,11 +13083,11 @@ const serializeAws_json1_1GetLoadBalancerMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.loadBalancerName != null && { loadBalancerName: input.loadBalancerName }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
     ...(input.unit != null && { unit: input.unit }),
   };
@@ -13189,12 +13189,12 @@ const serializeAws_json1_1GetRelationalDatabaseLogEventsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.logStreamName != null && { logStreamName: input.logStreamName }),
     ...(input.pageToken != null && { pageToken: input.pageToken }),
     ...(input.relationalDatabaseName != null && { relationalDatabaseName: input.relationalDatabaseName }),
     ...(input.startFromHead != null && { startFromHead: input.startFromHead }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -13222,11 +13222,11 @@ const serializeAws_json1_1GetRelationalDatabaseMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.metricName != null && { metricName: input.metricName }),
     ...(input.period != null && { period: input.period }),
     ...(input.relationalDatabaseName != null && { relationalDatabaseName: input.relationalDatabaseName }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
     ...(input.statistics != null && { statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context) }),
     ...(input.unit != null && { unit: input.unit }),
   };

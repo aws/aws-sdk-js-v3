@@ -302,8 +302,8 @@ export const serializeAws_restJson1DescribeAccountOverviewCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/overview";
   let body: any;
   body = JSON.stringify({
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000).toString() }),
+    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000).toString() }),
   });
   return new __HttpRequest({
     protocol,
@@ -449,11 +449,11 @@ export const serializeAws_restJson1DescribeOrganizationOverviewCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
+    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000).toString() }),
     ...(input.OrganizationalUnitIds != null && {
       OrganizationalUnitIds: serializeAws_restJson1OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
     }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000).toString() }),
   });
   return new __HttpRequest({
     protocol,
@@ -3005,8 +3005,8 @@ const serializeAws_restJson1CostEstimationTagValues = (input: string[], context:
 
 const serializeAws_restJson1EndTimeRange = (input: EndTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000).toString() }),
+    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -3023,8 +3023,8 @@ const serializeAws_restJson1EventSourcesConfig = (input: EventSourcesConfig, con
 
 const serializeAws_restJson1EventTimeRange = (input: EventTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000).toString() }),
+    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -3290,8 +3290,8 @@ const serializeAws_restJson1StackNames = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1StartTimeRange = (input: StartTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000).toString() }),
+    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000).toString() }),
   };
 };
 

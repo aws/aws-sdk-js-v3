@@ -2743,7 +2743,7 @@ const serializeAws_json1_1CreateReplicationJobRequest = (
     ...(input.roleName != null && { roleName: input.roleName }),
     ...(input.runOnce != null && { runOnce: input.runOnce }),
     ...(input.seedReplicationTime != null && {
-      seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000),
+      seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000).toString(),
     }),
     ...(input.serverId != null && { serverId: input.serverId }),
   };
@@ -3197,7 +3197,7 @@ const serializeAws_json1_1ServerReplicationParameters = (
     ...(input.licenseType != null && { licenseType: input.licenseType }),
     ...(input.numberOfRecentAmisToKeep != null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
     ...(input.runOnce != null && { runOnce: input.runOnce }),
-    ...(input.seedTime != null && { seedTime: Math.round(input.seedTime.getTime() / 1000) }),
+    ...(input.seedTime != null && { seedTime: Math.round(input.seedTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -3328,7 +3328,7 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
     ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.licenseType != null && { licenseType: input.licenseType }),
     ...(input.nextReplicationRunStartTime != null && {
-      nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000),
+      nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000).toString(),
     }),
     ...(input.numberOfRecentAmisToKeep != null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
     ...(input.replicationJobId != null && { replicationJobId: input.replicationJobId }),

@@ -4469,7 +4469,7 @@ const serializeAws_restJson1AutoTuneMaintenanceSchedule = (
       CronExpressionForRecurrence: input.CronExpressionForRecurrence,
     }),
     ...(input.Duration != null && { Duration: serializeAws_restJson1Duration(input.Duration, context) }),
-    ...(input.StartAt != null && { StartAt: Math.round(input.StartAt.getTime() / 1000) }),
+    ...(input.StartAt != null && { StartAt: Math.round(input.StartAt.getTime() / 1000).toString() }),
   };
 };
 

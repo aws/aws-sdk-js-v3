@@ -1869,10 +1869,10 @@ const serializeAws_queryQueryTimestampsInput = (input: QueryTimestampsInput, con
     entries["normalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
   }
   if (input.epochMember != null) {
-    entries["epochMember"] = Math.round(input.epochMember.getTime() / 1000);
+    entries["epochMember"] = Math.round(input.epochMember.getTime() / 1000).toString();
   }
   if (input.epochTarget != null) {
-    entries["epochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
+    entries["epochTarget"] = Math.round(input.epochTarget.getTime() / 1000).toString();
   }
   return entries;
 };

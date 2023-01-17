@@ -4797,7 +4797,7 @@ const serializeAws_json1_1CreateReplicationTaskMessage = (
 ): any => {
   return {
     ...(input.CdcStartPosition != null && { CdcStartPosition: input.CdcStartPosition }),
-    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000) }),
+    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000).toString() }),
     ...(input.CdcStopPosition != null && { CdcStopPosition: input.CdcStopPosition }),
     ...(input.MigrationType != null && { MigrationType: input.MigrationType }),
     ...(input.ReplicationInstanceArn != null && { ReplicationInstanceArn: input.ReplicationInstanceArn }),
@@ -4988,7 +4988,7 @@ const serializeAws_json1_1DescribeEventCategoriesMessage = (
 const serializeAws_json1_1DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   return {
     ...(input.Duration != null && { Duration: input.Duration }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
     ...(input.EventCategories != null && {
       EventCategories: serializeAws_json1_1EventCategoriesList(input.EventCategories, context),
     }),
@@ -4997,7 +4997,7 @@ const serializeAws_json1_1DescribeEventsMessage = (input: DescribeEventsMessage,
     ...(input.MaxRecords != null && { MaxRecords: input.MaxRecords }),
     ...(input.SourceIdentifier != null && { SourceIdentifier: input.SourceIdentifier }),
     ...(input.SourceType != null && { SourceType: input.SourceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -5570,7 +5570,7 @@ const serializeAws_json1_1ModifyReplicationTaskMessage = (
 ): any => {
   return {
     ...(input.CdcStartPosition != null && { CdcStartPosition: input.CdcStartPosition }),
-    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000) }),
+    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000).toString() }),
     ...(input.CdcStopPosition != null && { CdcStopPosition: input.CdcStopPosition }),
     ...(input.MigrationType != null && { MigrationType: input.MigrationType }),
     ...(input.ReplicationTaskArn != null && { ReplicationTaskArn: input.ReplicationTaskArn }),
@@ -5917,7 +5917,7 @@ const serializeAws_json1_1StartReplicationTaskMessage = (
 ): any => {
   return {
     ...(input.CdcStartPosition != null && { CdcStartPosition: input.CdcStartPosition }),
-    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000) }),
+    ...(input.CdcStartTime != null && { CdcStartTime: Math.round(input.CdcStartTime.getTime() / 1000).toString() }),
     ...(input.CdcStopPosition != null && { CdcStopPosition: input.CdcStopPosition }),
     ...(input.ReplicationTaskArn != null && { ReplicationTaskArn: input.ReplicationTaskArn }),
     ...(input.StartReplicationTaskType != null && { StartReplicationTaskType: input.StartReplicationTaskType }),

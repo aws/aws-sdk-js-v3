@@ -2313,12 +2313,12 @@ const serializeAws_json1_1StartDataCollectionByAgentIdsRequest = (
 
 const serializeAws_json1_1StartExportTaskRequest = (input: StartExportTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
     ...(input.exportDataFormat != null && {
       exportDataFormat: serializeAws_json1_1ExportDataFormats(input.exportDataFormat, context),
     }),
     ...(input.filters != null && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
   };
 };
 

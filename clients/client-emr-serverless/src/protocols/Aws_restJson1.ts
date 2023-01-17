@@ -322,11 +322,11 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     createdAtAfter: [
       () => input.createdAtAfter !== void 0,
-      () => (input.createdAtAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.createdAtAfter!.toISOString().split(".")[0] + "Z",
     ],
     createdAtBefore: [
       () => input.createdAtBefore !== void 0,
-      () => (input.createdAtBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.createdAtBefore!.toISOString().split(".")[0] + "Z",
     ],
     states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
   });

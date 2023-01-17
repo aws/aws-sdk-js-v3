@@ -277,13 +277,15 @@ const serializeAws_restJson1DeploymentModels = (input: DeploymentModel[], contex
 
 const serializeAws_restJson1DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
   return {
-    ...(input.DeploymentEndTime != null && { DeploymentEndTime: Math.round(input.DeploymentEndTime.getTime() / 1000) }),
+    ...(input.DeploymentEndTime != null && {
+      DeploymentEndTime: Math.round(input.DeploymentEndTime.getTime() / 1000).toString(),
+    }),
     ...(input.DeploymentModels != null && {
       DeploymentModels: serializeAws_restJson1DeploymentModels(input.DeploymentModels, context),
     }),
     ...(input.DeploymentName != null && { DeploymentName: input.DeploymentName }),
     ...(input.DeploymentStartTime != null && {
-      DeploymentStartTime: Math.round(input.DeploymentStartTime.getTime() / 1000),
+      DeploymentStartTime: Math.round(input.DeploymentStartTime.getTime() / 1000).toString(),
     }),
     ...(input.DeploymentStatus != null && { DeploymentStatus: input.DeploymentStatus }),
     ...(input.DeploymentStatusMessage != null && { DeploymentStatusMessage: input.DeploymentStatusMessage }),
@@ -294,7 +296,7 @@ const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeCon
   return {
     ...(input.Dimension != null && { Dimension: input.Dimension }),
     ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
     ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };
@@ -309,8 +311,12 @@ const serializeAws_restJson1EdgeMetrics = (input: EdgeMetric[], context: __Serde
 
 const serializeAws_restJson1Model = (input: Model, context: __SerdeContext): any => {
   return {
-    ...(input.LatestInference != null && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
-    ...(input.LatestSampleTime != null && { LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000) }),
+    ...(input.LatestInference != null && {
+      LatestInference: Math.round(input.LatestInference.getTime() / 1000).toString(),
+    }),
+    ...(input.LatestSampleTime != null && {
+      LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000).toString(),
+    }),
     ...(input.ModelMetrics != null && { ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context) }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),

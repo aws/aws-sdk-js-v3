@@ -7706,7 +7706,9 @@ const serializeAws_json1_1Evaluation = (input: Evaluation, context: __SerdeConte
     ...(input.ComplianceResourceId != null && { ComplianceResourceId: input.ComplianceResourceId }),
     ...(input.ComplianceResourceType != null && { ComplianceResourceType: input.ComplianceResourceType }),
     ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.OrderingTimestamp != null && { OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000) }),
+    ...(input.OrderingTimestamp != null && {
+      OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000).toString(),
+    }),
   };
 };
 
@@ -7763,7 +7765,9 @@ const serializeAws_json1_1ExternalEvaluation = (input: ExternalEvaluation, conte
     ...(input.ComplianceResourceId != null && { ComplianceResourceId: input.ComplianceResourceId }),
     ...(input.ComplianceResourceType != null && { ComplianceResourceType: input.ComplianceResourceType }),
     ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.OrderingTimestamp != null && { OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000) }),
+    ...(input.OrderingTimestamp != null && {
+      OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000).toString(),
+    }),
   };
 };
 
@@ -7982,8 +7986,8 @@ const serializeAws_json1_1GetResourceConfigHistoryRequest = (
 ): any => {
   return {
     ...(input.chronologicalOrder != null && { chronologicalOrder: input.chronologicalOrder }),
-    ...(input.earlierTime != null && { earlierTime: Math.round(input.earlierTime.getTime() / 1000) }),
-    ...(input.laterTime != null && { laterTime: Math.round(input.laterTime.getTime() / 1000) }),
+    ...(input.earlierTime != null && { earlierTime: Math.round(input.earlierTime.getTime() / 1000).toString() }),
+    ...(input.laterTime != null && { laterTime: Math.round(input.laterTime.getTime() / 1000).toString() }),
     ...(input.limit != null && { limit: input.limit }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.resourceId != null && { resourceId: input.resourceId }),
@@ -8396,7 +8400,9 @@ const serializeAws_json1_1PutRemediationExceptionsRequest = (
 ): any => {
   return {
     ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ExpirationTime != null && { ExpirationTime: Math.round(input.ExpirationTime.getTime() / 1000) }),
+    ...(input.ExpirationTime != null && {
+      ExpirationTime: Math.round(input.ExpirationTime.getTime() / 1000).toString(),
+    }),
     ...(input.Message != null && { Message: input.Message }),
     ...(input.ResourceKeys != null && {
       ResourceKeys: serializeAws_json1_1RemediationExceptionResourceKeys(input.ResourceKeys, context),
@@ -8868,8 +8874,8 @@ const serializeAws_json1_1TemplateSSMDocumentDetails = (
 
 const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
   };
 };
 

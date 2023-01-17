@@ -1009,8 +1009,8 @@ const serializeAws_json1_0CreateFHIRDatastoreRequest = (
 
 const serializeAws_json1_0DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
   return {
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000).toString() }),
+    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000).toString() }),
     ...(input.DatastoreName != null && { DatastoreName: input.DatastoreName }),
     ...(input.DatastoreStatus != null && { DatastoreStatus: input.DatastoreStatus }),
   };
@@ -1089,8 +1089,12 @@ const serializeAws_json1_0ListFHIRExportJobsRequest = (
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+    ...(input.SubmittedAfter != null && {
+      SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000).toString(),
+    }),
+    ...(input.SubmittedBefore != null && {
+      SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000).toString(),
+    }),
   };
 };
 
@@ -1104,8 +1108,12 @@ const serializeAws_json1_0ListFHIRImportJobsRequest = (
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+    ...(input.SubmittedAfter != null && {
+      SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000).toString(),
+    }),
+    ...(input.SubmittedBefore != null && {
+      SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000).toString(),
+    }),
   };
 };
 

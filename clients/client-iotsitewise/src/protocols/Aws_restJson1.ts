@@ -1678,11 +1678,11 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     qualities: [() => input.qualities !== void 0, () => (input.qualities! || []).map((_entry) => _entry as any)],
     startDate: [
       __expectNonNull(input.startDate, `startDate`) != null,
-      () => (input.startDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startDate!.toISOString().split(".")[0] + "Z",
     ],
     endDate: [
       __expectNonNull(input.endDate, `endDate`) != null,
-      () => (input.endDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endDate!.toISOString().split(".")[0] + "Z",
     ],
     timeOrdering: [, input.timeOrdering!],
     nextToken: [, input.nextToken!],
@@ -1751,11 +1751,8 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
     assetId: [, input.assetId!],
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
-    startDate: [
-      () => input.startDate !== void 0,
-      () => (input.startDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    endDate: [() => input.endDate !== void 0, () => (input.endDate!.toISOString().split(".")[0] + "Z").toString()],
+    startDate: [() => input.startDate !== void 0, () => input.startDate!.toISOString().split(".")[0] + "Z"],
+    endDate: [() => input.endDate !== void 0, () => input.endDate!.toISOString().split(".")[0] + "Z"],
     qualities: [() => input.qualities !== void 0, () => (input.qualities! || []).map((_entry) => _entry as any)],
     timeOrdering: [, input.timeOrdering!],
     nextToken: [, input.nextToken!],
@@ -7439,13 +7436,13 @@ const serializeAws_restJson1BatchGetAssetPropertyAggregatesEntry = (
       aggregateTypes: serializeAws_restJson1AggregateTypes(input.aggregateTypes, context),
     }),
     ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
+    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000).toString() }),
     ...(input.entryId != null && { entryId: input.entryId }),
     ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
     ...(input.propertyId != null && { propertyId: input.propertyId }),
     ...(input.qualities != null && { qualities: serializeAws_restJson1Qualities(input.qualities, context) }),
     ...(input.resolution != null && { resolution: input.resolution }),
-    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
+    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000).toString() }),
     ...(input.timeOrdering != null && { timeOrdering: input.timeOrdering }),
   };
 };
@@ -7490,12 +7487,12 @@ const serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntry = (
 ): any => {
   return {
     ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
+    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000).toString() }),
     ...(input.entryId != null && { entryId: input.entryId }),
     ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
     ...(input.propertyId != null && { propertyId: input.propertyId }),
     ...(input.qualities != null && { qualities: serializeAws_restJson1Qualities(input.qualities, context) }),
-    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
+    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000).toString() }),
     ...(input.timeOrdering != null && { timeOrdering: input.timeOrdering }),
   };
 };

@@ -4769,7 +4769,7 @@ const serializeAws_json1_1ImportKeyMaterialRequest = (
     ...(input.ExpirationModel != null && { ExpirationModel: input.ExpirationModel }),
     ...(input.ImportToken != null && { ImportToken: context.base64Encoder(input.ImportToken) }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.ValidTo != null && { ValidTo: Math.round(input.ValidTo.getTime() / 1000) }),
+    ...(input.ValidTo != null && { ValidTo: Math.round(input.ValidTo.getTime() / 1000).toString() }),
   };
 };
 

@@ -2700,8 +2700,10 @@ const serializeAws_json1_1AppsList = (input: App[], context: __SerdeContext): an
 const serializeAws_json1_1AppsListData = (input: AppsListData, context: __SerdeContext): any => {
   return {
     ...(input.AppsList != null && { AppsList: serializeAws_json1_1AppsList(input.AppsList, context) }),
-    ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
-    ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000).toString() }),
+    ...(input.LastUpdateTime != null && {
+      LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000).toString(),
+    }),
     ...(input.ListId != null && { ListId: input.ListId }),
     ...(input.ListName != null && { ListName: input.ListName }),
     ...(input.ListUpdateToken != null && { ListUpdateToken: input.ListUpdateToken }),
@@ -2871,12 +2873,12 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.MemberAccountId != null && { MemberAccountId: input.MemberAccountId }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
   };
 };
 
@@ -3102,8 +3104,10 @@ const serializeAws_json1_1ProtocolsList = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext): any => {
   return {
-    ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
-    ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.CreateTime != null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000).toString() }),
+    ...(input.LastUpdateTime != null && {
+      LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000).toString(),
+    }),
     ...(input.ListId != null && { ListId: input.ListId }),
     ...(input.ListName != null && { ListName: input.ListName }),
     ...(input.ListUpdateToken != null && { ListUpdateToken: input.ListUpdateToken }),
@@ -3160,7 +3164,9 @@ const serializeAws_json1_1ResourceSet = (input: ResourceSet, context: __SerdeCon
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Id != null && { Id: input.Id }),
-    ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.LastUpdateTime != null && {
+      LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000).toString(),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResourceTypeList != null && {
       ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),

@@ -1548,7 +1548,7 @@ const serializeAws_restJson1PipeSourceKinesisStreamParameters = (
     ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
     ...(input.StartingPosition != null && { StartingPosition: input.StartingPosition }),
     ...(input.StartingPositionTimestamp != null && {
-      StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000),
+      StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000).toString(),
     }),
   };
 };

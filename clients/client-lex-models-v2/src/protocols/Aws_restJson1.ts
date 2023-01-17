@@ -8128,8 +8128,8 @@ const serializeAws_restJson1DataPrivacy = (input: DataPrivacy, context: __SerdeC
 
 const serializeAws_restJson1DateRangeFilter = (input: DateRangeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.endDateTime != null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000) }),
-    ...(input.startDateTime != null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000) }),
+    ...(input.endDateTime != null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000).toString() }),
+    ...(input.startDateTime != null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000).toString() }),
   };
 };
 

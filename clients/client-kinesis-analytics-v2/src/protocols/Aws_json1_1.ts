@@ -3009,7 +3009,9 @@ const serializeAws_json1_1DeleteApplicationRequest = (
 ): any => {
   return {
     ...(input.ApplicationName != null && { ApplicationName: input.ApplicationName }),
-    ...(input.CreateTimestamp != null && { CreateTimestamp: Math.round(input.CreateTimestamp.getTime() / 1000) }),
+    ...(input.CreateTimestamp != null && {
+      CreateTimestamp: Math.round(input.CreateTimestamp.getTime() / 1000).toString(),
+    }),
   };
 };
 
@@ -3020,7 +3022,7 @@ const serializeAws_json1_1DeleteApplicationSnapshotRequest = (
   return {
     ...(input.ApplicationName != null && { ApplicationName: input.ApplicationName }),
     ...(input.SnapshotCreationTimestamp != null && {
-      SnapshotCreationTimestamp: Math.round(input.SnapshotCreationTimestamp.getTime() / 1000),
+      SnapshotCreationTimestamp: Math.round(input.SnapshotCreationTimestamp.getTime() / 1000).toString(),
     }),
     ...(input.SnapshotName != null && { SnapshotName: input.SnapshotName }),
   };
