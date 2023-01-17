@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+
+### Features
+
+* **client-network-firewall:** Network Firewall now allows creation of dual stack endpoints, enabling inspection of IPv6 traffic. ([fa63303](https://github.com/aws/aws-sdk-js-v3/commit/fa63303c12a86a7a1cbd134c29150e1ff3d8bc53))
+
+
+
+
+
 # [3.247.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.246.0...v3.247.0) (2023-01-09)
 
 

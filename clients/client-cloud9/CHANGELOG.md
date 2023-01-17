@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+
+### Features
+
+* **client-cloud9:** Added minimum value to AutomaticStopTimeMinutes parameter. ([e83c07a](https://github.com/aws/aws-sdk-js-v3/commit/e83c07acb0fbe6c958048dadfa1ab9f3b537cadd))
+
+
+
+
+
 # [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
 
 **Note:** Version bump only for package @aws-sdk/client-cloud9

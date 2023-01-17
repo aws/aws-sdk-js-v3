@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+
+### Features
+
+* **client-billingconductor:** This release adds support for SKU Scope for pricing plans. ([e42406a](https://github.com/aws/aws-sdk-js-v3/commit/e42406a1c64bd1ff037fd74ba031a177a529ead1))
+* **client-cloud9:** Added minimum value to AutomaticStopTimeMinutes parameter. ([e83c07a](https://github.com/aws/aws-sdk-js-v3/commit/e83c07acb0fbe6c958048dadfa1ab9f3b537cadd))
+* **client-imagebuilder:** Add support for AWS Marketplace product IDs as input during CreateImageRecipe for the parent-image parameter. Add support for listing third-party components. ([7377752](https://github.com/aws/aws-sdk-js-v3/commit/7377752b0d3bee31162ccdff64905a96c9bcc585))
+* **client-network-firewall:** Network Firewall now allows creation of dual stack endpoints, enabling inspection of IPv6 traffic. ([fa63303](https://github.com/aws/aws-sdk-js-v3/commit/fa63303c12a86a7a1cbd134c29150e1ff3d8bc53))
+* **clients:** update client endpoints as of 2023-01-17 ([afdd31b](https://github.com/aws/aws-sdk-js-v3/commit/afdd31b2e6e34f274b30e4686466fc914c3522bc))
+
+
+
+
+
 # [3.251.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.250.0...v3.251.0) (2023-01-13)
 
 
