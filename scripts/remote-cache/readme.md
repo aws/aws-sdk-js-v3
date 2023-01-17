@@ -10,9 +10,4 @@ is then cleaned up with `kill-port`.
 
 Example usage:
 
-```
-	rm -rf ./node_modules/.cache/turbo
-	node scripts/remote-cache/ start&
-	npx turbo run build --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
-	npx kill-port 3000
-```
+See root `Makefile` for Turborepo usage.

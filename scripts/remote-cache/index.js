@@ -41,3 +41,8 @@ module.exports = {
 if (process.argv.includes("start")) {
   module.exports.start();
 }
+
+if (process.argv.includes("stop")) {
+  const { spawnProcess } = require("../utils/spawn-process");
+  spawnProcess("npx", ["kill-port", port.toString()]);
+}

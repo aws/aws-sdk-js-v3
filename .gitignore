@@ -20,7 +20,7 @@ jspm_packages
 .DS_Store
 .vscode/launch.json
 
-Makefile
+Makefile.private.mk
 lerna-debug.log
 package-lock.json
 
@@ -32,7 +32,9 @@ dist
 *.iws
 
 codegen/**/build
+codegen/**/build-single
 codegen/sdk-codegen/smithy-build.json
+codegen/sdk-codegen/smithy-build-*.json
 .gradle
 */out/
 */*/out/
