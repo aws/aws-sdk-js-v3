@@ -32,6 +32,22 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
  *          web ACL, according to the configuration provided. </p>
  *          <note>
+ *             <p>This operation completely replaces any mutable specifications that you already have for a logging configuration with the ones that you provide to this call. </p>
+ *             <p>To modify an existing logging configuration, do the following: </p>
+ *             <ol>
+ *                <li>
+ *                   <p>Retrieve it by calling <a>GetLoggingConfiguration</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Update its settings as needed</p>
+ *                </li>
+ *                <li>
+ *                   <p>Provide the complete logging configuration specification to this call</p>
+ *                </li>
+ *             </ol>
+ *          </note>
+ *          <note>
  *             <p>You can define one logging destination per web ACL.</p>
  *          </note>
  *          <p>You can access information about the traffic that WAF inspects using the following
@@ -56,9 +72,6 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *          <p>For additional information about web ACL logging, see
  *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
  *                in the <i>WAF Developer Guide</i>.</p>
- *          <note>
- *             <p>This operation completely replaces the mutable specifications that you already have for the logging configuration with the ones that you provide to this call. To modify the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>, update the settings as needed, and then provide the complete logging configuration specification to this call.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

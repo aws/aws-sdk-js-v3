@@ -2169,9 +2169,9 @@ export interface VisibilityConfig {
   CloudWatchMetricsEnabled: boolean | undefined;
 
   /**
-   * <p>A name of the Amazon CloudWatch metric. The name can contain only the characters: A-Z, a-z, 0-9,
+   * <p>A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9,
    *          - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't
-   *       contain whitespace or metric names reserved for WAF, for example <code>All</code> and
+   *       contain whitespace or metric names that are reserved for WAF, for example <code>All</code> and
    *       <code>Default_Action</code>. </p>
    */
   MetricName: string | undefined;
@@ -3827,7 +3827,7 @@ export interface GetSampledRequestsRequest {
   WebAclArn: string | undefined;
 
   /**
-   * <p>The metric name assigned to the <code>Rule</code> or <code>RuleGroup</code> for which
+   * <p>The metric name assigned to the <code>Rule</code> or <code>RuleGroup</code> dimension for which
    *          you want a sample of requests.</p>
    */
   RuleMetricName: string | undefined;
