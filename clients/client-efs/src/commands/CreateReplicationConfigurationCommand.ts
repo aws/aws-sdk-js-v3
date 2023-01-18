@@ -79,7 +79,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are set by default:</p>
  *          <ul>
  *             <li>
@@ -96,7 +95,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *           throughput mode.</p>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are turned off by default:</p>
  *          <ul>
  *             <li>
@@ -113,7 +111,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *           setting.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>.</p>
  * @example

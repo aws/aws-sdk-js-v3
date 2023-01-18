@@ -49,7 +49,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *             <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
  *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
  *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
@@ -74,7 +73,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *                </note>
  *             </li>
  *          </ul>
- *
  *          <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
  *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
  *       need the same Key Management Service permissions as when you created the encrypted file system.</p>
