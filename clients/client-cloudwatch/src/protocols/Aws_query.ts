@@ -4171,6 +4171,9 @@ const serializeAws_queryPutMetricStreamInput = (input: PutMetricStreamInput, con
       entries[loc] = value;
     });
   }
+  if (input.IncludeLinkedAccountsMetrics != null) {
+    entries["IncludeLinkedAccountsMetrics"] = input.IncludeLinkedAccountsMetrics;
+  }
   return entries;
 };
 
@@ -5149,6 +5152,7 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
     LastUpdateDate: undefined,
     OutputFormat: undefined,
     StatisticsConfigurations: undefined,
+    IncludeLinkedAccountsMetrics: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
@@ -5200,6 +5204,9 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
       __getArrayIfSingleItem(output["StatisticsConfigurations"]["member"]),
       context
     );
+  }
+  if (output["IncludeLinkedAccountsMetrics"] !== undefined) {
+    contents.IncludeLinkedAccountsMetrics = __parseBoolean(output["IncludeLinkedAccountsMetrics"]);
   }
   return contents;
 };
