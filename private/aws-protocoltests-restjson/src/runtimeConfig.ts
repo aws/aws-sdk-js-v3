@@ -11,7 +11,7 @@ import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor as __ChecksumConstructor } from "@aws-sdk/types";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-node";

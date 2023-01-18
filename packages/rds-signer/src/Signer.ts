@@ -1,6 +1,12 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider, HashConstructor, Provider } from "@aws-sdk/types";
+import {
+  AwsCredentialIdentity,
+  AwsCredentialIdentityProvider,
+  ChecksumConstructor,
+  HashConstructor,
+  Provider,
+} from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -25,7 +31,7 @@ export interface SignerConfig {
   /**
    * The SHA256 hasher constructor to sign the request.
    */
-  sha256?: HashConstructor;
+  sha256?: ChecksumConstructor;
   /**
    * The username to login as.
    */
@@ -42,7 +48,7 @@ export class Signer {
   private readonly protocol: string = "https:";
   private readonly region: string | Provider<string>;
   private readonly service: string = "rds-db";
-  private readonly sha256: HashConstructor;
+  private readonly sha256: ChecksumConstructor | HashConstructor;
   private readonly username: string;
 
   constructor(configuration: SignerConfig) {

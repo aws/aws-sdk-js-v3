@@ -4,6 +4,7 @@ function createMockHash(): {
   updates: Buffer[];
   update: (data: Buffer) => void;
   digest: () => Promise<Uint8Array>;
+  reset: () => void;
 } {
   const mockHash: any = {
     updates: [] as Buffer[],
@@ -14,6 +15,7 @@ function createMockHash(): {
   mockHash.digest = async () => {
     return Uint8Array.from([102, 111, 111]); // foo
   };
+  mockHash.reset = () => {};
   return mockHash;
 }
 

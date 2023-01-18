@@ -1,9 +1,12 @@
-import { HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { ChecksumConstructor, StreamChecksum } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
-export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) => {
+export const readableStreamHasher: StreamChecksum<Readable> = (
+  hashCtor: ChecksumConstructor,
+  readableStream: Readable
+) => {
   // Throw if readableStream is already flowing.
   if (readableStream.readableFlowing !== null) {
     throw new Error("Unable to calculate hash for flowing readable stream");

@@ -1,11 +1,11 @@
-import { HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { ChecksumConstructor, StreamChecksum } from "@aws-sdk/types";
 import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
 // ToDo: deprecate in favor of readableStreamHasher
-export const fileStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, fileStream: Readable) =>
+export const fileStreamHasher: StreamChecksum<Readable> = (hashCtor: ChecksumConstructor, fileStream: Readable) =>
   new Promise((resolve, reject) => {
     if (!isReadStream(fileStream)) {
       reject(new Error("Unable to calculate hash for non-file streams."));

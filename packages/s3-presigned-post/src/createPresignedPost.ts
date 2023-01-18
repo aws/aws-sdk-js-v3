@@ -5,9 +5,10 @@ import {
   toEndpointV1,
 } from "@aws-sdk/middleware-endpoint";
 import { createScope, getSigningKey } from "@aws-sdk/signature-v4";
-import { HashConstructor, SourceData } from "@aws-sdk/types";
+import { ChecksumConstructor, SourceData } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -114,8 +115,8 @@ export const createPresignedPost = async (
 
 const iso8601 = (date: Date) => date.toISOString().replace(/\.\d{3}Z$/, "Z");
 
-const hmac = (ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> => {
+const hmac = (ctor: ChecksumConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> => {
   const hash = new ctor(secret);
-  hash.update(data);
+  hash.update(toUint8Array(data));
   return hash.digest();
 };

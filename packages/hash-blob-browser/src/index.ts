@@ -1,8 +1,8 @@
 import { blobReader } from "@aws-sdk/chunked-blob-reader";
-import { HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { ChecksumConstructor, StreamChecksum } from "@aws-sdk/types";
 
-export const blobHasher: StreamHasher<Blob> = async function blobHasher(
-  hashCtor: HashConstructor,
+export const blobHasher: StreamChecksum<Blob> = async function blobHasher(
+  hashCtor: ChecksumConstructor,
   blob: Blob
 ): Promise<Uint8Array> {
   const hash = new hashCtor();

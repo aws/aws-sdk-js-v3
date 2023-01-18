@@ -1,11 +1,11 @@
-import { Encoder, HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { ChecksumConstructor, Encoder, StreamChecksum } from "@aws-sdk/types";
 
 import { isStreaming } from "./isStreaming";
 import { stringHasher } from "./stringHasher";
 
 export interface GetChecksumDigestOptions {
-  streamHasher: StreamHasher<any>;
-  checksumAlgorithmFn: HashConstructor;
+  streamHasher: StreamChecksum<any>;
+  checksumAlgorithmFn: ChecksumConstructor;
   base64Encoder: Encoder;
 }
 

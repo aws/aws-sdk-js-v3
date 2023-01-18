@@ -1,7 +1,7 @@
 import {
+  ChecksumConstructor,
   Decoder,
   Encoder,
-  HashConstructor,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 interface PreviouslyResolved {
   base64Encoder: Encoder;
-  md5: HashConstructor;
+  md5: ChecksumConstructor;
   utf8Decoder: Decoder;
 }
 

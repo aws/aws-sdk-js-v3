@@ -20,8 +20,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/crc32": "2.0.0",
-    "@aws-crypto/crc32c": "2.0.0",
+    "@aws-crypto/crc32": "3.0.0",
+    "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",

@@ -1,12 +1,13 @@
-import { HashConstructor, StreamHasher } from "./crypto";
+import { ChecksumConstructor } from "./checksum";
+import { StreamChecksum } from "./checksum";
 import { BodyLengthCalculator, Encoder } from "./util";
 
 export interface GetAwsChunkedEncodingStreamOptions {
   base64Encoder?: Encoder;
   bodyLengthChecker: BodyLengthCalculator;
-  checksumAlgorithmFn?: HashConstructor;
+  checksumAlgorithmFn?: ChecksumConstructor;
   checksumLocationName?: string;
-  streamHasher?: StreamHasher;
+  streamHasher?: StreamChecksum;
 }
 
 /**

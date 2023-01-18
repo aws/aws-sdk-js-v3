@@ -1,3 +1,5 @@
+import { SourceData } from "./crypto";
+
 /**
  * An object that provides a checksum of data provided in chunks to `update`.
  * The checksum may be performed incrementally as chunks are received or all
@@ -52,4 +54,22 @@ export interface Checksum {
    * @param {Uint8Array} chunk - The buffer to update checksum with.
    */
   update(chunk: Uint8Array): void;
+}
+
+/**
+ * A constructor for a Checksum that may be used to calculate an HMAC. Implementing
+ * classes should not directly hold the provided key in memory beyond the
+ * lexical scope of the constructor.
+ */
+export interface ChecksumConstructor {
+  new (secret?: SourceData): Checksum;
+}
+
+/**
+ * A function that calculates the checksum of a data stream. Determining the checksum
+ * will consume the stream, so only replayable streams should be provided to an
+ * implementation of this interface.
+ */
+export interface StreamChecksum<StreamType = any> {
+  (hashCtor: ChecksumConstructor, stream: StreamType): Promise<Uint8Array>;
 }

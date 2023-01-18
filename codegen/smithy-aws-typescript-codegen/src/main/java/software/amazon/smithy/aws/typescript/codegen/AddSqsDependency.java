@@ -73,12 +73,12 @@ public class AddSqsDependency implements TypeScriptIntegration {
             return;
         }
 
-        writer.addImport("Hash", "__Hash", "@aws-sdk/types");
-        writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
-        writer.writeDocs("A constructor for a class implementing the {@link __Hash} interface \n"
+        writer.addImport("Checksum", "__Checksum", "@aws-sdk/types");
+        writer.addImport("ChecksumConstructor", "__ChecksumConstructor", "@aws-sdk/types");
+        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes MD5 hashes.\n"
                 + "@internal");
-        writer.write("md5?: __HashConstructor;\n");
+        writer.write("md5?: __ChecksumConstructor;\n");
     }
 
     @Override
@@ -96,7 +96,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                    writer.addImport("HashConstructor", "__HashConstructor",
+                    writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
                             TypeScriptDependency.AWS_SDK_TYPES.packageName);
                     writer.write("Hash.bind(null, \"md5\")");
                 });

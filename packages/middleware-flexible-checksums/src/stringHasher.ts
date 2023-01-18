@@ -1,9 +1,9 @@
-import { HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@aws-sdk/types";
 
 /**
  * A function that, given a hash constructor and a string, calculates the hash of the string.
  */
-export const stringHasher = (checksumAlgorithmFn: HashConstructor, body: any) => {
+export const stringHasher = (checksumAlgorithmFn: ChecksumConstructor, body: any) => {
   const hash = new checksumAlgorithmFn();
   hash.update(body || "");
   return hash.digest();

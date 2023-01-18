@@ -1,5 +1,5 @@
-import { HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@aws-sdk/types";
 
 export interface PreviouslyResolved {
-  md5: HashConstructor;
+  md5: ChecksumConstructor;
 }

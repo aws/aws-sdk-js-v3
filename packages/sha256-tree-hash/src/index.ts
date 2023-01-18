@@ -1,11 +1,11 @@
-import { Decoder, Hash, HashConstructor, SourceData } from "@aws-sdk/types";
+import { Checksum, ChecksumConstructor, Decoder, SourceData } from "@aws-sdk/types";
 
 const MiB = 1048576;
 
 /**
  * A Hash that will calculate a Sha256 tree hash.
  */
-export class TreeHash implements Hash {
+export class TreeHash implements Checksum {
   private buffer?: Uint8Array;
   private collectedHashDigests: Promise<Uint8Array>[] = [];
 
@@ -13,7 +13,7 @@ export class TreeHash implements Hash {
    * Initializes a TreeHash.
    * @param Sha256 A Sha256 hash constructor.
    */
-  constructor(private readonly Sha256: HashConstructor, private readonly fromUtf8: Decoder) {}
+  constructor(private readonly Sha256: ChecksumConstructor, private readonly fromUtf8: Decoder) {}
 
   /**
    * Generates Sha256 hashes from 1 MiB chunks of the
@@ -39,7 +39,7 @@ export class TreeHash implements Hash {
 
   /**
    * Updates the tree hash with byte data.
-   * @param chunk Byte data to apply to the tree hash.
+   * @param data Byte data to apply to the tree hash.
    */
   public update(data: SourceData) {
     const chunk = this.convertToBuffer(data);
@@ -115,5 +115,10 @@ export class TreeHash implements Hash {
     }
 
     return new Uint8Array(data);
+  }
+
+  reset() {
+    this.buffer = undefined;
+    this.collectedHashDigests = [];
   }
 }

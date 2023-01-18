@@ -1,5 +1,6 @@
 import {
   AwsCredentialIdentity,
+  ChecksumConstructor,
   DateInput,
   EventSigner,
   EventSigningArguments,
@@ -17,6 +18,7 @@ import {
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -65,7 +67,7 @@ export interface SignatureV4Init {
    * A constructor function for a hash object that will calculate SHA-256 HMAC
    * checksums.
    */
-  sha256?: HashConstructor;
+  sha256?: ChecksumConstructor | HashConstructor;
 
   /**
    * Whether to uri-escape the request URI path as part of computing the
@@ -88,14 +90,14 @@ export interface SignatureV4Init {
 }
 
 export interface SignatureV4CryptoInit {
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
 }
 
 export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
   private readonly credentialProvider: Provider<AwsCredentialIdentity>;
-  private readonly sha256: HashConstructor;
+  private readonly sha256: ChecksumConstructor | HashConstructor;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
 
@@ -206,7 +208,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     const { shortDate } = formatDate(signingDate);
 
     const hash = new this.sha256(await this.getSigningKey(credentials, region, shortDate, signingService));
-    hash.update(stringToSign);
+    hash.update(toUint8Array(stringToSign));
     return toHex(await hash.digest());
   }
 
@@ -271,7 +273,7 @@ ${payloadHash}`;
     canonicalRequest: string
   ): Promise<string> {
     const hash = new this.sha256();
-    hash.update(canonicalRequest);
+    hash.update(toUint8Array(canonicalRequest));
     const hashedRequest = await hash.digest();
 
     return `${ALGORITHM_IDENTIFIER}
@@ -318,7 +320,7 @@ ${toHex(hashedRequest)}`;
     const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest);
 
     const hash = new this.sha256(await keyPromise);
-    hash.update(stringToSign);
+    hash.update(toUint8Array(stringToSign));
     return toHex(await hash.digest());
   }
 

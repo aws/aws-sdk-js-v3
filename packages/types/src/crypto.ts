@@ -1,5 +1,3 @@
-import { Checksum } from "./checksum";
-
 export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
 /**
@@ -31,6 +29,8 @@ export interface Hash {
  * A constructor for a hash that may be used to calculate an HMAC. Implementing
  * classes should not directly hold the provided key in memory beyond the
  * lexical scope of the constructor.
+ *
+ * @deprecated use {@link ChecksumConstructor}
  */
 export interface HashConstructor {
   new (secret?: SourceData): Hash;
@@ -40,6 +40,8 @@ export interface HashConstructor {
  * A function that calculates the hash of a data stream. Determining the hash
  * will consume the stream, so only replayable streams should be provided to an
  * implementation of this interface.
+ *
+ * @deprecated use {@link StreamChecksumCalculator}
  */
 export interface StreamHasher<StreamType = any> {
   (hashCtor: HashConstructor, stream: StreamType): Promise<Uint8Array>;

@@ -1,5 +1,5 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
-import { HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@aws-sdk/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -29,7 +29,7 @@ export const validateChecksumFromResponse = async (
     const responseHeader = getChecksumLocationName(algorithm);
     const checksumFromResponse = responseHeaders[responseHeader];
     if (checksumFromResponse) {
-      const checksumAlgorithmFn: HashConstructor = selectChecksumAlgorithmFunction(
+      const checksumAlgorithmFn: ChecksumConstructor = selectChecksumAlgorithmFunction(
         algorithm as ChecksumAlgorithm,
         config
       );

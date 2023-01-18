@@ -1,17 +1,20 @@
-import { HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@aws-sdk/types";
 
 import { sendMessageMiddleware } from "./send-message";
 
 describe("sendMessageMiddleware", () => {
   const mockHashUpdate = jest.fn();
+  const mockHashReset = jest.fn();
   const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(1));
-  const MockHash: HashConstructor = class {} as any;
+  const MockHash: ChecksumConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
+  MockHash.prototype.reset = mockHashReset;
 
   beforeEach(() => {
     mockHashUpdate.mockClear();
     mockHashDigest.mockClear();
+    mockHashReset.mockClear();
   });
 
   it("should only call next once", async () => {
