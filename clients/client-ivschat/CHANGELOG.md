@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.253.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.252.0...v3.253.0) (2023-01-18)
+
+
+### Features
+
+* **client-ivschat:** Updates the range for a Chat Room's maximumMessageRatePerSecond field. ([e3c8825](https://github.com/aws/aws-sdk-js-v3/commit/e3c88256997a5874a3c462547eb4f3f8bbabcaa4))
+
+
+
+
+
 # [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ivschat

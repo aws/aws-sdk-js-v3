@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.253.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.252.0...v3.253.0) (2023-01-18)
+
+
+### Features
+
+* **client-cloudwatch:** Enable cross-account streams in CloudWatch Metric Streams via Observability Access Manager. ([44c52e2](https://github.com/aws/aws-sdk-js-v3/commit/44c52e26d6fb4daa039ae21410ebf42ab9a318bd))
+* **client-ivschat:** Updates the range for a Chat Room's maximumMessageRatePerSecond field. ([e3c8825](https://github.com/aws/aws-sdk-js-v3/commit/e3c88256997a5874a3c462547eb4f3f8bbabcaa4))
+* **clients:** update client endpoints as of 2023-01-18 ([dec0073](https://github.com/aws/aws-sdk-js-v3/commit/dec0073772e30d118107d6fbad1b235cbf5ffa06))
+
+
+
+
+
 # [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
 
 
