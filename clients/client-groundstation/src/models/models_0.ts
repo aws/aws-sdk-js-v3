@@ -30,7 +30,7 @@ export enum BandwidthUnits {
 export interface FrequencyBandwidth {
   /**
    * <p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
    *             </li>
@@ -88,7 +88,7 @@ export interface SpectrumConfig {
 
   /**
    * <p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
    *             </li>
@@ -1268,6 +1268,16 @@ export interface CreateDataflowEndpointGroupRequest {
    * <p>Tags of a dataflow endpoint group.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   */
+  contactPrePassDurationSeconds?: number;
+
+  /**
+   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   */
+  contactPostPassDurationSeconds?: number;
 }
 
 /**
@@ -1416,14 +1426,14 @@ export interface CreateEphemerisRequest {
 
   /**
    * <p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>
-   *         <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
+   *          <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
    */
   enabled?: boolean;
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *         <p>Priority must be 1 or greater</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
    */
   priority?: number;
 
@@ -1555,6 +1565,16 @@ export interface GetDataflowEndpointGroupResponse {
    * <p>Tags assigned to a dataflow endpoint group.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   */
+  contactPrePassDurationSeconds?: number;
+
+  /**
+   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   */
+  contactPostPassDurationSeconds?: number;
 }
 
 /**
@@ -1737,8 +1757,8 @@ export interface DescribeEphemerisResponse {
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *         <p>Priority must be 1 or greater</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
    */
   priority?: number;
 
@@ -1789,8 +1809,8 @@ export interface EphemerisItem {
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *         <p>Priority must be 1 or greater</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
    */
   priority?: number;
 
@@ -1877,8 +1897,8 @@ export interface UpdateEphemerisRequest {
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *         <p>Priority must be 1 or greater</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
    */
   priority?: number;
 }
@@ -1899,19 +1919,19 @@ export interface EphemerisMetaData {
 
   /**
    * <p>UUID of a customer-provided ephemeris.</p>
-   *         <p>This field is not populated for default ephemerides from Space Track.</p>
+   *          <p>This field is not populated for default ephemerides from Space Track.</p>
    */
   ephemerisId?: string;
 
   /**
    * <p>The epoch of a default, ephemeris from Space Track in UTC.</p>
-   *         <p>This field is not populated for customer-provided ephemerides.</p>
+   *          <p>This field is not populated for customer-provided ephemerides.</p>
    */
   epoch?: Date;
 
   /**
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
-   *         <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
+   *          <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
    */
   name?: string;
 }

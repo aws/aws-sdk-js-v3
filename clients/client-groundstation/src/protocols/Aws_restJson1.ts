@@ -189,6 +189,12 @@ export const serializeAws_restJson1CreateDataflowEndpointGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataflowEndpointGroup";
   let body: any;
   body = JSON.stringify({
+    ...(input.contactPostPassDurationSeconds != null && {
+      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds,
+    }),
+    ...(input.contactPrePassDurationSeconds != null && {
+      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds,
+    }),
     ...(input.endpointDetails != null && {
       endpointDetails: serializeAws_restJson1EndpointDetailsList(input.endpointDetails, context),
     }),
@@ -1596,6 +1602,12 @@ export const deserializeAws_restJson1GetDataflowEndpointGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.contactPostPassDurationSeconds != null) {
+    contents.contactPostPassDurationSeconds = __expectInt32(data.contactPostPassDurationSeconds);
+  }
+  if (data.contactPrePassDurationSeconds != null) {
+    contents.contactPrePassDurationSeconds = __expectInt32(data.contactPrePassDurationSeconds);
+  }
   if (data.dataflowEndpointGroupArn != null) {
     contents.dataflowEndpointGroupArn = __expectString(data.dataflowEndpointGroupArn);
   }
