@@ -1555,8 +1555,8 @@ export interface PendingDeploymentSummary {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint for the in-progress deployment.</p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint for the in-progress deployment.</p>
    */
   ProductionVariants?: PendingProductionVariantSummary[];
 
@@ -1566,9 +1566,10 @@ export interface PendingDeploymentSummary {
   StartTime?: Date;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint in shadow mode with production traffic replicated from the
-   *             model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint in shadow mode with production traffic replicated from
+   *             the model specified on <code>ProductionVariants</code> for the in-progress
+   *             deployment.</p>
    */
   ShadowProductionVariants?: PendingProductionVariantSummary[];
 }
@@ -1751,8 +1752,8 @@ export interface DescribeEndpointOutput {
 
   /**
    * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
-   *             that you want to host at this endpoint in shadow mode with production traffic
-   *             replicated from the model specified on <code>ProductionVariants</code>.</p>
+   *             that you want to host at this endpoint in shadow mode with production traffic replicated
+   *             from the model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
@@ -7559,7 +7560,7 @@ export interface Endpoint {
 
   /**
    * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
-   *              in shadow mode with production traffic replicated from the proudction variant.</p>
+   *             in shadow mode with production traffic replicated from the proudction variant.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }

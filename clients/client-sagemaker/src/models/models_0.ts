@@ -9369,7 +9369,7 @@ export interface CreateEndpointConfigInput {
    *             to host at this endpoint in shadow mode with production traffic replicated from the
    *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
    *             specify one variant for <code>ProductionVariants</code> and one variant for
-   *             <code>ShadowProductionVariants</code>.</p>
+   *                 <code>ShadowProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariant[];
 }

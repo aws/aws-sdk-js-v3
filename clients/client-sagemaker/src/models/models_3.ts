@@ -8317,7 +8317,7 @@ export interface UpdateEndpointInput {
    *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
    *             of type <a>VariantProperty</a> to override with the values provided by
    *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
+   *                 <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden.
    *         </p>
    */
   ExcludeRetainedVariantProperties?: VariantProperty[];

@@ -21324,6 +21324,9 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinition = (
     }),
     ...(input.EnableManagedSpotTraining != null && { EnableManagedSpotTraining: input.EnableManagedSpotTraining }),
     ...(input.EnableNetworkIsolation != null && { EnableNetworkIsolation: input.EnableNetworkIsolation }),
+    ...(input.Environment != null && {
+      Environment: serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(input.Environment, context),
+    }),
     ...(input.HyperParameterRanges != null && {
       HyperParameterRanges: serializeAws_json1_1ParameterRanges(input.HyperParameterRanges, context),
     }),
@@ -21368,6 +21371,19 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinitions = (
     .map((entry) => {
       return serializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
     });
+};
+
+const serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1HyperParameterTuningInstanceConfig = (
@@ -31920,6 +31936,10 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinition = (
     EnableInterContainerTrafficEncryption: __expectBoolean(output.EnableInterContainerTrafficEncryption),
     EnableManagedSpotTraining: __expectBoolean(output.EnableManagedSpotTraining),
     EnableNetworkIsolation: __expectBoolean(output.EnableNetworkIsolation),
+    Environment:
+      output.Environment != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(output.Environment, context)
+        : undefined,
     HyperParameterRanges:
       output.HyperParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.HyperParameterRanges, context)
@@ -31970,6 +31990,19 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinitions = (
       return deserializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1HyperParameterTrainingJobSummaries = (
