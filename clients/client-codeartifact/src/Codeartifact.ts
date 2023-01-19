@@ -182,12 +182,10 @@ import {
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
- *
  *          <p>
  *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -263,7 +261,6 @@ import {
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *
  *          <p>CodeArtifact supports these operations:</p>
  *          <ul>
  *             <li>
@@ -529,7 +526,6 @@ export class Codeartifact extends CodeartifactClient {
    *         repositories owned by different Amazon Web Services accounts. An asset is stored only once
    *         in a domain, even if it's in multiple repositories.
    *     </p>
-   *
    *          <p>Although you can have multiple domains, we recommend a single production domain that contains all
    *         published artifacts so that your development teams can find and share packages. You can use a second
    *         pre-production domain to test changes to the production domain configuration.
@@ -666,7 +662,7 @@ export class Codeartifact extends CodeartifactClient {
    *       in your repository. If you want to remove a package version from your repository and be able
    *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
    *       downloaded from a repository and don't show up with list package APIs (for example,
-   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
+   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
    */
   public deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
@@ -952,13 +948,11 @@ export class Codeartifact extends CodeartifactClient {
    *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
    *       A disposed package version cannot be restored in your repository because its assets are deleted.
    *     </p>
-   *
    *          <p>
    *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
    *       to <code>Disposed</code>.
    *     </p>
-   *
    *          <p>
    *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
    *     </p>
@@ -1123,9 +1117,7 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
-   *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
-   *         <code>pom.xml</code> file of a Maven package.
+   *          Gets the readme file or descriptive text for a package version.
    *       </p>
    *          <p>
    *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.

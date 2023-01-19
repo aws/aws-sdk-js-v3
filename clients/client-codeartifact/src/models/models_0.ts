@@ -103,6 +103,11 @@ export interface AssociateExternalConnectionRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>public:pypi</code> - for the Python Package Index.
    *         </p>
    *             </li>
@@ -518,7 +523,6 @@ export interface CopyPackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be copied. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1037,7 +1041,6 @@ export interface DeletePackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be deleted. The package version component that specifies its
    *         namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1257,7 +1260,6 @@ export interface DescribePackageRequest {
   /**
    * <p>The namespace of the requested package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1325,7 +1327,6 @@ export interface PackageDescription {
   /**
    * <p>The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1397,7 +1398,6 @@ export interface DescribePackageVersionRequest {
   /**
    * <p>The namespace of the requested package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1509,7 +1509,6 @@ export interface PackageVersionDescription {
   /**
    * <p>The namespace of the package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1723,7 +1722,6 @@ export interface DisposePackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be disposed. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1923,7 +1921,6 @@ export interface GetPackageVersionAssetRequest {
   /**
    * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2029,13 +2026,16 @@ export interface GetPackageVersionReadmeRequest {
    * <p>
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
+   *          <note>
+   *             <p>Although <code>maven</code> is
+   *       listed as a valid value, CodeArtifact does not support displaying readme files for Maven packages.</p>
+   *          </note>
    */
   format: PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2083,7 +2083,6 @@ export interface GetPackageVersionReadmeResult {
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2319,9 +2318,8 @@ export interface ListPackagesRequest {
   format?: PackageFormat | string;
 
   /**
-   * <p>The namespace used to filter requested packages. Only packages with the provided namespace will be returned.
-   *       The package component that specifies its namespace depends on its type. For example:</p>
-   *
+   * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
+   *          <p>Each package format uses namespace as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2397,7 +2395,6 @@ export interface PackageSummary {
   /**
    * <p>The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2484,7 +2481,6 @@ export interface ListPackageVersionAssetsRequest {
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2546,7 +2542,6 @@ export interface ListPackageVersionAssetsResult {
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *        namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2637,7 +2632,6 @@ export interface ListPackageVersionDependenciesRequest {
   /**
    * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2690,7 +2684,6 @@ export interface PackageDependency {
   /**
    * <p>The namespace of the package that this package depends on. The package component that specifies its
    *        namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2720,9 +2713,26 @@ export interface PackageDependency {
   package?: string;
 
   /**
-   * <p> The type of a package dependency. The possible values depend on the package type.
-   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
-   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
+   * <p> The type of a package dependency. The possible values depend on the package type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>npm: <code>regular</code>, <code>dev</code>, <code>peer</code>, <code>optional</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>maven: <code>optional</code>, <code>parent</code>, <code>compile</code>, <code>runtime</code>, <code>test</code>, <code>system</code>, <code>provided</code>.</p>
+   *                <note>
+   *                   <p>Note that <code>parent</code> is not a regular Maven dependency type; instead this is extracted from the <code><parent></code> element if one is defined in the package version's POM file.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>nuget: The <code>dependencyType</code> field is never set for NuGet packages.</p>
+   *             </li>
+   *             <li>
+   *                <p>pypi: <code>Requires-Dist</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   dependencyType?: string;
 
@@ -2747,7 +2757,6 @@ export interface ListPackageVersionDependenciesResult {
   /**
    * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2842,7 +2851,6 @@ export interface ListPackageVersionsRequest {
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2973,7 +2981,6 @@ export interface ListPackageVersionsResult {
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3247,7 +3254,6 @@ export interface PutPackageOriginConfigurationRequest {
   /**
    * <p>The namespace of the package to be updated. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3279,7 +3285,6 @@ export interface PutPackageOriginConfigurationRequest {
    *       object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions.
    *       The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories.
    *     The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
-   *
    *          <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
    */
   restrictions: PackageOriginRestrictions | undefined;
@@ -3400,7 +3405,6 @@ export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>The namespace of the package version to be updated. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>

@@ -33,13 +33,11 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
  *       A disposed package version cannot be restored in your repository because its assets are deleted.
  *     </p>
- *
  *          <p>
  *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
  *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
  *       to <code>Disposed</code>.
  *     </p>
- *
  *          <p>
  *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
  *     </p>
