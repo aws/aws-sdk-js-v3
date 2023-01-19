@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-panorama:** Added AllowMajorVersionUpdate option to OTAJobConfig to make appliance software major version updates opt-in. ([87eea2c](https://github.com/aws/aws-sdk-js-v3/commit/87eea2c0739aa6c4ba8f3494f5380c678157765d))
+
+
+
+
+
 # [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
 
 **Note:** Version bump only for package @aws-sdk/client-panorama

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-connectparticipant:** This release updates Amazon Connect Participant's GetTranscript api to provide transcripts of past chats on a persistent chat session. ([b2b008d](https://github.com/aws/aws-sdk-js-v3/commit/b2b008d29e9e9279939156bdcde9bb668335d1cf))
+
+
+
+
+
 # [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
 
 **Note:** Version bump only for package @aws-sdk/client-connectparticipant

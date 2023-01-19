@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* **clients:** revert timestamp format serialization ([#4348](https://github.com/aws/aws-sdk-js-v3/issues/4348)) ([0633164](https://github.com/aws/aws-sdk-js-v3/commit/063316423432fa21ace28678ea215cef27aff179))
+* **util-utf8:** add missing dependency in middleware-flexible-checksums ([#4349](https://github.com/aws/aws-sdk-js-v3/issues/4349)) ([1aed07e](https://github.com/aws/aws-sdk-js-v3/commit/1aed07e4f63117086899ecbd5bab6e826f9913ae))
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-appflow:** Adding support for Salesforce Pardot connector in Amazon AppFlow. ([cbc9306](https://github.com/aws/aws-sdk-js-v3/commit/cbc9306ab1d916feab4656def5d58465893073bf))
+* **client-cloudwatch-logs:** Bug fix - Removed the regex pattern validation from CoralModel to avoid potential security issue. ([18a3866](https://github.com/aws/aws-sdk-js-v3/commit/18a386643e0019222adce8ce0591ff7d7c4110d1))
+* **client-codeartifact:** Documentation updates for CodeArtifact ([3a8d890](https://github.com/aws/aws-sdk-js-v3/commit/3a8d890ebf25f21efa678fece19ff8587cabfab7))
+* **client-connect:** Amazon Connect Chat introduces Persistent Chat, allowing customers to resume previous conversations with context and transcripts carried over from previous chats, eliminating the need to repeat themselves and allowing agents to provide personalized service with access to entire conversation history. ([360932e](https://github.com/aws/aws-sdk-js-v3/commit/360932ebb721c6756c8ca4bf603b3c52bc923377))
+* **client-connectparticipant:** This release updates Amazon Connect Participant's GetTranscript api to provide transcripts of past chats on a persistent chat session. ([b2b008d](https://github.com/aws/aws-sdk-js-v3/commit/b2b008d29e9e9279939156bdcde9bb668335d1cf))
+* **client-ec2:** Adds SSM Parameter Resource Aliasing support to EC2 Launch Templates. Launch Templates can now store parameter aliases in place of AMI Resource IDs. CreateLaunchTemplateVersion and DescribeLaunchTemplateVersions now support a convenience flag, ResolveAlias, to return the resolved parameter value. ([a165989](https://github.com/aws/aws-sdk-js-v3/commit/a16598929907a89e0c293678c2f2e1c3d7faf865))
+* **client-glue:** Release Glue Studio Hudi Data Lake Format for SDK/CLI ([603c44c](https://github.com/aws/aws-sdk-js-v3/commit/603c44cb9476d3ca27b036e59b6d52b8f5b21139))
+* **client-groundstation:** Add configurable prepass and postpass times for DataflowEndpointGroup. Add Waiter to allow customers to wait for a contact that was reserved through ReserveContact ([737c964](https://github.com/aws/aws-sdk-js-v3/commit/737c9648c538d1cdc3fae934281fac8c91191819))
+* **client-medialive:** AWS Elemental MediaLive adds support for SCTE 35 preRollMilliSeconds. ([8f23e93](https://github.com/aws/aws-sdk-js-v3/commit/8f23e93e0483e431f5ea70a1990395283ed76e05))
+* **client-opensearch:** This release adds the enhanced dry run option, that checks for validation errors that might occur when deploying configuration changes and provides a summary of these errors, if any. The feature will also indicate whether a blue/green deployment will be required to apply a change. ([76d4e0d](https://github.com/aws/aws-sdk-js-v3/commit/76d4e0dbdd84af870db7a75a38eca0768dbf0dfc))
+* **client-panorama:** Added AllowMajorVersionUpdate option to OTAJobConfig to make appliance software major version updates opt-in. ([87eea2c](https://github.com/aws/aws-sdk-js-v3/commit/87eea2c0739aa6c4ba8f3494f5380c678157765d))
+* **client-sagemaker:** HyperParameterTuningJobs now allow passing environment variables into the corresponding TrainingJobs ([ac78b3b](https://github.com/aws/aws-sdk-js-v3/commit/ac78b3b906bcad8a1eb12e7ef5bf7d21e9e3b12f))
+* **clients:** update client endpoints as of 2023-01-19 ([f8768aa](https://github.com/aws/aws-sdk-js-v3/commit/f8768aa087512a74292f727c7a2a756209caf8f0))
+
+
+
+
+
 # [3.253.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.252.0...v3.253.0) (2023-01-18)
 
 
