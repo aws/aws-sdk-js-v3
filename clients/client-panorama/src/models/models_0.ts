@@ -501,6 +501,11 @@ export interface OTAJobConfig {
    * <p>The target version of the device software.</p>
    */
   ImageVersion: string | undefined;
+
+  /**
+   * <p>Whether to apply the update if it is a major version change.</p>
+   */
+  AllowMajorVersionUpdate?: boolean;
 }
 
 /**
@@ -520,7 +525,7 @@ export enum JobType {
 
 export interface CreateJobForDevicesRequest {
   /**
-   * <p>IDs of target devices.</p>
+   * <p>ID of target device.</p>
    */
   DeviceIds: string[] | undefined;
 

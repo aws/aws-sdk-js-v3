@@ -3406,6 +3406,7 @@ const serializeAws_restJson1NtpServerList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1OTAJobConfig = (input: OTAJobConfig, context: __SerdeContext): any => {
   return {
+    ...(input.AllowMajorVersionUpdate != null && { AllowMajorVersionUpdate: input.AllowMajorVersionUpdate }),
     ...(input.ImageVersion != null && { ImageVersion: input.ImageVersion }),
   };
 };

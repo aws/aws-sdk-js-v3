@@ -472,7 +472,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a job to run on one or more devices. A job can update a device's software or reboot it.</p>",
+        "smithy.api#documentation": "<p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/jobs",
@@ -486,7 +486,7 @@
         "DeviceIds": {
           "target": "com.amazonaws.panorama#DeviceIdList",
           "traits": {
-            "smithy.api#documentation": "<p>IDs of target devices.</p>",
+            "smithy.api#documentation": "<p>ID of target device.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4412,6 +4412,13 @@
             "smithy.api#documentation": "<p>The target version of the device software.</p>",
             "smithy.api#required": {}
           }
+        },
+        "AllowMajorVersionUpdate": {
+          "target": "com.amazonaws.panorama#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Whether to apply the update if it is a major version change.</p>"
+          }
         }
       },
       "traits": {
@@ -4556,7 +4563,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -4605,15 +4612,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -4870,8 +4868,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -4882,8 +4880,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
@@ -4894,8 +4892,8 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }

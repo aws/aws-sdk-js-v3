@@ -203,7 +203,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
-   * <p>Creates a job to run on one or more devices. A job can update a device's software or reboot it.</p>
+   * <p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>
    */
   public createJobForDevices(
     args: CreateJobForDevicesCommandInput,

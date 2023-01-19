@@ -29,7 +29,7 @@ export interface CreateJobForDevicesCommandInput extends CreateJobForDevicesRequ
 export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a job to run on one or more devices. A job can update a device's software or reboot it.</p>
+ * <p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
