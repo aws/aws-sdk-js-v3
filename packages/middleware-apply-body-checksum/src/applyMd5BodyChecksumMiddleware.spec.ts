@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { HashConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@aws-sdk/types";
 
 import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
 
@@ -7,9 +7,11 @@ describe("applyMd5BodyChecksumMiddleware", () => {
   const mockEncoder = jest.fn().mockReturnValue("encoded");
   const mockHashUpdate = jest.fn();
   const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(0));
-  const MockHash: HashConstructor = class {} as any;
+  const mockHashReset = jest.fn();
+  const MockHash: ChecksumConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
+  MockHash.prototype.reset = mockHashReset;
 
   const next = jest.fn();
 
@@ -19,6 +21,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     mockEncoder.mockClear();
     mockHashUpdate.mockClear();
     mockHashDigest.mockClear();
+    mockHashReset.mockClear();
     next.mockClear();
   });
 

@@ -1,4 +1,5 @@
 import {
+  ChecksumConstructor,
   Decoder,
   Encoder,
   HashConstructor,
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 interface PreviouslyResolved {
   base64Encoder: Encoder;
-  md5: HashConstructor;
+  md5: ChecksumConstructor | HashConstructor;
   utf8Decoder: Decoder;
 }
 
@@ -35,7 +36,7 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
       for (const prop of properties) {
         const value: SourceData | undefined = (input as any)[prop.target];
         if (value) {
-          const valueView = ArrayBuffer.isView(value)
+          const valueView: Uint8Array = ArrayBuffer.isView(value)
             ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
             : typeof value === "string"
             ? options.utf8Decoder(value)

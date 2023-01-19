@@ -1,3 +1,5 @@
+import { toUint8Array } from "@aws-sdk/util-utf8/src";
+
 import { stringHasher } from "./stringHasher";
 
 describe(stringHasher.name, () => {
@@ -24,13 +26,13 @@ describe(stringHasher.name, () => {
     const mockBody = "mockBody";
     const digest = await stringHasher(mockChecksumAlgorithmFn, mockBody);
     expect(digest).toEqual(mockHash);
-    expect(mockUpdate).toHaveBeenCalledWith(mockBody);
+    expect(mockUpdate).toHaveBeenCalledWith(toUint8Array(mockBody));
   });
 
   it("calculates hash of empty string if undefined", async () => {
     const mockBody = undefined;
     const digest = await stringHasher(mockChecksumAlgorithmFn, mockBody);
     expect(digest).toEqual(mockHash);
-    expect(mockUpdate).toHaveBeenCalledWith("");
+    expect(mockUpdate).toHaveBeenCalledWith(toUint8Array(""));
   });
 });

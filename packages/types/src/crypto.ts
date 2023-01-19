@@ -1,5 +1,3 @@
-import { Checksum } from "./checksum";
-
 export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
 /**
@@ -31,6 +29,8 @@ export interface Hash {
  * A constructor for a hash that may be used to calculate an HMAC. Implementing
  * classes should not directly hold the provided key in memory beyond the
  * lexical scope of the constructor.
+ *
+ * @deprecated use {@link ChecksumConstructor}
  */
 export interface HashConstructor {
   new (secret?: SourceData): Hash;

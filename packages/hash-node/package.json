@@ -32,6 +32,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-buffer-from": "*",
+    "@aws-sdk/util-utf8": "*",
     "tslib": "^2.3.1"
   },
   "engines": {

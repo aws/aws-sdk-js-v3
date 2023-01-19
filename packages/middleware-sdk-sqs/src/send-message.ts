@@ -8,6 +8,7 @@ import {
   Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import { PreviouslyResolved } from "./configurations";
 
@@ -22,7 +23,7 @@ export const sendMessageMiddleware =
     const resp = await next({ ...args });
     const output = resp.output as SendMessageResult;
     const hash = new options.md5();
-    hash.update(args.input.MessageBody || "");
+    hash.update(toUint8Array(args.input.MessageBody || ""));
     if (output.MD5OfMessageBody !== toHex(await hash.digest())) {
       throw new Error("InvalidChecksumError");
     }
