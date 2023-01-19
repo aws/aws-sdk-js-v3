@@ -528,7 +528,7 @@ export const serializeAws_restJson1GetExperimentResultsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.baseStat != null && { baseStat: input.baseStat }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.metricNames != null && { metricNames: serializeAws_restJson1MetricNameList(input.metricNames, context) }),
     ...(input.period != null && { period: input.period }),
     ...(input.reportNames != null && {
@@ -537,7 +537,7 @@ export const serializeAws_restJson1GetExperimentResultsCommand = async (
     ...(input.resultStats != null && {
       resultStats: serializeAws_restJson1ExperimentResultRequestTypeList(input.resultStats, context),
     }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.treatmentNames != null && {
       treatmentNames: serializeAws_restJson1TreatmentNameList(input.treatmentNames, context),
     }),
@@ -861,7 +861,7 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.analysisCompleteTime != null && {
-      analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000).toString(),
+      analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000),
     }),
   });
   return new __HttpRequest({
@@ -3360,7 +3360,7 @@ const serializeAws_restJson1EvaluationRequestsList = (input: EvaluationRequest[]
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.data != null && { data: __LazyJsonString.fromObject(input.data) }),
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
     ...(input.type != null && { type: input.type }),
   };
 };
@@ -3521,7 +3521,7 @@ const serializeAws_restJson1ScheduledSplitConfig = (input: ScheduledSplitConfig,
     ...(input.segmentOverrides != null && {
       segmentOverrides: serializeAws_restJson1SegmentOverridesList(input.segmentOverrides, context),
     }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 

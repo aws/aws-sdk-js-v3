@@ -441,10 +441,10 @@ export const serializeAws_restJson1GetInsightImpactGraphCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InsightImpactGraph";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.InsightId != null && { InsightId: input.InsightId }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -468,12 +468,12 @@ export const serializeAws_restJson1GetInsightSummariesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InsightSummaries";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
     ...(input.States != null && { States: serializeAws_restJson1InsightStateList(input.States, context) }),
   });
   return new __HttpRequest({
@@ -576,11 +576,11 @@ export const serializeAws_restJson1GetServiceGraphCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ServiceGraph";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -605,14 +605,14 @@ export const serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimeSeriesServiceStatistics";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EntitySelectorExpression != null && { EntitySelectorExpression: input.EntitySelectorExpression }),
     ...(input.ForecastStatistics != null && { ForecastStatistics: input.ForecastStatistics }),
     ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.Period != null && { Period: input.Period }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -661,14 +661,14 @@ export const serializeAws_restJson1GetTraceSummariesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TraceSummaries";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.Sampling != null && { Sampling: input.Sampling }),
     ...(input.SamplingStrategy != null && {
       SamplingStrategy: serializeAws_restJson1SamplingStrategy(input.SamplingStrategy, context),
     }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
     ...(input.TimeRangeType != null && { TimeRangeType: input.TimeRangeType }),
   });
   return new __HttpRequest({
@@ -2625,7 +2625,7 @@ const serializeAws_restJson1SamplingStatisticsDocument = (
     ...(input.RequestCount != null && { RequestCount: input.RequestCount }),
     ...(input.RuleName != null && { RuleName: input.RuleName }),
     ...(input.SampledCount != null && { SampledCount: input.SampledCount }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 
@@ -2679,7 +2679,7 @@ const serializeAws_restJson1TelemetryRecord = (input: TelemetryRecord, context: 
     ...(input.SegmentsRejectedCount != null && { SegmentsRejectedCount: input.SegmentsRejectedCount }),
     ...(input.SegmentsSentCount != null && { SegmentsSentCount: input.SegmentsSentCount }),
     ...(input.SegmentsSpilloverCount != null && { SegmentsSpilloverCount: input.SegmentsSpilloverCount }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 

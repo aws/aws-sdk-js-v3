@@ -587,7 +587,7 @@ const serializeAws_json1_1MeterUsageRequest = (input: MeterUsageRequest, context
   return {
     ...(input.DryRun != null && { DryRun: input.DryRun }),
     ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.UsageAllocations != null && {
       UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
     }),
@@ -645,7 +645,7 @@ const serializeAws_json1_1UsageRecord = (input: UsageRecord, context: __SerdeCon
     ...(input.CustomerIdentifier != null && { CustomerIdentifier: input.CustomerIdentifier }),
     ...(input.Dimension != null && { Dimension: input.Dimension }),
     ...(input.Quantity != null && { Quantity: input.Quantity }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.UsageAllocations != null && {
       UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
     }),

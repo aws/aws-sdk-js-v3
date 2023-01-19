@@ -3232,7 +3232,7 @@ const serializeAws_json1_1ActionExecutionFilter = (input: ActionExecutionFilter,
 
 const serializeAws_json1_1ActionRevision = (input: ActionRevision, context: __SerdeContext): any => {
   return {
-    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000).toString() }),
+    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000) }),
     ...(input.revisionChangeId != null && { revisionChangeId: input.revisionChangeId }),
     ...(input.revisionId != null && { revisionId: input.revisionId }),
   };
@@ -3427,7 +3427,7 @@ const serializeAws_json1_1CreatePipelineInput = (input: CreatePipelineInput, con
 const serializeAws_json1_1CurrentRevision = (input: CurrentRevision, context: __SerdeContext): any => {
   return {
     ...(input.changeIdentifier != null && { changeIdentifier: input.changeIdentifier }),
-    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000).toString() }),
+    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000) }),
     ...(input.revision != null && { revision: input.revision }),
     ...(input.revisionSummary != null && { revisionSummary: input.revisionSummary }),
   };

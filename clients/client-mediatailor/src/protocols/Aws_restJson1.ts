@@ -3651,8 +3651,8 @@ const serializeAws_restJson1PrefetchConsumption = (input: PrefetchConsumption, c
     ...(input.AvailMatchingCriteria != null && {
       AvailMatchingCriteria: serializeAws_restJson1__listOfAvailMatchingCriteria(input.AvailMatchingCriteria, context),
     }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -3661,8 +3661,8 @@ const serializeAws_restJson1PrefetchRetrieval = (input: PrefetchRetrieval, conte
     ...(input.DynamicVariables != null && {
       DynamicVariables: serializeAws_restJson1__mapOf__string(input.DynamicVariables, context),
     }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

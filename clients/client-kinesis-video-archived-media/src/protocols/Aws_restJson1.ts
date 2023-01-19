@@ -167,7 +167,7 @@ export const serializeAws_restJson1GetImagesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getImages";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000).toString() }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.Format != null && { Format: input.Format }),
     ...(input.FormatConfig != null && {
       FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context),
@@ -177,9 +177,7 @@ export const serializeAws_restJson1GetImagesCommand = async (
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SamplingInterval != null && { SamplingInterval: input.SamplingInterval }),
-    ...(input.StartTimestamp != null && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.WidthPixels != null && { WidthPixels: input.WidthPixels }),
@@ -753,10 +751,8 @@ const serializeAws_restJson1ClipFragmentSelector = (input: ClipFragmentSelector,
 
 const serializeAws_restJson1ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000).toString() }),
-    ...(input.StartTimestamp != null && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -771,10 +767,8 @@ const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector,
 
 const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000).toString() }),
-    ...(input.StartTimestamp != null && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -816,19 +810,15 @@ const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, c
 
 const serializeAws_restJson1HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000).toString() }),
-    ...(input.StartTimestamp != null && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000).toString() }),
-    ...(input.StartTimestamp != null && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 

@@ -2386,8 +2386,8 @@ const serializeAws_json1_1TargetsList = (input: Target[], context: __SerdeContex
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

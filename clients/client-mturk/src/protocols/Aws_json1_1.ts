@@ -3036,7 +3036,7 @@ const serializeAws_json1_1UpdateExpirationForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExpireAt != null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000).toString() }),
+    ...(input.ExpireAt != null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
     ...(input.HITId != null && { HITId: input.HITId }),
   };
 };

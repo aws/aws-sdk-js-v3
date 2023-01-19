@@ -1769,7 +1769,7 @@ const serializeAws_restJson1RumEvent = (input: RumEvent, context: __SerdeContext
     ...(input.details != null && { details: __LazyJsonString.fromObject(input.details) }),
     ...(input.id != null && { id: input.id }),
     ...(input.metadata != null && { metadata: __LazyJsonString.fromObject(input.metadata) }),
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
     ...(input.type != null && { type: input.type }),
   };
 };

@@ -3242,19 +3242,15 @@ const serializeAws_restJson1ScheduledTriggerProperties = (
   return {
     ...(input.dataPullMode != null && { dataPullMode: input.dataPullMode }),
     ...(input.firstExecutionFrom != null && {
-      firstExecutionFrom: Math.round(input.firstExecutionFrom.getTime() / 1000).toString(),
+      firstExecutionFrom: Math.round(input.firstExecutionFrom.getTime() / 1000),
     }),
     ...(input.flowErrorDeactivationThreshold != null && {
       flowErrorDeactivationThreshold: input.flowErrorDeactivationThreshold,
     }),
-    ...(input.scheduleEndTime != null && {
-      scheduleEndTime: Math.round(input.scheduleEndTime.getTime() / 1000).toString(),
-    }),
+    ...(input.scheduleEndTime != null && { scheduleEndTime: Math.round(input.scheduleEndTime.getTime() / 1000) }),
     ...(input.scheduleExpression != null && { scheduleExpression: input.scheduleExpression }),
     ...(input.scheduleOffset != null && { scheduleOffset: input.scheduleOffset }),
-    ...(input.scheduleStartTime != null && {
-      scheduleStartTime: Math.round(input.scheduleStartTime.getTime() / 1000).toString(),
-    }),
+    ...(input.scheduleStartTime != null && { scheduleStartTime: Math.round(input.scheduleStartTime.getTime() / 1000) }),
     ...(input.timezone != null && { timezone: input.timezone }),
   };
 };

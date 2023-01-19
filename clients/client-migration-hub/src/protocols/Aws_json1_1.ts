@@ -1744,9 +1744,7 @@ const serializeAws_json1_1NotifyApplicationStateRequest = (
     ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
     ...(input.DryRun != null && { DryRun: input.DryRun }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.UpdateDateTime != null && {
-      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000).toString(),
-    }),
+    ...(input.UpdateDateTime != null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 
@@ -1760,9 +1758,7 @@ const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
     ...(input.NextUpdateSeconds != null && { NextUpdateSeconds: input.NextUpdateSeconds }),
     ...(input.ProgressUpdateStream != null && { ProgressUpdateStream: input.ProgressUpdateStream }),
     ...(input.Task != null && { Task: serializeAws_json1_1Task(input.Task, context) }),
-    ...(input.UpdateDateTime != null && {
-      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000).toString(),
-    }),
+    ...(input.UpdateDateTime != null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 

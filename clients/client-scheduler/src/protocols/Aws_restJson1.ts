@@ -85,7 +85,7 @@ export const serializeAws_restJson1CreateScheduleCommand = async (
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000).toString() }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
     ...(input.FlexibleTimeWindow != null && {
       FlexibleTimeWindow: serializeAws_restJson1FlexibleTimeWindow(input.FlexibleTimeWindow, context),
     }),
@@ -93,7 +93,7 @@ export const serializeAws_restJson1CreateScheduleCommand = async (
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.ScheduleExpressionTimezone != null && { ScheduleExpressionTimezone: input.ScheduleExpressionTimezone }),
-    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000).toString() }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
     ...(input.State != null && { State: input.State }),
     ...(input.Target != null && { Target: serializeAws_restJson1Target(input.Target, context) }),
   });
@@ -365,7 +365,7 @@ export const serializeAws_restJson1UpdateScheduleCommand = async (
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000).toString() }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
     ...(input.FlexibleTimeWindow != null && {
       FlexibleTimeWindow: serializeAws_restJson1FlexibleTimeWindow(input.FlexibleTimeWindow, context),
     }),
@@ -373,7 +373,7 @@ export const serializeAws_restJson1UpdateScheduleCommand = async (
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.ScheduleExpressionTimezone != null && { ScheduleExpressionTimezone: input.ScheduleExpressionTimezone }),
-    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000).toString() }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
     ...(input.State != null && { State: input.State }),
     ...(input.Target != null && { Target: serializeAws_restJson1Target(input.Target, context) }),
   });

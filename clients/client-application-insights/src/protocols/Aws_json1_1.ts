@@ -2042,12 +2042,12 @@ const serializeAws_json1_1ListConfigurationHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EventStatus != null && { EventStatus: input.EventStatus }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2074,11 +2074,11 @@ const serializeAws_json1_1ListLogPatternsRequest = (input: ListLogPatternsReques
 const serializeAws_json1_1ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

@@ -1684,7 +1684,7 @@ export const serializeAws_restJson1GetPositionEstimateCommand = async (
     ...(input.CellTowers != null && { CellTowers: serializeAws_restJson1CellTowers(input.CellTowers, context) }),
     ...(input.Gnss != null && { Gnss: serializeAws_restJson1Gnss(input.Gnss, context) }),
     ...(input.Ip != null && { Ip: serializeAws_restJson1Ip(input.Ip, context) }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.WiFiAccessPoints != null && {
       WiFiAccessPoints: serializeAws_restJson1WiFiAccessPoints(input.WiFiAccessPoints, context),
     }),

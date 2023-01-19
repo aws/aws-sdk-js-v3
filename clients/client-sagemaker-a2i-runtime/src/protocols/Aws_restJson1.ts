@@ -103,11 +103,11 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
   const query: any = map({
     CreationTimeAfter: [
       () => input.CreationTimeAfter !== void 0,
-      () => input.CreationTimeAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.CreationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     CreationTimeBefore: [
       () => input.CreationTimeBefore !== void 0,
-      () => input.CreationTimeBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.CreationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     FlowDefinitionArn: [, __expectNonNull(input.FlowDefinitionArn!, `FlowDefinitionArn`)],
     SortOrder: [, input.SortOrder!],

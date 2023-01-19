@@ -1884,7 +1884,7 @@ const serializeAws_json1_1AutoAdjustData = (input: AutoAdjustData, context: __Se
       HistoricalOptions: serializeAws_json1_1HistoricalOptions(input.HistoricalOptions, context),
     }),
     ...(input.LastAutoAdjustTime != null && {
-      LastAutoAdjustTime: Math.round(input.LastAutoAdjustTime.getTime() / 1000).toString(),
+      LastAutoAdjustTime: Math.round(input.LastAutoAdjustTime.getTime() / 1000),
     }),
   };
 };
@@ -1902,9 +1902,7 @@ const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any
     }),
     ...(input.CostFilters != null && { CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context) }),
     ...(input.CostTypes != null && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
-    ...(input.LastUpdatedTime != null && {
-      LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000).toString(),
-    }),
+    ...(input.LastUpdatedTime != null && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
     ...(input.PlannedBudgetLimits != null && {
       PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(input.PlannedBudgetLimits, context),
     }),
@@ -2313,8 +2311,8 @@ const serializeAws_json1_1TargetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return {
-    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000).toString() }),
-    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000).toString() }),
+    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 

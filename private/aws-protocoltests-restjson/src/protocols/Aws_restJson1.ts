@@ -351,10 +351,14 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
       () => input.queryBooleanList !== void 0,
       () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
     ],
-    Timestamp: [() => input.queryTimestamp !== void 0, () => input.queryTimestamp!.toISOString().split(".")[0] + "Z"],
+    Timestamp: [
+      () => input.queryTimestamp !== void 0,
+      () => (input.queryTimestamp!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     TimestampList: [
       () => input.queryTimestampList !== void 0,
-      () => (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z") as any),
+      () =>
+        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
     ],
     Enum: [, input.queryEnum!],
     EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
@@ -880,7 +884,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
     resolvedPath,
     input,
     "timestamp",
-    () => input.timestamp!.toISOString().split(".")[0] + "Z",
+    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
     "{timestamp}",
     false
   );
@@ -917,7 +921,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath,
     input,
     "memberHttpDate",
-    () => __dateToUtcString(input.memberHttpDate!),
+    () => __dateToUtcString(input.memberHttpDate!).toString(),
     "{memberHttpDate}",
     false
   );
@@ -925,7 +929,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath,
     input,
     "memberDateTime",
-    () => input.memberDateTime!.toISOString().split(".")[0] + "Z",
+    () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{memberDateTime}",
     false
   );
@@ -933,7 +937,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath,
     input,
     "defaultFormat",
-    () => input.defaultFormat!.toISOString().split(".")[0] + "Z",
+    () => (input.defaultFormat!.toISOString().split(".")[0] + "Z").toString(),
     "{defaultFormat}",
     false
   );
@@ -949,7 +953,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath,
     input,
     "targetHttpDate",
-    () => __dateToUtcString(input.targetHttpDate!),
+    () => __dateToUtcString(input.targetHttpDate!).toString(),
     "{targetHttpDate}",
     false
   );
@@ -957,7 +961,7 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     resolvedPath,
     input,
     "targetDateTime",
-    () => input.targetDateTime!.toISOString().split(".")[0] + "Z",
+    () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{targetDateTime}",
     false
   );
@@ -1102,7 +1106,7 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     ],
     "x-timestamplist": [
       () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry) as any).join(", "),
+      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     "x-enum": input.headerEnum!,
     "x-enumlist": [
@@ -1280,9 +1284,9 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000).toString() }),
+    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
     ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
-    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000).toString() }),
+    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1922,7 +1926,7 @@ export const serializeAws_restJson1MalformedTimestampBodyDefaultCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyDefault";
   let body: any;
   body = JSON.stringify({
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1968,7 +1972,7 @@ export const serializeAws_restJson1MalformedTimestampHeaderDateTimeCommand = asy
   const headers: any = map({}, isSerializableHeaderValue, {
     timestamp: [
       () => isSerializableHeaderValue(input.timestamp),
-      () => input.timestamp!.toISOString().split(".")[0] + "Z",
+      () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   const resolvedPath =
@@ -1991,7 +1995,7 @@ export const serializeAws_restJson1MalformedTimestampHeaderDefaultCommand = asyn
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
-    timestamp: [() => isSerializableHeaderValue(input.timestamp), () => __dateToUtcString(input.timestamp!)],
+    timestamp: [() => isSerializableHeaderValue(input.timestamp), () => __dateToUtcString(input.timestamp!).toString()],
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderDefault";
@@ -2045,7 +2049,7 @@ export const serializeAws_restJson1MalformedTimestampPathDefaultCommand = async 
     resolvedPath,
     input,
     "timestamp",
-    () => input.timestamp!.toISOString().split(".")[0] + "Z",
+    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
     "{timestamp}",
     false
   );
@@ -2102,7 +2106,7 @@ export const serializeAws_restJson1MalformedTimestampPathHttpDateCommand = async
     resolvedPath,
     input,
     "timestamp",
-    () => __dateToUtcString(input.timestamp!),
+    () => __dateToUtcString(input.timestamp!).toString(),
     "{timestamp}",
     false
   );
@@ -2129,7 +2133,7 @@ export const serializeAws_restJson1MalformedTimestampQueryDefaultCommand = async
   const query: any = map({
     timestamp: [
       __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => input.timestamp!.toISOString().split(".")[0] + "Z",
+      () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
@@ -2181,7 +2185,10 @@ export const serializeAws_restJson1MalformedTimestampQueryHttpDateCommand = asyn
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryHttpDate";
   const query: any = map({
-    timestamp: [__expectNonNull(input.timestamp, `timestamp`) != null, () => __dateToUtcString(input.timestamp!)],
+    timestamp: [
+      __expectNonNull(input.timestamp, `timestamp`) != null,
+      () => __dateToUtcString(input.timestamp!).toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2730,15 +2737,15 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     "x-memberhttpdate": [
       () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!),
+      () => __dateToUtcString(input.memberHttpDate!).toString(),
     ],
     "x-memberdatetime": [
       () => isSerializableHeaderValue(input.memberDateTime),
-      () => input.memberDateTime!.toISOString().split(".")[0] + "Z",
+      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     "x-defaultformat": [
       () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!),
+      () => __dateToUtcString(input.defaultFormat!).toString(),
     ],
     "x-targetepochseconds": [
       () => isSerializableHeaderValue(input.targetEpochSeconds),
@@ -2746,11 +2753,11 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     "x-targethttpdate": [
       () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!),
+      () => __dateToUtcString(input.targetHttpDate!).toString(),
     ],
     "x-targetdatetime": [
       () => isSerializableHeaderValue(input.targetDateTime),
-      () => input.targetDateTime!.toISOString().split(".")[0] + "Z",
+      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   const resolvedPath =
@@ -5953,7 +5960,7 @@ const serializeAws_restJson1MyUnion = (input: MyUnion, context: __SerdeContext):
     }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: serializeAws_restJson1GreetingStruct(value, context) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000).toString() }),
+    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -6214,7 +6221,7 @@ const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000).toString();
+      return Math.round(entry.getTime() / 1000);
     });
 };
 

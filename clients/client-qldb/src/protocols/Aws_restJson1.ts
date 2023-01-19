@@ -234,11 +234,9 @@ export const serializeAws_restJson1ExportJournalToS3Command = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime != null && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000).toString(),
-    }),
+    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
     ...(input.InclusiveStartTime != null && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000).toString(),
+      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
     }),
     ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
@@ -469,11 +467,9 @@ export const serializeAws_restJson1StreamJournalToKinesisCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "LedgerName", () => input.LedgerName!, "{LedgerName}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime != null && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000).toString(),
-    }),
+    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
     ...(input.InclusiveStartTime != null && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000).toString(),
+      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
     }),
     ...(input.KinesisConfiguration != null && {
       KinesisConfiguration: serializeAws_restJson1KinesisConfiguration(input.KinesisConfiguration, context),

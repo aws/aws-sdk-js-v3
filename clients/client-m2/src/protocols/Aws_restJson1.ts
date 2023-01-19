@@ -745,8 +745,14 @@ export const serializeAws_restJson1ListBatchJobExecutionsCommand = async (
     ],
     jobName: [, input.jobName!],
     status: [, input.status!],
-    startedAfter: [() => input.startedAfter !== void 0, () => input.startedAfter!.toISOString().split(".")[0] + "Z"],
-    startedBefore: [() => input.startedBefore !== void 0, () => input.startedBefore!.toISOString().split(".")[0] + "Z"],
+    startedAfter: [
+      () => input.startedAfter !== void 0,
+      () => (input.startedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    startedBefore: [
+      () => input.startedBefore !== void 0,
+      () => (input.startedBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({

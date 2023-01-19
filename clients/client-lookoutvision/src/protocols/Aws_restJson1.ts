@@ -413,11 +413,11 @@ export const serializeAws_restJson1ListDatasetEntriesCommand = async (
     anomalyClass: [, input.AnomalyClass!],
     createdBefore: [
       () => input.BeforeCreationDate !== void 0,
-      () => input.BeforeCreationDate!.toISOString().split(".")[0] + "Z",
+      () => (input.BeforeCreationDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
     createdAfter: [
       () => input.AfterCreationDate !== void 0,
-      () => input.AfterCreationDate!.toISOString().split(".")[0] + "Z",
+      () => (input.AfterCreationDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],

@@ -3111,8 +3111,8 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromInclusive != null && { FromInclusive: Math.round(input.FromInclusive.getTime() / 1000).toString() }),
-    ...(input.ToExclusive != null && { ToExclusive: Math.round(input.ToExclusive.getTime() / 1000).toString() }),
+    ...(input.FromInclusive != null && { FromInclusive: Math.round(input.FromInclusive.getTime() / 1000) }),
+    ...(input.ToExclusive != null && { ToExclusive: Math.round(input.ToExclusive.getTime() / 1000) }),
   };
 };
 

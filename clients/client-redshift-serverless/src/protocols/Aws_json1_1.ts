@@ -3087,24 +3087,24 @@ const serializeAws_json1_1ListRecoveryPointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
     ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
     ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 

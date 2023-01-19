@@ -2797,11 +2797,11 @@ const serializeAws_json1_1SearchFlowExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.flowExecutionId != null && { flowExecutionId: input.flowExecutionId }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.systemInstanceId != null && { systemInstanceId: input.systemInstanceId }),
   };
 };

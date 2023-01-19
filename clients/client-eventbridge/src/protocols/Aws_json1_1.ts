@@ -4560,7 +4560,7 @@ const serializeAws_json1_1PutEventsRequestEntry = (input: PutEventsRequestEntry,
     ...(input.EventBusName != null && { EventBusName: input.EventBusName }),
     ...(input.Resources != null && { Resources: serializeAws_json1_1EventResourceList(input.Resources, context) }),
     ...(input.Source != null && { Source: input.Source }),
-    ...(input.Time != null && { Time: Math.round(input.Time.getTime() / 1000).toString() }),
+    ...(input.Time != null && { Time: Math.round(input.Time.getTime() / 1000) }),
     ...(input.TraceHeader != null && { TraceHeader: input.TraceHeader }),
   };
 };
@@ -4593,7 +4593,7 @@ const serializeAws_json1_1PutPartnerEventsRequestEntry = (
     ...(input.DetailType != null && { DetailType: input.DetailType }),
     ...(input.Resources != null && { Resources: serializeAws_json1_1EventResourceList(input.Resources, context) }),
     ...(input.Source != null && { Source: input.Source }),
-    ...(input.Time != null && { Time: Math.round(input.Time.getTime() / 1000).toString() }),
+    ...(input.Time != null && { Time: Math.round(input.Time.getTime() / 1000) }),
   };
 };
 
@@ -4797,11 +4797,9 @@ const serializeAws_json1_1StartReplayRequest = (input: StartReplayRequest, conte
     ...(input.Destination != null && {
       Destination: serializeAws_json1_1ReplayDestination(input.Destination, context),
     }),
-    ...(input.EventEndTime != null && { EventEndTime: Math.round(input.EventEndTime.getTime() / 1000).toString() }),
+    ...(input.EventEndTime != null && { EventEndTime: Math.round(input.EventEndTime.getTime() / 1000) }),
     ...(input.EventSourceArn != null && { EventSourceArn: input.EventSourceArn }),
-    ...(input.EventStartTime != null && {
-      EventStartTime: Math.round(input.EventStartTime.getTime() / 1000).toString(),
-    }),
+    ...(input.EventStartTime != null && { EventStartTime: Math.round(input.EventStartTime.getTime() / 1000) }),
     ...(input.ReplayName != null && { ReplayName: input.ReplayName }),
   };
 };

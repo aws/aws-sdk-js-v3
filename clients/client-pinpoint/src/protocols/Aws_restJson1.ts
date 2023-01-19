@@ -1765,10 +1765,13 @@ export const serializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    "end-time": [() => input.EndTime !== void 0, () => input.EndTime!.toISOString().split(".")[0] + "Z"],
+    "end-time": [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
     "next-token": [, input.NextToken!],
     "page-size": [, input.PageSize!],
-    "start-time": [() => input.StartTime !== void 0, () => input.StartTime!.toISOString().split(".")[0] + "Z"],
+    "start-time": [
+      () => input.StartTime !== void 0,
+      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1948,10 +1951,13 @@ export const serializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "CampaignId", () => input.CampaignId!, "{CampaignId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    "end-time": [() => input.EndTime !== void 0, () => input.EndTime!.toISOString().split(".")[0] + "Z"],
+    "end-time": [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
     "next-token": [, input.NextToken!],
     "page-size": [, input.PageSize!],
-    "start-time": [() => input.StartTime !== void 0, () => input.StartTime!.toISOString().split(".")[0] + "Z"],
+    "start-time": [
+      () => input.StartTime !== void 0,
+      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2477,10 +2483,13 @@ export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    "end-time": [() => input.EndTime !== void 0, () => input.EndTime!.toISOString().split(".")[0] + "Z"],
+    "end-time": [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
     "next-token": [, input.NextToken!],
     "page-size": [, input.PageSize!],
-    "start-time": [() => input.StartTime !== void 0, () => input.StartTime!.toISOString().split(".")[0] + "Z"],
+    "start-time": [
+      () => input.StartTime !== void 0,
+      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({

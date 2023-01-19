@@ -823,8 +823,8 @@ const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeCon
     ...(input.StructWithJsonName != null && {
       StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
     }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
-    ...(input.UnixTimestamp != null && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UnixTimestamp != null && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -931,7 +931,7 @@ const serializeAws_json1_1MyUnion = (input: MyUnion, context: __SerdeContext): a
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: serializeAws_json1_1GreetingStruct(value, context) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000).toString() }),
+    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
 };

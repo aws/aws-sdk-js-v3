@@ -951,10 +951,8 @@ export const serializeAws_restJson1ListWorkflowsCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryEndDate != null && { QueryEndDate: Math.round(input.QueryEndDate.getTime() / 1000).toString() }),
-    ...(input.QueryStartDate != null && {
-      QueryStartDate: Math.round(input.QueryStartDate.getTime() / 1000).toString(),
-    }),
+    ...(input.QueryEndDate != null && { QueryEndDate: Math.round(input.QueryEndDate.getTime() / 1000) }),
+    ...(input.QueryStartDate != null && { QueryStartDate: Math.round(input.QueryStartDate.getTime() / 1000) }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.WorkflowType != null && { WorkflowType: input.WorkflowType }),
   });
@@ -3734,8 +3732,8 @@ const serializeAws_restJson1AutoMerging = (input: AutoMerging, context: __SerdeC
 
 const serializeAws_restJson1Batch = (input: Batch, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -3998,16 +3996,12 @@ const serializeAws_restJson1ScheduledTriggerProperties = (
   return {
     ...(input.DataPullMode != null && { DataPullMode: input.DataPullMode }),
     ...(input.FirstExecutionFrom != null && {
-      FirstExecutionFrom: Math.round(input.FirstExecutionFrom.getTime() / 1000).toString(),
+      FirstExecutionFrom: Math.round(input.FirstExecutionFrom.getTime() / 1000),
     }),
-    ...(input.ScheduleEndTime != null && {
-      ScheduleEndTime: Math.round(input.ScheduleEndTime.getTime() / 1000).toString(),
-    }),
+    ...(input.ScheduleEndTime != null && { ScheduleEndTime: Math.round(input.ScheduleEndTime.getTime() / 1000) }),
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.ScheduleOffset != null && { ScheduleOffset: input.ScheduleOffset }),
-    ...(input.ScheduleStartTime != null && {
-      ScheduleStartTime: Math.round(input.ScheduleStartTime.getTime() / 1000).toString(),
-    }),
+    ...(input.ScheduleStartTime != null && { ScheduleStartTime: Math.round(input.ScheduleStartTime.getTime() / 1000) }),
     ...(input.Timezone != null && { Timezone: input.Timezone }),
   };
 };

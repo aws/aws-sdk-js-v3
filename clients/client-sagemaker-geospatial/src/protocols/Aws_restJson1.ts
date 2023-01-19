@@ -2457,8 +2457,8 @@ const serializeAws_restJson1TemporalStatisticsListInput = (
 
 const serializeAws_restJson1TimeRangeFilterInput = (input: TimeRangeFilterInput, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

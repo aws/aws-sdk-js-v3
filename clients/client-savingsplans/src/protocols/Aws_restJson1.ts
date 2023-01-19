@@ -82,7 +82,7 @@ export const serializeAws_restJson1CreateSavingsPlanCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.commitment != null && { commitment: input.commitment }),
-    ...(input.purchaseTime != null && { purchaseTime: Math.round(input.purchaseTime.getTime() / 1000).toString() }),
+    ...(input.purchaseTime != null && { purchaseTime: Math.round(input.purchaseTime.getTime() / 1000) }),
     ...(input.savingsPlanOfferingId != null && { savingsPlanOfferingId: input.savingsPlanOfferingId }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.upfrontPaymentAmount != null && { upfrontPaymentAmount: input.upfrontPaymentAmount }),
