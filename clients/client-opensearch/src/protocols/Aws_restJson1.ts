@@ -69,6 +69,10 @@ import {
 } from "../commands/DescribeDomainConfigCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "../commands/DescribeDomainsCommand";
 import {
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "../commands/DescribeDryRunProgressCommand";
+import {
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
 } from "../commands/DescribeInboundConnectionsCommand";
@@ -187,6 +191,7 @@ import {
   DomainInformationContainer,
   DomainPackageDetails,
   DomainStatus,
+  DryRunProgressStatus,
   DryRunResults,
   Duration,
   EBSOptions,
@@ -235,6 +240,7 @@ import {
   UpgradeHistory,
   UpgradeStepItem,
   ValidationException,
+  ValidationFailure,
   VersionStatus,
   VPCDerivedInfo,
   VPCDerivedInfoStatus,
@@ -779,6 +785,33 @@ export const serializeAws_restJson1DescribeDomainsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDryRunProgressCommand = async (
+  input: DescribeDryRunProgressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dryRun";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    dryRunId: [, input.DryRunId!],
+    loadDryRunConfig: [() => input.LoadDryRunConfig !== void 0, () => input.LoadDryRunConfig!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1517,6 +1550,7 @@ export const serializeAws_restJson1UpdateDomainConfigCommand = async (
       DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
     }),
     ...(input.DryRun != null && { DryRun: input.DryRun }),
+    ...(input.DryRunMode != null && { DryRunMode: input.DryRunMode }),
     ...(input.EBSOptions != null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
     ...(input.EncryptionAtRestOptions != null && {
       EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
@@ -2611,6 +2645,65 @@ const deserializeAws_restJson1DescribeDomainsCommandError = async (
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
       throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeDryRunProgressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDryRunProgressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDryRunProgressCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DryRunConfig != null) {
+    contents.DryRunConfig = deserializeAws_restJson1DomainStatus(data.DryRunConfig, context);
+  }
+  if (data.DryRunProgressStatus != null) {
+    contents.DryRunProgressStatus = deserializeAws_restJson1DryRunProgressStatus(data.DryRunProgressStatus, context);
+  }
+  if (data.DryRunResults != null) {
+    contents.DryRunResults = deserializeAws_restJson1DryRunResults(data.DryRunResults, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeDryRunProgressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDryRunProgressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -4026,6 +4119,9 @@ export const deserializeAws_restJson1UpdateDomainConfigCommand = async (
   if (data.DomainConfig != null) {
     contents.DomainConfig = deserializeAws_restJson1DomainConfig(data.DomainConfig, context);
   }
+  if (data.DryRunProgressStatus != null) {
+    contents.DryRunProgressStatus = deserializeAws_restJson1DryRunProgressStatus(data.DryRunProgressStatus, context);
+  }
   if (data.DryRunResults != null) {
     contents.DryRunResults = deserializeAws_restJson1DryRunResults(data.DryRunResults, context);
   }
@@ -5322,6 +5418,19 @@ const deserializeAws_restJson1DomainStatusList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1DryRunProgressStatus = (output: any, context: __SerdeContext): DryRunProgressStatus => {
+  return {
+    CreationDate: __expectString(output.CreationDate),
+    DryRunId: __expectString(output.DryRunId),
+    DryRunStatus: __expectString(output.DryRunStatus),
+    UpdateDate: __expectString(output.UpdateDate),
+    ValidationFailures:
+      output.ValidationFailures != null
+        ? deserializeAws_restJson1ValidationFailures(output.ValidationFailures, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DryRunResults = (output: any, context: __SerdeContext): DryRunResults => {
   return {
     DeploymentType: __expectString(output.DeploymentType),
@@ -5964,6 +6073,25 @@ const deserializeAws_restJson1UpgradeStepsList = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_restJson1UpgradeStepItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ValidationFailure = (output: any, context: __SerdeContext): ValidationFailure => {
+  return {
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1ValidationFailures = (output: any, context: __SerdeContext): ValidationFailure[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ValidationFailure(entry, context);
     });
   return retVal;
 };

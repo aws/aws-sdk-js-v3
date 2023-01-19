@@ -96,6 +96,10 @@ import {
 } from "./commands/DescribeDomainConfigCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
 import {
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "./commands/DescribeDryRunProgressCommand";
+import {
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
 } from "./commands/DescribeInboundConnectionsCommand";
@@ -204,6 +208,7 @@ export type ServiceInputTypes =
   | DescribeDomainCommandInput
   | DescribeDomainConfigCommandInput
   | DescribeDomainsCommandInput
+  | DescribeDryRunProgressCommandInput
   | DescribeInboundConnectionsCommandInput
   | DescribeInstanceTypeLimitsCommandInput
   | DescribeOutboundConnectionsCommandInput
@@ -255,6 +260,7 @@ export type ServiceOutputTypes =
   | DescribeDomainCommandOutput
   | DescribeDomainConfigCommandOutput
   | DescribeDomainsCommandOutput
+  | DescribeDryRunProgressCommandOutput
   | DescribeInboundConnectionsCommandOutput
   | DescribeInstanceTypeLimitsCommandOutput
   | DescribeOutboundConnectionsCommandOutput

@@ -93,6 +93,11 @@ import {
   DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
 import {
+  DescribeDryRunProgressCommand,
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "./commands/DescribeDryRunProgressCommand";
+import {
   DescribeInboundConnectionsCommand,
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
@@ -285,8 +290,8 @@ export class OpenSearch extends OpenSearchClient {
 
   /**
    * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
-   *    case-sensitive key-value pairs. An domain can have up to 10 tags. For more information, see
-   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
+   *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -858,6 +863,39 @@ export class OpenSearch extends OpenSearchClient {
     cb?: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): Promise<DescribeDomainsCommandOutput> | void {
     const command = new DescribeDomainsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+   *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
+   */
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDryRunProgressCommandOutput>;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDryRunProgressCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): Promise<DescribeDryRunProgressCommandOutput> | void {
+    const command = new DescribeDryRunProgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

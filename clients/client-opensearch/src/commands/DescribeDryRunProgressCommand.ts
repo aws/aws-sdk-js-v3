@@ -13,38 +13,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddTagsRequest, AddTagsRequestFilterSensitiveLog } from "../models/models_0";
+import {
+  DescribeDryRunProgressRequest,
+  DescribeDryRunProgressRequestFilterSensitiveLog,
+  DescribeDryRunProgressResponse,
+  DescribeDryRunProgressResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1AddTagsCommand,
-  serializeAws_restJson1AddTagsCommand,
+  deserializeAws_restJson1DescribeDryRunProgressCommand,
+  serializeAws_restJson1DescribeDryRunProgressCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface AddTagsCommandInput extends AddTagsRequest {}
-export interface AddTagsCommandOutput extends __MetadataBearer {}
+export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgressRequest {}
+export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
- *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
- *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
+ * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+ *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, AddTagsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, AddTagsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribeDryRunProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DescribeDryRunProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const command = new AddTagsCommand(input);
+ * const command = new DescribeDryRunProgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link AddTagsCommandInput} for command's `input` shape.
- * @see {@link AddTagsCommandOutput} for command's `response` shape.
+ * @see {@link DescribeDryRunProgressCommandInput} for command's `input` shape.
+ * @see {@link DescribeDryRunProgressCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
-export class AddTagsCommand extends $Command<
-  AddTagsCommandInput,
-  AddTagsCommandOutput,
+export class DescribeDryRunProgressCommand extends $Command<
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
   OpenSearchClientResolvedConfig
 > {
   // Start section: command_properties
@@ -59,7 +63,7 @@ export class AddTagsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: AddTagsCommandInput) {
+  constructor(readonly input: DescribeDryRunProgressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -72,21 +76,23 @@ export class AddTagsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpenSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
+  ): Handler<DescribeDryRunProgressCommandInput, DescribeDryRunProgressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, AddTagsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDryRunProgressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OpenSearchClient";
-    const commandName = "AddTagsCommand";
+    const commandName = "DescribeDryRunProgressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: DescribeDryRunProgressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDryRunProgressResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +102,12 @@ export class AddTagsCommand extends $Command<
     );
   }
 
-  private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddTagsCommand(input, context);
+  private serialize(input: DescribeDryRunProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeDryRunProgressCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_restJson1AddTagsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDryRunProgressCommandOutput> {
+    return deserializeAws_restJson1DescribeDryRunProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

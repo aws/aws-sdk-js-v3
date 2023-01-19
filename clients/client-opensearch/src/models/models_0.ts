@@ -1986,7 +1986,7 @@ export interface CreatePackageResponse {
 
 export interface CreateVpcEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain to grant access to.</p>
+   * <p>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</p>
    */
   DomainArn: string | undefined;
 
@@ -2792,6 +2792,124 @@ export interface DescribeDomainsResponse {
    * <p>The status of the requested domains.</p>
    */
   DomainStatusList: DomainStatus[] | undefined;
+}
+
+export interface DescribeDryRunProgressRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId?: string;
+
+  /**
+   * <p>Whether to include the configuration of the dry run in the response. The configuration
+   *    specifies the updates that you're planning to make on the domain.</p>
+   */
+  LoadDryRunConfig?: boolean;
+}
+
+/**
+ * <p>A validation failure that occurred as the result of a pre-update validation check (verbose
+ *    dry run) on a domain.</p>
+ */
+export interface ValidationFailure {
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A message corresponding to the failure.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Information about the progress of a pre-upgrade dry run analysis.</p>
+ */
+export interface DryRunProgressStatus {
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId: string | undefined;
+
+  /**
+   * <p>The current status of the dry run.</p>
+   */
+  DryRunStatus: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was initiated.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was last updated.</p>
+   */
+  UpdateDate: string | undefined;
+
+  /**
+   * <p>Any validation failures that occurred as a result of the dry run.</p>
+   */
+  ValidationFailures?: ValidationFailure[];
+}
+
+/**
+ * <p>Results of a dry run performed in an update domain request.</p>
+ */
+export interface DryRunResults {
+  /**
+   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
+   *    are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Blue/Green</b> - The update requires a blue/green
+   *      deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Undetermined</b> - The domain is in the middle of an update
+   *      and can't predict the deployment type. Try again after the update is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>None</b> - The request doesn't include any configuration
+   *      changes.</p>
+   *             </li>
+   *          </ul>
+   */
+  DeploymentType?: string;
+
+  /**
+   * <p>A message corresponding to the deployment type.</p>
+   */
+  Message?: string;
+}
+
+export interface DescribeDryRunProgressResponse {
+  /**
+   * <p>The current status of the dry run, including any validation errors.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
+
+  /**
+   * <p>Details about the changes you're planning to make on the domain.</p>
+   */
+  DryRunConfig?: DomainStatus;
+
+  /**
+   * <p>The results of the dry run. </p>
+   */
+  DryRunResults?: DryRunResults;
 }
 
 /**
@@ -4158,6 +4276,11 @@ export interface StartServiceSoftwareUpdateResponse {
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
 
+export enum DryRunMode {
+  Basic = "Basic",
+  Verbose = "Verbose",
+}
+
 /**
  * <p>Container for the request parameters to the <code>UpdateDomain</code> operation.</p>
  */
@@ -4271,46 +4394,27 @@ export interface UpdateDomainConfigRequest {
 
   /**
    * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should
-   *    return the results of validation check without actually applying the change.</p>
+   *    return the results of a dry run analysis without actually applying the change. A dry run
+   *    determines what type of deployment the update will cause.</p>
    */
   DryRun?: boolean;
-}
 
-/**
- * <p>Results of a dry run performed in an update domain request.</p>
- */
-export interface DryRunResults {
   /**
-   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
-   *    are:</p>
+   * <p>The type of dry run to perform.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Blue/Green</b> - The update requires a blue/green
-   *      deployment.</p>
+   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update
+   *      will cause.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Undetermined</b> - The domain is in the middle of an update
-   *      and can't predict the deployment type. Try again after the update is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>None</b> - The request doesn't include any configuration
-   *      changes.</p>
+   *                   <code>Verbose</code> runs an additional check to validate the changes you're making. For
+   *      more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
    *             </li>
    *          </ul>
    */
-  DeploymentType?: string;
-
-  /**
-   * <p>A message corresponding to the deployment type.</p>
-   */
-  Message?: string;
+  DryRunMode?: DryRunMode | string;
 }
 
 /**
@@ -4324,9 +4428,14 @@ export interface UpdateDomainConfigResponse {
   DomainConfig: DomainConfig | undefined;
 
   /**
-   * <p>Results of a dry run performed in an update domain request.</p>
+   * <p>Results of the dry run performed in the update domain request.</p>
    */
   DryRunResults?: DryRunResults;
+
+  /**
+   * <p>The status of the dry run being performed on the domain, if any.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
 }
 
 /**
@@ -5166,6 +5275,41 @@ export const DescribeDomainsResponseFilterSensitiveLog = (obj: DescribeDomainsRe
 /**
  * @internal
  */
+export const DescribeDryRunProgressRequestFilterSensitiveLog = (obj: DescribeDryRunProgressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationFailureFilterSensitiveLog = (obj: ValidationFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DryRunProgressStatusFilterSensitiveLog = (obj: DryRunProgressStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDryRunProgressResponseFilterSensitiveLog = (obj: DescribeDryRunProgressResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
 });
@@ -5657,13 +5801,6 @@ export const UpdateDomainConfigRequestFilterSensitiveLog = (obj: UpdateDomainCon
   ...(obj.AdvancedSecurityOptions && {
     AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
   }),
-});
-
-/**
- * @internal
- */
-export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
-  ...obj,
 });
 
 /**
