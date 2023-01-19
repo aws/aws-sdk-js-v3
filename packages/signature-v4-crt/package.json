@@ -31,7 +31,7 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@aws-crypto/sha256-js": "2.0.0",
+    "@aws-crypto/sha256-js": "3.0.0",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-buffer-from": "*",

@@ -1,14 +1,18 @@
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
 import { fromUtf8 } from "@aws-sdk/util-utf8-node";
 
 import { BLOCK_SIZE, DIGEST_LENGTH, INIT } from "./constants";
 
-export class Md5 implements Hash {
-  private state = Uint32Array.from(INIT);
-  private buffer: DataView = new DataView(new ArrayBuffer(BLOCK_SIZE));
-  private bufferLength = 0;
-  private bytesHashed = 0;
-  private finished = false;
+export class Md5 implements Checksum {
+  private state!: Uint32Array;
+  private buffer!: DataView;
+  private bufferLength!: number;
+  private bytesHashed!: number;
+  private finished!: boolean;
+
+  constructor() {
+    this.reset();
+  }
 
   update(sourceData: SourceData): void {
     if (isEmptyData(sourceData)) {
@@ -148,6 +152,14 @@ export class Md5 implements Hash {
     state[1] = (b + state[1]) & 0xffffffff;
     state[2] = (c + state[2]) & 0xffffffff;
     state[3] = (d + state[3]) & 0xffffffff;
+  }
+
+  reset(): void {
+    this.state = Uint32Array.from(INIT);
+    this.buffer = new DataView(new ArrayBuffer(BLOCK_SIZE));
+    this.bufferLength = 0;
+    this.bytesHashed = 0;
+    this.finished = false;
   }
 }
 
