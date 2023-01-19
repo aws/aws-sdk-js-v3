@@ -25,6 +25,7 @@
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-utf8": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
