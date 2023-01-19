@@ -478,10 +478,24 @@ export interface Item {
   Attachments?: AttachmentItem[];
 
   /**
-   * <p>The metadata related to the message. Currently this supports only information related to
-   *             message receipts.</p>
+   * <p>The metadata related to the message. Currently this supports only information related
+   *             to message receipts.</p>
    */
   MessageMetadata?: MessageMetadata;
+
+  /**
+   * <p>The contactId on which the transcript item was originally sent. This field is only
+   *             populated for persistent chats when the transcript item is from the past chat session.
+   *             For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent
+   *             chat</a>.</p>
+   */
+  RelatedContactId?: string;
+
+  /**
+   * <p>The contactId on which the transcript item was originally sent. This field is
+   *             populated only when the transcript item is from the current chat session.</p>
+   */
+  ContactId?: string;
 }
 
 export interface GetTranscriptResponse {
