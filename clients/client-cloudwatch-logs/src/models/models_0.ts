@@ -699,8 +699,8 @@ export interface DescribeLogStreamsRequest {
    * <p>The name of the log group.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -711,8 +711,8 @@ export interface DescribeLogStreamsRequest {
    *     and you are using a monitoring account, you must use the log group ARN.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1309,9 +1309,8 @@ export interface FilterLogEventsRequest {
    * <p>The name of the log group to search.</p>
    *          <note>
    *             <p>
-   *         If you specify values
-   *         for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1322,8 +1321,8 @@ export interface FilterLogEventsRequest {
    *       and you are using a monitoring account, you must use the log group ARN.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1461,8 +1460,8 @@ export interface GetLogEventsRequest {
    * <p>The name of the log group.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1473,8 +1472,8 @@ export interface GetLogEventsRequest {
    *       and you are using a monitoring account, you must use the log group ARN.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1576,8 +1575,8 @@ export interface GetLogGroupFieldsRequest {
    * <p>The name of the log group to search.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
@@ -1597,8 +1596,8 @@ export interface GetLogGroupFieldsRequest {
    *     you are using a monitoring account, you must specify the ARN.</p>
    *          <note>
    *             <p>
-   *         If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-   *         the action returns an <code>InvalidParameterException</code> error.
+   *         You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not
+   *         both.
    *       </p>
    *          </note>
    */
