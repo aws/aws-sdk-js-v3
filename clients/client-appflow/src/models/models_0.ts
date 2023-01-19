@@ -390,6 +390,11 @@ export interface InforNexusMetadata {}
 export interface MarketoMetadata {}
 
 /**
+ * <p>The connector metadata specific to Salesforce Pardot.</p>
+ */
+export interface PardotMetadata {}
+
+/**
  * <p> The connector metadata specific to Amazon Redshift. </p>
  */
 export interface RedshiftMetadata {}
@@ -590,6 +595,11 @@ export interface ConnectorMetadata {
    * <p> The connector metadata specific to SAPOData. </p>
    */
   SAPOData?: SAPODataMetadata;
+
+  /**
+   * <p>The connector metadata specific to Salesforce Pardot.</p>
+   */
+  Pardot?: PardotMetadata;
 }
 
 /**
@@ -672,6 +682,7 @@ export enum ConnectorType {
   INFORNEXUS = "Infornexus",
   LOOKOUTMETRICS = "LookoutMetrics",
   MARKETO = "Marketo",
+  PARDOT = "Pardot",
   REDSHIFT = "Redshift",
   S3 = "S3",
   SALESFORCE = "Salesforce",
@@ -1270,6 +1281,23 @@ export enum MarketoConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+export enum PardotConnectorOperator {
+  ADDITION = "ADDITION",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
 export enum S3ConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1545,6 +1573,11 @@ export interface ConnectorOperator {
    * <p>Operators supported by the custom connector.</p>
    */
   CustomConnector?: Operator | string;
+
+  /**
+   * <p>The operation to be performed on the provided Salesforce Pardot source fields.</p>
+   */
+  Pardot?: PardotConnectorOperator | string;
 }
 
 /**
@@ -1632,6 +1665,26 @@ export interface MarketoConnectorProfileProperties {
    * <p> The location of the Marketo resource. </p>
    */
   instanceUrl: string | undefined;
+}
+
+/**
+ * <p>The connector-specific profile properties required when using Salesforce Pardot.</p>
+ */
+export interface PardotConnectorProfileProperties {
+  /**
+   * <p>The location of the Salesforce Pardot resource.</p>
+   */
+  instanceUrl?: string;
+
+  /**
+   * <p>Indicates whether the connector profile applies to a sandbox or production environment.</p>
+   */
+  isSandboxEnvironment?: boolean;
+
+  /**
+   * <p>The business unit id of Salesforce Pardot instance.</p>
+   */
+  businessUnitId?: string;
 }
 
 /**
@@ -1953,6 +2006,11 @@ export interface ConnectorProfileProperties {
    * <p>The properties required by the custom connector.</p>
    */
   CustomConnector?: CustomConnectorProfileProperties;
+
+  /**
+   * <p>The connector-specific properties required by Salesforce Pardot.</p>
+   */
+  Pardot?: PardotConnectorProfileProperties;
 }
 
 export enum PrivateConnectionProvisioningFailureCause {
@@ -2264,6 +2322,33 @@ export interface MarketoConnectorProfileCredentials {
 }
 
 /**
+ * <p>The connector-specific profile credentials required when using Salesforce Pardot.</p>
+ */
+export interface PardotConnectorProfileCredentials {
+  /**
+   * <p>The credentials used to access protected Salesforce Pardot resources.</p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>The credentials used to acquire new access tokens.</p>
+   */
+  refreshToken?: string;
+
+  /**
+   * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
+   *       Google Analytics, Marketo, Zendesk, and Slack. </p>
+   */
+  oAuthRequest?: ConnectorOAuthRequest;
+
+  /**
+   * <p>The secret manager ARN, which contains the client ID and client secret of the connected
+   *       app.</p>
+   */
+  clientCredentialsArn?: string;
+}
+
+/**
  * <p> The connector-specific profile credentials required when using Amazon Redshift.
  *     </p>
  */
@@ -2567,6 +2652,11 @@ export interface ConnectorProfileCredentials {
    *       connector.</p>
    */
   CustomConnector?: CustomConnectorProfileCredentials;
+
+  /**
+   * <p>The connector-specific credentials required when using Salesforce Pardot.</p>
+   */
+  Pardot?: PardotConnectorProfileCredentials;
 }
 
 /**
@@ -3480,6 +3570,16 @@ export interface MarketoSourceProperties {
   object: string | undefined;
 }
 
+/**
+ * <p>The properties that are applied when Salesforce Pardot is being used as a source.</p>
+ */
+export interface PardotSourceProperties {
+  /**
+   * <p>The object specified in the Salesforce Pardot flow source.</p>
+   */
+  object: string | undefined;
+}
+
 export enum S3InputFileType {
   CSV = "CSV",
   JSON = "JSON",
@@ -3755,6 +3855,11 @@ export interface SourceConnectorProperties {
    *       source.</p>
    */
   CustomConnector?: CustomConnectorSourceProperties;
+
+  /**
+   * <p>Specifies the information that is required for querying Salesforce Pardot.</p>
+   */
+  Pardot?: PardotSourceProperties;
 }
 
 /**
@@ -5172,6 +5277,13 @@ export const MarketoMetadataFilterSensitiveLog = (obj: MarketoMetadata): any => 
 /**
  * @internal
  */
+export const PardotMetadataFilterSensitiveLog = (obj: PardotMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedshiftMetadataFilterSensitiveLog = (obj: RedshiftMetadata): any => ({
   ...obj,
 });
@@ -5425,6 +5537,13 @@ export const MarketoConnectorProfilePropertiesFilterSensitiveLog = (obj: Marketo
 /**
  * @internal
  */
+export const PardotConnectorProfilePropertiesFilterSensitiveLog = (obj: PardotConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedshiftConnectorProfilePropertiesFilterSensitiveLog = (obj: RedshiftConnectorProfileProperties): any => ({
   ...obj,
 });
@@ -5616,6 +5735,15 @@ export const MarketoConnectorProfileCredentialsFilterSensitiveLog = (obj: Market
 /**
  * @internal
  */
+export const PardotConnectorProfileCredentialsFilterSensitiveLog = (obj: PardotConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const RedshiftConnectorProfileCredentialsFilterSensitiveLog = (
   obj: RedshiftConnectorProfileCredentials
 ): any => ({
@@ -5748,6 +5876,7 @@ export const ConnectorProfileCredentialsFilterSensitiveLog = (obj: ConnectorProf
   ...(obj.CustomConnector && {
     CustomConnector: CustomConnectorProfileCredentialsFilterSensitiveLog(obj.CustomConnector),
   }),
+  ...(obj.Pardot && { Pardot: PardotConnectorProfileCredentialsFilterSensitiveLog(obj.Pardot) }),
 });
 
 /**
@@ -5980,6 +6109,13 @@ export const InforNexusSourcePropertiesFilterSensitiveLog = (obj: InforNexusSour
  * @internal
  */
 export const MarketoSourcePropertiesFilterSensitiveLog = (obj: MarketoSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PardotSourcePropertiesFilterSensitiveLog = (obj: PardotSourceProperties): any => ({
   ...obj,
 });
 
