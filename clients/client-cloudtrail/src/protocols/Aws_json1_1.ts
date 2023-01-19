@@ -4584,20 +4584,20 @@ const serializeAws_json1_1ListImportsRequest = (input: ListImportsRequest, conte
 
 const serializeAws_json1_1ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListQueriesRequest = (input: ListQueriesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.QueryStatus != null && { QueryStatus: input.QueryStatus }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -4633,14 +4633,14 @@ const serializeAws_json1_1LookupAttributesList = (input: LookupAttribute[], cont
 
 const serializeAws_json1_1LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EventCategory != null && { EventCategory: input.EventCategory }),
     ...(input.LookupAttributes != null && {
       LookupAttributes: serializeAws_json1_1LookupAttributesList(input.LookupAttributes, context),
     }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -4725,12 +4725,10 @@ const serializeAws_json1_1StartImportRequest = (input: StartImportRequest, conte
     ...(input.Destinations != null && {
       Destinations: serializeAws_json1_1ImportDestinations(input.Destinations, context),
     }),
-    ...(input.EndEventTime != null && { EndEventTime: Math.round(input.EndEventTime.getTime() / 1000).toString() }),
+    ...(input.EndEventTime != null && { EndEventTime: Math.round(input.EndEventTime.getTime() / 1000) }),
     ...(input.ImportId != null && { ImportId: input.ImportId }),
     ...(input.ImportSource != null && { ImportSource: serializeAws_json1_1ImportSource(input.ImportSource, context) }),
-    ...(input.StartEventTime != null && {
-      StartEventTime: Math.round(input.StartEventTime.getTime() / 1000).toString(),
-    }),
+    ...(input.StartEventTime != null && { StartEventTime: Math.round(input.StartEventTime.getTime() / 1000) }),
   };
 };
 

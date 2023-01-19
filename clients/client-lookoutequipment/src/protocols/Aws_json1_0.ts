@@ -2538,13 +2538,13 @@ const serializeAws_json1_0CreateLabelGroupRequest = (input: CreateLabelGroupRequ
 const serializeAws_json1_0CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.Equipment != null && { Equipment: input.Equipment }),
     ...(input.FaultCode != null && { FaultCode: input.FaultCode }),
     ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
     ...(input.Notes != null && { Notes: input.Notes }),
     ...(input.Rating != null && { Rating: input.Rating }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2562,10 +2562,10 @@ const serializeAws_json1_0CreateModelRequest = (input: CreateModelRequest, conte
       DatasetSchema: serializeAws_json1_0DatasetSchema(input.DatasetSchema, context),
     }),
     ...(input.EvaluationDataEndTime != null && {
-      EvaluationDataEndTime: Math.round(input.EvaluationDataEndTime.getTime() / 1000).toString(),
+      EvaluationDataEndTime: Math.round(input.EvaluationDataEndTime.getTime() / 1000),
     }),
     ...(input.EvaluationDataStartTime != null && {
-      EvaluationDataStartTime: Math.round(input.EvaluationDataStartTime.getTime() / 1000).toString(),
+      EvaluationDataStartTime: Math.round(input.EvaluationDataStartTime.getTime() / 1000),
     }),
     ...(input.LabelsInputConfiguration != null && {
       LabelsInputConfiguration: serializeAws_json1_0LabelsInputConfiguration(input.LabelsInputConfiguration, context),
@@ -2576,10 +2576,10 @@ const serializeAws_json1_0CreateModelRequest = (input: CreateModelRequest, conte
     ...(input.ServerSideKmsKeyId != null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
     ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
     ...(input.TrainingDataEndTime != null && {
-      TrainingDataEndTime: Math.round(input.TrainingDataEndTime.getTime() / 1000).toString(),
+      TrainingDataEndTime: Math.round(input.TrainingDataEndTime.getTime() / 1000),
     }),
     ...(input.TrainingDataStartTime != null && {
-      TrainingDataStartTime: Math.round(input.TrainingDataStartTime.getTime() / 1000).toString(),
+      TrainingDataStartTime: Math.round(input.TrainingDataStartTime.getTime() / 1000),
     }),
   };
 };
@@ -2819,12 +2819,8 @@ const serializeAws_json1_0ListInferenceEventsRequest = (
 ): any => {
   return {
     ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
-    ...(input.IntervalEndTime != null && {
-      IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000).toString(),
-    }),
-    ...(input.IntervalStartTime != null && {
-      IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000).toString(),
-    }),
+    ...(input.IntervalEndTime != null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
+    ...(input.IntervalStartTime != null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -2835,11 +2831,9 @@ const serializeAws_json1_0ListInferenceExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataEndTimeBefore != null && {
-      DataEndTimeBefore: Math.round(input.DataEndTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.DataEndTimeBefore != null && { DataEndTimeBefore: Math.round(input.DataEndTimeBefore.getTime() / 1000) }),
     ...(input.DataStartTimeAfter != null && {
-      DataStartTimeAfter: Math.round(input.DataStartTimeAfter.getTime() / 1000).toString(),
+      DataStartTimeAfter: Math.round(input.DataStartTimeAfter.getTime() / 1000),
     }),
     ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2875,12 +2869,8 @@ const serializeAws_json1_0ListLabelsRequest = (input: ListLabelsRequest, context
   return {
     ...(input.Equipment != null && { Equipment: input.Equipment }),
     ...(input.FaultCode != null && { FaultCode: input.FaultCode }),
-    ...(input.IntervalEndTime != null && {
-      IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000).toString(),
-    }),
-    ...(input.IntervalStartTime != null && {
-      IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000).toString(),
-    }),
+    ...(input.IntervalEndTime != null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
+    ...(input.IntervalStartTime != null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
     ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),

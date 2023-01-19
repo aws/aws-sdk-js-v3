@@ -3335,8 +3335,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.beginDate != null && { beginDate: Math.round(input.beginDate.getTime() / 1000).toString() }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000).toString() }),
+    ...(input.beginDate != null && { beginDate: Math.round(input.beginDate.getTime() / 1000) }),
+    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
   };
 };
 

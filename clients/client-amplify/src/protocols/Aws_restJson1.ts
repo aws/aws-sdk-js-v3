@@ -474,8 +474,8 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.domainName != null && { domainName: input.domainName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -893,7 +893,7 @@ export const serializeAws_restJson1StartJobCommand = async (
   body = JSON.stringify({
     ...(input.commitId != null && { commitId: input.commitId }),
     ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.commitTime != null && { commitTime: Math.round(input.commitTime.getTime() / 1000).toString() }),
+    ...(input.commitTime != null && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
     ...(input.jobId != null && { jobId: input.jobId }),
     ...(input.jobReason != null && { jobReason: input.jobReason }),
     ...(input.jobType != null && { jobType: input.jobType }),

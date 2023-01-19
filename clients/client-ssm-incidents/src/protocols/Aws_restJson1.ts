@@ -216,7 +216,7 @@ export const serializeAws_restJson1CreateTimelineEventCommand = async (
     ...(input.eventReferences != null && {
       eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
     }),
-    ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000).toString() }),
+    ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
   });
@@ -913,7 +913,7 @@ export const serializeAws_restJson1UpdateTimelineEventCommand = async (
     ...(input.eventReferences != null && {
       eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
     }),
-    ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000).toString() }),
+    ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
   });
@@ -2680,8 +2680,8 @@ const serializeAws_restJson1ChatChannel = (input: ChatChannel, context: __SerdeC
 
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return Condition.visit(input, {
-    after: (value) => ({ after: Math.round(value.getTime() / 1000).toString() }),
-    before: (value) => ({ before: Math.round(value.getTime() / 1000).toString() }),
+    after: (value) => ({ after: Math.round(value.getTime() / 1000) }),
+    before: (value) => ({ before: Math.round(value.getTime() / 1000) }),
     equals: (value) => ({ equals: serializeAws_restJson1AttributeValueList(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -2970,7 +2970,7 @@ const serializeAws_restJson1TriggerDetails = (input: TriggerDetails, context: __
   return {
     ...(input.rawData != null && { rawData: input.rawData }),
     ...(input.source != null && { source: input.source }),
-    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
     ...(input.triggerArn != null && { triggerArn: input.triggerArn }),
   };
 };

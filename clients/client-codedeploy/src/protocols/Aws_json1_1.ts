@@ -6173,8 +6173,8 @@ const serializeAws_json1_1TimeBasedLinear = (input: TimeBasedLinear, context: __
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.end != null && { end: Math.round(input.end.getTime() / 1000).toString() }),
-    ...(input.start != null && { start: Math.round(input.start.getTime() / 1000).toString() }),
+    ...(input.end != null && { end: Math.round(input.end.getTime() / 1000) }),
+    ...(input.start != null && { start: Math.round(input.start.getTime() / 1000) }),
   };
 };
 

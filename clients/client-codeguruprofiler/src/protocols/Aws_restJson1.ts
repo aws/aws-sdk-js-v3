@@ -166,8 +166,11 @@ export const serializeAws_restJson1BatchGetFrameMetricDataCommand = async (
     false
   );
   const query: any = map({
-    startTime: [() => input.startTime !== void 0, () => input.startTime!.toISOString().split(".")[0] + "Z"],
-    endTime: [() => input.endTime !== void 0, () => input.endTime!.toISOString().split(".")[0] + "Z"],
+    startTime: [
+      () => input.startTime !== void 0,
+      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     period: [, input.period!],
     targetResolution: [, input.targetResolution!],
   });
@@ -417,9 +420,12 @@ export const serializeAws_restJson1GetProfileCommand = async (
     false
   );
   const query: any = map({
-    startTime: [() => input.startTime !== void 0, () => input.startTime!.toISOString().split(".")[0] + "Z"],
+    startTime: [
+      () => input.startTime !== void 0,
+      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     period: [, input.period!],
-    endTime: [() => input.endTime !== void 0, () => input.endTime!.toISOString().split(".")[0] + "Z"],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     maxDepth: [() => input.maxDepth !== void 0, () => input.maxDepth!.toString()],
   });
   let body: any;
@@ -455,11 +461,11 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   const query: any = map({
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => input.startTime!.toISOString().split(".")[0] + "Z",
+      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => input.endTime!.toISOString().split(".")[0] + "Z",
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     locale: [, input.locale!],
   });
@@ -496,11 +502,11 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
   const query: any = map({
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => input.startTime!.toISOString().split(".")[0] + "Z",
+      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => input.endTime!.toISOString().split(".")[0] + "Z",
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -539,11 +545,11 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   const query: any = map({
     startTime: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => input.startTime!.toISOString().split(".")[0] + "Z",
+      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     endTime: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => input.endTime!.toISOString().split(".")[0] + "Z",
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     period: [, __expectNonNull(input.period!, `period`)],
     orderBy: [, input.orderBy!],

@@ -1304,10 +1304,10 @@ const serializeAws_ec2QueryTimestampsInput = (input: QueryTimestampsInput, conte
     entries["NormalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
   }
   if (input.epochMember != null) {
-    entries["EpochMember"] = Math.round(input.epochMember.getTime() / 1000).toString();
+    entries["EpochMember"] = Math.round(input.epochMember.getTime() / 1000);
   }
   if (input.epochTarget != null) {
-    entries["EpochTarget"] = Math.round(input.epochTarget.getTime() / 1000).toString();
+    entries["EpochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
   }
   return entries;
 };

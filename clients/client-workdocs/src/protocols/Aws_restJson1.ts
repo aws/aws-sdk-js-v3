@@ -718,8 +718,11 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/activities";
   const query: any = map({
-    startTime: [() => input.StartTime !== void 0, () => input.StartTime!.toISOString().split(".")[0] + "Z"],
-    endTime: [() => input.EndTime !== void 0, () => input.EndTime!.toISOString().split(".")[0] + "Z"],
+    startTime: [
+      () => input.StartTime !== void 0,
+      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    endTime: [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
     organizationId: [, input.OrganizationId!],
     activityTypes: [, input.ActivityTypes!],
     resourceId: [, input.ResourceId!],
@@ -1200,10 +1203,10 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   let body: any;
   body = JSON.stringify({
     ...(input.ContentCreatedTimestamp != null && {
-      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000).toString(),
+      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
     }),
     ...(input.ContentModifiedTimestamp != null && {
-      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000).toString(),
+      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
     }),
     ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.DocumentSizeInBytes != null && { DocumentSizeInBytes: input.DocumentSizeInBytes }),

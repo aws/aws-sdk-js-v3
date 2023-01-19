@@ -218,9 +218,7 @@ export const serializeAws_restJson1CreateEphemerisCommand = async (
   body = JSON.stringify({
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.ephemeris != null && { ephemeris: serializeAws_restJson1EphemerisData(input.ephemeris, context) }),
-    ...(input.expirationTime != null && {
-      expirationTime: Math.round(input.expirationTime.getTime() / 1000).toString(),
-    }),
+    ...(input.expirationTime != null && { expirationTime: Math.round(input.expirationTime.getTime() / 1000) }),
     ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
     ...(input.name != null && { name: input.name }),
     ...(input.priority != null && { priority: input.priority }),
@@ -574,13 +572,13 @@ export const serializeAws_restJson1ListContactsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts";
   let body: any;
   body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.groundStation != null && { groundStation: input.groundStation }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.missionProfileArn != null && { missionProfileArn: input.missionProfileArn }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.satelliteArn != null && { satelliteArn: input.satelliteArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.statusList != null && { statusList: serializeAws_restJson1StatusList(input.statusList, context) }),
   });
   return new __HttpRequest({
@@ -633,9 +631,9 @@ export const serializeAws_restJson1ListEphemeridesCommand = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.satelliteId != null && { satelliteId: input.satelliteId }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.statusList != null && {
       statusList: serializeAws_restJson1EphemerisStatusList(input.statusList, context),
     }),
@@ -756,11 +754,11 @@ export const serializeAws_restJson1ReserveContactCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact";
   let body: any;
   body = JSON.stringify({
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.groundStation != null && { groundStation: input.groundStation }),
     ...(input.missionProfileArn != null && { missionProfileArn: input.missionProfileArn }),
     ...(input.satelliteArn != null && { satelliteArn: input.satelliteArn }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -2834,8 +2832,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
 
 const serializeAws_restJson1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000).toString() }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000).toString() }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 

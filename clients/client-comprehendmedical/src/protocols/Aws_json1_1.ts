@@ -1963,12 +1963,8 @@ const serializeAws_json1_1ComprehendMedicalAsyncJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 

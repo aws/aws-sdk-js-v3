@@ -6589,8 +6589,8 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 
 const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

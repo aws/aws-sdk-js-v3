@@ -4886,7 +4886,7 @@ const serializeAws_json1_1ClearQuerySuggestionsRequest = (
 
 const serializeAws_json1_1ClickFeedback = (input: ClickFeedback, context: __SerdeContext): any => {
   return {
-    ...(input.ClickTime != null && { ClickTime: Math.round(input.ClickTime.getTime() / 1000).toString() }),
+    ...(input.ClickTime != null && { ClickTime: Math.round(input.ClickTime.getTime() / 1000) }),
     ...(input.ResultId != null && { ResultId: input.ResultId }),
   };
 };
@@ -5703,7 +5703,7 @@ const serializeAws_json1_1DocumentAttributeTarget = (input: DocumentAttributeTar
 
 const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.DateValue != null && { DateValue: Math.round(input.DateValue.getTime() / 1000).toString() }),
+    ...(input.DateValue != null && { DateValue: Math.round(input.DateValue.getTime() / 1000) }),
     ...(input.LongValue != null && { LongValue: input.LongValue }),
     ...(input.StringListValue != null && {
       StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(input.StringListValue, context),
@@ -7178,8 +7178,8 @@ const serializeAws_json1_1TemplateConfiguration = (input: TemplateConfiguration,
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

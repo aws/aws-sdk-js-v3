@@ -992,7 +992,7 @@ const serializeAws_json1_1PutScheduledActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
     ...(input.ScalableTargetAction != null && {
@@ -1001,7 +1001,7 @@ const serializeAws_json1_1PutScheduledActionRequest = (
     ...(input.Schedule != null && { Schedule: input.Schedule }),
     ...(input.ScheduledActionName != null && { ScheduledActionName: input.ScheduledActionName }),
     ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
     ...(input.Timezone != null && { Timezone: input.Timezone }),
   };
 };

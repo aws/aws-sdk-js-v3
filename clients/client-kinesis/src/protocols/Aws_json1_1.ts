@@ -2583,7 +2583,7 @@ const serializeAws_json1_1GetShardIteratorInput = (input: GetShardIteratorInput,
     ...(input.StartingSequenceNumber != null && { StartingSequenceNumber: input.StartingSequenceNumber }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 
@@ -2606,7 +2606,7 @@ const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __
     ...(input.ShardFilter != null && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamCreationTimestamp != null && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000).toString(),
+      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
@@ -2621,7 +2621,7 @@ const serializeAws_json1_1ListStreamConsumersInput = (
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamCreationTimestamp != null && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000).toString(),
+      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
   };
 };
@@ -2722,7 +2722,7 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
 const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
   return {
     ...(input.ShardId != null && { ShardId: input.ShardId }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
@@ -2739,7 +2739,7 @@ const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __
 const serializeAws_json1_1StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
   return {
     ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };

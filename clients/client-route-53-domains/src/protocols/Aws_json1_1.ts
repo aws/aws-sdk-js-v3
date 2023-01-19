@@ -2607,9 +2607,7 @@ const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest,
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
     ...(input.Status != null && { Status: serializeAws_json1_1OperationStatusList(input.Status, context) }),
-    ...(input.SubmittedSince != null && {
-      SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmittedSince != null && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
     ...(input.Type != null && { Type: serializeAws_json1_1OperationTypeList(input.Type, context) }),
   };
 };
@@ -2851,10 +2849,10 @@ const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): a
 
 const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000).toString() }),
+    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000) }),
     ...(input.Marker != null && { Marker: input.Marker }),
     ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000).toString() }),
+    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 

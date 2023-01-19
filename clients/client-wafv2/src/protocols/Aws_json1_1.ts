@@ -5063,8 +5063,8 @@ const serializeAws_json1_1TextTransformations = (input: TextTransformation[], co
 
 const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -5099,9 +5099,7 @@ const serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExpiryTimestamp != null && {
-      ExpiryTimestamp: Math.round(input.ExpiryTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.ExpiryTimestamp != null && { ExpiryTimestamp: Math.round(input.ExpiryTimestamp.getTime() / 1000) }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.LockToken != null && { LockToken: input.LockToken }),
     ...(input.Name != null && { Name: input.Name }),

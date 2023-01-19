@@ -259,11 +259,11 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
     isRevoked: [() => input.isRevoked !== void 0, () => input.isRevoked!.toString()],
     signatureExpiresBefore: [
       () => input.signatureExpiresBefore !== void 0,
-      () => input.signatureExpiresBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.signatureExpiresBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     signatureExpiresAfter: [
       () => input.signatureExpiresAfter !== void 0,
-      () => input.signatureExpiresAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.signatureExpiresAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     jobInvoker: [, input.jobInvoker!],
   });
@@ -460,7 +460,7 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.effectiveTime != null && { effectiveTime: Math.round(input.effectiveTime.getTime() / 1000).toString() }),
+    ...(input.effectiveTime != null && { effectiveTime: Math.round(input.effectiveTime.getTime() / 1000) }),
     ...(input.profileVersion != null && { profileVersion: input.profileVersion }),
     ...(input.reason != null && { reason: input.reason }),
   });

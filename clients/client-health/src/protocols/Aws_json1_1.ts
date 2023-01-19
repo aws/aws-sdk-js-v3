@@ -864,8 +864,8 @@ const serializeAws_json1_1awsAccountIdsList = (input: string[], context: __Serde
 
 const serializeAws_json1_1DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.from != null && { from: Math.round(input.from.getTime() / 1000).toString() }),
-    ...(input.to != null && { to: Math.round(input.to.getTime() / 1000).toString() }),
+    ...(input.from != null && { from: Math.round(input.from.getTime() / 1000) }),
+    ...(input.to != null && { to: Math.round(input.to.getTime() / 1000) }),
   };
 };
 

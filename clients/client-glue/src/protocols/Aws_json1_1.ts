@@ -15304,7 +15304,7 @@ const serializeAws_json1_1ColumnList = (input: Column[], context: __SerdeContext
 
 const serializeAws_json1_1ColumnStatistics = (input: ColumnStatistics, context: __SerdeContext): any => {
   return {
-    ...(input.AnalyzedTime != null && { AnalyzedTime: Math.round(input.AnalyzedTime.getTime() / 1000).toString() }),
+    ...(input.AnalyzedTime != null && { AnalyzedTime: Math.round(input.AnalyzedTime.getTime() / 1000) }),
     ...(input.ColumnName != null && { ColumnName: input.ColumnName }),
     ...(input.ColumnType != null && { ColumnType: input.ColumnType }),
     ...(input.StatisticsData != null && {
@@ -15998,8 +15998,8 @@ const serializeAws_json1_1DataQualityResultFilterCriteria = (
     ...(input.DataSource != null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobRunId != null && { JobRunId: input.JobRunId }),
-    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000).toString() }),
-    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000).toString() }),
+    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000) }),
+    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000) }),
   };
 };
 
@@ -16017,8 +16017,8 @@ const serializeAws_json1_1DataQualityRuleRecommendationRunFilter = (
 ): any => {
   return {
     ...(input.DataSource != null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
-    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000).toString() }),
-    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000).toString() }),
+    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000) }),
+    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000) }),
   };
 };
 
@@ -16028,8 +16028,8 @@ const serializeAws_json1_1DataQualityRulesetEvaluationRunFilter = (
 ): any => {
   return {
     ...(input.DataSource != null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
-    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000).toString() }),
-    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000).toString() }),
+    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000) }),
+    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000) }),
   };
 };
 
@@ -16038,14 +16038,12 @@ const serializeAws_json1_1DataQualityRulesetFilterCriteria = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000).toString() }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000).toString() }),
+    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.LastModifiedAfter != null && {
-      LastModifiedAfter: Math.round(input.LastModifiedAfter.getTime() / 1000).toString(),
-    }),
+    ...(input.LastModifiedAfter != null && { LastModifiedAfter: Math.round(input.LastModifiedAfter.getTime() / 1000) }),
     ...(input.LastModifiedBefore != null && {
-      LastModifiedBefore: Math.round(input.LastModifiedBefore.getTime() / 1000).toString(),
+      LastModifiedBefore: Math.round(input.LastModifiedBefore.getTime() / 1000),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.TargetTable != null && {
@@ -16079,8 +16077,8 @@ const serializeAws_json1_1DateColumnStatisticsData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaximumValue != null && { MaximumValue: Math.round(input.MaximumValue.getTime() / 1000).toString() }),
-    ...(input.MinimumValue != null && { MinimumValue: Math.round(input.MinimumValue.getTime() / 1000).toString() }),
+    ...(input.MaximumValue != null && { MaximumValue: Math.round(input.MaximumValue.getTime() / 1000) }),
+    ...(input.MinimumValue != null && { MinimumValue: Math.round(input.MinimumValue.getTime() / 1000) }),
     ...(input.NumberOfDistinctValues != null && { NumberOfDistinctValues: input.NumberOfDistinctValues }),
     ...(input.NumberOfNulls != null && { NumberOfNulls: input.NumberOfNulls }),
   };
@@ -16983,7 +16981,7 @@ const serializeAws_json1_1GetPartitionsRequest = (input: GetPartitionsRequest, c
     ...(input.Expression != null && { Expression: input.Expression }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000).toString() }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.Segment != null && { Segment: serializeAws_json1_1Segment(input.Segment, context) }),
     ...(input.TableName != null && { TableName: input.TableName }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
@@ -17109,7 +17107,7 @@ const serializeAws_json1_1GetTableRequest = (input: GetTableRequest, context: __
     ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000).toString() }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
@@ -17121,7 +17119,7 @@ const serializeAws_json1_1GetTablesRequest = (input: GetTablesRequest, context: 
     ...(input.Expression != null && { Expression: input.Expression }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000).toString() }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
@@ -18136,12 +18134,8 @@ const serializeAws_json1_1PartitionIndexList = (input: PartitionIndex[], context
 
 const serializeAws_json1_1PartitionInput = (input: PartitionInput, context: __SerdeContext): any => {
   return {
-    ...(input.LastAccessTime != null && {
-      LastAccessTime: Math.round(input.LastAccessTime.getTime() / 1000).toString(),
-    }),
-    ...(input.LastAnalyzedTime != null && {
-      LastAnalyzedTime: Math.round(input.LastAnalyzedTime.getTime() / 1000).toString(),
-    }),
+    ...(input.LastAccessTime != null && { LastAccessTime: Math.round(input.LastAccessTime.getTime() / 1000) }),
+    ...(input.LastAnalyzedTime != null && { LastAnalyzedTime: Math.round(input.LastAnalyzedTime.getTime() / 1000) }),
     ...(input.Parameters != null && { Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context) }),
     ...(input.StorageDescriptor != null && {
       StorageDescriptor: serializeAws_json1_1StorageDescriptor(input.StorageDescriptor, context),
@@ -19122,12 +19116,8 @@ const serializeAws_json1_1TableIdentifier = (input: TableIdentifier, context: __
 const serializeAws_json1_1TableInput = (input: TableInput, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.LastAccessTime != null && {
-      LastAccessTime: Math.round(input.LastAccessTime.getTime() / 1000).toString(),
-    }),
-    ...(input.LastAnalyzedTime != null && {
-      LastAnalyzedTime: Math.round(input.LastAnalyzedTime.getTime() / 1000).toString(),
-    }),
+    ...(input.LastAccessTime != null && { LastAccessTime: Math.round(input.LastAccessTime.getTime() / 1000) }),
+    ...(input.LastAnalyzedTime != null && { LastAnalyzedTime: Math.round(input.LastAnalyzedTime.getTime() / 1000) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Owner != null && { Owner: input.Owner }),
     ...(input.Parameters != null && { Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context) }),
@@ -19170,8 +19160,8 @@ const serializeAws_json1_1TagsMap = (input: Record<string, string>, context: __S
 
 const serializeAws_json1_1TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __SerdeContext): any => {
   return {
-    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000).toString() }),
-    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000).toString() }),
+    ...(input.StartedAfter != null && { StartedAfter: Math.round(input.StartedAfter.getTime() / 1000) }),
+    ...(input.StartedBefore != null && { StartedBefore: Math.round(input.StartedBefore.getTime() / 1000) }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.TaskRunType != null && { TaskRunType: input.TaskRunType }),
   };
@@ -19223,14 +19213,12 @@ const serializeAws_json1_1TransformEncryption = (input: TransformEncryption, con
 
 const serializeAws_json1_1TransformFilterCriteria = (input: TransformFilterCriteria, context: __SerdeContext): any => {
   return {
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000).toString() }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000).toString() }),
+    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
     ...(input.GlueVersion != null && { GlueVersion: input.GlueVersion }),
-    ...(input.LastModifiedAfter != null && {
-      LastModifiedAfter: Math.round(input.LastModifiedAfter.getTime() / 1000).toString(),
-    }),
+    ...(input.LastModifiedAfter != null && { LastModifiedAfter: Math.round(input.LastModifiedAfter.getTime() / 1000) }),
     ...(input.LastModifiedBefore != null && {
-      LastModifiedBefore: Math.round(input.LastModifiedBefore.getTime() / 1000).toString(),
+      LastModifiedBefore: Math.round(input.LastModifiedBefore.getTime() / 1000),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Schema != null && { Schema: serializeAws_json1_1TransformSchema(input.Schema, context) }),

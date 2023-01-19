@@ -245,10 +245,14 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       () => input.queryBooleanList !== void 0,
       () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
     ],
-    Timestamp: [() => input.queryTimestamp !== void 0, () => input.queryTimestamp!.toISOString().split(".")[0] + "Z"],
+    Timestamp: [
+      () => input.queryTimestamp !== void 0,
+      () => (input.queryTimestamp!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     TimestampList: [
       () => input.queryTimestampList !== void 0,
-      () => (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z") as any),
+      () =>
+        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
     ],
     Enum: [, input.queryEnum!],
     EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
@@ -917,7 +921,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsCommand = async (
     resolvedPath,
     input,
     "timestamp",
-    () => input.timestamp!.toISOString().split(".")[0] + "Z",
+    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
     "{timestamp}",
     false
   );
@@ -954,7 +958,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     resolvedPath,
     input,
     "memberHttpDate",
-    () => __dateToUtcString(input.memberHttpDate!),
+    () => __dateToUtcString(input.memberHttpDate!).toString(),
     "{memberHttpDate}",
     false
   );
@@ -962,7 +966,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     resolvedPath,
     input,
     "memberDateTime",
-    () => input.memberDateTime!.toISOString().split(".")[0] + "Z",
+    () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{memberDateTime}",
     false
   );
@@ -970,7 +974,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     resolvedPath,
     input,
     "defaultFormat",
-    () => input.defaultFormat!.toISOString().split(".")[0] + "Z",
+    () => (input.defaultFormat!.toISOString().split(".")[0] + "Z").toString(),
     "{defaultFormat}",
     false
   );
@@ -986,7 +990,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     resolvedPath,
     input,
     "targetHttpDate",
-    () => __dateToUtcString(input.targetHttpDate!),
+    () => __dateToUtcString(input.targetHttpDate!).toString(),
     "{targetHttpDate}",
     false
   );
@@ -994,7 +998,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     resolvedPath,
     input,
     "targetDateTime",
-    () => input.targetDateTime!.toISOString().split(".")[0] + "Z",
+    () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{targetDateTime}",
     false
   );
@@ -1094,7 +1098,7 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     ],
     "x-timestamplist": [
       () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry) as any).join(", "),
+      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     "x-enum": input.headerEnum!,
     "x-enumlist": [
@@ -1447,15 +1451,15 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
     ],
     "x-memberhttpdate": [
       () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!),
+      () => __dateToUtcString(input.memberHttpDate!).toString(),
     ],
     "x-memberdatetime": [
       () => isSerializableHeaderValue(input.memberDateTime),
-      () => input.memberDateTime!.toISOString().split(".")[0] + "Z",
+      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
     "x-defaultformat": [
       () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!),
+      () => __dateToUtcString(input.defaultFormat!).toString(),
     ],
     "x-targetepochseconds": [
       () => isSerializableHeaderValue(input.targetEpochSeconds),
@@ -1463,11 +1467,11 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
     ],
     "x-targethttpdate": [
       () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!),
+      () => __dateToUtcString(input.targetHttpDate!).toString(),
     ],
     "x-targetdatetime": [
       () => isSerializableHeaderValue(input.targetDateTime),
-      () => input.targetDateTime!.toISOString().split(".")[0] + "Z",
+      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   const resolvedPath =
@@ -2097,12 +2101,7 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
   }
   if (input.epochSeconds !== undefined) {
     const node = __XmlNode
-      .of(
-        "Timestamp",
-        Math.round(input.epochSeconds.getTime() / 1000)
-          .toString()
-          .toString()
-      )
+      .of("Timestamp", Math.round(input.epochSeconds.getTime() / 1000).toString())
       .withName("epochSeconds");
     bodyNode.addChildNode(node);
   }

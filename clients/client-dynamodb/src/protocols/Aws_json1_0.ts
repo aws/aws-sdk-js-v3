@@ -4711,7 +4711,7 @@ const serializeAws_json1_0ExportTableToPointInTimeInput = (
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ExportFormat != null && { ExportFormat: input.ExportFormat }),
-    ...(input.ExportTime != null && { ExportTime: Math.round(input.ExportTime.getTime() / 1000).toString() }),
+    ...(input.ExportTime != null && { ExportTime: Math.round(input.ExportTime.getTime() / 1000) }),
     ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
     ...(input.S3BucketOwner != null && { S3BucketOwner: input.S3BucketOwner }),
     ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
@@ -4991,10 +4991,10 @@ const serializeAws_json1_0ListBackupsInput = (input: ListBackupsInput, context: 
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.TableName != null && { TableName: input.TableName }),
     ...(input.TimeRangeLowerBound != null && {
-      TimeRangeLowerBound: Math.round(input.TimeRangeLowerBound.getTime() / 1000).toString(),
+      TimeRangeLowerBound: Math.round(input.TimeRangeLowerBound.getTime() / 1000),
     }),
     ...(input.TimeRangeUpperBound != null && {
-      TimeRangeUpperBound: Math.round(input.TimeRangeUpperBound.getTime() / 1000).toString(),
+      TimeRangeUpperBound: Math.round(input.TimeRangeUpperBound.getTime() / 1000),
     }),
   };
 };
@@ -5515,9 +5515,7 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
         context
       ),
     }),
-    ...(input.RestoreDateTime != null && {
-      RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000).toString(),
-    }),
+    ...(input.RestoreDateTime != null && { RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000) }),
     ...(input.SSESpecificationOverride != null && {
       SSESpecificationOverride: serializeAws_json1_0SSESpecification(input.SSESpecificationOverride, context),
     }),

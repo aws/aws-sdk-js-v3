@@ -188,9 +188,12 @@ export const serializeAws_restJson1ListObjectsCommand = async (
     "next-token": [, input.NextToken!],
     "created-before": [
       () => input.CreatedBefore !== void 0,
-      () => input.CreatedBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.CreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "created-after": [() => input.CreatedAfter !== void 0, () => input.CreatedAfter!.toISOString().split(".")[0] + "Z"],
+    "created-after": [
+      () => input.CreatedAfter !== void 0,
+      () => (input.CreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({

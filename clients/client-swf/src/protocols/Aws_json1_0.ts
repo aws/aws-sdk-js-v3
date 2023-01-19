@@ -2820,8 +2820,8 @@ const serializeAws_json1_0DescribeWorkflowTypeInput = (
 
 const serializeAws_json1_0ExecutionTimeFilter = (input: ExecutionTimeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.latestDate != null && { latestDate: Math.round(input.latestDate.getTime() / 1000).toString() }),
-    ...(input.oldestDate != null && { oldestDate: Math.round(input.oldestDate.getTime() / 1000).toString() }),
+    ...(input.latestDate != null && { latestDate: Math.round(input.latestDate.getTime() / 1000) }),
+    ...(input.oldestDate != null && { oldestDate: Math.round(input.oldestDate.getTime() / 1000) }),
   };
 };
 

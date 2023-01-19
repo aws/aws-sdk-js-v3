@@ -5796,12 +5796,8 @@ const serializeAws_json1_1DocumentClassificationJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -5823,12 +5819,8 @@ const serializeAws_json1_1DocumentClassifierFilter = (
   return {
     ...(input.DocumentClassifierName != null && { DocumentClassifierName: input.DocumentClassifierName }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -5877,22 +5869,16 @@ const serializeAws_json1_1DominantLanguageDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1EndpointFilter = (input: EndpointFilter, context: __SerdeContext): any => {
   return {
-    ...(input.CreationTimeAfter != null && {
-      CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000).toString(),
-    }),
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
     ...(input.CreationTimeBefore != null && {
-      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000).toString(),
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
     }),
     ...(input.ModelArn != null && { ModelArn: input.ModelArn }),
     ...(input.Status != null && { Status: input.Status }),
@@ -5906,12 +5892,8 @@ const serializeAws_json1_1EntitiesDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -5960,12 +5942,8 @@ const serializeAws_json1_1EntityRecognizerFilter = (input: EntityRecognizerFilte
   return {
     ...(input.RecognizerName != null && { RecognizerName: input.RecognizerName }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6012,12 +5990,8 @@ const serializeAws_json1_1EventsDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6049,12 +6023,8 @@ const serializeAws_json1_1KeyPhrasesDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6253,12 +6223,8 @@ const serializeAws_json1_1PiiEntitiesDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6298,12 +6264,8 @@ const serializeAws_json1_1SentimentDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6625,12 +6587,8 @@ const serializeAws_json1_1TargetedSentimentDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6649,12 +6607,8 @@ const serializeAws_json1_1TopicsDetectionJobFilter = (
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter != null && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000).toString(),
-    }),
-    ...(input.SubmitTimeBefore != null && {
-      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000).toString(),
-    }),
+    ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 

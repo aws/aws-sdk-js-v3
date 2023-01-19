@@ -620,14 +620,14 @@ const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000).toString() }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.ForecastDataType != null && { ForecastDataType: input.ForecastDataType }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
     ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
     ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
     ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000).toString() }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

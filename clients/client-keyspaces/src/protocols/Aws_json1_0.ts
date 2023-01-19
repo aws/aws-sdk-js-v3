@@ -1208,9 +1208,7 @@ const serializeAws_json1_0RestoreTableRequest = (input: RestoreTableRequest, con
     ...(input.pointInTimeRecoveryOverride != null && {
       pointInTimeRecoveryOverride: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecoveryOverride, context),
     }),
-    ...(input.restoreTimestamp != null && {
-      restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000).toString(),
-    }),
+    ...(input.restoreTimestamp != null && { restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000) }),
     ...(input.sourceKeyspaceName != null && { sourceKeyspaceName: input.sourceKeyspaceName }),
     ...(input.sourceTableName != null && { sourceTableName: input.sourceTableName }),
     ...(input.tagsOverride != null && { tagsOverride: serializeAws_json1_0TagList(input.tagsOverride, context) }),

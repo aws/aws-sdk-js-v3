@@ -1734,10 +1734,10 @@ const serializeAws_json1_1TextTranslationJobFilter = (
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
     ...(input.SubmittedAfterTime != null && {
-      SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000).toString(),
+      SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
     }),
     ...(input.SubmittedBeforeTime != null && {
-      SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000).toString(),
+      SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
     }),
   };
 };

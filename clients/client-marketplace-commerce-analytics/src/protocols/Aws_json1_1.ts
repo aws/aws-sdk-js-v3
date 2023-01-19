@@ -163,7 +163,7 @@ const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetReques
       customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
     }),
     ...(input.dataSetPublicationDate != null && {
-      dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000).toString(),
+      dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
     }),
     ...(input.dataSetType != null && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName != null && { destinationS3BucketName: input.destinationS3BucketName }),
@@ -184,7 +184,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
     ...(input.dataSetType != null && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName != null && { destinationS3BucketName: input.destinationS3BucketName }),
     ...(input.destinationS3Prefix != null && { destinationS3Prefix: input.destinationS3Prefix }),
-    ...(input.fromDate != null && { fromDate: Math.round(input.fromDate.getTime() / 1000).toString() }),
+    ...(input.fromDate != null && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
     ...(input.roleNameArn != null && { roleNameArn: input.roleNameArn }),
     ...(input.snsTopicArn != null && { snsTopicArn: input.snsTopicArn }),
   };

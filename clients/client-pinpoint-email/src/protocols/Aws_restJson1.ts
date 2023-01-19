@@ -724,11 +724,11 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   const query: any = map({
     StartDate: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => input.StartDate!.toISOString().split(".")[0] + "Z",
+      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
     EndDate: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => input.EndDate!.toISOString().split(".")[0] + "Z",
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
@@ -868,11 +868,11 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   const query: any = map({
     StartDate: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => input.StartDate!.toISOString().split(".")[0] + "Z",
+      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
     EndDate: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => input.EndDate!.toISOString().split(".")[0] + "Z",
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
@@ -3763,7 +3763,7 @@ const serializeAws_restJson1DomainDeliverabilityTrackingOption = (
       ),
     }),
     ...(input.SubscriptionStartDate != null && {
-      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000).toString(),
+      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000),
     }),
   };
 };
@@ -3894,9 +3894,7 @@ const serializeAws_restJson1RawMessage = (input: RawMessage, context: __SerdeCon
 
 const serializeAws_restJson1ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.LastFreshStart != null && {
-      LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000).toString(),
-    }),
+    ...(input.LastFreshStart != null && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
     ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
   };
 };

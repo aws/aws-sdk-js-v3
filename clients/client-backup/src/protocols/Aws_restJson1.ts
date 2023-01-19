@@ -1381,21 +1381,21 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
     backupVaultName: [, input.ByBackupVaultName!],
     createdBefore: [
       () => input.ByCreatedBefore !== void 0,
-      () => input.ByCreatedBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     createdAfter: [
       () => input.ByCreatedAfter !== void 0,
-      () => input.ByCreatedAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     resourceType: [, input.ByResourceType!],
     accountId: [, input.ByAccountId!],
     completeAfter: [
       () => input.ByCompleteAfter !== void 0,
-      () => input.ByCompleteAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     completeBefore: [
       () => input.ByCompleteBefore !== void 0,
-      () => input.ByCompleteBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     parentJobId: [, input.ByParentJobId!],
   });
@@ -1565,22 +1565,22 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
     state: [, input.ByState!],
     createdBefore: [
       () => input.ByCreatedBefore !== void 0,
-      () => input.ByCreatedBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     createdAfter: [
       () => input.ByCreatedAfter !== void 0,
-      () => input.ByCreatedAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     resourceType: [, input.ByResourceType!],
     destinationVaultArn: [, input.ByDestinationVaultArn!],
     accountId: [, input.ByAccountId!],
     completeBefore: [
       () => input.ByCompleteBefore !== void 0,
-      () => input.ByCompleteBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     completeAfter: [
       () => input.ByCompleteAfter !== void 0,
-      () => input.ByCompleteAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     parentJobId: [, input.ByParentJobId!],
   });
@@ -1694,11 +1694,11 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
     backupPlanId: [, input.ByBackupPlanId!],
     createdBefore: [
       () => input.ByCreatedBefore !== void 0,
-      () => input.ByCreatedBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     createdAfter: [
       () => input.ByCreatedAfter !== void 0,
-      () => input.ByCreatedAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     parentRecoveryPointArn: [, input.ByParentRecoveryPointArn!],
   });
@@ -1779,11 +1779,11 @@ export const serializeAws_restJson1ListReportJobsCommand = async (
     ReportPlanName: [, input.ByReportPlanName!],
     CreationBefore: [
       () => input.ByCreationBefore !== void 0,
-      () => input.ByCreationBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreationBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     CreationAfter: [
       () => input.ByCreationAfter !== void 0,
-      () => input.ByCreationAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreationAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     Status: [, input.ByStatus!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -1839,20 +1839,20 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
     accountId: [, input.ByAccountId!],
     createdBefore: [
       () => input.ByCreatedBefore !== void 0,
-      () => input.ByCreatedBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     createdAfter: [
       () => input.ByCreatedAfter !== void 0,
-      () => input.ByCreatedAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
     status: [, input.ByStatus!],
     completeBefore: [
       () => input.ByCompleteBefore !== void 0,
-      () => input.ByCompleteBefore!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     completeAfter: [
       () => input.ByCompleteAfter !== void 0,
-      () => input.ByCompleteAfter!.toISOString().split(".")[0] + "Z",
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
@@ -6908,8 +6908,8 @@ const serializeAws_restJson1CopyActions = (input: CopyAction[], context: __Serde
 
 const serializeAws_restJson1DateRange = (input: DateRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromDate != null && { FromDate: Math.round(input.FromDate.getTime() / 1000).toString() }),
-    ...(input.ToDate != null && { ToDate: Math.round(input.ToDate.getTime() / 1000).toString() }),
+    ...(input.FromDate != null && { FromDate: Math.round(input.FromDate.getTime() / 1000) }),
+    ...(input.ToDate != null && { ToDate: Math.round(input.ToDate.getTime() / 1000) }),
   };
 };
 

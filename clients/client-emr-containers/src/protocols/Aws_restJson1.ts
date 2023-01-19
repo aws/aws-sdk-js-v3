@@ -417,8 +417,14 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
     false
   );
   const query: any = map({
-    createdBefore: [() => input.createdBefore !== void 0, () => input.createdBefore!.toISOString().split(".")[0] + "Z"],
-    createdAfter: [() => input.createdAfter !== void 0, () => input.createdAfter!.toISOString().split(".")[0] + "Z"],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     name: [, input.name!],
     states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -445,8 +451,14 @@ export const serializeAws_restJson1ListJobTemplatesCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
   const query: any = map({
-    createdAfter: [() => input.createdAfter !== void 0, () => input.createdAfter!.toISOString().split(".")[0] + "Z"],
-    createdBefore: [() => input.createdBefore !== void 0, () => input.createdBefore!.toISOString().split(".")[0] + "Z"],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -481,8 +493,14 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
     false
   );
   const query: any = map({
-    createdBefore: [() => input.createdBefore !== void 0, () => input.createdBefore!.toISOString().split(".")[0] + "Z"],
-    createdAfter: [() => input.createdAfter !== void 0, () => input.createdAfter!.toISOString().split(".")[0] + "Z"],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
     states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -531,8 +549,14 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
   const query: any = map({
     containerProviderId: [, input.containerProviderId!],
     containerProviderType: [, input.containerProviderType!],
-    createdAfter: [() => input.createdAfter !== void 0, () => input.createdAfter!.toISOString().split(".")[0] + "Z"],
-    createdBefore: [() => input.createdBefore !== void 0, () => input.createdBefore!.toISOString().split(".")[0] + "Z"],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],

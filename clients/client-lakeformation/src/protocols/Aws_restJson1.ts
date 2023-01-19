@@ -759,7 +759,7 @@ export const serializeAws_restJson1GetTableObjectsCommand = async (
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PartitionPredicate != null && { PartitionPredicate: input.PartitionPredicate }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000).toString() }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.TableName != null && { TableName: input.TableName }),
     ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
@@ -4459,7 +4459,7 @@ const serializeAws_restJson1QueryPlanningContext = (input: QueryPlanningContext,
   return {
     ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000).toString() }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.QueryParameters != null && {
       QueryParameters: serializeAws_restJson1QueryParameterMap(input.QueryParameters, context),
     }),

@@ -1091,7 +1091,7 @@ const serializeAws_restJson1MetricDatum = (input: MetricDatum, context: __SerdeC
     ...(input.StatisticValues != null && {
       StatisticValues: serializeAws_restJson1StatisticSet(input.StatisticValues, context),
     }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000).toString() }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Unit != null && { Unit: input.Unit }),
     ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
