@@ -2376,7 +2376,8 @@ export interface SearchVocabulariesResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
+   * <p>The type of the content. Supported types are <code>text/plain</code>,
+   *     <code>text/markdown</code>, and <code>application/json</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -2404,6 +2405,47 @@ export interface ParticipantDetails {
    * <p>Display name of the participant.</p>
    */
   DisplayName: string | undefined;
+}
+
+export enum RehydrationType {
+  ENTIRE_PAST_SESSION = "ENTIRE_PAST_SESSION",
+  FROM_SEGMENT = "FROM_SEGMENT",
+}
+
+/**
+ * <p>Enable persistent chats. For more
+ *    information about enabling persistent chat, and for example use cases and how to configure for them, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+export interface PersistentChat {
+  /**
+   * <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType
+   *    is required for persistent chat. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past
+   *      chat contact of the specified past ended chat session. To use this type, provide the
+   *       <code>initialContactId</code> of the past ended chat session in the
+   *       <code>sourceContactId</code> field. In this type, Amazon Connect determines the most
+   *      recent chat contact on the specified chat session that has ended, and uses it to start a
+   *      persistent chat. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified
+   *      in the <code>sourceContactId</code> field. </p>
+   *             </li>
+   *          </ul>
+   *          <p>The actual contactId used for rehydration is provided in the response of this API.
+   *   </p>
+   */
+  RehydrationType?: RehydrationType | string;
+
+  /**
+   * <p>The contactId from which a persistent chat session must be started.</p>
+   */
+  SourceContactId?: string;
 }
 
 export interface StartChatContactRequest {
@@ -2458,12 +2500,20 @@ export interface StartChatContactRequest {
   ChatDurationInMinutes?: number;
 
   /**
-   * <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You
-   *    can then put any other supported type in the list. For example, all the following lists are valid
-   *    because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown,
-   *    text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
+   * <p>The supported chat message content types. Content types must always contain
+   *     <code>text/plain</code>. You can then put any other supported type in the list. For example, all
+   *    the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain,
+   *     text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>,
+   *     <code>[text/plain, application/json]</code>.</p>
    */
   SupportedMessagingContentTypes?: string[];
+
+  /**
+   * <p>Enable persistent chats. For more
+   *    information about enabling persistent chat, and for example use cases and how to configure for them, see
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+   */
+  PersistentChat?: PersistentChat;
 }
 
 export interface StartChatContactResponse {
@@ -2483,6 +2533,12 @@ export interface StartChatContactResponse {
    *    participant.</p>
    */
   ParticipantToken?: string;
+
+  /**
+   * <p>The contactId from which a persistent chat session is started. This field is populated only
+   *    for persistent chats.</p>
+   */
+  ContinuedFromContactId?: string;
 }
 
 export enum VoiceRecordingTrack {
@@ -3065,8 +3121,8 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact
-   *     flow in Amazon Connect Flow language</a>. </p>
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     contact flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
@@ -3295,7 +3351,8 @@ export type ParticipantTimerValue =
 
 export namespace ParticipantTimerValue {
   /**
-   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
+   *    timer.</p>
    */
   export interface ParticipantTimerActionMember {
     ParticipantTimerAction: ParticipantTimerAction | string;
@@ -3346,9 +3403,9 @@ export interface ParticipantTimerConfiguration {
   ParticipantRole: TimerEligibleParticipantRoles | string | undefined;
 
   /**
-   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle.
-   *    <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to
-   *    idleness.</p>
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
+   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
+   *    automatically disconnecting a chat participant due to idleness.</p>
    */
   TimerType: ParticipantTimerType | string | undefined;
 
@@ -5056,6 +5113,13 @@ export const ChatMessageFilterSensitiveLog = (obj: ChatMessage): any => ({
  * @internal
  */
 export const ParticipantDetailsFilterSensitiveLog = (obj: ParticipantDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PersistentChatFilterSensitiveLog = (obj: PersistentChat): any => ({
   ...obj,
 });
 

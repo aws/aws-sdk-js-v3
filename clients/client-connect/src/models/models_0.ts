@@ -1583,8 +1583,8 @@ export interface CreateRoutingProfileResponse {
 
 /**
  * <p>This action must be set if <code>TriggerEventSource</code> is one of the following values:
- *    <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
- *    <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
+ *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+ *     <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
  *          <p>
  *             <code>RuleName</code> is used as <code>ContactCategory</code>.</p>
  */
@@ -1727,7 +1727,7 @@ export interface RuleAction {
   /**
    * <p>Information about the task action. This field is required if <code>TriggerEventSource</code>
    *    is one of the following values: <code>OnZendeskTicketCreate</code> |
-   *    <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
    *          </p>
    */
   TaskAction?: TaskActionDefinition;
@@ -1765,7 +1765,7 @@ export enum EventSourceName {
 /**
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
  *    following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
- *    <code>OnSalesforceCaseCreate</code>
+ *     <code>OnSalesforceCaseCreate</code>
  *          </p>
  */
 export interface RuleTriggerEventSource {
@@ -1865,8 +1865,8 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string>;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> |
-   *    <code>RoutingProfile</code>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> |
+   *     <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code>
    *          </p>
    */
   TagRestrictedResources?: string[];
@@ -2836,6 +2836,12 @@ export interface Contact {
    *   </p>
    */
   ScheduledTimestamp?: Date;
+
+  /**
+   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this
+   *    contact.</p>
+   */
+  RelatedContactId?: string;
 }
 
 export interface DescribeContactResponse {
@@ -4655,7 +4661,8 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *          </ul>
    *          <p>Metric data is retrieved only for the resources associated with the queues or routing
-   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
+   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
+   *    routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: Filters | undefined;
@@ -4671,9 +4678,9 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *             <li>
    *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-   *      profile filter. In addition, a routing profile filter is
-   *      required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and
-   *      <code> OLDEST_CONTACT_AGE</code>.</p>
+   *      profile filter. In addition, a routing profile filter is required for metrics
+   *       <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code>
+   *       OLDEST_CONTACT_AGE</code>.</p>
    *             </li>
    *             <li>
    *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
@@ -4800,7 +4807,8 @@ export interface GetCurrentMetricDataRequest {
    *          <p>Note the following:</p>
    *          <ul>
    *             <li>
-   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p>
+   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not
+   *      supported.</p>
    *             </li>
    *          </ul>
    */
@@ -4945,7 +4953,8 @@ export interface GetCurrentUserDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The filters to apply to returned user data. You can filter up to the following limits:</p>
+   * <p>The filters to apply to returned user data. You can filter up to the following
+   *    limits:</p>
    *          <ul>
    *             <li>
    *                <p>Queues: 100</p>
@@ -4963,9 +4972,8 @@ export interface GetCurrentUserDataRequest {
    *                <p>User hierarchy groups: 1</p>
    *             </li>
    *          </ul>
-   *          <p> The user data is retrieved for only the specified
-   *   values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles,
-   *   agents, and user hierarchy groups. </p>
+   *          <p> The user data is retrieved for only the specified values/resources in the filter. A maximum
+   *    of one filter can be passed from queues, routing profiles, agents, and user hierarchy groups. </p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: UserDataFilters | undefined;

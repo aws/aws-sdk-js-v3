@@ -25,8 +25,8 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a rule for the specified Amazon Connect instance.</p>
- *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
- *   </p>
+ *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+ *    code conditions for the rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

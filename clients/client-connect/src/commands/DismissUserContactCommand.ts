@@ -31,7 +31,7 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
 /**
  * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
  *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
- *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+ *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
  *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
  *     Event Stream</a>.</p>
  * @example
