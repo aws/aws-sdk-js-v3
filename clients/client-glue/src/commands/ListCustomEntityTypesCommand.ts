@@ -19,7 +19,7 @@ import {
   ListCustomEntityTypesRequestFilterSensitiveLog,
   ListCustomEntityTypesResponse,
   ListCustomEntityTypesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListCustomEntityTypesCommand,
   serializeAws_json1_1ListCustomEntityTypesCommand,

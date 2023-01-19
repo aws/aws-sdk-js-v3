@@ -6,7 +6,6 @@ import {
   Action,
   AuditContext,
   Blueprint,
-  CloudWatchEncryption,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
@@ -16,7 +15,6 @@ import {
   ConnectionType,
   Crawler,
   CsvHeaderOption,
-  CustomEntityType,
   DatabaseIdentifier,
   DataFormat,
   DataQualityRuleResult,
@@ -26,7 +24,6 @@ import {
   ErrorDetail,
   EventBatchingCondition,
   GlueTable,
-  JobBookmarksEncryption,
   JobRun,
   Language,
   Partition,
@@ -36,7 +33,6 @@ import {
   Predicate,
   PrincipalPermissions,
   RegistryId,
-  S3EncryptionMode,
   SchemaId,
   SchemaStatus,
   SchemaVersionStatus,
@@ -51,6 +47,64 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export interface CreateScriptResponse {
+  /**
+   * <p>The Python script generated from the DAG.</p>
+   */
+  PythonScript?: string;
+
+  /**
+   * <p>The Scala code generated from the DAG.</p>
+   */
+  ScalaCode?: string;
+}
+
+export enum CloudWatchEncryptionMode {
+  DISABLED = "DISABLED",
+  SSEKMS = "SSE-KMS",
+}
+
+/**
+ * <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
+ */
+export interface CloudWatchEncryption {
+  /**
+   * <p>The encryption mode to use for CloudWatch data.</p>
+   */
+  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   */
+  KmsKeyArn?: string;
+}
+
+export enum JobBookmarksEncryptionMode {
+  CSEKMS = "CSE-KMS",
+  DISABLED = "DISABLED",
+}
+
+/**
+ * <p>Specifies how job bookmark data should be encrypted.</p>
+ */
+export interface JobBookmarksEncryption {
+  /**
+   * <p>The encryption mode to use for job bookmarks data.</p>
+   */
+  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   */
+  KmsKeyArn?: string;
+}
+
+export enum S3EncryptionMode {
+  DISABLED = "DISABLED",
+  SSEKMS = "SSE-KMS",
+  SSES3 = "SSE-S3",
+}
 
 /**
  * <p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>
@@ -5843,133 +5897,26 @@ export interface ListCrawlsRequest {
   NextToken?: string;
 }
 
-export enum CrawlerHistoryState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+/**
+ * @internal
+ */
+export const CreateScriptResponseFilterSensitiveLog = (obj: CreateScriptResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the information for a run of a crawler.</p>
+ * @internal
  */
-export interface CrawlerHistory {
-  /**
-   * <p>A UUID identifier for each crawl.</p>
-   */
-  CrawlId?: string;
-
-  /**
-   * <p>The state of the crawl.</p>
-   */
-  State?: CrawlerHistoryState | string;
-
-  /**
-   * <p>The date and time on which the crawl started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The date and time on which the crawl ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>A run summary for the specific crawl in JSON. Contains the catalog tables and partitions that were added, updated, or deleted.</p>
-   */
-  Summary?: string;
-
-  /**
-   * <p>If an error occurred, the error message associated with the crawl.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The log group associated with the crawl.</p>
-   */
-  LogGroup?: string;
-
-  /**
-   * <p>The log stream associated with the crawl.</p>
-   */
-  LogStream?: string;
-
-  /**
-   * <p>The prefix for a CloudWatch message about this crawl.</p>
-   */
-  MessagePrefix?: string;
-
-  /**
-   * <p>The number of data processing units (DPU) used in hours for the crawl.</p>
-   */
-  DPUHour?: number;
-}
-
-export interface ListCrawlsResponse {
-  /**
-   * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
-   */
-  Crawls?: CrawlerHistory[];
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCustomEntityTypesRequest {
-  /**
-   * <p>A paginated token to offset the results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListCustomEntityTypesResponse {
-  /**
-   * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
-   */
-  CustomEntityTypes?: CustomEntityType[];
-
-  /**
-   * <p>A pagination token, if more results are available.</p>
-   */
-  NextToken?: string;
-}
+export const CloudWatchEncryptionFilterSensitiveLog = (obj: CloudWatchEncryption): any => ({
+  ...obj,
+});
 
 /**
- * <p>Criteria used to return data quality results.</p>
+ * @internal
  */
-export interface DataQualityResultFilterCriteria {
-  /**
-   * <p>Filter results by the specified data source. For example, retrieving all results for an Glue table.</p>
-   */
-  DataSource?: DataSource;
-
-  /**
-   * <p>Filter results by the specified job name.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>Filter results by the specified job run ID.</p>
-   */
-  JobRunId?: string;
-
-  /**
-   * <p>Filter results by runs that started after this time.</p>
-   */
-  StartedAfter?: Date;
-
-  /**
-   * <p>Filter results by runs that started before this time.</p>
-   */
-  StartedBefore?: Date;
-}
+export const JobBookmarksEncryptionFilterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7893,40 +7840,5 @@ export const CrawlsFilterFilterSensitiveLog = (obj: CrawlsFilter): any => ({
  * @internal
  */
 export const ListCrawlsRequestFilterSensitiveLog = (obj: ListCrawlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerHistoryFilterSensitiveLog = (obj: CrawlerHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlsResponseFilterSensitiveLog = (obj: ListCrawlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomEntityTypesRequestFilterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomEntityTypesResponseFilterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityResultFilterCriteriaFilterSensitiveLog = (obj: DataQualityResultFilterCriteria): any => ({
   ...obj,
 });
