@@ -35989,6 +35989,9 @@ const serializeAws_ec2CreateLaunchTemplateVersionRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ResolveAlias != null) {
+    entries["ResolveAlias"] = input.ResolveAlias;
+  }
   return entries;
 };
 
@@ -41487,6 +41490,9 @@ const serializeAws_ec2DescribeLaunchTemplateVersionsRequest = (
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.ResolveAlias != null) {
+    entries["ResolveAlias"] = input.ResolveAlias;
   }
   return entries;
 };
