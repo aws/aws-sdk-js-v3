@@ -4,7 +4,7 @@
   "pipeline": {
     "build": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
-      "dependsOn": []
+      "dependsOn": ["^build"]
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
