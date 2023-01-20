@@ -65,7 +65,7 @@ export namespace EnumUnion {
   export const validate = (obj: EnumUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -122,7 +122,7 @@ export namespace MalformedEnumInput {
   export const validate = (obj: MalformedEnumInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -196,7 +196,7 @@ export namespace ValidationExceptionField {
   export const validate = (obj: ValidationExceptionField, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "path": {
@@ -273,7 +273,7 @@ export namespace MalformedLengthInput {
   export const validate = (obj: MalformedLengthInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -355,7 +355,7 @@ export namespace MalformedLengthOverrideInput {
   export const validate = (obj: MalformedLengthOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -427,7 +427,7 @@ export namespace MalformedLengthQueryStringInput {
   export const validate = (obj: MalformedLengthQueryStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -485,7 +485,7 @@ export namespace PatternUnion {
   export const validate = (obj: PatternUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -544,7 +544,7 @@ export namespace MalformedPatternInput {
   export const validate = (obj: MalformedPatternInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -637,7 +637,7 @@ export namespace PatternUnionOverride {
   export const validate = (obj: PatternUnionOverride, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -694,7 +694,7 @@ export namespace MalformedPatternOverrideInput {
   export const validate = (obj: MalformedPatternOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -766,7 +766,7 @@ export namespace MalformedRangeInput {
   export const validate = (obj: MalformedRangeInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "byte": {
@@ -838,7 +838,7 @@ export namespace MalformedRangeOverrideInput {
   export const validate = (obj: MalformedRangeOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "byte": {
@@ -904,7 +904,7 @@ export namespace MalformedRequiredInput {
   export const validate = (obj: MalformedRequiredInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -957,7 +957,7 @@ export namespace SensitiveValidationInput {
   export const validate = (obj: SensitiveValidationInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1020,7 +1020,7 @@ export namespace RecursiveUnionOne {
   export const validate = (obj: RecursiveUnionOne, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1099,7 +1099,7 @@ export namespace RecursiveUnionTwo {
   export const validate = (obj: RecursiveUnionTwo, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1153,7 +1153,7 @@ export namespace RecursiveStructuresInput {
   export const validate = (obj: RecursiveStructuresInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<typeof memberValidators[T]> {
+    ): NonNullable<(typeof memberValidators)[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "union": {
