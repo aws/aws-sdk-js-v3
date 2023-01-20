@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAnalysisRequest,
-  CreateAnalysisRequestFilterSensitiveLog,
-  CreateAnalysisResponse,
-  CreateAnalysisResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateAnalysisRequest, CreateAnalysisRequestFilterSensitiveLog } from "../models/models_1";
+import { CreateAnalysisResponse, CreateAnalysisResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateAnalysisCommand,
   serializeAws_restJson1CreateAnalysisCommand,

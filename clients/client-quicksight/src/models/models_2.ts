@@ -55,12 +55,72 @@ import {
   ColumnTagName,
   DashboardVisualId,
   DataSetReference,
+  ExceptionResourceType,
   FilterOperator,
   ResourcePermission,
   SheetDefinition,
   Tag,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+export interface CreateAnalysisResponse {
+  /**
+   * <p>The ARN for the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The status of the creation of the analysis. </p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * <p>A limit is exceeded.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>Limit exceeded.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
 
 /**
  * <p>This error indicates that you are calling an operation on an Amazon QuickSight
@@ -720,7 +780,7 @@ export interface LogicalTable {
   Alias: string | undefined;
 
   /**
-   * <p>Transform operations that act on this logical table.</p>
+   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
    */
   DataTransforms?: TransformOperation[];
 
@@ -6238,7 +6298,7 @@ export interface TemplateError {
   Message?: string;
 
   /**
-   * <p></p>
+   * <p>An error path that shows which entities caused the template error.</p>
    */
   ViolatedEntities?: Entity[];
 }
@@ -6263,7 +6323,44 @@ export interface TemplateVersion {
   VersionNumber?: number;
 
   /**
-   * <p>The HTTP status of the request.</p>
+   * <p>The status that is associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: ResourceStatus | string;
 
@@ -7902,49 +7999,12 @@ export interface ListDataSourcesRequest {
   MaxResults?: number;
 }
 
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   */
-  DataSources?: DataSource[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export interface ListFolderMembersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const CreateAnalysisResponseFilterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9928,20 +9988,5 @@ export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse
  * @internal
  */
 export const ListDataSourcesRequestFilterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSourcesResponseFilterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-  ...obj,
-  ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListFolderMembersRequestFilterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
   ...obj,
 });

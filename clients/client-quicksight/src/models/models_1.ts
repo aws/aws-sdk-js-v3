@@ -4184,6 +4184,36 @@ export interface TableSortConfiguration {
   PaginationConfiguration?: PaginationConfiguration;
 }
 
+/**
+ * <p>The options for data bars.</p>
+ */
+export interface DataBarsOptions {
+  /**
+   * <p>The field ID for the data bars options.</p>
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The color of the positive data bar.</p>
+   */
+  PositiveColor?: string;
+
+  /**
+   * <p>The color of the negative data bar.</p>
+   */
+  NegativeColor?: string;
+}
+
+/**
+ * <p>The inline visualization of a specific type to display within a chart.</p>
+ */
+export interface TableInlineVisualization {
+  /**
+   * <p>The configuration of the inline visualization of the data bars within a chart.</p>
+   */
+  DataBars?: DataBarsOptions;
+}
+
 export enum TableOrientation {
   HORIZONTAL = "HORIZONTAL",
   VERTICAL = "VERTICAL",
@@ -4277,6 +4307,11 @@ export interface TableConfiguration {
    * <p>The paginated report options for a table visual.</p>
    */
   PaginatedReportOptions?: TablePaginatedReportOptions;
+
+  /**
+   * <p>A collection of inline visualizations to display within a chart.</p>
+   */
+  TableInlineVisualizations?: TableInlineVisualization[];
 }
 
 /**
@@ -6303,65 +6338,6 @@ export interface CreateAnalysisRequest {
   Definition?: AnalysisDefinition;
 }
 
-export interface CreateAnalysisResponse {
-  /**
-   * <p>The ARN for the analysis.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the analysis.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * <p>The status of the creation of the analysis. </p>
-   */
-  CreationStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * <p>A limit is exceeded.</p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>Limit exceeded.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
 /**
  * @internal
  */
@@ -7776,6 +7752,20 @@ export const TableSortConfigurationFilterSensitiveLog = (obj: TableSortConfigura
 /**
  * @internal
  */
+export const DataBarsOptionsFilterSensitiveLog = (obj: DataBarsOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableInlineVisualizationFilterSensitiveLog = (obj: TableInlineVisualization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TableOptionsFilterSensitiveLog = (obj: TableOptions): any => ({
   ...obj,
 });
@@ -8307,11 +8297,4 @@ export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): a
 export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const CreateAnalysisResponseFilterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
-  ...obj,
 });

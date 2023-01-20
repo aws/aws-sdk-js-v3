@@ -25,7 +25,9 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSetUsageConfiguration,
+  DataSource,
   DataSourceCredentials,
+  DataSourceFilterSensitiveLog,
   DataSourceParameters,
   DataSourceParametersFilterSensitiveLog,
   DataSourceSearchFilter,
@@ -60,6 +62,50 @@ import {
   UserRole,
   VpcConnectionProperties,
 } from "./models_2";
+
+export interface ListDataSourcesResponse {
+  /**
+   * <p>A list of data sources.</p>
+   */
+  DataSources?: DataSource[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export interface ListFolderMembersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListFolderMembersResponse {
   /**
@@ -2901,6 +2947,21 @@ export interface UpdateUserResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListDataSourcesResponseFilterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
+  ...obj,
+  ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFolderMembersRequestFilterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

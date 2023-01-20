@@ -609,6 +609,7 @@ import {
   CustomContentVisual,
   CustomNarrativeOptions,
   DashboardVisualId,
+  DataBarsOptions,
   DataColor,
   DataFieldSeriesItem,
   DataPathSort,
@@ -681,7 +682,6 @@ import {
   KPIProgressBarConditionalFormatting,
   KPISortConfiguration,
   KPIVisual,
-  LimitExceededException,
   LineChartAggregatedFieldWells,
   LineChartConfiguration,
   LineChartDefaultSeriesSettings,
@@ -763,6 +763,7 @@ import {
   TableFieldOptions,
   TableFieldURLConfiguration,
   TableFieldWells,
+  TableInlineVisualization,
   TableOptions,
   TablePaginatedReportOptions,
   TableRowConditionalFormatting,
@@ -857,6 +858,7 @@ import {
   JiraParameters,
   JoinInstruction,
   JoinKeyProperties,
+  LimitExceededException,
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
@@ -16133,6 +16135,14 @@ const serializeAws_restJson1DashboardVisualPublishOptions = (
   };
 };
 
+const serializeAws_restJson1DataBarsOptions = (input: DataBarsOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.NegativeColor != null && { NegativeColor: input.NegativeColor }),
+    ...(input.PositiveColor != null && { PositiveColor: input.PositiveColor }),
+  };
+};
+
 const serializeAws_restJson1DatabricksParameters = (input: DatabricksParameters, context: __SerdeContext): any => {
   return {
     ...(input.Host != null && { Host: input.Host }),
@@ -21301,6 +21311,12 @@ const serializeAws_restJson1TableConfiguration = (input: TableConfiguration, con
     ...(input.SortConfiguration != null && {
       SortConfiguration: serializeAws_restJson1TableSortConfiguration(input.SortConfiguration, context),
     }),
+    ...(input.TableInlineVisualizations != null && {
+      TableInlineVisualizations: serializeAws_restJson1TableInlineVisualizationList(
+        input.TableInlineVisualizations,
+        context
+      ),
+    }),
     ...(input.TableOptions != null && {
       TableOptions: serializeAws_restJson1TableOptions(input.TableOptions, context),
     }),
@@ -21426,6 +21442,26 @@ const serializeAws_restJson1TableFieldWells = (input: TableFieldWells, context: 
       ),
     }),
   };
+};
+
+const serializeAws_restJson1TableInlineVisualization = (
+  input: TableInlineVisualization,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataBars != null && { DataBars: serializeAws_restJson1DataBarsOptions(input.DataBars, context) }),
+  };
+};
+
+const serializeAws_restJson1TableInlineVisualizationList = (
+  input: TableInlineVisualization[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TableInlineVisualization(entry, context);
+    });
 };
 
 const serializeAws_restJson1TableOptions = (input: TableOptions, context: __SerdeContext): any => {
@@ -24438,6 +24474,14 @@ const deserializeAws_restJson1DashboardVersionSummaryList = (
       return deserializeAws_restJson1DashboardVersionSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DataBarsOptions = (output: any, context: __SerdeContext): DataBarsOptions => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    NegativeColor: __expectString(output.NegativeColor),
+    PositiveColor: __expectString(output.PositiveColor),
+  } as any;
 };
 
 const deserializeAws_restJson1DatabricksParameters = (output: any, context: __SerdeContext): DatabricksParameters => {
@@ -30351,6 +30395,10 @@ const deserializeAws_restJson1TableConfiguration = (output: any, context: __Serd
       output.SortConfiguration != null
         ? deserializeAws_restJson1TableSortConfiguration(output.SortConfiguration, context)
         : undefined,
+    TableInlineVisualizations:
+      output.TableInlineVisualizations != null
+        ? deserializeAws_restJson1TableInlineVisualizationList(output.TableInlineVisualizations, context)
+        : undefined,
     TableOptions:
       output.TableOptions != null ? deserializeAws_restJson1TableOptions(output.TableOptions, context) : undefined,
     TotalOptions:
@@ -30483,6 +30531,30 @@ const deserializeAws_restJson1TableFieldWells = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1TableUnaggregatedFieldWells(output.TableUnaggregatedFieldWells, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1TableInlineVisualization = (
+  output: any,
+  context: __SerdeContext
+): TableInlineVisualization => {
+  return {
+    DataBars: output.DataBars != null ? deserializeAws_restJson1DataBarsOptions(output.DataBars, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableInlineVisualizationList = (
+  output: any,
+  context: __SerdeContext
+): TableInlineVisualization[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableInlineVisualization(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1TableOptions = (output: any, context: __SerdeContext): TableOptions => {
