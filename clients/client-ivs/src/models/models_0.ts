@@ -115,7 +115,7 @@ export interface Channel {
   authorized?: boolean;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -157,7 +157,7 @@ export interface BatchGetChannelResponse {
 
 export interface BatchGetStreamKeyRequest {
   /**
-   * <p>Array of ARNs, one per channel.</p>
+   * <p>Array of ARNs, one per stream key.</p>
    */
   arns: string[] | undefined;
 }
@@ -182,7 +182,7 @@ export interface StreamKey {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -509,7 +509,7 @@ export interface RecordingConfiguration {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -653,7 +653,7 @@ export interface PlaybackKeyPair {
   fingerprint?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1055,7 +1055,7 @@ export interface ChannelSummary {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1105,7 +1105,7 @@ export interface PlaybackKeyPairSummary {
   name?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1166,7 +1166,7 @@ export interface RecordingConfigurationSummary {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1220,7 +1220,7 @@ export interface StreamKeySummary {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1388,7 +1388,7 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p/>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1471,7 +1471,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1488,7 +1488,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Array of tags to be removed. Array of maps, each of the form s<code>tring:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
