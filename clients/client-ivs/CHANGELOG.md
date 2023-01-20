@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.255.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.254.0...v3.255.0) (2023-01-20)
+
+
+### Features
+
+* **client-ivs:** API and Doc update. Update to arns field in BatchGetStreamKey. Also updates to operations and structures. ([354f8e8](https://github.com/aws/aws-sdk-js-v3/commit/354f8e895383c4e0e0789ce1f26699659e3bcbb7))
+
+
+
+
+
 # [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
 
 

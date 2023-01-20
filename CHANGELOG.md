@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.255.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.254.0...v3.255.0) (2023-01-20)
+
+
+### Features
+
+* **client-ec2:** C6in, M6in, M6idn, R6in and R6idn instances are powered by 3rd Generation Intel Xeon Scalable processors (code named Ice Lake) with an all-core turbo frequency of 3.5 GHz. ([2b55e36](https://github.com/aws/aws-sdk-js-v3/commit/2b55e365809f2194fdac6809c5c06609205204fd))
+* **client-ivs:** API and Doc update. Update to arns field in BatchGetStreamKey. Also updates to operations and structures. ([354f8e8](https://github.com/aws/aws-sdk-js-v3/commit/354f8e895383c4e0e0789ce1f26699659e3bcbb7))
+* **client-quicksight:** This release adds support for data bars in QuickSight table and increases pivot table field well limit. ([6124aff](https://github.com/aws/aws-sdk-js-v3/commit/6124afff4798b625b5fbe4d14c2a98101b3b15b0))
+* **clients:** update client endpoints as of 2023-01-20 ([bd2c13c](https://github.com/aws/aws-sdk-js-v3/commit/bd2c13c18534c16ffc64e585609b048526b4c3a0))
+
+
+
+
+
 # [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
 
 
