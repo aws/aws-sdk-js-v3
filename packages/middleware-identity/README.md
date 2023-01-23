@@ -10,9 +10,3 @@ Middleware and Plugin for resolving identity.
 ## Usage
 
 You probably shouldn't, at least directly.
-
-Find TODOs with `TODO(identityandauth)`.
-
-## Workflow
-
-- 

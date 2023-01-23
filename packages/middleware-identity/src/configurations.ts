@@ -1,8 +1,82 @@
-import { SignatureV4Init, SignatureV4CryptoInit } from "@aws-sdk/signature-v4";
-import { AuthScheme, AwsCredentialIdentity, Credentials, HashConstructor, Identity, IdentityProvider, Logger, MemoizedProvider, Provider, RegionInfoProvider, RequestSigner, Token, TokenIdentity, TokenProvider } from "@aws-sdk/types";
+import { SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+import {
+  ChecksumConstructor,
+  Credentials,
+  HttpRequest,
+  Identity,
+  IdentityProvider,
+  Provider,
+  RegionInfoProvider,
+  RequestSigner,
+  RequestSigningArguments,
+  Token,
+  TokenProvider,
+} from "@aws-sdk/types";
 
-// 5 minutes buffer time the refresh the credential before it really expires
 export const CREDENTIAL_EXPIRE_WINDOW = 300_000;
+
+export interface AuthScheme {
+  schemeId: string;
+  identity: (identityResolverConfiguration: Record<string, any>) => IdentityProvider<Identity>;
+  signer: Provider<HttpSigner<Identity>>;
+  /**
+   * @example "sigv4a" or "sigv4"
+   * @deprecated
+   */
+  name?: "sigv4" | "sigv4a" | string;
+  /**
+   * @example "s3"
+   * @deprecated
+   */
+  signingName?: string;
+  /**
+   * @example "us-east-1"
+   * @deprecated
+   */
+  signingRegion?: string;
+  /**
+   * @example ["*"]
+   * @exammple ["us-west-2", "us-east-1"]
+   * @deprecated
+   */
+  signingRegionSet?: string[];
+  /**
+   * @deprecated this field was renamed to signingRegion.
+   */
+  signingScope?: never;
+  /**
+   * @deprecated
+   */
+  properties?: Record<string, unknown>;
+}
+
+export interface HttpSigner<IdentityT extends Identity> {
+  sign(
+    requestToSign: HttpRequest,
+    identity: IdentityT,
+    signingProperties?: Record<string, any> & RequestSigningArguments
+  ): Promise<HttpRequest>;
+}
+
+export interface HttpAuthOption {
+  schemeId: string;
+  identityProperties: Record<string, any>;
+  signerProperties: Record<string, any>;
+}
+
+interface AuthSchemeProvider<AuthParametersType> {
+  (authParameters: AuthParametersType): Array<HttpAuthOption>;
+}
+
+interface ClientAuthParametersFromCodegen {}
+
+export interface IdentityResolvedConfig {
+  identity: IdentityProvider<Identity>;
+  authSchemeProvider: AuthSchemeProvider<ClientAuthParametersFromCodegen>;
+  authSchemes: AuthScheme[];
+  identityProperties?: Record<string, any>;
+  signingProperties?: Record<string, any>;
+}
 
 export interface IdentityInputConfig {
   /**
@@ -19,17 +93,12 @@ export interface IdentityInputConfig {
    * A representation of who is using the SDK client.
    */
   identity?: Identity | IdentityProvider<Identity>;
-
-  /**
-   * @deprecated
-   */
-  sigV4EnumDiscriminator?: DEPRECATED_SIGV4_ENUM_DISCIMINATOR;
 }
 
-export interface AuthInputConfig extends Pick<IdentityInputConfig, "credentials" | "sigV4EnumDiscriminator"> {
+export interface AuthInputConfig extends Pick<IdentityInputConfig, "credentials"> {
   /**
-  * The signer to use when signing requests.
-  */
+   * The signer to use when signing requests.
+   */
   signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
 
   /**
@@ -58,34 +127,20 @@ export interface AwsAuthInputConfig extends AuthInputConfig {
   signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
-export interface SigV4AuthInputConfig extends AuthInputConfig { }
-
-/**
- * @internal
- * @deprecated
- */
-type DEPRECATED_SIGV4_ENUM_DISCIMINATOR = "sigv4" | "sigv4a" | string;
+export interface SigV4AuthInputConfig extends AuthInputConfig {}
 
 export interface IdentityPreviouslyResolved {
   /**
    * Previously resolved Auth Scheme
    */
   authScheme?: AuthScheme;
-
-  /**
-   * Default identity provider given {@link identity} is not present
-   */
-  defaultIdentityProvider?: (input: any) => IdentityProvider<Identity>;
-
-  /**
-   * @deprecated
-   */
-  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
+  authSchemes?: AuthScheme[];
+  authSchemeProvider?: AuthSchemeProvider<ClientAuthParametersFromCodegen>;
 }
 
 export interface AuthPreviouslyResolved extends IdentityPreviouslyResolved {
   region: string | Provider<string>;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor;
 }
 
 export interface AwsAuthPreviouslyResolved extends AuthPreviouslyResolved {
@@ -96,36 +151,3 @@ export interface AwsAuthPreviouslyResolved extends AuthPreviouslyResolved {
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
-
-export interface SigV4AuthPreviouslyResolved extends AuthPreviouslyResolved {
-  signingName: string;
-  logger?: Logger;
-}
-
-export interface IdentityResolvedConfig {
-  identity: IdentityProvider<Identity>;
-  /**
-   * @deprecated
-   */
-  credentials: IdentityProvider<AwsCredentialIdentity>;
-  /**
-   * @deprecated
-   */
-  token: IdentityProvider<TokenIdentity>;
-}
-
-export interface TokenResolvedConfig extends Pick<IdentityResolvedConfig, "token"> { }
-
-export interface AuthResolvedConfig extends Pick<IdentityResolvedConfig, "identity" | "credentials"> {
-  credentials: MemoizedProvider<AwsCredentialIdentity>;
-
-  signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
-
-  signingEscapePath: boolean;
-
-  systemClockOffset: number;
-}
-
-export interface AwsAuthResolvedConfig extends AuthResolvedConfig { }
-
-export interface SigV4AuthResolvedConfig extends AuthResolvedConfig { }

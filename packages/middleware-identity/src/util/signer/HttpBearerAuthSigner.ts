@@ -1,15 +1,14 @@
-import { RequestSigningArguments, TokenIdentity, HttpRequest } from "@aws-sdk/types";
-import { HttpSigner } from "../../configurations.2";
+import { HttpRequest, RequestSigningArguments, TokenIdentity } from "@aws-sdk/types";
 
-type HttpBearerAuthSignerOptions =
-  Record<string, any> &
-  RequestSigningArguments;
+import { HttpSigner } from "../../configurations";
+
+type HttpBearerAuthSignerOptions = Record<string, any> & RequestSigningArguments;
 
 export class HttpBearerAuthSigner implements HttpSigner<TokenIdentity> {
-  async sign(
+  async sign<T>(
     requestToSign: HttpRequest,
     identity: TokenIdentity,
-    signingProperties?: HttpBearerAuthSignerOptions
+    signingProperties?: T & HttpBearerAuthSignerOptions
   ): Promise<HttpRequest> {
     requestToSign.headers["Authorization"] = `Bearer ${identity.token}`;
     return requestToSign;

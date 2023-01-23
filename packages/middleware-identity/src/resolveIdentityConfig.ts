@@ -5,46 +5,38 @@ import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProv
 
 /**
  * Resolves identity in the following precedence:
- * 
+ *
  * - identity: user-provided identity
  * - token: backwards compatible token identity
  * - credentials: backwards compatible credentials identity
  * - authScheme: populated from AuthSchemeResolver from config
- * 
+ *
  * @param input configuration object
  * @returns input with an identity provider
  */
 export const resolveIdentityConfig = <T>(
   input: T & IdentityInputConfig & IdentityPreviouslyResolved
 ): T & IdentityResolvedConfig => {
-  let identity: IdentityProvider<Identity> | undefined = undefined;
+  const identity: IdentityProvider<Identity> =
+    // Use overriding resolved identity or anonymous identity
+    normalizeIdentityProvider(input.identity || ({} as AnonymousIdentity));
 
-  // Identity
-  if (input.identity) {
-    identity = normalizeIdentityProvider(input.identity);
-  }
-  // Token
-  else if (input.token) {
-    identity = normalizeIdentityProvider(input.token);
-  }
-  // Credentials
-  else if (input.credentials) {
-    identity = normalizeIdentityProvider(input.credentials);
-  }
-  // TODO(identityandauth): resolve identity from {@link IdentityPreviouslyResolved.AuthScheme}
-  // else if (input.authScheme) {
-  //   // Get Identity Resolver from AuthScheme
-  // }
+  const authSchemes = input.authScheme
+    ? // Use overriding resolved AuthScheme
+      [input.authScheme]
+    : // Choose from multiple AuthSchemes
+      input.authSchemes || [];
 
-  // Default Identity
-  if (identity === undefined && input.defaultIdentityProvider) {
-    identity = input.defaultIdentityProvider(input as any);
-  } else {
-    throw new Error("identity is missing");
-  }
+  const authSchemeProvider = input.authSchemeProvider
+    ? // Use overriding resolved HttpAuthOptions providers
+      input.authSchemeProvider
+    : // Empty HttpAuthOptions
+      () => [];
 
   return {
     ...input,
     identity,
+    authSchemes,
+    authSchemeProvider,
   };
 };

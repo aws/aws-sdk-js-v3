@@ -1,26 +1,14 @@
-// TODO(identityandauth): Should this be moved to signerMiddleware, as no additional operations are
-// needed in addition to resolving identity?
-
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  AuthScheme,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestMiddleware,
   HandlerExecutionContext,
-  Identity,
   RelativeMiddlewareOptions,
-  TokenIdentity,
 } from "@aws-sdk/types";
 
-import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
-import { isAwsCredentialIdentity } from "./util/identity/isAwsCredentialIdentity";
-import { isLoginIdentity } from "./util/identity/isLoginIdentity";
-import { isTokenIdentity } from "./util/identity/isTokenIdentity";
-import { getDateHeader } from "./util/time/getDateHeader";
-import { getSkewCorrectedDate } from "./util/time/getSkewCorrectedDate";
-import { getUpdatedSystemClockOffset } from "./util/time/getUpdatedSystemClockOffset";
+import { IdentityResolvedConfig } from "./configurations";
 
 export const IdentityMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "identityMiddleware",
@@ -34,23 +22,60 @@ export const identityMiddleware =
   <Input extends object, Output extends object>(
     options: IdentityResolvedConfig
   ): FinalizeRequestMiddleware<Input, Output> =>
-  (next: FinalizeHandler<Input, Output>): FinalizeHandler<Input, Output> =>
+  (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
   async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
-    // This would be a mix of awsAuthMiddleware and tokenMiddleware
-    // and use isToken and isCredentials checks to take appropriate actions.
     if (!HttpRequest.isInstance(args.request)) return next(args);
 
-    const identity = await options.identity();
-
-    if (isTokenIdentity(identity)) {
-      const tokenIdentity: TokenIdentity = identity as TokenIdentity;
-      args.request.headers["Authorization"] = `Bearer ${tokenIdentity.token}`;
-      return next(args);
+    // Map AuthScheme ID to AuthScheme
+    const authSchemeMap = {};
+    for (const authScheme of options.authSchemes) {
+      authSchemeMap[authScheme.schemeId] = authScheme;
     }
 
-    if (isAwsCredentialIdentity(identity)) {
-      // signer resolved elsewhere
+    // Get first HttpAuthOption
+    // - schemeId
+    // - identityProperties
+    // - signerProperties
+    const potentialAuthParameters = options.authSchemeProvider(options);
+    const supportedAuthParameters = potentialAuthParameters
+      // Filter out any HttpAuthOptions that don't map to AuthSchemes
+      .filter((param) => authSchemeMap[param.schemeId]);
+    // Choose the first supported scheme option (undefined if empty)
+    const schemeOption = supportedAuthParameters.length > 0 ? supportedAuthParameters[0] : undefined;
+    if (schemeOption === undefined) {
+      throw new Error(`AuthScheme could not be resolved`);
     }
+    // Get AuthScheme based on first HttpAuthOption
+    const authScheme = authSchemeMap[schemeOption.schemeId];
 
-    return next(args);
+    // Handle identityProperties
+    const identityProperties = {
+      ...schemeOption.identityProperties,
+      ...options.identityProperties,
+    };
+
+    // Handle signerProperties
+    const signerProperties = {
+      ...schemeOption.signerProperties,
+      ...options.signingProperties,
+      ...context,
+      authScheme,
+    };
+
+    // Get IdentityProvider from IdentityResolver
+    const identityProvider = await authScheme.identity(options);
+
+    // Get Identity from IdentityProvider
+    const identity = await identityProvider(identityProperties);
+
+    // Get Signer from AuthScheme
+    const signer = await authScheme.signer();
+
+    // Sign Request
+    const request = signer.sign(args.request, identity, signerProperties);
+
+    return next({
+      ...args,
+      request,
+    });
   };
