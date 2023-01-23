@@ -396,7 +396,7 @@ export interface AliasRoutingConfiguration {
 }
 
 /**
- * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  */
 export interface AliasConfiguration {
   /**
@@ -1642,6 +1642,36 @@ export interface Layer {
   SigningJobArn?: string;
 }
 
+/**
+ * <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
+ */
+export interface RuntimeVersionError {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The ARN of the runtime and any errors that occured.</p>
+ */
+export interface RuntimeVersionConfig {
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   */
+  RuntimeVersionArn?: string;
+
+  /**
+   * <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
+   */
+  Error?: RuntimeVersionError;
+}
+
 export enum SnapStartOptimizationStatus {
   Off = "Off",
   On = "On",
@@ -1906,6 +1936,11 @@ export interface FunctionConfiguration {
    *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
    */
   SnapStart?: SnapStartResponse;
+
+  /**
+   * <p>The ARN of the runtime and any errors that occured.</p>
+   */
+  RuntimeVersionConfig?: RuntimeVersionConfig;
 }
 
 /**
@@ -2984,6 +3019,57 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
   }
 }
 
+export interface GetRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *     <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+}
+
+export enum UpdateRuntimeOn {
+  Auto = "Auto",
+  FunctionUpdate = "FunctionUpdate",
+  Manual = "Manual",
+}
+
+export interface GetRuntimeManagementConfigResponse {
+  /**
+   * <p>The current runtime update mode of the function.</p>
+   */
+  UpdateRuntimeOn?: UpdateRuntimeOn | string;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code>
+   *     is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+}
+
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
@@ -3551,7 +3637,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ * <p>The <code>afterRestore()</code>
+ *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  */
 export class SnapStartException extends __BaseException {
   readonly name: "SnapStartException" = "SnapStartException";
@@ -3597,7 +3684,7 @@ export class SnapStartNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook failed to complete within the timeout limit (2 seconds).</p>
+ * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
  */
 export class SnapStartTimeoutException extends __BaseException {
   readonly name: "SnapStartTimeoutException" = "SnapStartTimeoutException";
@@ -4758,6 +4845,88 @@ export interface PutProvisionedConcurrencyConfigResponse {
   LastModified?: string;
 }
 
+export interface PutRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *       <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>Specify the runtime update mode.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase">Two-phase runtime version rollout</a>. This is the best
+   *         choice for most customers to ensure they always benefit from runtime updates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function update</b> - Lambda updates the runtime of your function  to the most recent and secure runtime version when you update your
+   *         function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and
+   *         mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely.
+   *         In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information,
+   *         see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   *          <note>
+   *             <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
+   *          </note>
+   */
+  RuntimeVersionArn?: string;
+}
+
+export interface PutRuntimeManagementConfigResponse {
+  /**
+   * <p>The runtime update mode.</p>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the function</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code>
+   *       is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+}
+
 export interface RemoveLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -5715,6 +5884,22 @@ export const LayerFilterSensitiveLog = (obj: Layer): any => ({
 /**
  * @internal
  */
+export const RuntimeVersionErrorFilterSensitiveLog = (obj: RuntimeVersionError): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RuntimeVersionConfigFilterSensitiveLog = (obj: RuntimeVersionConfig): any => ({
+  ...obj,
+  ...(obj.Error && { Error: RuntimeVersionErrorFilterSensitiveLog(obj.Error) }),
+});
+
+/**
+ * @internal
+ */
 export const SnapStartResponseFilterSensitiveLog = (obj: SnapStartResponse): any => ({
   ...obj,
 });
@@ -5741,6 +5926,9 @@ export const FunctionConfigurationFilterSensitiveLog = (obj: FunctionConfigurati
   ...(obj.Environment && { Environment: EnvironmentResponseFilterSensitiveLog(obj.Environment) }),
   ...(obj.ImageConfigResponse && {
     ImageConfigResponse: ImageConfigResponseFilterSensitiveLog(obj.ImageConfigResponse),
+  }),
+  ...(obj.RuntimeVersionConfig && {
+    RuntimeVersionConfig: RuntimeVersionConfigFilterSensitiveLog(obj.RuntimeVersionConfig),
   }),
 });
 
@@ -6065,6 +6253,20 @@ export const GetProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetRuntimeManagementConfigRequestFilterSensitiveLog = (obj: GetRuntimeManagementConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuntimeManagementConfigResponseFilterSensitiveLog = (obj: GetRuntimeManagementConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const InvocationRequestFilterSensitiveLog = (obj: InvocationRequest): any => ({
   ...obj,
   ...(obj.Payload && { Payload: SENSITIVE_STRING }),
@@ -6383,6 +6585,20 @@ export const PutProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
 export const PutProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
   obj: PutProvisionedConcurrencyConfigResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuntimeManagementConfigRequestFilterSensitiveLog = (obj: PutRuntimeManagementConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuntimeManagementConfigResponseFilterSensitiveLog = (obj: PutRuntimeManagementConfigResponse): any => ({
   ...obj,
 });
 

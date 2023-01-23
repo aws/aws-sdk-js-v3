@@ -29,7 +29,7 @@ export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 export interface UpdateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

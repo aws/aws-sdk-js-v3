@@ -15,40 +15,40 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
+  PutRuntimeManagementConfigRequest,
+  PutRuntimeManagementConfigRequestFilterSensitiveLog,
+  PutRuntimeManagementConfigResponse,
+  PutRuntimeManagementConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAliasesCommand,
-  serializeAws_restJson1ListAliasesCommand,
+  deserializeAws_restJson1PutRuntimeManagementConfigCommand,
+  serializeAws_restJson1PutRuntimeManagementConfigCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListAliasesCommandInput extends ListAliasesRequest {}
-export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
+export interface PutRuntimeManagementConfigCommandInput extends PutRuntimeManagementConfigRequest {}
+export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
- *       for a Lambda function.</p>
+ * <p>Sets the runtime management configuration for a function's version. For more information,
+ *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, ListAliasesCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, ListAliasesCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, PutRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PutRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const command = new ListAliasesCommand(input);
+ * const command = new PutRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListAliasesCommandInput} for command's `input` shape.
- * @see {@link ListAliasesCommandOutput} for command's `response` shape.
+ * @see {@link PutRuntimeManagementConfigCommandInput} for command's `input` shape.
+ * @see {@link PutRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
-export class ListAliasesCommand extends $Command<
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
+export class PutRuntimeManagementConfigCommand extends $Command<
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
   LambdaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -63,7 +63,7 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListAliasesCommandInput) {
+  constructor(readonly input: PutRuntimeManagementConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -76,21 +76,23 @@ export class ListAliasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAliasesCommandInput, ListAliasesCommandOutput> {
+  ): Handler<PutRuntimeManagementConfigCommandInput, PutRuntimeManagementConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListAliasesCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutRuntimeManagementConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LambdaClient";
-    const commandName = "ListAliasesCommand";
+    const commandName = "PutRuntimeManagementConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: PutRuntimeManagementConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRuntimeManagementConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +102,15 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
-  private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAliasesCommand(input, context);
+  private serialize(input: PutRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PutRuntimeManagementConfigCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_restJson1ListAliasesCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<PutRuntimeManagementConfigCommandOutput> {
+    return deserializeAws_restJson1PutRuntimeManagementConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

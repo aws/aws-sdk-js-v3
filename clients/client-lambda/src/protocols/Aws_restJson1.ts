@@ -118,6 +118,10 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "../commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "../commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "../commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
@@ -174,6 +178,10 @@ import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "../commands/PutRuntimeManagementConfigCommand";
 import {
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
@@ -275,6 +283,8 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   Runtime,
+  RuntimeVersionConfig,
+  RuntimeVersionError,
   ScalingConfig,
   SelfManagedEventSource,
   SelfManagedKafkaEventSourceConfig,
@@ -1360,6 +1370,39 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
   });
 };
 
+export const serializeAws_restJson1GetRuntimeManagementConfigCommand = async (
+  input: GetRuntimeManagementConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FunctionName",
+    () => input.FunctionName!,
+    "{FunctionName}",
+    false
+  );
+  const query: any = map({
+    Qualifier: [, input.Qualifier!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1InvokeCommand = async (
   input: InvokeCommandInput,
   context: __SerdeContext
@@ -2002,6 +2045,45 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
     ...(input.ProvisionedConcurrentExecutions != null && {
       ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
     }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutRuntimeManagementConfigCommand = async (
+  input: PutRuntimeManagementConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FunctionName",
+    () => input.FunctionName!,
+    "{FunctionName}",
+    false
+  );
+  const query: any = map({
+    Qualifier: [, input.Qualifier!],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.RuntimeVersionArn != null && { RuntimeVersionArn: input.RuntimeVersionArn }),
+    ...(input.UpdateRuntimeOn != null && { UpdateRuntimeOn: input.UpdateRuntimeOn }),
   });
   return new __HttpRequest({
     protocol,
@@ -2914,6 +2996,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
+  }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
   }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
@@ -4187,6 +4272,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
@@ -4688,6 +4776,59 @@ const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError = asyn
     case "ProvisionedConcurrencyConfigNotFoundException":
     case "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException":
       throw await deserializeAws_restJson1ProvisionedConcurrencyConfigNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetRuntimeManagementConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRuntimeManagementConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetRuntimeManagementConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RuntimeVersionArn != null) {
+    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
+  }
+  if (data.UpdateRuntimeOn != null) {
+    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetRuntimeManagementConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRuntimeManagementConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lambda#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -5677,6 +5818,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
@@ -5965,6 +6109,65 @@ const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutRuntimeManagementConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuntimeManagementConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutRuntimeManagementConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FunctionArn != null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
+  if (data.RuntimeVersionArn != null) {
+    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
+  }
+  if (data.UpdateRuntimeOn != null) {
+    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutRuntimeManagementConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuntimeManagementConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6546,6 +6749,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
@@ -6712,6 +6918,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
+  }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
   }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
@@ -8486,6 +8695,10 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     RevisionId: __expectString(output.RevisionId),
     Role: __expectString(output.Role),
     Runtime: __expectString(output.Runtime),
+    RuntimeVersionConfig:
+      output.RuntimeVersionConfig != null
+        ? deserializeAws_restJson1RuntimeVersionConfig(output.RuntimeVersionConfig, context)
+        : undefined,
     SigningJobArn: __expectString(output.SigningJobArn),
     SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
     SnapStart:
@@ -8762,6 +8975,20 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1RuntimeVersionConfig = (output: any, context: __SerdeContext): RuntimeVersionConfig => {
+  return {
+    Error: output.Error != null ? deserializeAws_restJson1RuntimeVersionError(output.Error, context) : undefined,
+    RuntimeVersionArn: __expectString(output.RuntimeVersionArn),
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeVersionError = (output: any, context: __SerdeContext): RuntimeVersionError => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_restJson1ScalingConfig = (output: any, context: __SerdeContext): ScalingConfig => {

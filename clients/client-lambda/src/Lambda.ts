@@ -141,6 +141,11 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommand,
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommand, InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
@@ -221,6 +226,11 @@ import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  PutRuntimeManagementConfigCommand,
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "./commands/PutRuntimeManagementConfigCommand";
 import {
   RemoveLayerVersionPermissionCommand,
   RemoveLayerVersionPermissionCommandInput,
@@ -420,7 +430,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a> for a
+   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a
    *       Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a
    *       different version.</p>
    *          <p>You can also map an alias to split invocation requests between two versions. Use the
@@ -720,7 +730,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
   public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
@@ -1077,7 +1087,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public getAlias(args: GetAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetAliasCommandOutput>;
   public getAlias(args: GetAliasCommandInput, cb: (err: any, data?: GetAliasCommandOutput) => void): void;
@@ -1519,6 +1529,40 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Retrieves the runtime management configuration for a function's version. If the runtime update mode is <b>Manual</b>, this includes the ARN of the
+   *       runtime version and the runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
+   *       this includes the runtime update mode and <code>null</code> is returned for the ARN. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
+   */
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuntimeManagementConfigCommandOutput>;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    cb: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuntimeManagementConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): Promise<GetRuntimeManagementConfigCommandOutput> | void {
+    const command = new GetRuntimeManagementConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
    *       asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p>
    *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous invocation</a>,
@@ -1600,7 +1644,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+   * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
    *       for a Lambda function.</p>
    */
   public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
@@ -1734,7 +1778,7 @@ export class Lambda extends LambdaClient {
    *          <note>
    *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
    *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
-   *         LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p>
+   *         LastUpdateStatusReasonCode,  RuntimeVersionConfig) for a function or version, use <a>GetFunction</a>.</p>
    *          </note>
    */
   public listFunctions(
@@ -2210,6 +2254,39 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Sets the runtime management configuration for a function's version. For more information,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
+   */
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRuntimeManagementConfigCommandOutput>;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    cb: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRuntimeManagementConfigCommandOutput) => void),
+    cb?: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): Promise<PutRuntimeManagementConfigCommandOutput> | void {
+    const command = new PutRuntimeManagementConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. For more information, see
    *         <a>AddLayerVersionPermission</a>.</p>
@@ -2335,7 +2412,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
   public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;

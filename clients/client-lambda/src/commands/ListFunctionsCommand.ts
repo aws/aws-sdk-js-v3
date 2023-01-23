@@ -36,7 +36,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *          <note>
  *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
  *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
- *         LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p>
+ *         LastUpdateStatusReasonCode,  RuntimeVersionConfig) for a function or version, use <a>GetFunction</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -144,6 +144,10 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
@@ -200,6 +204,10 @@ import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "./commands/PutRuntimeManagementConfigCommand";
 import {
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
@@ -270,6 +278,7 @@ export type ServiceInputTypes =
   | GetLayerVersionPolicyCommandInput
   | GetPolicyCommandInput
   | GetProvisionedConcurrencyConfigCommandInput
+  | GetRuntimeManagementConfigCommandInput
   | InvokeAsyncCommandInput
   | InvokeCommandInput
   | ListAliasesCommandInput
@@ -290,6 +299,7 @@ export type ServiceInputTypes =
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
+  | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
   | TagResourceCommandInput
@@ -335,6 +345,7 @@ export type ServiceOutputTypes =
   | GetLayerVersionPolicyCommandOutput
   | GetPolicyCommandOutput
   | GetProvisionedConcurrencyConfigCommandOutput
+  | GetRuntimeManagementConfigCommandOutput
   | InvokeAsyncCommandOutput
   | InvokeCommandOutput
   | ListAliasesCommandOutput
@@ -355,6 +366,7 @@ export type ServiceOutputTypes =
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
+  | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput
   | TagResourceCommandOutput
