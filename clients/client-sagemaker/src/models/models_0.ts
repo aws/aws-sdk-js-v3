@@ -364,6 +364,7 @@ export enum ProductionVariantInstanceType {
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
   ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE = "ml.p4de.24xlarge",
   ML_P4D_24XLARGE = "ml.p4d.24xlarge",
   ML_R5D_12XLARGE = "ml.r5d.12xlarge",
   ML_R5D_24XLARGE = "ml.r5d.24xlarge",
@@ -9264,7 +9265,7 @@ export interface ProductionVariant {
 
   /**
    * <p>The size, in GB, of the ML storage volume attached to individual inference instance
-   *             associated with the production variant. Currenly only Amazon EBS gp2 storage volumes are
+   *             associated with the production variant. Currently only Amazon EBS gp2 storage volumes are
    *             supported.</p>
    */
   VolumeSizeInGB?: number;

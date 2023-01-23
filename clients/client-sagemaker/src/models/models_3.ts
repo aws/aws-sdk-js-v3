@@ -8241,8 +8241,8 @@ export interface UpdateDomainRequest {
   /**
    * <p>The entity that creates and manages the required security groups for inter-app
    *             communication in <code>VPCOnly</code> mode. Required when
-   *             <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *             <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;

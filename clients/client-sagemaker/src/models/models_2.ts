@@ -7560,7 +7560,7 @@ export interface Endpoint {
 
   /**
    * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
-   *             in shadow mode with production traffic replicated from the proudction variant.</p>
+   *             in shadow mode with production traffic replicated from the production variant.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
