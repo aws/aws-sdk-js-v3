@@ -39,8 +39,7 @@
     "@aws-sdk/util-body-length-node": "*",
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-utf8": "*",
     "@aws-smithy/server-common": "1.0.0-alpha.6",
     "tslib": "^2.3.1"
   },

@@ -3,6 +3,7 @@ import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { EventBridgeClientConfig } from "./EventBridgeClient";
@@ -20,4 +21,6 @@ export const getRuntimeConfig = (config: EventBridgeClientConfig) => ({
   serviceId: config?.serviceId ?? "EventBridge",
   signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
   urlParser: config?.urlParser ?? parseUrl,
+  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+  utf8Encoder: config?.utf8Encoder ?? toUtf8,
 });

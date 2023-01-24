@@ -2,6 +2,7 @@
 import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { Route53RecoveryControlConfigClientConfig } from "./Route53RecoveryControlConfigClient";
@@ -18,4 +19,6 @@ export const getRuntimeConfig = (config: Route53RecoveryControlConfigClientConfi
   logger: config?.logger ?? new NoOpLogger(),
   serviceId: config?.serviceId ?? "Route53 Recovery Control Config",
   urlParser: config?.urlParser ?? parseUrl,
+  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+  utf8Encoder: config?.utf8Encoder ?? toUtf8,
 });
