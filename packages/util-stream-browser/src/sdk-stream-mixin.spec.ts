@@ -3,14 +3,14 @@ import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { SdkStreamMixin } from "@aws-sdk/types";
 import { toBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toUtf8 } from "@aws-sdk/util-utf8-browser";
+import { toUtf8 } from "@aws-sdk/util-utf8";
 
 import { sdkStreamMixin } from "./sdk-stream-mixin";
 
 jest.mock("@aws-sdk/fetch-http-handler");
 jest.mock("@aws-sdk/util-base64");
 jest.mock("@aws-sdk/util-hex-encoding");
-jest.mock("@aws-sdk/util-utf8-browser");
+jest.mock("@aws-sdk/util-utf8");
 
 const mockStreamCollectorReturn = Uint8Array.from([117, 112, 113]);
 (streamCollector as jest.Mock).mockReturnValue(mockStreamCollectorReturn);
