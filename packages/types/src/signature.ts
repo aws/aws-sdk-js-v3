@@ -1,4 +1,5 @@
 import { HttpRequest } from "./http";
+import { Identity } from "./identity";
 
 /**
  * A {Date} object, a unix (epoch) timestamp in seconds, or a string that can be
@@ -110,4 +111,12 @@ export interface EventSigner {
    * Sign the individual event of the event stream.
    */
   sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
+}
+
+export interface HttpSigner<IdentityT extends Identity> {
+  sign(
+    requestToSign: HttpRequest,
+    identity: IdentityT,
+    signingProperties?: Record<string, any> & RequestSigningArguments
+  ): Promise<HttpRequest>;
 }
