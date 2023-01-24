@@ -1,4 +1,4 @@
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { EventStreamCodec } from "./EventStreamCodec";
 import { vectors } from "./TestVectors.fixture";

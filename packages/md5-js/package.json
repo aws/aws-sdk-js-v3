@@ -33,15 +33,8 @@
   },
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-utf8": "*",
     "tslib": "^2.3.1"
-  },
-  "browser": {
-    "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
-  },
-  "react-native": {
-    "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "typesVersions": {
     "<4.0": {
