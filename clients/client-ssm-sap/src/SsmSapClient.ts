@@ -68,6 +68,7 @@ import {
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
+import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -105,6 +106,7 @@ export type ServiceInputTypes =
   | ListApplicationsCommandInput
   | ListComponentsCommandInput
   | ListDatabasesCommandInput
+  | ListOperationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePermissionCommandInput
   | RegisterApplicationCommandInput
@@ -123,6 +125,7 @@ export type ServiceOutputTypes =
   | ListApplicationsCommandOutput
   | ListComponentsCommandOutput
   | ListDatabasesCommandOutput
+  | ListOperationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePermissionCommandOutput
   | RegisterApplicationCommandOutput

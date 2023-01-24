@@ -48,6 +48,11 @@ import {
   ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
 import {
+  ListOperationsCommand,
+  ListOperationsCommandInput,
+  ListOperationsCommandOutput,
+} from "./commands/ListOperationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -395,6 +400,38 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
+   */
+  public listOperations(
+    args: ListOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOperationsCommandOutput>;
+  public listOperations(
+    args: ListOperationsCommandInput,
+    cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
+  public listOperations(
+    args: ListOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
+  public listOperations(
+    args: ListOperationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListOperationsCommandOutput) => void
+  ): Promise<ListOperationsCommandOutput> | void {
+    const command = new ListOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all tags on an SAP HANA application and/or database registered with AWS Systems
    *          Manager for SAP.</p>
    */
@@ -466,8 +503,8 @@ export class SsmSap extends SsmSapClient {
    *          on Amazon EC2.</p>
    *          <p>AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the required
    *          IAM permissions.</p>
-   *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets
-   *          Manager to manage SAP applications and components.</p>
+   *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets Manager to
+   *          manage SAP applications and components.</p>
    */
   public registerApplication(
     args: RegisterApplicationCommandInput,
@@ -557,7 +594,8 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
-   * <p/>
+   * <p>Updates the settings of an application registered with AWS Systems Manager for
+   *          SAP.</p>
    */
   public updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,

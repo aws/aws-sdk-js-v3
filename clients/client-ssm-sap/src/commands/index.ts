@@ -9,6 +9,7 @@ export * from "./GetResourcePermissionCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListComponentsCommand";
 export * from "./ListDatabasesCommand";
+export * from "./ListOperationsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutResourcePermissionCommand";
 export * from "./RegisterApplicationCommand";

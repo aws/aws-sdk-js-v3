@@ -38,6 +38,7 @@ import {
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
+import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -65,6 +66,7 @@ import {
   ConflictException,
   Database,
   DatabaseSummary,
+  Filter,
   Host,
   InternalServerException,
   Operation,
@@ -136,6 +138,7 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-application";
   let body: any;
   body = JSON.stringify({
+    ...(input.AppRegistryArn != null && { AppRegistryArn: input.AppRegistryArn }),
     ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
     ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
   });
@@ -316,6 +319,33 @@ export const serializeAws_restJson1ListDatabasesCommand = async (
   body = JSON.stringify({
     ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
     ...(input.ComponentId != null && { ComponentId: input.ComponentId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListOperationsCommand = async (
+  input: ListOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-operations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
@@ -962,6 +992,53 @@ const deserializeAws_restJson1ListDatabasesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListOperationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Operations != null) {
+    contents.Operations = deserializeAws_restJson1OperationList(data.Operations, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListOperationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOperationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.ssmsap#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmsap#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1328,6 +1405,22 @@ const serializeAws_restJson1ApplicationCredentialList = (
     });
 };
 
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operator != null && { Operator: input.Operator }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Filter(entry, context);
+    });
+};
+
 const serializeAws_restJson1InstanceList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1564,6 +1657,18 @@ const deserializeAws_restJson1OperationIdList = (output: any, context: __SerdeCo
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1OperationList = (output: any, context: __SerdeContext): Operation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Operation(entry, context);
     });
   return retVal;
 };

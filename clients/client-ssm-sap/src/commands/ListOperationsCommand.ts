@@ -14,47 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  RegisterApplicationInput,
-  RegisterApplicationInputFilterSensitiveLog,
-  RegisterApplicationOutput,
-  RegisterApplicationOutputFilterSensitiveLog,
+  ListOperationsInput,
+  ListOperationsInputFilterSensitiveLog,
+  ListOperationsOutput,
+  ListOperationsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterApplicationCommand,
-  serializeAws_restJson1RegisterApplicationCommand,
+  deserializeAws_restJson1ListOperationsCommand,
+  serializeAws_restJson1ListOperationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
-export interface RegisterApplicationCommandInput extends RegisterApplicationInput {}
-export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
+export interface ListOperationsCommandInput extends ListOperationsInput {}
+export interface ListOperationsCommandOutput extends ListOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
- *          following requirements before registering. </p>
- *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
- *          on Amazon EC2.</p>
- *          <p>AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the required
- *          IAM permissions.</p>
- *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets Manager to
- *          manage SAP applications and components.</p>
+ * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, RegisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, RegisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, ListOperationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
+ * // const { SsmSapClient, ListOperationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const command = new RegisterApplicationCommand(input);
+ * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link RegisterApplicationCommandInput} for command's `input` shape.
- * @see {@link RegisterApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ListOperationsCommandInput} for command's `input` shape.
+ * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  */
-export class RegisterApplicationCommand extends $Command<
-  RegisterApplicationCommandInput,
-  RegisterApplicationCommandOutput,
+export class ListOperationsCommand extends $Command<
+  ListOperationsCommandInput,
+  ListOperationsCommandOutput,
   SsmSapClientResolvedConfig
 > {
   // Start section: command_properties
@@ -69,7 +62,7 @@ export class RegisterApplicationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: RegisterApplicationCommandInput) {
+  constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -82,23 +75,23 @@ export class RegisterApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SsmSapClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RegisterApplicationCommandInput, RegisterApplicationCommandOutput> {
+  ): Handler<ListOperationsCommandInput, ListOperationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterApplicationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListOperationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SsmSapClient";
-    const commandName = "RegisterApplicationCommand";
+    const commandName = "ListOperationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterApplicationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListOperationsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOperationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +101,12 @@ export class RegisterApplicationCommand extends $Command<
     );
   }
 
-  private serialize(input: RegisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterApplicationCommand(input, context);
+  private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListOperationsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterApplicationCommandOutput> {
-    return deserializeAws_restJson1RegisterApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
+    return deserializeAws_restJson1ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra
