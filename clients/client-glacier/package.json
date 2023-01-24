@@ -56,8 +56,7 @@
     "@aws-sdk/util-stream-node": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-utf8": "*",
     "@aws-sdk/util-waiter": "*",
     "tslib": "^2.3.1"
   },

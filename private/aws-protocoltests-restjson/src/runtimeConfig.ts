@@ -16,7 +16,6 @@ import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
@@ -55,7 +54,5 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     streamHasher: config?.streamHasher ?? streamHasher,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
-    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };
