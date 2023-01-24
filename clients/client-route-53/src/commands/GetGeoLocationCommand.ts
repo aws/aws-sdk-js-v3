@@ -31,25 +31,25 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
 /**
  * <p>Gets information about whether a specified geographic location is supported for Amazon
  * 			Route 53 geolocation resource record sets.</p>
- * 		       <p>Route 53 does not perform authorization for this API because it retrieves information
+ *          <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
- * 		       <p>Use the following syntax to determine whether a continent is supported for
+ *          <p>Use the following syntax to determine whether a continent is supported for
  * 			geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for
  * 					a continent</i>
  *             </code>
  *          </p>
- * 		       <p>Use the following syntax to determine whether a country is supported for
+ *          <p>Use the following syntax to determine whether a country is supported for
  * 			geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
  * 					code</i>
  *             </code>
  *          </p>
- * 		       <p>Use the following syntax to determine whether a subdivision of a country is supported
+ *          <p>Use the following syntax to determine whether a subdivision of a country is supported
  * 			for geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
  * 					code</i>&subdivisioncode=<i>subdivision
  * 			code</i>

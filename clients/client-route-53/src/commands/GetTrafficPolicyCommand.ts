@@ -31,7 +31,7 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
 
 /**
  * <p>Gets information about a specific traffic policy version.</p>
- * 		       <p>For information about how of deleting a traffic policy affects the response from
+ *          <p>For information about how of deleting a traffic policy affects the response from
  * 				<code>GetTrafficPolicy</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

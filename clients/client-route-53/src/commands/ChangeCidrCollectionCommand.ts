@@ -32,28 +32,28 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
 /**
  * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * 			IP information mapping blocks to one or multiple locations.</p>
- * 		       <p>A change request can update multiple locations in a collection at a time, which is
+ *          <p>A change request can update multiple locations in a collection at a time, which is
  * 			helpful if you want to move one or more CIDR blocks from one location to another in one
  * 			transaction, without downtime. </p>
- * 		       <p>
+ *          <p>
  *             <b>Limits</b>
  *          </p>
- * 		       <p>The max number of CIDR blocks included in the request is 1000. As a result, big updates
+ *          <p>The max number of CIDR blocks included in the request is 1000. As a result, big updates
  * 			require multiple API calls.</p>
- * 		       <p>
+ *          <p>
  *             <b> PUT and DELETE_IF_EXISTS</b>
  *          </p>
- * 		       <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>
- * 		       <ul>
+ *          <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PUT</code>: Create a CIDR block within the specified collection.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the
  * 					collection.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

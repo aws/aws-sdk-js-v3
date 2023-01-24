@@ -33,11 +33,11 @@ export interface DeleteReusableDelegationSetCommandOutput
 
 /**
  * <p>Deletes a reusable delegation set.</p>
- * 		       <important>
- * 			         <p>You can delete a reusable delegation set only if it isn't associated with any
+ *          <important>
+ *             <p>You can delete a reusable delegation set only if it isn't associated with any
  * 				hosted zones.</p>
- * 		       </important>
- * 		       <p>To verify that the reusable delegation set is not associated with any hosted zones,
+ *          </important>
+ *          <p>To verify that the reusable delegation set is not associated with any hosted zones,
  * 			submit a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a> request and specify the ID of the reusable
  * 			delegation set that you want to delete.</p>
  * @example

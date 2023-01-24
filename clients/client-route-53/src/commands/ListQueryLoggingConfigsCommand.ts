@@ -33,7 +33,7 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * <p>Lists the configurations for DNS query logging that are associated with the current
  * 				Amazon Web Services account or the configuration that is associated with a specified
  * 			hosted zone.</p>
- * 		       <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>. Additional information, including the format of
+ *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>. Additional information, including the format of
  * 			DNS query logs, appears in <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a> in
  * 			the <i>Amazon Route 53 Developer Guide</i>.</p>
  * @example

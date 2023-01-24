@@ -30,7 +30,7 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
 
 /**
  * <p>Updates an existing health check. Note that some values can't be updated. </p>
- * 		       <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
+ *          <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
  * 				Updating, and Deleting Health Checks</a> in the <i>Amazon Route 53
  * 				Developer Guide</i>.</p>
  * @example

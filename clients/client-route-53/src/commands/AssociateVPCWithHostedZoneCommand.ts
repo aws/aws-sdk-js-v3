@@ -31,39 +31,39 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
 
 /**
  * <p>Associates an Amazon VPC with a private hosted zone. </p>
- * 		       <important>
- * 			         <p>To perform the association, the VPC and the private hosted zone must already
+ *          <important>
+ *             <p>To perform the association, the VPC and the private hosted zone must already
  * 				exist. You can't convert a public hosted zone into a private hosted zone.</p>
- * 		       </important>
- * 		       <note>
- * 			         <p>If you want to associate a VPC that was created by using one Amazon Web Services account with a private hosted zone that was created by using a
+ *          </important>
+ *          <note>
+ *             <p>If you want to associate a VPC that was created by using one Amazon Web Services account with a private hosted zone that was created by using a
  * 				different account, the Amazon Web Services account that created the private hosted
  * 				zone must first submit a <code>CreateVPCAssociationAuthorization</code> request.
  * 				Then the account that created the VPC must submit an
  * 					<code>AssociateVPCWithHostedZone</code> request.</p>
- * 		       </note>
- * 		       <note>
- * 			         <p>When granting access, the hosted zone and the Amazon VPC must belong to
+ *          </note>
+ *          <note>
+ *             <p>When granting access, the hosted zone and the Amazon VPC must belong to
  * 				the same partition. A partition is a group of Amazon Web Services Regions. Each
  * 					Amazon Web Services account is scoped to one partition.</p>
- * 			         <p>The following are the supported partitions:</p>
- * 			         <ul>
+ *             <p>The following are the supported partitions:</p>
+ *             <ul>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws</code> - Amazon Web Services Regions</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws-cn</code> - China Regions</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
- * 				           </li>
+ *                </li>
  *             </ul>
- * 			         <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
+ *             <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
  * 				in the <i>Amazon Web Services General Reference</i>.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
