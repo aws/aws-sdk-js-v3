@@ -32,19 +32,21 @@ export const identityMiddleware =
       authSchemeMap[authScheme.schemeId] = authScheme;
     }
 
-    // Get first HttpAuthOption
+    // Get HttpOptions
     // - schemeId
     // - identityProperties
     // - signerProperties
     const potentialAuthParameters = options.authSchemeProvider(options);
-    const supportedAuthParameters = potentialAuthParameters
-      // Filter out any HttpAuthOptions that don't map to AuthSchemes
-      .filter((param) => authSchemeMap[param.schemeId]);
+
+    // Filter out any HttpAuthOptions that don't map to AuthSchemes
+    const supportedAuthParameters = potentialAuthParameters.filter((authParam) => authSchemeMap[authParam.schemeId]);
+
     // Choose the first supported scheme option (undefined if empty)
     const schemeOption = supportedAuthParameters.length > 0 ? supportedAuthParameters[0] : undefined;
     if (schemeOption === undefined) {
       throw new Error(`AuthScheme could not be resolved`);
     }
+
     // Get AuthScheme based on first HttpAuthOption
     const authScheme = authSchemeMap[schemeOption.schemeId];
 
@@ -63,7 +65,7 @@ export const identityMiddleware =
     };
 
     // Get IdentityProvider from IdentityResolver
-    const identityProvider = await authScheme.identity(options);
+    const identityProvider = await authScheme.identity(identityProperties);
 
     // Get Identity from IdentityProvider
     const identity = await identityProvider(identityProperties);

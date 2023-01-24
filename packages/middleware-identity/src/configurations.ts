@@ -71,7 +71,7 @@ interface AuthSchemeProvider<AuthParametersType> {
 interface ClientAuthParametersFromCodegen {}
 
 export interface IdentityResolvedConfig {
-  identity: IdentityProvider<Identity>;
+  identity: IdentityProvider<Identity> | undefined;
   authSchemeProvider: AuthSchemeProvider<ClientAuthParametersFromCodegen>;
   authSchemes: AuthScheme[];
   identityProperties?: Record<string, any>;
@@ -130,12 +130,8 @@ export interface AwsAuthInputConfig extends AuthInputConfig {
 export interface SigV4AuthInputConfig extends AuthInputConfig {}
 
 export interface IdentityPreviouslyResolved {
-  /**
-   * Previously resolved Auth Scheme
-   */
-  authScheme?: AuthScheme;
-  authSchemes?: AuthScheme[];
-  authSchemeProvider?: AuthSchemeProvider<ClientAuthParametersFromCodegen>;
+  authSchemes: AuthScheme[];
+  authSchemeProvider: AuthSchemeProvider<ClientAuthParametersFromCodegen>;
 }
 
 export interface AuthPreviouslyResolved extends IdentityPreviouslyResolved {

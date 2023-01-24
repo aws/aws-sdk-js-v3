@@ -1,4 +1,4 @@
-import { AnonymousIdentity, Identity, IdentityProvider } from "@aws-sdk/types";
+import { Identity, IdentityProvider } from "@aws-sdk/types";
 
 import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
 import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
@@ -17,21 +17,16 @@ import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProv
 export const resolveIdentityConfig = <T>(
   input: T & IdentityInputConfig & IdentityPreviouslyResolved
 ): T & IdentityResolvedConfig => {
-  const identity: IdentityProvider<Identity> =
-    // Use overriding resolved identity or anonymous identity
-    normalizeIdentityProvider(input.identity || ({} as AnonymousIdentity));
+  const identity: IdentityProvider<Identity> | undefined =
+    input.identity !== undefined
+      ? // Use overriding resolved identity
+        normalizeIdentityProvider(input.identity)
+      : // Will resolve to anonymous identity during identity resolution
+        undefined;
 
-  const authSchemes = input.authScheme
-    ? // Use overriding resolved AuthScheme
-      [input.authScheme]
-    : // Choose from multiple AuthSchemes
-      input.authSchemes || [];
+  const authSchemes = input.authSchemes;
 
-  const authSchemeProvider = input.authSchemeProvider
-    ? // Use overriding resolved HttpAuthOptions providers
-      input.authSchemeProvider
-    : // Empty HttpAuthOptions
-      () => [];
+  const authSchemeProvider = input.authSchemeProvider;
 
   return {
     ...input,
