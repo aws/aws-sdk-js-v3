@@ -4,6 +4,9 @@ import { AuthenticationInputConfig } from "./configurations";
 import { resolveAuthenticationConfig } from "./resolveAuthenticationConfig";
 import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
 
+/**
+ * TODO(identityandauth)
+ */
 describe(resolveAuthenticationConfig.name, () => {
   describe("resolve identity config", () => {
     const MOCK_IDENTITY: Identity = {

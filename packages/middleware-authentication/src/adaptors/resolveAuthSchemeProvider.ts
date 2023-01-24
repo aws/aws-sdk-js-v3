@@ -4,12 +4,18 @@ import { SUPPORTED_AUTH_OPTIONS } from "../supportedAuth";
 import { mapSchemeIdToAuthScheme } from "../util/mapSchemeIdToAuthScheme";
 
 /**
+ * TODO(identityandauth)
+ */
+/**
  * @internal
  */
 export interface ResolveAuthSchemeProviderOptions {
   authSchemes: AuthScheme[];
 }
 
+/**
+ * TODO(identityandauth)
+ */
 /**
  * @internal
  */

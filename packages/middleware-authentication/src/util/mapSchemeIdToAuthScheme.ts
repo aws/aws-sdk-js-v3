@@ -1,6 +1,7 @@
 import { AuthScheme } from "@aws-sdk/types";
 
 /**
+ * TODO(identityandauth)
  * @internal
  */
 export const mapSchemeIdToAuthScheme = (authSchemes: AuthScheme[]): Record<string, AuthScheme> => {

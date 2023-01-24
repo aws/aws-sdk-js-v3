@@ -6,6 +6,9 @@ jest.mock("@aws-sdk/token-providers");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 
+/**
+ * TODO(identityandauth)
+ */
 describe(tokenDefaultProvider.name, () => {
   const mockOutputToken = () =>
     Promise.resolve({

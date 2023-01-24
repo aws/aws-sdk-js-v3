@@ -12,6 +12,9 @@ import {
 import { normalizeIdentityProvider } from "../util/provider/normalizeIdentityProvider";
 import { tokenDefaultProvider } from "../util/provider/tokenDefaultProvider";
 
+/**
+ * TODO(identityandauth)
+ */
 export const HttpBearerAuthSchemeId = "smithy.api#httpBearerAuth";
 
 export const HttpBearerAuthScheme: AuthScheme = {

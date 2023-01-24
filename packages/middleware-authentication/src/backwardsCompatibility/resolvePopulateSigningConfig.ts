@@ -1,6 +1,9 @@
 import { AuthenticationInputConfig } from "../configurations";
 import { PopulateSigningInputConfig } from "./configurations";
 
+/**
+ * TODO(identityandauth)
+ */
 export const resolvePopulateSigningConfig = <T>(
   input: T & PopulateSigningInputConfig
 ): T & AuthenticationInputConfig => {

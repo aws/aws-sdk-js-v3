@@ -1,6 +1,9 @@
 import { isClockSkewed } from "./isClockSkewed";
 
 /**
+ * TODO(identityandauth)
+ */
+/**
  * If clock is skewed, it returns the difference between serverTime and current time.
  * If clock is not skewed, it returns currentSystemClockOffset.
  *

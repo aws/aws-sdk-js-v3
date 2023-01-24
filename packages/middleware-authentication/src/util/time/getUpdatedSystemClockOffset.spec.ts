@@ -3,6 +3,9 @@ import { isClockSkewed } from "./isClockSkewed";
 
 jest.mock("./isClockSkewed");
 
+/**
+ * TODO(identityandauth)
+ */
 describe(getUpdatedSystemClockOffset.name, () => {
   // Mock ServerTime is accurate to last second, to remove milliseconds information.
   const mockClockTime = new Date(Math.floor(Date.now() / 1000) * 1000);

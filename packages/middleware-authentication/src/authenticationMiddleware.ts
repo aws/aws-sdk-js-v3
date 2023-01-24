@@ -13,6 +13,9 @@ import { resolveAuthSchemes } from "./adaptors/resolveAuthSchemes";
 import { AuthenticationResolvedConfig } from "./configurations";
 import { mapSchemeIdToAuthScheme } from "./util/mapSchemeIdToAuthScheme";
 
+/**
+ * TODO(identityandauth)
+ */
 export const AuthenticationMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "authenticationMiddleware",
   tags: ["IDENTITY", "AUTHENTICATION", "AUTH"],
@@ -21,6 +24,9 @@ export const AuthenticationMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * TODO(identityandauth)
+ */
 export const authenticationMiddleware =
   <Input extends object, Output extends object>(
     options: AuthenticationResolvedConfig

@@ -8,6 +8,9 @@ const isIdentityWithExpiry = (identity: Identity) => identity.expiration !== und
 const isIdentityExpiringWithinFiveMins = (identity: Identity) =>
   isIdentityWithExpiry(identity) && identity.expiration!.getTime() - Date.now() < CREDENTIAL_EXPIRE_WINDOW;
 
+/**
+ * TODO(identityandauth)
+ */
 export const normalizeIdentityProvider = (
   identity: Identity | IdentityProvider<Identity>
 ): MemoizedProvider<Identity> => {

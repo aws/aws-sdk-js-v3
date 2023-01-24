@@ -5,6 +5,9 @@ import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProv
 
 jest.mock("./authenticationMiddleware");
 
+/**
+ * TODO(identityandauth)
+ */
 describe(getAuthenticationPlugin.name, () => {
   it("applyToStack adds authenticationMiddleware", () => {
     const MOCK_IDENTITY = {

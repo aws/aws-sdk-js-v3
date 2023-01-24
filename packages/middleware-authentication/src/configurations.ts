@@ -1,5 +1,8 @@
 import { AuthOptionsProvider, AuthScheme, Identity, IdentityProvider } from "@aws-sdk/types";
 
+/**
+ * TODO(identityandauth)
+ */
 export interface AuthenticationInputConfig extends Partial<Omit<AuthenticationResolvedConfig, "identity">> {
   /**
    * A representation of who is using the SDK client.
@@ -7,6 +10,9 @@ export interface AuthenticationInputConfig extends Partial<Omit<AuthenticationRe
   identity?: Identity | IdentityProvider<Identity>;
 }
 
+/**
+ * TODO(identityandauth)
+ */
 export interface AuthenticationResolvedConfig {
   identity?: IdentityProvider<Identity>;
   authOptionsProvider?: AuthOptionsProvider;

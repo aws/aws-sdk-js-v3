@@ -4,15 +4,7 @@ import { AuthenticationInputConfig, AuthenticationResolvedConfig } from "./confi
 import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
 
 /**
- * Resolves identity in the following precedence:
- *
- * - identity: user-provided identity
- * - token: backwards compatible token identity
- * - credentials: backwards compatible credentials identity
- * - authScheme: populated from AuthSchemeResolver from config
- *
- * @param input configuration object
- * @returns input with an identity provider
+ * TODO(identityandauth)
  */
 export const resolveAuthenticationConfig = <T>(
   input: T & AuthenticationInputConfig

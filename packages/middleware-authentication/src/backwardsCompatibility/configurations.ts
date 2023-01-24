@@ -10,6 +10,9 @@ import {
   TokenProvider,
 } from "@aws-sdk/types";
 
+/**
+ * TODO(identityandauth)
+ */
 export interface PopulateSigningInputConfig
   extends Partial<IdentityInputConfig>,
     Partial<AuthInputConfig>,

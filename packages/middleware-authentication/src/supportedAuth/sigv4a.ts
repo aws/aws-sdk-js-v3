@@ -12,14 +12,14 @@ import {
 } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
-import { credentialDefaultProvider } from "../middleware-authentication/provider/credentialDefaultProvider";
-import { getSkewCorrectedDate } from "../middleware-authentication/time/getSkewCorrectedDate";
-import { normalizeIdentityProvider } from "../middleware-authentication/util/normalizeIdentityProvider";
-import {
-  AwsAuthInputConfig,
-  AwsAuthPreviouslyResolved,
-} from "../middleware-signing-backwards-compatibility/configurations";
+import { AwsAuthInputConfig, AwsAuthPreviouslyResolved } from "../backwardsCompatibility/configurations";
+import { credentialDefaultProvider } from "../util/provider/credentialDefaultProvider";
+import { normalizeIdentityProvider } from "../util/provider/normalizeIdentityProvider";
+import { getSkewCorrectedDate } from "../util/time/getSkewCorrectedDate";
 
+/**
+ * TODO(identityandauth)
+ */
 export const SigV4AAuthSchemeId = "aws.auth#sigv4a";
 
 export const SigV4AAuthScheme: AuthScheme = {

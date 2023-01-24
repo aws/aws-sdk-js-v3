@@ -2,6 +2,9 @@ import { HttpResponse } from "@aws-sdk/protocol-http";
 
 import { getDateHeader } from "./getDateHeader";
 
+/**
+ * TODO(identityandauth)
+ */
 describe(getDateHeader.name, () => {
   const MOCK_DATE = "mockDate";
 

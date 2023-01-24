@@ -1,6 +1,9 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
 
 /**
+ * TODO(identityandauth)
+ */
+/**
  * Returns a date from an HttpResponse header
  *
  * @param response potential HttpResponse

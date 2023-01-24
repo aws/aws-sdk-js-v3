@@ -8,7 +8,9 @@ jest.mock("@aws-sdk/util-middleware");
 
 const ONE_SECOND_IN_MS = 1000;
 const ONE_HOUR_IN_MS = 3600 * ONE_SECOND_IN_MS;
-
+/**
+ * TODO(identityandauth)
+ */
 describe(normalizeIdentityProvider.name, () => {
   const mockIdentity = {
     expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
