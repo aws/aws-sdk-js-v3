@@ -8579,7 +8579,7 @@ const serializeAws_restXmlLambdaFunctionConfigurationList = (
 const serializeAws_restXmlLifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleExpiration");
   if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
+    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
     bodyNode.addChildNode(node);
   }
   if (input.Days != null) {
@@ -8980,7 +8980,7 @@ const serializeAws_restXmlObjectLockRetention = (input: ObjectLockRetention, con
   }
   if (input.RetainUntilDate != null) {
     const node = __XmlNode
-      .of("Date", input.RetainUntilDate.toISOString().split(".")[0] + "Z")
+      .of("Date", (input.RetainUntilDate.toISOString().split(".")[0] + "Z").toString())
       .withName("RetainUntilDate");
     bodyNode.addChildNode(node);
   }
@@ -9729,7 +9729,7 @@ const serializeAws_restXmlTopicConfigurationList = (input: TopicConfiguration[],
 const serializeAws_restXmlTransition = (input: Transition, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Transition");
   if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
+    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
     bodyNode.addChildNode(node);
   }
   if (input.Days != null) {
