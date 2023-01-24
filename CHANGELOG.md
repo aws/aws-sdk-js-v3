@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+
+### Features
+
+* **client-databrew:** Enabled FIPS us-gov-west-1 endpoints in SDK. ([c22758d](https://github.com/aws/aws-sdk-js-v3/commit/c22758d00dcf9ef0eca6c7cc306a3ecbd85fb38c))
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Melbourne) Region (ap-southeast-4) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([98c0783](https://github.com/aws/aws-sdk-js-v3/commit/98c07833021d52d60ca33429fc9d6096bbac6a5a))
+* **client-ssm-sap:** This release provides updates to documentation and support for listing operations performed by AWS Systems Manager for SAP. ([dd335a9](https://github.com/aws/aws-sdk-js-v3/commit/dd335a9592b37c1d8cc5fa6f84217855d54e5401))
+* **middleware-api-key:** add new auth middleware ([#4012](https://github.com/aws/aws-sdk-js-v3/issues/4012)) ([bdf7a59](https://github.com/aws/aws-sdk-js-v3/commit/bdf7a59d0df8a236ece3942a243e17b228013c27))
+
+
+
+
+
 # [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
 
 
