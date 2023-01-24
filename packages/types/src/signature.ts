@@ -86,6 +86,7 @@ export interface RequestPresigner {
 /**
  * An object that signs request objects with AWS credentials using one of the
  * AWS authentication protocols.
+ * @deprecated Use {@link HttpSigner}
  */
 export interface RequestSigner {
   /**
@@ -114,6 +115,9 @@ export interface EventSigner {
 }
 
 export interface HttpSigner<IdentityT extends Identity> {
+  /**
+   * Sign an HTTP request, and generate a new signed HTTP request
+   */
   sign(
     requestToSign: HttpRequest,
     identity: IdentityT,
