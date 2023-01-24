@@ -1,7 +1,7 @@
 import { Identity, IdentityProvider } from "@aws-sdk/types";
 
-import { normalizeIdentityProvider } from "../util/normalizeIdentityProvider";
-import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig } from "./configurations";
+import { AuthenticationInputConfig, AuthenticationResolvedConfig } from "./configurations";
+import { normalizeIdentityProvider } from "./util/provider/normalizeIdentityProvider";
 
 /**
  * Resolves identity in the following precedence:
@@ -14,9 +14,9 @@ import { IdentityInputConfig, IdentityPreviouslyResolved, IdentityResolvedConfig
  * @param input configuration object
  * @returns input with an identity provider
  */
-export const resolveIdentityConfig = <T>(
-  input: T & IdentityInputConfig & IdentityPreviouslyResolved
-): T & IdentityResolvedConfig => {
+export const resolveAuthenticationConfig = <T>(
+  input: T & AuthenticationInputConfig
+): T & AuthenticationResolvedConfig => {
   const identity: IdentityProvider<Identity> | undefined =
     input.identity !== undefined
       ? // Use overriding resolved identity
@@ -26,12 +26,18 @@ export const resolveIdentityConfig = <T>(
 
   const authSchemes = input.authSchemes;
 
-  const authSchemeProvider = input.authSchemeProvider;
+  const authOptionsProvider = input.authOptionsProvider;
+
+  const identityProperties = input.identityProperties || {};
+
+  const signingProperties = input.signingProperties || {};
 
   return {
     ...input,
     identity,
     authSchemes,
-    authSchemeProvider,
+    authOptionsProvider,
+    identityProperties,
+    signingProperties,
   };
 };

@@ -10,7 +10,7 @@ import {
   RequestSigningArguments,
 } from "@aws-sdk/types";
 
-import { normalizeIdentityProvider } from "../util/normalizeIdentityProvider";
+import { normalizeIdentityProvider } from "../middleware-authentication/util/normalizeIdentityProvider";
 
 export const SigV4AuthSchemeId = "aws.auth#sigv4";
 

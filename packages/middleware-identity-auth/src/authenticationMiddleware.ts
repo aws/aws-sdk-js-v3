@@ -8,33 +8,47 @@ import {
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
-import { mapSchemeIdToAuthScheme } from "../util/mapSchemeIdToAuthScheme";
-import { IdentityResolvedConfig } from "./configurations";
+import { resolveAuthSchemeProvider } from "./adaptors/resolveAuthSchemeProvider";
+import { resolveAuthSchemes } from "./adaptors/resolveAuthSchemes";
+import { AuthenticationResolvedConfig } from "./configurations";
+import { mapSchemeIdToAuthScheme } from "./util/mapSchemeIdToAuthScheme";
 
-export const IdentityMiddlewareOptions: RelativeMiddlewareOptions = {
-  name: "identityMiddleware",
-  tags: ["IDENTITY"],
+export const AuthenticationMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "authenticationMiddleware",
+  tags: ["IDENTITY", "AUTHENTICATION", "AUTH"],
   relation: "after",
   toMiddleware: "retryMiddleware",
   override: true,
 };
 
-export const identityMiddleware =
+export const authenticationMiddleware =
   <Input extends object, Output extends object>(
-    options: IdentityResolvedConfig
+    options: AuthenticationResolvedConfig
   ): FinalizeRequestMiddleware<Input, Output> =>
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
   async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) return next(args);
 
+    const authSchemes = options.authSchemes
+      ? options.authSchemes
+      : await resolveAuthSchemes({
+          context,
+        });
+
+    const authOptionsProvider = options.authOptionsProvider
+      ? options.authOptionsProvider
+      : await resolveAuthSchemeProvider({
+          authSchemes,
+        });
+
     // Map AuthScheme ID to AuthScheme
-    const authSchemeMap = mapSchemeIdToAuthScheme(options.authSchemes);
+    const authSchemeMap = mapSchemeIdToAuthScheme(authSchemes);
 
     // Get HttpOptions
     // - schemeId
     // - identityProperties
     // - signerProperties
-    const potentialAuthParameters = options.authSchemeProvider(options);
+    const potentialAuthParameters = await authOptionsProvider(options);
 
     // Filter out any HttpAuthOptions that don't map to AuthSchemes
     const supportedAuthParameters = potentialAuthParameters.filter((authParam) => authSchemeMap[authParam.schemeId]);

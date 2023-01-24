@@ -1,6 +1,6 @@
 import { AuthScheme, HandlerExecutionContext } from "@aws-sdk/types";
 
-import { SUPPORTED_AUTH_SCHEMES } from "../../supported";
+import { SUPPORTED_AUTH_SCHEMES_MAP } from "../supportedAuth";
 
 /**
  * @internal
@@ -14,12 +14,12 @@ export interface ResolveAuthSchemesOptions {
  */
 export const resolveAuthSchemes = async (options: ResolveAuthSchemesOptions): Promise<AuthScheme[]> => {
   const supportedAuthSchemes = options.context.authSchemes.filter(
-    (authScheme) => SUPPORTED_AUTH_SCHEMES[authScheme.name]
+    (authScheme) => SUPPORTED_AUTH_SCHEMES_MAP[authScheme.name]
   );
   return supportedAuthSchemes.map((authScheme) => {
     return {
       ...authScheme,
-      ...SUPPORTED_AUTH_SCHEMES[authScheme.name],
+      ...SUPPORTED_AUTH_SCHEMES_MAP[authScheme.name],
     };
   });
 };

@@ -1,7 +1,7 @@
 {
-  "name": "@aws-sdk/middleware-identity-auth",
+  "name": "@aws-sdk/middleware-authentication",
   "version": "3.0.0",
-  "description": "Middleware and Plugin for resolving identity and authentication.",
+  "description": "Middleware and Plugin for resolving authentication.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -24,11 +24,11 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-identity-auth",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-authentication",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-identity-auth"
+    "directory": "packages/middleware-authentication"
   },
   "dependencies": {
     "@aws-sdk/property-provider": "*",

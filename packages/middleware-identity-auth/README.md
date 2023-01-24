@@ -1,9 +1,9 @@
-# @aws-sdk/middleware-identity-auth
+# @aws-sdk/middleware-authentication
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-identity-auth/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-identity-auth)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-identity-auth.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-identity-auth)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-authentication/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-authentication)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-authentication.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-authentication)
 
-Middleware and Plugin for resolving identity and authentication.
+Middleware and Plugin for resolving authentication.
 
 > An internal package
 

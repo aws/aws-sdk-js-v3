@@ -9,7 +9,7 @@ import {
   TokenIdentity,
 } from "@aws-sdk/types";
 
-import { normalizeIdentityProvider } from "../util/normalizeIdentityProvider";
+import { normalizeIdentityProvider } from "../util/provider/normalizeIdentityProvider";
 import { tokenDefaultProvider } from "../util/provider/tokenDefaultProvider";
 
 export const HttpBearerAuthSchemeId = "smithy.api#httpBearerAuth";

@@ -10,3 +10,7 @@ export const SUPPORTED_AUTH_SCHEMES: AuthScheme[] = [SigV4AAuthScheme, SigV4Auth
 export const SUPPORTED_AUTH_SCHEMES_MAP: Record<string, AuthScheme> = mapSchemeIdToAuthScheme(SUPPORTED_AUTH_SCHEMES);
 
 export const SUPPORTED_AUTH_OPTIONS: HttpAuthOption[] = [SigV4AAuthOption, SigV4AuthOption, HttpBearerAuthOption];
+
+export * from "./httpBearerAuth";
+export * from "./sigv4";
+export * from "./sigv4a";
