@@ -23,6 +23,7 @@ export * from "./XmlEmptyBlobsCommand";
 export * from "./XmlEmptyListsCommand";
 export * from "./XmlEmptyMapsCommand";
 export * from "./XmlEnumsCommand";
+export * from "./XmlIntEnumsCommand";
 export * from "./XmlListsCommand";
 export * from "./XmlMapsCommand";
 export * from "./XmlMapsXmlNameCommand";

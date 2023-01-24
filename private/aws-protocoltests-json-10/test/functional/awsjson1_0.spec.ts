@@ -1025,6 +1025,50 @@ it("AwsJson10SerializeEnumUnionValue:Request", async () => {
 });
 
 /**
+ * Serializes an intEnum union value
+ */
+it("AwsJson10SerializeIntEnumUnionValue:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      intEnumValue: 1,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"contents\": {
+            \"intEnumValue\": 1
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Serializes a list union value
  */
 it("AwsJson10SerializeListUnionValue:Request", async () => {
@@ -1422,6 +1466,50 @@ it("AwsJson10DeserializeEnumUnionValue:Response", async () => {
     {
       contents: {
         enumValue: "Foo",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes an intEnum union value
+ */
+it("AwsJson10DeserializeIntEnumUnionValue:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "contents": {
+              "intEnumValue": 1
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        intEnumValue: 1,
       },
     },
   ][0];

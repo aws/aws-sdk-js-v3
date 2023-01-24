@@ -133,6 +133,11 @@ import {
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommand, JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import {
+  JsonIntEnumsCommand,
+  JsonIntEnumsCommandInput,
+  JsonIntEnumsCommandOutput,
+} from "./commands/JsonIntEnumsCommand";
 import { JsonListsCommand, JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommand, JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import {
@@ -1292,6 +1297,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: JsonEnumsCommandOutput) => void
   ): Promise<JsonEnumsCommandOutput> | void {
     const command = new JsonEnumsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes intEnums as top level properties, in lists, sets, and maps.
+   */
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonIntEnumsCommandOutput>;
+  public jsonIntEnums(args: JsonIntEnumsCommandInput, cb: (err: any, data?: JsonIntEnumsCommandOutput) => void): void;
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
+  ): void;
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonIntEnumsCommandOutput) => void),
+    cb?: (err: any, data?: JsonIntEnumsCommandOutput) => void
+  ): Promise<JsonIntEnumsCommandOutput> | void {
+    const command = new JsonIntEnumsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

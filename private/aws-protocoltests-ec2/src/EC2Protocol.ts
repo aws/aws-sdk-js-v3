@@ -79,6 +79,7 @@ import {
   XmlEmptyListsCommandOutput,
 } from "./commands/XmlEmptyListsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand, XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import {
   XmlNamespacesCommand,
@@ -642,6 +643,32 @@ export class EC2Protocol extends EC2ProtocolClient {
     cb?: (err: any, data?: XmlEnumsCommandOutput) => void
   ): Promise<XmlEnumsCommandOutput> | void {
     const command = new XmlEnumsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes intEnums as top level properties, in lists, sets, and maps.
+   */
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlIntEnumsCommandOutput>;
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, cb: (err: any, data?: XmlIntEnumsCommandOutput) => void): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlIntEnumsCommandOutput) => void),
+    cb?: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): Promise<XmlIntEnumsCommandOutput> | void {
+    const command = new XmlIntEnumsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

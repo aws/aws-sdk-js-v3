@@ -147,6 +147,7 @@ import {
 } from "./operations/InputAndOutputWithHeaders";
 import { JsonBlobs, JsonBlobsSerializer, JsonBlobsServerInput } from "./operations/JsonBlobs";
 import { JsonEnums, JsonEnumsSerializer, JsonEnumsServerInput } from "./operations/JsonEnums";
+import { JsonIntEnums, JsonIntEnumsSerializer, JsonIntEnumsServerInput } from "./operations/JsonIntEnums";
 import { JsonLists, JsonListsSerializer, JsonListsServerInput } from "./operations/JsonLists";
 import { JsonMaps, JsonMapsSerializer, JsonMapsServerInput } from "./operations/JsonMaps";
 import { JsonTimestamps, JsonTimestampsSerializer, JsonTimestampsServerInput } from "./operations/JsonTimestamps";
@@ -387,6 +388,7 @@ export type RestJsonServiceOperations =
   | "InputAndOutputWithHeaders"
   | "JsonBlobs"
   | "JsonEnums"
+  | "JsonIntEnums"
   | "JsonLists"
   | "JsonMaps"
   | "JsonTimestamps"
@@ -474,6 +476,7 @@ export interface RestJsonService<Context> {
   InputAndOutputWithHeaders: InputAndOutputWithHeaders<Context>;
   JsonBlobs: JsonBlobs<Context>;
   JsonEnums: JsonEnums<Context>;
+  JsonIntEnums: JsonIntEnums<Context>;
   JsonLists: JsonLists<Context>;
   JsonMaps: JsonMaps<Context>;
   JsonTimestamps: JsonTimestamps<Context>;
@@ -956,6 +959,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.JsonEnums,
           this.serializeFrameworkException,
           JsonEnumsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "JsonIntEnums": {
+        return handle(
+          request,
+          context,
+          "JsonIntEnums",
+          this.serializerFactory("JsonIntEnums"),
+          this.service.JsonIntEnums,
+          this.serializeFrameworkException,
+          JsonIntEnumsServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1854,6 +1869,10 @@ export const getRestJsonServiceHandler = <Context>(
       service: "RestJson",
       operation: "JsonEnums",
     }),
+    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">("PUT", [{ type: "path_literal", value: "JsonIntEnums" }], [], {
+      service: "RestJson",
+      operation: "JsonIntEnums",
+    }),
     new httpbinding.UriSpec<"RestJson", "JsonLists">("PUT", [{ type: "path_literal", value: "JsonLists" }], [], {
       service: "RestJson",
       operation: "JsonLists",
@@ -2251,6 +2270,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new JsonBlobsSerializer();
       case "JsonEnums":
         return new JsonEnumsSerializer();
+      case "JsonIntEnums":
+        return new JsonIntEnumsSerializer();
       case "JsonLists":
         return new JsonListsSerializer();
       case "JsonMaps":

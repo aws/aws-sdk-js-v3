@@ -22,6 +22,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**
@@ -288,6 +294,7 @@ export interface SimpleInputParamsInput {
   Boo?: number;
   Qux?: Uint8Array;
   FooEnum?: FooEnum | string;
+  IntegerEnum?: IntegerEnum | number;
 }
 
 /**
@@ -347,6 +354,7 @@ export interface XmlListsOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -394,6 +402,22 @@ export const XmlEnumsOutputFilterSensitiveLog = (obj: XmlEnumsOutput): any => ({
   ...obj,
 });
 
+export interface XmlIntEnumsOutput {
+  intEnum1?: IntegerEnum | number;
+  intEnum2?: IntegerEnum | number;
+  intEnum3?: IntegerEnum | number;
+  intEnumList?: (IntegerEnum | number)[];
+  intEnumSet?: (IntegerEnum | number)[];
+  intEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const XmlIntEnumsOutputFilterSensitiveLog = (obj: XmlIntEnumsOutput): any => ({
+  ...obj,
+});
+
 export interface XmlMapsXmlNameOutput {
   myMap?: Record<string, GreetingStruct>;
 }
@@ -431,8 +455,11 @@ export const XmlNamespacesOutputFilterSensitiveLog = (obj: XmlNamespacesOutput):
 export interface XmlTimestampsOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**

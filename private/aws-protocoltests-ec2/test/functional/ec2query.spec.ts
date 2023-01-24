@@ -22,6 +22,7 @@ import { XmlBlobsCommand } from "../../src/commands/XmlBlobsCommand";
 import { XmlEmptyBlobsCommand } from "../../src/commands/XmlEmptyBlobsCommand";
 import { XmlEmptyListsCommand } from "../../src/commands/XmlEmptyListsCommand";
 import { XmlEnumsCommand } from "../../src/commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
@@ -1952,6 +1953,90 @@ it("Ec2XmlEnums:Response", async () => {
 });
 
 /**
+ * Serializes simple scalar properties
+ */
+it("Ec2XmlIntEnums:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlIntEnumsResponse xmlns="https://example.com/">
+          <intEnum1>1</intEnum1>
+          <intEnum2>2</intEnum2>
+          <intEnum3>3</intEnum3>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
+          <intEnumSet>
+              <member>1</member>
+              <member>2</member>
+          </intEnumSet>
+          <intEnumMap>
+              <entry>
+                  <key>a</key>
+                  <value>1</value>
+              </entry>
+              <entry>
+                  <key>b</key>
+                  <value>2</value>
+              </entry>
+          </intEnumMap>
+          <RequestId>requestid</RequestId>
+      </XmlIntEnumsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      intEnum1: 1,
+
+      intEnum2: 2,
+
+      intEnum3: 3,
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
+
+      intEnumSet: [
+        1,
+
+        2,
+      ],
+
+      intEnumMap: {
+        a: 1,
+
+        b: 2,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Tests for XML list serialization
  */
 it("Ec2XmlLists:Response", async () => {
@@ -1988,6 +2073,10 @@ it("Ec2XmlLists:Response", async () => {
               <member>Foo</member>
               <member>0</member>
           </enumList>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
           <nestedStringList>
               <member>
                   <member>foo</member>
@@ -2054,6 +2143,12 @@ it("Ec2XmlLists:Response", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -2229,6 +2324,48 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("Ec2XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+          <RequestId>requestid</RequestId>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
@@ -2271,6 +2408,48 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("Ec2XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
+          <RequestId>requestid</RequestId>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
@@ -2304,6 +2483,48 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("Ec2XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
+          <RequestId>requestid</RequestId>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

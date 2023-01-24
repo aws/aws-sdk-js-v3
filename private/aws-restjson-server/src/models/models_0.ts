@@ -10,6 +10,7 @@ import {
   CompositeStructureValidator as __CompositeStructureValidator,
   CompositeValidator as __CompositeValidator,
   EnumValidator as __EnumValidator,
+  IntegerEnumValidator as __IntegerEnumValidator,
   MultiConstraintValidator as __MultiConstraintValidator,
   NoOpValidator as __NoOpValidator,
   RequiredValidator as __RequiredValidator,
@@ -39,7 +40,7 @@ export namespace GreetingStruct {
   export const validate = (obj: GreetingStruct, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "hi": {
@@ -62,6 +63,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface AllQueryStringTypesInput {
   queryString?: string;
   queryStringList?: string[];
@@ -81,6 +88,8 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnum?: IntegerEnum | number;
+  queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
@@ -110,6 +119,8 @@ export namespace AllQueryStringTypesInput {
     queryTimestampList?: __MultiConstraintValidator<Iterable<Date>>;
     queryEnum?: __MultiConstraintValidator<string>;
     queryEnumList?: __MultiConstraintValidator<Iterable<string>>;
+    queryIntegerEnum?: __MultiConstraintValidator<number>;
+    queryIntegerEnumList?: __MultiConstraintValidator<Iterable<number>>;
     queryParamsMapOfStringList?: __MultiConstraintValidator<Record<string, string[]>>;
   } = {};
   /**
@@ -118,7 +129,7 @@ export namespace AllQueryStringTypesInput {
   export const validate = (obj: AllQueryStringTypesInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "queryString": {
@@ -219,6 +230,19 @@ export namespace AllQueryStringTypesInput {
             );
             break;
           }
+          case "queryIntegerEnum": {
+            memberValidators["queryIntegerEnum"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "queryIntegerEnumList": {
+            memberValidators["queryIntegerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
           case "queryParamsMapOfStringList": {
             memberValidators["queryParamsMapOfStringList"] = new __CompositeMapValidator<string[]>(
               new __NoOpValidator(),
@@ -250,6 +274,8 @@ export namespace AllQueryStringTypesInput {
       ...getMemberValidator("queryTimestampList").validate(obj.queryTimestampList, `${path}/queryTimestampList`),
       ...getMemberValidator("queryEnum").validate(obj.queryEnum, `${path}/queryEnum`),
       ...getMemberValidator("queryEnumList").validate(obj.queryEnumList, `${path}/queryEnumList`),
+      ...getMemberValidator("queryIntegerEnum").validate(obj.queryIntegerEnum, `${path}/queryIntegerEnum`),
+      ...getMemberValidator("queryIntegerEnumList").validate(obj.queryIntegerEnumList, `${path}/queryIntegerEnumList`),
       ...getMemberValidator("queryParamsMapOfStringList").validate(
         obj.queryParamsMapOfStringList,
         `${path}/queryParamsMapOfStringList`
@@ -278,7 +304,7 @@ export namespace ComplexNestedErrorData {
   export const validate = (obj: ComplexNestedErrorData, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "Foo": {
@@ -339,7 +365,7 @@ export namespace ConstantAndVariableQueryStringInput {
   export const validate = (obj: ConstantAndVariableQueryStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "baz": {
@@ -381,7 +407,7 @@ export namespace ConstantQueryStringInput {
   export const validate = (obj: ConstantQueryStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "hello": {
@@ -418,7 +444,7 @@ export namespace DocumentTypeInputOutput {
   export const validate = (obj: DocumentTypeInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "stringValue": {
@@ -460,7 +486,7 @@ export namespace DocumentTypeAsPayloadInputOutput {
   export const validate = (obj: DocumentTypeAsPayloadInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "documentValue": {
@@ -491,7 +517,7 @@ export namespace EmptyInputAndEmptyOutputInput {
   export const validate = (obj: EmptyInputAndEmptyOutputInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
         }
@@ -518,7 +544,7 @@ export namespace EmptyInputAndEmptyOutputOutput {
   export const validate = (obj: EmptyInputAndEmptyOutputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
         }
@@ -549,7 +575,7 @@ export namespace HostLabelInput {
   export const validate = (obj: HostLabelInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "label": {
@@ -588,7 +614,7 @@ export namespace EnumPayloadInput {
   export const validate = (obj: EnumPayloadInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -640,7 +666,7 @@ export namespace GreetingWithErrorsOutput {
   export const validate = (obj: GreetingWithErrorsOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "greeting": {
@@ -693,7 +719,7 @@ export namespace HttpChecksumRequiredInputOutput {
   export const validate = (obj: HttpChecksumRequiredInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -730,7 +756,7 @@ export namespace HttpPayloadTraitsInputOutput {
   export const validate = (obj: HttpPayloadTraitsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -776,7 +802,7 @@ export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
   export const validate = (obj: HttpPayloadTraitsWithMediaTypeInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -820,7 +846,7 @@ export namespace NestedPayload {
   export const validate = (obj: NestedPayload, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "greeting": {
@@ -864,7 +890,7 @@ export namespace HttpPayloadWithStructureInputOutput {
   export const validate = (obj: HttpPayloadWithStructureInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "nested": {
@@ -904,7 +930,7 @@ export namespace HttpPrefixHeadersInput {
   export const validate = (obj: HttpPrefixHeadersInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -952,7 +978,7 @@ export namespace HttpPrefixHeadersOutput {
   export const validate = (obj: HttpPrefixHeadersOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -994,7 +1020,7 @@ export namespace HttpPrefixHeadersInResponseInput {
   export const validate = (obj: HttpPrefixHeadersInResponseInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
         }
@@ -1025,7 +1051,7 @@ export namespace HttpPrefixHeadersInResponseOutput {
   export const validate = (obj: HttpPrefixHeadersInResponseOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "prefixHeaders": {
@@ -1066,7 +1092,7 @@ export namespace HttpRequestWithFloatLabelsInput {
   export const validate = (obj: HttpRequestWithFloatLabelsInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "float": {
@@ -1112,7 +1138,7 @@ export namespace HttpRequestWithGreedyLabelInPathInput {
   export const validate = (obj: HttpRequestWithGreedyLabelInPathInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -1175,7 +1201,7 @@ export namespace HttpRequestWithLabelsInput {
   export const validate = (obj: HttpRequestWithLabelsInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1261,7 +1287,7 @@ export namespace HttpRequestWithLabelsAndTimestampFormatInput {
   export const validate = (obj: HttpRequestWithLabelsAndTimestampFormatInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "memberEpochSeconds": {
@@ -1328,7 +1354,7 @@ export namespace HttpRequestWithRegexLiteralInput {
   export const validate = (obj: HttpRequestWithRegexLiteralInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "str": {
@@ -1363,7 +1389,7 @@ export namespace HttpResponseCodeOutput {
   export const validate = (obj: HttpResponseCodeOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "Status": {
@@ -1398,7 +1424,7 @@ export namespace StringPayloadInput {
   export const validate = (obj: StringPayloadInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -1433,7 +1459,7 @@ export namespace IgnoreQueryParamsInResponseOutput {
   export const validate = (obj: IgnoreQueryParamsInResponseOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "baz": {
@@ -1465,6 +1491,8 @@ export interface InputAndOutputWithHeadersIO {
   headerTimestampList?: Date[];
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerIntegerEnum?: IntegerEnum | number;
+  headerIntegerEnumList?: (IntegerEnum | number)[];
 }
 
 /**
@@ -1491,6 +1519,8 @@ export namespace InputAndOutputWithHeadersIO {
     headerTimestampList?: __MultiConstraintValidator<Iterable<Date>>;
     headerEnum?: __MultiConstraintValidator<string>;
     headerEnumList?: __MultiConstraintValidator<Iterable<string>>;
+    headerIntegerEnum?: __MultiConstraintValidator<number>;
+    headerIntegerEnumList?: __MultiConstraintValidator<Iterable<number>>;
   } = {};
   /**
    * @internal
@@ -1498,7 +1528,7 @@ export namespace InputAndOutputWithHeadersIO {
   export const validate = (obj: InputAndOutputWithHeadersIO, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "headerString": {
@@ -1585,6 +1615,19 @@ export namespace InputAndOutputWithHeadersIO {
             );
             break;
           }
+          case "headerIntegerEnum": {
+            memberValidators["headerIntegerEnum"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "headerIntegerEnumList": {
+            memberValidators["headerIntegerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
         }
       }
       return memberValidators[member]!;
@@ -1606,6 +1649,11 @@ export namespace InputAndOutputWithHeadersIO {
       ...getMemberValidator("headerTimestampList").validate(obj.headerTimestampList, `${path}/headerTimestampList`),
       ...getMemberValidator("headerEnum").validate(obj.headerEnum, `${path}/headerEnum`),
       ...getMemberValidator("headerEnumList").validate(obj.headerEnumList, `${path}/headerEnumList`),
+      ...getMemberValidator("headerIntegerEnum").validate(obj.headerIntegerEnum, `${path}/headerIntegerEnum`),
+      ...getMemberValidator("headerIntegerEnumList").validate(
+        obj.headerIntegerEnumList,
+        `${path}/headerIntegerEnumList`
+      ),
     ];
   };
 }
@@ -1630,7 +1678,7 @@ export namespace JsonBlobsInputOutput {
   export const validate = (obj: JsonBlobsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "data": {
@@ -1675,7 +1723,7 @@ export namespace JsonEnumsInputOutput {
   export const validate = (obj: JsonEnumsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "fooEnum1": {
@@ -1733,6 +1781,94 @@ export namespace JsonEnumsInputOutput {
   };
 }
 
+export interface JsonIntEnumsInputOutput {
+  integerEnum1?: IntegerEnum | number;
+  integerEnum2?: IntegerEnum | number;
+  integerEnum3?: IntegerEnum | number;
+  integerEnumList?: (IntegerEnum | number)[];
+  integerEnumSet?: (IntegerEnum | number)[];
+  integerEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const JsonIntEnumsInputOutputFilterSensitiveLog = (obj: JsonIntEnumsInputOutput): any => ({
+  ...obj,
+});
+export namespace JsonIntEnumsInputOutput {
+  const memberValidators: {
+    integerEnum1?: __MultiConstraintValidator<number>;
+    integerEnum2?: __MultiConstraintValidator<number>;
+    integerEnum3?: __MultiConstraintValidator<number>;
+    integerEnumList?: __MultiConstraintValidator<Iterable<number>>;
+    integerEnumSet?: __MultiConstraintValidator<Iterable<number>>;
+    integerEnumMap?: __MultiConstraintValidator<Record<string, IntegerEnum | number>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: JsonIntEnumsInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<typeof memberValidators[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "integerEnum1": {
+            memberValidators["integerEnum1"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnum2": {
+            memberValidators["integerEnum2"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnum3": {
+            memberValidators["integerEnum3"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnumList": {
+            memberValidators["integerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+          case "integerEnumSet": {
+            memberValidators["integerEnumSet"] = new __CompositeCollectionValidator<number>(
+              new __CompositeValidator<(IntegerEnum | number)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+          case "integerEnumMap": {
+            memberValidators["integerEnumMap"] = new __CompositeMapValidator<IntegerEnum | number>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("integerEnum1").validate(obj.integerEnum1, `${path}/integerEnum1`),
+      ...getMemberValidator("integerEnum2").validate(obj.integerEnum2, `${path}/integerEnum2`),
+      ...getMemberValidator("integerEnum3").validate(obj.integerEnum3, `${path}/integerEnum3`),
+      ...getMemberValidator("integerEnumList").validate(obj.integerEnumList, `${path}/integerEnumList`),
+      ...getMemberValidator("integerEnumSet").validate(obj.integerEnumSet, `${path}/integerEnumSet`),
+      ...getMemberValidator("integerEnumMap").validate(obj.integerEnumMap, `${path}/integerEnumMap`),
+    ];
+  };
+}
+
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -1755,7 +1891,7 @@ export namespace StructureListMember {
   export const validate = (obj: StructureListMember, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "a": {
@@ -1785,6 +1921,7 @@ export interface JsonListsInputOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -1808,6 +1945,7 @@ export namespace JsonListsInputOutput {
     booleanList?: __MultiConstraintValidator<Iterable<boolean>>;
     timestampList?: __MultiConstraintValidator<Iterable<Date>>;
     enumList?: __MultiConstraintValidator<Iterable<string>>;
+    intEnumList?: __MultiConstraintValidator<Iterable<number>>;
     nestedStringList?: __MultiConstraintValidator<Iterable<string[]>>;
     structureList?: __MultiConstraintValidator<Iterable<StructureListMember>>;
   } = {};
@@ -1817,7 +1955,7 @@ export namespace JsonListsInputOutput {
   export const validate = (obj: JsonListsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "stringList": {
@@ -1869,6 +2007,13 @@ export namespace JsonListsInputOutput {
             );
             break;
           }
+          case "intEnumList": {
+            memberValidators["intEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
           case "nestedStringList": {
             memberValidators["nestedStringList"] = new __CompositeCollectionValidator<string[]>(
               new __NoOpValidator(),
@@ -1898,6 +2043,7 @@ export namespace JsonListsInputOutput {
       ...getMemberValidator("booleanList").validate(obj.booleanList, `${path}/booleanList`),
       ...getMemberValidator("timestampList").validate(obj.timestampList, `${path}/timestampList`),
       ...getMemberValidator("enumList").validate(obj.enumList, `${path}/enumList`),
+      ...getMemberValidator("intEnumList").validate(obj.intEnumList, `${path}/intEnumList`),
       ...getMemberValidator("nestedStringList").validate(obj.nestedStringList, `${path}/nestedStringList`),
       ...getMemberValidator("structureList").validate(obj.structureList, `${path}/structureList`),
     ];
@@ -1942,7 +2088,7 @@ export namespace JsonMapsInputOutput {
   export const validate = (obj: JsonMapsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "denseStructMap": {
@@ -2053,8 +2199,11 @@ export namespace JsonMapsInputOutput {
 export interface JsonTimestampsInputOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**
@@ -2067,8 +2216,11 @@ export namespace JsonTimestampsInputOutput {
   const memberValidators: {
     normal?: __MultiConstraintValidator<Date>;
     dateTime?: __MultiConstraintValidator<Date>;
+    dateTimeOnTarget?: __MultiConstraintValidator<Date>;
     epochSeconds?: __MultiConstraintValidator<Date>;
+    epochSecondsOnTarget?: __MultiConstraintValidator<Date>;
     httpDate?: __MultiConstraintValidator<Date>;
+    httpDateOnTarget?: __MultiConstraintValidator<Date>;
   } = {};
   /**
    * @internal
@@ -2076,7 +2228,7 @@ export namespace JsonTimestampsInputOutput {
   export const validate = (obj: JsonTimestampsInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "normal": {
@@ -2087,12 +2239,24 @@ export namespace JsonTimestampsInputOutput {
             memberValidators["dateTime"] = new __NoOpValidator();
             break;
           }
+          case "dateTimeOnTarget": {
+            memberValidators["dateTimeOnTarget"] = new __NoOpValidator();
+            break;
+          }
           case "epochSeconds": {
             memberValidators["epochSeconds"] = new __NoOpValidator();
             break;
           }
+          case "epochSecondsOnTarget": {
+            memberValidators["epochSecondsOnTarget"] = new __NoOpValidator();
+            break;
+          }
           case "httpDate": {
             memberValidators["httpDate"] = new __NoOpValidator();
+            break;
+          }
+          case "httpDateOnTarget": {
+            memberValidators["httpDateOnTarget"] = new __NoOpValidator();
             break;
           }
         }
@@ -2102,8 +2266,11 @@ export namespace JsonTimestampsInputOutput {
     return [
       ...getMemberValidator("normal").validate(obj.normal, `${path}/normal`),
       ...getMemberValidator("dateTime").validate(obj.dateTime, `${path}/dateTime`),
+      ...getMemberValidator("dateTimeOnTarget").validate(obj.dateTimeOnTarget, `${path}/dateTimeOnTarget`),
       ...getMemberValidator("epochSeconds").validate(obj.epochSeconds, `${path}/epochSeconds`),
+      ...getMemberValidator("epochSecondsOnTarget").validate(obj.epochSecondsOnTarget, `${path}/epochSecondsOnTarget`),
       ...getMemberValidator("httpDate").validate(obj.httpDate, `${path}/httpDate`),
+      ...getMemberValidator("httpDateOnTarget").validate(obj.httpDateOnTarget, `${path}/httpDateOnTarget`),
     ];
   };
 }
@@ -2128,7 +2295,7 @@ export namespace RenamedGreeting {
   export const validate = (obj: RenamedGreeting, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "salutation": {
@@ -2360,7 +2527,7 @@ export namespace MyUnion {
   export const validate = (obj: MyUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "stringValue": {
@@ -2484,7 +2651,7 @@ export namespace UnionInputOutput {
   export const validate = (obj: UnionInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "contents": {
@@ -2524,7 +2691,7 @@ export namespace MalformedAcceptWithGenericStringOutput {
   export const validate = (obj: MalformedAcceptWithGenericStringOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -2559,7 +2726,7 @@ export namespace MalformedAcceptWithPayloadOutput {
   export const validate = (obj: MalformedAcceptWithPayloadOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -2594,7 +2761,7 @@ export namespace MalformedBlobInput {
   export const validate = (obj: MalformedBlobInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -2635,7 +2802,7 @@ export namespace MalformedBooleanInput {
   export const validate = (obj: MalformedBooleanInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "booleanInBody": {
@@ -2693,7 +2860,7 @@ export namespace MalformedByteInput {
   export const validate = (obj: MalformedByteInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "byteInBody": {
@@ -2747,7 +2914,7 @@ export namespace MalformedContentTypeWithGenericStringInput {
   export const validate = (obj: MalformedContentTypeWithGenericStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -2784,7 +2951,7 @@ export namespace MalformedContentTypeWithPayloadInput {
   export const validate = (obj: MalformedContentTypeWithPayloadInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
@@ -2825,7 +2992,7 @@ export namespace MalformedDoubleInput {
   export const validate = (obj: MalformedDoubleInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "doubleInBody": {
@@ -2883,7 +3050,7 @@ export namespace MalformedFloatInput {
   export const validate = (obj: MalformedFloatInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "floatInBody": {
@@ -2941,7 +3108,7 @@ export namespace MalformedIntegerInput {
   export const validate = (obj: MalformedIntegerInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "integerInBody": {
@@ -2993,7 +3160,7 @@ export namespace MalformedListInput {
   export const validate = (obj: MalformedListInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "bodyList": {
@@ -3037,7 +3204,7 @@ export namespace MalformedLongInput {
   export const validate = (obj: MalformedLongInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "longInBody": {
@@ -3089,7 +3256,7 @@ export namespace MalformedMapInput {
   export const validate = (obj: MalformedMapInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "bodyMap": {
@@ -3130,7 +3297,7 @@ export namespace MalformedRequestBodyInput {
   export const validate = (obj: MalformedRequestBodyInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "int": {
@@ -3178,7 +3345,7 @@ export namespace MalformedShortInput {
   export const validate = (obj: MalformedShortInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "shortInBody": {
@@ -3230,7 +3397,7 @@ export namespace MalformedStringInput {
   export const validate = (obj: MalformedStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -3267,7 +3434,7 @@ export namespace MalformedTimestampBodyDateTimeInput {
   export const validate = (obj: MalformedTimestampBodyDateTimeInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3302,7 +3469,7 @@ export namespace MalformedTimestampBodyDefaultInput {
   export const validate = (obj: MalformedTimestampBodyDefaultInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3339,7 +3506,7 @@ export namespace MalformedTimestampBodyHttpDateInput {
   export const validate = (obj: MalformedTimestampBodyHttpDateInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3376,7 +3543,7 @@ export namespace MalformedTimestampHeaderDateTimeInput {
   export const validate = (obj: MalformedTimestampHeaderDateTimeInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3413,7 +3580,7 @@ export namespace MalformedTimestampHeaderDefaultInput {
   export const validate = (obj: MalformedTimestampHeaderDefaultInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3448,7 +3615,7 @@ export namespace MalformedTimestampHeaderEpochInput {
   export const validate = (obj: MalformedTimestampHeaderEpochInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3483,7 +3650,7 @@ export namespace MalformedTimestampPathDefaultInput {
   export const validate = (obj: MalformedTimestampPathDefaultInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3518,7 +3685,7 @@ export namespace MalformedTimestampPathEpochInput {
   export const validate = (obj: MalformedTimestampPathEpochInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3555,7 +3722,7 @@ export namespace MalformedTimestampPathHttpDateInput {
   export const validate = (obj: MalformedTimestampPathHttpDateInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3592,7 +3759,7 @@ export namespace MalformedTimestampQueryDefaultInput {
   export const validate = (obj: MalformedTimestampQueryDefaultInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3627,7 +3794,7 @@ export namespace MalformedTimestampQueryEpochInput {
   export const validate = (obj: MalformedTimestampQueryEpochInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3664,7 +3831,7 @@ export namespace MalformedTimestampQueryHttpDateInput {
   export const validate = (obj: MalformedTimestampQueryHttpDateInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timestamp": {
@@ -3722,7 +3889,7 @@ export namespace SimpleUnion {
   export const validate = (obj: SimpleUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "int": {
@@ -3773,7 +3940,7 @@ export namespace MalformedUnionInput {
   export const validate = (obj: MalformedUnionInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "union": {
@@ -3811,7 +3978,7 @@ export namespace MediaTypeHeaderInput {
   export const validate = (obj: MediaTypeHeaderInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "json": {
@@ -3846,7 +4013,7 @@ export namespace MediaTypeHeaderOutput {
   export const validate = (obj: MediaTypeHeaderOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "json": {
@@ -3877,7 +4044,7 @@ export namespace NoInputAndOutputOutput {
   export const validate = (obj: NoInputAndOutputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
         }
@@ -3912,7 +4079,7 @@ export namespace NullAndEmptyHeadersIO {
   export const validate = (obj: NullAndEmptyHeadersIO, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "a": {
@@ -3966,7 +4133,7 @@ export namespace OmitsNullSerializesEmptyStringInput {
   export const validate = (obj: OmitsNullSerializesEmptyStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "nullValue": {
@@ -4008,7 +4175,7 @@ export namespace PayloadConfig {
   export const validate = (obj: PayloadConfig, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "data": {
@@ -4039,7 +4206,7 @@ export namespace Unit {
   export const validate = (obj: Unit, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
         }
@@ -4085,7 +4252,7 @@ export namespace PlayerAction {
   export const validate = (obj: PlayerAction, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "quit": {
@@ -4128,7 +4295,7 @@ export namespace PostPlayerActionInput {
   export const validate = (obj: PostPlayerActionInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "action": {
@@ -4167,7 +4334,7 @@ export namespace PostPlayerActionOutput {
   export const validate = (obj: PostPlayerActionOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "action": {
@@ -4245,7 +4412,7 @@ export namespace UnionWithJsonName {
   export const validate = (obj: UnionWithJsonName, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4302,7 +4469,7 @@ export namespace PostUnionWithJsonNameInput {
   export const validate = (obj: PostUnionWithJsonNameInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "value": {
@@ -4341,7 +4508,7 @@ export namespace PostUnionWithJsonNameOutput {
   export const validate = (obj: PostUnionWithJsonNameOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "value": {
@@ -4379,7 +4546,7 @@ export namespace QueryIdempotencyTokenAutoFillInput {
   export const validate = (obj: QueryIdempotencyTokenAutoFillInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "token": {
@@ -4416,7 +4583,7 @@ export namespace QueryParamsAsStringListMapInput {
   export const validate = (obj: QueryParamsAsStringListMapInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "qux": {
@@ -4464,7 +4631,7 @@ export namespace QueryPrecedenceInput {
   export const validate = (obj: QueryPrecedenceInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4528,7 +4695,7 @@ export namespace SimpleScalarPropertiesInputOutput {
   export const validate = (obj: SimpleScalarPropertiesInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4617,7 +4784,7 @@ export namespace StreamingTraitsInputOutput {
   ): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4666,7 +4833,7 @@ export namespace StreamingTraitsRequireLengthInput {
   ): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4717,7 +4884,7 @@ export namespace StreamingTraitsWithMediaTypeInputOutput {
   ): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -4759,7 +4926,7 @@ export namespace TestConfig {
   export const validate = (obj: TestConfig, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "timeout": {
@@ -4796,7 +4963,7 @@ export namespace TestBodyStructureInputOutput {
   export const validate = (obj: TestBodyStructureInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "testId": {
@@ -4841,7 +5008,7 @@ export namespace TestNoPayloadInputOutput {
   export const validate = (obj: TestNoPayloadInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "testId": {
@@ -4878,7 +5045,7 @@ export namespace TestPayloadBlobInputOutput {
   export const validate = (obj: TestPayloadBlobInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "contentType": {
@@ -4922,7 +5089,7 @@ export namespace TestPayloadStructureInputOutput {
   export const validate = (obj: TestPayloadStructureInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "testId": {
@@ -4979,7 +5146,7 @@ export namespace TimestampFormatHeadersIO {
   export const validate = (obj: TimestampFormatHeadersIO, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "memberEpochSeconds": {
@@ -5048,7 +5215,7 @@ export namespace RecursiveShapesInputOutputNested1 {
   export const validate = (obj: RecursiveShapesInputOutputNested1, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "foo": {
@@ -5095,7 +5262,7 @@ export namespace RecursiveShapesInputOutputNested2 {
   export const validate = (obj: RecursiveShapesInputOutputNested2, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "bar": {
@@ -5140,7 +5307,7 @@ export namespace RecursiveShapesInputOutput {
   export const validate = (obj: RecursiveShapesInputOutput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "nested": {

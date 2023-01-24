@@ -33,6 +33,7 @@ import { IgnoreQueryParamsInResponseCommand } from "../../src/commands/IgnoreQue
 import { InputAndOutputWithHeadersCommand } from "../../src/commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommand } from "../../src/commands/JsonBlobsCommand";
 import { JsonEnumsCommand } from "../../src/commands/JsonEnumsCommand";
+import { JsonIntEnumsCommand } from "../../src/commands/JsonIntEnumsCommand";
 import { JsonListsCommand } from "../../src/commands/JsonListsCommand";
 import { JsonMapsCommand } from "../../src/commands/JsonMapsCommand";
 import { JsonTimestampsCommand } from "../../src/commands/JsonTimestampsCommand";
@@ -258,6 +259,16 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
+
+    queryIntegerEnum: 1,
+
+    queryIntegerEnumList: [
+      1,
+
+      2,
+
+      3,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -307,6 +318,10 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+    expect(queryString).toContain("IntegerEnum=1");
+    expect(queryString).toContain("IntegerEnumList=1");
+    expect(queryString).toContain("IntegerEnumList=2");
+    expect(queryString).toContain("IntegerEnumList=3");
 
     expect(r.body).toBeFalsy();
   }
@@ -3219,6 +3234,48 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
 });
 
 /**
+ * Tests requests with intEnum header bindings
+ */
+it("RestJsonInputAndOutputWithIntEnumHeaders:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InputAndOutputWithHeadersCommand({
+    headerIntegerEnum: 1,
+
+    headerIntegerEnumList: [
+      1,
+
+      2,
+
+      3,
+    ],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/InputAndOutputWithHeaders");
+
+    expect(r.headers["x-integerenum"]).toBeDefined();
+    expect(r.headers["x-integerenum"]).toBe("1");
+    expect(r.headers["x-integerenumlist"]).toBeDefined();
+    expect(r.headers["x-integerenumlist"]).toBe("1, 2, 3");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Supports handling NaN float header values.
  */
 it("RestJsonSupportsNaNFloatHeaderInputs:Request", async () => {
@@ -3564,6 +3621,48 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
 });
 
 /**
+ * Tests responses with intEnum header bindings
+ */
+it("RestJsonInputAndOutputWithIntEnumHeaders:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-integerenum": "1",
+      "x-integerenumlist": "1, 2, 3",
+    }),
+  });
+
+  const params: any = {};
+  const command = new InputAndOutputWithHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      headerIntegerEnum: 1,
+
+      headerIntegerEnumList: [
+        1,
+
+        2,
+
+        3,
+      ],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Supports handling NaN float header values.
  */
 it("RestJsonSupportsNaNFloatHeaderOutputs:Response", async () => {
@@ -3884,6 +3983,162 @@ it("RestJsonJsonEnums:Response", async () => {
 });
 
 /**
+ * Serializes intEnums as integers
+ */
+it("RestJsonJsonIntEnums:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonIntEnumsCommand({
+    integerEnum1: 1,
+
+    integerEnum2: 2,
+
+    integerEnum3: 3,
+
+    integerEnumList: [
+      1,
+
+      2,
+
+      3,
+    ],
+
+    integerEnumSet: [
+      1,
+
+      2,
+    ],
+
+    integerEnumMap: {
+      abc: 1,
+
+      def: 2,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonIntEnums");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"integerEnum1\": 1,
+        \"integerEnum2\": 2,
+        \"integerEnum3\": 3,
+        \"integerEnumList\": [
+            1,
+            2,
+            3
+        ],
+        \"integerEnumSet\": [
+            1,
+            2
+        ],
+        \"integerEnumMap\": {
+            \"abc\": 1,
+            \"def\": 2
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes intEnums as integers
+ */
+it("RestJsonJsonIntEnums:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "integerEnum1": 1,
+          "integerEnum2": 2,
+          "integerEnum3": 3,
+          "integerEnumList": [
+              1,
+              2,
+              3
+          ],
+          "integerEnumSet": [
+              1,
+              2
+          ],
+          "integerEnumMap": {
+              "abc": 1,
+              "def": 2
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      integerEnum1: 1,
+
+      integerEnum2: 2,
+
+      integerEnum3: 3,
+
+      integerEnumList: [
+        1,
+
+        2,
+
+        3,
+      ],
+
+      integerEnumSet: [
+        1,
+
+        2,
+      ],
+
+      integerEnumMap: {
+        abc: 1,
+
+        def: 2,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Serializes JSON lists
  */
 it("RestJsonLists:Request", async () => {
@@ -3908,6 +4163,12 @@ it("RestJsonLists:Request", async () => {
     timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
     enumList: ["Foo", "0"],
+
+    intEnumList: [
+      1,
+
+      2,
+    ],
 
     nestedStringList: [
       ["foo", "bar"],
@@ -3971,6 +4232,10 @@ it("RestJsonLists:Request", async () => {
         \"enumList\": [
             \"Foo\",
             \"0\"
+        ],
+        \"intEnumList\": [
+            1,
+            2
         ],
         \"nestedStringList\": [
             [
@@ -4114,6 +4379,10 @@ it("RestJsonLists:Response", async () => {
               "Foo",
               "0"
           ],
+          "intEnumList": [
+              1,
+              2
+          ],
           "nestedStringList": [
               [
                   "foo",
@@ -4166,6 +4435,12 @@ it("RestJsonLists:Response", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -5085,6 +5360,44 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonTimestampsCommand({
+    dateTimeOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/JsonTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
@@ -5123,6 +5436,44 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonTimestampsCommand({
+    epochSecondsOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/JsonTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"epochSecondsOnTarget\": 1398796238
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
@@ -5154,6 +5505,44 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonTimestampsCommand({
+    httpDateOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/JsonTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5241,6 +5630,46 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "dateTimeOnTarget": "2014-04-29T18:30:38Z"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
@@ -5281,6 +5710,46 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "epochSecondsOnTarget": 1398796238
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
@@ -5312,6 +5781,46 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "httpDateOnTarget": "Tue, 29 Apr 2014 18:30:38 GMT"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
