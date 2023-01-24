@@ -5,6 +5,8 @@ import { fromEnv, GetterFromEnv } from "./fromEnv";
 describe("fromEnv", () => {
   describe("with env var getter", () => {
     const envVarName = "ENV_VAR_NAME";
+
+    // Using Record<string, string | undefined> instead of NodeJS.ProcessEnv, in order to not get type errors in non node environments
     const envVarGetter: GetterFromEnv<string> = (env: Record<string, string | undefined>) => env[envVarName]!;
     const envVarValue = process.env[envVarName];
     const mockEnvVarValue = "mockEnvVarValue";

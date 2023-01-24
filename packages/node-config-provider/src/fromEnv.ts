@@ -1,6 +1,7 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
+// Using Record<string, string | undefined> instead of NodeJS.ProcessEnv, in order to not get type errors in non node environments
 export type GetterFromEnv<T> = (env: Record<string, string | undefined>) => T | undefined;
 
 /**
