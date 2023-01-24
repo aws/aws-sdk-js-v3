@@ -13,11 +13,13 @@ import { resolveAuthSchemes } from "./adaptors/resolveAuthSchemes";
 import { AuthenticationResolvedConfig } from "./configurations";
 import { mapSchemeIdToAuthScheme } from "./util/mapSchemeIdToAuthScheme";
 
+export const AuthenticationMiddlewareName = "authenticationMiddleware";
+
 /**
  * TODO(identityandauth)
  */
 export const AuthenticationMiddlewareOptions: RelativeMiddlewareOptions = {
-  name: "authenticationMiddleware",
+  name: AuthenticationMiddlewareName,
   tags: ["IDENTITY", "AUTHENTICATION", "AUTH"],
   relation: "after",
   toMiddleware: "retryMiddleware",

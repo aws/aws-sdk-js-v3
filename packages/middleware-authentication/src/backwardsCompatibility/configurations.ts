@@ -14,14 +14,14 @@ import {
  * TODO(identityandauth)
  */
 export interface PopulateSigningInputConfig
-  extends Partial<IdentityInputConfig>,
+  extends Partial<BaseInputConfig>,
     Partial<AuthInputConfig>,
     Partial<AwsAuthInputConfig>,
     Partial<SigV4AuthInputConfig>,
     Partial<AuthPreviouslyResolved>,
     Partial<AwsAuthPreviouslyResolved> {}
 
-export interface IdentityInputConfig {
+export interface BaseInputConfig {
   /**
    * @deprecated Use {@link identity}
    */
@@ -33,7 +33,7 @@ export interface IdentityInputConfig {
   token?: Token | TokenProvider;
 }
 
-export interface AuthInputConfig extends Pick<IdentityInputConfig, "credentials"> {
+export interface AuthInputConfig extends Pick<BaseInputConfig, "credentials"> {
   /**
    * The signer to use when signing requests.
    */
