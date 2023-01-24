@@ -1,7 +1,7 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   AuthScheme,
   HttpAuthOption,
-  HttpRequest,
   HttpSigner,
   Identity,
   IdentityProvider,
@@ -54,7 +54,8 @@ export class HttpBearerAuthSigner implements HttpSigner<TokenIdentity> {
     identity: TokenIdentity,
     signingProperties?: T & HttpBearerAuthSignerOptions
   ): Promise<HttpRequest> {
-    requestToSign.headers["Authorization"] = `Bearer ${identity.token}`;
-    return requestToSign;
+    const clonedRequest = requestToSign.clone();
+    clonedRequest.headers["Authorization"] = `Bearer ${identity.token}`;
+    return clonedRequest;
   }
 }
