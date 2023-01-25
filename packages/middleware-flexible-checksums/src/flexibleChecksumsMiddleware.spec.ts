@@ -33,7 +33,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
   const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
 
   const mockBody = { body: "mockRequestBody" };
-  const mockHeaders = { "content-length": 100 };
+  const mockHeaders = { "content-length": 100, "content-encoding": "gzip" };
   const mockRequest = { body: mockBody, headers: mockHeaders };
   const mockArgs = { request: mockRequest } as BuildHandlerArguments<any>;
   const mockResult = { response: { body: "mockResponsebody" } };
@@ -146,7 +146,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
           headers: {
             ...mockHeaders,
             "content-length": undefined,
-            "content-encoding": "aws-chunked",
+            "content-encoding": "gzip,aws-chunked",
             "transfer-encoding": "chunked",
             "x-amz-decoded-content-length": mockHeaders["content-length"],
             "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
