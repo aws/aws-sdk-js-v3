@@ -140,7 +140,9 @@ export enum Gender {
 
 export enum VoiceId {
   Aditi = "Aditi",
+  Adriano = "Adriano",
   Amy = "Amy",
+  Andres = "Andres",
   Aria = "Aria",
   Arlet = "Arlet",
   Arthur = "Arthur",
@@ -206,14 +208,17 @@ export enum VoiceId {
   Pedro = "Pedro",
   Penelope = "Penelope",
   Raveena = "Raveena",
+  Remi = "Remi",
   Ricardo = "Ricardo",
   Ruben = "Ruben",
   Russell = "Russell",
   Salli = "Salli",
   Seoyeon = "Seoyeon",
+  Sergio = "Sergio",
   Suvi = "Suvi",
   Takumi = "Takumi",
   Tatyana = "Tatyana",
+  Thiago = "Thiago",
   Vicki = "Vicki",
   Vitoria = "Vitoria",
   Zeina = "Zeina",
@@ -1092,7 +1097,6 @@ export interface SynthesizeSpeechInput {
    *          <p>Valid Values: <code>standard</code> | <code>neural</code>
    *          </p>
    *          <p>Required: Yes</p>
-   *
    *          <p>
    *             <b>Standard voices</b>
    *          </p>
