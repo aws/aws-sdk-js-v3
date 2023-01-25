@@ -103,7 +103,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
                        + "  data: any\n"
                        + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
+            String errorCodeLocation = getErrorBodyLocation(context, "data") + "?.Code";
             writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
                 writer.write("return $L;", errorCodeLocation);
             });
