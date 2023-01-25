@@ -74,6 +74,7 @@ export const authenticationMiddleware =
     const identityProperties = {
       ...schemeOption.identityProperties,
       ...options.identityProperties,
+      identity: options.identity,
     };
 
     // Handle signerProperties
@@ -84,11 +85,8 @@ export const authenticationMiddleware =
       authScheme,
     };
 
-    // Get IdentityProvider from IdentityResolver
-    const identityProvider = await authScheme.identity(identityProperties);
-
     // Get Identity from IdentityProvider
-    const identity = await identityProvider(identityProperties);
+    const identity = await authScheme.identity(identityProperties);
 
     // Get Signer from AuthScheme
     const signer = await authScheme.signer();

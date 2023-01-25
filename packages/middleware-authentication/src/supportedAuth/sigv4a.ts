@@ -24,21 +24,20 @@ export const SigV4AAuthSchemeId = "aws.auth#sigv4a";
 
 export const SigV4AAuthScheme: AuthScheme = {
   schemeId: SigV4AAuthSchemeId,
-  identity(identityResolverConfiguration: Record<string, any>): IdentityProvider<Identity> {
+  async identity(identityProperties: Record<string, any>): Promise<AwsCredentialIdentity> {
     // if input has credentials
-    if (identityResolverConfiguration.credentials) {
-      return normalizeIdentityProvider(identityResolverConfiguration.credentials);
+    if (identityProperties.credentials) {
+      return await normalizeIdentityProvider(identityProperties.credentials)(identityProperties);
     }
     // if input already has identity
-    if (identityResolverConfiguration.identity) {
-      return normalizeIdentityProvider(identityResolverConfiguration.identity);
+    if (identityProperties.identity) {
+      return await normalizeIdentityProvider(identityProperties.identity)(identityProperties);
     }
     // default credential provider
-    if (identityResolverConfiguration.credentialDefaultProvider) {
-      return identityResolverConfiguration.credentialDefaultProvider(identityResolverConfiguration);
+    if (identityProperties.credentialDefaultProvider) {
+      return await identityProperties.credentialDefaultProvider(identityProperties)(identityProperties);
     }
-    // return anonymous identity
-    return normalizeIdentityProvider({});
+    throw new Error("Credential is missing");
   },
   signer: async () => new SigV4ASigner(),
 };

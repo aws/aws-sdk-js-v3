@@ -15,7 +15,7 @@ export interface AuthScheme {
    * e.g. resolving credential chains
    * @returns an identity provider
    */
-  identity: (identityResolverConfiguration: Record<string, any>) => IdentityProvider<Identity>;
+  identity: IdentityProvider<Identity>;
   /**
    * Resolves a signer compatible with the AuthScheme
    */

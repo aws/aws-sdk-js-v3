@@ -19,21 +19,19 @@ export const HttpBearerAuthSchemeId = "smithy.api#httpBearerAuth";
 
 export const HttpBearerAuthScheme: AuthScheme = {
   schemeId: HttpBearerAuthSchemeId,
-  identity(identityResolverConfiguration: Record<string, any>): IdentityProvider<Identity> {
-    // if input has token
-    if (identityResolverConfiguration.token) {
-      return normalizeIdentityProvider(identityResolverConfiguration.token);
+  async identity(identityProperties?: Record<string, any>): Promise<TokenIdentity> {
+    if (identityProperties.token) {
+      return await normalizeIdentityProvider(identityProperties.token)(identityProperties);
     }
     // if input already has identity
-    if (identityResolverConfiguration.identity) {
-      return normalizeIdentityProvider(identityResolverConfiguration.identity);
+    if (identityProperties.identity) {
+      return await normalizeIdentityProvider(identityProperties.identity)(identityProperties);
     }
     // default token provider
-    if (identityResolverConfiguration.tokenDefaultProvider) {
-      return identityResolverConfiguration.tokenDefaultProvider(identityResolverConfiguration);
+    if (identityProperties.tokenDefaultProvider) {
+      return await identityProperties.tokenDefaultProvider(identityProperties)(identityProperties);
     }
-    // return anonymous identity
-    return normalizeIdentityProvider({});
+    throw new Error("Token is missing");
   },
   signer: async () => new HttpBearerAuthSigner(),
 };
