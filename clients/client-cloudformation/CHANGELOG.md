@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+
+### Features
+
+* **client-cloudformation:** Enabled FIPS aws-us-gov endpoints in SDK. ([6eef788](https://github.com/aws/aws-sdk-js-v3/commit/6eef7888c622d06206d0422da308d08ec5709750))
+
+
+
+
+
 # [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

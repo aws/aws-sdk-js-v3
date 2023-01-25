@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+
+### Bug Fixes
+
+* **clients:** fix restXml protocol test for timestampFormat targets ([#4364](https://github.com/aws/aws-sdk-js-v3/issues/4364)) ([4beb93b](https://github.com/aws/aws-sdk-js-v3/commit/4beb93b90bdaa4a5d29a366587ea02f623a657dc))
+
+
+### Features
+
+* **client-cloudformation:** Enabled FIPS aws-us-gov endpoints in SDK. ([6eef788](https://github.com/aws/aws-sdk-js-v3/commit/6eef7888c622d06206d0422da308d08ec5709750))
+* **client-ec2:** This release adds new functionality that allows customers to provision IPv6 CIDR blocks through Amazon VPC IP Address Manager (IPAM) as well as allowing customers to utilize IPAM Resource Discovery APIs. ([8973fbd](https://github.com/aws/aws-sdk-js-v3/commit/8973fbd8b97ea952c3ab2ef7feebdbecd83d3b41))
+* **client-m2:** Add returnCode, batchJobIdentifier in GetBatchJobExecution response, for user to view the batch job execution result & unique identifier from engine. Also removed unused headers from REST APIs ([717df3e](https://github.com/aws/aws-sdk-js-v3/commit/717df3e07eee98254c3ac72a7ab995692218f85c))
+* **client-polly:** Add 5 new neural voices - Sergio (es-ES), Andres (es-MX), Remi (fr-FR), Adriano (it-IT) and Thiago (pt-BR). ([dba9471](https://github.com/aws/aws-sdk-js-v3/commit/dba947156a4bee6030f6c6b43b4986c4d0282a78))
+* **client-s3-control:** Add additional endpoint tests for S3 Control. Fix missing endpoint parameters for PutBucketVersioning and GetBucketVersioning. Prior to this fix, those operations may have resulted in an invalid endpoint being resolved. ([f699098](https://github.com/aws/aws-sdk-js-v3/commit/f6990983c5e5453e26fa8a0223f829dc79c71f2c))
+* **client-sagemaker:** SageMaker Inference Recommender now decouples from Model Registry and could accept Model Name to invoke inference recommendations job; Inference Recommender now provides CPU/Memory Utilization metrics data in recommendation output. ([bf7623f](https://github.com/aws/aws-sdk-js-v3/commit/bf7623f4fae0e906134e88c5e7e22c775efe4b6a))
+* **clients:** update client endpoints as of 2023-01-25 ([98f956f](https://github.com/aws/aws-sdk-js-v3/commit/98f956fd15548d526b11aa8324c7d138b33edc43))
+
+
+
+
+
 # [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
 
 

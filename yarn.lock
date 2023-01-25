@@ -88,7 +88,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.257.0"
+  version "3.258.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -123,8 +123,7 @@
     "@aws-sdk/util-retry" "*"
     "@aws-sdk/util-user-agent-browser" "*"
     "@aws-sdk/util-user-agent-node" "*"
-    "@aws-sdk/util-utf8-browser" "*"
-    "@aws-sdk/util-utf8-node" "*"
+    "@aws-sdk/util-utf8" "*"
     fast-xml-parser "4.0.11"
     tslib "^2.3.1"
 
