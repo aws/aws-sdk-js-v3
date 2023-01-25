@@ -108,6 +108,9 @@ export class PutBucketVersioningCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },

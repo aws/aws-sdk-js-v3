@@ -436,7 +436,6 @@ export class S3Control extends S3ControlClient {
    *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
    *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>CreateBucket</code> for
    *          Amazon S3 on Outposts:</p>
    *          <ul>
@@ -617,7 +616,6 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes the specified access point.</p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>DeleteAccessPoint</code>:</p>
    *          <ul>
@@ -885,7 +883,6 @@ export class S3Control extends S3ControlClient {
    *          owner has this permission and the Outposts bucket owner can grant this permission to
    *          others.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
-   *
    *          <p>For more information about object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -942,24 +939,18 @@ export class S3Control extends S3ControlClient {
    *          and belong to the bucket owner's account to use this action. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
    *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
-   *
    *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a <code>403
    *             Access Denied</code> error. If you have the correct permissions, but you're not using an
    *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
    *             Allowed</code> error. </p>
-   *
-   *
    *          <important>
    *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
    *             always use this action, even if the policy explicitly denies the root user the ability
    *             to perform this action.</p>
    *          </important>
-   *
    *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
    *             Policies</a>. </p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>DeleteBucketPolicy</code>:</p>
    *          <ul>
    *             <li>
@@ -1010,13 +1001,10 @@ export class S3Control extends S3ControlClient {
    *          </note>
    *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
    *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
-   *
    *          <p>To use this action, you must have permission to perform the
    *             <code>PutBucketTagging</code> action. By default, the bucket owner has this permission
    *          and can grant this permission to others. </p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>DeleteBucketTagging</code>:</p>
    *          <ul>
    *             <li>
@@ -1421,7 +1409,6 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Returns configuration information about the specified access point.</p>
    *          <p></p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>GetAccessPoint</code>:</p>
    *          <ul>
@@ -1787,15 +1774,12 @@ export class S3Control extends S3ControlClient {
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
    *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle
    *             Management</a> in <i>Amazon S3 User Guide</i>.</p>
-   *
    *          <p>To use this action, you must have permission to perform the
    *             <code>s3-outposts:GetLifecycleConfiguration</code> action. The Outposts bucket owner
    *          has this permission, by default. The bucket owner can grant this permission to others. For
    *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
    *             Access Permissions to Your Amazon S3 Resources</a>.</p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
-   *
    *          <p>
    *             <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>
    *          <ul>
@@ -1871,23 +1855,18 @@ export class S3Control extends S3ControlClient {
    *          bucket, the calling identity must have the <code>GetBucketPolicy</code> permissions on the
    *          specified bucket and belong to the bucket owner's account in order to use this
    *          action.</p>
-   *
    *          <p>Only users from Outposts bucket owner account with the right permissions can perform
    *          actions on an Outposts bucket. If you don't have <code>s3-outposts:GetBucketPolicy</code>
    *          permissions or you're not using an identity that belongs to the bucket owner's account,
    *          Amazon S3 returns a <code>403 Access Denied</code> error.</p>
-   *
    *          <important>
    *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
    *             always use this action, even if the policy explicitly denies the root user the ability
    *             to perform this action.</p>
    *          </important>
-   *
    *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
    *             Policies</a>.</p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>GetBucketPolicy</code>:</p>
    *          <ul>
    *             <li>
@@ -1947,7 +1926,6 @@ export class S3Control extends S3ControlClient {
    *          <p>To use this action, you must have permission to perform the
    *             <code>GetBucketTagging</code> action. By default, the bucket owner has this permission
    *          and can grant this permission to others.</p>
-   *
    *          <p>
    *             <code>GetBucketTagging</code> has the following special error:</p>
    *          <ul>
@@ -1962,7 +1940,6 @@ export class S3Control extends S3ControlClient {
    *             </li>
    *          </ul>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html#API_control_GetBucketTagging_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>GetBucketTagging</code>:</p>
    *          <ul>
    *             <li>
@@ -2979,24 +2956,18 @@ export class S3Control extends S3ControlClient {
    *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
    *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
    *          order to use this action.</p>
-   *
    *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
    *             Access Denied</code> error. If you have the correct permissions, but you're not using an
    *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
    *             Allowed</code> error.</p>
-   *
    *          <important>
    *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
    *             always use this action, even if the policy explicitly denies the root user the ability
    *             to perform this action. </p>
    *          </important>
-   *
-   *
    *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
    *             Policies</a>.</p>
-   *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>PutBucketPolicy</code>:</p>
    *          <ul>
    *             <li>
@@ -3054,7 +3025,6 @@ export class S3Control extends S3ControlClient {
    *          name, and then organize your billing information to see the total cost of that application
    *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost allocation and
    *             tagging</a>.</p>
-   *
    *          <note>
    *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new
    *             value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html"> Using cost allocation in Amazon S3
@@ -3065,7 +3035,6 @@ export class S3Control extends S3ControlClient {
    *          permission by default and can grant this permission to others. For more information about
    *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
    *             access permissions to your Amazon S3 resources</a>.</p>
-   *
    *          <p>
    *             <code>PutBucketTagging</code> has the following special errors:</p>
    *          <ul>
@@ -3113,7 +3082,6 @@ export class S3Control extends S3ControlClient {
    *             </li>
    *          </ul>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html#API_control_PutBucketTagging_Examples">Examples</a> section.</p>
-   *
    *          <p>The following actions are related to <code>PutBucketTagging</code>:</p>
    *          <ul>
    *             <li>
