@@ -29,7 +29,7 @@ export interface GetIpamResourceCidrsCommandInput extends GetIpamResourceCidrsRe
 export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsResult, __MetadataBearer {}
 
 /**
- * <p>Get information about the resources in a scope.</p>
+ * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

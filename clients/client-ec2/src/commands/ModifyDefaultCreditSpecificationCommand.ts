@@ -19,7 +19,7 @@ import {
   ModifyDefaultCreditSpecificationRequestFilterSensitiveLog,
   ModifyDefaultCreditSpecificationResult,
   ModifyDefaultCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
   serializeAws_ec2ModifyDefaultCreditSpecificationCommand,

@@ -6,9 +6,9 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/ec2.json */
 
-const t="fn",
-u="argv",
-v="ref";
+const u="fn",
+v="argv",
+w="ref";
 const a=true,
 b=false,
 c="String",
@@ -17,16 +17,17 @@ e="tree",
 f="error",
 g="endpoint",
 h="getAttr",
-i={"required":true,"default":false,"type":"Boolean"},
-j={[v]:"Endpoint"},
-k={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
-l={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
-m={},
-n={[t]:"booleanEquals",[u]:[true,{[t]:h,[u]:[{[v]:d},"supportsFIPS"]}]},
-o={[v]:d},
-p={[t]:"booleanEquals",[u]:[true,{[t]:h,[u]:[o,"supportsDualStack"]}]},
-q={"url":"https://ec2.{Region}.{PartitionResult#dnsSuffix}","properties":{},"headers":{}},
-r=[k],
-s=[l];
-const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[t]:"aws.partition",[u]:[{[v]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[t]:"isSet",[u]:[j]}],type:e,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,p],type:e,rules:[{endpoint:{url:"https://ec2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:r,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{conditions:[{[t]:"stringEquals",[u]:["aws-us-gov",{[t]:h,[u]:[o,"name"]}]}],endpoint:q,type:g},{endpoint:{url:"https://ec2-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:s,type:e,rules:[{conditions:[p],type:e,rules:[{endpoint:{url:"https://ec2.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:q,type:g}]}]};
+i="stringEquals",
+j={"required":true,"default":false,"type":"Boolean"},
+k={[w]:"Region"},
+l={[w]:"Endpoint"},
+m={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
+n={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
+o={},
+p={[u]:"booleanEquals",[v]:[true,{[u]:h,[v]:[{[w]:d},"supportsFIPS"]}]},
+q={[w]:d},
+r={[u]:"booleanEquals",[v]:[true,{[u]:h,[v]:[q,"supportsDualStack"]}]},
+s=[m],
+t=[n];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:j,UseFIPS:j,Endpoint:{required:b,type:c}},rules:[{conditions:[{[u]:"aws.partition",[v]:[k],assign:d}],type:e,rules:[{conditions:[{[u]:"isSet",[v]:[l]}],type:e,rules:[{conditions:s,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:t,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:l,properties:o,headers:o},type:g}]}]},{conditions:[m,n],type:e,rules:[{conditions:[p,r],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://ec2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:s,type:e,rules:[{conditions:[p],type:e,rules:[{type:e,rules:[{conditions:[{[u]:i,[v]:["aws-us-gov",{[u]:h,[v]:[q,"name"]}]}],endpoint:{url:"https://ec2.{Region}.amazonaws.com",properties:o,headers:o},type:g},{endpoint:{url:"https://ec2-fips.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:t,type:e,rules:[{conditions:[r],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://ec2.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{conditions:[{[u]:i,[v]:[k,"us-gov-east-1"]}],endpoint:{url:"https://ec2.us-gov-east-1.amazonaws.com",properties:o,headers:o},type:g},{conditions:[{[u]:i,[v]:[k,"us-gov-west-1"]}],endpoint:{url:"https://ec2.us-gov-west-1.amazonaws.com",properties:o,headers:o},type:g},{endpoint:{url:"https://ec2.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:g}]}]}]};
 export const ruleSet: RuleSetObject = _data;

@@ -19,7 +19,7 @@ import {
   ModifyFpgaImageAttributeRequestFilterSensitiveLog,
   ModifyFpgaImageAttributeResult,
   ModifyFpgaImageAttributeResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyFpgaImageAttributeCommand,
   serializeAws_ec2ModifyFpgaImageAttributeCommand,

@@ -19,7 +19,7 @@ import {
   UpdateSecurityGroupRuleDescriptionsIngressRequestFilterSensitiveLog,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
   UpdateSecurityGroupRuleDescriptionsIngressResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
   serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,

@@ -19,7 +19,7 @@ import {
   ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
   ModifyEbsDefaultKmsKeyIdResult,
   ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,

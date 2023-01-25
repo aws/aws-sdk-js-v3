@@ -102,6 +102,11 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamResourceDiscoveryCommand,
+  AssociateIpamResourceDiscoveryCommandInput,
+  AssociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -345,6 +350,11 @@ import {
   CreateIpamPoolCommandInput,
   CreateIpamPoolCommandOutput,
 } from "./commands/CreateIpamPoolCommand";
+import {
+  CreateIpamResourceDiscoveryCommand,
+  CreateIpamResourceDiscoveryCommandInput,
+  CreateIpamResourceDiscoveryCommandOutput,
+} from "./commands/CreateIpamResourceDiscoveryCommand";
 import {
   CreateIpamScopeCommand,
   CreateIpamScopeCommandInput,
@@ -699,6 +709,11 @@ import {
   DeleteIpamPoolCommandInput,
   DeleteIpamPoolCommandOutput,
 } from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamResourceDiscoveryCommand,
+  DeleteIpamResourceDiscoveryCommandInput,
+  DeleteIpamResourceDiscoveryCommandOutput,
+} from "./commands/DeleteIpamResourceDiscoveryCommand";
 import {
   DeleteIpamScopeCommand,
   DeleteIpamScopeCommandInput,
@@ -1278,6 +1293,16 @@ import {
   DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
 import {
+  DescribeIpamResourceDiscoveriesCommand,
+  DescribeIpamResourceDiscoveriesCommandInput,
+  DescribeIpamResourceDiscoveriesCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveriesCommand";
+import {
+  DescribeIpamResourceDiscoveryAssociationsCommand,
+  DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveryAssociationsCommand";
+import {
   DescribeIpamsCommand,
   DescribeIpamsCommandInput,
   DescribeIpamsCommandOutput,
@@ -1833,6 +1858,11 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamResourceDiscoveryCommand,
+  DisassociateIpamResourceDiscoveryCommandInput,
+  DisassociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -2033,6 +2063,16 @@ import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamDiscoveredAccountsCommand,
+  GetIpamDiscoveredAccountsCommandInput,
+  GetIpamDiscoveredAccountsCommandOutput,
+} from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredResourceCidrsCommand,
+  GetIpamDiscoveredResourceCidrsCommandInput,
+  GetIpamDiscoveredResourceCidrsCommandOutput,
+} from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
   GetIpamPoolAllocationsCommand,
   GetIpamPoolAllocationsCommandInput,
@@ -2297,6 +2337,11 @@ import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
 } from "./commands/ModifyIpamResourceCidrCommand";
+import {
+  ModifyIpamResourceDiscoveryCommand,
+  ModifyIpamResourceDiscoveryCommandInput,
+  ModifyIpamResourceDiscoveryCommandOutput,
+} from "./commands/ModifyIpamResourceDiscoveryCommand";
 import {
   ModifyIpamScopeCommand,
   ModifyIpamScopeCommandInput,
@@ -3209,7 +3254,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public allocateIpamPoolCidr(
@@ -3594,6 +3639,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
   ): Promise<AssociateInstanceEventWindowCommandOutput> | void {
     const command = new AssociateInstanceEventWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput>;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new AssociateIpamResourceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5574,6 +5651,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateIpamPoolCommandOutput) => void
   ): Promise<CreateIpamPoolCommandOutput> | void {
     const command = new CreateIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput>;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new CreateIpamResourceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8311,6 +8420,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteIpamPoolCommandOutput) => void
   ): Promise<DeleteIpamPoolCommandOutput> | void {
     const command = new DeleteIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput>;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DeleteIpamResourceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12415,6 +12556,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput>;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
+   */
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput>;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveryAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get information about your IPAM pools.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -16309,6 +16516,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput>;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DisassociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a subnet or gateway from a route table.</p>
    *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -17774,6 +18013,70 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
+   */
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput>;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput> | void {
+    const command = new GetIpamDiscoveredAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+   */
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput>;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> | void {
+    const command = new GetIpamDiscoveredResourceCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
    */
   public getIpamPoolAllocations(
@@ -17838,7 +18141,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Get information about the resources in a scope.</p>
+   * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
    */
   public getIpamResourceCidrs(
     args: GetIpamResourceCidrsCommandInput,
@@ -19794,6 +20097,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   */
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput>;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput> | void {
+    const command = new ModifyIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modify an IPAM scope.</p>
    */
   public modifyIpamScope(
@@ -21318,8 +21653,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
-   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+   * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
+   *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
   public moveByoipCidrToIpam(
     args: MoveByoipCidrToIpamCommandInput,

@@ -19,7 +19,7 @@ import {
   ModifyFleetRequestFilterSensitiveLog,
   ModifyFleetResult,
   ModifyFleetResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyFleetCommandInput extends ModifyFleetRequest {}

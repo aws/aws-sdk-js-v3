@@ -118,6 +118,10 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamResourceDiscoveryCommandInput,
+  AssociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
@@ -268,6 +272,10 @@ import {
 } from "./commands/CreateInternetGatewayCommand";
 import { CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
+import {
+  CreateIpamResourceDiscoveryCommandInput,
+  CreateIpamResourceDiscoveryCommandOutput,
+} from "./commands/CreateIpamResourceDiscoveryCommand";
 import { CreateIpamScopeCommandInput, CreateIpamScopeCommandOutput } from "./commands/CreateIpamScopeCommand";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand";
 import {
@@ -498,6 +506,10 @@ import {
 } from "./commands/DeleteInternetGatewayCommand";
 import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamResourceDiscoveryCommandInput,
+  DeleteIpamResourceDiscoveryCommandOutput,
+} from "./commands/DeleteIpamResourceDiscoveryCommand";
 import { DeleteIpamScopeCommandInput, DeleteIpamScopeCommandOutput } from "./commands/DeleteIpamScopeCommand";
 import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand";
 import {
@@ -895,6 +907,14 @@ import {
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamResourceDiscoveriesCommandInput,
+  DescribeIpamResourceDiscoveriesCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveriesCommand";
+import {
+  DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveryAssociationsCommand";
 import { DescribeIpamsCommandInput, DescribeIpamsCommandOutput } from "./commands/DescribeIpamsCommand";
 import { DescribeIpamScopesCommandInput, DescribeIpamScopesCommandOutput } from "./commands/DescribeIpamScopesCommand";
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "./commands/DescribeIpv6PoolsCommand";
@@ -1301,6 +1321,10 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamResourceDiscoveryCommandInput,
+  DisassociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
@@ -1449,6 +1473,14 @@ import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamDiscoveredAccountsCommandInput,
+  GetIpamDiscoveredAccountsCommandOutput,
+} from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredResourceCidrsCommandInput,
+  GetIpamDiscoveredResourceCidrsCommandOutput,
+} from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
   GetIpamPoolAllocationsCommandInput,
   GetIpamPoolAllocationsCommandOutput,
@@ -1637,6 +1669,10 @@ import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
 } from "./commands/ModifyIpamResourceCidrCommand";
+import {
+  ModifyIpamResourceDiscoveryCommandInput,
+  ModifyIpamResourceDiscoveryCommandOutput,
+} from "./commands/ModifyIpamResourceDiscoveryCommand";
 import { ModifyIpamScopeCommandInput, ModifyIpamScopeCommandOutput } from "./commands/ModifyIpamScopeCommand";
 import {
   ModifyLaunchTemplateCommandInput,
@@ -2019,6 +2055,7 @@ export type ServiceInputTypes =
   | AssociateEnclaveCertificateIamRoleCommandInput
   | AssociateIamInstanceProfileCommandInput
   | AssociateInstanceEventWindowCommandInput
+  | AssociateIpamResourceDiscoveryCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
@@ -2071,6 +2108,7 @@ export type ServiceInputTypes =
   | CreateInternetGatewayCommandInput
   | CreateIpamCommandInput
   | CreateIpamPoolCommandInput
+  | CreateIpamResourceDiscoveryCommandInput
   | CreateIpamScopeCommandInput
   | CreateKeyPairCommandInput
   | CreateLaunchTemplateCommandInput
@@ -2145,6 +2183,7 @@ export type ServiceInputTypes =
   | DeleteInternetGatewayCommandInput
   | DeleteIpamCommandInput
   | DeleteIpamPoolCommandInput
+  | DeleteIpamResourceDiscoveryCommandInput
   | DeleteIpamScopeCommandInput
   | DeleteKeyPairCommandInput
   | DeleteLaunchTemplateCommandInput
@@ -2263,6 +2302,8 @@ export type ServiceInputTypes =
   | DescribeInstancesCommandInput
   | DescribeInternetGatewaysCommandInput
   | DescribeIpamPoolsCommandInput
+  | DescribeIpamResourceDiscoveriesCommandInput
+  | DescribeIpamResourceDiscoveryAssociationsCommandInput
   | DescribeIpamScopesCommandInput
   | DescribeIpamsCommandInput
   | DescribeIpv6PoolsCommandInput
@@ -2374,6 +2415,7 @@ export type ServiceInputTypes =
   | DisassociateEnclaveCertificateIamRoleCommandInput
   | DisassociateIamInstanceProfileCommandInput
   | DisassociateInstanceEventWindowCommandInput
+  | DisassociateIpamResourceDiscoveryCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
@@ -2415,6 +2457,8 @@ export type ServiceInputTypes =
   | GetInstanceTypesFromInstanceRequirementsCommandInput
   | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
+  | GetIpamDiscoveredAccountsCommandInput
+  | GetIpamDiscoveredResourceCidrsCommandInput
   | GetIpamPoolAllocationsCommandInput
   | GetIpamPoolCidrsCommandInput
   | GetIpamResourceCidrsCommandInput
@@ -2471,6 +2515,7 @@ export type ServiceInputTypes =
   | ModifyIpamCommandInput
   | ModifyIpamPoolCommandInput
   | ModifyIpamResourceCidrCommandInput
+  | ModifyIpamResourceDiscoveryCommandInput
   | ModifyIpamScopeCommandInput
   | ModifyLaunchTemplateCommandInput
   | ModifyLocalGatewayRouteCommandInput
@@ -2597,6 +2642,7 @@ export type ServiceOutputTypes =
   | AssociateEnclaveCertificateIamRoleCommandOutput
   | AssociateIamInstanceProfileCommandOutput
   | AssociateInstanceEventWindowCommandOutput
+  | AssociateIpamResourceDiscoveryCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
@@ -2649,6 +2695,7 @@ export type ServiceOutputTypes =
   | CreateInternetGatewayCommandOutput
   | CreateIpamCommandOutput
   | CreateIpamPoolCommandOutput
+  | CreateIpamResourceDiscoveryCommandOutput
   | CreateIpamScopeCommandOutput
   | CreateKeyPairCommandOutput
   | CreateLaunchTemplateCommandOutput
@@ -2723,6 +2770,7 @@ export type ServiceOutputTypes =
   | DeleteInternetGatewayCommandOutput
   | DeleteIpamCommandOutput
   | DeleteIpamPoolCommandOutput
+  | DeleteIpamResourceDiscoveryCommandOutput
   | DeleteIpamScopeCommandOutput
   | DeleteKeyPairCommandOutput
   | DeleteLaunchTemplateCommandOutput
@@ -2841,6 +2889,8 @@ export type ServiceOutputTypes =
   | DescribeInstancesCommandOutput
   | DescribeInternetGatewaysCommandOutput
   | DescribeIpamPoolsCommandOutput
+  | DescribeIpamResourceDiscoveriesCommandOutput
+  | DescribeIpamResourceDiscoveryAssociationsCommandOutput
   | DescribeIpamScopesCommandOutput
   | DescribeIpamsCommandOutput
   | DescribeIpv6PoolsCommandOutput
@@ -2952,6 +3002,7 @@ export type ServiceOutputTypes =
   | DisassociateEnclaveCertificateIamRoleCommandOutput
   | DisassociateIamInstanceProfileCommandOutput
   | DisassociateInstanceEventWindowCommandOutput
+  | DisassociateIpamResourceDiscoveryCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
@@ -2993,6 +3044,8 @@ export type ServiceOutputTypes =
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
   | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput
+  | GetIpamDiscoveredAccountsCommandOutput
+  | GetIpamDiscoveredResourceCidrsCommandOutput
   | GetIpamPoolAllocationsCommandOutput
   | GetIpamPoolCidrsCommandOutput
   | GetIpamResourceCidrsCommandOutput
@@ -3049,6 +3102,7 @@ export type ServiceOutputTypes =
   | ModifyIpamCommandOutput
   | ModifyIpamPoolCommandOutput
   | ModifyIpamResourceCidrCommandOutput
+  | ModifyIpamResourceDiscoveryCommandOutput
   | ModifyIpamScopeCommandOutput
   | ModifyLaunchTemplateCommandOutput
   | ModifyLocalGatewayRouteCommandOutput

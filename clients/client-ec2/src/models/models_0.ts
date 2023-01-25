@@ -121,6 +121,8 @@ export enum ResourceType {
   internet_gateway = "internet-gateway",
   ipam = "ipam",
   ipam_pool = "ipam-pool",
+  ipam_resource_discovery = "ipam-resource-discovery",
+  ipam_resource_discovery_association = "ipam-resource-discovery-association",
   ipam_scope = "ipam-scope",
   ipv4pool_ec2 = "ipv4pool-ec2",
   ipv6pool_ec2 = "ipv6pool-ec2",
@@ -1932,8 +1934,7 @@ export interface AddedPrincipal {
 }
 
 /**
- * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
- *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
@@ -2414,7 +2415,7 @@ export enum IpamPoolAllocationResourceType {
 }
 
 /**
- * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 export interface IpamPoolAllocation {
   /**
@@ -3090,6 +3091,169 @@ export interface AssociateInstanceEventWindowResult {
    * <p>Information about the event window.</p>
    */
   InstanceEventWindow?: InstanceEventWindow;
+}
+
+export interface AssociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM ID.</p>
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>Tag specifications.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A client token.</p>
+   */
+  ClientToken?: string;
+}
+
+export enum IpamAssociatedResourceDiscoveryStatus {
+  ACTIVE = "active",
+  NOT_FOUND = "not-found",
+}
+
+export enum IpamResourceDiscoveryAssociationState {
+  ASSOCIATE_COMPLETE = "associate-complete",
+  ASSOCIATE_FAILED = "associate-failed",
+  ASSOCIATE_IN_PROGRESS = "associate-in-progress",
+  DISASSOCIATE_COMPLETE = "disassociate-complete",
+  DISASSOCIATE_FAILED = "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress",
+  ISOLATE_COMPLETE = "isolate-complete",
+  ISOLATE_IN_PROGRESS = "isolate-in-progress",
+  RESTORE_IN_PROGRESS = "restore-in-progress",
+}
+
+/**
+ * <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
+ */
+export interface IpamResourceDiscoveryAssociation {
+  /**
+   * <p>The Amazon Web Services account ID of the resource discovery owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The resource discovery association ID.</p>
+   */
+  IpamResourceDiscoveryAssociationId?: string;
+
+  /**
+   * <p>The resource discovery association Amazon Resource Name (ARN).</p>
+   */
+  IpamResourceDiscoveryAssociationArn?: string;
+
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The IPAM ID.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * <p>The IPAM ARN.</p>
+   */
+  IpamArn?: string;
+
+  /**
+   * <p>The IPAM home Region.</p>
+   */
+  IpamRegion?: string;
+
+  /**
+   * <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The resource discovery status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - Connection or permissions required to read the
+   *                results of the resource discovery are intact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-found</code> - Connection or permissions required to read the
+   *                results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+
+  /**
+   * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associate-in-progress</code> - Resource discovery is being associated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-complete</code> - Resource discovery association is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-failed</code> - Resource discovery association has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-complete</code> - Resource discovery disassociation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-failed </code> - Resource discovery disassociation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete..</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>restore-in-progress</code> - Resource discovery is being restored.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: IpamResourceDiscoveryAssociationState | string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AssociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
 }
 
 export interface AssociateRouteTableRequest {
@@ -7299,86 +7463,6 @@ export interface CreateClientVpnRouteRequest {
   DryRun?: boolean;
 }
 
-export enum ClientVpnRouteStatusCode {
-  active = "active",
-  creating = "creating",
-  deleting = "deleting",
-  failed = "failed",
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint route.</p>
- */
-export interface ClientVpnRouteStatus {
-  /**
-   * <p>The state of the Client VPN endpoint route.</p>
-   */
-  Code?: ClientVpnRouteStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-}
-
-export interface CreateCoipCidrRequest {
-  /**
-   * <p>
-   *       A customer-owned IP address range to create.
-   *       </p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>
- *       Information about a customer-owned IP address range.
- *       </p>
- */
-export interface CoipCidr {
-  /**
-   * <p>
-   *       An address range in a customer-owned IP address space.
-   *       </p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId?: string;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   */
-  LocalGatewayRouteTableId?: string;
-}
-
 /**
  * @internal
  */
@@ -8181,6 +8265,31 @@ export const InstanceEventWindowFilterSensitiveLog = (obj: InstanceEventWindow):
  * @internal
  */
 export const AssociateInstanceEventWindowResultFilterSensitiveLog = (obj: AssociateInstanceEventWindowResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryRequestFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamResourceDiscoveryAssociationFilterSensitiveLog = (obj: IpamResourceDiscoveryAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryResultFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryResult
+): any => ({
   ...obj,
 });
 
@@ -9069,33 +9178,5 @@ export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClien
  * @internal
  */
 export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
   ...obj,
 });

@@ -19,7 +19,7 @@ import {
   DeleteTransitGatewayPolicyTableRequestFilterSensitiveLog,
   DeleteTransitGatewayPolicyTableResult,
   DeleteTransitGatewayPolicyTableResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayPolicyTableCommand,
   serializeAws_ec2DeleteTransitGatewayPolicyTableCommand,

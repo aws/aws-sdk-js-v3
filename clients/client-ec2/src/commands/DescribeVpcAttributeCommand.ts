@@ -19,7 +19,7 @@ import {
   DescribeVpcAttributeRequestFilterSensitiveLog,
   DescribeVpcAttributeResult,
   DescribeVpcAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcAttributeCommand,
   serializeAws_ec2DescribeVpcAttributeCommand,

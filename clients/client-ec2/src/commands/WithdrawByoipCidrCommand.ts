@@ -19,7 +19,7 @@ import {
   WithdrawByoipCidrRequestFilterSensitiveLog,
   WithdrawByoipCidrResult,
   WithdrawByoipCidrResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2WithdrawByoipCidrCommand,
   serializeAws_ec2WithdrawByoipCidrCommand,

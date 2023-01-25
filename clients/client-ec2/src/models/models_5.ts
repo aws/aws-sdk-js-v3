@@ -8,18 +8,13 @@ import {
   AddressTransfer,
   AllowedPrincipal,
   AssociationStatus,
-  AutoPlacement,
   CapacityReservationState,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ConnectionLogOptions,
   CurrencyCodeValues,
   EndDateType,
-  HostRecovery,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
   IpamPoolAllocation,
-  SelfServicePortal,
+  IpamResourceDiscoveryAssociation,
   SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -30,7 +25,6 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
-  UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VpcCidrBlockAssociation,
@@ -38,12 +32,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  AttributeValue,
-  CapacityReservationPreference,
-  CapacityReservationTarget,
   DiskImageFormat,
-  FleetExcessCapacityTerminationPolicy,
-  FleetLaunchTemplateConfigRequest,
   InstanceRequirementsRequest,
   IpamResourceTag,
   NetworkInsightsAccessScopeContent,
@@ -52,18 +41,22 @@ import {
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
   ShutdownBehavior,
-  TargetCapacitySpecificationRequest,
   TargetCapacityUnitType,
   Vpc,
 } from "./models_1";
 import {
+  ConnectionNotification,
+  DnsEntry,
   DnsNameState,
+  IpAddressType,
   PayerResponsibility,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  State,
   SubnetCidrReservation,
   TransitGatewayPrefixListReference,
+  VpcEndpoint,
   VpnConnection,
   VpnGateway,
 } from "./models_2";
@@ -79,22 +72,512 @@ import {
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   Filter,
-  FpgaImageAttribute,
-  FpgaImageAttributeName,
   ImportImageLicenseConfigurationResponse,
-  InstanceAttributeName,
   IpamPoolCidr,
-  LaunchPermission,
   MetricType,
   PaymentOption,
   PeriodType,
-  PermissionGroup,
   SnapshotDetail,
   SnapshotTaskDetail,
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import { AnalysisStatus, ArchitectureType } from "./models_4";
+import { AnalysisStatus, ArchitectureType, VpcAttributeName } from "./models_4";
+
+export interface DescribeVpcAttributeRequest {
+  /**
+   * <p>The VPC attribute.</p>
+   */
+  Attribute: VpcAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeVpcAttributeResult {
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
+   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
+   * 				otherwise, they do not.</p>
+   */
+  EnableDnsHostnames?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether DNS resolution is enabled for
+   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
+   * 				resolves DNS hostnames for your instances to their corresponding
+   * 				IP addresses; otherwise, it does not.</p>
+   */
+  EnableDnsSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   */
+  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
+}
+
+export interface DescribeVpcClassicLinkRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
+   * 					   (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
+   */
+  VpcIds?: string[];
+}
+
+/**
+ * <note>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ */
+export interface VpcClassicLink {
+  /**
+   * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
+   */
+  ClassicLinkEnabled?: boolean;
+
+  /**
+   * <p>Any tags assigned to the VPC.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export interface DescribeVpcClassicLinkResult {
+  /**
+   * <p>The ClassicLink status of one or more VPCs.</p>
+   */
+  Vpcs?: VpcClassicLink[];
+}
+
+export interface DescribeVpcClassicLinkDnsSupportRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more VPC IDs.</p>
+   */
+  VpcIds?: string[];
+}
+
+/**
+ * <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ */
+export interface ClassicLinkDnsSupport {
+  /**
+   * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
+   */
+  ClassicLinkDnsSupported?: boolean;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export interface DescribeVpcClassicLinkDnsSupportResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
+   */
+  Vpcs?: ClassicLinkDnsSupport[];
+}
+
+export interface DescribeVpcEndpointConnectionNotificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the notification.</p>
+   */
+  ConnectionNotificationId?: string;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>connection-notification-arn</code> - The ARN of the SNS topic for the
+   *                     notification.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection-notification-id</code> - The ID of the
+   *                     notification.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection-notification-state</code> - The state of the notification
+   *                         (<code>Enabled</code> | <code>Disabled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection-notification-type</code> - The type of notification
+   *                         (<code>Topic</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-id</code> - The ID of the endpoint service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another request with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVpcEndpointConnectionNotificationsResult {
+  /**
+   * <p>The notifications.</p>
+   */
+  ConnectionNotificationSet?: ConnectionNotification[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *             <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVpcEndpointConnectionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-id</code> - The ID of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
+   * 		        that owns the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
+   * 			        (<code>pendingAcceptance</code> | <code>pending</code> |
+   * 			        <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+   * 			        <code>rejected</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *             results of the initial request can be seen by sending another request with the returned
+   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
+   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
+   *             returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Describes a VPC endpoint connection to a service.</p>
+ */
+export interface VpcEndpointConnection {
+  /**
+   * <p>The ID of the service to which the endpoint is connected.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
+   */
+  VpcEndpointOwner?: string;
+
+  /**
+   * <p>The state of the VPC endpoint.</p>
+   */
+  VpcEndpointState?: State | string;
+
+  /**
+   * <p>The date and time that the VPC endpoint was created.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The DNS entries for the VPC endpoint.</p>
+   */
+  DnsEntries?: DnsEntry[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
+   */
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The IP address type for the endpoint.</p>
+   */
+  IpAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The ID of the VPC endpoint connection.</p>
+   */
+  VpcEndpointConnectionId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about the VPC endpoint connections.</p>
+   */
+  VpcEndpointConnections?: VpcEndpointConnection[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVpcEndpointsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the VPC endpoints.</p>
+   */
+  VpcEndpointIds?: string[];
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
+   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+   *                         <code>rejected</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVpcEndpointsResult {
+  /**
+   * <p>Information about the endpoints.</p>
+   */
+  VpcEndpoints?: VpcEndpoint[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVpcEndpointServiceConfigurationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the endpoint services.</p>
+   */
+  ServiceIds?: string[];
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-id</code> - The ID of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
+   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
+   *                         <code>Failed</code>). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *             results of the initial request can be seen by sending another request with the returned
+   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
+   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
+   *             returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeVpcEndpointServiceConfigurationsResult {
   /**
@@ -1515,6 +1998,27 @@ export interface DisassociateInstanceEventWindowResult {
    * <p>Information about the event window.</p>
    */
   InstanceEventWindow?: InstanceEventWindow;
+}
+
+export interface DisassociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A resource discovery association ID.</p>
+   */
+  IpamResourceDiscoveryAssociationId: string | undefined;
+}
+
+export interface DisassociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association.</p>
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
 }
 
 export interface DisassociateRouteTableRequest {
@@ -3492,6 +3996,252 @@ export interface GetIpamAddressHistoryResult {
   NextToken?: string;
 }
 
+export interface GetIpamDiscoveredAccountsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.</p>
+   */
+  DiscoveryRegion: string | undefined;
+
+  /**
+   * <p>Discovered account filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of discovered accounts to return in one page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export enum IpamDiscoveryFailureCode {
+  assume_role_failure = "assume-role-failure",
+  throttling_failure = "throttling-failure",
+  unauthorized_failure = "unauthorized-failure",
+}
+
+/**
+ * <p>The discovery failure reason.</p>
+ */
+export interface IpamDiscoveryFailureReason {
+  /**
+   * <p>The discovery failure code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>SLR has not been created yet and IPAM is still creating it.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>You have opted-out of the IPAM home Region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Account you are using as your IPAM account has been suspended.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Code?: IpamDiscoveryFailureCode | string;
+
+  /**
+   * <p>The discovery failure message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
+ */
+export interface IpamDiscoveredAccount {
+  /**
+   * <p>The account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.
+   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
+   */
+  DiscoveryRegion?: string;
+
+  /**
+   * <p>The resource discovery failure reason.</p>
+   */
+  FailureReason?: IpamDiscoveryFailureReason;
+
+  /**
+   * <p>The last attempted resource discovery time.</p>
+   */
+  LastAttemptedDiscoveryTime?: Date;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   */
+  LastSuccessfulDiscoveryTime?: Date;
+}
+
+export interface GetIpamDiscoveredAccountsResult {
+  /**
+   * <p>Discovered accounts.</p>
+   */
+  IpamDiscoveredAccounts?: IpamDiscoveredAccount[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface GetIpamDiscoveredResourceCidrsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>A resource Region.</p>
+   */
+  ResourceRegion: string | undefined;
+
+  /**
+   * <p>Filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export enum IpamResourceType {
+  eip = "eip",
+  ipv6_pool = "ipv6-pool",
+  public_ipv4_pool = "public-ipv4-pool",
+  subnet = "subnet",
+  vpc = "vpc",
+}
+
+/**
+ * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
+ */
+export interface IpamDiscoveredResourceCidr {
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The resource Region.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * <p>The resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource owner ID.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The resource CIDR.</p>
+   */
+  ResourceCidr?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: IpamResourceType | string;
+
+  /**
+   * <p>The resource tags.</p>
+   */
+  ResourceTags?: IpamResourceTag[];
+
+  /**
+   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
+   *          </p>
+   *             </li>
+   *          </ul>
+   */
+  IpUsage?: number;
+
+  /**
+   * <p>The VPC ID.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   */
+  SampleTime?: Date;
+}
+
+export interface GetIpamDiscoveredResourceCidrsResult {
+  /**
+   * <p>Discovered resource CIDRs.</p>
+   */
+  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
 export interface GetIpamPoolAllocationsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -3577,14 +4327,6 @@ export interface GetIpamPoolCidrsResult {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export enum IpamResourceType {
-  eip = "eip",
-  ipv6_pool = "ipv6-pool",
-  public_ipv4_pool = "public-ipv4-pool",
-  subnet = "subnet",
-  vpc = "vpc",
 }
 
 export interface GetIpamResourceCidrsRequest {
@@ -3705,7 +4447,7 @@ export interface IpamResourceCidr {
    * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
    *          <ul>
    *             <li>
-   *                <p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
+   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
    *          </p>
    *             </li>
    *             <li>
@@ -6089,755 +6831,131 @@ export interface DnsServersOptionsModifyStructure {
   Enabled?: boolean;
 }
 
-export interface ModifyClientVpnEndpointRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to modify.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in
-   * 			Certificate Manager (ACM).</p>
-   */
-  ServerCertificateArn?: string;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   *          <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   */
-  ConnectionLogOptions?: ConnectionLogOptions;
-
-  /**
-   * <p>Information about the DNS servers to be used by Client VPN connections. A Client VPN endpoint can have
-   * 			up to two DNS servers.</p>
-   */
-  DnsServers?: DnsServersOptionsModifyStructure;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   *          <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   *          <p>Default Value: <code>443</code>
-   *          </p>
-   */
-  VpnPort?: number;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the VPN is split-tunnel.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   *         	<i>Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   */
-  SelfServicePortal?: SelfServicePortal | string;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   */
-  ClientConnectOptions?: ClientConnectOptions;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   */
-  SessionTimeoutHours?: number;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions;
-}
-
-export interface ModifyClientVpnEndpointResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export interface ModifyDefaultCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The instance family.</p>
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
-
-  /**
-   * <p>The credit option for CPU usage of the instance family.</p>
-   *          <p>Valid Values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   */
-  CpuCredits: string | undefined;
-}
-
-export interface ModifyDefaultCreditSpecificationResult {
-  /**
-   * <p>The default credit option for CPU usage of the instance family.</p>
-   */
-  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
-}
-
-export interface ModifyEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
-   *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the KMS key using any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. For example, alias/ExampleAlias.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
-   *       the action can appear to complete, but eventually fails.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   */
-  KmsKeyId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ModifyEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export interface ModifyFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the total target capacity of
-   *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
-
-  /**
-   * <p>The launch template and overrides.</p>
-   */
-  LaunchTemplateConfigs?: FleetLaunchTemplateConfigRequest[];
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The size of the EC2 Fleet.</p>
-   */
-  TargetCapacitySpecification?: TargetCapacitySpecificationRequest;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  Context?: string;
-}
-
-export interface ModifyFleetResult {
-  /**
-   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
-   *          no response is returned, and instead an error message is returned.</p>
-   */
-  Return?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeVpcAttributeRequestFilterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a load permission.</p>
+ * @internal
  */
-export interface LoadPermissionRequest {
-  /**
-   * <p>The name of the group.</p>
-   */
-  Group?: PermissionGroup | string;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  UserId?: string;
-}
+export const DescribeVpcAttributeResultFilterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
+ * @internal
  */
-export interface LoadPermissionModifications {
-  /**
-   * <p>The load permissions to add.</p>
-   */
-  Add?: LoadPermissionRequest[];
-
-  /**
-   * <p>The load permissions to remove.</p>
-   */
-  Remove?: LoadPermissionRequest[];
-}
-
-export enum OperationType {
-  add = "add",
-  remove = "remove",
-}
-
-export interface ModifyFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The name of the attribute.</p>
-   */
-  Attribute?: FpgaImageAttributeName | string;
-
-  /**
-   * <p>The operation type.</p>
-   */
-  OperationType?: OperationType | string;
-
-  /**
-   * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
-   */
-  UserIds?: string[];
-
-  /**
-   * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
-   */
-  UserGroups?: string[];
-
-  /**
-   * <p>The product codes. After you add a product code to an AFI, it can't be removed.
-   * 		    This parameter is valid only when modifying the <code>productCodes</code> attribute.</p>
-   */
-  ProductCodes?: string[];
-
-  /**
-   * <p>The load permission for the AFI.</p>
-   */
-  LoadPermission?: LoadPermissionModifications;
-
-  /**
-   * <p>A description for the AFI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A name for the AFI.</p>
-   */
-  Name?: string;
-}
-
-export interface ModifyFpgaImageAttributeResult {
-  /**
-   * <p>Information about the attribute.</p>
-   */
-  FpgaImageAttribute?: FpgaImageAttribute;
-}
-
-export interface ModifyHostsRequest {
-  /**
-   * <p>Specify whether to enable or disable auto-placement.</p>
-   */
-  AutoPlacement?: AutoPlacement | string;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts to modify.</p>
-   */
-  HostIds: string[] | undefined;
-
-  /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
-   *             in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  HostRecovery?: HostRecovery | string;
-
-  /**
-   * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
-   *             parameter to modify a Dedicated Host to support only a specific instance type.</p>
-   *          <p>If you want to modify a Dedicated Host to support multiple instance types in its
-   *             current instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
-   *             same request.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this
-   *             parameter to modify a Dedicated Host to support multiple instance types within its
-   *             current instance family.</p>
-   *          <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
-   *             this parameter and specify <b>InstanceType</b> instead. You
-   *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
-   */
-  InstanceFamily?: string;
-}
-
-export interface ModifyHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
-   */
-  Successful?: string[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the setting
-   *             you requested can be used.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export interface ModifyIdentityIdFormatRequest {
-  /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
-   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
-   *        the account.</p>
-   */
-  PrincipalArn: string | undefined;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *           | <code>network-acl-association</code> | <code>network-interface</code> |
-   *           <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *           <code>route-table</code> | <code>route-table-association</code> |
-   *           <code>security-group</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *           <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *           currently within their opt-in period for longer IDs.</p>
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
-   */
-  UseLongIds: boolean | undefined;
-}
-
-export interface ModifyIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *            | <code>network-acl-association</code> | <code>network-interface</code> |
-   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *            <code>route-table</code> | <code>route-table-association</code> |
-   *            <code>security-group</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *        currently within their opt-in period for longer IDs.</p>
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
-   */
-  UseLongIds: boolean | undefined;
-}
+export const DescribeVpcClassicLinkRequestFilterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a launch permission modification.</p>
+ * @internal
  */
-export interface LaunchPermissionModifications {
-  /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
-   */
-  Add?: LaunchPermission[];
-
-  /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
-   */
-  Remove?: LaunchPermission[];
-}
+export const VpcClassicLinkFilterSensitiveLog = (obj: VpcClassicLink): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for ModifyImageAttribute.</p>
+ * @internal
  */
-export interface ModifyImageAttributeRequest {
-  /**
-   * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>launchPermission</code>
-   *          </p>
-   */
-  Attribute?: string;
-
-  /**
-   * <p>A new description for the AMI.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>A new launch permission for the AMI.</p>
-   */
-  LaunchPermission?: LaunchPermissionModifications;
-
-  /**
-   * <p>The operation type.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OperationType?: OperationType | string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  ProductCodes?: string[];
-
-  /**
-   * <p>The user groups.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  UserGroups?: string[];
-
-  /**
-   * <p>The Amazon Web Services account IDs.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  UserIds?: string[];
-
-  /**
-   * <p>The value of the attribute being modified.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OrganizationArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OrganizationalUnitArns?: string[];
-}
+export const DescribeVpcClassicLinkResultFilterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes information used to set up an EBS volume specified in a block device
- *             mapping.</p>
+ * @internal
  */
-export interface EbsInstanceBlockDeviceSpecification {
-  /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The ID of the EBS volume.</p>
-   */
-  VolumeId?: string;
-}
+export const DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
+  obj: DescribeVpcClassicLinkDnsSupportRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a block device mapping entry.</p>
+ * @internal
  */
-export interface InstanceBlockDeviceMappingSpecification {
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   */
-  Ebs?: EbsInstanceBlockDeviceSpecification;
-
-  /**
-   * <p>suppress the specified device included in the block device mapping.</p>
-   */
-  NoDevice?: string;
-
-  /**
-   * <p>The virtual device name.</p>
-   */
-  VirtualName?: string;
-}
-
-export interface BlobAttributeValue {
-  Value?: Uint8Array;
-}
-
-export interface ModifyInstanceAttributeRequest {
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance is either
-   *             the source or the destination of any traffic that it receives. If the value is
-   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
-   *             disabled. The default value is <code>true</code>. You must disable source/destination
-   *             checks if the instance runs services such as network address translation, routing, or
-   *             firewalls.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-
-  /**
-   * <p>The name of the attribute to modify.</p>
-   *          <important>
-   *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
-   *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
-   *                     <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code>
-   *                 | <code>userData</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
-   *                     <code>ebsOptimized</code> | <code>sriovNetSupport</code> |
-   *                     <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
-   *                 | <code>enclaveOptions</code>
-   *             </p>
-   *          </important>
-   */
-  Attribute?: InstanceAttributeName | string;
-
-  /**
-   * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
-   *             attached. The volume must be owned by the caller. If no value is specified for
-   *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
-   *             deleted when the instance is terminated.</p>
-   *          <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
-   *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
-
-  /**
-   * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
-   *             Instances.</p>
-   */
-  DisableApiTermination?: AttributeBooleanValue;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   */
-  EbsOptimized?: AttributeBooleanValue;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
-   *             instance.</p>
-   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   */
-  EnaSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security
-   *             groups. You must specify at least one security group, even if it's just the default
-   *             security group for the VPC. You must specify the security group ID, not the security
-   *             group name.</p>
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
-
-  /**
-   * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-   *                 types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is
-   *             not valid, the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
-   */
-  InstanceType?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's kernel to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   */
-  Kernel?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's RAM disk to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   */
-  Ramdisk?: AttributeValue;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-   *             Function interface for the instance.</p>
-   *          <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
-   *             interface at this time.</p>
-   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK or command line tool, base64-encoding is performed for you, and you
-   *             can load the text from a file. Otherwise, you must provide base64-encoded text.</p>
-   */
-  UserData?: BlobAttributeValue;
-
-  /**
-   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
-   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
-   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
-   *          <p></p>
-   */
-  DisableApiStop?: AttributeBooleanValue;
-}
+export const ClassicLinkDnsSupportFilterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
- * 			at a time. If you specify <code>CapacityReservationPreference</code> and
- * 			<code>CapacityReservationTarget</code>, the request fails.</p>
- *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
- * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
- * 			matching attributes (instance type, platform, Availability Zone). Use the
- * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
- * 			   	Capacity Reservation or a Capacity Reservation group.</p>
+ * @internal
  */
-export interface CapacityReservationSpecification {
-  /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
-   * 				(instance type, platform, Availability Zone).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The
-   * 					instance runs as an On-Demand Instance.</p>
-   *             </li>
-   *          </ul>
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+export const DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
+  obj: DescribeVpcClassicLinkDnsSupportResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
-   */
-  CapacityReservationTarget?: CapacityReservationTarget;
-}
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
+  obj: DescribeVpcEndpointConnectionNotificationsRequest
+): any => ({
+  ...obj,
+});
 
-export interface ModifyInstanceCapacityReservationAttributesRequest {
-  /**
-   * <p>The ID of the instance to be modified.</p>
-   */
-  InstanceId: string | undefined;
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
+  obj: DescribeVpcEndpointConnectionNotificationsResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   */
-  CapacityReservationSpecification: CapacityReservationSpecification | undefined;
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointConnectionsRequestFilterSensitiveLog = (
+  obj: DescribeVpcEndpointConnectionsRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const VpcEndpointConnectionFilterSensitiveLog = (obj: VpcEndpointConnection): any => ({
+  ...obj,
+});
 
-export interface ModifyInstanceCapacityReservationAttributesResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointConnectionsResultFilterSensitiveLog = (
+  obj: DescribeVpcEndpointConnectionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointsResultFilterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
+  obj: DescribeVpcEndpointServiceConfigurationsRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7322,6 +7440,24 @@ export const DisassociateInstanceEventWindowRequestFilterSensitiveLog = (
  */
 export const DisassociateInstanceEventWindowResultFilterSensitiveLog = (
   obj: DisassociateInstanceEventWindowResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateIpamResourceDiscoveryRequestFilterSensitiveLog = (
+  obj: DisassociateIpamResourceDiscoveryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateIpamResourceDiscoveryResultFilterSensitiveLog = (
+  obj: DisassociateIpamResourceDiscoveryResult
 ): any => ({
   ...obj,
 });
@@ -8118,6 +8254,59 @@ export const GetIpamAddressHistoryResultFilterSensitiveLog = (obj: GetIpamAddres
 /**
  * @internal
  */
+export const GetIpamDiscoveredAccountsRequestFilterSensitiveLog = (obj: GetIpamDiscoveredAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamDiscoveryFailureReasonFilterSensitiveLog = (obj: IpamDiscoveryFailureReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamDiscoveredAccountFilterSensitiveLog = (obj: IpamDiscoveredAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIpamDiscoveredAccountsResultFilterSensitiveLog = (obj: GetIpamDiscoveredAccountsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIpamDiscoveredResourceCidrsRequestFilterSensitiveLog = (
+  obj: GetIpamDiscoveredResourceCidrsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamDiscoveredResourceCidrFilterSensitiveLog = (obj: IpamDiscoveredResourceCidr): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIpamDiscoveredResourceCidrsResultFilterSensitiveLog = (
+  obj: GetIpamDiscoveredResourceCidrsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetIpamPoolAllocationsRequestFilterSensitiveLog = (obj: GetIpamPoolAllocationsRequest): any => ({
   ...obj,
 });
@@ -8907,192 +9096,5 @@ export const ModifyCapacityReservationFleetResultFilterSensitiveLog = (
  * @internal
  */
 export const DnsServersOptionsModifyStructureFilterSensitiveLog = (obj: DnsServersOptionsModifyStructure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClientVpnEndpointRequestFilterSensitiveLog = (obj: ModifyClientVpnEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClientVpnEndpointResultFilterSensitiveLog = (obj: ModifyClientVpnEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyDefaultCreditSpecificationRequestFilterSensitiveLog = (
-  obj: ModifyDefaultCreditSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyDefaultCreditSpecificationResultFilterSensitiveLog = (
-  obj: ModifyDefaultCreditSpecificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyFleetRequestFilterSensitiveLog = (obj: ModifyFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyFleetResultFilterSensitiveLog = (obj: ModifyFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadPermissionRequestFilterSensitiveLog = (obj: LoadPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadPermissionModificationsFilterSensitiveLog = (obj: LoadPermissionModifications): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyFpgaImageAttributeRequestFilterSensitiveLog = (obj: ModifyFpgaImageAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyFpgaImageAttributeResultFilterSensitiveLog = (obj: ModifyFpgaImageAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHostsRequestFilterSensitiveLog = (obj: ModifyHostsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHostsResultFilterSensitiveLog = (obj: ModifyHostsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyIdentityIdFormatRequestFilterSensitiveLog = (obj: ModifyIdentityIdFormatRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyIdFormatRequestFilterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchPermissionModificationsFilterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyImageAttributeRequestFilterSensitiveLog = (obj: ModifyImageAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsInstanceBlockDeviceSpecificationFilterSensitiveLog = (
-  obj: EbsInstanceBlockDeviceSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceBlockDeviceMappingSpecificationFilterSensitiveLog = (
-  obj: InstanceBlockDeviceMappingSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlobAttributeValueFilterSensitiveLog = (obj: BlobAttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyInstanceAttributeRequestFilterSensitiveLog = (obj: ModifyInstanceAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationSpecificationFilterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyInstanceCapacityReservationAttributesRequestFilterSensitiveLog = (
-  obj: ModifyInstanceCapacityReservationAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyInstanceCapacityReservationAttributesResultFilterSensitiveLog = (
-  obj: ModifyInstanceCapacityReservationAttributesResult
-): any => ({
   ...obj,
 });

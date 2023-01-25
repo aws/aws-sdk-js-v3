@@ -9,6 +9,7 @@ import {
   CurrencyCodeValues,
   Explanation,
   IamInstanceProfileSpecification,
+  IpamResourceDiscoveryAssociation,
   IpPermission,
   PathComponent,
   ReservedInstancesListing,
@@ -38,6 +39,7 @@ import {
   InternetGateway,
   Ipam,
   IpamPool,
+  IpamResourceDiscovery,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
@@ -59,22 +61,18 @@ import {
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
   RouteTable,
-  Snapshot,
-  SnapshotState,
   SpotInstanceType,
-  StorageTier,
   Subnet,
   TargetCapacityUnitType,
   Tenancy,
   VolumeType,
 } from "./models_1";
 import {
-  ConnectionNotification,
-  DnsEntry,
-  IpAddressType,
+  Snapshot,
+  SnapshotState,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
-  State,
+  StorageTier,
   TrafficMirrorFilter,
   TrafficMirrorSession,
   TrafficMirrorTarget,
@@ -88,17 +86,464 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
-  VpcEndpoint,
 } from "./models_2";
 import {
   AttributeBooleanValue,
   EventInformation,
   Filter,
   IdFormat,
+  InstanceState,
+  InstanceStatusEvent,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+export enum StatusName {
+  reachability = "reachability",
+}
+
+export enum StatusType {
+  failed = "failed",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  passed = "passed",
+}
+
+/**
+ * <p>Describes the instance status.</p>
+ */
+export interface InstanceStatusDetails {
+  /**
+   * <p>The time when a status check failed. For an instance that was launched and impaired,
+   *             this is the time when the instance was launched.</p>
+   */
+  ImpairedSince?: Date;
+
+  /**
+   * <p>The type of instance status.</p>
+   */
+  Name?: StatusName | string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: StatusType | string;
+}
+
+export enum SummaryStatus {
+  impaired = "impaired",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  not_applicable = "not-applicable",
+  ok = "ok",
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatusSummary {
+  /**
+   * <p>The system instance health or application instance health.</p>
+   */
+  Details?: InstanceStatusDetails[];
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: SummaryStatus | string;
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatus {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Any scheduled events associated with the instance.</p>
+   */
+  Events?: InstanceStatusEvent[];
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
+   *             that an instance be in the <code>running</code> state.</p>
+   */
+  InstanceState?: InstanceState;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues internal to the instance, such
+   *             as impaired reachability.</p>
+   */
+  InstanceStatus?: InstanceStatusSummary;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues related to the systems that
+   *             support an instance, such as hardware failures and network connectivity problems.</p>
+   */
+  SystemStatus?: InstanceStatusSummary;
+}
+
+export interface DescribeInstanceStatusResult {
+  /**
+   * <p>Information about the status of the instances.</p>
+   */
+  InstanceStatuses?: InstanceStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export enum LocationType {
+  availability_zone = "availability-zone",
+  availability_zone_id = "availability-zone-id",
+  region = "region",
+}
+
+export interface DescribeInstanceTypeOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - This depends on the location type. For example, if the location type is
+   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type. For example,
+   *      <code>c5.2xlarge</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The instance types offered.</p>
+ */
+export interface InstanceTypeOffering {
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
+   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   */
+  Location?: string;
+}
+
+export interface DescribeInstanceTypeOfferingsResult {
+  /**
+   * <p>The instance types offered.</p>
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
+   *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeInstanceTypesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceTypes?: (_InstanceType | string)[];
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
+   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
+   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
+   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
+   *                     performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
+   *                     operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
+   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
+   *      <code>default</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
+   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
+   *      GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
+   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
+   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
+   *      <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
+   *      instance storage, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
+   *      instance storage  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
+   *      c5*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
+   *      Fabric Adapters (EFAs) per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
+   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
+   *      supported or required (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
+   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
+   *      instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
+   *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
+   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
+   *       <code>uefi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
+   *       <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
+   *       <code>paravirtual</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
+   *         For example, "1" or "1,2".</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * <p>Describes the optimized EBS performance for supported instance types.</p>
@@ -825,6 +1270,88 @@ export interface DescribeIpamPoolsResult {
    * <p>Information about the IPAM pools.</p>
    */
   IpamPools?: IpamPool[];
+}
+
+export interface DescribeIpamResourceDiscoveriesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IPAM resource discovery IDs.</p>
+   */
+  IpamResourceDiscoveryIds?: string[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource discoveries to return in one page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The resource discovery filters.</p>
+   */
+  Filters?: Filter[];
+}
+
+export interface DescribeIpamResourceDiscoveriesResult {
+  /**
+   * <p>The resource discoveries.</p>
+   */
+  IpamResourceDiscoveries?: IpamResourceDiscovery[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeIpamResourceDiscoveryAssociationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The resource discovery association IDs.</p>
+   */
+  IpamResourceDiscoveryAssociationIds?: string[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource discovery associations to return in one page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The resource discovery association filters.</p>
+   */
+  Filters?: Filter[];
+}
+
+export interface DescribeIpamResourceDiscoveryAssociationsResult {
+  /**
+   * <p>The resource discovery associations.</p>
+   */
+  IpamResourceDiscoveryAssociations?: IpamResourceDiscoveryAssociation[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export interface DescribeIpamsRequest {
@@ -9445,500 +9972,65 @@ export enum VpcAttributeName {
   enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
 }
 
-export interface DescribeVpcAttributeRequest {
-  /**
-   * <p>The VPC attribute.</p>
-   */
-  Attribute: VpcAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeVpcAttributeResult {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
-   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
-   * 				otherwise, they do not.</p>
-   */
-  EnableDnsHostnames?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether DNS resolution is enabled for
-   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
-   * 				resolves DNS hostnames for your instances to their corresponding
-   * 				IP addresses; otherwise, it does not.</p>
-   */
-  EnableDnsSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
-   */
-  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
-}
-
-export interface DescribeVpcClassicLinkRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
-   * 					   (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
-   */
-  VpcIds?: string[];
-}
+/**
+ * @internal
+ */
+export const InstanceStatusDetailsFilterSensitiveLog = (obj: InstanceStatusDetails): any => ({
+  ...obj,
+});
 
 /**
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ * @internal
  */
-export interface VpcClassicLink {
-  /**
-   * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
-   */
-  ClassicLinkEnabled?: boolean;
-
-  /**
-   * <p>Any tags assigned to the VPC.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface DescribeVpcClassicLinkResult {
-  /**
-   * <p>The ClassicLink status of one or more VPCs.</p>
-   */
-  Vpcs?: VpcClassicLink[];
-}
-
-export interface DescribeVpcClassicLinkDnsSupportRequest {
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more VPC IDs.</p>
-   */
-  VpcIds?: string[];
-}
+export const InstanceStatusSummaryFilterSensitiveLog = (obj: InstanceStatusSummary): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ * @internal
  */
-export interface ClassicLinkDnsSupport {
-  /**
-   * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
-   */
-  ClassicLinkDnsSupported?: boolean;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface DescribeVpcClassicLinkDnsSupportResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
-   */
-  Vpcs?: ClassicLinkDnsSupport[];
-}
-
-export interface DescribeVpcEndpointConnectionNotificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the notification.</p>
-   */
-  ConnectionNotificationId?: string;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-arn</code> - The ARN of the SNS topic for the
-   *                     notification.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-id</code> - The ID of the
-   *                     notification.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-state</code> - The state of the notification
-   *                         (<code>Enabled</code> | <code>Disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-type</code> - The type of notification
-   *                         (<code>Topic</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the endpoint service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointConnectionNotificationsResult {
-  /**
-   * <p>The notifications.</p>
-   */
-  ConnectionNotificationSet?: ConnectionNotification[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *             <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
-   * 		        that owns the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   * 			        (<code>pendingAcceptance</code> | <code>pending</code> |
-   * 			        <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   * 			        <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+export const InstanceStatusFilterSensitiveLog = (obj: InstanceStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a VPC endpoint connection to a service.</p>
+ * @internal
  */
-export interface VpcEndpointConnection {
-  /**
-   * <p>The ID of the service to which the endpoint is connected.</p>
-   */
-  ServiceId?: string;
+export const DescribeInstanceStatusResultFilterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the VPC endpoint.</p>
-   */
-  VpcEndpointId?: string;
+/**
+ * @internal
+ */
+export const DescribeInstanceTypeOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeInstanceTypeOfferingsRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
-   */
-  VpcEndpointOwner?: string;
+/**
+ * @internal
+ */
+export const InstanceTypeOfferingFilterSensitiveLog = (obj: InstanceTypeOffering): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The state of the VPC endpoint.</p>
-   */
-  VpcEndpointState?: State | string;
+/**
+ * @internal
+ */
+export const DescribeInstanceTypeOfferingsResultFilterSensitiveLog = (
+  obj: DescribeInstanceTypeOfferingsResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The date and time that the VPC endpoint was created.</p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>The DNS entries for the VPC endpoint.</p>
-   */
-  DnsEntries?: DnsEntry[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
-   */
-  NetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
-   */
-  GatewayLoadBalancerArns?: string[];
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   */
-  IpAddressType?: IpAddressType | string;
-
-  /**
-   * <p>The ID of the VPC endpoint connection.</p>
-   */
-  VpcEndpointConnectionId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface DescribeVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about the VPC endpoint connections.</p>
-   */
-  VpcEndpointConnections?: VpcEndpointConnection[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the VPC endpoints.</p>
-   */
-  VpcEndpointIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   *                         <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointsResult {
-  /**
-   * <p>Information about the endpoints.</p>
-   */
-  VpcEndpoints?: VpcEndpoint[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the endpoint services.</p>
-   */
-  ServiceIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
-   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
-   *                         <code>Failed</code>). </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeInstanceTypesRequestFilterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10112,6 +10204,42 @@ export const DescribeIpamPoolsRequestFilterSensitiveLog = (obj: DescribeIpamPool
  * @internal
  */
 export const DescribeIpamPoolsResultFilterSensitiveLog = (obj: DescribeIpamPoolsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveriesRequestFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveriesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveriesResultFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveriesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveryAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveryAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveryAssociationsResultFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveryAssociationsResult
+): any => ({
   ...obj,
 });
 
@@ -11833,131 +11961,5 @@ export const VolumeStatusItemFilterSensitiveLog = (obj: VolumeStatusItem): any =
  * @internal
  */
 export const DescribeVolumeStatusResultFilterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeRequestFilterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeResultFilterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkRequestFilterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcClassicLinkFilterSensitiveLog = (obj: VpcClassicLink): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkResultFilterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLinkDnsSupportFilterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointConnectionFilterSensitiveLog = (obj: VpcEndpointConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsResultFilterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServiceConfigurationsRequest
-): any => ({
   ...obj,
 });

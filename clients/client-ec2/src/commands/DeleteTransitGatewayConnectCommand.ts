@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteTransitGatewayConnectRequest,
   DeleteTransitGatewayConnectRequestFilterSensitiveLog,
+} from "../models/models_2";
+import {
   DeleteTransitGatewayConnectResult,
   DeleteTransitGatewayConnectResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayConnectCommand,
   serializeAws_ec2DeleteTransitGatewayConnectCommand,
