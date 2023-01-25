@@ -13687,13 +13687,19 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError = a
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  throwDefaultError({
-    output,
-    parsedBody,
-    exceptionCtor: __BaseException,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListLabelingJobsCommand = async (
@@ -24427,6 +24433,7 @@ const serializeAws_json1_1RecommendationJobContainerConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataInputConfig != null && { DataInputConfig: input.DataInputConfig }),
     ...(input.Domain != null && { Domain: input.Domain }),
     ...(input.Framework != null && { Framework: input.Framework }),
     ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
@@ -24457,6 +24464,7 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
     }),
     ...(input.Endpoints != null && { Endpoints: serializeAws_json1_1Endpoints(input.Endpoints, context) }),
     ...(input.JobDurationInSeconds != null && { JobDurationInSeconds: input.JobDurationInSeconds }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ModelPackageVersionArn != null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
     ...(input.ResourceLimit != null && {
       ResourceLimit: serializeAws_json1_1RecommendationJobResourceLimit(input.ResourceLimit, context),
@@ -32466,6 +32474,7 @@ const deserializeAws_json1_1InferenceRecommendation = (
       output.ModelConfiguration != null
         ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
         : undefined,
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -34196,6 +34205,7 @@ const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ModelConfiguration = (output: any, context: __SerdeContext): ModelConfiguration => {
   return {
+    CompilationJobName: __expectString(output.CompilationJobName),
     EnvironmentParameters:
       output.EnvironmentParameters != null
         ? deserializeAws_json1_1EnvironmentParameters(output.EnvironmentParameters, context)
@@ -36703,6 +36713,7 @@ const deserializeAws_json1_1RecommendationJobContainerConfig = (
   context: __SerdeContext
 ): RecommendationJobContainerConfig => {
   return {
+    DataInputConfig: __expectString(output.DataInputConfig),
     Domain: __expectString(output.Domain),
     Framework: __expectString(output.Framework),
     FrameworkVersion: __expectString(output.FrameworkVersion),
@@ -36752,6 +36763,7 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
         : undefined,
     Endpoints: output.Endpoints != null ? deserializeAws_json1_1Endpoints(output.Endpoints, context) : undefined,
     JobDurationInSeconds: __expectInt32(output.JobDurationInSeconds),
+    ModelName: __expectString(output.ModelName),
     ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
     ResourceLimit:
       output.ResourceLimit != null
@@ -36875,7 +36887,9 @@ const deserializeAws_json1_1RecommendationMetrics = (output: any, context: __Ser
   return {
     CostPerHour: __limitedParseFloat32(output.CostPerHour),
     CostPerInference: __limitedParseFloat32(output.CostPerInference),
+    CpuUtilization: __limitedParseFloat32(output.CpuUtilization),
     MaxInvocations: __expectInt32(output.MaxInvocations),
+    MemoryUtilization: __limitedParseFloat32(output.MemoryUtilization),
     ModelLatency: __expectInt32(output.ModelLatency),
   } as any;
 };

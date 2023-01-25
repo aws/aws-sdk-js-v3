@@ -2618,6 +2618,13 @@ export interface RecommendationJobContainerConfig {
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
   SupportedInstanceTypes?: string[];
+
+  /**
+   * <p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form.
+   *          This field is used for optimizing your model using SageMaker Neo. For more information, see
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</p>
+   */
+  DataInputConfig?: string;
 }
 
 /**
@@ -2738,7 +2745,7 @@ export interface RecommendationJobInputConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
    */
-  ModelPackageVersionArn: string | undefined;
+  ModelPackageVersionArn?: string;
 
   /**
    * <p>Specifies the maximum duration of the job, in seconds.></p>
@@ -2816,6 +2823,11 @@ export interface RecommendationJobInputConfig {
    * <p>Inference Recommender provisions SageMaker endpoints with access to VPC in the inference recommendation job.</p>
    */
   VpcConfig?: RecommendationJobVpcConfig;
+
+  /**
+   * <p>The name of the created model.</p>
+   */
+  ModelName?: string;
 }
 
 export enum RecommendationJobType {

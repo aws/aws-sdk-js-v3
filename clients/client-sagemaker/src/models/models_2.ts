@@ -3337,6 +3337,20 @@ export interface RecommendationMetrics {
    * <p>The expected model latency at maximum invocation per minute for the instance.</p>
    */
   ModelLatency: number | undefined;
+
+  /**
+   * <p>The expected CPU utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  CpuUtilization?: number;
+
+  /**
+   * <p>The expected memory utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  MemoryUtilization?: number;
 }
 
 /**
@@ -3372,6 +3386,11 @@ export interface ModelConfiguration {
    * <p>Defines the environment parameters that includes key, value types, and values.</p>
    */
   EnvironmentParameters?: EnvironmentParameter[];
+
+  /**
+   * <p>The name of the compilation job used to create the recommended model artifacts.</p>
+   */
+  CompilationJobName?: string;
 }
 
 /**
@@ -3392,6 +3411,11 @@ export interface InferenceRecommendation {
    * <p>Defines the model configuration.</p>
    */
   ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
+   */
+  RecommendationId?: string;
 }
 
 export enum RecommendationJobStatus {
