@@ -1798,6 +1798,12 @@ export const deserializeAws_restJson1GetBatchJobExecutionCommand = async (
   if (data.applicationId != null) {
     contents.applicationId = __expectString(data.applicationId);
   }
+  if (data.batchJobIdentifier != null) {
+    contents.batchJobIdentifier = deserializeAws_restJson1BatchJobIdentifier(
+      __expectUnion(data.batchJobIdentifier),
+      context
+    );
+  }
   if (data.endTime != null) {
     contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
   }
@@ -1815,6 +1821,9 @@ export const deserializeAws_restJson1GetBatchJobExecutionCommand = async (
   }
   if (data.jobUser != null) {
     contents.jobUser = __expectString(data.jobUser);
+  }
+  if (data.returnCode != null) {
+    contents.returnCode = __expectString(data.returnCode);
   }
   if (data.startTime != null) {
     contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
@@ -3630,12 +3639,17 @@ const deserializeAws_restJson1BatchJobExecutionSummary = (
 ): BatchJobExecutionSummary => {
   return {
     applicationId: __expectString(output.applicationId),
+    batchJobIdentifier:
+      output.batchJobIdentifier != null
+        ? deserializeAws_restJson1BatchJobIdentifier(__expectUnion(output.batchJobIdentifier), context)
+        : undefined,
     endTime:
       output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     executionId: __expectString(output.executionId),
     jobId: __expectString(output.jobId),
     jobName: __expectString(output.jobName),
     jobType: __expectString(output.jobType),
+    returnCode: __expectString(output.returnCode),
     startTime:
       output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
@@ -3655,6 +3669,23 @@ const deserializeAws_restJson1BatchJobExecutionSummaryList = (
       return deserializeAws_restJson1BatchJobExecutionSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1BatchJobIdentifier = (output: any, context: __SerdeContext): BatchJobIdentifier => {
+  if (output.fileBatchJobIdentifier != null) {
+    return {
+      fileBatchJobIdentifier: deserializeAws_restJson1FileBatchJobIdentifier(output.fileBatchJobIdentifier, context),
+    };
+  }
+  if (output.scriptBatchJobIdentifier != null) {
+    return {
+      scriptBatchJobIdentifier: deserializeAws_restJson1ScriptBatchJobIdentifier(
+        output.scriptBatchJobIdentifier,
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1DatasetDetailOrgAttributes = (
@@ -3844,6 +3875,16 @@ const deserializeAws_restJson1FileBatchJobDefinition = (
   } as any;
 };
 
+const deserializeAws_restJson1FileBatchJobIdentifier = (
+  output: any,
+  context: __SerdeContext
+): FileBatchJobIdentifier => {
+  return {
+    fileName: __expectString(output.fileName),
+    folderPath: __expectString(output.folderPath),
+  } as any;
+};
+
 const deserializeAws_restJson1FsxStorageConfiguration = (
   output: any,
   context: __SerdeContext
@@ -3930,6 +3971,15 @@ const deserializeAws_restJson1ScriptBatchJobDefinition = (
   output: any,
   context: __SerdeContext
 ): ScriptBatchJobDefinition => {
+  return {
+    scriptName: __expectString(output.scriptName),
+  } as any;
+};
+
+const deserializeAws_restJson1ScriptBatchJobIdentifier = (
+  output: any,
+  context: __SerdeContext
+): ScriptBatchJobIdentifier => {
   return {
     scriptName: __expectString(output.scriptName),
   } as any;
