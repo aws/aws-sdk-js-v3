@@ -30,8 +30,10 @@ export class AccessDeniedException extends __BaseException {
 export interface ConfigParameter {
   /**
    * <p>The key of the parameter. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let
+   *          you define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   parameterKey?: string;
 
@@ -753,9 +755,11 @@ export interface CreateWorkgroupRequest {
   enhancedVpcRouting?: boolean;
 
   /**
-   * <p>An array of parameters to set for more control over a serverless database. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
+   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 
@@ -848,9 +852,10 @@ export interface Workgroup {
   enhancedVpcRouting?: boolean;
 
   /**
-   * <p>An array of parameters to set for finer control over a database. The
-   *       options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *       <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The
+   *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *         <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries.
+   *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 
@@ -1685,17 +1690,19 @@ export interface ListWorkgroupsResponse {
 
 export interface UpdateNamespaceRequest {
   /**
-   * <p>The name of the namespace.</p>
+   * <p>The name of the namespace to update. You can't update the name of a namespace once it is created.</p>
    */
   namespaceName: string | undefined;
 
   /**
-   * <p>The password of the administrator for the first database created in the namespace.</p>
+   * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
+   *       with <code>adminUsername</code>.</p>
    */
   adminUserPassword?: string;
 
   /**
-   * <p>The username of the administrator for the first database created in the namespace.</p>
+   * <p>The username of the administrator for the first database created in the namespace. This parameter must be updated
+   *       together with <code>adminUserPassword</code>.</p>
    */
   adminUsername?: string;
 
@@ -1705,12 +1712,13 @@ export interface UpdateNamespaceRequest {
   kmsKeyId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. This parameter must be updated together
+   *       with <code>iamRoles</code>.</p>
    */
   defaultIamRoleArn?: string;
 
   /**
-   * <p>A list of IAM roles to associate with the namespace.</p>
+   * <p>A list of IAM roles to associate with the namespace. This parameter must be updated together with <code>defaultIamRoleArn</code>.</p>
    */
   iamRoles?: string[];
 
@@ -1963,7 +1971,7 @@ export interface UpdateUsageLimitResponse {
 
 export interface UpdateWorkgroupRequest {
   /**
-   * <p>The name of the workgroup to update.</p>
+   * <p>The name of the workgroup to update. You can't update the name of a workgroup once it is created.</p>
    */
   workgroupName: string | undefined;
 
@@ -1980,8 +1988,11 @@ export interface UpdateWorkgroupRequest {
 
   /**
    * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you
+   *          define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
+   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 

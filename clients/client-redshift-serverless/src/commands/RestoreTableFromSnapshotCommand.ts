@@ -33,7 +33,8 @@ export interface RestoreTableFromSnapshotCommandInput extends RestoreTableFromSn
 export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance.</p>
+ * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
+ *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
