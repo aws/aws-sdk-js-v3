@@ -19,41 +19,27 @@ describe(createPresignedPost.name, () => {
         forcePathStyle: true,
         endpoint: "https://s3-fips.dualstack.us-east-1.amazonaws.com",
       });
-      const { url } = await createPresignedPost(client, {
-        Bucket,
-        Key,
-      });
+      const { url } = await createPresignedPost(client, { Bucket, Key });
       expect(url).toBe(`https://s3-fips.dualstack.us-east-1.amazonaws.com/${Bucket}`);
     }
     {
       const client = new S3({ region: "us-east-1", endpoint: "https://s3-fips.dualstack.us-east-1.amazonaws.com" });
-      const { url } = await createPresignedPost(client, {
-        Bucket,
-        Key,
-      });
+      const { url } = await createPresignedPost(client, { Bucket, Key });
       expect(url).toBe(`https://${Bucket}.s3-fips.dualstack.us-east-1.amazonaws.com/`);
     }
   });
 
   describe("test with real bucket", () => {
     beforeEach(async () => {
-      await client.deleteObject({
-        Bucket,
-        Key,
-      });
+      await client.deleteObject({ Bucket, Key });
     });
 
     afterEach(async () => {
-      await client.deleteObject({
-        Bucket,
-        Key,
-      });
+      await client.deleteObject({ Bucket, Key });
     });
 
     beforeAll(async () => {
-      await client.createBucket({
-        Bucket,
-      });
+      await client.createBucket({ Bucket });
       writeFileSync(fileLocation, contents, "utf-8");
     });
 
@@ -62,10 +48,7 @@ describe(createPresignedPost.name, () => {
     });
 
     it("should put an object using a presigned post w/ custom endpoint", async () => {
-      const { url, fields } = await createPresignedPost(client, {
-        Bucket,
-        Key,
-      });
+      const { url, fields } = await createPresignedPost(client, { Bucket, Key });
 
       expect(url).toBe(`https://${Bucket}.s3-fips.dualstack.us-east-1.amazonaws.com/`);
 
@@ -75,12 +58,7 @@ describe(createPresignedPost.name, () => {
       });
       form.append("file", createReadStream(fileLocation));
 
-      const precheck = await client
-        .getObject({
-          Bucket,
-          Key,
-        })
-        .catch((err) => err);
+      const precheck = await client.getObject({ Bucket, Key }).catch((err) => err);
       expect(precheck).toBeInstanceOf(NoSuchKey);
 
       const submit: { statusCode: number } = await new Promise((resolve, reject) => {
@@ -92,10 +70,7 @@ describe(createPresignedPost.name, () => {
 
       expect(submit.statusCode).toBe(204);
 
-      const check = await client.getObject({
-        Bucket,
-        Key,
-      });
+      const check = await client.getObject({ Bucket, Key });
 
       expect(await check.Body?.transformToString()).toEqual(contents);
     });
