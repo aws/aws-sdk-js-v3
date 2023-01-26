@@ -51,7 +51,9 @@ export const flexibleChecksumsMiddleware =
         });
         updatedHeaders = {
           ...headers,
-          "content-encoding": "aws-chunked",
+          "content-encoding": headers["content-encoding"]
+            ? `${headers["content-encoding"]},aws-chunked`
+            : "aws-chunked",
           "transfer-encoding": "chunked",
           "x-amz-decoded-content-length": headers["content-length"],
           "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
