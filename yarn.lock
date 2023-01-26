@@ -88,7 +88,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.258.0"
+  version "3.259.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -127,13 +127,13 @@
     fast-xml-parser "4.0.11"
     tslib "^2.3.1"
 
-"@aws-smithy/server-common@1.0.0-alpha.6":
-  version "1.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/@aws-smithy/server-common/-/server-common-1.0.0-alpha.6.tgz#c7e78e07ba5fcb3e1c96d311491ffed19a33bf3a"
-  integrity sha512-DHxekBAIMnIRWk5+tWEDygY0kCxcsIL9CNOR4newYyOGWfLYZY9YkaJN2sDYwsOlfFeMHFcmBI0W+7Lcfv+6JA==
+"@aws-smithy/server-common@1.0.0-alpha.7":
+  version "1.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@aws-smithy/server-common/-/server-common-1.0.0-alpha.7.tgz#5ab25b28927432f909c8ac1b903ab9b95334804b"
+  integrity sha512-tPzBBi81nky5qlByL6fvRWHKewLkQ2o5V3Yq2pK2KFlzCKuUtXAM4uNd4ys8+zUbDEdERNqdgs+vTMKedJiypQ==
   dependencies:
-    "@aws-sdk/protocol-http" "^3.127.0"
-    "@aws-sdk/types" "^3.127.0"
+    "@aws-sdk/protocol-http" "^3.257.0"
+    "@aws-sdk/types" "^3.257.0"
     re2-wasm "^1.0.2"
     tslib "^1.8.0"
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** append content-encoding aws-chunked instead of replacing ([#4368](https://github.com/aws/aws-sdk-js-v3/issues/4368)) ([dac8a92](https://github.com/aws/aws-sdk-js-v3/commit/dac8a926157f845e6ba13758f9c77b7eeafa76b0))
+* **package.json:** build util-utf8-browser in build:crypto-dependencies ([#4374](https://github.com/aws/aws-sdk-js-v3/issues/4374)) ([405e881](https://github.com/aws/aws-sdk-js-v3/commit/405e88131695c722d167b9590e4a2fe818aea77c))
+* **types:** changed NodeJS.ProcessEnv type to Record in node-config-provider ([#4319](https://github.com/aws/aws-sdk-js-v3/issues/4319)) ([872fe07](https://github.com/aws/aws-sdk-js-v3/commit/872fe07fa140ea95d7c894833de7241dfab195e7))
+
+
+### Features
+
+* **client-eventbridge:** Minor comments for Redshift Serverless workgroup target support. ([5e5f4b2](https://github.com/aws/aws-sdk-js-v3/commit/5e5f4b2a24e8cad645117ab659ac0952e3a8382a))
+* **client-iotfleetwise:** Add model validation to BatchCreateVehicle and BatchUpdateVehicle operations that invalidate requests with an empty vehicles list. ([1d7f650](https://github.com/aws/aws-sdk-js-v3/commit/1d7f650dbcbe9ecbff879af4e29beaad7e24cc81))
+* **client-s3:** Allow FIPS to be used with path-style URLs. ([e41ba91](https://github.com/aws/aws-sdk-js-v3/commit/e41ba91b5d187f1d9130f51df00ff4a843d16fd5))
+* **clients:** update client endpoints as of 2023-01-26 ([cdf78f7](https://github.com/aws/aws-sdk-js-v3/commit/cdf78f7eaeed3ae4d0fe9fa9e2947d193f7d0aca))
+
+
+
+
+
 # [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
 
 

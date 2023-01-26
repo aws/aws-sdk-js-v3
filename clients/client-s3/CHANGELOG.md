@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+
+### Features
+
+* **client-s3:** Allow FIPS to be used with path-style URLs. ([e41ba91](https://github.com/aws/aws-sdk-js-v3/commit/e41ba91b5d187f1d9130f51df00ff4a843d16fd5))
+
+
+
+
+
 # [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
 
 
