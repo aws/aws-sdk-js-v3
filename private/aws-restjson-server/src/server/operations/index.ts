@@ -27,6 +27,7 @@ export * from "./IgnoreQueryParamsInResponse";
 export * from "./InputAndOutputWithHeaders";
 export * from "./JsonBlobs";
 export * from "./JsonEnums";
+export * from "./JsonIntEnums";
 export * from "./JsonLists";
 export * from "./JsonMaps";
 export * from "./JsonTimestamps";

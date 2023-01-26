@@ -84,6 +84,7 @@ import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobs
 import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./commands/XmlEmptyBlobsCommand";
 import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
@@ -108,6 +109,7 @@ export type ServiceInputTypes =
   | XmlEmptyBlobsCommandInput
   | XmlEmptyListsCommandInput
   | XmlEnumsCommandInput
+  | XmlIntEnumsCommandInput
   | XmlListsCommandInput
   | XmlNamespacesCommandInput
   | XmlTimestampsCommandInput;
@@ -131,6 +133,7 @@ export type ServiceOutputTypes =
   | XmlEmptyBlobsCommandOutput
   | XmlEmptyListsCommandOutput
   | XmlEnumsCommandOutput
+  | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlNamespacesCommandOutput
   | XmlTimestampsCommandOutput;

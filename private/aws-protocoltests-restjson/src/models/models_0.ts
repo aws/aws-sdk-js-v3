@@ -27,6 +27,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface AllQueryStringTypesInput {
   queryString?: string;
   queryStringList?: string[];
@@ -46,6 +52,8 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnum?: IntegerEnum | number;
+  queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
@@ -473,6 +481,8 @@ export interface InputAndOutputWithHeadersIO {
   headerTimestampList?: Date[];
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerIntegerEnum?: IntegerEnum | number;
+  headerIntegerEnumList?: (IntegerEnum | number)[];
 }
 
 /**
@@ -509,6 +519,22 @@ export const JsonEnumsInputOutputFilterSensitiveLog = (obj: JsonEnumsInputOutput
   ...obj,
 });
 
+export interface JsonIntEnumsInputOutput {
+  integerEnum1?: IntegerEnum | number;
+  integerEnum2?: IntegerEnum | number;
+  integerEnum3?: IntegerEnum | number;
+  integerEnumList?: (IntegerEnum | number)[];
+  integerEnumSet?: (IntegerEnum | number)[];
+  integerEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const JsonIntEnumsInputOutputFilterSensitiveLog = (obj: JsonIntEnumsInputOutput): any => ({
+  ...obj,
+});
+
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -529,6 +555,7 @@ export interface JsonListsInputOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -567,8 +594,11 @@ export const JsonMapsInputOutputFilterSensitiveLog = (obj: JsonMapsInputOutput):
 export interface JsonTimestampsInputOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**

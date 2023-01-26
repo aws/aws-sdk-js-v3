@@ -96,6 +96,7 @@ import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./command
 import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
@@ -128,6 +129,7 @@ export type ServiceInputTypes =
   | XmlEmptyListsCommandInput
   | XmlEmptyMapsCommandInput
   | XmlEnumsCommandInput
+  | XmlIntEnumsCommandInput
   | XmlListsCommandInput
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
@@ -159,6 +161,7 @@ export type ServiceOutputTypes =
   | XmlEmptyListsCommandOutput
   | XmlEmptyMapsCommandOutput
   | XmlEnumsCommandOutput
+  | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput

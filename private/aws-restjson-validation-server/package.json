@@ -40,7 +40,7 @@
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
     "@aws-sdk/util-utf8": "*",
-    "@aws-smithy/server-common": "1.0.0-alpha.6",
+    "@aws-smithy/server-common": "1.0.0-alpha.7",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

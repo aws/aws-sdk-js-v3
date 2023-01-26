@@ -53,6 +53,7 @@ import { XmlEmptyListsCommand } from "../../src/commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommand } from "../../src/commands/XmlEmptyMapsCommand";
 import { XmlEmptyStringsCommand } from "../../src/commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommand } from "../../src/commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
@@ -259,6 +260,14 @@ it("AllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
+
+    queryIntegerEnum: 1,
+
+    queryIntegerEnumList: [
+      1,
+
+      2,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -308,6 +317,9 @@ it("AllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+    expect(queryString).toContain("IntegerEnum=1");
+    expect(queryString).toContain("IntegerEnumList=1");
+    expect(queryString).toContain("IntegerEnumList=2");
 
     expect(r.body).toBeFalsy();
   }
@@ -5350,6 +5362,170 @@ it("XmlEnums:Response", async () => {
 });
 
 /**
+ * Serializes simple scalar properties
+ */
+it("XmlIntEnums:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlIntEnumsCommand({
+    intEnum1: 1,
+
+    intEnum2: 2,
+
+    intEnum3: 3,
+
+    intEnumList: [
+      1,
+
+      2,
+    ],
+
+    intEnumSet: [
+      1,
+
+      2,
+    ],
+
+    intEnumMap: {
+      a: 1,
+
+      b: 2,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlIntEnums");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlIntEnumsInputOutput>
+        <intEnum1>1</intEnum1>
+        <intEnum2>2</intEnum2>
+        <intEnum3>3</intEnum3>
+        <intEnumList>
+            <member>1</member>
+            <member>2</member>
+        </intEnumList>
+        <intEnumSet>
+            <member>1</member>
+            <member>2</member>
+        </intEnumSet>
+        <intEnumMap>
+            <entry>
+                <key>a</key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>b</key>
+                <value>2</value>
+            </entry>
+        </intEnumMap>
+    </XmlIntEnumsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("XmlIntEnums:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlIntEnumsInputOutput>
+          <intEnum1>1</intEnum1>
+          <intEnum2>2</intEnum2>
+          <intEnum3>3</intEnum3>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
+          <intEnumSet>
+              <member>1</member>
+              <member>2</member>
+          </intEnumSet>
+          <intEnumMap>
+              <entry>
+                  <key>a</key>
+                  <value>1</value>
+              </entry>
+              <entry>
+                  <key>b</key>
+                  <value>2</value>
+              </entry>
+          </intEnumMap>
+      </XmlIntEnumsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      intEnum1: 1,
+
+      intEnum2: 2,
+
+      intEnum3: 3,
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
+
+      intEnumSet: [
+        1,
+
+        2,
+      ],
+
+      intEnumMap: {
+        a: 1,
+
+        b: 2,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Tests for XML list serialization
  */
 it("XmlLists:Request", async () => {
@@ -5374,6 +5550,12 @@ it("XmlLists:Request", async () => {
     timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
     enumList: ["Foo", "0"],
+
+    intEnumList: [
+      1,
+
+      2,
+    ],
 
     nestedStringList: [
       ["foo", "bar"],
@@ -5458,6 +5640,10 @@ it("XmlLists:Request", async () => {
             <member>Foo</member>
             <member>0</member>
         </enumList>
+        <intEnumList>
+            <member>1</member>
+            <member>2</member>
+        </intEnumList>
         <nestedStringList>
             <member>
                 <member>foo</member>
@@ -5538,6 +5724,10 @@ it("XmlLists:Response", async () => {
               <member>Foo</member>
               <member>0</member>
           </enumList>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
           <nestedStringList>
               <member>
                   <member>foo</member>
@@ -5611,6 +5801,12 @@ it("XmlLists:Response", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -6086,6 +6282,45 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("XmlTimestampsWithDateTimeOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    dateTimeOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
@@ -6125,6 +6360,45 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("XmlTimestampsWithEpochSecondsOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    epochSecondsOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("XmlTimestampsWithHttpDateFormat:Request", async () => {
@@ -6156,6 +6430,45 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `<XmlTimestampsInputOutput>
         <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("XmlTimestampsWithHttpDateOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    httpDateOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
     </XmlTimestampsInputOutput>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
@@ -6246,6 +6559,47 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
@@ -6287,6 +6641,47 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("XmlTimestampsWithHttpDateFormat:Response", async () => {
@@ -6319,6 +6714,47 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

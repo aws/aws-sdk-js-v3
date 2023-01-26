@@ -585,6 +585,7 @@ const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): a
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     enumValue: (value) => ({ enumValue: value }),
+    intEnumValue: (value) => ({ intEnumValue: value }),
     listValue: (value) => ({ listValue: serializeAws_json1_0StringList(value, context) }),
     mapValue: (value) => ({ mapValue: serializeAws_json1_0StringMap(value, context) }),
     numberValue: (value) => ({ numberValue: value }),
@@ -686,6 +687,9 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
   }
   if (__expectString(output.enumValue) !== undefined) {
     return { enumValue: __expectString(output.enumValue) as any };
+  }
+  if (__expectInt32(output.intEnumValue) !== undefined) {
+    return { intEnumValue: __expectInt32(output.intEnumValue) as any };
   }
   if (output.listValue != null) {
     return {

@@ -133,6 +133,7 @@ import {
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "./commands/JsonIntEnumsCommand";
 import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
@@ -315,6 +316,7 @@ export type ServiceInputTypes =
   | InputAndOutputWithHeadersCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
+  | JsonIntEnumsCommandInput
   | JsonListsCommandInput
   | JsonMapsCommandInput
   | JsonTimestampsCommandInput
@@ -403,6 +405,7 @@ export type ServiceOutputTypes =
   | InputAndOutputWithHeadersCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput
+  | JsonIntEnumsCommandOutput
   | JsonListsCommandOutput
   | JsonMapsCommandOutput
   | JsonTimestampsCommandOutput

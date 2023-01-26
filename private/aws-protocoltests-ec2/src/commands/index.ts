@@ -17,6 +17,7 @@ export * from "./XmlBlobsCommand";
 export * from "./XmlEmptyBlobsCommand";
 export * from "./XmlEmptyListsCommand";
 export * from "./XmlEnumsCommand";
+export * from "./XmlIntEnumsCommand";
 export * from "./XmlListsCommand";
 export * from "./XmlNamespacesCommand";
 export * from "./XmlTimestampsCommand";

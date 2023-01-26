@@ -46,6 +46,7 @@ export * from "./XmlEmptyListsCommand";
 export * from "./XmlEmptyMapsCommand";
 export * from "./XmlEmptyStringsCommand";
 export * from "./XmlEnumsCommand";
+export * from "./XmlIntEnumsCommand";
 export * from "./XmlListsCommand";
 export * from "./XmlMapsCommand";
 export * from "./XmlMapsXmlNameCommand";
