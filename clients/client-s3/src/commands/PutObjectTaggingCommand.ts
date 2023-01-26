@@ -34,21 +34,15 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
  *          request against the tagging subresource that is associated with the object. You can
  *          retrieve tags by sending a GET request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
- *
  *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
  *             Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per
  *          object.</p>
- *
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutObjectTagging</code> action. By default, the bucket owner has this
  *          permission and can grant this permission to others.</p>
- *
  *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You
  *          also need permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
- *
  *          <p>For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</p>
- *
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>
@@ -113,12 +107,6 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
- *
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>

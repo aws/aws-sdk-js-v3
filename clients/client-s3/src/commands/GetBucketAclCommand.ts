@@ -41,7 +41,6 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
  *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          </note>
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>

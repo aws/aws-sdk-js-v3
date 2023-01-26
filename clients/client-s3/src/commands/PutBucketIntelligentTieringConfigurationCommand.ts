@@ -57,7 +57,6 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *             move objects stored in the S3 Intelligent-Tiering storage class to the
  *             Archive Access or Deep Archive Access tier.</p>
  *          </note>
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>

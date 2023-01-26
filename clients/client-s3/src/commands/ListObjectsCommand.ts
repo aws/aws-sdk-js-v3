@@ -37,8 +37,6 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *             <p>This action has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>, when developing applications. For backward compatibility,
  *             Amazon S3 continues to support <code>ListObjects</code>.</p>
  *          </important>
- *
- *
  *          <p>The following operations are related to <code>ListObjects</code>:</p>
  *          <ul>
  *             <li>

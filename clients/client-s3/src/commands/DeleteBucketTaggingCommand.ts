@@ -25,7 +25,6 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the tags from the bucket.</p>
- *
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutBucketTagging</code> action. By default, the bucket owner has this
  *          permission and can grant this permission to others. </p>

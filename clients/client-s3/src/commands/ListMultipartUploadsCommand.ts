@@ -32,7 +32,6 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
  *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
  *          has not yet been completed or aborted.</p>
- *
  *          <p>This action returns at most 1,000 multipart uploads in the response. 1,000 multipart
  *          uploads is the maximum number of uploads a response can include, which is also the default
  *          value. You can further limit the number of uploads in a response by specifying the
@@ -40,18 +39,14 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *          satisfy the list criteria, the response will contain an <code>IsTruncated</code> element
  *          with the value true. To list the additional multipart uploads, use the
  *             <code>key-marker</code> and <code>upload-id-marker</code> request parameters.</p>
- *
  *          <p>In the response, the uploads are sorted by key. If your application has initiated more
  *          than one multipart upload using the same object key, then uploads in the response are first
  *          sorted by key. Additionally, uploads are sorted in ascending order within each key by the
  *          upload initiation time.</p>
- *
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *
  *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
- *
  *          <p>The following operations are related to <code>ListMultipartUploads</code>:</p>
  *          <ul>
  *             <li>

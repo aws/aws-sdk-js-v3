@@ -30,7 +30,6 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  *          to specify that the person requesting the download will be charged for the download. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
  *             Buckets</a>.</p>
- *
  *          <p>The following operations are related to <code>PutBucketRequestPayment</code>:</p>
  *          <ul>
  *             <li>

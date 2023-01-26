@@ -33,7 +33,6 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetBucketTagging</code> action. By default, the bucket owner has this
  *          permission and can grant this permission to others.</p>
- *
  *          <p>
  *             <code>GetBucketTagging</code> has the following special error:</p>
  *          <ul>
@@ -47,7 +46,6 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following operations are related to <code>GetBucketTagging</code>:</p>
  *          <ul>
  *             <li>

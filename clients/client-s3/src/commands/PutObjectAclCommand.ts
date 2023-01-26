@@ -46,7 +46,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
  *             in the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *
  *          <p>
  *             <b>Access Permissions</b>
  *          </p>
@@ -68,7 +67,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the set
  *                of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
  *                Overview</a>.</p>
- *
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
  *                <ul>
@@ -124,7 +122,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com",
  *                   emailAddress="abc@amazon.com" </code>
  *                </p>
- *
  *             </li>
  *          </ul>
  *          <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do

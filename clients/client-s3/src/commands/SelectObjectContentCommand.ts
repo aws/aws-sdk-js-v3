@@ -92,7 +92,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>
  *             <b>Working with the Response Body</b>
  *          </p>
@@ -100,7 +99,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          messages and includes a <code>Transfer-Encoding</code> header with <code>chunked</code> as
  *          its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix: SelectObjectContent
  *             Response</a>.</p>
- *
  *          <p></p>
  *          <p>
  *             <b>GetObject Support</b>
@@ -125,7 +123,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          <p>
  *             <b>Special Errors</b>
  *          </p>
- *
  *          <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of
  *             SELECT Object Content Error Codes</a>
  *          </p>

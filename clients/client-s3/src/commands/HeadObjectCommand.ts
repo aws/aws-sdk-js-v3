@@ -33,13 +33,11 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * <p>The HEAD action retrieves metadata from an object without returning the object
  *          itself. This action is useful if you're only interested in an object's metadata. To use
  *          HEAD, you must have READ access to the object.</p>
- *
  *          <p>A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
  *          object. The response is identical to the <code>GET</code> response except that there is no
  *          response body. Because of this, if the <code>HEAD</code> request generates an error, it
  *          returns a generic <code>404 Not Found</code> or <code>403 Forbidden</code> code. It is not
  *          possible to retrieve the exact exception beyond these error codes.</p>
- *
  *          <p>If you encrypt an object by using server-side encryption with customer-provided
  *          encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the
  *          metadata from the object, you must use the following headers:</p>
@@ -71,8 +69,6 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                </li>
  *             </ul>
  *          </note>
- *
- *
  *          <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common Request
  *             Headers</a>.</p>
  *          <p>Consider the following when using request headers:</p>
@@ -113,9 +109,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -133,7 +127,6 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                status code 403 ("access denied") error.</p>
  *             </li>
  *          </ul>
- *
  *          <p>The following actions are related to <code>HeadObject</code>:</p>
  *          <ul>
  *             <li>

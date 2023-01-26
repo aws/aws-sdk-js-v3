@@ -136,7 +136,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             <p>You can use either a canned ACL or specify access permissions explicitly. You cannot
  *             do both.</p>
  *          </note>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
