@@ -1,50 +1,80 @@
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
+import { STS } from "@aws-sdk/client-sts";
 const FormData = require("form-data");
+
 import { createReadStream, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 
 import { createPresignedPost } from "./createPresignedPost";
 
-describe(createPresignedPost.name, () => {
-  const Bucket = "aws-sdk-js-integration-test-s3-presigned-post";
-  const Key = "temp-file.txt";
-  const contents = "Hello, world!";
-  const fileLocation = join(__dirname, Key);
-  const client = new S3({ region: "us-east-1", endpoint: "https://s3-fips.dualstack.us-east-1.amazonaws.com" });
+try {
+  require("../../../jest.process.env");
+} catch (ignored) {}
 
+describe(createPresignedPost.name, () => {
   it("should allow custom endpoints to be modified by endpoint resolution options", async () => {
+    const region = "test-region";
+    const Bucket = "test-bucket";
+    const Key = "test-key";
     {
       const client = new S3({
-        region: "us-east-1",
+        region,
         forcePathStyle: true,
-        endpoint: "https://s3-fips.dualstack.us-east-1.amazonaws.com",
+        endpoint: `https://s3-fips.dualstack.${region}.amazonaws.com`,
       });
       const { url } = await createPresignedPost(client, { Bucket, Key });
-      expect(url).toBe(`https://s3-fips.dualstack.us-east-1.amazonaws.com/${Bucket}`);
+      expect(url).toBe(`https://s3-fips.dualstack.${region}.amazonaws.com/${Bucket}`);
     }
     {
-      const client = new S3({ region: "us-east-1", endpoint: "https://s3-fips.dualstack.us-east-1.amazonaws.com" });
+      const client = new S3({ region, endpoint: `https://s3-fips.dualstack.${region}.amazonaws.com` });
       const { url } = await createPresignedPost(client, { Bucket, Key });
-      expect(url).toBe(`https://${Bucket}.s3-fips.dualstack.us-east-1.amazonaws.com/`);
+      expect(url).toBe(`https://${Bucket}.s3-fips.dualstack.${region}.amazonaws.com/`);
     }
   });
 
   describe("test with real bucket", () => {
-    beforeEach(async () => {
-      await client.deleteObject({ Bucket, Key });
-    });
-
-    afterEach(async () => {
-      await client.deleteObject({ Bucket, Key });
-    });
+    let region: string;
+    let Bucket: string;
+    let Key: string;
+    let client: S3;
+    let accountId: string;
+    let contents: string;
+    let fileLocation: string;
 
     beforeAll(async () => {
+      accountId = (await new STS({}).getCallerIdentity({})).Account ?? "";
+      if (!accountId) {
+        throw new Error("No AWS Account ID found.");
+      }
+      region = process.env.AWS_SMOKE_TEST_REGION ?? "";
+      if (!region) {
+        throw new Error("process.env.AWS_SMOKE_TEST_REGION is not set.");
+      }
+      Bucket = process.env.AWS_SMOKE_TEST_BUCKET ?? "";
+      if (!Bucket) {
+        throw new Error("process.env.AWS_SMOKE_TEST_BUCKET is not set.");
+      }
+      Bucket += "-" + accountId;
+
+      Key = `aws-sdk-js-integration-test-s3-presigned-post-${Date.now()}.txt`;
+      contents = "Hello, world!";
+      fileLocation = join(__dirname, Key);
+      client = new S3({ region, endpoint: `https://s3-fips.dualstack.${region}.amazonaws.com` });
+
       await client.createBucket({ Bucket });
       writeFileSync(fileLocation, contents, "utf-8");
     });
 
     afterAll(async () => {
       rmSync(fileLocation);
+    });
+
+    beforeEach(async () => {
+      await client.deleteObject({ Bucket, Key });
+    });
+
+    afterEach(async () => {
+      await client.deleteObject({ Bucket, Key });
     });
 
     it("should put an object using a presigned post w/ custom endpoint", async () => {
