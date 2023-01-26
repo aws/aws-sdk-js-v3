@@ -24,7 +24,7 @@ import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 /**
  * Successful compilation indicates the client can be initialized
