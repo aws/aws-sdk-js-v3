@@ -4,11 +4,15 @@ import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { AwsAuthInputConfig, AwsAuthPreviouslyResolved } from "../../configurations";
 
-export const getEndpointsV2Signer =
-  (
-    credentials: MemoizedProvider<AwsCredentialIdentity>,
-    input: AwsAuthInputConfig & AwsAuthPreviouslyResolved
-  ): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
+interface EndpointsV2SignerOptions extends
+  Partial<Pick<AwsAuthInputConfig, "signingRegion" | "signingEscapePath" | "signerConstructor">>,
+  Pick<AwsAuthPreviouslyResolved, "defaultSigningName" | "region" | "serviceId" | "sha256">,
+  Partial<Pick<AwsAuthPreviouslyResolved, "signingName">> { };
+
+export const getEndpointsV2Signer = (
+  credentials: MemoizedProvider<AwsCredentialIdentity>,
+  input: EndpointsV2SignerOptions
+): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
   async (authScheme?: AuthScheme) => {
     const decoratedAuthScheme = {
       name: "sigv4",

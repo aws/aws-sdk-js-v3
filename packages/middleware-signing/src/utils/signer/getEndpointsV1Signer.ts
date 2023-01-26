@@ -2,13 +2,17 @@ import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/si
 import { AuthScheme, AwsCredentialIdentity, MemoizedProvider, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
-import { AwsAuthInputConfig, AwsAuthPreviouslyResolved } from "../../configurations";
+import { AuthPreviouslyResolved, AwsAuthInputConfig, AwsAuthPreviouslyResolved } from "../../configurations";
 
-export const getEndpointsV1Signer =
-  (
-    credentials: MemoizedProvider<AwsCredentialIdentity>,
-    input: AwsAuthInputConfig & AwsAuthPreviouslyResolved & { regionInfoProvider: RegionInfoProvider }
-  ): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
+interface EndpointsV1SignerOptions extends
+  Pick<AwsAuthPreviouslyResolved, "region" | "sha256" | "regionInfoProvider" | "useFipsEndpoint" | "useDualstackEndpoint" | "serviceId">,
+  Partial<Pick<AwsAuthPreviouslyResolved, "signingName">>,
+  Partial<Pick<AwsAuthInputConfig, "signingRegion" | "signingEscapePath" | "signerConstructor">> { }
+
+export const getEndpointsV1Signer = (
+  credentials: MemoizedProvider<AwsCredentialIdentity>,
+  input: EndpointsV1SignerOptions
+): ((authScheme?: AuthScheme) => Promise<RequestSigner>) =>
   async () => {
     const region = await normalizeProvider(input.region)();
     const regionInfo = await input.regionInfoProvider(region, {
