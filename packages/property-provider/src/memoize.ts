@@ -1,4 +1,4 @@
-import { MemoizedProvider, Provider } from "@aws-sdk/types";
+import { Identity, IdentityProvider, MemoizedIdentityProvider, MemoizedProvider, Provider } from "@aws-sdk/types";
 
 interface MemoizeOverload {
   /**
@@ -88,6 +88,60 @@ export const memoize: MemoizeOverload = <T>(
     }
     if (isExpired(resolved)) {
       await coalesceProvider();
+      return resolved;
+    }
+    return resolved;
+  };
+};
+
+export const memoizeIdentity: MemoizeOverload = <IdentityT extends Identity>(
+  provider: IdentityProvider<IdentityT>,
+  isExpired?: (resolved: IdentityT) => boolean,
+  requiresRefresh?: (resolved: IdentityT) => boolean
+): MemoizedIdentityProvider<IdentityT> => {
+  let resolved: IdentityT;
+  let pending: Promise<IdentityT> | undefined;
+  let hasResult: boolean;
+  let isConstant = false;
+  // Wrapper over supplied provider with side effect to handle concurrent invocation.
+  const coalesceProvider: IdentityProvider<IdentityT> = async (args?: Record<string, any>) => {
+    if (!pending) {
+      pending = provider(args);
+    }
+    try {
+      resolved = await pending;
+      hasResult = true;
+      isConstant = false;
+    } finally {
+      pending = undefined;
+    }
+    return resolved;
+  };
+
+  if (isExpired === undefined) {
+    // This is a static memoization; no need to incorporate refreshing unless using forceRefresh;
+    return async (options) => {
+      if (!hasResult || options?.forceRefresh) {
+        resolved = await coalesceProvider(options);
+      }
+      return resolved;
+    };
+  }
+
+  return async (options) => {
+    if (!hasResult || options?.forceRefresh) {
+      resolved = await coalesceProvider(options);
+    }
+    if (isConstant) {
+      return resolved;
+    }
+
+    if (requiresRefresh && !requiresRefresh(resolved)) {
+      isConstant = true;
+      return resolved;
+    }
+    if (isExpired(resolved)) {
+      await coalesceProvider(options);
       return resolved;
     }
     return resolved;

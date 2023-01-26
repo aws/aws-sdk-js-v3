@@ -1,5 +1,5 @@
-import { memoize } from "@aws-sdk/property-provider";
-import { Identity, IdentityProvider, MemoizedProvider } from "@aws-sdk/types";
+import { memoize, memoizeIdentity } from "@aws-sdk/property-provider";
+import { Identity, IdentityProvider, MemoizedIdentityProvider, MemoizedProvider } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 const CREDENTIAL_EXPIRE_WINDOW = 300_000;
@@ -13,9 +13,9 @@ const isIdentityExpiringWithinFiveMins = <IdentityT extends Identity>(identity: 
  */
 export const normalizeIdentityProvider = <IdentityT extends Identity>(
   identity: IdentityT | IdentityProvider<IdentityT>
-): MemoizedProvider<IdentityT> => {
+): MemoizedIdentityProvider<IdentityT> => {
   if (typeof identity === "function") {
-    return memoize(identity, isIdentityExpiringWithinFiveMins, isIdentityWithExpiry);
+    return memoizeIdentity(identity, isIdentityExpiringWithinFiveMins, isIdentityWithExpiry);
   }
   return normalizeProvider(identity);
 };
