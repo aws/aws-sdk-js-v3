@@ -36,6 +36,5 @@ packages/util-middleware/* @aws/smithy
 packages/util-retry/* @aws/smithy
 packages/util-stream-browser/* @aws/smithy
 packages/util-stream-node/* @aws/smithy
-packages/util-utf8-browser/* @aws/smithy
-packages/util-utf8-node/* @aws/smithy
+packages/util-utf8/* @aws/smithy
 packages/util-waiter/* @aws/smithy
