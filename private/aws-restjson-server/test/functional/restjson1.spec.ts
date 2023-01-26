@@ -3,7 +3,7 @@ import { streamCollector as __streamCollector } from "@aws-sdk/node-http-handler
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
-import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8-node";
+import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8";
 import {
   httpbinding,
   OperationSerializer as __OperationSerializer,
