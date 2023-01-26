@@ -2,7 +2,7 @@
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import {
   httpbinding,
   InternalFailureException as __InternalFailureException,

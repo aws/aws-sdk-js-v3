@@ -2141,7 +2141,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
 
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Errors.Error?.Code !== undefined) {
-    return data.Errors.Error?.Code;
+    return data.Errors.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";

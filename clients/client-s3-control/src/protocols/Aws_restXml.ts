@@ -9065,7 +9065,7 @@ const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Error?.Code !== undefined) {
-    return data.Error?.Code;
+    return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
