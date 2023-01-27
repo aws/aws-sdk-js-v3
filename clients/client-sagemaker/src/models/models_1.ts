@@ -2,8 +2,6 @@
 import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
-  ActionSource,
-  ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AnnotationConsolidationConfig,
@@ -28,11 +26,10 @@ import {
   ContainerDefinition,
   ContentClassifier,
   ContinuousParameterRange,
-  DataCatalogConfig,
   DeviceSelectionConfig,
   EdgeDeploymentConfig,
   EndpointInput,
-  FeatureDefinition,
+  FeatureType,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -55,7 +52,6 @@ import {
   ProcessingS3UploadMode,
   ProductionVariantInstanceType,
   ResourceConfig,
-  S3StorageConfig,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -64,10 +60,81 @@ import {
   TransformJobDefinition,
   TransformOutput,
   TransformResources,
-  UserContext,
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>A list of features. You must include <code>FeatureName</code> and
+ *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
+ *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
+ */
+export interface FeatureDefinition {
+  /**
+   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
+   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
+   *             <code>api_invocation_time</code>.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
+   */
+  FeatureType?: FeatureType | string;
+}
+
+/**
+ * <p>The meta data of the Glue table which serves as data catalog for the
+ *             <code>OfflineStore</code>. </p>
+ */
+export interface DataCatalogConfig {
+  /**
+   * <p>The name of the Glue table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the Glue table catalog.</p>
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The name of the Glue table database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
+ */
+export interface S3StorageConfig {
+  /**
+   * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
+   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
+   *          written into the <code>OfflineStore</code> S3 location.</p>
+   *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
+   *             <code>CreateFeatureGroup</code> must have below permissions to the
+   *          <code>KmsKeyId</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"kms:GenerateDataKey"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The S3 path where offline records are written.</p>
+   */
+  ResolvedOutputS3Uri?: string;
+}
 
 export enum TableFormat {
   GLUE = "Glue",
@@ -1870,7 +1937,7 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment variable from the training container</a> or use your own. See
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
    *                 and variables</a> for more information.</p>
    *          <note>
    *             <p>The maximum number of items specified for <code>Map Entries</code> refers to the
@@ -9168,93 +9235,26 @@ export interface DeploymentStageStatusSummary {
   DeploymentStatus: EdgeDeploymentStatus | undefined;
 }
 
-export interface DeregisterDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
+/**
+ * @internal
+ */
+export const FeatureDefinitionFilterSensitiveLog = (obj: FeatureDefinition): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The unique IDs of the devices.</p>
-   */
-  DeviceNames: string[] | undefined;
-}
+/**
+ * @internal
+ */
+export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any => ({
+  ...obj,
+});
 
-export interface DescribeActionRequest {
-  /**
-   * <p>The name of the action to describe.</p>
-   */
-  ActionName: string | undefined;
-}
-
-export interface DescribeActionResponse {
-  /**
-   * <p>The name of the action.</p>
-   */
-  ActionName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-
-  /**
-   * <p>The source of the action.</p>
-   */
-  Source?: ActionSource;
-
-  /**
-   * <p>The type of the action.</p>
-   */
-  ActionType?: string;
-
-  /**
-   * <p>The description of the action.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the action.</p>
-   */
-  Status?: ActionStatus | string;
-
-  /**
-   * <p>A list of the action's properties.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>When the action was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the action was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-}
+/**
+ * @internal
+ */
+export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11176,26 +11176,5 @@ export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus
  * @internal
  */
 export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
   ...obj,
 });

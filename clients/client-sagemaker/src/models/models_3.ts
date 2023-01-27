@@ -7,6 +7,8 @@ import {
   AlgorithmSpecification,
   AppSecurityGroupManagement,
   AppSpecification,
+  ArtifactSummary,
+  AssociationEdgeType,
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStatus,
@@ -33,7 +35,6 @@ import {
   DefaultSpaceSettings,
   DeploymentConfig,
   EdgeOutputConfig,
-  FeatureDefinition,
   InferenceSpecification,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -180,6 +181,84 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   */
+  ArtifactSummaries?: ArtifactSummary[];
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export enum SortAssociationsBy {
+  CREATION_TIME = "CreationTime",
+  DESTINATION_ARN = "DestinationArn",
+  DESTINATION_TYPE = "DestinationType",
+  SOURCE_ARN = "SourceArn",
+  SOURCE_TYPE = "SourceType",
+}
+
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   */
+  DestinationArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   */
+  DestinationType?: string;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   */
+  AssociationType?: AssociationEdgeType | string;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortAssociationsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
+   *         the call returns a token for getting the next set of associations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListAssociationsResponse {
   /**
@@ -8361,44 +8440,19 @@ export interface UpdateEndpointWeightsAndCapacitiesOutput {
   EndpointArn: string | undefined;
 }
 
-export interface UpdateExperimentRequest {
-  /**
-   * <p>The name of the experiment to update.</p>
-   */
-  ExperimentName: string | undefined;
+/**
+ * @internal
+ */
+export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-}
-
-export interface UpdateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export interface UpdateFeatureGroupRequest {
-  /**
-   * <p>The name of the feature group that you're updating.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When
-   *          you get an HTTP 200 response, you've made a valid request. It takes some time after you've
-   *          made a valid request for Feature Store to update the feature group.</p>
-   */
-  FeatureAdditions?: FeatureDefinition[];
-}
+/**
+ * @internal
+ */
+export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10215,26 +10269,5 @@ export const UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog = (
 export const UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog = (
   obj: UpdateEndpointWeightsAndCapacitiesOutput
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureGroupRequestFilterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
   ...obj,
 });

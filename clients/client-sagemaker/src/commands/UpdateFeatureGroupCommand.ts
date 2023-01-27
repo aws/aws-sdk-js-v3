@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFeatureGroupRequest, UpdateFeatureGroupRequestFilterSensitiveLog } from "../models/models_3";
-import { UpdateFeatureGroupResponse, UpdateFeatureGroupResponseFilterSensitiveLog } from "../models/models_4";
+import {
+  UpdateFeatureGroupRequest,
+  UpdateFeatureGroupRequestFilterSensitiveLog,
+  UpdateFeatureGroupResponse,
+  UpdateFeatureGroupResponseFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateFeatureGroupCommand,
   serializeAws_json1_1UpdateFeatureGroupCommand,

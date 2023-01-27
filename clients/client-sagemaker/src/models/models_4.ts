@@ -10,6 +10,7 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
+  FeatureDefinition,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
@@ -41,6 +42,45 @@ import {
 } from "./models_1";
 import { FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+}
+
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+export interface UpdateFeatureGroupRequest {
+  /**
+   * <p>The name of the feature group that you're updating.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When
+   *          you get an HTTP 200 response, you've made a valid request. It takes some time after you've
+   *          made a valid request for Feature Store to update the feature group.</p>
+   */
+  FeatureAdditions?: FeatureDefinition[];
+}
 
 export interface UpdateFeatureGroupResponse {
   /**
@@ -1056,6 +1096,27 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFeatureGroupRequestFilterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

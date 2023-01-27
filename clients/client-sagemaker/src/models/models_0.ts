@@ -579,6 +579,41 @@ export interface MetricDefinition {
   Regex: string | undefined;
 }
 
+export enum TrainingRepositoryAccessMode {
+  PLATFORM = "Platform",
+  VPC = "Vpc",
+}
+
+/**
+ * <p>An object containing authentication information for a private Docker registry.</p>
+ */
+export interface TrainingRepositoryAuthConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function used to give SageMaker access
+   *             credentials to your private Docker registry.</p>
+   */
+  TrainingRepositoryCredentialsProviderArn: string | undefined;
+}
+
+/**
+ * <p>The configuration to use an image from a private Docker registry for a training
+ *             job.</p>
+ */
+export interface TrainingImageConfig {
+  /**
+   * <p>The method that your training job will use to gain access to the images in your
+   *             private Docker registry. For access to an image in a private Docker registry, set to
+   *                 <code>Vpc</code>.</p>
+   */
+  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | string | undefined;
+
+  /**
+   * <p>An object containing authentication information for a private Docker registry
+   *             containing your training images.</p>
+   */
+  TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig;
+}
+
 export enum TrainingInputMode {
   FASTFILE = "FastFile",
   FILE = "File",
@@ -717,6 +752,11 @@ export interface AlgorithmSpecification {
    *                 Runs Your Training Image</a> for additional information.</p>
    */
   ContainerArguments?: string[];
+
+  /**
+   * <p>The configuration to use an image from a private Docker registry for a training job.</p>
+   */
+  TrainingImageConfig?: TrainingImageConfig;
 }
 
 export enum AlgorithmStatus {
@@ -9422,78 +9462,6 @@ export enum FeatureType {
 }
 
 /**
- * <p>A list of features. You must include <code>FeatureName</code> and
- *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
- *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
- */
-export interface FeatureDefinition {
-  /**
-   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
-   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
-   *             <code>api_invocation_time</code>.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
-   */
-  FeatureType?: FeatureType | string;
-}
-
-/**
- * <p>The meta data of the Glue table which serves as data catalog for the
- *             <code>OfflineStore</code>. </p>
- */
-export interface DataCatalogConfig {
-  /**
-   * <p>The name of the Glue table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The name of the Glue table catalog.</p>
-   */
-  Catalog: string | undefined;
-
-  /**
-   * <p>The name of the Glue table database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
- */
-export interface S3StorageConfig {
-  /**
-   * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
-   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
-   *          written into the <code>OfflineStore</code> S3 location.</p>
-   *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
-   *             <code>CreateFeatureGroup</code> must have below permissions to the
-   *          <code>KmsKeyId</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:GenerateDataKey"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The S3 path where offline records are written.</p>
-   */
-  ResolvedOutputS3Uri?: string;
-}
-
-/**
  * @internal
  */
 export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
@@ -9583,6 +9551,20 @@ export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
  * @internal
  */
 export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingRepositoryAuthConfigFilterSensitiveLog = (obj: TrainingRepositoryAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingImageConfigFilterSensitiveLog = (obj: TrainingImageConfig): any => ({
   ...obj,
 });
 
@@ -10949,26 +10931,5 @@ export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentR
  * @internal
  */
 export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureDefinitionFilterSensitiveLog = (obj: FeatureDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
   ...obj,
 });

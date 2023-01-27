@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterDevicesRequest, DeregisterDevicesRequestFilterSensitiveLog } from "../models/models_1";
+import { DeregisterDevicesRequest, DeregisterDevicesRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1DeregisterDevicesCommand,
   serializeAws_json1_1DeregisterDevicesCommand,

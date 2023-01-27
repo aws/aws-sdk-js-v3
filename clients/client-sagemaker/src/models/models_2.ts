@@ -2,6 +2,8 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  ActionSource,
+  ActionStatus,
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
@@ -21,7 +23,6 @@ import {
   AppStatus,
   AppType,
   ArtifactSource,
-  ArtifactSummary,
   AssociationEdgeType,
   AsyncInferenceConfig,
   AuthMode,
@@ -55,7 +56,6 @@ import {
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
   ExplainerConfig,
-  FeatureDefinition,
   FeatureType,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
@@ -105,6 +105,7 @@ import {
   DriftCheckBaselines,
   EndpointInfo,
   ExperimentConfig,
+  FeatureDefinition,
   FlowDefinitionOutputConfig,
   HubContentType,
   HubS3StorageConfig,
@@ -179,6 +180,94 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+export interface DeregisterDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The unique IDs of the devices.</p>
+   */
+  DeviceNames: string[] | undefined;
+}
+
+export interface DescribeActionRequest {
+  /**
+   * <p>The name of the action to describe.</p>
+   */
+  ActionName: string | undefined;
+}
+
+export interface DescribeActionResponse {
+  /**
+   * <p>The name of the action.</p>
+   */
+  ActionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+
+  /**
+   * <p>The source of the action.</p>
+   */
+  Source?: ActionSource;
+
+  /**
+   * <p>The type of the action.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>The description of the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>A list of the action's properties.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>When the action was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the action was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+}
 
 export interface DescribeAlgorithmInput {
   /**
@@ -9611,83 +9700,26 @@ export interface ListArtifactsRequest {
   MaxResults?: number;
 }
 
-export interface ListArtifactsResponse {
-  /**
-   * <p>A list of artifacts and their properties.</p>
-   */
-  ArtifactSummaries?: ArtifactSummary[];
+/**
+ * @internal
+ */
+export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token for getting the next set of artifacts, if there are any.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
+  ...obj,
+});
 
-export enum SortAssociationsBy {
-  CREATION_TIME = "CreationTime",
-  DESTINATION_ARN = "DestinationArn",
-  DESTINATION_TYPE = "DestinationType",
-  SOURCE_ARN = "SourceArn",
-  SOURCE_TYPE = "SourceType",
-}
-
-export interface ListAssociationsRequest {
-  /**
-   * <p>A filter that returns only associations with the specified source ARN.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
-   */
-  DestinationArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified source type.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination type.</p>
-   */
-  DestinationType?: string;
-
-  /**
-   * <p>A filter that returns only associations of the specified type.</p>
-   */
-  AssociationType?: AssociationEdgeType | string;
-
-  /**
-   * <p>A filter that returns only associations created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only associations created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortAssociationsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
-   *         the call returns a token for getting the next set of associations.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11414,19 +11446,5 @@ export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any =
  * @internal
  */
 export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
   ...obj,
 });

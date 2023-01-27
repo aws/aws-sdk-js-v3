@@ -905,7 +905,6 @@ import {
   CreateExperimentResponse,
   CustomImage,
   DataCaptureConfig,
-  DataCatalogConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -920,7 +919,6 @@ import {
   EdgeOutputConfig,
   EndpointInput,
   ExplainerConfig,
-  FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
@@ -976,7 +974,6 @@ import {
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3DataSource,
-  S3StorageConfig,
   SharingSettings,
   ShuffleConfig,
   StoppingCondition,
@@ -985,9 +982,11 @@ import {
   TensorBoardAppSettings,
   TimeSeriesForecastingSettings,
   TrafficRoutingConfig,
+  TrainingImageConfig,
   TrainingInputMode,
   TrainingInstanceType,
   TrainingJobDefinition,
+  TrainingRepositoryAuthConfig,
   TrainingSpecification,
   TransformDataSource,
   TransformInput,
@@ -1072,6 +1071,7 @@ import {
   CreateWorkteamRequest,
   CreateWorkteamResponse,
   DataCaptureConfigSummary,
+  DataCatalogConfig,
   DataProcessing,
   DatasetDefinition,
   DebugHookConfig,
@@ -1140,9 +1140,6 @@ import {
   DeleteWorkteamResponse,
   DeployedImage,
   DeploymentStageStatusSummary,
-  DeregisterDevicesRequest,
-  DescribeActionRequest,
-  DescribeActionResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1154,6 +1151,7 @@ import {
   EnvironmentParameterRanges,
   ExperimentConfig,
   Explainability,
+  FeatureDefinition,
   FileSource,
   FlowDefinitionOutputConfig,
   HubS3StorageConfig,
@@ -1251,6 +1249,7 @@ import {
   ResourceLimits,
   RetentionPolicy,
   RetryStrategy,
+  S3StorageConfig,
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
@@ -1271,6 +1270,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeregisterDevicesRequest,
+  DescribeActionRequest,
+  DescribeActionResponse,
   DescribeAlgorithmInput,
   DescribeAlgorithmOutput,
   DescribeAppImageConfigRequest,
@@ -1470,8 +1472,6 @@ import {
   ListAppsRequest,
   ListAppsResponse,
   ListArtifactsRequest,
-  ListArtifactsResponse,
-  ListAssociationsRequest,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1513,6 +1513,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListArtifactsResponse,
+  ListAssociationsRequest,
   ListAssociationsResponse,
   ListAutoMLJobsRequest,
   ListAutoMLJobsResponse,
@@ -1761,9 +1763,6 @@ import {
   UpdateEndpointOutput,
   UpdateEndpointWeightsAndCapacitiesInput,
   UpdateEndpointWeightsAndCapacitiesOutput,
-  UpdateExperimentRequest,
-  UpdateExperimentResponse,
-  UpdateFeatureGroupRequest,
   UserProfileDetails,
   VariantProperty,
   Vertex,
@@ -1772,6 +1771,9 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateExperimentRequest,
+  UpdateExperimentResponse,
+  UpdateFeatureGroupRequest,
   UpdateFeatureGroupResponse,
   UpdateFeatureMetadataRequest,
   UpdateHubRequest,
@@ -17674,6 +17676,9 @@ const serializeAws_json1_1AlgorithmSpecification = (input: AlgorithmSpecificatio
       MetricDefinitions: serializeAws_json1_1MetricDefinitionList(input.MetricDefinitions, context),
     }),
     ...(input.TrainingImage != null && { TrainingImage: input.TrainingImage }),
+    ...(input.TrainingImageConfig != null && {
+      TrainingImageConfig: serializeAws_json1_1TrainingImageConfig(input.TrainingImageConfig, context),
+    }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
   };
 };
@@ -25279,6 +25284,20 @@ const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string
   }, {});
 };
 
+const serializeAws_json1_1TrainingImageConfig = (input: TrainingImageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.TrainingRepositoryAccessMode != null && {
+      TrainingRepositoryAccessMode: input.TrainingRepositoryAccessMode,
+    }),
+    ...(input.TrainingRepositoryAuthConfig != null && {
+      TrainingRepositoryAuthConfig: serializeAws_json1_1TrainingRepositoryAuthConfig(
+        input.TrainingRepositoryAuthConfig,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1TrainingInstanceTypes = (
   input: (TrainingInstanceType | string)[],
   context: __SerdeContext
@@ -25308,6 +25327,17 @@ const serializeAws_json1_1TrainingJobDefinition = (input: TrainingJobDefinition,
       StoppingCondition: serializeAws_json1_1StoppingCondition(input.StoppingCondition, context),
     }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
+  };
+};
+
+const serializeAws_json1_1TrainingRepositoryAuthConfig = (
+  input: TrainingRepositoryAuthConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TrainingRepositoryCredentialsProviderArn != null && {
+      TrainingRepositoryCredentialsProviderArn: input.TrainingRepositoryCredentialsProviderArn,
+    }),
   };
 };
 
@@ -26278,6 +26308,10 @@ const deserializeAws_json1_1AlgorithmSpecification = (output: any, context: __Se
         ? deserializeAws_json1_1MetricDefinitionList(output.MetricDefinitions, context)
         : undefined,
     TrainingImage: __expectString(output.TrainingImage),
+    TrainingImageConfig:
+      output.TrainingImageConfig != null
+        ? deserializeAws_json1_1TrainingImageConfig(output.TrainingImageConfig, context)
+        : undefined,
     TrainingInputMode: __expectString(output.TrainingInputMode),
   } as any;
 };
@@ -37624,6 +37658,16 @@ const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __Se
   }, {});
 };
 
+const deserializeAws_json1_1TrainingImageConfig = (output: any, context: __SerdeContext): TrainingImageConfig => {
+  return {
+    TrainingRepositoryAccessMode: __expectString(output.TrainingRepositoryAccessMode),
+    TrainingRepositoryAuthConfig:
+      output.TrainingRepositoryAuthConfig != null
+        ? deserializeAws_json1_1TrainingRepositoryAuthConfig(output.TrainingRepositoryAuthConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TrainingInstanceTypes = (
   output: any,
   context: __SerdeContext
@@ -37815,6 +37859,15 @@ const deserializeAws_json1_1TrainingJobSummary = (output: any, context: __SerdeC
     TrainingJobStatus: __expectString(output.TrainingJobStatus),
     WarmPoolStatus:
       output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TrainingRepositoryAuthConfig = (
+  output: any,
+  context: __SerdeContext
+): TrainingRepositoryAuthConfig => {
+  return {
+    TrainingRepositoryCredentialsProviderArn: __expectString(output.TrainingRepositoryCredentialsProviderArn),
   } as any;
 };
 

@@ -6,9 +6,9 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/sagemaker.json */
 
-const u="fn",
-v="argv",
-w="ref";
+const t="fn",
+u="argv",
+v="ref";
 const a=true,
 b=false,
 c="String",
@@ -18,16 +18,15 @@ f="error",
 g="endpoint",
 h="stringEquals",
 i={"required":true,"default":false,"type":"Boolean"},
-j={[w]:"Region"},
-k={[w]:"Endpoint"},
-l={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
-m={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
-n={},
-o={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:d},"supportsFIPS"]}]},
-p={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:d},"supportsDualStack"]}]},
-q={[u]:"getAttr",[v]:[{[w]:d},"name"]},
-r={"url":"https://api-fips.sagemaker.{Region}.{PartitionResult#dnsSuffix}","properties":{},"headers":{}},
-s=[l],
-t=[m];
-const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[u]:"aws.partition",[v]:[j],assign:d}],type:e,rules:[{conditions:[{[u]:"isSet",[v]:[k]}],type:e,rules:[{conditions:s,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:t,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:k,properties:n,headers:n},type:g}]}]},{conditions:[l,m],type:e,rules:[{conditions:[o,p],type:e,rules:[{endpoint:{url:"https://api.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:s,type:e,rules:[{conditions:[o],type:e,rules:[{type:e,rules:[{conditions:[{[u]:h,[v]:["aws",q]}],endpoint:r,type:g},{conditions:[{[u]:h,[v]:[j,"us-gov-west-1-secondary"]}],endpoint:{url:"https://api.sagemaker.us-gov-west-1.amazonaws.com",properties:n,headers:n},type:g},{conditions:[{[u]:h,[v]:["aws-us-gov",q]}],endpoint:r,type:g},{endpoint:{url:"https://api.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:t,type:e,rules:[{conditions:[p],type:e,rules:[{endpoint:{url:"https://api.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://api.sagemaker.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:g}]}]};
+j={[v]:"Endpoint"},
+k={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
+l={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
+m={},
+n={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:d},"supportsFIPS"]}]},
+o={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:d},"supportsDualStack"]}]},
+p={[t]:"getAttr",[u]:[{[v]:d},"name"]},
+q={"url":"https://api-fips.sagemaker.{Region}.amazonaws.com","properties":{},"headers":{}},
+r=[k],
+s=[l];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[t]:"aws.partition",[u]:[{[v]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[t]:"isSet",[u]:[j]}],type:e,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,o],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://api.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:r,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{conditions:[{[t]:h,[u]:["aws",p]}],endpoint:q,type:g},{conditions:[{[t]:h,[u]:["aws-us-gov",p]}],endpoint:q,type:g},{endpoint:{url:"https://api.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:s,type:e,rules:[{conditions:[o],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://api.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{endpoint:{url:"https://api.sagemaker.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]}]};
 export const ruleSet: RuleSetObject = _data;
