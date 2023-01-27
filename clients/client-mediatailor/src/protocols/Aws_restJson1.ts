@@ -22,6 +22,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "../commands/ConfigureLogsForChannelCommand";
+import {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "../commands/ConfigureLogsForPlaybackConfigurationCommand";
@@ -134,6 +138,8 @@ import {
   LivePreRollConfiguration,
   LiveSource,
   LogConfiguration,
+  LogConfigurationForChannel,
+  LogType,
   ManifestProcessingRules,
   PlaybackConfiguration,
   PrefetchConsumption,
@@ -154,6 +160,31 @@ import {
   Transition,
   VodSource,
 } from "../models/models_0";
+
+export const serializeAws_restJson1ConfigureLogsForChannelCommand = async (
+  input: ConfigureLogsForChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/channel";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
+    ...(input.LogTypes != null && { LogTypes: serializeAws_restJson1LogTypes(input.LogTypes, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
   input: ConfigureLogsForPlaybackConfigurationCommandInput,
@@ -1454,6 +1485,44 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   });
 };
 
+export const deserializeAws_restJson1ConfigureLogsForChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ConfigureLogsForChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelName != null) {
+    contents.ChannelName = __expectString(data.ChannelName);
+  }
+  if (data.LogTypes != null) {
+    contents.LogTypes = deserializeAws_restJson1LogTypes(data.LogTypes, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ConfigureLogsForChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2124,6 +2193,9 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   }
   if (data.LastModifiedTime != null) {
     contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
+  }
+  if (data.LogConfiguration != null) {
+    contents.LogConfiguration = deserializeAws_restJson1LogConfigurationForChannel(data.LogConfiguration, context);
   }
   if (data.Outputs != null) {
     contents.Outputs = deserializeAws_restJson1ResponseOutputs(data.Outputs, context);
@@ -3635,6 +3707,14 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   };
 };
 
+const serializeAws_restJson1LogTypes = (input: (LogType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ManifestProcessingRules = (
   input: ManifestProcessingRules,
   context: __SerdeContext
@@ -4041,6 +4121,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LogConfiguration:
+      output.LogConfiguration != null
+        ? deserializeAws_restJson1LogConfigurationForChannel(output.LogConfiguration, context)
+        : undefined,
     Outputs: output.Outputs != null ? deserializeAws_restJson1ResponseOutputs(output.Outputs, context) : undefined,
     PlaybackMode: __expectString(output.PlaybackMode),
     Tags: output.tags != null ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
@@ -4166,6 +4250,27 @@ const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeC
   return {
     PercentEnabled: __expectInt32(output.PercentEnabled),
   } as any;
+};
+
+const deserializeAws_restJson1LogConfigurationForChannel = (
+  output: any,
+  context: __SerdeContext
+): LogConfigurationForChannel => {
+  return {
+    LogTypes: output.LogTypes != null ? deserializeAws_restJson1LogTypes(output.LogTypes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext): (LogType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ManifestProcessingRules = (

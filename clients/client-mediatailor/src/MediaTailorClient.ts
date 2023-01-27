@@ -50,6 +50,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "./commands/ConfigureLogsForChannelCommand";
+import {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
@@ -148,6 +152,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | ConfigureLogsForChannelCommandInput
   | ConfigureLogsForPlaybackConfigurationCommandInput
   | CreateChannelCommandInput
   | CreateLiveSourceCommandInput
@@ -192,6 +197,7 @@ export type ServiceInputTypes =
   | UpdateVodSourceCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsForChannelCommandOutput
   | ConfigureLogsForPlaybackConfigurationCommandOutput
   | CreateChannelCommandOutput
   | CreateLiveSourceCommandOutput

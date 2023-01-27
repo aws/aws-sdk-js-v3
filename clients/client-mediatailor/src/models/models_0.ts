@@ -192,6 +192,20 @@ export interface AvailMatchingCriteria {
   Operator: Operator | string | undefined;
 }
 
+export enum LogType {
+  AS_RUN = "AS_RUN",
+}
+
+/**
+ * <p>The log configuration for the channel.</p>
+ */
+export interface LogConfigurationForChannel {
+  /**
+   * <p>The log types.</p>
+   */
+  LogTypes?: (LogType | string)[];
+}
+
 /**
  * <p>Dash manifest configuration parameters.</p>
  */
@@ -316,6 +330,11 @@ export interface Channel {
    * <p>The tier for this channel. STANDARD tier channels can contain live programs.</p>
    */
   Tier: string | undefined;
+
+  /**
+   * <p>The log configuration.</p>
+   */
+  LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
 export enum Type {
@@ -1007,6 +1026,30 @@ export interface PutChannelPolicyRequest {
 
 export interface PutChannelPolicyResponse {}
 
+export interface ConfigureLogsForChannelRequest {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The types of logs to collect.</p>
+   */
+  LogTypes: (LogType | string)[] | undefined;
+}
+
+export interface ConfigureLogsForChannelResponse {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The types of logs collected.</p>
+   */
+  LogTypes?: (LogType | string)[];
+}
+
 /**
  * <p>The output configuration for this channel.</p>
  */
@@ -1203,6 +1246,11 @@ export interface DescribeChannelResponse {
    * <p>The channel's tier.</p>
    */
   Tier?: string;
+
+  /**
+   * <p>The log configuration for the channel.</p>
+   */
+  LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
 export interface GetChannelScheduleRequest {
@@ -2844,6 +2892,13 @@ export const AvailMatchingCriteriaFilterSensitiveLog = (obj: AvailMatchingCriter
 /**
  * @internal
  */
+export const LogConfigurationForChannelFilterSensitiveLog = (obj: LogConfigurationForChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DashPlaylistSettingsFilterSensitiveLog = (obj: DashPlaylistSettings): any => ({
   ...obj,
 });
@@ -3080,6 +3135,20 @@ export const PutChannelPolicyRequestFilterSensitiveLog = (obj: PutChannelPolicyR
  * @internal
  */
 export const PutChannelPolicyResponseFilterSensitiveLog = (obj: PutChannelPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsForChannelRequestFilterSensitiveLog = (obj: ConfigureLogsForChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsForChannelResponseFilterSensitiveLog = (obj: ConfigureLogsForChannelResponse): any => ({
   ...obj,
 });
 
