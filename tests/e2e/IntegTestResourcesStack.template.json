@@ -62,6 +62,18 @@
               "MaxAge": 3000
             }
           ]
+        },
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
         }
       },
       "UpdateReplacePolicy": "Retain",
