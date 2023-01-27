@@ -679,6 +679,11 @@ export interface Order {
    * <p>The fulfillment date of the order.</p>
    */
   OrderFulfilledDate?: Date;
+
+  /**
+   * <p>The payment term.</p>
+   */
+  PaymentTerm?: PaymentTerm | string;
 }
 
 export interface CreateOrderOutput {

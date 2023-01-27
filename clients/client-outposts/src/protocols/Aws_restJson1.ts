@@ -2537,6 +2537,7 @@ const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Or
         : undefined,
     OutpostId: __expectString(output.OutpostId),
     PaymentOption: __expectString(output.PaymentOption),
+    PaymentTerm: __expectString(output.PaymentTerm),
     Status: __expectString(output.Status),
   } as any;
 };
