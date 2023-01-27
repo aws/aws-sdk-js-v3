@@ -59,7 +59,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -108,15 +108,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -429,9 +420,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -442,9 +433,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -455,9 +446,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -468,9 +459,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -481,9 +472,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -494,9 +485,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -507,9 +498,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -520,9 +511,113 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime-fips.sagemaker.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://runtime.sagemaker.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -533,9 +628,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -546,9 +641,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -559,9 +654,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -572,9 +667,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -585,9 +680,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -598,9 +693,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -611,9 +706,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -624,9 +719,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -637,9 +732,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -650,9 +745,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -663,9 +758,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -676,9 +771,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -689,9 +784,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -702,9 +797,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -715,9 +810,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -728,9 +823,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -741,9 +836,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -754,9 +849,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -767,9 +862,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -780,9 +875,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -793,9 +888,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -806,9 +901,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -819,9 +914,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -832,9 +927,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -845,9 +940,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -858,9 +953,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -871,9 +966,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -884,9 +979,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -897,9 +992,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -910,9 +1005,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -923,9 +1018,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -936,9 +1031,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -949,9 +1044,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -962,9 +1057,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -975,9 +1070,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -988,9 +1083,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1001,9 +1096,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1014,9 +1109,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1027,9 +1122,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1040,9 +1135,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1053,9 +1148,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1066,9 +1161,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1079,9 +1174,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1092,9 +1187,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1105,9 +1200,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1118,9 +1213,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1131,9 +1226,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1144,9 +1239,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1157,9 +1252,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1170,9 +1265,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1183,9 +1278,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1196,9 +1291,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1209,9 +1304,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1222,9 +1317,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1235,9 +1330,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1248,9 +1343,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1261,9 +1356,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1274,9 +1369,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1287,9 +1382,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1300,9 +1395,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1313,9 +1408,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1326,9 +1421,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1339,9 +1434,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1352,9 +1447,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1365,9 +1460,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1378,9 +1473,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1391,9 +1486,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1404,9 +1499,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1417,9 +1512,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1430,9 +1525,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1443,9 +1538,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1456,9 +1551,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1469,9 +1564,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1482,9 +1577,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1495,9 +1590,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1508,9 +1603,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1519,9 +1614,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1532,9 +1627,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1543,9 +1638,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1556,9 +1651,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1569,9 +1664,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1582,9 +1677,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1595,9 +1690,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1608,9 +1703,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1621,9 +1716,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1634,9 +1729,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1647,9 +1742,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1660,9 +1755,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1673,9 +1768,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1686,9 +1781,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1699,9 +1794,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1712,9 +1807,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1725,9 +1820,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1738,9 +1833,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1751,9 +1846,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1764,9 +1859,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1775,9 +1870,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -1788,9 +1883,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -1799,9 +1894,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -1812,9 +1907,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -1825,9 +1920,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1837,9 +1932,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1849,9 +1944,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -1957,6 +2052,15 @@
         "smithy.api#httpError": 500
       }
     },
+    "com.amazonaws.sagemakerruntime#InvocationTimeoutSecondsHeader": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 3600
+        }
+      }
+    },
     "com.amazonaws.sagemakerruntime#InvokeEndpoint": {
       "type": "operation",
       "input": {
@@ -1986,7 +2090,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your\n            client applications use this API to get inferences from the model hosted at the\n            specified endpoint. </p>\n        <p>For an overview of Amazon SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>\n        <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add\n            additional headers. You should not rely on the behavior of headers outside those\n            enumerated in the request syntax. </p>\n        <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services\n            Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating\n                Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API\n                Reference</i>.</p>\n        <p>A customer's model containers must respond to requests within 60 seconds. The model\n            itself can have a maximum processing time of 60 seconds before responding to\n            invocations. If your model is going to take 50-60 seconds of processing time, the SDK\n            socket timeout should be set to be 70 seconds.</p>\n        <note>\n            <p>Endpoints are scoped to an individual account, and are not public. The URL does\n                not contain the account ID, but Amazon SageMaker determines the account ID from the\n                authentication token that is supplied by the caller.</p>\n        </note>",
+        "smithy.api#documentation": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your\n            client applications use this API to get inferences from the model hosted at the\n            specified endpoint. </p>\n         <p>For an overview of Amazon SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>\n         <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add\n            additional headers. You should not rely on the behavior of headers outside those\n            enumerated in the request syntax. </p>\n         <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services\n            Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating\n                Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API\n                Reference</i>.</p>\n         <p>A customer's model containers must respond to requests within 60 seconds. The model\n            itself can have a maximum processing time of 60 seconds before responding to\n            invocations. If your model is going to take 50-60 seconds of processing time, the SDK\n            socket timeout should be set to be 70 seconds.</p>\n         <note>\n            <p>Endpoints are scoped to an individual account, and are not public. The URL does\n                not contain the account ID, but Amazon SageMaker determines the account ID from the\n                authentication token that is supplied by the caller.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/endpoints/{EndpointName}/invocations",
@@ -2014,7 +2118,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your client\n            applications use this API to get inferences from the model hosted at the specified\n            endpoint in an asynchronous manner.</p>\n\n        <p>Inference requests sent to this API are enqueued for asynchronous processing. The\n            processing of the inference request may or may not complete before the you receive a\n            response from this API. The response from this API will not contain the result of the\n            inference request but contain information about where you can locate it.</p>\n\n        <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker\n            might add additional headers. You should not rely on the behavior of headers outside\n            those enumerated in the request syntax.</p>\n\n        <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the\n                <i>Amazon S3 API Reference</i>.</p>",
+        "smithy.api#documentation": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your client\n            applications use this API to get inferences from the model hosted at the specified\n            endpoint in an asynchronous manner.</p>\n         <p>Inference requests sent to this API are enqueued for asynchronous processing. The\n            processing of the inference request may or may not complete before you receive a\n            response from this API. The response from this API will not contain the result of the\n            inference request but contain information about where you can locate it.</p>\n         <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker\n            might add additional headers. You should not rely on the behavior of headers outside\n            those enumerated in the request syntax.</p>\n         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the\n                <i>Amazon S3 API Reference</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/endpoints/{EndpointName}/async-invocations",
@@ -2050,7 +2154,7 @@
         "CustomAttributes": {
           "target": "com.amazonaws.sagemakerruntime#CustomAttributesHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded\n            verbatim. You could use this value, for example, to provide an ID that you can use to\n            track a request or to provide other metadata that a service endpoint was programmed to\n            process. The value must consist of no more than 1024 visible US-ASCII characters as\n            specified in <a href=\"https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol\n            (HTTP/1.1). </p>\n\n        <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID</code>: in your post-processing\n            function. </p>\n\n        <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK. </p>",
+            "smithy.api#documentation": "<p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded\n            verbatim. You could use this value, for example, to provide an ID that you can use to\n            track a request or to provide other metadata that a service endpoint was programmed to\n            process. The value must consist of no more than 1024 visible US-ASCII characters as\n            specified in <a href=\"https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol\n            (HTTP/1.1). </p>\n         <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID</code>: in your post-processing\n            function. </p>\n         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK. </p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Custom-Attributes"
           }
         },
@@ -2074,6 +2178,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Maximum age in seconds a request can be in the queue before it is marked as\n            expired.</p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-RequestTTLSeconds"
+          }
+        },
+        "InvocationTimeoutSeconds": {
+          "target": "com.amazonaws.sagemakerruntime#InvocationTimeoutSecondsHeader",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum amount of time in seconds a request can be processed before it is marked as expired.</p>",
+            "smithy.api#httpHeader": "X-Amzn-SageMaker-InvocationTimeoutSeconds"
           }
         }
       }
@@ -2110,7 +2221,7 @@
         "Body": {
           "target": "com.amazonaws.sagemakerruntime#BodyBlob",
           "traits": {
-            "smithy.api#documentation": "<p>Provides input data, in the format specified in the <code>ContentType</code>\n            request header. Amazon SageMaker passes all of the data in the body to the model. </p>\n        <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats-Inference</a>.</p>",
+            "smithy.api#documentation": "<p>Provides input data, in the format specified in the <code>ContentType</code>\n            request header. Amazon SageMaker passes all of the data in the body to the model. </p>\n         <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats-Inference</a>.</p>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
@@ -2132,7 +2243,7 @@
         "CustomAttributes": {
           "target": "com.amazonaws.sagemakerruntime#CustomAttributesHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to provide an ID that you can\n            use to track a request or to provide other metadata that a service endpoint was\n            programmed to process. The value must consist of no more than 1024 visible US-ASCII\n            characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p>\n        <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID:</code> in your post-processing\n            function.</p>\n\n        <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK.</p>",
+            "smithy.api#documentation": "<p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to provide an ID that you can\n            use to track a request or to provide other metadata that a service endpoint was\n            programmed to process. The value must consist of no more than 1024 visible US-ASCII\n            characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p>\n         <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID:</code> in your post-processing\n            function.</p>\n         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK.</p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Custom-Attributes"
           }
         },
@@ -2146,7 +2257,7 @@
         "TargetVariant": {
           "target": "com.amazonaws.sagemakerruntime#TargetVariantHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the production variant to send the inference request to when invoking an\n            endpoint that is running two or more variants. Note that this parameter overrides the\n            default behavior for the endpoint, which is to distribute the invocation traffic based\n            on the variant weights.</p>\n        <p>For information about how to use variant targeting to perform a/b testing, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html\">Test models in\n                production</a>\n         </p>",
+            "smithy.api#documentation": "<p>Specify the production variant to send the inference request to when invoking an\n            endpoint that is running two or more variants. Note that this parameter overrides the\n            default behavior for the endpoint, which is to distribute the invocation traffic based\n            on the variant weights.</p>\n         <p>For information about how to use variant targeting to perform a/b testing, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html\">Test models in\n                production</a>\n         </p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Target-Variant"
           }
         },
@@ -2167,7 +2278,7 @@
         "EnableExplanations": {
           "target": "com.amazonaws.sagemakerruntime#EnableExplanationsHeader",
           "traits": {
-            "smithy.api#documentation": "<p>An optional JMESPath expression used to override the <code>EnableExplanations</code>\n            parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href=\"https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable\">EnableExplanations</a> section in the developer guide for more information.\n        </p>",
+            "smithy.api#documentation": "<p>An optional JMESPath expression used to override the <code>EnableExplanations</code>\n            parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable\">EnableExplanations</a> section in the developer guide for more information.\n        </p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Enable-Explanations"
           }
         }
@@ -2179,7 +2290,7 @@
         "Body": {
           "target": "com.amazonaws.sagemakerruntime#BodyBlob",
           "traits": {
-            "smithy.api#documentation": "<p>Includes the inference provided by the model. </p>\n        <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats-Inference</a>.</p>\n        <p>If the explainer is activated, the\n            body includes the explanations provided by the model. For more information, see the\n            <b>Response section</b> under <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response\">Invoke the Endpoint</a> in the Developer Guide.</p>",
+            "smithy.api#documentation": "<p>Includes the inference provided by the model. </p>\n         <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats-Inference</a>.</p>\n         <p>If the explainer is activated, the\n            body includes the explanations provided by the model. For more information, see the\n            <b>Response section</b> under <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response\">Invoke the Endpoint</a> in the Developer Guide.</p>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
@@ -2201,7 +2312,7 @@
         "CustomAttributes": {
           "target": "com.amazonaws.sagemakerruntime#CustomAttributesHeader",
           "traits": {
-            "smithy.api#documentation": "<p>Provides additional information in the response about the inference returned by a\n            model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to return an ID received in\n            the <code>CustomAttributes</code> header of a request or other metadata that a service\n            endpoint was programmed to produce. The value must consist of no more than 1024 visible\n            US-ASCII characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer\n            wants the custom attribute returned, the model must set the custom attribute to be\n            included on the way back. </p>\n        <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID:</code> in your post-processing\n            function.</p>\n        <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK.</p>",
+            "smithy.api#documentation": "<p>Provides additional information in the response about the inference returned by a\n            model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to return an ID received in\n            the <code>CustomAttributes</code> header of a request or other metadata that a service\n            endpoint was programmed to produce. The value must consist of no more than 1024 visible\n            US-ASCII characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer\n            wants the custom attribute returned, the model must set the custom attribute to be\n            included on the way back. </p>\n         <p>The code in your model is responsible for setting or updating any custom attributes in\n            the response. If your code does not set this value in the response, an empty value is\n            returned. For example, if a custom attribute represents the trace ID, your model can\n            prepend the custom attribute with <code>Trace ID:</code> in your post-processing\n            function.</p>\n         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker\n            Python SDK.</p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Custom-Attributes"
           }
         }

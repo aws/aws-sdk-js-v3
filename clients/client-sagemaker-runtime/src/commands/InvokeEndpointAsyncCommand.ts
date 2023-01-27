@@ -32,17 +32,14 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * <p>After you deploy a model into production using Amazon SageMaker hosting services, your client
  *             applications use this API to get inferences from the model hosted at the specified
  *             endpoint in an asynchronous manner.</p>
- *
- *         <p>Inference requests sent to this API are enqueued for asynchronous processing. The
- *             processing of the inference request may or may not complete before the you receive a
+ *          <p>Inference requests sent to this API are enqueued for asynchronous processing. The
+ *             processing of the inference request may or may not complete before you receive a
  *             response from this API. The response from this API will not contain the result of the
  *             inference request but contain information about where you can locate it.</p>
- *
- *         <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker
+ *          <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker
  *             might add additional headers. You should not rely on the behavior of headers outside
  *             those enumerated in the request syntax.</p>
- *
- *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the
+ *          <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the
  *                 <i>Amazon S3 API Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

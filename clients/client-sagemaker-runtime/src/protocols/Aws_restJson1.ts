@@ -86,6 +86,10 @@ export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
       () => isSerializableHeaderValue(input.RequestTTLSeconds),
       () => input.RequestTTLSeconds!.toString(),
     ],
+    "x-amzn-sagemaker-invocationtimeoutseconds": [
+      () => isSerializableHeaderValue(input.InvocationTimeoutSeconds),
+      () => input.InvocationTimeoutSeconds!.toString(),
+    ],
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
