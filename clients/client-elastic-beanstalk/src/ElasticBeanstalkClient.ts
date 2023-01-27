@@ -470,8 +470,6 @@ export interface ElasticBeanstalkClientResolvedConfig extends ElasticBeanstalkCl
 
 /**
  * <fullname>AWS Elastic Beanstalk</fullname>
- *
- *
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
  *          <p>For more information about this product, go to the <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the
