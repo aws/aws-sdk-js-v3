@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Bug Fixes
+
+* **codeowners:** fix syntax and precedence ([#4378](https://github.com/aws/aws-sdk-js-v3/issues/4378)) ([863a72d](https://github.com/aws/aws-sdk-js-v3/commit/863a72d9992653591a0dbfb53d421d08de8e8af9))
+
+
+### Features
+
+* **client-application-auto-scaling:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([19a7a84](https://github.com/aws/aws-sdk-js-v3/commit/19a7a84b5805744dba11ca91fa5f9937725a38a4))
+* **client-appstream:** Fixing the issue where Appstream waiters hang for fleet_started and fleet_stopped. ([2d93bfa](https://github.com/aws/aws-sdk-js-v3/commit/2d93bfa678893a486fde3e45c631ecab0c7b86f0))
+* **client-elastic-beanstalk:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([9407187](https://github.com/aws/aws-sdk-js-v3/commit/94071876dab254e0547d99e17da2e70e4a6b62de))
+* **client-fis:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([bb8ec2f](https://github.com/aws/aws-sdk-js-v3/commit/bb8ec2ffec8887cad0558dcf73270a67491a98e5))
+* **client-glacier:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([ca4e45e](https://github.com/aws/aws-sdk-js-v3/commit/ca4e45e1f4a5f1513ec745b366d3a5200dc0baf8))
+* **client-greengrass:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([5529c0a](https://github.com/aws/aws-sdk-js-v3/commit/5529c0a66f58d1417ff4c9bd917554274ef98556))
+* **client-greengrassv2:** Enabled FIPS endpoints for GovCloud (US) in SDK. ([d8008a7](https://github.com/aws/aws-sdk-js-v3/commit/d8008a7acc64ff879bef7875a842c5e200cf7a1a))
+* **client-mediatailor:** This release introduces the As Run logging type, along with API and documentation updates. ([349aa88](https://github.com/aws/aws-sdk-js-v3/commit/349aa88fde953d965d6d1ecdf8614ca0c35b1d43))
+* **client-outposts:** Adding support for payment term in GetOrder, CreateOrder responses. ([2ff323a](https://github.com/aws/aws-sdk-js-v3/commit/2ff323ac18cbb781e27204a0e0a0a45306215b00))
+* **client-sagemaker-runtime:** Amazon SageMaker Runtime which supports InvokeEndpointAsync asynchronously can now invoke endpoints with custom timeout values. Asynchronous invocations support longer processing times. ([446762d](https://github.com/aws/aws-sdk-js-v3/commit/446762d938669f3cc377470d174bc4f72122a706))
+* **client-sagemaker:** This release supports running SageMaker Training jobs with container images that are in a private Docker registry. ([f0943cd](https://github.com/aws/aws-sdk-js-v3/commit/f0943cd978ecf8e5707967da9d0f9b3ba74619bb))
+* **client-serverlessapplicationrepository:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([eb09d02](https://github.com/aws/aws-sdk-js-v3/commit/eb09d024c12aaf251bb3dc934c264320c6f9cbbb))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 

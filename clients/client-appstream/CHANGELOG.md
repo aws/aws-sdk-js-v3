@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Features
+
+* **client-appstream:** Fixing the issue where Appstream waiters hang for fleet_started and fleet_stopped. ([2d93bfa](https://github.com/aws/aws-sdk-js-v3/commit/2d93bfa678893a486fde3e45c631ecab0c7b86f0))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

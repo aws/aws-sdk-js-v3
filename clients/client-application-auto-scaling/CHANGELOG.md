@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Features
+
+* **client-application-auto-scaling:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([19a7a84](https://github.com/aws/aws-sdk-js-v3/commit/19a7a84b5805744dba11ca91fa5f9937725a38a4))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Features
+
+* **client-elastic-beanstalk:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([9407187](https://github.com/aws/aws-sdk-js-v3/commit/94071876dab254e0547d99e17da2e70e4a6b62de))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-beanstalk

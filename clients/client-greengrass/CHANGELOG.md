@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Features
+
+* **client-greengrass:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([5529c0a](https://github.com/aws/aws-sdk-js-v3/commit/5529c0a66f58d1417ff4c9bd917554274ef98556))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrass

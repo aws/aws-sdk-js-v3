@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
+
+
+### Features
+
+* **client-mediatailor:** This release introduces the As Run logging type, along with API and documentation updates. ([349aa88](https://github.com/aws/aws-sdk-js-v3/commit/349aa88fde953d965d6d1ecdf8614ca0c35b1d43))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor
