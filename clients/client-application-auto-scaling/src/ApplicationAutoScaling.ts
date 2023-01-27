@@ -123,8 +123,6 @@ import {
  *           and scheduled scaling.</p>
  *             </li>
  *          </ul>
- *
- *
  *          <p>To learn more about Application Auto Scaling, including information about granting IAM users required
  *       permissions for Application Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
  *         Guide</a>.</p>
