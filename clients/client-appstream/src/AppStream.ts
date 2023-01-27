@@ -270,15 +270,12 @@ import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput }
 
 /**
  * <fullname>Amazon AppStream 2.0</fullname>
- *         <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
- *
- *         <note>
+ *          <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
+ *          <note>
  *             <p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
  *          </note>
- *
- *         <p>To learn more about AppStream 2.0, see the following resources:</p>
- *
- *             <ul>
+ *          <p>To learn more about AppStream 2.0, see the following resources:</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a>
@@ -480,12 +477,12 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Creates an app block.</p>
-   *         <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
+   *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
    *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
    *             how to mount the virtual hard disk. The virtual hard disk includes the application
    *             binaries and other files necessary to launch your applications. Multiple applications
    *             can be assigned to a single app block.</p>
-   *         <p>This is only supported for Elastic fleets.</p>
+   *          <p>This is only supported for Elastic fleets.</p>
    */
   public createAppBlock(
     args: CreateAppBlockCommandInput,
@@ -518,12 +515,12 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Creates an application.</p>
-   *         <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
+   *          <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
    *             launch applications on Elastic fleet streaming instances. An application consists of the
    *             launch details, icon, and display name. Applications are associated with an app block
    *             that contains the application binaries and other files. The applications assigned to an
    *             Elastic fleet are the applications users can launch. </p>
-   *         <p>This is only supported for Elastic fleets.</p>
+   *          <p>This is only supported for Elastic fleets.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -651,7 +648,7 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
-   *         <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
+   *          <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
    */
   public createImageBuilder(
     args: CreateImageBuilderCommandInput,
@@ -774,8 +771,7 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
-   *
-   *         <p>For more information, see the "Update an Image by Using
+   *          <p>For more information, see the "Update an Image by Using
    *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   public createUpdatedImage(
@@ -1293,7 +1289,7 @@ export class AppStream extends AppStreamClient {
   /**
    * <p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
    *         </p>
-   *         <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>
+   *          <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>
    */
   public describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
@@ -1616,7 +1612,7 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The stack name</p>
    *             </li>
@@ -1934,7 +1930,7 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2083,12 +2079,11 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
-   *             <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key,
+   *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key,
    *                 this operation updates its value.</p>
-   *
-   *             <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.
+   *          <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.
    *                 To disassociate tags from your resources, use <a>UntagResource</a>.</p>
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2115,8 +2110,8 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p>
-   *         <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p>
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2245,27 +2240,27 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Updates the specified fleet.</p>
-   *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
+   *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
    *             the fleet name.</p>
-   *         <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
+   *          <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
    *             on the fleet type:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Always-On and On-Demand fleet types</p>
-   *                 <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
+   *                <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
    *                         <code>ImageARN</code>, <code>ImageName</code>,
    *                         <code>IdleDisconnectTimeoutInSeconds</code>, and
    *                         <code>DisconnectTimeoutInSeconds</code> attributes.</p>
    *             </li>
    *             <li>
    *                <p>Elastic fleet type</p>
-   *                 <p>You can update the  <code>DisplayName</code>,
+   *                <p>You can update the  <code>DisplayName</code>,
    *                         <code>IdleDisconnectTimeoutInSeconds</code>,
    *                     <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code>
    *                     and <code>UsbDeviceFilterStrings</code> attributes.</p>
    *             </li>
    *          </ul>
-   *         <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
+   *          <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
    */
   public updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
   public updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;

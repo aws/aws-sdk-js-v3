@@ -19,7 +19,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
       };
       let allStringEq_5 = returnComparator().length > 0;
       for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "ACTIVE";
+        allStringEq_5 = allStringEq_5 && element_4 == "RUNNING";
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
@@ -34,7 +34,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
         return projection_3;
       };
       for (const anyStringEq_4 of returnComparator()) {
-        if (anyStringEq_4 == "PENDING_DEACTIVATE") {
+        if (anyStringEq_4 == "STOPPING") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
@@ -48,7 +48,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
         return projection_3;
       };
       for (const anyStringEq_4 of returnComparator()) {
-        if (anyStringEq_4 == "INACTIVE") {
+        if (anyStringEq_4 == "STOPPED") {
           return { state: WaiterState.FAILURE, reason };
         }
       }

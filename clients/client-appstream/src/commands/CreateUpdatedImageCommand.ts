@@ -30,8 +30,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
 
 /**
  * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
- *
- *         <p>For more information, see the "Update an Image by Using
+ *          <p>For more information, see the "Update an Image by Using
  *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
