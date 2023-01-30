@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Features
+
+* **client-application-discovery-service:** Update ImportName validation to 255 from the current length of 100 ([3cc1581](https://github.com/aws/aws-sdk-js-v3/commit/3cc158192ccb0829c9931a4396eab950a91b9573))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-application-discovery-service

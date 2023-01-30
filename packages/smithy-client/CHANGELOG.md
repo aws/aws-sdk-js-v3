@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Features
+
+* **smithy-client:** parse datetime offsets ([#4379](https://github.com/aws/aws-sdk-js-v3/issues/4379)) ([c1d323b](https://github.com/aws/aws-sdk-js-v3/commit/c1d323b92199443ec4909e814975365d21fadea0))
+
+
+
+
+
 # [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

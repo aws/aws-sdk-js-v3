@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Features
+
+* **client-mediaconvert:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([16d8126](https://github.com/aws/aws-sdk-js-v3/commit/16d812690b3ddd73268ae000b9251f22923cda6f))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

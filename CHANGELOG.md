@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Bug Fixes
+
+* **codegen:** safe access for error code location ([#4367](https://github.com/aws/aws-sdk-js-v3/issues/4367)) ([8991512](https://github.com/aws/aws-sdk-js-v3/commit/899151267fe593bb3cf18917a09108b93cf96fa2))
+
+
+### Features
+
+* **client-application-discovery-service:** Update ImportName validation to 255 from the current length of 100 ([3cc1581](https://github.com/aws/aws-sdk-js-v3/commit/3cc158192ccb0829c9931a4396eab950a91b9573))
+* **client-clouddirectory:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([54bbffe](https://github.com/aws/aws-sdk-js-v3/commit/54bbffe022ff490b6262546a1ab58221a757d86d))
+* **client-cloudformation:** This feature provides a method of obtaining which regions a stackset has stack instances deployed in. ([eb10720](https://github.com/aws/aws-sdk-js-v3/commit/eb10720980872d4acea06bf957bb990de51dfaa9))
+* **client-dlm:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([1295499](https://github.com/aws/aws-sdk-js-v3/commit/1295499b6c96b9b47dd48a877ed949748f1741cc))
+* **client-ec2:** We add Prefix Lists as a new route destination option for LocalGatewayRoutes. This will allow customers to create routes to Prefix Lists. Prefix List routes will allow customers to group individual CIDR routes with the same target into a single route. ([52a9d0c](https://github.com/aws/aws-sdk-js-v3/commit/52a9d0c3609b4c47bf405e49422887c748970926))
+* **client-imagebuilder:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([05edd3e](https://github.com/aws/aws-sdk-js-v3/commit/05edd3ede8b5083be00c487aadf367315dc9da7e))
+* **client-kafka:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([89fb3ff](https://github.com/aws/aws-sdk-js-v3/commit/89fb3ffb2440b56f8fc9bf768491d884432daafe))
+* **client-mediaconvert:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([16d8126](https://github.com/aws/aws-sdk-js-v3/commit/16d812690b3ddd73268ae000b9251f22923cda6f))
+* **client-swf:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([0e9fe1c](https://github.com/aws/aws-sdk-js-v3/commit/0e9fe1c9e4856f2bef9a860b3bc0537c6bbe2879))
+* **smithy-client:** parse datetime offsets ([#4379](https://github.com/aws/aws-sdk-js-v3/issues/4379)) ([c1d323b](https://github.com/aws/aws-sdk-js-v3/commit/c1d323b92199443ec4909e814975365d21fadea0))
+
+
+
+
+
 # [3.260.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.259.0...v3.260.0) (2023-01-27)
 
 

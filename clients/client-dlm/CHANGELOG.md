@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Features
+
+* **client-dlm:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([1295499](https://github.com/aws/aws-sdk-js-v3/commit/1295499b6c96b9b47dd48a877ed949748f1741cc))
+
+
+
+
+
 # [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-dlm
