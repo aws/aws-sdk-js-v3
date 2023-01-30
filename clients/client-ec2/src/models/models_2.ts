@@ -277,7 +277,7 @@ export interface InstanceSpecification {
   /**
    * <p>The instance to specify which volumes should be snapshotted.</p>
    */
-  InstanceId?: string;
+  InstanceId: string | undefined;
 
   /**
    * <p>Excludes the root volume from being snapshotted.</p>
@@ -5632,7 +5632,7 @@ export interface DeleteLocalGatewayRouteRequest {
   /**
    * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
    */
-  DestinationCidrBlock: string | undefined;
+  DestinationCidrBlock?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -5645,6 +5645,14 @@ export interface DeleteLocalGatewayRouteRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>
+   *          Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use
+   *          <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export interface DeleteLocalGatewayRouteResult {

@@ -36611,6 +36611,9 @@ const serializeAws_ec2CreateLocalGatewayRouteRequest = (
   if (input.NetworkInterfaceId != null) {
     entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
   }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
+  }
   return entries;
 };
 
@@ -39222,6 +39225,9 @@ const serializeAws_ec2DeleteLocalGatewayRouteRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
   }
   return entries;
 };
@@ -51366,6 +51372,9 @@ const serializeAws_ec2ModifyLocalGatewayRouteRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
   }
   return entries;
 };
@@ -76480,6 +76489,7 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
     SubnetId: undefined,
     CoipPoolId: undefined,
     NetworkInterfaceId: undefined,
+    DestinationPrefixListId: undefined,
   };
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
@@ -76510,6 +76520,9 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
   }
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
+  }
+  if (output["destinationPrefixListId"] !== undefined) {
+    contents.DestinationPrefixListId = __expectString(output["destinationPrefixListId"]);
   }
   return contents;
 };

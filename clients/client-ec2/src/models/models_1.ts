@@ -6209,7 +6209,7 @@ export interface CreateLocalGatewayRouteRequest {
    * <p>The CIDR range used for destination matches. Routing decisions are based on
    *         the most specific match.</p>
    */
-  DestinationCidrBlock: string | undefined;
+  DestinationCidrBlock?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -6232,6 +6232,14 @@ export interface CreateLocalGatewayRouteRequest {
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export enum LocalGatewayRouteState {
@@ -6300,6 +6308,13 @@ export interface LocalGatewayRoute {
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the prefix list.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export interface CreateLocalGatewayRouteResult {

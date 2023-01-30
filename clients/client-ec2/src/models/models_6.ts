@@ -1561,7 +1561,7 @@ export interface ModifyLocalGatewayRouteRequest {
   /**
    * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
    */
-  DestinationCidrBlock: string | undefined;
+  DestinationCidrBlock?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -1586,6 +1586,14 @@ export interface ModifyLocalGatewayRouteRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export interface ModifyLocalGatewayRouteResult {
@@ -6787,6 +6795,10 @@ export interface SearchLocalGatewayRoutesRequest {
   /**
    * <p>One or more filters.</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
