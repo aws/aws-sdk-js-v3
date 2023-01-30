@@ -18,7 +18,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -1150,7 +1150,9 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
       output.HttpdateTimestamp != null ? __expectNonNull(__parseRfc7231DateTime(output.HttpdateTimestamp)) : undefined,
     Integer: __expectInt32(output.Integer),
     Iso8601Timestamp:
-      output.Iso8601Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Iso8601Timestamp)) : undefined,
+      output.Iso8601Timestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Iso8601Timestamp))
+        : undefined,
     JsonValue: output.JsonValue != null ? new __LazyJsonString(output.JsonValue) : undefined,
     ListOfLists:
       output.ListOfLists != null ? deserializeAws_json1_1ListOfListOfStrings(output.ListOfLists, context) : undefined,

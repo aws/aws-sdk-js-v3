@@ -14,7 +14,7 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -10400,7 +10400,8 @@ const deserializeAws_restJson1LoRaWANFuotaTaskGetInfo = (
 ): LoRaWANFuotaTaskGetInfo => {
   return {
     RfRegion: __expectString(output.RfRegion),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -10533,7 +10534,9 @@ const deserializeAws_restJson1LoRaWANMulticastSession = (
     DlDr: __expectInt32(output.DlDr),
     DlFreq: __expectInt32(output.DlFreq),
     SessionStartTime:
-      output.SessionStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SessionStartTime)) : undefined,
+      output.SessionStartTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SessionStartTime))
+        : undefined,
     SessionTimeout: __expectInt32(output.SessionTimeout),
   } as any;
 };

@@ -10,7 +10,7 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3483,7 +3483,7 @@ const deserializeAws_json1_1EndpointAccess = (output: any, context: __SerdeConte
     endpointArn: __expectString(output.endpointArn),
     endpointCreateTime:
       output.endpointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.endpointCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endpointCreateTime))
         : undefined,
     endpointName: __expectString(output.endpointName),
     endpointStatus: __expectString(output.endpointStatus),
@@ -3722,7 +3722,7 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
   return {
     adminUsername: __expectString(output.adminUsername),
     creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
     dbName: __expectString(output.dbName),
     defaultIamRoleArn: __expectString(output.defaultIamRoleArn),
     iamRoles: output.iamRoles != null ? deserializeAws_json1_1IamRoleArnList(output.iamRoles, context) : undefined,
@@ -3784,7 +3784,7 @@ const deserializeAws_json1_1RecoveryPoint = (output: any, context: __SerdeContex
     namespaceName: __expectString(output.namespaceName),
     recoveryPointCreateTime:
       output.recoveryPointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.recoveryPointCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.recoveryPointCreateTime))
         : undefined,
     recoveryPointId: __expectString(output.recoveryPointId),
     totalSizeInMegaBytes: __limitedParseDouble(output.totalSizeInMegaBytes),
@@ -3898,14 +3898,14 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
     snapshotArn: __expectString(output.snapshotArn),
     snapshotCreateTime:
       output.snapshotCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.snapshotCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotCreateTime))
         : undefined,
     snapshotName: __expectString(output.snapshotName),
     snapshotRemainingDays: __expectInt32(output.snapshotRemainingDays),
     snapshotRetentionPeriod: __expectInt32(output.snapshotRetentionPeriod),
     snapshotRetentionStartTime:
       output.snapshotRetentionStartTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.snapshotRetentionStartTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotRetentionStartTime))
         : undefined,
     status: __expectString(output.status),
     totalBackupSizeInMegaBytes: __limitedParseDouble(output.totalBackupSizeInMegaBytes),
@@ -4140,7 +4140,7 @@ const deserializeAws_json1_1Workgroup = (output: any, context: __SerdeContext): 
         ? deserializeAws_json1_1ConfigParameterList(output.configParameters, context)
         : undefined,
     creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
     endpoint: output.endpoint != null ? deserializeAws_json1_1Endpoint(output.endpoint, context) : undefined,
     enhancedVpcRouting: __expectBoolean(output.enhancedVpcRouting),
     namespaceName: __expectString(output.namespaceName),

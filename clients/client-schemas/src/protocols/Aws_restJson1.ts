@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -1189,7 +1189,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
   }
   if (data.SchemaArn != null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -1207,7 +1207,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
   }
   return contents;
 };
@@ -1522,10 +1522,10 @@ export const deserializeAws_restJson1DescribeCodeBindingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data.CreationDate));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationDate));
   }
   if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
   }
   if (data.SchemaVersion != null) {
     contents.SchemaVersion = __expectString(data.SchemaVersion);
@@ -1732,7 +1732,7 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
   }
   if (data.SchemaArn != null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -1750,7 +1750,7 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
   }
   return contents;
 };
@@ -2320,10 +2320,10 @@ export const deserializeAws_restJson1PutCodeBindingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data.CreationDate));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationDate));
   }
   if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
   }
   if (data.SchemaVersion != null) {
     contents.SchemaVersion = __expectString(data.SchemaVersion);
@@ -2860,7 +2860,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
   }
   if (data.SchemaArn != null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -2878,7 +2878,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
   }
   return contents;
 };
@@ -3237,7 +3237,7 @@ const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
   return {
     LastModified:
-      output.LastModified != null ? __expectNonNull(__parseRfc3339DateTime(output.LastModified)) : undefined,
+      output.LastModified != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastModified)) : undefined,
     SchemaArn: __expectString(output.SchemaArn),
     SchemaName: __expectString(output.SchemaName),
     Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
@@ -3271,7 +3271,8 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
   context: __SerdeContext
 ): SearchSchemaVersionSummary => {
   return {
-    CreatedDate: output.CreatedDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedDate)) : undefined,
+    CreatedDate:
+      output.CreatedDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedDate)) : undefined,
     SchemaVersion: __expectString(output.SchemaVersion),
     Type: __expectString(output.Type),
   } as any;

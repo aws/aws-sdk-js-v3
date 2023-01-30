@@ -15,7 +15,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -11946,7 +11946,9 @@ export const deserializeAws_restJson1GetPhoneNumberSettingsCommand = async (
     contents.CallingName = __expectString(data.CallingName);
   }
   if (data.CallingNameUpdatedTimestamp != null) {
-    contents.CallingNameUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(data.CallingNameUpdatedTimestamp));
+    contents.CallingNameUpdatedTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(data.CallingNameUpdatedTimestamp)
+    );
   }
   return contents;
 };
@@ -12061,7 +12063,9 @@ export const deserializeAws_restJson1GetRetentionSettingsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(__parseRfc3339DateTime(data.InitiateDeletionTimestamp));
+    contents.InitiateDeletionTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(data.InitiateDeletionTimestamp)
+    );
   }
   if (data.RetentionSettings != null) {
     contents.RetentionSettings = deserializeAws_restJson1RetentionSettings(data.RetentionSettings, context);
@@ -15144,7 +15148,9 @@ export const deserializeAws_restJson1PutRetentionSettingsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(__parseRfc3339DateTime(data.InitiateDeletionTimestamp));
+    contents.InitiateDeletionTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(data.InitiateDeletionTimestamp)
+    );
   }
   if (data.RetentionSettings != null) {
     contents.RetentionSettings = deserializeAws_restJson1RetentionSettings(data.RetentionSettings, context);
@@ -18883,7 +18889,9 @@ const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): 
     AccountType: __expectString(output.AccountType),
     AwsAccountId: __expectString(output.AwsAccountId),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     DefaultLicense: __expectString(output.DefaultLicense),
     Name: __expectString(output.Name),
     SigninDelegateGroups:
@@ -19220,12 +19228,16 @@ const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot 
     BotId: __expectString(output.BotId),
     BotType: __expectString(output.BotType),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Disabled: __expectBoolean(output.Disabled),
     DisplayName: __expectString(output.DisplayName),
     SecurityToken: __expectString(output.SecurityToken),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     UserId: __expectString(output.UserId),
   } as any;
 };
@@ -19759,7 +19771,9 @@ const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __Se
         ? deserializeAws_restJson1ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     MediaPipelineId: __expectString(output.MediaPipelineId),
     SinkArn: __expectString(output.SinkArn),
     SinkType: __expectString(output.SinkType),
@@ -19767,7 +19781,9 @@ const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __Se
     SourceType: __expectString(output.SourceType),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -19955,16 +19971,22 @@ const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContex
         : undefined,
     Country: __expectString(output.Country),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     DeletionTimestamp:
-      output.DeletionTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.DeletionTimestamp)) : undefined,
+      output.DeletionTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DeletionTimestamp))
+        : undefined,
     E164PhoneNumber: __expectString(output.E164PhoneNumber),
     PhoneNumberId: __expectString(output.PhoneNumberId),
     ProductType: __expectString(output.ProductType),
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -19975,7 +19997,7 @@ const deserializeAws_restJson1PhoneNumberAssociation = (
   return {
     AssociatedTimestamp:
       output.AssociatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.AssociatedTimestamp))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.AssociatedTimestamp))
         : undefined,
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
@@ -20071,7 +20093,9 @@ const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     OrderedPhoneNumbers:
       output.OrderedPhoneNumbers != null
         ? deserializeAws_restJson1OrderedPhoneNumberList(output.OrderedPhoneNumbers, context)
@@ -20080,7 +20104,9 @@ const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeC
     ProductType: __expectString(output.ProductType),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -20128,9 +20154,13 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
     Capabilities:
       output.Capabilities != null ? deserializeAws_restJson1CapabilityList(output.Capabilities, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     EndedTimestamp:
-      output.EndedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.EndedTimestamp)) : undefined,
+      output.EndedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndedTimestamp))
+        : undefined,
     ExpiryMinutes: __expectInt32(output.ExpiryMinutes),
     GeoMatchLevel: __expectString(output.GeoMatchLevel),
     GeoMatchParams:
@@ -20144,7 +20174,9 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
     ProxySessionId: __expectString(output.ProxySessionId),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
 };
@@ -20179,11 +20211,15 @@ const deserializeAws_restJson1Room = (output: any, context: __SerdeContext): Roo
     AccountId: __expectString(output.AccountId),
     CreatedBy: __expectString(output.CreatedBy),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Name: __expectString(output.Name),
     RoomId: __expectString(output.RoomId),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -20206,7 +20242,9 @@ const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeCon
     Role: __expectString(output.Role),
     RoomId: __expectString(output.RoomId),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -20276,7 +20314,9 @@ const deserializeAws_restJson1SipMediaApplication = (output: any, context: __Ser
   return {
     AwsRegion: __expectString(output.AwsRegion),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Endpoints:
       output.Endpoints != null
         ? deserializeAws_restJson1SipMediaApplicationEndpointList(output.Endpoints, context)
@@ -20284,7 +20324,9 @@ const deserializeAws_restJson1SipMediaApplication = (output: any, context: __Ser
     Name: __expectString(output.Name),
     SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -20348,7 +20390,9 @@ const deserializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
 const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): SipRule => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Disabled: __expectBoolean(output.Disabled),
     Name: __expectString(output.Name),
     SipRuleId: __expectString(output.SipRuleId),
@@ -20359,7 +20403,9 @@ const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): 
     TriggerType: __expectString(output.TriggerType),
     TriggerValue: __expectString(output.TriggerValue),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -20504,7 +20550,8 @@ const deserializeAws_restJson1Termination = (output: any, context: __SerdeContex
 const deserializeAws_restJson1TerminationHealth = (output: any, context: __SerdeContext): TerminationHealth => {
   return {
     Source: __expectString(output.Source),
-    Timestamp: output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Timestamp)) : undefined,
+    Timestamp:
+      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
   } as any;
 };
 
@@ -20516,13 +20563,14 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
         ? deserializeAws_restJson1AlexaForBusinessMetadata(output.AlexaForBusinessMetadata, context)
         : undefined,
     DisplayName: __expectString(output.DisplayName),
-    InvitedOn: output.InvitedOn != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedOn)) : undefined,
+    InvitedOn:
+      output.InvitedOn != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedOn)) : undefined,
     LicenseType: __expectString(output.LicenseType),
     PersonalPIN: __expectString(output.PersonalPIN),
     PrimaryEmail: __expectString(output.PrimaryEmail),
     PrimaryProvisionedNumber: __expectString(output.PrimaryProvisionedNumber),
     RegisteredOn:
-      output.RegisteredOn != null ? __expectNonNull(__parseRfc3339DateTime(output.RegisteredOn)) : undefined,
+      output.RegisteredOn != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.RegisteredOn)) : undefined,
     UserId: __expectString(output.UserId),
     UserInvitationStatus: __expectString(output.UserInvitationStatus),
     UserRegistrationStatus: __expectString(output.UserRegistrationStatus),
@@ -20583,12 +20631,16 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
   return {
     AwsRegion: __expectString(output.AwsRegion),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Name: __expectString(output.Name),
     OutboundHostName: __expectString(output.OutboundHostName),
     RequireEncryption: __expectBoolean(output.RequireEncryption),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorArn: __expectString(output.VoiceConnectorArn),
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
@@ -20597,10 +20649,14 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
 const deserializeAws_restJson1VoiceConnectorGroup = (output: any, context: __SerdeContext): VoiceConnectorGroup => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Name: __expectString(output.Name),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorGroupArn: __expectString(output.VoiceConnectorGroupArn),
     VoiceConnectorGroupId: __expectString(output.VoiceConnectorGroupId),
     VoiceConnectorItems:

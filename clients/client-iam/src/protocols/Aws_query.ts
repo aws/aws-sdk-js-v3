@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -13604,7 +13604,7 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
     contents.EntityPath = __expectString(output["EntityPath"]);
   }
   if (output["LastAuthenticatedTime"] !== undefined) {
-    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticatedTime"]));
+    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticatedTime"]));
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
     contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
@@ -13641,7 +13641,7 @@ const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): Ac
     contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -13653,7 +13653,7 @@ const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeCont
     Region: undefined,
   };
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -13681,7 +13681,7 @@ const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeCont
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -14087,7 +14087,7 @@ const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext)
     contents.EntityInfo = deserializeAws_queryEntityInfo(output["EntityInfo"], context);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   return contents;
 };
@@ -14423,7 +14423,7 @@ const deserializeAws_queryGetCredentialReportResponse = (
     contents.ReportFormat = __expectString(output["ReportFormat"]);
   }
   if (output["GeneratedTime"] !== undefined) {
-    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTime(output["GeneratedTime"]));
+    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["GeneratedTime"]));
   }
   return contents;
 };
@@ -14524,7 +14524,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     );
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -14553,10 +14553,10 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["NumberOfServicesAccessible"] !== undefined) {
     contents.NumberOfServicesAccessible = __strictParseInt32(output["NumberOfServicesAccessible"]) as number;
@@ -14646,10 +14646,10 @@ const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __Ser
     contents.SAMLMetadataDocument = __expectString(output["SAMLMetadataDocument"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -14693,7 +14693,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     contents.JobType = __expectString(output["JobType"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output.ServicesLastAccessed === "") {
     contents.ServicesLastAccessed = [];
@@ -14704,7 +14704,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     );
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14735,10 +14735,10 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output.EntityDetailsList === "") {
     contents.EntityDetailsList = [];
@@ -14836,7 +14836,7 @@ const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -14864,7 +14864,7 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.GroupPolicyList === "") {
     contents.GroupPolicyList = [];
@@ -14935,7 +14935,7 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Roles === "") {
     contents.Roles = [];
@@ -15913,7 +15913,7 @@ const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext):
     contents.UserName = __expectString(output["UserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordResetRequired"] !== undefined) {
     contents.PasswordResetRequired = __parseBoolean(output["PasswordResetRequired"]);
@@ -15990,10 +15990,10 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.PolicyVersionList === "") {
     contents.PolicyVersionList = [];
@@ -16030,7 +16030,7 @@ const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MF
     contents.SerialNumber = __expectString(output["SerialNumber"]);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   return contents;
 };
@@ -16205,10 +16205,10 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -16413,7 +16413,7 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
     contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -16547,7 +16547,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16603,7 +16603,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16666,7 +16666,7 @@ const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext):
     Region: undefined,
   };
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
@@ -16719,10 +16719,10 @@ const deserializeAws_querySAMLProviderListEntry = (output: any, context: __Serde
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -16787,10 +16787,10 @@ const deserializeAws_queryServerCertificateMetadata = (
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
   }
   return contents;
 };
@@ -16830,7 +16830,7 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
     contents.ServiceName = __expectString(output["ServiceName"]);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   if (output["ServiceNamespace"] !== undefined) {
     contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
@@ -16893,7 +16893,7 @@ const deserializeAws_queryServiceSpecificCredential = (
     Status: undefined,
   };
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -16938,7 +16938,7 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
     contents.ServiceUserName = __expectString(output["ServiceUserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceSpecificCredentialId"] !== undefined) {
     contents.ServiceSpecificCredentialId = __expectString(output["ServiceSpecificCredentialId"]);
@@ -16981,7 +16981,7 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -17034,7 +17034,7 @@ const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext):
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -17064,7 +17064,7 @@ const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeC
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -17156,7 +17156,7 @@ const deserializeAws_queryTrackedActionLastAccessed = (
     contents.LastAccessedEntity = __expectString(output["LastAccessedEntity"]);
   }
   if (output["LastAccessedTime"] !== undefined) {
-    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAccessedTime"]));
+    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAccessedTime"]));
   }
   if (output["LastAccessedRegion"] !== undefined) {
     contents.LastAccessedRegion = __expectString(output["LastAccessedRegion"]);
@@ -17304,10 +17304,10 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordLastUsed"] !== undefined) {
-    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTime(output["PasswordLastUsed"]));
+    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["PasswordLastUsed"]));
   }
   if (output["PermissionsBoundary"] !== undefined) {
     contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
@@ -17349,7 +17349,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.UserPolicyList === "") {
     contents.UserPolicyList = [];
@@ -17430,7 +17430,7 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
     contents.User = deserializeAws_queryUser(output["User"], context);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];

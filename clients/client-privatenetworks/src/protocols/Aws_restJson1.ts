@@ -9,7 +9,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
@@ -2304,7 +2304,8 @@ const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1DeviceIdentifier = (output: any, context: __SerdeContext): DeviceIdentifier => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     deviceIdentifierArn: __expectString(output.deviceIdentifierArn),
     iccid: __expectString(output.iccid),
     imsi: __expectString(output.imsi),
@@ -2349,7 +2350,8 @@ const deserializeAws_restJson1NameValuePairs = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     description: __expectString(output.description),
     networkArn: __expectString(output.networkArn),
     networkName: __expectString(output.networkName),
@@ -2374,7 +2376,8 @@ const deserializeAws_restJson1NetworkResource = (output: any, context: __SerdeCo
   return {
     attributes:
       output.attributes != null ? deserializeAws_restJson1NameValuePairs(output.attributes, context) : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     description: __expectString(output.description),
     health: __expectString(output.health),
     model: __expectString(output.model),
@@ -2433,7 +2436,8 @@ const deserializeAws_restJson1NetworkSite = (output: any, context: __SerdeContex
   return {
     availabilityZone: __expectString(output.availabilityZone),
     availabilityZoneId: __expectString(output.availabilityZoneId),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     currentPlan: output.currentPlan != null ? deserializeAws_restJson1SitePlan(output.currentPlan, context) : undefined,
     description: __expectString(output.description),
     networkArn: __expectString(output.networkArn),
@@ -2472,7 +2476,8 @@ const deserializeAws_restJson1Options = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Order => {
   return {
     acknowledgmentStatus: __expectString(output.acknowledgmentStatus),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     networkArn: __expectString(output.networkArn),
     networkSiteArn: __expectString(output.networkSiteArn),
     orderArn: __expectString(output.orderArn),

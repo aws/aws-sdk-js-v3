@@ -9,7 +9,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -557,13 +557,13 @@ export const deserializeAws_restJson1CreateChatTokenCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.sessionExpirationTime != null) {
-    contents.sessionExpirationTime = __expectNonNull(__parseRfc3339DateTime(data.sessionExpirationTime));
+    contents.sessionExpirationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.sessionExpirationTime));
   }
   if (data.token != null) {
     contents.token = __expectString(data.token);
   }
   if (data.tokenExpirationTime != null) {
-    contents.tokenExpirationTime = __expectNonNull(__parseRfc3339DateTime(data.tokenExpirationTime));
+    contents.tokenExpirationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.tokenExpirationTime));
   }
   return contents;
 };
@@ -616,7 +616,7 @@ export const deserializeAws_restJson1CreateLoggingConfigurationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.destinationConfiguration != null) {
     contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
@@ -637,7 +637,7 @@ export const deserializeAws_restJson1CreateLoggingConfigurationCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -696,7 +696,7 @@ export const deserializeAws_restJson1CreateRoomCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -723,7 +723,7 @@ export const deserializeAws_restJson1CreateRoomCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -982,7 +982,7 @@ export const deserializeAws_restJson1GetLoggingConfigurationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.destinationConfiguration != null) {
     contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
@@ -1003,7 +1003,7 @@ export const deserializeAws_restJson1GetLoggingConfigurationCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -1053,7 +1053,7 @@ export const deserializeAws_restJson1GetRoomCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -1080,7 +1080,7 @@ export const deserializeAws_restJson1GetRoomCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -1418,7 +1418,7 @@ export const deserializeAws_restJson1UpdateLoggingConfigurationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.destinationConfiguration != null) {
     contents.destinationConfiguration = deserializeAws_restJson1DestinationConfiguration(
@@ -1439,7 +1439,7 @@ export const deserializeAws_restJson1UpdateLoggingConfigurationCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -1492,7 +1492,7 @@ export const deserializeAws_restJson1UpdateRoomCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createTime != null) {
-    contents.createTime = __expectNonNull(__parseRfc3339DateTime(data.createTime));
+    contents.createTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -1519,7 +1519,7 @@ export const deserializeAws_restJson1UpdateRoomCommand = async (
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -1892,7 +1892,8 @@ const deserializeAws_restJson1LoggingConfigurationSummary = (
 ): LoggingConfigurationSummary => {
   return {
     arn: __expectString(output.arn),
-    createTime: output.createTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createTime)) : undefined,
+    createTime:
+      output.createTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createTime)) : undefined,
     destinationConfiguration:
       output.destinationConfiguration != null
         ? deserializeAws_restJson1DestinationConfiguration(__expectUnion(output.destinationConfiguration), context)
@@ -1901,7 +1902,8 @@ const deserializeAws_restJson1LoggingConfigurationSummary = (
     name: __expectString(output.name),
     state: __expectString(output.state),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -1927,7 +1929,8 @@ const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1RoomSummary = (output: any, context: __SerdeContext): RoomSummary => {
   return {
     arn: __expectString(output.arn),
-    createTime: output.createTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createTime)) : undefined,
+    createTime:
+      output.createTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createTime)) : undefined,
     id: __expectString(output.id),
     loggingConfigurationIdentifiers:
       output.loggingConfigurationIdentifiers != null
@@ -1939,7 +1942,8 @@ const deserializeAws_restJson1RoomSummary = (output: any, context: __SerdeContex
         : undefined,
     name: __expectString(output.name),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 

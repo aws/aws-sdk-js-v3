@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
@@ -1501,7 +1501,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdTime != null) {
-    contents.createdTime = __expectNonNull(__parseRfc3339DateTime(data.createdTime));
+    contents.createdTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdTime));
   }
   if (data.domainArn != null) {
     contents.domainArn = __expectString(data.domainArn);
@@ -3036,7 +3036,7 @@ const deserializeAws_restJson1ContactContent = (output: any, context: __SerdeCon
     channel: __expectString(output.channel),
     connectedToSystemTime:
       output.connectedToSystemTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.connectedToSystemTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.connectedToSystemTime))
         : undefined,
     contactArn: __expectString(output.contactArn),
   } as any;
@@ -3355,7 +3355,9 @@ const deserializeAws_restJson1SearchRelatedItemsResponseItem = (
 ): SearchRelatedItemsResponseItem => {
   return {
     associationTime:
-      output.associationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.associationTime)) : undefined,
+      output.associationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.associationTime))
+        : undefined,
     content:
       output.content != null
         ? deserializeAws_restJson1RelatedItemContent(__expectUnion(output.content), context)

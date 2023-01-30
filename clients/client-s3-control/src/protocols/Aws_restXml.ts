@@ -15,7 +15,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   map as __map,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -3484,7 +3484,7 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
     contents.BucketAccountId = __expectString(data["BucketAccountId"]);
   }
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data.Endpoints === "") {
     contents.Endpoints = {};
@@ -3574,7 +3574,7 @@ export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async 
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -3761,7 +3761,7 @@ export const deserializeAws_restXmlGetBucketCommand = async (
     contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data["PublicAccessBlockEnabled"] !== undefined) {
     contents.PublicAccessBlockEnabled = __parseBoolean(data["PublicAccessBlockEnabled"]);
@@ -6987,7 +6987,7 @@ const deserializeAws_restXmlAsyncOperation = (output: any, context: __SerdeConte
     ResponseDetails: undefined,
   };
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["Operation"] !== undefined) {
     contents.Operation = __expectString(output["Operation"]);
@@ -7316,16 +7316,16 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.Report = deserializeAws_restXmlJobReport(output["Report"], context);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTime(output["TerminationDate"]));
+    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
   }
   if (output["RoleArn"] !== undefined) {
     contents.RoleArn = __expectString(output["RoleArn"]);
   }
   if (output["SuspendedDate"] !== undefined) {
-    contents.SuspendedDate = __expectNonNull(__parseRfc3339DateTime(output["SuspendedDate"]));
+    contents.SuspendedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SuspendedDate"]));
   }
   if (output["SuspendedCause"] !== undefined) {
     contents.SuspendedCause = __expectString(output["SuspendedCause"]);
@@ -7396,10 +7396,10 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTime(output["TerminationDate"]));
+    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
   }
   if (output["ProgressSummary"] !== undefined) {
     contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
@@ -7463,10 +7463,10 @@ const deserializeAws_restXmlJobManifestGeneratorFilter = (
     contents.EligibleForReplication = __parseBoolean(output["EligibleForReplication"]);
   }
   if (output["CreatedAfter"] !== undefined) {
-    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTime(output["CreatedAfter"]));
+    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAfter"]));
   }
   if (output["CreatedBefore"] !== undefined) {
-    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTime(output["CreatedBefore"]));
+    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedBefore"]));
   }
   if (output.ObjectReplicationStatuses === "") {
     contents.ObjectReplicationStatuses = [];
@@ -7651,7 +7651,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     ExpiredObjectDeleteMarker: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -7872,7 +7872,7 @@ const deserializeAws_restXmlMultiRegionAccessPointReport = (
     contents.Alias = __expectString(output["Alias"]);
   }
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
   if (output["PublicAccessBlock"] !== undefined) {
     contents.PublicAccessBlock = deserializeAws_restXmlPublicAccessBlockConfiguration(
@@ -8247,7 +8247,7 @@ const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeConte
     contents.PublicAccessBlockEnabled = __parseBoolean(output["PublicAccessBlockEnabled"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   if (output["OutpostId"] !== undefined) {
     contents.OutpostId = __expectString(output["OutpostId"]);
@@ -8419,7 +8419,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.MetadataDirective = __expectString(output["MetadataDirective"]);
   }
   if (output["ModifiedSinceConstraint"] !== undefined) {
-    contents.ModifiedSinceConstraint = __expectNonNull(__parseRfc3339DateTime(output["ModifiedSinceConstraint"]));
+    contents.ModifiedSinceConstraint = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ModifiedSinceConstraint"])
+    );
   }
   if (output["NewObjectMetadata"] !== undefined) {
     contents.NewObjectMetadata = deserializeAws_restXmlS3ObjectMetadata(output["NewObjectMetadata"], context);
@@ -8442,7 +8444,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["UnModifiedSinceConstraint"] !== undefined) {
-    contents.UnModifiedSinceConstraint = __expectNonNull(__parseRfc3339DateTime(output["UnModifiedSinceConstraint"]));
+    contents.UnModifiedSinceConstraint = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["UnModifiedSinceConstraint"])
+    );
   }
   if (output["SSEAwsKmsKeyId"] !== undefined) {
     contents.SSEAwsKmsKeyId = __expectString(output["SSEAwsKmsKeyId"]);
@@ -8457,7 +8461,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.ObjectLockMode = __expectString(output["ObjectLockMode"]);
   }
   if (output["ObjectLockRetainUntilDate"] !== undefined) {
-    contents.ObjectLockRetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["ObjectLockRetainUntilDate"]));
+    contents.ObjectLockRetainUntilDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ObjectLockRetainUntilDate"])
+    );
   }
   if (output["BucketKeyEnabled"] !== undefined) {
     contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
@@ -8665,7 +8671,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     contents.ContentType = __expectString(output["ContentType"]);
   }
   if (output["HttpExpiresDate"] !== undefined) {
-    contents.HttpExpiresDate = __expectNonNull(__parseRfc3339DateTime(output["HttpExpiresDate"]));
+    contents.HttpExpiresDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["HttpExpiresDate"]));
   }
   if (output["RequesterCharged"] !== undefined) {
     contents.RequesterCharged = __parseBoolean(output["RequesterCharged"]);
@@ -8704,7 +8710,7 @@ const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext)
     Mode: undefined,
   };
   if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["RetainUntilDate"]));
+    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
   }
   if (output["Mode"] !== undefined) {
     contents.Mode = __expectString(output["Mode"]);
@@ -8972,7 +8978,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     StorageClass: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;

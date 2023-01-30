@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2137,7 +2137,9 @@ const deserializeAws_restJson1Administrator = (output: any, context: __SerdeCont
   return {
     AccountId: __expectString(output.AccountId),
     DelegationTime:
-      output.DelegationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.DelegationTime)) : undefined,
+      output.DelegationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DelegationTime))
+        : undefined,
     GraphArn: __expectString(output.GraphArn),
   } as any;
 };
@@ -2223,7 +2225,7 @@ const deserializeAws_restJson1DatasourcePackageUsageInfo = (
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdateTime:
       output.VolumeUsageUpdateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdateTime))
         : undefined,
   } as any;
 };
@@ -2231,7 +2233,8 @@ const deserializeAws_restJson1DatasourcePackageUsageInfo = (
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
     Arn: __expectString(output.Arn),
-    CreatedTime: output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTime)) : undefined,
+    CreatedTime:
+      output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTime)) : undefined,
   } as any;
 };
 
@@ -2275,15 +2278,17 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     EmailAddress: __expectString(output.EmailAddress),
     GraphArn: __expectString(output.GraphArn),
     InvitationType: __expectString(output.InvitationType),
-    InvitedTime: output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedTime)) : undefined,
+    InvitedTime:
+      output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedTime)) : undefined,
     MasterId: __expectString(output.MasterId),
     PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.PercentOfGraphUtilizationUpdatedTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.PercentOfGraphUtilizationUpdatedTime))
         : undefined,
     Status: __expectString(output.Status),
-    UpdatedTime: output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime)) : undefined,
+    UpdatedTime:
+      output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTime)) : undefined,
     VolumeUsageByDatasourcePackage:
       output.VolumeUsageByDatasourcePackage != null
         ? deserializeAws_restJson1VolumeUsageByDatasourcePackage(output.VolumeUsageByDatasourcePackage, context)
@@ -2291,7 +2296,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdatedTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdatedTime))
         : undefined,
   } as any;
 };
@@ -2361,7 +2366,8 @@ const deserializeAws_restJson1TimestampForCollection = (
   context: __SerdeContext
 ): TimestampForCollection => {
   return {
-    Timestamp: output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Timestamp)) : undefined,
+    Timestamp:
+      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
   } as any;
 };
 
