@@ -38,9 +38,7 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *       tools such as the Discovery Connector or Discovery Agent. This gives you the option to perform
  *       migration assessment and planning directly from your imported data, including the ability to
  *       group your devices as applications and track their migration status.</p>
- *
  *          <p>To start an import request, do this:</p>
- *
  *          <ol>
  *             <li>
  *                <p>Download the specially formatted comma separated value (CSV) import template, which
@@ -58,11 +56,9 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *           the Amazon Web Services SDKs to import the records from your file.</p>
  *             </li>
  *          </ol>
- *
  *          <p>For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html">Migration Hub
  *         Import</a> in the <i>Amazon Web Services Application Discovery Service User
  *       Guide</i>.</p>
- *
  *          <note>
  *             <p>There are limits to the number of import tasks you can create (and delete) in an Amazon Web Services
  *         account. For more information, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html">Amazon Web Services Application

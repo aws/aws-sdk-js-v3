@@ -35,7 +35,6 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
 /**
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
- *
  *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
  *       discovered servers match existing entries that you've previously discovered, the information
  *       for the already-existing discovered server is updated. When you delete an import task that

@@ -122,20 +122,17 @@ import {
 
 /**
  * <fullname>Amazon Web Services Application Discovery Service</fullname>
- *
  *          <p>Amazon Web Services Application Discovery Service helps you plan application migration projects. It
  *       automatically identifies servers, virtual machines (VMs), and network dependencies in your
  *       on-premises data centers. For more information, see the <a href="http://aws.amazon.com/application-discovery/faqs/">Amazon Web Services Application Discovery Service FAQ</a>.
  *       Application Discovery Service offers three ways of performing discovery and
  *       collecting data about your on-premises servers:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agentless discovery</b> is recommended for environments
  *           that use VMware vCenter Server. This mode doesn't require you to install an agent on each
  *           host. It does not work in non-VMware environments.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Agentless discovery gathers server information regardless of the operating
@@ -149,14 +146,12 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agent-based discovery</b> collects a richer set of data
  *           than agentless discovery by using the Amazon Web Services Application Discovery Agent, which you install
  *           on one or more hosts in your data center.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p> The agent captures infrastructure and application information, including an
@@ -170,7 +165,6 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -178,7 +172,6 @@ import {
  *           Application Discovery Service, enabling you to import details of your on-premises
  *           environment directly into Migration Hub without using the discovery connector or discovery
  *           agent.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Third-party application discovery tools can query Amazon Web Services Application Discovery
@@ -192,8 +185,6 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
  *          <p>
  *             <b>Recommendations</b>
  *          </p>
@@ -202,18 +193,15 @@ import {
  *       and agentless discovery simultaneously. Use agentless discovery to complete the initial
  *       infrastructure assessment quickly, and then install agents on select hosts to collect
  *       additional information.</p>
- *
  *          <p>
  *             <b>Working With This Guide</b>
  *          </p>
- *
  *          <p>This API reference provides descriptions, syntax, and usage examples for each of the
  *       actions and data types for Application Discovery Service. The topic for each action shows the
  *       API request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
  *       access an API that is tailored to the programming language or platform that you're using. For
  *       more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services
  *       SDKs</a>.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -239,10 +227,8 @@ import {
  *                </li>
  *             </ul>
  *          </note>
- *
  *          <p>This guide is intended for use with the <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/">Amazon Web Services Application
  *         Discovery Service User Guide</a>.</p>
- *
  *          <important>
  *             <p>All data is handled according to the <a href="http://aws.amazon.com/privacy/">Amazon Web Services
  *           Privacy Policy</a>. You can operate Application Discovery Service offline to inspect
@@ -287,7 +273,6 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   /**
    * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
    *       a number of records that can identify servers or applications. </p>
-   *
    *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
    *       discovered servers match existing entries that you've previously discovered, the information
    *       for the already-existing discovered server is updated. When you delete an import task that
@@ -358,7 +343,6 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   /**
    * <p>Creates one or more tags for configuration items. Tags are metadata that help you
    *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
-   *
    *          <important>
    *             <p>Do not store sensitive information (like personal data) in tags.</p>
    *          </important>
@@ -482,7 +466,6 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
 
   /**
    * <p>Retrieves attributes for a list of configuration item IDs.</p>
-   *
    *          <note>
    *             <p>All of the supplied IDs must be for the same asset type from one of the
    *         following:</p>
@@ -500,7 +483,6 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    *                   <p>connection</p>
    *                </li>
    *             </ul>
-   *
    *             <p>Output fields are specific to the asset type specified. For example, the output for a
    *           <i>server</i> configuration item includes a list of attributes about the
    *         server, such as host name, operating system, number of network cards, etc.</p>
@@ -1000,9 +982,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    *       tools such as the Discovery Connector or Discovery Agent. This gives you the option to perform
    *       migration assessment and planning directly from your imported data, including the ability to
    *       group your devices as applications and track their migration status.</p>
-   *
    *          <p>To start an import request, do this:</p>
-   *
    *          <ol>
    *             <li>
    *                <p>Download the specially formatted comma separated value (CSV) import template, which
@@ -1020,11 +1000,9 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    *           the Amazon Web Services SDKs to import the records from your file.</p>
    *             </li>
    *          </ol>
-   *
    *          <p>For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html">Migration Hub
    *         Import</a> in the <i>Amazon Web Services Application Discovery Service User
    *       Guide</i>.</p>
-   *
    *          <note>
    *             <p>There are limits to the number of import tasks you can create (and delete) in an Amazon Web Services
    *         account. For more information, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html">Amazon Web Services Application
