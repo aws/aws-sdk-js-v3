@@ -6,9 +6,9 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/mediaconvert.json */
 
-const r="fn",
-s="argv",
-t="ref";
+const u="fn",
+v="argv",
+w="ref";
 const a=true,
 b=false,
 c="String",
@@ -16,15 +16,18 @@ d="PartitionResult",
 e="tree",
 f="error",
 g="endpoint",
-h={"required":true,"default":false,"type":"Boolean"},
-i={[t]:"Region"},
-j={[t]:"Endpoint"},
-k={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
-l={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
-m={},
-n={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsFIPS"]}]},
-o={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsDualStack"]}]},
-p=[k],
-q=[l];
-const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[r]:"aws.partition",[s]:[i],assign:d}],type:e,rules:[{conditions:[{[r]:"isSet",[s]:[j]}],type:e,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,o],type:e,rules:[{endpoint:{url:"https://mediaconvert-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:p,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://mediaconvert-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:q,type:e,rules:[{conditions:[o],type:e,rules:[{endpoint:{url:"https://mediaconvert.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{conditions:[{[r]:"stringEquals",[s]:[i,"cn-northwest-1"]}],endpoint:{url:"https://subscribe.mediaconvert.cn-northwest-1.amazonaws.com.cn",properties:m,headers:m},type:g},{endpoint:{url:"https://mediaconvert.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]}]};
+h="getAttr",
+i="stringEquals",
+j={"required":true,"default":false,"type":"Boolean"},
+k={[w]:"Region"},
+l={[w]:"Endpoint"},
+m={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
+n={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
+o={},
+p={[u]:"booleanEquals",[v]:[true,{[u]:h,[v]:[{[w]:d},"supportsFIPS"]}]},
+q={[w]:d},
+r={[u]:"booleanEquals",[v]:[true,{[u]:h,[v]:[q,"supportsDualStack"]}]},
+s=[m],
+t=[n];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:j,UseFIPS:j,Endpoint:{required:b,type:c}},rules:[{conditions:[{[u]:"aws.partition",[v]:[k],assign:d}],type:e,rules:[{conditions:[{[u]:"isSet",[v]:[l]}],type:e,rules:[{conditions:s,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:t,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:l,properties:o,headers:o},type:g}]}]},{conditions:[m,n],type:e,rules:[{conditions:[p,r],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://mediaconvert-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:s,type:e,rules:[{conditions:[p],type:e,rules:[{type:e,rules:[{conditions:[{[u]:i,[v]:["aws-us-gov",{[u]:h,[v]:[q,"name"]}]}],endpoint:{url:"https://mediaconvert.{Region}.amazonaws.com",properties:o,headers:o},type:g},{endpoint:{url:"https://mediaconvert-fips.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:t,type:e,rules:[{conditions:[r],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://mediaconvert.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:g}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{conditions:[{[u]:i,[v]:[k,"cn-northwest-1"]}],endpoint:{url:"https://subscribe.mediaconvert.cn-northwest-1.amazonaws.com.cn",properties:o,headers:o},type:g},{conditions:[{[u]:i,[v]:[k,"us-gov-west-1"]}],endpoint:{url:"https://mediaconvert.us-gov-west-1.amazonaws.com",properties:o,headers:o},type:g},{endpoint:{url:"https://mediaconvert.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:g}]}]}]};
 export const ruleSet: RuleSetObject = _data;
