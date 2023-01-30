@@ -12066,7 +12066,7 @@ const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
 };
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Code !== undefined) {
+  if (data?.Code !== undefined) {
     return data.Code;
   }
   if (output.statusCode == 404) {
