@@ -297,10 +297,14 @@ esfuture,29`;
   describe("Multi-region access point", () => {
     before(async () => {
       Key = `${Date.now()}`;
-      await client.putObject({ Bucket: mrapArn, Key, Body: "foo" });
+      if (!isBrowser) {
+        await client.putObject({ Bucket: mrapArn, Key, Body: "foo" });
+      }
     });
     after(async () => {
-      await client.deleteObject({ Bucket: mrapArn, Key });
+      if (!isBrowser) {
+        await client.deleteObject({ Bucket: mrapArn, Key });
+      }
     });
     if (isBrowser) {
       it("should throw for aws-crt no available in browser", async () => {
