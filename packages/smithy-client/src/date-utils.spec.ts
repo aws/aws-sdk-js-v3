@@ -1,4 +1,31 @@
-import { parseEpochTimestamp, parseRfc3339DateTime, parseRfc7231DateTime } from "./date-utils";
+import {
+  parseEpochTimestamp,
+  parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset,
+  parseRfc7231DateTime,
+} from "./date-utils";
+
+const invalidRfc3339DateTimes = [
+  "85-04-12T23:20:50.52Z",
+  "985-04-12T23:20:50.52Z",
+  "1985-13-12T23:20:50.52Z",
+  "1985-00-12T23:20:50.52Z",
+  "1985-4-12T23:20:50.52Z",
+  "1985-04-32T23:20:50.52Z",
+  "1985-04-00T23:20:50.52Z",
+  "1985-04-05T24:20:50.52Z",
+  "1985-04-05T23:61:50.52Z",
+  "1985-04-05T23:20:61.52Z",
+  "1985-04-31T23:20:50.52Z",
+  "2005-02-29T15:59:59Z",
+  "1996-12-19T16:39:57",
+  "Mon, 31 Dec 1990 15:59:60 GMT",
+  "Monday, 31-Dec-90 15:59:60 GMT",
+  "Mon Dec 31 15:59:60 1990",
+  "1985-04-12T23:20:50.52Z1985-04-12T23:20:50.52Z",
+  "1985-04-12T23:20:50.52ZA",
+  "A1985-04-12T23:20:50.52Z",
+];
 
 describe("parseRfc3339DateTime", () => {
   it.each([null, undefined])("returns undefined for %s", (value) => {
@@ -24,27 +51,64 @@ describe("parseRfc3339DateTime", () => {
     });
   });
 
-  it.each([
-    "85-04-12T23:20:50.52Z",
-    "985-04-12T23:20:50.52Z",
-    "1985-13-12T23:20:50.52Z",
-    "1985-00-12T23:20:50.52Z",
-    "1985-4-12T23:20:50.52Z",
-    "1985-04-32T23:20:50.52Z",
-    "1985-04-00T23:20:50.52Z",
-    "1985-04-05T24:20:50.52Z",
-    "1985-04-05T23:61:50.52Z",
-    "1985-04-05T23:20:61.52Z",
-    "1985-04-31T23:20:50.52Z",
-    "2005-02-29T15:59:59Z",
-    "Mon, 31 Dec 1990 15:59:60 GMT",
-    "Monday, 31-Dec-90 15:59:60 GMT",
-    "Mon Dec 31 15:59:60 1990",
-    "1985-04-12T23:20:50.52Z1985-04-12T23:20:50.52Z",
-    "1985-04-12T23:20:50.52ZA",
-    "A1985-04-12T23:20:50.52Z",
-  ])("rejects %s", (value) => {
+  it.each(invalidRfc3339DateTimes)("rejects %s", (value) => {
     expect(() => parseRfc3339DateTime(value)).toThrowError();
+  });
+
+  // parseRfc3339DateTime throws on offsets. parseRfc3339DateTimeWithOffset can handle these.
+  it.each(["2019-12-16T22:48:18+02:04", "2019-12-16T22:48:18-01:02"])("rejects %s", (value) => {
+    expect(() => parseRfc3339DateTime(value)).toThrowError();
+  });
+});
+
+describe("parseRfc3339DateTimeWithOffset", () => {
+  it.each([null, undefined])("returns undefined for %s", (value) => {
+    expect(parseRfc3339DateTime(value)).toBeUndefined();
+  });
+
+  describe("parses properly formatted dates", () => {
+    it("with fractional seconds", () => {
+      expect(parseRfc3339DateTimeWithOffset("1985-04-12T23:20:50.52Z")).toEqual(
+        new Date(Date.UTC(1985, 3, 12, 23, 20, 50, 520))
+      );
+    });
+    it("without fractional seconds", () => {
+      expect(parseRfc3339DateTimeWithOffset("1985-04-12T23:20:50Z")).toEqual(
+        new Date(Date.UTC(1985, 3, 12, 23, 20, 50, 0))
+      );
+    });
+    it("with leap seconds", () => {
+      expect(parseRfc3339DateTimeWithOffset("1990-12-31T15:59:60Z")).toEqual(
+        new Date(Date.UTC(1990, 11, 31, 15, 59, 60, 0))
+      );
+    });
+    it("with leap days", () => {
+      expect(parseRfc3339DateTimeWithOffset("2004-02-29T15:59:59Z")).toEqual(
+        new Date(Date.UTC(2004, 1, 29, 15, 59, 59, 0))
+      );
+    });
+    it("with leading zeroes", () => {
+      expect(parseRfc3339DateTimeWithOffset("0004-02-09T05:09:09.09Z")).toEqual(
+        new Date(Date.UTC(4, 1, 9, 5, 9, 9, 90))
+      );
+      expect(parseRfc3339DateTimeWithOffset("0004-02-09T00:00:00.00Z")).toEqual(
+        new Date(Date.UTC(4, 1, 9, 0, 0, 0, 0))
+      );
+    });
+    it("with negative offset", () => {
+      expect(parseRfc3339DateTimeWithOffset("2019-12-16T22:48:18-01:02")).toEqual(
+        new Date(Date.UTC(2019, 11, 16, 23, 50, 18, 0))
+      );
+    });
+    it("with positive offset", () => {
+      expect(parseRfc3339DateTimeWithOffset("2019-12-16T22:48:18+02:04")).toEqual(
+        new Date(Date.UTC(2019, 11, 16, 20, 44, 18, 0))
+      );
+    });
+  });
+
+  it.each(invalidRfc3339DateTimes)("rejects %s", (value) => {
+    expect(() => parseRfc3339DateTimeWithOffset(value)).toThrowError();
   });
 });
 
