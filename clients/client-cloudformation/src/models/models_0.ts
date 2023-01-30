@@ -4760,6 +4760,8 @@ export interface StackSet {
    *          conflicting operations.</p>
    */
   ManagedExecution?: ManagedExecution;
+
+  Regions?: string[];
 }
 
 export interface DescribeStackSetOutput {

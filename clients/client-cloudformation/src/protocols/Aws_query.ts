@@ -9520,6 +9520,7 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
     PermissionModel: undefined,
     OrganizationalUnitIds: undefined,
     ManagedExecution: undefined,
+    Regions: undefined,
   };
   if (output["StackSetName"] !== undefined) {
     contents.StackSetName = __expectString(output["StackSetName"]);
@@ -9588,6 +9589,11 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
   }
   if (output["ManagedExecution"] !== undefined) {
     contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
+  }
+  if (output.Regions === "") {
+    contents.Regions = [];
+  } else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
+    contents.Regions = deserializeAws_queryRegionList(__getArrayIfSingleItem(output["Regions"]["member"]), context);
   }
   return contents;
 };
