@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -3890,10 +3890,10 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
     PendingDeletion: undefined,
   };
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output["UpdateVersion"] !== undefined) {
     contents.UpdateVersion = __strictParseInt32(output["UpdateVersion"]) as number;

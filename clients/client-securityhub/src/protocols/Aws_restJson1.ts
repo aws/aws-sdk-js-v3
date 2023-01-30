@@ -11,7 +11,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -25791,7 +25791,8 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     AccountId: __expectString(output.AccountId),
     InvitationId: __expectString(output.InvitationId),
-    InvitedAt: output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt)) : undefined,
+    InvitedAt:
+      output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedAt)) : undefined,
     MemberStatus: __expectString(output.MemberStatus),
   } as any;
 };
@@ -25932,10 +25933,12 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
     AccountId: __expectString(output.AccountId),
     AdministratorId: __expectString(output.AdministratorId),
     Email: __expectString(output.Email),
-    InvitedAt: output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt)) : undefined,
+    InvitedAt:
+      output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedAt)) : undefined,
     MasterId: __expectString(output.MasterId),
     MemberStatus: __expectString(output.MemberStatus),
-    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
   } as any;
 };
 
@@ -27254,7 +27257,7 @@ const deserializeAws_restJson1StandardsControl = (output: any, context: __SerdeC
     ControlStatus: __expectString(output.ControlStatus),
     ControlStatusUpdatedAt:
       output.ControlStatusUpdatedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.ControlStatusUpdatedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ControlStatusUpdatedAt))
         : undefined,
     Description: __expectString(output.Description),
     DisabledReason: __expectString(output.DisabledReason),

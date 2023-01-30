@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -953,7 +953,7 @@ export const deserializeAws_restJson1BatchGetFrameMetricDataCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseRfc3339DateTime(data.endTime));
+    contents.endTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endTime));
   }
   if (data.endTimes != null) {
     contents.endTimes = deserializeAws_restJson1ListOfTimestamps(data.endTimes, context);
@@ -965,7 +965,7 @@ export const deserializeAws_restJson1BatchGetFrameMetricDataCommand = async (
     contents.resolution = __expectString(data.resolution);
   }
   if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTime(data.startTime));
+    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
   }
   if (data.unprocessedEndTimes != null) {
     contents.unprocessedEndTimes = deserializeAws_restJson1UnprocessedEndTimeMap(data.unprocessedEndTimes, context);
@@ -1421,10 +1421,10 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     contents.anomalies = deserializeAws_restJson1Anomalies(data.anomalies, context);
   }
   if (data.profileEndTime != null) {
-    contents.profileEndTime = __expectNonNull(__parseRfc3339DateTime(data.profileEndTime));
+    contents.profileEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.profileEndTime));
   }
   if (data.profileStartTime != null) {
-    contents.profileStartTime = __expectNonNull(__parseRfc3339DateTime(data.profileStartTime));
+    contents.profileStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.profileStartTime));
   }
   if (data.profilingGroupName != null) {
     contents.profilingGroupName = __expectString(data.profilingGroupName);
@@ -2294,7 +2294,7 @@ const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeCo
 const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __SerdeContext): AggregatedProfileTime => {
   return {
     period: __expectString(output.period),
-    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.start)) : undefined,
   } as any;
 };
 
@@ -2321,9 +2321,10 @@ const deserializeAws_restJson1Anomaly = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1AnomalyInstance = (output: any, context: __SerdeContext): AnomalyInstance => {
   return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     id: __expectString(output.id),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     userFeedback:
       output.userFeedback != null ? deserializeAws_restJson1UserFeedback(output.userFeedback, context) : undefined,
   } as any;
@@ -2395,9 +2396,13 @@ const deserializeAws_restJson1FindingsReportSummary = (output: any, context: __S
   return {
     id: __expectString(output.id),
     profileEndTime:
-      output.profileEndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileEndTime)) : undefined,
+      output.profileEndTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.profileEndTime))
+        : undefined,
     profileStartTime:
-      output.profileStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileStartTime)) : undefined,
+      output.profileStartTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.profileStartTime))
+        : undefined,
     profilingGroupName: __expectString(output.profilingGroupName),
     totalNumberOfFindings: __expectInt32(output.totalNumberOfFindings),
   } as any;
@@ -2512,7 +2517,7 @@ const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContext): ProfileTime => {
   return {
-    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.start)) : undefined,
   } as any;
 };
 
@@ -2539,14 +2544,16 @@ const deserializeAws_restJson1ProfilingGroupDescription = (
         : undefined,
     arn: __expectString(output.arn),
     computePlatform: __expectString(output.computePlatform),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     name: __expectString(output.name),
     profilingStatus:
       output.profilingStatus != null
         ? deserializeAws_restJson1ProfilingStatus(output.profilingStatus, context)
         : undefined,
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2581,11 +2588,11 @@ const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeCo
   return {
     latestAgentOrchestratedAt:
       output.latestAgentOrchestratedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentOrchestratedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.latestAgentOrchestratedAt))
         : undefined,
     latestAgentProfileReportedAt:
       output.latestAgentProfileReportedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentProfileReportedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.latestAgentProfileReportedAt))
         : undefined,
     latestAggregatedProfile:
       output.latestAggregatedProfile != null
@@ -2598,9 +2605,10 @@ const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeCon
   return {
     allMatchesCount: __expectInt32(output.allMatchesCount),
     allMatchesSum: __limitedParseDouble(output.allMatchesSum),
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     pattern: output.pattern != null ? deserializeAws_restJson1Pattern(output.pattern, context) : undefined,
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     topMatches: output.topMatches != null ? deserializeAws_restJson1Matches(output.topMatches, context) : undefined,
   } as any;
 };
@@ -2677,7 +2685,7 @@ const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TimestampStructure = (output: any, context: __SerdeContext): TimestampStructure => {
   return {
-    value: output.value != null ? __expectNonNull(__parseRfc3339DateTime(output.value)) : undefined,
+    value: output.value != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.value)) : undefined,
   } as any;
 };
 

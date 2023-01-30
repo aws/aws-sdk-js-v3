@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -4297,7 +4297,9 @@ export const deserializeAws_restJson1GetPhoneNumberSettingsCommand = async (
     contents.CallingName = __expectString(data.CallingName);
   }
   if (data.CallingNameUpdatedTimestamp != null) {
-    contents.CallingNameUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(data.CallingNameUpdatedTimestamp));
+    contents.CallingNameUpdatedTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(data.CallingNameUpdatedTimestamp)
+    );
   }
   return contents;
 };
@@ -7817,9 +7819,13 @@ const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContex
         : undefined,
     Country: __expectString(output.Country),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     DeletionTimestamp:
-      output.DeletionTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.DeletionTimestamp)) : undefined,
+      output.DeletionTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DeletionTimestamp))
+        : undefined,
     E164PhoneNumber: __expectString(output.E164PhoneNumber),
     OrderId: __expectString(output.OrderId),
     PhoneNumberId: __expectString(output.PhoneNumberId),
@@ -7827,7 +7833,9 @@ const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContex
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -7838,7 +7846,7 @@ const deserializeAws_restJson1PhoneNumberAssociation = (
   return {
     AssociatedTimestamp:
       output.AssociatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.AssociatedTimestamp))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.AssociatedTimestamp))
         : undefined,
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
@@ -7934,7 +7942,9 @@ const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     OrderType: __expectString(output.OrderType),
     OrderedPhoneNumbers:
       output.OrderedPhoneNumbers != null
@@ -7944,7 +7954,9 @@ const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeC
     ProductType: __expectString(output.ProductType),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -7992,9 +8004,13 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
     Capabilities:
       output.Capabilities != null ? deserializeAws_restJson1CapabilityList(output.Capabilities, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     EndedTimestamp:
-      output.EndedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.EndedTimestamp)) : undefined,
+      output.EndedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndedTimestamp))
+        : undefined,
     ExpiryMinutes: __expectInt32(output.ExpiryMinutes),
     GeoMatchLevel: __expectString(output.GeoMatchLevel),
     GeoMatchParams:
@@ -8008,7 +8024,9 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
     ProxySessionId: __expectString(output.ProxySessionId),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
 };
@@ -8041,7 +8059,9 @@ const deserializeAws_restJson1SipMediaApplication = (output: any, context: __Ser
   return {
     AwsRegion: __expectString(output.AwsRegion),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Endpoints:
       output.Endpoints != null
         ? deserializeAws_restJson1SipMediaApplicationEndpointList(output.Endpoints, context)
@@ -8049,7 +8069,9 @@ const deserializeAws_restJson1SipMediaApplication = (output: any, context: __Ser
     Name: __expectString(output.Name),
     SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -8126,7 +8148,9 @@ const deserializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
 const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): SipRule => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Disabled: __expectBoolean(output.Disabled),
     Name: __expectString(output.Name),
     SipRuleId: __expectString(output.SipRuleId),
@@ -8137,7 +8161,9 @@ const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): 
     TriggerType: __expectString(output.TriggerType),
     TriggerValue: __expectString(output.TriggerValue),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -8246,7 +8272,8 @@ const deserializeAws_restJson1Termination = (output: any, context: __SerdeContex
 const deserializeAws_restJson1TerminationHealth = (output: any, context: __SerdeContext): TerminationHealth => {
   return {
     Source: __expectString(output.Source),
-    Timestamp: output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Timestamp)) : undefined,
+    Timestamp:
+      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
   } as any;
 };
 
@@ -8254,12 +8281,16 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
   return {
     AwsRegion: __expectString(output.AwsRegion),
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Name: __expectString(output.Name),
     OutboundHostName: __expectString(output.OutboundHostName),
     RequireEncryption: __expectBoolean(output.RequireEncryption),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorArn: __expectString(output.VoiceConnectorArn),
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
@@ -8283,10 +8314,14 @@ const deserializeAws_restJson1VoiceConnectorAwsRegionList = (
 const deserializeAws_restJson1VoiceConnectorGroup = (output: any, context: __SerdeContext): VoiceConnectorGroup => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     Name: __expectString(output.Name),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
     VoiceConnectorGroupArn: __expectString(output.VoiceConnectorGroupArn),
     VoiceConnectorGroupId: __expectString(output.VoiceConnectorGroupId),
     VoiceConnectorItems:

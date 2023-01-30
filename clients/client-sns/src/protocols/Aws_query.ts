@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5111,7 +5111,7 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
     NumberCapabilities: undefined,
   };
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);

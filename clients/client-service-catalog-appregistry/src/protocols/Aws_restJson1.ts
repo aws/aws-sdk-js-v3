@@ -8,7 +8,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -1170,7 +1170,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.associatedResourceCount = __expectInt32(data.associatedResourceCount);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1182,7 +1182,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.integrations = deserializeAws_restJson1Integrations(data.integrations, context);
   }
   if (data.lastUpdateTime != null) {
-    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdateTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1291,7 +1291,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.attributes = __expectString(data.attributes);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1300,7 +1300,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdateTime != null) {
-    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdateTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -2076,11 +2076,13 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
@@ -2102,11 +2104,13 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2127,11 +2131,13 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
@@ -2191,11 +2197,13 @@ const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __S
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2211,7 +2219,9 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     associationTime:
-      output.associationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.associationTime)) : undefined,
+      output.associationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.associationTime))
+        : undefined,
     integrations:
       output.integrations != null
         ? deserializeAws_restJson1ResourceIntegrations(output.integrations, context)

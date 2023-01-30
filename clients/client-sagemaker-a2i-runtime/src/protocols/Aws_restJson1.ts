@@ -7,7 +7,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -241,7 +241,7 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.CreationTime));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.FailureCode != null) {
     contents.FailureCode = __expectString(data.FailureCode);
@@ -599,7 +599,7 @@ const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __Serd
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
   return {
     CreationTime:
-      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationTime)) : undefined,
+      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
     FailureReason: __expectString(output.FailureReason),
     FlowDefinitionArn: __expectString(output.FlowDefinitionArn),
     HumanLoopName: __expectString(output.HumanLoopName),

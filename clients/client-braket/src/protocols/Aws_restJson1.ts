@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -752,13 +752,13 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.checkpointConfig = deserializeAws_restJson1JobCheckpointConfig(data.checkpointConfig, context);
   }
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.deviceConfig != null) {
     contents.deviceConfig = deserializeAws_restJson1DeviceConfig(data.deviceConfig, context);
   }
   if (data.endedAt != null) {
-    contents.endedAt = __expectNonNull(__parseRfc3339DateTime(data.endedAt));
+    contents.endedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endedAt));
   }
   if (data.events != null) {
     contents.events = deserializeAws_restJson1JobEvents(data.events, context);
@@ -788,7 +788,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.roleArn = __expectString(data.roleArn);
   }
   if (data.startedAt != null) {
-    contents.startedAt = __expectNonNull(__parseRfc3339DateTime(data.startedAt));
+    contents.startedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startedAt));
   }
   if (data.status != null) {
     contents.status = __expectString(data.status);
@@ -850,7 +850,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.deviceArn != null) {
     contents.deviceArn = __expectString(data.deviceArn);
@@ -859,7 +859,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.deviceParameters = new __LazyJsonString(data.deviceParameters);
   }
   if (data.endedAt != null) {
-    contents.endedAt = __expectNonNull(__parseRfc3339DateTime(data.endedAt));
+    contents.endedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endedAt));
   }
   if (data.failureReason != null) {
     contents.failureReason = __expectString(data.failureReason);
@@ -1639,7 +1639,8 @@ const deserializeAws_restJson1JobEventDetails = (output: any, context: __SerdeCo
   return {
     eventType: __expectString(output.eventType),
     message: __expectString(output.message),
-    timeOfEvent: output.timeOfEvent != null ? __expectNonNull(__parseRfc3339DateTime(output.timeOfEvent)) : undefined,
+    timeOfEvent:
+      output.timeOfEvent != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.timeOfEvent)) : undefined,
   } as any;
 };
 
@@ -1670,12 +1671,14 @@ const deserializeAws_restJson1JobStoppingCondition = (output: any, context: __Se
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     device: __expectString(output.device),
-    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
+    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endedAt)) : undefined,
     jobArn: __expectString(output.jobArn),
     jobName: __expectString(output.jobName),
-    startedAt: output.startedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
+    startedAt:
+      output.startedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startedAt)) : undefined,
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
   } as any;
@@ -1695,9 +1698,10 @@ const deserializeAws_restJson1JobSummaryList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __SerdeContext): QuantumTaskSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     deviceArn: __expectString(output.deviceArn),
-    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
+    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endedAt)) : undefined,
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),

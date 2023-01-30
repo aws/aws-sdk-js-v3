@@ -16,7 +16,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   map as __map,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
@@ -5328,7 +5328,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
     ObjectLockRetainUntilDate: [
       () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-amz-object-lock-retain-until-date"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
     ],
     ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
     Metadata: [
@@ -5790,7 +5790,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
     ObjectLockRetainUntilDate: [
       () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-amz-object-lock-retain-until-date"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
     ],
     ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
     Metadata: [
@@ -9967,7 +9967,7 @@ const deserializeAws_restXmlBucket = (output: any, context: __SerdeContext): Buc
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   return contents;
 };
@@ -10063,7 +10063,7 @@ const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeCon
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ChecksumCRC32"] !== undefined) {
     contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
@@ -10093,7 +10093,7 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ChecksumCRC32"] !== undefined) {
     contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
@@ -10237,7 +10237,7 @@ const deserializeAws_restXmlDeleteMarkerEntry = (output: any, context: __SerdeCo
     contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   return contents;
 };
@@ -10787,7 +10787,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     ExpiredObjectDeleteMarker: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -11044,7 +11044,7 @@ const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeCont
     contents.Key = __expectString(output["Key"]);
   }
   if (output["Initiated"] !== undefined) {
-    contents.Initiated = __expectNonNull(__parseRfc3339DateTime(output["Initiated"]));
+    contents.Initiated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Initiated"]));
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -11145,7 +11145,7 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     contents.Key = __expectString(output["Key"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
@@ -11214,7 +11214,7 @@ const deserializeAws_restXmlObjectLockRetention = (output: any, context: __Serde
     contents.Mode = __expectString(output["Mode"]);
   }
   if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["RetainUntilDate"]));
+    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
   }
   return contents;
 };
@@ -11298,7 +11298,7 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
     contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(output["Owner"], context);
@@ -11376,7 +11376,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
@@ -11984,7 +11984,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     StorageClass: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;

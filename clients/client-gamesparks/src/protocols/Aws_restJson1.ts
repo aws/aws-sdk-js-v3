@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2878,7 +2878,7 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Id: __expectString(output.Id),
   } as any;
 };
@@ -2970,8 +2970,9 @@ const deserializeAws_restJson1GameConfigurationDetails = (
   context: __SerdeContext
 ): GameConfigurationDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
@@ -2979,10 +2980,11 @@ const deserializeAws_restJson1GameConfigurationDetails = (
 const deserializeAws_restJson1GameDetails = (output: any, context: __SerdeContext): GameDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     EnableTerminationProtection: __expectBoolean(output.EnableTerminationProtection),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
@@ -3017,7 +3019,9 @@ const deserializeAws_restJson1GeneratedCodeJobDetails = (
   return {
     Description: __expectString(output.Description),
     ExpirationTime:
-      output.ExpirationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationTime)) : undefined,
+      output.ExpirationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationTime))
+        : undefined,
     GeneratedCodeJobId: __expectString(output.GeneratedCodeJobId),
     S3Url: __expectString(output.S3Url),
     Status: __expectString(output.Status),
@@ -3059,20 +3063,22 @@ const deserializeAws_restJson1Sections = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SnapshotSummary = (output: any, context: __SerdeContext): SnapshotSummary => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
   } as any;
 };
 
@@ -3093,7 +3099,7 @@ const deserializeAws_restJson1StageDeploymentDetails = (
   context: __SerdeContext
 ): StageDeploymentDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
     DeploymentResult:
@@ -3101,7 +3107,8 @@ const deserializeAws_restJson1StageDeploymentDetails = (
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3133,7 +3140,8 @@ const deserializeAws_restJson1StageDeploymentSummary = (
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3141,10 +3149,11 @@ const deserializeAws_restJson1StageDeploymentSummary = (
 const deserializeAws_restJson1StageDetails = (output: any, context: __SerdeContext): StageDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     GameKey: __expectString(output.GameKey),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     LogGroup: __expectString(output.LogGroup),
     Name: __expectString(output.Name),
     Role: __expectString(output.Role),

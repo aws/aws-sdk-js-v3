@@ -25,7 +25,7 @@ import {
   map as __map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
@@ -4070,10 +4070,10 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dateTime != null) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.dateTime));
   }
   if (data.dateTimeOnTarget != null) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTime(data.dateTimeOnTarget));
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.dateTimeOnTarget));
   }
   if (data.epochSeconds != null) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
@@ -5902,7 +5902,7 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     memberDateTime: [
       () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-memberdatetime"])),
     ],
     defaultFormat: [
       () => void 0 !== output.headers["x-defaultformat"],
@@ -5918,7 +5918,7 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     targetDateTime: [
       () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-targetdatetime"])),
     ],
   });
   await collectBody(output.body, context);

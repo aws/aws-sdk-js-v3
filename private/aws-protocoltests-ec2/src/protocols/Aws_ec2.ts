@@ -13,7 +13,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
@@ -1928,13 +1928,13 @@ const deserializeAws_ec2XmlTimestampsOutput = (output: any, context: __SerdeCont
     httpDateOnTarget: undefined,
   };
   if (output["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTime(output["normal"]));
+    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["normal"]));
   }
   if (output["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(output["dateTime"]));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTime"]));
   }
   if (output["dateTimeOnTarget"] !== undefined) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTime(output["dateTimeOnTarget"]));
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTimeOnTarget"]));
   }
   if (output["epochSeconds"] !== undefined) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(output["epochSeconds"]));
@@ -2050,7 +2050,7 @@ const deserializeAws_ec2TimestampList = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return __expectNonNull(__parseRfc3339DateTime(entry));
+      return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
 };
 

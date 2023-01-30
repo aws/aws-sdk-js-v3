@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -670,7 +670,7 @@ export const deserializeAws_restJson1CreateIndexCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -788,7 +788,7 @@ export const deserializeAws_restJson1DeleteIndexCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.LastUpdatedAt));
+    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -1003,10 +1003,10 @@ export const deserializeAws_restJson1GetIndexCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
   }
   if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.LastUpdatedAt));
+    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
   }
   if (data.ReplicatingFrom != null) {
     contents.ReplicatingFrom = deserializeAws_restJson1RegionList(data.ReplicatingFrom, context);
@@ -1522,7 +1522,7 @@ export const deserializeAws_restJson1UpdateIndexTypeCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.LastUpdatedAt));
+    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -1888,7 +1888,9 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   return {
     Arn: __expectString(output.Arn),
     LastReportedAt:
-      output.LastReportedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.LastReportedAt)) : undefined,
+      output.LastReportedAt != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastReportedAt))
+        : undefined,
     OwningAccountId: __expectString(output.OwningAccountId),
     Properties:
       output.Properties != null ? deserializeAws_restJson1ResourcePropertyList(output.Properties, context) : undefined,
@@ -1921,7 +1923,9 @@ const deserializeAws_restJson1ResourceProperty = (output: any, context: __SerdeC
   return {
     Data: output.Data != null ? deserializeAws_restJson1Document(output.Data, context) : undefined,
     LastReportedAt:
-      output.LastReportedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.LastReportedAt)) : undefined,
+      output.LastReportedAt != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastReportedAt))
+        : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
@@ -2006,7 +2010,9 @@ const deserializeAws_restJson1View = (output: any, context: __SerdeContext): Vie
         ? deserializeAws_restJson1IncludedPropertyList(output.IncludedProperties, context)
         : undefined,
     LastUpdatedAt:
-      output.LastUpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdatedAt)) : undefined,
+      output.LastUpdatedAt != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdatedAt))
+        : undefined,
     Owner: __expectString(output.Owner),
     Scope: __expectString(output.Scope),
     ViewArn: __expectString(output.ViewArn),

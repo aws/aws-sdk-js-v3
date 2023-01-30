@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -13224,11 +13224,12 @@ const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
 ): ApplicationDateRangeKpiResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndTime)) : undefined,
     KpiName: __expectString(output.KpiName),
     KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -13314,11 +13315,12 @@ const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
   return {
     ApplicationId: __expectString(output.ApplicationId),
     CampaignId: __expectString(output.CampaignId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndTime)) : undefined,
     KpiName: __expectString(output.KpiName),
     KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -14024,12 +14026,13 @@ const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
 ): JourneyDateRangeKpiResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndTime)) : undefined,
     JourneyId: __expectString(output.JourneyId),
     KpiName: __expectString(output.KpiName),
     KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -14115,8 +14118,9 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeContext): JourneySchedule => {
   return {
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
     Timezone: __expectString(output.Timezone),
   } as any;
 };

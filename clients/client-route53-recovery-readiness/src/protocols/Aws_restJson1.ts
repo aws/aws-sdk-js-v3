@@ -7,7 +7,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -1568,7 +1568,7 @@ export const deserializeAws_restJson1GetArchitectureRecommendationsCommand = asy
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.lastAuditTimestamp != null) {
-    contents.LastAuditTimestamp = __expectNonNull(__parseRfc3339DateTime(data.lastAuditTimestamp));
+    contents.LastAuditTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastAuditTimestamp));
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -3260,7 +3260,7 @@ const deserializeAws_restJson1ResourceResult = (output: any, context: __SerdeCon
     ComponentId: __expectString(output.componentId),
     LastCheckedTimestamp:
       output.lastCheckedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastCheckedTimestamp))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastCheckedTimestamp))
         : undefined,
     Readiness: __expectString(output.readiness),
     ResourceArn: __expectString(output.resourceArn),
@@ -3282,7 +3282,7 @@ const deserializeAws_restJson1RuleResult = (output: any, context: __SerdeContext
   return {
     LastCheckedTimestamp:
       output.lastCheckedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastCheckedTimestamp))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastCheckedTimestamp))
         : undefined,
     Messages: output.messages != null ? deserializeAws_restJson1__listOfMessage(output.messages, context) : undefined,
     Readiness: __expectString(output.readiness),

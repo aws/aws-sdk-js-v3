@@ -8,7 +8,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -734,7 +734,7 @@ export const deserializeAws_restJson1CreateJobTemplateCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -1991,7 +1991,8 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
       output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
     id: __expectString(output.id),
@@ -2053,11 +2054,13 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
       output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
-    finishedAt: output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.finishedAt)) : undefined,
+    finishedAt:
+      output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.finishedAt)) : undefined,
     id: __expectString(output.id),
     jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
     name: __expectString(output.name),
@@ -2084,7 +2087,8 @@ const deserializeAws_restJson1JobRuns = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     decryptionError: __expectString(output.decryptionError),
     id: __expectString(output.id),
@@ -2294,7 +2298,8 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
       output.containerProvider != null
         ? deserializeAws_restJson1ContainerProvider(output.containerProvider, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     state: __expectString(output.state),

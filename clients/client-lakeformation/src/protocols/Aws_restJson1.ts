@@ -14,7 +14,7 @@ import {
   expectString as __expectString,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2463,7 +2463,7 @@ export const deserializeAws_restJson1GetQueryStatisticsCommand = async (
     contents.PlanningStatistics = deserializeAws_restJson1PlanningStatistics(data.PlanningStatistics, context);
   }
   if (data.QuerySubmissionTime != null) {
-    contents.QuerySubmissionTime = __expectNonNull(__parseRfc3339DateTime(data.QuerySubmissionTime));
+    contents.QuerySubmissionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.QuerySubmissionTime));
   }
   return contents;
 };

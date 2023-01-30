@@ -7,7 +7,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2043,7 +2043,9 @@ const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __Se
         ? deserializeAws_restJson1ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     MediaPipelineArn: __expectString(output.MediaPipelineArn),
     MediaPipelineId: __expectString(output.MediaPipelineId),
     SinkArn: __expectString(output.SinkArn),
@@ -2052,7 +2054,9 @@ const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __Se
     SourceType: __expectString(output.SourceType),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -2103,7 +2107,9 @@ const deserializeAws_restJson1MediaConcatenationPipeline = (
 ): MediaConcatenationPipeline => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     MediaPipelineArn: __expectString(output.MediaPipelineArn),
     MediaPipelineId: __expectString(output.MediaPipelineId),
     Sinks: output.Sinks != null ? deserializeAws_restJson1ConcatenationSinkList(output.Sinks, context) : undefined,
@@ -2111,7 +2117,9 @@ const deserializeAws_restJson1MediaConcatenationPipeline = (
       output.Sources != null ? deserializeAws_restJson1ConcatenationSourceList(output.Sources, context) : undefined,
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 
@@ -2121,7 +2129,9 @@ const deserializeAws_restJson1MediaLiveConnectorPipeline = (
 ): MediaLiveConnectorPipeline => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
     MediaPipelineArn: __expectString(output.MediaPipelineArn),
     MediaPipelineId: __expectString(output.MediaPipelineId),
     Sinks: output.Sinks != null ? deserializeAws_restJson1LiveConnectorSinkList(output.Sinks, context) : undefined,
@@ -2129,7 +2139,9 @@ const deserializeAws_restJson1MediaLiveConnectorPipeline = (
       output.Sources != null ? deserializeAws_restJson1LiveConnectorSourceList(output.Sources, context) : undefined,
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
   } as any;
 };
 

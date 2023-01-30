@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -7481,10 +7481,10 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
     contents.Cause = __expectString(output["Cause"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["EndTime"] !== undefined) {
-    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["EndTime"]));
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTime"]));
   }
   if (output["StatusCode"] !== undefined) {
     contents.StatusCode = __expectString(output["StatusCode"]);
@@ -7702,7 +7702,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
   }
   if (output.SuspendedProcesses === "") {
     contents.SuspendedProcesses = [];
@@ -8609,7 +8609,7 @@ const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
     contents.CapacityForecast = deserializeAws_queryCapacityForecast(output["CapacityForecast"], context);
   }
   if (output["UpdateTime"] !== undefined) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["UpdateTime"]));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateTime"]));
   }
   return contents;
 };
@@ -8722,10 +8722,10 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
     contents.StatusReason = __expectString(output["StatusReason"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["EndTime"] !== undefined) {
-    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["EndTime"]));
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTime"]));
   }
   if (output["PercentageComplete"] !== undefined) {
     contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
@@ -9130,7 +9130,7 @@ const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeCo
     contents.IamInstanceProfile = __expectString(output["IamInstanceProfile"]);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
   }
   if (output["EbsOptimized"] !== undefined) {
     contents.EbsOptimized = __parseBoolean(output["EbsOptimized"]);
@@ -9803,7 +9803,7 @@ const deserializeAws_queryPredictiveScalingForecastTimestamps = (output: any, co
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return __expectNonNull(__parseRfc3339DateTime(entry));
+      return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
 };
 
@@ -10184,13 +10184,13 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
     contents.ScheduledActionARN = __expectString(output["ScheduledActionARN"]);
   }
   if (output["Time"] !== undefined) {
-    contents.Time = __expectNonNull(__parseRfc3339DateTime(output["Time"]));
+    contents.Time = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Time"]));
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["EndTime"] !== undefined) {
-    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["EndTime"]));
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTime"]));
   }
   if (output["Recurrence"] !== undefined) {
     contents.Recurrence = __expectString(output["Recurrence"]);

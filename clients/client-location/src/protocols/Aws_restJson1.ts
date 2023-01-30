@@ -14,7 +14,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -2620,7 +2620,7 @@ export const deserializeAws_restJson1CreateGeofenceCollectionCommand = async (
     contents.CollectionName = __expectString(data.CollectionName);
   }
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   return contents;
 };
@@ -2676,7 +2676,7 @@ export const deserializeAws_restJson1CreateMapCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.MapArn != null) {
     contents.MapArn = __expectString(data.MapArn);
@@ -2738,7 +2738,7 @@ export const deserializeAws_restJson1CreatePlaceIndexCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.IndexArn != null) {
     contents.IndexArn = __expectString(data.IndexArn);
@@ -2806,7 +2806,7 @@ export const deserializeAws_restJson1CreateRouteCalculatorCommand = async (
     contents.CalculatorName = __expectString(data.CalculatorName);
   }
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   return contents;
 };
@@ -2862,7 +2862,7 @@ export const deserializeAws_restJson1CreateTrackerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.TrackerArn != null) {
     contents.TrackerArn = __expectString(data.TrackerArn);
@@ -3177,7 +3177,7 @@ export const deserializeAws_restJson1DescribeGeofenceCollectionCommand = async (
     contents.CollectionName = __expectString(data.CollectionName);
   }
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
@@ -3195,7 +3195,7 @@ export const deserializeAws_restJson1DescribeGeofenceCollectionCommand = async (
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -3251,7 +3251,7 @@ export const deserializeAws_restJson1DescribeMapCommand = async (
     contents.Configuration = deserializeAws_restJson1MapConfiguration(data.Configuration, context);
   }
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.DataSource != null) {
     contents.DataSource = __expectString(data.DataSource);
@@ -3272,7 +3272,7 @@ export const deserializeAws_restJson1DescribeMapCommand = async (
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -3325,7 +3325,7 @@ export const deserializeAws_restJson1DescribePlaceIndexCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.DataSource != null) {
     contents.DataSource = __expectString(data.DataSource);
@@ -3352,7 +3352,7 @@ export const deserializeAws_restJson1DescribePlaceIndexCommand = async (
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -3411,7 +3411,7 @@ export const deserializeAws_restJson1DescribeRouteCalculatorCommand = async (
     contents.CalculatorName = __expectString(data.CalculatorName);
   }
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.DataSource != null) {
     contents.DataSource = __expectString(data.DataSource);
@@ -3426,7 +3426,7 @@ export const deserializeAws_restJson1DescribeRouteCalculatorCommand = async (
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -3479,7 +3479,7 @@ export const deserializeAws_restJson1DescribeTrackerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
@@ -3506,7 +3506,7 @@ export const deserializeAws_restJson1DescribeTrackerCommand = async (
     contents.TrackerName = __expectString(data.TrackerName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -3621,10 +3621,10 @@ export const deserializeAws_restJson1GetDevicePositionCommand = async (
     contents.PositionProperties = deserializeAws_restJson1PropertyMap(data.PositionProperties, context);
   }
   if (data.ReceivedTime != null) {
-    contents.ReceivedTime = __expectNonNull(__parseRfc3339DateTime(data.ReceivedTime));
+    contents.ReceivedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.ReceivedTime));
   }
   if (data.SampleTime != null) {
-    contents.SampleTime = __expectNonNull(__parseRfc3339DateTime(data.SampleTime));
+    contents.SampleTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.SampleTime));
   }
   return contents;
 };
@@ -3733,7 +3733,7 @@ export const deserializeAws_restJson1GetGeofenceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.GeofenceId != null) {
     contents.GeofenceId = __expectString(data.GeofenceId);
@@ -3745,7 +3745,7 @@ export const deserializeAws_restJson1GetGeofenceCommand = async (
     contents.Status = __expectString(data.Status);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -4542,13 +4542,13 @@ export const deserializeAws_restJson1PutGeofenceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime != null) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(data.CreateTime));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
   }
   if (data.GeofenceId != null) {
     contents.GeofenceId = __expectString(data.GeofenceId);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -4878,7 +4878,7 @@ export const deserializeAws_restJson1UpdateGeofenceCollectionCommand = async (
     contents.CollectionName = __expectString(data.CollectionName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -4937,7 +4937,7 @@ export const deserializeAws_restJson1UpdateMapCommand = async (
     contents.MapName = __expectString(data.MapName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -4996,7 +4996,7 @@ export const deserializeAws_restJson1UpdatePlaceIndexCommand = async (
     contents.IndexName = __expectString(data.IndexName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -5055,7 +5055,7 @@ export const deserializeAws_restJson1UpdateRouteCalculatorCommand = async (
     contents.CalculatorName = __expectString(data.CalculatorName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -5114,7 +5114,7 @@ export const deserializeAws_restJson1UpdateTrackerCommand = async (
     contents.TrackerName = __expectString(data.TrackerName);
   }
   if (data.UpdateTime != null) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(data.UpdateTime));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
   }
   return contents;
 };
@@ -5552,7 +5552,8 @@ const deserializeAws_restJson1BatchEvaluateGeofencesError = (
   return {
     DeviceId: __expectString(output.DeviceId),
     Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
-    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    SampleTime:
+      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -5630,9 +5631,11 @@ const deserializeAws_restJson1BatchPutGeofenceSuccess = (
   context: __SerdeContext
 ): BatchPutGeofenceSuccess => {
   return {
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -5658,7 +5661,8 @@ const deserializeAws_restJson1BatchUpdateDevicePositionError = (
   return {
     DeviceId: __expectString(output.DeviceId),
     Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
-    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    SampleTime:
+      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -5750,8 +5754,9 @@ const deserializeAws_restJson1DevicePosition = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
     ReceivedTime:
-      output.ReceivedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.ReceivedTime)) : undefined,
-    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+      output.ReceivedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ReceivedTime)) : undefined,
+    SampleTime:
+      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -5853,7 +5858,8 @@ const deserializeAws_restJson1ListDevicePositionsResponseEntry = (
       output.PositionProperties != null
         ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
-    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    SampleTime:
+      output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -5878,11 +5884,13 @@ const deserializeAws_restJson1ListGeofenceCollectionsResponseEntry = (
 ): ListGeofenceCollectionsResponseEntry => {
   return {
     CollectionName: __expectString(output.CollectionName),
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
     PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -5906,11 +5914,13 @@ const deserializeAws_restJson1ListGeofenceResponseEntry = (
   context: __SerdeContext
 ): ListGeofenceResponseEntry => {
   return {
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
     Geometry: output.Geometry != null ? deserializeAws_restJson1GeofenceGeometry(output.Geometry, context) : undefined,
     Status: __expectString(output.Status),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -5931,12 +5941,14 @@ const deserializeAws_restJson1ListGeofenceResponseEntryList = (
 
 const deserializeAws_restJson1ListMapsResponseEntry = (output: any, context: __SerdeContext): ListMapsResponseEntry => {
   return {
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     MapName: __expectString(output.MapName),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -5960,12 +5972,14 @@ const deserializeAws_restJson1ListPlaceIndexesResponseEntry = (
   context: __SerdeContext
 ): ListPlaceIndexesResponseEntry => {
   return {
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     IndexName: __expectString(output.IndexName),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -5990,11 +6004,13 @@ const deserializeAws_restJson1ListRouteCalculatorsResponseEntry = (
 ): ListRouteCalculatorsResponseEntry => {
   return {
     CalculatorName: __expectString(output.CalculatorName),
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6018,12 +6034,14 @@ const deserializeAws_restJson1ListTrackersResponseEntry = (
   context: __SerdeContext
 ): ListTrackersResponseEntry => {
   return {
-    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
     PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
     TrackerName: __expectString(output.TrackerName),
-    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
   } as any;
 };
 
