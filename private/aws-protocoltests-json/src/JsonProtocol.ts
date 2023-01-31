@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyOperationCommand,
   EmptyOperationCommandInput,
   EmptyOperationCommandOutput,
@@ -56,6 +61,35 @@ import {
 import { JsonProtocolClient } from "./JsonProtocolClient";
 
 export class JsonProtocol extends JsonProtocolClient {
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   public emptyOperation(
     args: EmptyOperationCommandInput,
     options?: __HttpHandlerOptions

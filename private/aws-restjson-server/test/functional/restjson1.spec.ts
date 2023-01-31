@@ -457,6 +457,48 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
 
         3,
       ],
+
+      queryParamsMapOfStringList: {
+        String: ["Hello there"],
+
+        StringList: ["a", "b", "c"],
+
+        StringSet: ["a", "b", "c"],
+
+        Byte: ["1"],
+
+        Short: ["2"],
+
+        Integer: ["3"],
+
+        IntegerList: ["1", "2", "3"],
+
+        IntegerSet: ["1", "2", "3"],
+
+        Long: ["4"],
+
+        Float: ["1.1"],
+
+        Double: ["1.1"],
+
+        DoubleList: ["1.1", "2.1", "3.1"],
+
+        Boolean: ["true"],
+
+        BooleanList: ["true", "false", "true"],
+
+        Timestamp: ["1970-01-01T00:00:01Z"],
+
+        TimestampList: ["1970-01-01T00:00:01Z", "1970-01-01T00:00:02Z", "1970-01-01T00:00:03Z"],
+
+        Enum: ["Foo"],
+
+        EnumList: ["Foo", "Baz", "Bar"],
+
+        IntegerEnum: ["1"],
+
+        IntegerEnumList: ["1", "2", "3"],
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -550,6 +592,10 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryString: "%:/?#[]@!$&'()*+,;=😹",
+
+      queryParamsMapOfStringList: {
+        String: ["%:/?#[]@!$&'()*+,;=😹"],
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

@@ -142,6 +142,17 @@ export const ConstantQueryStringInputFilterSensitiveLog = (obj: ConstantQueryStr
   ...obj,
 });
 
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**

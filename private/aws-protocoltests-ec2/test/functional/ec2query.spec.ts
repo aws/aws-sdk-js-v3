@@ -4,6 +4,7 @@ import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
@@ -162,6 +163,90 @@ const clientParams = {
 const fail = (error?: any): never => {
   throw new Error(error);
 };
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("Ec2QueryDateTimeWithNegativeOffset:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<DatetimeOffsetsResponse xmlns="https://example.com/">
+          <datetime>2019-12-16T22:48:18-01:00</datetime>
+          <RequestId>requestid</RequestId>
+      </DatetimeOffsetsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("Ec2QueryDateTimeWithPositiveOffset:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<DatetimeOffsetsResponse xmlns="https://example.com/">
+          <datetime>2019-12-17T00:48:18+01:00</datetime>
+          <RequestId>requestid</RequestId>
+      </DatetimeOffsetsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
 
 /**
  * Empty input serializes no extra query params

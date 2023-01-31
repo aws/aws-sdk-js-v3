@@ -28,6 +28,17 @@ export enum IntegerEnum {
   C = 3,
 }
 
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**

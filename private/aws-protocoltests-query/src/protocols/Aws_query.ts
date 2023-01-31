@@ -32,6 +32,7 @@ import {
 import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -90,6 +91,7 @@ import {
   ComplexError,
   ComplexNestedErrorData,
   CustomCodeError,
+  DatetimeOffsetsOutput,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FlattenedXmlMapOutput,
@@ -129,6 +131,20 @@ import {
   XmlTimestampsOutput,
 } from "../models/models_0";
 import { QueryProtocolServiceException as __BaseException } from "../models/QueryProtocolServiceException";
+
+export const serializeAws_queryDatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "DatetimeOffsets",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
@@ -584,6 +600,41 @@ export const serializeAws_queryXmlTimestampsCommand = async (
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_queryDatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDatetimeOffsetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDatetimeOffsetsOutput(data.DatetimeOffsetsResult, context);
+  const response: DatetimeOffsetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_queryEmptyInputAndEmptyOutputCommand = async (
@@ -2059,6 +2110,16 @@ const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContex
   };
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+  const contents: any = {
+    datetime: undefined,
+  };
+  if (output["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
   }
   return contents;
 };

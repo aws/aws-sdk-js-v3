@@ -3,6 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { EC2ProtocolServiceException as __BaseException } from "./EC2ProtocolServiceException";
 
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**

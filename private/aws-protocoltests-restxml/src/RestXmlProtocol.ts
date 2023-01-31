@@ -22,6 +22,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -377,6 +382,35 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): Promise<ConstantQueryStringCommandOutput> | void {
     const command = new ConstantQueryStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
