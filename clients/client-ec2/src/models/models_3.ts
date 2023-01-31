@@ -20,7 +20,6 @@ import {
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatus,
-  ClientVpnEndpointStatus,
   CurrencyCodeValues,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
@@ -32,7 +31,6 @@ import {
   Tag,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TransportProtocol,
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
@@ -42,6 +40,7 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipPool,
   CustomerGateway,
@@ -72,9 +71,11 @@ import {
   StateReason,
   TargetCapacityUnitType,
   TrafficType,
+  TransportProtocol,
 } from "./models_1";
 import {
   FleetStateCode,
+  TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
@@ -86,6 +87,62 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+export interface DeleteTrafficMirrorTargetRequest {
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTrafficMirrorTargetResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId?: string;
+}
+
+export interface DeleteTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayResult {
+  /**
+   * <p>Information about the deleted transit gateway.</p>
+   */
+  TransitGateway?: TransitGateway;
+}
+
+export interface DeleteTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface DeleteTransitGatewayConnectResult {
   /**
@@ -8591,214 +8648,39 @@ export interface Instance {
 }
 
 /**
- * <p>Describes a launch request for one or more instances, and includes owner, requester,
- *             and security group information that applies to all instances in the launch
- *             request.</p>
+ * @internal
  */
-export interface Reservation {
-  /**
-   * <p>[EC2-Classic only] The security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The instances.</p>
-   */
-  Instances?: Instance[];
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the reservation.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the requester that launched the instances on your behalf (for example,
-   *                 Amazon Web Services Management Console or Auto Scaling).</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  ReservationId?: string;
-}
-
-export interface DescribeInstancesResult {
-  /**
-   * <p>Information about the reservations.</p>
-   */
-  Reservations?: Reservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeInstanceStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.code</code> - The code for the scheduled event
-   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
-   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
-   *                         <code>instance-stop</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
-   *                     you are modifying.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the scheduled event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the scheduled
-   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-state-code</code> - The code for the instance state, as a
-   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
-   *                     be ignored. The low byte is set based on the state represented. The valid values
-   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-status.reachability</code> - Filters on instance status where
-   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
-   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-status.status</code> - The status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-status.reachability</code> - Filters on system status where the
-   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
-   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-status.status</code> - The system status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *          <p>Default: Describes all your instances.</p>
-   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  IncludeAllInstances?: boolean;
-}
-
-export enum EventCode {
-  instance_reboot = "instance-reboot",
-  instance_retirement = "instance-retirement",
-  instance_stop = "instance-stop",
-  system_maintenance = "system-maintenance",
-  system_reboot = "system-reboot",
-}
+export const DeleteTrafficMirrorTargetRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a scheduled event for an instance.</p>
+ * @internal
  */
-export interface InstanceStatusEvent {
-  /**
-   * <p>The ID of the event.</p>
-   */
-  InstanceEventId?: string;
+export const DeleteTrafficMirrorTargetResultFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The event code.</p>
-   */
-  Code?: EventCode | string;
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A description of the event.</p>
-   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
-   *             the event has been completed, this description starts with the following text:
-   *             [Completed].</p>
-   */
-  Description?: string;
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayResultFilterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The latest scheduled end time for the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest scheduled start time for the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The deadline for starting the event.</p>
-   */
-  NotBeforeDeadline?: Date;
-}
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayConnectRequestFilterSensitiveLog = (obj: DeleteTransitGatewayConnectRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10679,33 +10561,5 @@ export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
  * @internal
  */
 export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceStatusRequestFilterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusEventFilterSensitiveLog = (obj: InstanceStatusEvent): any => ({
   ...obj,
 });

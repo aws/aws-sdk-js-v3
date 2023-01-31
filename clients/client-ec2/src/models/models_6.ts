@@ -19,6 +19,7 @@ import {
   CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
+  EndDateType,
   HostRecovery,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -116,7 +117,6 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
-  InstanceStatusEvent,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
@@ -128,6 +128,7 @@ import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   InstanceNetworkInterfaceSpecification,
+  InstanceStatusEvent,
   LaunchTemplateConfig,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
@@ -143,12 +144,174 @@ import {
   VolumeModification,
 } from "./models_4";
 import {
-  DnsServersOptionsModifyStructure,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
+  ModifyAvailabilityZoneOptInStatus,
   Purchase,
   UnlimitedSupportedInstanceFamily,
 } from "./models_5";
+
+export interface ModifyAvailabilityZoneGroupRequest {
+  /**
+   * <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone
+   *       group.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
+   *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
+   */
+  OptInStatus: ModifyAvailabilityZoneOptInStatus | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface ModifyAvailabilityZoneGroupResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export interface ModifyCapacityReservationRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The number of instances for which to reserve capacity. The number of instances can't be increased or
+   * 		    	decreased by more than <code>1000</code> in a single request.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
+   * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
+   * 				<code>expired</code> when it reaches its end date and time.</p>
+   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
+   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
+   * 				<code>unlimited</code>.</p>
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
+   * 			types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
+   * 					provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   * 						<code>unlimited</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time. You must
+   * 					provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   * 						<code>limited</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  EndDateType?: EndDateType | string;
+
+  /**
+   * <p>Reserved. Capacity Reservations you have created are accepted by default.</p>
+   */
+  Accept?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  AdditionalInfo?: string;
+}
+
+export interface ModifyCapacityReservationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export interface ModifyCapacityReservationFleetRequest {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet to modify.</p>
+   */
+  CapacityReservationFleetId: string | undefined;
+
+  /**
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value,
+   * 			together with the instance type weights that you assign to each instance type used by the Fleet
+   * 			determine the number of instances for which the Fleet reserves capacity. Both values are based on
+   * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
+   * 			in the Amazon EC2 User Guide.</p>
+   */
+  TotalTargetCapacity?: number;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation
+   * 			Fleet expires, its state changes to <code>expired</code> and all of the Capacity Reservations in the
+   * 			Fleet expire.</p>
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you
+   * 			specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet is guaranteed
+   * 			to expire between <code>13:30:55</code> and <code>14:30:55</code> on <code>5/31/2019</code>.</p>
+   *          <p>You can't specify <b>EndDate</b> and <b>
+   * 			RemoveEndDate</b> in the same request.</p>
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the
+   * 			end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly
+   * 			cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
+   *          <p>You can't specify <b>RemoveEndDate</b> and <b>
+   * 			EndDate</b> in the same request.</p>
+   */
+  RemoveEndDate?: boolean;
+}
+
+export interface ModifyCapacityReservationFleetResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * <p>Information about the DNS server to be used.</p>
+ */
+export interface DnsServersOptionsModifyStructure {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
+   * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
+   * 			overwrite the existing values.</p>
+   */
+  CustomDnsServers?: string[];
+
+  /**
+   * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
+   * 			servers.</p>
+   */
+  Enabled?: boolean;
+}
 
 export interface ModifyClientVpnEndpointRequest {
   /**
@@ -7382,121 +7545,58 @@ export interface UnassignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
-export interface UnassignIpv6AddressesResult {
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The IPv6 addresses that have been unassigned from the network interface.</p>
-   */
-  UnassignedIpv6Addresses?: string[];
-
-  /**
-   * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
-   */
-  UnassignedIpv6Prefixes?: string[];
-}
+/**
+ * @internal
+ */
+export const ModifyAvailabilityZoneGroupRequestFilterSensitiveLog = (obj: ModifyAvailabilityZoneGroupRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
+ * @internal
  */
-export interface UnassignPrivateIpAddressesRequest {
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The secondary private IP addresses to unassign from the network interface. You can specify this
-   *         	option multiple times to unassign more than one IP address.</p>
-   */
-  PrivateIpAddresses?: string[];
-
-  /**
-   * <p>The IPv4 prefixes to unassign from  the network interface.</p>
-   */
-  Ipv4Prefixes?: string[];
-}
-
-export interface UnmonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface UnmonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   */
-  InstanceMonitorings?: InstanceMonitoring[];
-}
+export const ModifyAvailabilityZoneGroupResultFilterSensitiveLog = (obj: ModifyAvailabilityZoneGroupResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the description of a security group rule.</p>
- *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
+ * @internal
  */
-export interface SecurityGroupRuleDescription {
-  /**
-   * <p>The ID of the security group rule.</p>
-   */
-  SecurityGroupRuleId?: string;
+export const ModifyCapacityReservationRequestFilterSensitiveLog = (obj: ModifyCapacityReservationRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The description of the security group rule.</p>
-   */
-  Description?: string;
-}
+/**
+ * @internal
+ */
+export const ModifyCapacityReservationResultFilterSensitiveLog = (obj: ModifyCapacityReservationResult): any => ({
+  ...obj,
+});
 
-export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const ModifyCapacityReservationFleetRequestFilterSensitiveLog = (
+  obj: ModifyCapacityReservationFleetRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
-   */
-  GroupId?: string;
+/**
+ * @internal
+ */
+export const ModifyCapacityReservationFleetResultFilterSensitiveLog = (
+  obj: ModifyCapacityReservationFleetResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the security group
-   * 			ID or the security group name in the request.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The IP permissions for the security group rule. You must specify either the IP permissions
-   * 		    or the description.</p>
-   */
-  IpPermissions?: IpPermission[];
-
-  /**
-   * <p>The description for the egress security group rules. You must specify either the
-   *             description or the IP permissions.</p>
-   */
-  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
-}
-
-export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   */
-  Return?: boolean;
-}
+/**
+ * @internal
+ */
+export const DnsServersOptionsModifyStructureFilterSensitiveLog = (obj: DnsServersOptionsModifyStructure): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9644,58 +9744,5 @@ export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstanc
  * @internal
  */
 export const UnassignIpv6AddressesRequestFilterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignIpv6AddressesResultFilterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignPrivateIpAddressesRequestFilterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnmonitorInstancesRequestFilterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnmonitorInstancesResultFilterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupRuleDescriptionFilterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsEgressRequestFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsEgressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsEgressResultFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsEgressResult
-): any => ({
   ...obj,
 });

@@ -19,7 +19,7 @@ import {
   UnmonitorInstancesRequestFilterSensitiveLog,
   UnmonitorInstancesResult,
   UnmonitorInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2UnmonitorInstancesCommand,
   serializeAws_ec2UnmonitorInstancesCommand,

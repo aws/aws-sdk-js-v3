@@ -16,14 +16,20 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientVpnAuthenticationRequest,
+  ConnectionLogOptions,
   CurrencyCodeValues,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
+  NatGatewayAddress,
   PortRange,
   Protocol,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
+  SelfServicePortal,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -32,6 +38,247 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export enum TransportProtocol {
+  tcp = "tcp",
+  udp = "udp",
+}
+
+export interface CreateClientVpnEndpointRequest {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
+   */
+  ClientCidrBlock: string | undefined;
+
+  /**
+   * <p>The ARN of the server certificate. For more information, see
+   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+   */
+  ServerCertificateArn: string | undefined;
+
+  /**
+   * <p>Information about the authentication method to be used to authenticate clients.</p>
+   */
+  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
+
+  /**
+   * <p>Information about the client connection logging options.</p>
+   *          <p>If you enable client connection logging, data about client connections is sent to a
+   * 			Cloudwatch Logs log stream. The following information is logged:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection results (successful and unsuccessful)</p>
+   *             </li>
+   *             <li>
+   *                <p>Reasons for unsuccessful client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection termination time</p>
+   *             </li>
+   *          </ul>
+   */
+  ConnectionLogOptions: ConnectionLogOptions | undefined;
+
+  /**
+   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
+   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * <p>The transport protocol to be used by the VPN session.</p>
+   *          <p>Default value: <code>udp</code>
+   *          </p>
+   */
+  TransportProtocol?: TransportProtocol | string;
+
+  /**
+   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          </p>
+   *          <p>Default Value: <code>443</code>
+   *          </p>
+   */
+  VpnPort?: number;
+
+  /**
+   * <p>A brief description of the Client VPN endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
+   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   * 			<i>Client VPN Administrator Guide</i>.</p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+   *          <p>Default Value: <code>enabled</code>
+   *          </p>
+   */
+  SelfServicePortal?: SelfServicePortal | string;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   */
+  ClientConnectOptions?: ClientConnectOptions;
+
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   *          <p>Default value: <code>24</code>
+   *          </p>
+   */
+  SessionTimeoutHours?: number;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   */
+  ClientLoginBannerOptions?: ClientLoginBannerOptions;
+}
+
+export enum ClientVpnEndpointStatusCode {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending_associate = "pending-associate",
+}
+
+/**
+ * <p>Describes the state of a Client VPN endpoint.</p>
+ */
+export interface ClientVpnEndpointStatus {
+  /**
+   * <p>The state of the Client VPN endpoint. Possible states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
+   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
+   * 					associated. The Client VPN endpoint can accept connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
+   * 					connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
+   * 					connections.</p>
+   *             </li>
+   *          </ul>
+   */
+  Code?: ClientVpnEndpointStatusCode | string;
+
+  /**
+   * <p>A message about the status of the Client VPN endpoint.</p>
+   */
+  Message?: string;
+}
+
+export interface CreateClientVpnEndpointResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The current state of the Client VPN endpoint.</p>
+   */
+  Status?: ClientVpnEndpointStatus;
+
+  /**
+   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
+   */
+  DnsName?: string;
+}
+
+export interface CreateClientVpnRouteRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for the local network, enter the client CIDR range</p>
+   *             </li>
+   *          </ul>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
+   * 			an existing target network of the Client VPN endpoint.</p>
+   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
+   */
+  TargetVpcSubnetId: string | undefined;
+
+  /**
+   * <p>A brief description of the route.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export enum ClientVpnRouteStatusCode {
   active = "active",
@@ -6807,7 +7054,7 @@ export interface CreateNatGatewayRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The subnet in which to create the NAT gateway.</p>
+   * <p>The ID of the subnet in which to create the NAT gateway.</p>
    */
   SubnetId: string | undefined;
 
@@ -6826,31 +7073,21 @@ export interface CreateNatGatewayRequest {
    * <p>The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.</p>
    */
   PrivateIpAddress?: string;
-}
-
-/**
- * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
- */
-export interface NatGatewayAddress {
-  /**
-   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
-   */
-  AllocationId?: string;
 
   /**
-   * <p>The ID of the network interface associated with the NAT gateway.</p>
+   * <p>Secondary EIP allocation IDs. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  NetworkInterfaceId?: string;
+  SecondaryAllocationIds?: string[];
 
   /**
-   * <p>The private IP address associated with the NAT gateway.</p>
+   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  PrivateIp?: string;
+  SecondaryPrivateIpAddresses?: string[];
 
   /**
-   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
+   * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  PublicIp?: string;
+  SecondaryPrivateIpAddressCount?: number;
 }
 
 /**
@@ -8581,166 +8818,32 @@ export interface RouteTableAssociation {
 }
 
 /**
- * <p>Describes a virtual private gateway propagating route.</p>
+ * @internal
  */
-export interface PropagatingVgw {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  GatewayId?: string;
-}
-
-export enum RouteOrigin {
-  CreateRoute = "CreateRoute",
-  CreateRouteTable = "CreateRouteTable",
-  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
-}
-
-export enum RouteState {
-  active = "active",
-  blackhole = "blackhole",
-}
+export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a route in a route table.</p>
+ * @internal
  */
-export interface Route {
-  /**
-   * <p>The IPv4 CIDR block used for the destination match.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR block used for the destination match.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The prefix of the Amazon Web Service.</p>
-   */
-  DestinationPrefixListId?: string;
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The ID of a gateway attached to your VPC.</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The ID of Amazon Web Services account that owns the instance.</p>
-   */
-  InstanceOwnerId?: string;
-
-  /**
-   * <p>The ID of a NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>Describes how the route was created.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
-   *             </li>
-   *          </ul>
-   */
-  Origin?: RouteOrigin | string;
-
-  /**
-   * <p>The state of the route. The <code>blackhole</code> state indicates that the
-   * 				route's target isn't available (for example, the specified gateway isn't attached to the
-   * 				VPC, or the specified NAT instance has been terminated).</p>
-   */
-  State?: RouteState | string;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   */
-  CoreNetworkArn?: string;
-}
+export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a route table.</p>
+ * @internal
  */
-export interface RouteTable {
-  /**
-   * <p>The associations between the route table and one or more subnets or a gateway.</p>
-   */
-  Associations?: RouteTableAssociation[];
+export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Any virtual private gateway (VGW) propagating routes.</p>
-   */
-  PropagatingVgws?: PropagatingVgw[];
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId?: string;
-
-  /**
-   * <p>The routes in the route table.</p>
-   */
-  Routes?: Route[];
-
-  /**
-   * <p>Any tags assigned to the route table.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
-   */
-  OwnerId?: string;
-}
+/**
+ * @internal
+ */
+export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10059,13 +10162,6 @@ export const CreateNatGatewayRequestFilterSensitiveLog = (obj: CreateNatGatewayR
 /**
  * @internal
  */
-export const NatGatewayAddressFilterSensitiveLog = (obj: NatGatewayAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ProvisionedBandwidthFilterSensitiveLog = (obj: ProvisionedBandwidth): any => ({
   ...obj,
 });
@@ -10415,26 +10511,5 @@ export const CreateRouteTableRequestFilterSensitiveLog = (obj: CreateRouteTableR
  * @internal
  */
 export const RouteTableAssociationFilterSensitiveLog = (obj: RouteTableAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropagatingVgwFilterSensitiveLog = (obj: PropagatingVgw): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteFilterSensitiveLog = (obj: Route): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteTableFilterSensitiveLog = (obj: RouteTable): any => ({
   ...obj,
 });

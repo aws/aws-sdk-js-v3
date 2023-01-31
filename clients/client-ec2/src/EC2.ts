@@ -72,6 +72,11 @@ import {
   AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
 import {
+  AssignPrivateNatGatewayAddressCommand,
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/AssignPrivateNatGatewayAddressCommand";
+import {
   AssociateAddressCommand,
   AssociateAddressCommandInput,
   AssociateAddressCommandOutput,
@@ -106,6 +111,11 @@ import {
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommand,
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "./commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
@@ -1863,6 +1873,11 @@ import {
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
 import {
+  DisassociateNatGatewayAddressCommand,
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "./commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -2843,6 +2858,11 @@ import {
   UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
 import {
+  UnassignPrivateNatGatewayAddressCommand,
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/UnassignPrivateNatGatewayAddressCommand";
+import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -3411,6 +3431,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput>;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new AssignPrivateNatGatewayAddressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
    *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
    *       Elastic IP address, you must allocate it to your account.</p>
@@ -3671,6 +3723,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
   ): Promise<AssociateIpamResourceDiscoveryCommandOutput> | void {
     const command = new AssociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateNatGatewayAddressCommandOutput>;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssociateNatGatewayAddressCommandOutput> | void {
+    const command = new AssociateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16548,6 +16633,44 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
+   *             associated and support the existing connections but do not support any new connections
+   *             (new connections are distributed across the remaining associated EIPs). As the existing
+   *             connections drain out, the EIPs (and the corresponding private IPs mapped to them) get
+   *             released.</p>
+   */
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateNatGatewayAddressCommandOutput>;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): Promise<DisassociateNatGatewayAddressCommandOutput> | void {
+    const command = new DisassociateNatGatewayAddressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a subnet or gateway from a route table.</p>
    *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -23975,6 +24098,46 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void
   ): Promise<UnassignPrivateIpAddressesCommandOutput> | void {
     const command = new UnassignPrivateIpAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unassigns secondary private NAT gateway IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
+   *             private IP addresses stay associated and support the existing connections but do not
+   *             support any new connections (new connections are distributed across the remaining
+   *             assigned private IP address). After the existing connections drain out, the private IP
+   *             addresses get released. </p>
+   *          <p></p>
+   *          <p></p>
+   */
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput>;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new UnassignPrivateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -19,7 +19,7 @@ import {
   DeleteTrafficMirrorTargetRequestFilterSensitiveLog,
   DeleteTrafficMirrorTargetResult,
   DeleteTrafficMirrorTargetResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTrafficMirrorTargetCommand,
   serializeAws_ec2DeleteTrafficMirrorTargetCommand,

@@ -60,7 +60,6 @@ import {
   PlacementGroup,
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
-  RouteTable,
   SpotInstanceType,
   Subnet,
   TargetCapacityUnitType,
@@ -68,6 +67,7 @@ import {
   VolumeType,
 } from "./models_1";
 import {
+  RouteTable,
   Snapshot,
   SnapshotState,
   SpotDatafeedSubscription,
@@ -92,12 +92,222 @@ import {
   EventInformation,
   Filter,
   IdFormat,
+  Instance,
   InstanceState,
-  InstanceStatusEvent,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes a launch request for one or more instances, and includes owner, requester,
+ *             and security group information that applies to all instances in the launch
+ *             request.</p>
+ */
+export interface Reservation {
+  /**
+   * <p>[EC2-Classic only] The security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The instances.</p>
+   */
+  Instances?: Instance[];
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the reservation.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the requester that launched the instances on your behalf (for example,
+   *                 Amazon Web Services Management Console or Auto Scaling).</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * <p>The ID of the reservation.</p>
+   */
+  ReservationId?: string;
+}
+
+export interface DescribeInstancesResult {
+  /**
+   * <p>Information about the reservations.</p>
+   */
+  Reservations?: Reservation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeInstanceStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.code</code> - The code for the scheduled event
+   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
+   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
+   *                         <code>instance-stop</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
+   *                     you are modifying.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-after</code> - The latest end time for the scheduled event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before</code> - The earliest start time for the scheduled
+   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-code</code> - The code for the instance state, as a
+   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
+   *                     be ignored. The low byte is set based on the state represented. The valid values
+   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
+   *                     (stopping), and 80 (stopped).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-name</code> - The state of the instance
+   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
+   *                         <code>terminated</code> | <code>stopping</code> |
+   *                     <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-status.reachability</code> - Filters on instance status where
+   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
+   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-status.status</code> - The status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-status.reachability</code> - Filters on system status where the
+   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
+   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-status.status</code> - The system status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *          <p>Default: Describes all your instances.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>When <code>true</code>, includes the health status for all instances. When
+   *                 <code>false</code>, includes the health status for running instances only.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  IncludeAllInstances?: boolean;
+}
+
+export enum EventCode {
+  instance_reboot = "instance-reboot",
+  instance_retirement = "instance-retirement",
+  instance_stop = "instance-stop",
+  system_maintenance = "system-maintenance",
+  system_reboot = "system-reboot",
+}
+
+/**
+ * <p>Describes a scheduled event for an instance.</p>
+ */
+export interface InstanceStatusEvent {
+  /**
+   * <p>The ID of the event.</p>
+   */
+  InstanceEventId?: string;
+
+  /**
+   * <p>The event code.</p>
+   */
+  Code?: EventCode | string;
+
+  /**
+   * <p>A description of the event.</p>
+   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
+   *             the event has been completed, this description starts with the following text:
+   *             [Completed].</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The latest scheduled end time for the event.</p>
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>The earliest scheduled start time for the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>The deadline for starting the event.</p>
+   */
+  NotBeforeDeadline?: Date;
+}
 
 export enum StatusName {
   reachability = "reachability",
@@ -9892,85 +10102,33 @@ export interface VolumeStatusDetails {
   Status?: string;
 }
 
-export enum VolumeStatusInfoStatus {
-  impaired = "impaired",
-  insufficient_data = "insufficient-data",
-  ok = "ok",
-}
+/**
+ * @internal
+ */
+export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the status of a volume.</p>
+ * @internal
  */
-export interface VolumeStatusInfo {
-  /**
-   * <p>The details of the volume status.</p>
-   */
-  Details?: VolumeStatusDetails[];
-
-  /**
-   * <p>The status of the volume.</p>
-   */
-  Status?: VolumeStatusInfoStatus | string;
-}
+export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the volume status.</p>
+ * @internal
  */
-export interface VolumeStatusItem {
-  /**
-   * <p>The details of the operation.</p>
-   */
-  Actions?: VolumeStatusAction[];
+export const DescribeInstanceStatusRequestFilterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The Availability Zone of the volume.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>A list of events associated with the volume.</p>
-   */
-  Events?: VolumeStatusEvent[];
-
-  /**
-   * <p>The volume ID.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The volume status.</p>
-   */
-  VolumeStatus?: VolumeStatusInfo;
-
-  /**
-   * <p>Information about the instances to which the volume is attached.</p>
-   */
-  AttachmentStatuses?: VolumeStatusAttachmentStatus[];
-}
-
-export interface DescribeVolumeStatusResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   */
-  VolumeStatuses?: VolumeStatusItem[];
-}
-
-export enum VpcAttributeName {
-  enableDnsHostnames = "enableDnsHostnames",
-  enableDnsSupport = "enableDnsSupport",
-  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
-}
+/**
+ * @internal
+ */
+export const InstanceStatusEventFilterSensitiveLog = (obj: InstanceStatusEvent): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11940,26 +12098,5 @@ export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any
  * @internal
  */
 export const VolumeStatusDetailsFilterSensitiveLog = (obj: VolumeStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusInfoFilterSensitiveLog = (obj: VolumeStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusItemFilterSensitiveLog = (obj: VolumeStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeStatusResultFilterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
   ...obj,
 });

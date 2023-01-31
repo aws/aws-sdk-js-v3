@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVolumeStatusRequest,
-  DescribeVolumeStatusRequestFilterSensitiveLog,
-  DescribeVolumeStatusResult,
-  DescribeVolumeStatusResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeVolumeStatusRequest, DescribeVolumeStatusRequestFilterSensitiveLog } from "../models/models_4";
+import { DescribeVolumeStatusResult, DescribeVolumeStatusResultFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVolumeStatusCommand,
   serializeAws_ec2DescribeVolumeStatusCommand,

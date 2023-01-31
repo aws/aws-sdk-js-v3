@@ -70,6 +70,10 @@ import {
   AssignPrivateIpAddressesCommandInput,
   AssignPrivateIpAddressesCommandOutput,
 } from "../commands/AssignPrivateIpAddressesCommand";
+import {
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "../commands/AssignPrivateNatGatewayAddressCommand";
 import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "../commands/AssociateAddressCommand";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
@@ -95,6 +99,10 @@ import {
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "../commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "../commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -1299,6 +1307,10 @@ import {
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "../commands/DisassociateIpamResourceDiscoveryCommand";
 import {
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "../commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "../commands/DisassociateRouteTableCommand";
@@ -1990,6 +2002,10 @@ import {
   UnassignPrivateIpAddressesCommandInput,
   UnassignPrivateIpAddressesCommandOutput,
 } from "../commands/UnassignPrivateIpAddressesCommand";
+import {
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "../commands/UnassignPrivateNatGatewayAddressCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "../commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -2062,6 +2078,8 @@ import {
   AssignIpv6AddressesResult,
   AssignPrivateIpAddressesRequest,
   AssignPrivateIpAddressesResult,
+  AssignPrivateNatGatewayAddressRequest,
+  AssignPrivateNatGatewayAddressResult,
   AssociateAddressRequest,
   AssociateAddressResult,
   AssociateClientVpnTargetNetworkRequest,
@@ -2075,6 +2093,8 @@ import {
   AssociateInstanceEventWindowResult,
   AssociateIpamResourceDiscoveryRequest,
   AssociateIpamResourceDiscoveryResult,
+  AssociateNatGatewayAddressRequest,
+  AssociateNatGatewayAddressResult,
   AssociateRouteTableRequest,
   AssociateRouteTableResult,
   AssociateSubnetCidrBlockRequest,
@@ -2144,7 +2164,6 @@ import {
   ClientLoginBannerOptions,
   ClientVpnAuthenticationRequest,
   ClientVpnAuthorizationRuleStatus,
-  ClientVpnEndpointStatus,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
   ConnectionLogOptions,
@@ -2160,9 +2179,6 @@ import {
   CreateCapacityReservationResult,
   CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
-  CreateClientVpnEndpointRequest,
-  CreateClientVpnEndpointResult,
-  CreateClientVpnRouteRequest,
   DeviceOptions,
   DirectoryServiceAuthenticationRequest,
   EnaSrdSpecification,
@@ -2186,6 +2202,7 @@ import {
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
+  NatGatewayAddress,
   OidcOptions,
   PacketHeaderStatement,
   PacketHeaderStatementRequest,
@@ -2251,10 +2268,14 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
   CpuManufacturer,
+  CreateClientVpnEndpointRequest,
+  CreateClientVpnEndpointResult,
+  CreateClientVpnRouteRequest,
   CreateClientVpnRouteResult,
   CreateCoipCidrRequest,
   CreateCoipCidrResult,
@@ -2428,7 +2449,6 @@ import {
   MemoryMiB,
   MemoryMiBRequest,
   NatGateway,
-  NatGatewayAddress,
   NetworkAcl,
   NetworkAclAssociation,
   NetworkAclEntry,
@@ -2454,14 +2474,11 @@ import {
   PriceScheduleSpecification,
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
-  PropagatingVgw,
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
-  Route,
-  RouteTable,
   RouteTableAssociation,
   SpotOptionsRequest,
   StateReason,
@@ -2644,11 +2661,6 @@ import {
   DeleteTrafficMirrorFilterRuleResult,
   DeleteTrafficMirrorSessionRequest,
   DeleteTrafficMirrorSessionResult,
-  DeleteTrafficMirrorTargetRequest,
-  DeleteTrafficMirrorTargetResult,
-  DeleteTransitGatewayConnectRequest,
-  DeleteTransitGatewayRequest,
-  DeleteTransitGatewayResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2671,7 +2683,10 @@ import {
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   PrivateDnsNameConfiguration,
+  PropagatingVgw,
   ResponseError,
+  Route,
+  RouteTable,
   S3ObjectTag,
   SecurityGroupIdentifier,
   ServiceConfiguration,
@@ -2749,8 +2764,11 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteTrafficMirrorTargetRequest,
+  DeleteTrafficMirrorTargetResult,
   DeleteTransitGatewayConnectPeerRequest,
   DeleteTransitGatewayConnectPeerResult,
+  DeleteTransitGatewayConnectRequest,
   DeleteTransitGatewayConnectResult,
   DeleteTransitGatewayMulticastDomainRequest,
   DeleteTransitGatewayMulticastDomainResult,
@@ -2760,6 +2778,8 @@ import {
   DeleteTransitGatewayPolicyTableResult,
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
+  DeleteTransitGatewayRequest,
+  DeleteTransitGatewayResult,
   DeleteTransitGatewayRouteRequest,
   DeleteTransitGatewayRouteResult,
   DeleteTransitGatewayRouteTableAnnouncementRequest,
@@ -2902,8 +2922,6 @@ import {
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
   DescribeInstancesRequest,
-  DescribeInstancesResult,
-  DescribeInstanceStatusRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2959,7 +2977,6 @@ import {
   InstanceNetworkInterfaceAttachment,
   InstancePrivateIpAddress,
   InstanceState,
-  InstanceStatusEvent,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
@@ -2971,7 +2988,6 @@ import {
   PciId,
   PrivateDnsNameOptionsResponse,
   ProductCode,
-  Reservation,
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
@@ -2989,6 +3005,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstancesResult,
+  DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
@@ -3151,7 +3169,6 @@ import {
   DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3168,6 +3185,7 @@ import {
   InstanceNetworkInterfaceSpecification,
   InstanceStatus,
   InstanceStatusDetails,
+  InstanceStatusEvent,
   InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTypeInfo,
@@ -3198,6 +3216,7 @@ import {
   PublicIpv4PoolRange,
   RecurringCharge,
   Region,
+  Reservation,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -3247,8 +3266,6 @@ import {
   VolumeStatusAttachmentStatus,
   VolumeStatusDetails,
   VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
 } from "../models/models_4";
 import {
   AssociatedRole,
@@ -3260,6 +3277,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcClassicLinkDnsSupportRequest,
@@ -3332,6 +3350,8 @@ import {
   DisassociateInstanceEventWindowResult,
   DisassociateIpamResourceDiscoveryRequest,
   DisassociateIpamResourceDiscoveryResult,
+  DisassociateNatGatewayAddressRequest,
+  DisassociateNatGatewayAddressResult,
   DisassociateRouteTableRequest,
   DisassociateSubnetCidrBlockRequest,
   DisassociateSubnetCidrBlockResult,
@@ -3347,7 +3367,6 @@ import {
   DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
-  DnsServersOptionsModifyStructure,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
@@ -3508,12 +3527,6 @@ import {
   MetricPoint,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
-  ModifyAvailabilityZoneGroupRequest,
-  ModifyAvailabilityZoneGroupResult,
-  ModifyCapacityReservationFleetRequest,
-  ModifyCapacityReservationFleetResult,
-  ModifyCapacityReservationRequest,
-  ModifyCapacityReservationResult,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -3537,6 +3550,8 @@ import {
   UserBucket,
   UserData,
   VolumeDetail,
+  VolumeStatusInfo,
+  VolumeStatusItem,
   VpcClassicLink,
   VpcEndpointConnection,
   VpnConnectionDeviceType,
@@ -3547,6 +3562,7 @@ import {
   CidrAuthorizationContext,
   CpuOptionsRequest,
   CreateVolumePermissionModifications,
+  DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
@@ -3564,6 +3580,12 @@ import {
   LicenseConfigurationRequest,
   LoadPermissionModifications,
   LoadPermissionRequest,
+  ModifyAvailabilityZoneGroupRequest,
+  ModifyAvailabilityZoneGroupResult,
+  ModifyCapacityReservationFleetRequest,
+  ModifyCapacityReservationFleetResult,
+  ModifyCapacityReservationRequest,
+  ModifyCapacityReservationResult,
   ModifyClientVpnEndpointRequest,
   ModifyClientVpnEndpointResult,
   ModifyDefaultCreditSpecificationRequest,
@@ -3793,7 +3815,6 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
-  SecurityGroupRuleDescription,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
@@ -3820,20 +3841,23 @@ import {
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
-  UnassignIpv6AddressesResult,
-  UnassignPrivateIpAddressesRequest,
-  UnmonitorInstancesRequest,
-  UnmonitorInstancesResult,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
-  UpdateSecurityGroupRuleDescriptionsEgressRequest,
-  UpdateSecurityGroupRuleDescriptionsEgressResult,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
   VerifiedAccessLogS3DestinationOptions,
 } from "../models/models_6";
 import {
+  SecurityGroupRuleDescription,
+  UnassignIpv6AddressesResult,
+  UnassignPrivateIpAddressesRequest,
+  UnassignPrivateNatGatewayAddressRequest,
+  UnassignPrivateNatGatewayAddressResult,
+  UnmonitorInstancesRequest,
+  UnmonitorInstancesResult,
+  UpdateSecurityGroupRuleDescriptionsEgressRequest,
+  UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
   WithdrawByoipCidrRequest,
@@ -4064,6 +4088,22 @@ export const serializeAws_ec2AssignPrivateIpAddressesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2AssignPrivateNatGatewayAddressCommand = async (
+  input: AssignPrivateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssignPrivateNatGatewayAddressRequest(input, context),
+    Action: "AssignPrivateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2AssociateAddressCommand = async (
   input: AssociateAddressCommandInput,
   context: __SerdeContext
@@ -4171,6 +4211,22 @@ export const serializeAws_ec2AssociateIpamResourceDiscoveryCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AssociateIpamResourceDiscoveryRequest(input, context),
     Action: "AssociateIpamResourceDiscovery",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateNatGatewayAddressCommand = async (
+  input: AssociateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateNatGatewayAddressRequest(input, context),
+    Action: "AssociateNatGatewayAddress",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9936,6 +9992,22 @@ export const serializeAws_ec2DisassociateIpamResourceDiscoveryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisassociateNatGatewayAddressCommand = async (
+  input: DisassociateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateNatGatewayAddressRequest(input, context),
+    Action: "DisassociateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisassociateRouteTableCommand = async (
   input: DisassociateRouteTableCommandInput,
   context: __SerdeContext
@@ -13136,6 +13208,22 @@ export const serializeAws_ec2UnassignPrivateIpAddressesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2UnassignPrivateNatGatewayAddressCommand = async (
+  input: UnassignPrivateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2UnassignPrivateNatGatewayAddressRequest(input, context),
+    Action: "UnassignPrivateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2UnmonitorInstancesCommand = async (
   input: UnmonitorInstancesCommandInput,
   context: __SerdeContext
@@ -13690,6 +13778,41 @@ const deserializeAws_ec2AssignPrivateIpAddressesCommandError = async (
   });
 };
 
+export const deserializeAws_ec2AssignPrivateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssignPrivateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssignPrivateNatGatewayAddressResult(data, context);
+  const response: AssignPrivateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssignPrivateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2AssociateAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13918,6 +14041,41 @@ const deserializeAws_ec2AssociateIpamResourceDiscoveryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateIpamResourceDiscoveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2AssociateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateNatGatewayAddressResult(data, context);
+  const response: AssociateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateNatGatewayAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -26439,6 +26597,41 @@ const deserializeAws_ec2DisassociateIpamResourceDiscoveryCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DisassociateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateNatGatewayAddressResult(data, context);
+  const response: DisassociateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DisassociateRouteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -33370,6 +33563,41 @@ const deserializeAws_ec2UnassignPrivateIpAddressesCommandError = async (
   });
 };
 
+export const deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2UnassignPrivateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2UnassignPrivateNatGatewayAddressResult(data, context);
+  const response: UnassignPrivateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2UnassignPrivateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2UnmonitorInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -34153,6 +34381,33 @@ const serializeAws_ec2AssignPrivateIpAddressesRequest = (
   return entries;
 };
 
+const serializeAws_ec2AssignPrivateNatGatewayAddressRequest = (
+  input: AssignPrivateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateIpAddressCount != null) {
+    entries["PrivateIpAddressCount"] = input.PrivateIpAddressCount;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AssociateAddressRequest = (input: AssociateAddressRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AllocationId != null) {
@@ -34304,6 +34559,40 @@ const serializeAws_ec2AssociateIpamResourceDiscoveryRequest = (
   }
   if (input.ClientToken != null) {
     entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AssociateNatGatewayAddressRequest = (
+  input: AssociateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.AllocationIds != null) {
+    const memberEntries = serializeAws_ec2AllocationIdList(input.AllocationIds, context);
+    if (input.AllocationIds?.length === 0) {
+      entries.AllocationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -36776,6 +37065,29 @@ const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest,
   }
   if (input.PrivateIpAddress != null) {
     entries["PrivateIpAddress"] = input.PrivateIpAddress;
+  }
+  if (input.SecondaryAllocationIds != null) {
+    const memberEntries = serializeAws_ec2AllocationIdList(input.SecondaryAllocationIds, context);
+    if (input.SecondaryAllocationIds?.length === 0) {
+      entries.SecondaryAllocationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecondaryAllocationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecondaryPrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.SecondaryPrivateIpAddresses, context);
+    if (input.SecondaryPrivateIpAddresses?.length === 0) {
+      entries.SecondaryPrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecondaryPrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecondaryPrivateIpAddressCount != null) {
+    entries["SecondaryPrivateIpAddressCount"] = input.SecondaryPrivateIpAddressCount;
   }
   return entries;
 };
@@ -45534,6 +45846,33 @@ const serializeAws_ec2DisassociateIpamResourceDiscoveryRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisassociateNatGatewayAddressRequest = (
+  input: DisassociateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.AssociationIds != null) {
+    const memberEntries = serializeAws_ec2EipAssociationIdList(input.AssociationIds, context);
+    if (input.AssociationIds?.length === 0) {
+      entries.AssociationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxDrainDurationSeconds != null) {
+    entries["MaxDrainDurationSeconds"] = input.MaxDrainDurationSeconds;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisassociateRouteTableRequest = (
   input: DisassociateRouteTableRequest,
   context: __SerdeContext
@@ -45779,6 +46118,19 @@ const serializeAws_ec2EbsInstanceBlockDeviceSpecification = (
 };
 
 const serializeAws_ec2EgressOnlyInternetGatewayIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2EipAssociationIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -49175,6 +49527,19 @@ const serializeAws_ec2IpamCidrAuthorizationContext = (
 };
 
 const serializeAws_ec2IpamPoolAllocationDisallowedCidrs = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2IpList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -57897,6 +58262,33 @@ const serializeAws_ec2UnassignPrivateIpAddressesRequest = (
   return entries;
 };
 
+const serializeAws_ec2UnassignPrivateNatGatewayAddressRequest = (
+  input: UnassignPrivateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxDrainDurationSeconds != null) {
+    entries["MaxDrainDurationSeconds"] = input.MaxDrainDurationSeconds;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2UnmonitorInstancesRequest = (input: UnmonitorInstancesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceIds != null) {
@@ -59676,6 +60068,28 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   return contents;
 };
 
+const deserializeAws_ec2AssignPrivateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): AssignPrivateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2AssociateAddressResult = (output: any, context: __SerdeContext): AssociateAddressResult => {
   const contents: any = {
     AssociationId: undefined,
@@ -59818,6 +60232,28 @@ const deserializeAws_ec2AssociateIpamResourceDiscoveryResult = (
   if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
     contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
       output["ipamResourceDiscoveryAssociation"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AssociateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
   }
@@ -68211,6 +68647,28 @@ const deserializeAws_ec2DisassociateIpamResourceDiscoveryResult = (
   if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
     contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
       output["ipamResourceDiscoveryAssociation"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
   }
@@ -77889,6 +78347,10 @@ const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContex
     NetworkInterfaceId: undefined,
     PrivateIp: undefined,
     PublicIp: undefined,
+    AssociationId: undefined,
+    IsPrimary: undefined,
+    FailureMessage: undefined,
+    Status: undefined,
   };
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
@@ -77901,6 +78363,18 @@ const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContex
   }
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
+  }
+  if (output["associationId"] !== undefined) {
+    contents.AssociationId = __expectString(output["associationId"]);
+  }
+  if (output["isPrimary"] !== undefined) {
+    contents.IsPrimary = __parseBoolean(output["isPrimary"]);
+  }
+  if (output["failureMessage"] !== undefined) {
+    contents.FailureMessage = __expectString(output["failureMessage"]);
+  }
+  if (output["status"] !== undefined) {
+    contents.Status = __expectString(output["status"]);
   }
   return contents;
 };
@@ -86206,6 +86680,28 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   ) {
     contents.UnassignedIpv6Prefixes = deserializeAws_ec2IpPrefixList(
       __getArrayIfSingleItem(output["unassignedIpv6PrefixSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2UnassignPrivateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): UnassignPrivateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
   }

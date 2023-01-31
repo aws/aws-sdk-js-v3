@@ -96,6 +96,10 @@ import {
   AssignPrivateIpAddressesCommandInput,
   AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
+import {
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/AssignPrivateNatGatewayAddressCommand";
 import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "./commands/AssociateAddressCommand";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
@@ -121,6 +125,10 @@ import {
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "./commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -1325,6 +1333,10 @@ import {
   DisassociateIpamResourceDiscoveryCommandOutput,
 } from "./commands/DisassociateIpamResourceDiscoveryCommand";
 import {
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "./commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
@@ -2016,6 +2028,10 @@ import {
   UnassignPrivateIpAddressesCommandInput,
   UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
+import {
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/UnassignPrivateNatGatewayAddressCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "./commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -2049,6 +2065,7 @@ export type ServiceInputTypes =
   | ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
   | AssignIpv6AddressesCommandInput
   | AssignPrivateIpAddressesCommandInput
+  | AssignPrivateNatGatewayAddressCommandInput
   | AssociateAddressCommandInput
   | AssociateClientVpnTargetNetworkCommandInput
   | AssociateDhcpOptionsCommandInput
@@ -2056,6 +2073,7 @@ export type ServiceInputTypes =
   | AssociateIamInstanceProfileCommandInput
   | AssociateInstanceEventWindowCommandInput
   | AssociateIpamResourceDiscoveryCommandInput
+  | AssociateNatGatewayAddressCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
@@ -2416,6 +2434,7 @@ export type ServiceInputTypes =
   | DisassociateIamInstanceProfileCommandInput
   | DisassociateInstanceEventWindowCommandInput
   | DisassociateIpamResourceDiscoveryCommandInput
+  | DisassociateNatGatewayAddressCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
@@ -2616,6 +2635,7 @@ export type ServiceInputTypes =
   | TerminateInstancesCommandInput
   | UnassignIpv6AddressesCommandInput
   | UnassignPrivateIpAddressesCommandInput
+  | UnassignPrivateNatGatewayAddressCommandInput
   | UnmonitorInstancesCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandInput
@@ -2636,6 +2656,7 @@ export type ServiceOutputTypes =
   | ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
   | AssignIpv6AddressesCommandOutput
   | AssignPrivateIpAddressesCommandOutput
+  | AssignPrivateNatGatewayAddressCommandOutput
   | AssociateAddressCommandOutput
   | AssociateClientVpnTargetNetworkCommandOutput
   | AssociateDhcpOptionsCommandOutput
@@ -2643,6 +2664,7 @@ export type ServiceOutputTypes =
   | AssociateIamInstanceProfileCommandOutput
   | AssociateInstanceEventWindowCommandOutput
   | AssociateIpamResourceDiscoveryCommandOutput
+  | AssociateNatGatewayAddressCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
@@ -3003,6 +3025,7 @@ export type ServiceOutputTypes =
   | DisassociateIamInstanceProfileCommandOutput
   | DisassociateInstanceEventWindowCommandOutput
   | DisassociateIpamResourceDiscoveryCommandOutput
+  | DisassociateNatGatewayAddressCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
@@ -3203,6 +3226,7 @@ export type ServiceOutputTypes =
   | TerminateInstancesCommandOutput
   | UnassignIpv6AddressesCommandOutput
   | UnassignPrivateIpAddressesCommandOutput
+  | UnassignPrivateNatGatewayAddressCommandOutput
   | UnmonitorInstancesCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput

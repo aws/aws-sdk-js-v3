@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateClientVpnRouteRequest, CreateClientVpnRouteRequestFilterSensitiveLog } from "../models/models_0";
-import { CreateClientVpnRouteResult, CreateClientVpnRouteResultFilterSensitiveLog } from "../models/models_1";
+import {
+  CreateClientVpnRouteRequest,
+  CreateClientVpnRouteRequestFilterSensitiveLog,
+  CreateClientVpnRouteResult,
+  CreateClientVpnRouteResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateClientVpnRouteCommand,
   serializeAws_ec2CreateClientVpnRouteCommand,

@@ -2,7 +2,6 @@
 import {
   ApplianceModeSupportValue,
   CarrierGateway,
-  ClientVpnEndpointStatus,
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
@@ -24,6 +23,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
@@ -38,12 +38,174 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  RouteTable,
+  RouteTableAssociation,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a virtual private gateway propagating route.</p>
+ */
+export interface PropagatingVgw {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  GatewayId?: string;
+}
+
+export enum RouteOrigin {
+  CreateRoute = "CreateRoute",
+  CreateRouteTable = "CreateRouteTable",
+  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
+}
+
+export enum RouteState {
+  active = "active",
+  blackhole = "blackhole",
+}
+
+/**
+ * <p>Describes a route in a route table.</p>
+ */
+export interface Route {
+  /**
+   * <p>The IPv4 CIDR block used for the destination match.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The prefix of the Amazon Web Service.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>The ID of the egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of a gateway attached to your VPC.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of Amazon Web Services account that owns the instance.</p>
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>Describes how the route was created.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
+   *             </li>
+   *          </ul>
+   */
+  Origin?: RouteOrigin | string;
+
+  /**
+   * <p>The state of the route. The <code>blackhole</code> state indicates that the
+   * 				route's target isn't available (for example, the specified gateway isn't attached to the
+   * 				VPC, or the specified NAT instance has been terminated).</p>
+   */
+  State?: RouteState | string;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+}
+
+/**
+ * <p>Describes a route table.</p>
+ */
+export interface RouteTable {
+  /**
+   * <p>The associations between the route table and one or more subnets or a gateway.</p>
+   */
+  Associations?: RouteTableAssociation[];
+
+  /**
+   * <p>Any virtual private gateway (VGW) propagating routes.</p>
+   */
+  PropagatingVgws?: PropagatingVgw[];
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>The routes in the route table.</p>
+   */
+  Routes?: Route[];
+
+  /**
+   * <p>Any tags assigned to the route table.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
+   */
+  OwnerId?: string;
+}
 
 export interface CreateRouteTableResult {
   /**
@@ -6266,61 +6428,26 @@ export interface DeleteTrafficMirrorSessionResult {
   TrafficMirrorSessionId?: string;
 }
 
-export interface DeleteTrafficMirrorTargetRequest {
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId: string | undefined;
+/**
+ * @internal
+ */
+export const PropagatingVgwFilterSensitiveLog = (obj: PropagatingVgw): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const RouteFilterSensitiveLog = (obj: Route): any => ({
+  ...obj,
+});
 
-export interface DeleteTrafficMirrorTargetResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId?: string;
-}
-
-export interface DeleteTransitGatewayRequest {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayResult {
-  /**
-   * <p>Information about the deleted transit gateway.</p>
-   */
-  TransitGateway?: TransitGateway;
-}
-
-export interface DeleteTransitGatewayConnectRequest {
-  /**
-   * <p>The ID of the Connect attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const RouteTableFilterSensitiveLog = (obj: RouteTable): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8152,40 +8279,5 @@ export const DeleteTrafficMirrorSessionRequestFilterSensitiveLog = (obj: DeleteT
  * @internal
  */
 export const DeleteTrafficMirrorSessionResultFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorTargetRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorTargetResultFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayResultFilterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayConnectRequestFilterSensitiveLog = (obj: DeleteTransitGatewayConnectRequest): any => ({
   ...obj,
 });
