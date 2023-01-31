@@ -18,7 +18,7 @@ import {
   UpdateEndpointInputFilterSensitiveLog,
   UpdateEndpointOutput,
   UpdateEndpointOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateEndpointCommand,
   serializeAws_json1_1UpdateEndpointCommand,

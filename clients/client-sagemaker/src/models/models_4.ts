@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   AdditionalInferenceSpecificationDefinition,
   BooleanOperator,
+  DeploymentConfig,
   ModelApprovalStatus,
   Tag,
   UserSettings,
@@ -40,8 +41,114 @@ import {
   VendorGuidance,
   WorkforceVpcConfigRequest,
 } from "./models_1";
-import { FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
-import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+import { DesiredWeightAndCapacity, FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
+import {
+  NestedFilters,
+  ProfilerConfigForUpdate,
+  ResourceConfigForUpdate,
+  SearchSortOrder,
+  VariantPropertyType,
+} from "./models_3";
+
+/**
+ * <p>Specifies a production variant property type for an Endpoint.</p>
+ *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
+ *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
+ *             existing variant properties of the endpoint.</p>
+ */
+export interface VariantProperty {
+  /**
+   * <p>The type of variant property. The supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
+   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
+   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
+   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
+   *             </li>
+   *          </ul>
+   */
+  VariantPropertyType: VariantPropertyType | string | undefined;
+}
+
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
+   *             retain the variant properties of an endpoint when updating it, set
+   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
+   *             properties specified in a new <code>EndpointConfig</code> call when updating an
+   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
+   *             is <code>false</code>.</p>
+   */
+  RetainAllVariantProperties?: boolean;
+
+  /**
+   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
+   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
+   *             of type <a>VariantProperty</a> to override with the values provided by
+   *                 <code>EndpointConfig</code>. If you don't specify a value for
+   *                 <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden.
+   *         </p>
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[];
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment
+   *             strategy and rollback configurations.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is
+   *             false (the configuration is not reused).</p>
+   */
+  RetainDeploymentConfig?: boolean;
+}
+
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing SageMaker endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
 
 export interface UpdateExperimentRequest {
   /**
@@ -1096,6 +1203,45 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const VariantPropertyFilterSensitiveLog = (obj: VariantProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointInputFilterSensitiveLog = (obj: UpdateEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointOutputFilterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog = (
+  obj: UpdateEndpointWeightsAndCapacitiesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog = (
+  obj: UpdateEndpointWeightsAndCapacitiesOutput
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

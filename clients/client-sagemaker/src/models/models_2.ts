@@ -13,12 +13,9 @@ import {
   AlgorithmStatusDetails,
   AlgorithmSummary,
   AlgorithmValidationSpecification,
-  AppDetails,
-  AppImageConfigDetails,
   AppImageConfigSortKey,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
-  AppSortKey,
   AppSpecification,
   AppStatus,
   AppType,
@@ -50,13 +47,14 @@ import {
   DataQualityJobInput,
   DefaultSpaceSettings,
   DeploymentConfig,
+  DeviceSelectionConfig,
   DomainSettings,
+  EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
   ExplainerConfig,
-  FeatureType,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -100,12 +98,12 @@ import {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeployedImage,
-  DeploymentStageStatusSummary,
   DirectInternetAccess,
   DriftCheckBaselines,
   EndpointInfo,
   ExperimentConfig,
   FeatureDefinition,
+  FeatureType,
   FlowDefinitionOutputConfig,
   HubContentType,
   HubS3StorageConfig,
@@ -180,6 +178,77 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+export enum StageStatus {
+  Creating = "CREATING",
+  Deployed = "DEPLOYED",
+  Failed = "FAILED",
+  InProgress = "INPROGRESS",
+  ReadyToDeploy = "READYTODEPLOY",
+  Starting = "STARTING",
+  Stopped = "STOPPED",
+  Stopping = "STOPPING",
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface EdgeDeploymentStatus {
+  /**
+   * <p>The general status of the current stage.</p>
+   */
+  StageStatus: StageStatus | string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment in the current stage.</p>
+   */
+  EdgeDeploymentSuccessInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
+   */
+  EdgeDeploymentPendingInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices that failed the deployment in current stage.</p>
+   */
+  EdgeDeploymentFailedInStage: number | undefined;
+
+  /**
+   * <p>A detailed message about deployment status in current stage.</p>
+   */
+  EdgeDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The time when the deployment API started.</p>
+   */
+  EdgeDeploymentStageStartTime?: Date;
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface DeploymentStageStatusSummary {
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>Configuration of the devices in the stage.</p>
+   */
+  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+
+  /**
+   * <p>Configuration of the deployment details.</p>
+   */
+  DeploymentConfig: EdgeDeploymentConfig | undefined;
+
+  /**
+   * <p>General status of the current state.</p>
+   */
+  DeploymentStatus: EdgeDeploymentStatus | undefined;
+}
 
 export interface DeregisterDevicesRequest {
   /**
@@ -2702,6 +2771,16 @@ export interface HyperParameterTrainingJobSummary {
   ObjectiveStatus?: ObjectiveStatus | string;
 }
 
+/**
+ * <p>The total resources consumed by your hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobConsumedResources {
+  /**
+   * <p>The wall clock runtime in seconds used by your hyperparameter tuning job.</p>
+   */
+  RuntimeInSeconds?: number;
+}
+
 export enum HyperParameterTuningJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -2776,6 +2855,21 @@ export interface TrainingJobStatusCounters {
   Stopped?: number;
 }
 
+/**
+ * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
+ */
+export interface HyperParameterTuningJobCompletionDetails {
+  /**
+   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
+   */
+  NumberOfTrainingJobsObjectiveNotImproving?: number;
+
+  /**
+   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
+   */
+  ConvergenceDetectedTime?: Date;
+}
+
 export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p>The name of the tuning job.</p>
@@ -2783,8 +2877,7 @@ export interface DescribeHyperParameterTuningJobResponse {
   HyperParameterTuningJobName: string | undefined;
 
   /**
-   * <p>The
-   *             Amazon Resource Name (ARN) of the tuning job.</p>
+   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
    */
   HyperParameterTuningJobArn: string | undefined;
 
@@ -2867,6 +2960,16 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>If the tuning job failed, the reason it failed.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total resources consumed by your hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export interface DescribeImageRequest {
@@ -8767,6 +8870,16 @@ export interface HyperParameterTuningJobSearchEntity {
    * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Information about either a current or completed hyperparameter tuning job.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export enum HyperParameterTuningJobSortByOptions {
@@ -9590,115 +9703,19 @@ export interface ListAppImageConfigsRequest {
   SortOrder?: SortOrder | string;
 }
 
-export interface ListAppImageConfigsResponse {
-  /**
-   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A list of AppImageConfigs and their properties.</p>
-   */
-  AppImageConfigs?: AppImageConfigDetails[];
-}
-
-export interface ListAppsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns a list up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   */
-  SortBy?: AppSortKey | string;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   */
-  DomainIdEquals?: string;
-
-  /**
-   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
-   */
-  UserProfileNameEquals?: string;
-
-  /**
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
-   */
-  SpaceNameEquals?: string;
-}
-
-export interface ListAppsResponse {
-  /**
-   * <p>The list of apps.</p>
-   */
-  Apps?: AppDetails[];
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortArtifactsBy {
-  CREATION_TIME = "CreationTime",
-}
-
-export interface ListArtifactsRequest {
-  /**
-   * <p>A filter that returns only artifacts with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only artifacts of the specified type.</p>
-   */
-  ArtifactType?: string;
-
-  /**
-   * <p>A filter that returns only artifacts created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only artifacts created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortArtifactsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
-   *         the call returns a token for getting the next set of artifacts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10187,6 +10204,15 @@ export const HyperParameterTrainingJobSummaryFilterSensitiveLog = (obj: HyperPar
 /**
  * @internal
  */
+export const HyperParameterTuningJobConsumedResourcesFilterSensitiveLog = (
+  obj: HyperParameterTuningJobConsumedResources
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
   ...obj,
 });
@@ -10195,6 +10221,15 @@ export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCo
  * @internal
  */
 export const TrainingJobStatusCountersFilterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobCompletionDetailsFilterSensitiveLog = (
+  obj: HyperParameterTuningJobCompletionDetails
+): any => ({
   ...obj,
 });
 
@@ -11418,33 +11453,5 @@ export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse):
  * @internal
  */
 export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppImageConfigsResponseFilterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
   ...obj,
 });

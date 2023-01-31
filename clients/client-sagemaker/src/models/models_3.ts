@@ -5,7 +5,10 @@ import {
   ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
+  AppDetails,
+  AppImageConfigDetails,
   AppSecurityGroupManagement,
+  AppSortKey,
   AppSpecification,
   ArtifactSummary,
   AssociationEdgeType,
@@ -33,7 +36,6 @@ import {
   ContainerDefinition,
   ContextSummary,
   DefaultSpaceSettings,
-  DeploymentConfig,
   EdgeOutputConfig,
   InferenceSpecification,
   KernelGatewayImageConfig,
@@ -89,7 +91,6 @@ import {
   UiTemplate,
 } from "./models_1";
 import {
-  DesiredWeightAndCapacity,
   Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
@@ -181,6 +182,116 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListAppImageConfigsResponse {
+  /**
+   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of AppImageConfigs and their properties.</p>
+   */
+  AppImageConfigs?: AppImageConfigDetails[];
+}
+
+export interface ListAppsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   */
+  SortBy?: AppSortKey | string;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   */
+  DomainIdEquals?: string;
+
+  /**
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  UserProfileNameEquals?: string;
+
+  /**
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  SpaceNameEquals?: string;
+}
+
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   */
+  Apps?: AppDetails[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export enum SortArtifactsBy {
+  CREATION_TIME = "CreationTime",
+}
+
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   */
+  ArtifactType?: string;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortArtifactsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
+   *         the call returns a token for getting the next set of artifacts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListArtifactsResponse {
   /**
@@ -8341,104 +8452,32 @@ export enum VariantPropertyType {
 }
 
 /**
- * <p>Specifies a production variant property type for an Endpoint.</p>
- *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
- *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
- *             existing variant properties of the endpoint.</p>
+ * @internal
  */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
-   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
-   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
-   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
-   *             </li>
-   *          </ul>
-   */
-  VariantPropertyType: VariantPropertyType | string | undefined;
-}
+export const ListAppImageConfigsResponseFilterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
+  ...obj,
+});
 
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   */
-  EndpointName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
-   *             retain the variant properties of an endpoint when updating it, set
-   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
-   *             properties specified in a new <code>EndpointConfig</code> call when updating an
-   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
-   *             is <code>false</code>.</p>
-   */
-  RetainAllVariantProperties?: boolean;
-
-  /**
-   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
-   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
-   *             of type <a>VariantProperty</a> to override with the values provided by
-   *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden.
-   *         </p>
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[];
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment
-   *             strategy and rollback configurations.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>Specifies whether to reuse the last deployment configuration. The default value is
-   *             false (the configuration is not reused).</p>
-   */
-  RetainDeploymentConfig?: boolean;
-}
-
-export interface UpdateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * <p>The name of an existing SageMaker endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>An object that provides new capacity and weight values for a variant.</p>
-   */
-  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
+/**
+ * @internal
+ */
+export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10230,44 +10269,5 @@ export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest):
  * @internal
  */
 export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantPropertyFilterSensitiveLog = (obj: VariantProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointInputFilterSensitiveLog = (obj: UpdateEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointOutputFilterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesOutput
-): any => ({
   ...obj,
 });

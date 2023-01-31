@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppImageConfigsRequest,
-  ListAppImageConfigsRequestFilterSensitiveLog,
-  ListAppImageConfigsResponse,
-  ListAppImageConfigsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListAppImageConfigsRequest, ListAppImageConfigsRequestFilterSensitiveLog } from "../models/models_2";
+import { ListAppImageConfigsResponse, ListAppImageConfigsResponseFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1ListAppImageConfigsCommand,
   serializeAws_json1_1ListAppImageConfigsCommand,

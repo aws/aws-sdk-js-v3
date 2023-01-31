@@ -13,6 +13,7 @@ import {
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
+  BestObjectiveNotImproving,
   Bias,
   CaptureContentTypeHeader,
   CaptureStatus,
@@ -26,10 +27,8 @@ import {
   ContainerDefinition,
   ContentClassifier,
   ContinuousParameterRange,
-  DeviceSelectionConfig,
-  EdgeDeploymentConfig,
+  ConvergenceDetected,
   EndpointInput,
-  FeatureType,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -63,6 +62,45 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+export interface CreateExperimentRequest {
+  /**
+   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
+   *       case-sensitive.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't
+   *       specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
+   *       displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
+   *       to search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+export enum FeatureType {
+  FRACTIONAL = "Fractional",
+  INTEGRAL = "Integral",
+  STRING = "String",
+}
 
 /**
  * <p>A list of features. You must include <code>FeatureName</code> and
@@ -1375,27 +1413,26 @@ export interface ParameterRanges {
 }
 
 /**
- * <p>Specifies the maximum number of
- *             training
- *             jobs and parallel training jobs that a hyperparameter tuning job can
- *             launch.</p>
+ * <p>Specifies the maximum number of training jobs and parallel training jobs that a
+ *             hyperparameter tuning job can launch.</p>
  */
 export interface ResourceLimits {
   /**
-   * <p>The
-   *             maximum
-   *             number of training jobs that a hyperparameter tuning job can
+   * <p>The maximum number of training jobs that a hyperparameter tuning job can
    *             launch.</p>
    */
   MaxNumberOfTrainingJobs?: number;
 
   /**
-   * <p>The
-   *             maximum
-   *             number of concurrent training jobs that a hyperparameter tuning job can
+   * <p>The maximum number of concurrent training jobs that a hyperparameter tuning job can
    *             launch.</p>
    */
   MaxParallelTrainingJobs: number | undefined;
+
+  /**
+   * <p>The maximum time in seconds that a training job launched by a hyperparameter tuning job can run.</p>
+   */
+  MaxRuntimeInSeconds?: number;
 }
 
 export enum HyperParameterTuningJobStrategyType {
@@ -1495,7 +1532,17 @@ export interface TuningJobCompletionCriteria {
   /**
    * <p>The value of the objective metric.</p>
    */
-  TargetObjectiveMetricValue: number | undefined;
+  TargetObjectiveMetricValue?: number;
+
+  /**
+   * <p>A flag to stop your hyperparameter tuning job if model performance fails to improve as evaluated against an objective function.</p>
+   */
+  BestObjectiveNotImproving?: BestObjectiveNotImproving;
+
+  /**
+   * <p>A flag to top your hyperparameter tuning job if automatic model tuning (AMT) has detected that your model has converged as evaluated against your objective function.</p>
+   */
+  ConvergenceDetected?: ConvergenceDetected;
 }
 
 /**
@@ -9164,76 +9211,19 @@ export interface DeployedImage {
   ResolutionTime?: Date;
 }
 
-export enum StageStatus {
-  Creating = "CREATING",
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+/**
+ * @internal
+ */
+export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains information summarizing the deployment stage results.</p>
+ * @internal
  */
-export interface EdgeDeploymentStatus {
-  /**
-   * <p>The general status of the current stage.</p>
-   */
-  StageStatus: StageStatus | string | undefined;
-
-  /**
-   * <p>The number of edge devices with the successful deployment in the current stage.</p>
-   */
-  EdgeDeploymentSuccessInStage: number | undefined;
-
-  /**
-   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
-   */
-  EdgeDeploymentPendingInStage: number | undefined;
-
-  /**
-   * <p>The number of edge devices that failed the deployment in current stage.</p>
-   */
-  EdgeDeploymentFailedInStage: number | undefined;
-
-  /**
-   * <p>A detailed message about deployment status in current stage.</p>
-   */
-  EdgeDeploymentStatusMessage?: string;
-
-  /**
-   * <p>The time when the deployment API started.</p>
-   */
-  EdgeDeploymentStageStartTime?: Date;
-}
-
-/**
- * <p>Contains information summarizing the deployment stage results.</p>
- */
-export interface DeploymentStageStatusSummary {
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * <p>Configuration of the devices in the stage.</p>
-   */
-  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
-
-  /**
-   * <p>Configuration of the deployment details.</p>
-   */
-  DeploymentConfig: EdgeDeploymentConfig | undefined;
-
-  /**
-   * <p>General status of the current state.</p>
-   */
-  DeploymentStatus: EdgeDeploymentStatus | undefined;
-}
+export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11162,19 +11152,5 @@ export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResp
  * @internal
  */
 export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
   ...obj,
 });

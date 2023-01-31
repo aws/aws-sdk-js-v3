@@ -5044,6 +5044,16 @@ export interface BatchTransformInput {
 }
 
 /**
+ * <p>A structure that keeps track of which training jobs launched by your hyperparameter tuning job are not improving model performance as evaluated against an objective function.</p>
+ */
+export interface BestObjectiveNotImproving {
+  /**
+   * <p>The number of training jobs that have failed to improve model performance by 1% or greater over prior training jobs as evaluated against an objective function.</p>
+   */
+  MaxNumberOfTrainingJobsNotImproving?: number;
+}
+
+/**
  * <p>Details about the metrics source.</p>
  */
 export interface MetricsSource {
@@ -6089,6 +6099,11 @@ export interface CompilationJobSummary {
   CompilationJobStatus: CompilationJobStatus | string | undefined;
 }
 
+export enum CompleteOnConvergence {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+}
+
 export enum ConditionOutcome {
   FALSE = "False",
   TRUE = "True",
@@ -6440,6 +6455,16 @@ export interface ContinuousParameterRangeSpecification {
    * <p>The maximum floating-point value allowed.</p>
    */
   MaxValue: string | undefined;
+}
+
+/**
+ * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence, defined as a lack of significant improvement (1% or less) against an objective metric.</p>
+ */
+export interface ConvergenceDetected {
+  /**
+   * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
+   */
+  CompleteOnConvergence?: CompleteOnConvergence | string;
 }
 
 /**
@@ -9422,45 +9447,6 @@ export interface CreateEndpointConfigOutput {
   EndpointConfigArn: string | undefined;
 }
 
-export interface CreateExperimentRequest {
-  /**
-   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
-   *       case-sensitive.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't
-   *       specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
-   *       displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
-   *       to search on the tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export enum FeatureType {
-  FRACTIONAL = "Fractional",
-  INTEGRAL = "Integral",
-  STRING = "String",
-}
-
 /**
  * @internal
  */
@@ -10096,6 +10082,13 @@ export const BatchTransformInputFilterSensitiveLog = (obj: BatchTransformInput):
 /**
  * @internal
  */
+export const BestObjectiveNotImprovingFilterSensitiveLog = (obj: BestObjectiveNotImproving): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const MetricsSourceFilterSensitiveLog = (obj: MetricsSource): any => ({
   ...obj,
 });
@@ -10367,6 +10360,13 @@ export const ContinuousParameterRangeFilterSensitiveLog = (obj: ContinuousParame
 export const ContinuousParameterRangeSpecificationFilterSensitiveLog = (
   obj: ContinuousParameterRangeSpecification
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConvergenceDetectedFilterSensitiveLog = (obj: ConvergenceDetected): any => ({
   ...obj,
 });
 
@@ -10917,19 +10917,5 @@ export const CreateEndpointConfigInputFilterSensitiveLog = (obj: CreateEndpointC
  * @internal
  */
 export const CreateEndpointConfigOutputFilterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
   ...obj,
 });
