@@ -56,6 +56,11 @@ import {
   DescribeEphemerisCommandInput,
   DescribeEphemerisCommandOutput,
 } from "./commands/DescribeEphemerisCommand";
+import {
+  GetAgentConfigurationCommand,
+  GetAgentConfigurationCommandInput,
+  GetAgentConfigurationCommandOutput,
+} from "./commands/GetAgentConfigurationCommand";
 import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommand,
@@ -114,6 +119,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RegisterAgentCommand,
+  RegisterAgentCommandInput,
+  RegisterAgentCommandOutput,
+} from "./commands/RegisterAgentCommand";
+import {
   ReserveContactCommand,
   ReserveContactCommandInput,
   ReserveContactCommandOutput,
@@ -124,6 +134,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAgentStatusCommand,
+  UpdateAgentStatusCommandInput,
+  UpdateAgentStatusCommandOutput,
+} from "./commands/UpdateAgentStatusCommand";
 import {
   UpdateConfigCommand,
   UpdateConfigCommandInput,
@@ -492,6 +507,38 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: DescribeEphemerisCommandOutput) => void
   ): Promise<DescribeEphemerisCommandOutput> | void {
     const command = new DescribeEphemerisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the latest configuration information for a registered agent.</p>
+   */
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentConfigurationCommandOutput>;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAgentConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): Promise<GetAgentConfigurationCommandOutput> | void {
+    const command = new GetAgentConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -905,6 +952,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Registers a new agent with AWS Groundstation.</p>
+   */
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterAgentCommandOutput>;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterAgentCommandOutput) => void),
+    cb?: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): Promise<RegisterAgentCommandOutput> | void {
+    const command = new RegisterAgentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Reserves a contact using specified parameters.</p>
    */
   public reserveContact(
@@ -984,6 +1063,38 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the status of the agent.</p>
+   */
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentStatusCommandOutput>;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): Promise<UpdateAgentStatusCommandOutput> | void {
+    const command = new UpdateAgentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

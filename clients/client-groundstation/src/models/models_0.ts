@@ -3,6 +3,275 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
+/**
+ * <p>Dependency encountered an error.</p>
+ */
+export class DependencyException extends __BaseException {
+  readonly name: "DependencyException" = "DependencyException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
+    super({
+      name: "DependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyException.prototype);
+    this.parameterName = opts.parameterName;
+  }
+}
+
+export interface GetAgentConfigurationRequest {
+  /**
+   * <p>UUID of agent to get configuration information for.</p>
+   */
+  agentId: string | undefined;
+}
+
+export interface GetAgentConfigurationResponse {
+  /**
+   * <p>UUID of agent.</p>
+   */
+  agentId?: string;
+
+  /**
+   * <p>Tasking document for agent.</p>
+   */
+  taskingDocument?: string;
+}
+
+/**
+ * <p>One or more parameters are not valid.</p>
+ */
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.parameterName = opts.parameterName;
+  }
+}
+
+/**
+ * <p>Resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+export enum ComponentType {
+  DIGITIZER = "DIGITIZER",
+  LAMINAR_FLOW = "LAMINAR_FLOW",
+  PRISM = "PRISM",
+}
+
+/**
+ * <p>Version information for agent components.</p>
+ */
+export interface ComponentVersion {
+  /**
+   * <p>Component type.</p>
+   */
+  componentType: ComponentType | string | undefined;
+
+  /**
+   * <p>List of versions.</p>
+   */
+  versions: string[] | undefined;
+}
+
+/**
+ * <p>Detailed information about the agent.</p>
+ */
+export interface AgentDetails {
+  /**
+   * <p>Current agent version.</p>
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>ID of EC2 instance agent is running on.</p>
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>Type of EC2 instance agent is running on.</p>
+   */
+  instanceType: string | undefined;
+
+  /**
+   * <p>Number of Cpu cores reserved for agent.</p>
+   */
+  reservedCpuCores: number[] | undefined;
+
+  /**
+   * <p>List of versions being used by agent components.</p>
+   */
+  componentVersions: ComponentVersion[] | undefined;
+}
+
+/**
+ * <p>Data for agent discovery.</p>
+ */
+export interface DiscoveryData {
+  /**
+   * <p>List of public IP addresses to associate with agent.</p>
+   */
+  publicIpAddresses: string[] | undefined;
+
+  /**
+   * <p>List of private IP addresses to associate with agent.</p>
+   */
+  privateIpAddresses: string[] | undefined;
+
+  /**
+   * <p>List of capabilities to associate with agent.</p>
+   */
+  capabilityArns: string[] | undefined;
+}
+
+export interface RegisterAgentRequest {
+  /**
+   * <p>Data for associating and agent with the capabilities it is managing.</p>
+   */
+  discoveryData: DiscoveryData | undefined;
+
+  /**
+   * <p>Detailed information about the agent being registered.</p>
+   */
+  agentDetails: AgentDetails | undefined;
+}
+
+export interface RegisterAgentResponse {
+  /**
+   * <p>UUID of registered agent.</p>
+   */
+  agentId?: string;
+}
+
+export enum AgentStatus {
+  ACTIVE = "ACTIVE",
+  FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
+  SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>Aggregate status of Agent components.</p>
+ */
+export interface AggregateStatus {
+  /**
+   * <p>Aggregate status.</p>
+   */
+  status: AgentStatus | string | undefined;
+
+  /**
+   * <p>Sparse map of failure signatures.</p>
+   */
+  signatureMap?: Record<string, boolean>;
+}
+
+/**
+ * <p>Data on the status of agent components.</p>
+ */
+export interface ComponentStatusData {
+  /**
+   * <p>The Component type.</p>
+   */
+  componentType: ComponentType | string | undefined;
+
+  /**
+   * <p>Capability ARN of the component.</p>
+   */
+  capabilityArn: string | undefined;
+
+  /**
+   * <p>Component status.</p>
+   */
+  status: AgentStatus | string | undefined;
+
+  /**
+   * <p>Bytes sent by the component.</p>
+   */
+  bytesSent?: number;
+
+  /**
+   * <p>Bytes received by the component.</p>
+   */
+  bytesReceived?: number;
+
+  /**
+   * <p>Packets dropped by component.</p>
+   */
+  packetsDropped?: number;
+
+  /**
+   * <p>Dataflow UUID associated with the component.</p>
+   */
+  dataflowId: string | undefined;
+}
+
+export interface UpdateAgentStatusRequest {
+  /**
+   * <p>UUID of agent to update.</p>
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>GUID of agent task.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>Aggregate status for agent.</p>
+   */
+  aggregateStatus: AggregateStatus | undefined;
+
+  /**
+   * <p>List of component statuses for agent.</p>
+   */
+  componentStatuses: ComponentStatusData[] | undefined;
+}
+
+export interface UpdateAgentStatusResponse {
+  /**
+   * <p>UUID of updated agent.</p>
+   */
+  agentId: string | undefined;
+}
+
 export enum AngleUnits {
   DEGREE_ANGLE = "DEGREE_ANGLE",
   RADIAN = "RADIAN",
@@ -213,6 +482,116 @@ export interface AntennaUplinkConfig {
   targetEirp: Eirp | undefined;
 }
 
+export enum AuditResults {
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY",
+}
+
+/**
+ * <p>Information about the socket address.</p>
+ */
+export interface SocketAddress {
+  /**
+   * <p>Name of a socket address.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Port of a socket address.</p>
+   */
+  port: number | undefined;
+}
+
+/**
+ * <p>Egress address of AgentEndpoint with an optional mtu.</p>
+ */
+export interface ConnectionDetails {
+  /**
+   * <p>A socket address.</p>
+   */
+  socketAddress: SocketAddress | undefined;
+
+  /**
+   * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   */
+  mtu?: number;
+}
+
+/**
+ * <p>An integer range that has a minimum and maximum value.</p>
+ */
+export interface IntegerRange {
+  /**
+   * <p>A minimum value.</p>
+   */
+  minimum: number | undefined;
+
+  /**
+   * <p>A maximum value.</p>
+   */
+  maximum: number | undefined;
+}
+
+/**
+ * <p>A socket address with a port range.</p>
+ */
+export interface RangedSocketAddress {
+  /**
+   * <p>IPv4 socket address.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Port range of a socket address.</p>
+   */
+  portRange: IntegerRange | undefined;
+}
+
+/**
+ * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
+ */
+export interface RangedConnectionDetails {
+  /**
+   * <p>A ranged socket address.</p>
+   */
+  socketAddress: RangedSocketAddress | undefined;
+
+  /**
+   * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   */
+  mtu?: number;
+}
+
+/**
+ * <p>Information about AwsGroundStationAgentEndpoint.</p>
+ */
+export interface AwsGroundStationAgentEndpoint {
+  /**
+   * <p>Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The egress address of AgentEndpoint.</p>
+   */
+  egressAddress: ConnectionDetails | undefined;
+
+  /**
+   * <p>The ingress address of AgentEndpoint.</p>
+   */
+  ingressAddress: RangedConnectionDetails | undefined;
+
+  /**
+   * <p>The status of AgentEndpoint.</p>
+   */
+  agentStatus?: AgentStatus | string;
+
+  /**
+   * <p>The results of the audit.</p>
+   */
+  auditResults?: AuditResults | string;
+}
+
 /**
  * <p/>
  */
@@ -231,75 +610,6 @@ export interface ContactIdResponse {
    * <p>UUID of a contact.</p>
    */
   contactId?: string;
-}
-
-/**
- * <p>Dependency encountered an error.</p>
- */
-export class DependencyException extends __BaseException {
-  readonly name: "DependencyException" = "DependencyException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
-    super({
-      name: "DependencyException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyException.prototype);
-    this.parameterName = opts.parameterName;
-  }
-}
-
-/**
- * <p>One or more parameters are not valid.</p>
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.parameterName = opts.parameterName;
-  }
-}
-
-/**
- * <p>Resource was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 export enum ConfigCapabilityType {
@@ -742,21 +1052,6 @@ export interface UpdateConfigRequest {
   configData: ConfigTypeData | undefined;
 }
 
-/**
- * <p>Information about the socket address.</p>
- */
-export interface SocketAddress {
-  /**
-   * <p>Name of a socket address.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Port of a socket address.</p>
-   */
-  port: number | undefined;
-}
-
 export enum EndpointStatus {
   created = "created",
   creating = "creating",
@@ -823,6 +1118,11 @@ export interface EndpointDetails {
    * <p>A dataflow endpoint.</p>
    */
   endpoint?: DataflowEndpoint;
+
+  /**
+   * <p>An agent endpoint.</p>
+   */
+  awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
 }
 
 /**
@@ -1471,6 +1771,49 @@ export interface EphemerisIdResponse {
 }
 
 /**
+ * <p>AWS Key Management Service (KMS) Key.</p>
+ */
+export type KmsKey = KmsKey.KmsAliasArnMember | KmsKey.KmsKeyArnMember | KmsKey.$UnknownMember;
+
+export namespace KmsKey {
+  /**
+   * <p>KMS Key Arn.</p>
+   */
+  export interface KmsKeyArnMember {
+    kmsKeyArn: string;
+    kmsAliasArn?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>KMS Alias Arn.</p>
+   */
+  export interface KmsAliasArnMember {
+    kmsKeyArn?: never;
+    kmsAliasArn: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    kmsKeyArn?: never;
+    kmsAliasArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    kmsKeyArn: (value: string) => T;
+    kmsAliasArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: KmsKey, visitor: Visitor<T>): T => {
+    if (value.kmsKeyArn !== undefined) return visitor.kmsKeyArn(value.kmsKeyArn);
+    if (value.kmsAliasArn !== undefined) return visitor.kmsAliasArn(value.kmsAliasArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p/>
  */
 export interface CreateMissionProfileRequest {
@@ -1510,6 +1853,16 @@ export interface CreateMissionProfileRequest {
    * <p>Tags assigned to a mission profile.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -2046,6 +2399,16 @@ export interface GetMissionProfileResponse {
    * <p>Tags assigned to a mission profile.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -2258,6 +2621,16 @@ export interface UpdateMissionProfileRequest {
    * <p>ARN of a tracking <code>Config</code>.</p>
    */
   trackingConfigArn?: string;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -2363,6 +2736,83 @@ export interface UntagResourceResponse {}
 /**
  * @internal
  */
+export const GetAgentConfigurationRequestFilterSensitiveLog = (obj: GetAgentConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAgentConfigurationResponseFilterSensitiveLog = (obj: GetAgentConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentVersionFilterSensitiveLog = (obj: ComponentVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentDetailsFilterSensitiveLog = (obj: AgentDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoveryDataFilterSensitiveLog = (obj: DiscoveryData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAgentRequestFilterSensitiveLog = (obj: RegisterAgentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAgentResponseFilterSensitiveLog = (obj: RegisterAgentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateStatusFilterSensitiveLog = (obj: AggregateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentStatusDataFilterSensitiveLog = (obj: ComponentStatusData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentStatusRequestFilterSensitiveLog = (obj: UpdateAgentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentStatusResponseFilterSensitiveLog = (obj: UpdateAgentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AntennaDemodDecodeDetailsFilterSensitiveLog = (obj: AntennaDemodDecodeDetails): any => ({
   ...obj,
 });
@@ -2434,6 +2884,48 @@ export const EirpFilterSensitiveLog = (obj: Eirp): any => ({
  * @internal
  */
 export const AntennaUplinkConfigFilterSensitiveLog = (obj: AntennaUplinkConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionDetailsFilterSensitiveLog = (obj: ConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegerRangeFilterSensitiveLog = (obj: IntegerRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangedSocketAddressFilterSensitiveLog = (obj: RangedSocketAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangedConnectionDetailsFilterSensitiveLog = (obj: RangedConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsGroundStationAgentEndpointFilterSensitiveLog = (obj: AwsGroundStationAgentEndpoint): any => ({
   ...obj,
 });
 
@@ -2567,13 +3059,6 @@ export const ListConfigsResponseFilterSensitiveLog = (obj: ListConfigsResponse):
 export const UpdateConfigRequestFilterSensitiveLog = (obj: UpdateConfigRequest): any => ({
   ...obj,
   ...(obj.configData && { configData: ConfigTypeDataFilterSensitiveLog(obj.configData) }),
-});
-
-/**
- * @internal
- */
-export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
-  ...obj,
 });
 
 /**
@@ -2768,8 +3253,18 @@ export const EphemerisIdResponseFilterSensitiveLog = (obj: EphemerisIdResponse):
 /**
  * @internal
  */
+export const KmsKeyFilterSensitiveLog = (obj: KmsKey): any => {
+  if (obj.kmsKeyArn !== undefined) return { kmsKeyArn: obj.kmsKeyArn };
+  if (obj.kmsAliasArn !== undefined) return { kmsAliasArn: obj.kmsAliasArn };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const CreateMissionProfileRequestFilterSensitiveLog = (obj: CreateMissionProfileRequest): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**
@@ -2927,6 +3422,7 @@ export const GetMissionProfileRequestFilterSensitiveLog = (obj: GetMissionProfil
  */
 export const GetMissionProfileResponseFilterSensitiveLog = (obj: GetMissionProfileResponse): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**
@@ -3004,6 +3500,7 @@ export const ListMissionProfilesResponseFilterSensitiveLog = (obj: ListMissionPr
  */
 export const UpdateMissionProfileRequestFilterSensitiveLog = (obj: UpdateMissionProfileRequest): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**

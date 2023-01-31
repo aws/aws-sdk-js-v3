@@ -72,6 +72,10 @@ import {
 } from "./commands/DeleteMissionProfileCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
 import { DescribeEphemerisCommandInput, DescribeEphemerisCommandOutput } from "./commands/DescribeEphemerisCommand";
+import {
+  GetAgentConfigurationCommandInput,
+  GetAgentConfigurationCommandOutput,
+} from "./commands/GetAgentConfigurationCommand";
 import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
@@ -97,9 +101,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { RegisterAgentCommandInput, RegisterAgentCommandOutput } from "./commands/RegisterAgentCommand";
 import { ReserveContactCommandInput, ReserveContactCommandOutput } from "./commands/ReserveContactCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
 import { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
 import { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "./commands/UpdateEphemerisCommand";
 import {
@@ -126,6 +132,7 @@ export type ServiceInputTypes =
   | DeleteMissionProfileCommandInput
   | DescribeContactCommandInput
   | DescribeEphemerisCommandInput
+  | GetAgentConfigurationCommandInput
   | GetConfigCommandInput
   | GetDataflowEndpointGroupCommandInput
   | GetMinuteUsageCommandInput
@@ -139,9 +146,11 @@ export type ServiceInputTypes =
   | ListMissionProfilesCommandInput
   | ListSatellitesCommandInput
   | ListTagsForResourceCommandInput
+  | RegisterAgentCommandInput
   | ReserveContactCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAgentStatusCommandInput
   | UpdateConfigCommandInput
   | UpdateEphemerisCommandInput
   | UpdateMissionProfileCommandInput;
@@ -158,6 +167,7 @@ export type ServiceOutputTypes =
   | DeleteMissionProfileCommandOutput
   | DescribeContactCommandOutput
   | DescribeEphemerisCommandOutput
+  | GetAgentConfigurationCommandOutput
   | GetConfigCommandOutput
   | GetDataflowEndpointGroupCommandOutput
   | GetMinuteUsageCommandOutput
@@ -171,9 +181,11 @@ export type ServiceOutputTypes =
   | ListMissionProfilesCommandOutput
   | ListSatellitesCommandOutput
   | ListTagsForResourceCommandOutput
+  | RegisterAgentCommandOutput
   | ReserveContactCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAgentStatusCommandOutput
   | UpdateConfigCommandOutput
   | UpdateEphemerisCommandOutput
   | UpdateMissionProfileCommandOutput;
