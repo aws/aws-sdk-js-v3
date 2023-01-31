@@ -5,10 +5,23 @@ import {
   AwsSecurityFindingFilters,
   ControlStatus,
   NoteUpdate,
+  Product,
   RecordState,
   Result,
   StandardsSubscription,
 } from "./models_1";
+
+export interface DescribeProductsResponse {
+  /**
+   * <p>A list of products, including details for each product.</p>
+   */
+  Products: Product[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeStandardsRequest {
   /**
@@ -623,38 +636,38 @@ export interface Member {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATED</code> - Indicates that the administrator account added the member account,
+   *                   <code>Created</code> - Indicates that the administrator account added the member account,
    *                but has not yet invited the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INVITED</code> - Indicates that the administrator account invited the member
+   *                   <code>Invited</code> - Indicates that the administrator account invited the member
    *                account. The member account has not yet responded to the invitation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> - Indicates that the member account is currently active. For
+   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
    *                manually invited member accounts, indicates that the member account accepted the
    *                invitation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REMOVED</code> - Indicates that the administrator account disassociated the member
+   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
    *                account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RESIGNED</code> - Indicates that the member account disassociated themselves
+   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
    *                from the administrator account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code> - Indicates that the administrator account deleted the member
+   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
    *                account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACCOUNT_SUSPENDED</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
+   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
    *             </li>
    *          </ul>
    */
@@ -1062,6 +1075,13 @@ export interface UpdateStandardsControlRequest {
 }
 
 export interface UpdateStandardsControlResponse {}
+
+/**
+ * @internal
+ */
+export const DescribeProductsResponseFilterSensitiveLog = (obj: DescribeProductsResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

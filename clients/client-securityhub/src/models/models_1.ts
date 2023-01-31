@@ -6,6 +6,7 @@ import {
   Action,
   ActionTarget,
   Adjustment,
+  AssociatedStandard,
   AutoEnableStandards,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
@@ -51,9 +52,47 @@ import {
   AwsElbv2LoadBalancerDetails,
   AwsIamAccessKeyDetails,
   AwsIamAttachedManagedPolicy,
-  AwsIamGroupDetails,
+  AwsIamGroupPolicy,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>Contains details about an IAM group.</p>
+ */
+export interface AwsIamGroupDetails {
+  /**
+   * <p>A list of the managed policies that are attached to the IAM group.</p>
+   */
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+
+  /**
+   * <p>Indicates when the IAM group was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>The identifier of the IAM group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The name of the IAM group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The list of inline policies that are embedded in the group.</p>
+   */
+  GroupPolicyList?: AwsIamGroupPolicy[];
+
+  /**
+   * <p>The path to the group.</p>
+   */
+  Path?: string;
+}
 
 /**
  * <p>Information about a role associated with an instance profile.</p>
@@ -4568,7 +4607,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
 
   /**
    * <p>
-   *          An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other Git repository.
+   *          An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit</a> or in any other Git repository.
    *          These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
    *       </p>
    */
@@ -4576,7 +4615,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
 
   /**
    * <p>
-   *          The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other Git repository.
+   *          The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit</a> or in any other Git repository.
    *          When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
    *       </p>
    */
@@ -4836,6 +4875,20 @@ export interface Compliance {
    *             <i>Security Hub User Guide</i>. </p>
    */
   StatusReasons?: StatusReason[];
+
+  /**
+   * <p>
+   *          The unique identifier of a control across standards. Values for this field typically consist of an
+   *          Amazon Web Service and a number, such as APIGateway.5.
+   *       </p>
+   */
+  SecurityControlId?: string;
+
+  /**
+   * <p>The enabled security standards in which a security control is currently enabled.
+   *       </p>
+   */
+  AssociatedStandards?: AssociatedStandard[];
 }
 
 /**
@@ -6565,7 +6618,7 @@ export interface AwsWafv2VisibilityConfigDetails {
 
 /**
  * <p>
- *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
+ *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
  *       </p>
  */
 export interface AwsWafv2RulesDetails {
@@ -9134,6 +9187,22 @@ export interface AwsSecurityFindingFilters {
    * <p>Indicates whether or not sample findings are included in the filter results.</p>
    */
   Sample?: BooleanFilter[];
+
+  /**
+   * <p>
+   *          The unique identifier of a control across standards. Values for this field typically consist of an
+   *          Amazon Web Service and a number, such as APIGateway.5.
+   *       </p>
+   */
+  ComplianceSecurityControlId?: StringFilter[];
+
+  /**
+   * <p>
+   *          The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the
+   *          Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.
+   *       </p>
+   */
+  ComplianceAssociatedStandardsId?: StringFilter[];
 }
 
 /**
@@ -10083,17 +10152,12 @@ export interface Product {
   ProductSubscriptionResourcePolicy?: string;
 }
 
-export interface DescribeProductsResponse {
-  /**
-   * <p>A list of products, including details for each product.</p>
-   */
-  Products: Product[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -12189,12 +12253,5 @@ export const DescribeProductsRequestFilterSensitiveLog = (obj: DescribeProductsR
  * @internal
  */
 export const ProductFilterSensitiveLog = (obj: Product): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductsResponseFilterSensitiveLog = (obj: DescribeProductsResponse): any => ({
   ...obj,
 });

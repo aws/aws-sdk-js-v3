@@ -613,6 +613,20 @@ export interface AdminAccount {
   Status?: AdminStatus | string;
 }
 
+/**
+ * <p>
+ *          Information about an enabled security standard in which a security control is enabled.
+ *       </p>
+ */
+export interface AssociatedStandard {
+  /**
+   * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the
+   *          Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.
+   *       </p>
+   */
+  StandardsId?: string;
+}
+
 export enum AutoEnableStandards {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
@@ -10286,44 +10300,6 @@ export interface AwsIamGroupPolicy {
 }
 
 /**
- * <p>Contains details about an IAM group.</p>
- */
-export interface AwsIamGroupDetails {
-  /**
-   * <p>A list of the managed policies that are attached to the IAM group.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the IAM group was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the IAM group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the IAM group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the group.</p>
-   */
-  GroupPolicyList?: AwsIamGroupPolicy[];
-
-  /**
-   * <p>The path to the group.</p>
-   */
-  Path?: string;
-}
-
-/**
  * @internal
  */
 export const AcceptAdministratorInvitationRequestFilterSensitiveLog = (
@@ -10485,6 +10461,13 @@ export const AdjustmentFilterSensitiveLog = (obj: Adjustment): any => ({
  * @internal
  */
 export const AdminAccountFilterSensitiveLog = (obj: AdminAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedStandardFilterSensitiveLog = (obj: AssociatedStandard): any => ({
   ...obj,
 });
 
@@ -12684,12 +12667,5 @@ export const AwsIamAttachedManagedPolicyFilterSensitiveLog = (obj: AwsIamAttache
  * @internal
  */
 export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
   ...obj,
 });
