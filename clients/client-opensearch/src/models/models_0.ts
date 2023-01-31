@@ -13,6 +13,11 @@ export interface AcceptInboundConnectionRequest {
   ConnectionId: string | undefined;
 }
 
+export enum ConnectionMode {
+  DIRECT = "DIRECT",
+  VPC_ENDPOINT = "VPC_ENDPOINT",
+}
+
 export enum InboundConnectionStatusCode {
   ACTIVE = "ACTIVE",
   APPROVED = "APPROVED",
@@ -135,6 +140,11 @@ export interface InboundConnection {
    * <p>The current status of the connection.</p>
    */
   ConnectionStatus?: InboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
 }
 
 /**
@@ -148,8 +158,7 @@ export interface AcceptInboundConnectionResponse {
 }
 
 /**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of
- *    409.</p>
+ * <p>An error occured because the client wanted to access an unsupported operation.</p>
  */
 export class DisabledOperationException extends __BaseException {
   readonly name: "DisabledOperationException" = "DisabledOperationException";
@@ -168,8 +177,7 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of
- *    409.</p>
+ * <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -188,7 +196,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -207,8 +215,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code
- *    403.</p>
+ * <p>An error occurred because you don't have permissions to access the resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -362,8 +369,7 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to
- *    the service) . Gives http status code of 500.</p>
+ * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  */
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
@@ -382,7 +388,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ * <p>An exception for missing or invalid input fields.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -745,8 +751,7 @@ export interface AssociatePackageResponse {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status
- *    code 409.</p>
+ * <p>An error occurred because the client attempts to remove a resource that's currently in use.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1706,8 +1711,7 @@ export interface CreateDomainResponse {
 }
 
 /**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http
- *    status code of 409.</p>
+ * <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
  */
 export class InvalidTypeException extends __BaseException {
   readonly name: "InvalidTypeException" = "InvalidTypeException";
@@ -1726,7 +1730,7 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ * <p>An exception for creating a resource that already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -1762,6 +1766,21 @@ export interface CreateOutboundConnectionRequest {
    * <p>Name of the connection.</p>
    */
   ConnectionAlias: string | undefined;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+}
+
+/**
+ * <p>The connection properties of an outbound connection.</p>
+ */
+export interface ConnectionProperties {
+  /**
+   * <p>The endpoint of the remote domain.</p>
+   */
+  Endpoint?: string;
 }
 
 export enum OutboundConnectionStatusCode {
@@ -1871,6 +1890,16 @@ export interface CreateOutboundConnectionResponse {
    *    operations on the connection.</p>
    */
   ConnectionId?: string;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>The <code>ConnectionProperties</code> for the newly created connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
@@ -2135,6 +2164,16 @@ export interface OutboundConnection {
    * <p>Status of the connection.</p>
    */
   ConnectionStatus?: OutboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>Properties for the outbound connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
@@ -2971,8 +3010,7 @@ export interface DescribeInboundConnectionsResponse {
 }
 
 /**
- * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP
- *    status code of 400. </p>
+ * <p>The request processing has failed because you provided an invalid pagination token.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
   readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
@@ -4915,6 +4953,13 @@ export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse
  * @internal
  */
 export const CreateOutboundConnectionRequestFilterSensitiveLog = (obj: CreateOutboundConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionPropertiesFilterSensitiveLog = (obj: ConnectionProperties): any => ({
   ...obj,
 });
 

@@ -182,6 +182,7 @@ import {
   ColdStorageOptions,
   CompatibleVersionsMap,
   ConflictException,
+  ConnectionProperties,
   DescribePackagesFilter,
   DisabledOperationException,
   DomainConfig,
@@ -462,6 +463,7 @@ export const serializeAws_restJson1CreateOutboundConnectionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ConnectionAlias != null && { ConnectionAlias: input.ConnectionAlias }),
+    ...(input.ConnectionMode != null && { ConnectionMode: input.ConnectionMode }),
     ...(input.LocalDomainInfo != null && {
       LocalDomainInfo: serializeAws_restJson1DomainInformationContainer(input.LocalDomainInfo, context),
     }),
@@ -2001,6 +2003,12 @@ export const deserializeAws_restJson1CreateOutboundConnectionCommand = async (
   }
   if (data.ConnectionId != null) {
     contents.ConnectionId = __expectString(data.ConnectionId);
+  }
+  if (data.ConnectionMode != null) {
+    contents.ConnectionMode = __expectString(data.ConnectionMode);
+  }
+  if (data.ConnectionProperties != null) {
+    contents.ConnectionProperties = deserializeAws_restJson1ConnectionProperties(data.ConnectionProperties, context);
   }
   if (data.ConnectionStatus != null) {
     contents.ConnectionStatus = deserializeAws_restJson1OutboundConnectionStatus(data.ConnectionStatus, context);
@@ -5197,6 +5205,12 @@ const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1ConnectionProperties = (output: any, context: __SerdeContext): ConnectionProperties => {
+  return {
+    Endpoint: __expectString(output.Endpoint),
+  } as any;
+};
+
 const deserializeAws_restJson1DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
   return {
     AccessPolicies:
@@ -5503,6 +5517,7 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
 const deserializeAws_restJson1InboundConnection = (output: any, context: __SerdeContext): InboundConnection => {
   return {
     ConnectionId: __expectString(output.ConnectionId),
+    ConnectionMode: __expectString(output.ConnectionMode),
     ConnectionStatus:
       output.ConnectionStatus != null
         ? deserializeAws_restJson1InboundConnectionStatus(output.ConnectionStatus, context)
@@ -5716,6 +5731,11 @@ const deserializeAws_restJson1OutboundConnection = (output: any, context: __Serd
   return {
     ConnectionAlias: __expectString(output.ConnectionAlias),
     ConnectionId: __expectString(output.ConnectionId),
+    ConnectionMode: __expectString(output.ConnectionMode),
+    ConnectionProperties:
+      output.ConnectionProperties != null
+        ? deserializeAws_restJson1ConnectionProperties(output.ConnectionProperties, context)
+        : undefined,
     ConnectionStatus:
       output.ConnectionStatus != null
         ? deserializeAws_restJson1OutboundConnectionStatus(output.ConnectionStatus, context)
