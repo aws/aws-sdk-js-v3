@@ -15,43 +15,40 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import {
-  ListPackageVersionsRequest,
-  ListPackageVersionsRequestFilterSensitiveLog,
-  ListPackageVersionsResult,
-  ListPackageVersionsResultFilterSensitiveLog,
+  DeletePackageRequest,
+  DeletePackageRequestFilterSensitiveLog,
+  DeletePackageResult,
+  DeletePackageResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPackageVersionsCommand,
-  serializeAws_restJson1ListPackageVersionsCommand,
+  deserializeAws_restJson1DeletePackageCommand,
+  serializeAws_restJson1DeletePackageCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListPackageVersionsCommandInput extends ListPackageVersionsRequest {}
-export interface ListPackageVersionsCommandOutput extends ListPackageVersionsResult, __MetadataBearer {}
+export interface DeletePackageCommandInput extends DeletePackageRequest {}
+export interface DeletePackageCommandOutput extends DeletePackageResult, __MetadataBearer {}
 
 /**
- * <p>
- *         Returns a list of
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
- *         objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no  <code>--status</code> parameter.
- *       </p>
+ * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
+ *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, ListPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, ListPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DeletePackageCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DeletePackageCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const command = new ListPackageVersionsCommand(input);
+ * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
- * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
+ * @see {@link DeletePackageCommandInput} for command's `input` shape.
+ * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
-export class ListPackageVersionsCommand extends $Command<
-  ListPackageVersionsCommandInput,
-  ListPackageVersionsCommandOutput,
+export class DeletePackageCommand extends $Command<
+  DeletePackageCommandInput,
+  DeletePackageCommandOutput,
   CodeartifactClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +63,7 @@ export class ListPackageVersionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListPackageVersionsCommandInput) {
+  constructor(readonly input: DeletePackageCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +76,21 @@ export class ListPackageVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListPackageVersionsCommandInput, ListPackageVersionsCommandOutput> {
+  ): Handler<DeletePackageCommandInput, DeletePackageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListPackageVersionsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeletePackageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CodeartifactClient";
-    const commandName = "ListPackageVersionsCommand";
+    const commandName = "DeletePackageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackageVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: DeletePackageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePackageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +100,12 @@ export class ListPackageVersionsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackageVersionsCommand(input, context);
+  private serialize(input: DeletePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeletePackageCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageVersionsCommandOutput> {
-    return deserializeAws_restJson1ListPackageVersionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageCommandOutput> {
+    return deserializeAws_restJson1DeletePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

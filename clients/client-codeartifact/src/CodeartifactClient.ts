@@ -65,6 +65,7 @@ import {
   DeleteDomainPermissionsPolicyCommandInput,
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
 import {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -170,6 +171,7 @@ export type ServiceInputTypes =
   | CreateRepositoryCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainPermissionsPolicyCommandInput
+  | DeletePackageCommandInput
   | DeletePackageVersionsCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPermissionsPolicyCommandInput
@@ -208,6 +210,7 @@ export type ServiceOutputTypes =
   | CreateRepositoryCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainPermissionsPolicyCommandOutput
+  | DeletePackageCommandOutput
   | DeletePackageVersionsCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPermissionsPolicyCommandOutput

@@ -1008,6 +1008,147 @@ export interface DeleteDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+export interface DeletePackageRequest {
+  /**
+   * <p>The name of the domain that contains the package to delete.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The name of the repository that contains the package to delete.</p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>The format of the requested package to delete.</p>
+   */
+  format: PackageFormat | string | undefined;
+
+  /**
+   * <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>. The namespace is required when deleting Maven package versions.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain corresponding components, packages of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package to delete.</p>
+   */
+  package: string | undefined;
+}
+
+/**
+ * <p>Details about the origin restrictions set on the package.
+ *       The package origin restrictions determine how new versions of a package
+ *       can be added to a specific repository.</p>
+ */
+export interface PackageOriginRestrictions {
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
+   */
+  publish: AllowPublish | string | undefined;
+
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
+   */
+  upstream: AllowUpstream | string | undefined;
+}
+
+/**
+ * <p>Details about the package origin configuration of a package.</p>
+ */
+export interface PackageOriginConfiguration {
+  /**
+   * <p>A <code>PackageOriginRestrictions</code> object that contains information
+   *     about the upstream and publish package origin configuration for the package.</p>
+   */
+  restrictions?: PackageOriginRestrictions;
+}
+
+/**
+ * <p>
+ *       Details about a package, including its format, namespace, and name.
+ *     </p>
+ */
+export interface PackageSummary {
+  /**
+   * <p>
+   *       The format of the package.
+   *     </p>
+   */
+  format?: PackageFormat | string;
+
+  /**
+   * <p>The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package.
+   *     </p>
+   */
+  package?: string;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
+   *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
+   *       that contains information about the upstream and publish package origin restrictions.</p>
+   */
+  originConfiguration?: PackageOriginConfiguration;
+}
+
+export interface DeletePackageResult {
+  /**
+   * <p>
+   *       Details about a package, including its format, namespace, and name.
+   *     </p>
+   */
+  deletedPackage?: PackageSummary;
+}
+
 export interface DeletePackageVersionsRequest {
   /**
    * <p>
@@ -1285,34 +1426,6 @@ export interface DescribePackageRequest {
    * <p>The name of the requested package.</p>
    */
   package: string | undefined;
-}
-
-/**
- * <p>Details about the origin restrictions set on the package.
- *       The package origin restrictions determine how new versions of a package
- *       can be added to a specific repository.</p>
- */
-export interface PackageOriginRestrictions {
-  /**
-   * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
-   */
-  publish: AllowPublish | string | undefined;
-
-  /**
-   * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
-   */
-  upstream: AllowUpstream | string | undefined;
-}
-
-/**
- * <p>Details about the package origin configuration of a package.</p>
- */
-export interface PackageOriginConfiguration {
-  /**
-   * <p>A <code>PackageOriginRestrictions</code> object that contains information
-   *     about the upstream and publish package origin configuration for the package.</p>
-   */
-  restrictions?: PackageOriginRestrictions;
 }
 
 /**
@@ -2318,8 +2431,8 @@ export interface ListPackagesRequest {
   format?: PackageFormat | string;
 
   /**
-   * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
-   *          <p>Each package format uses namespace as follows:</p>
+   * <p>The namespace used to filter requested packages. Only packages with the provided namespace will be returned.
+   *       The package component that specifies its namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2375,60 +2488,6 @@ export interface ListPackagesRequest {
    *       Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
    */
   upstream?: AllowUpstream | string;
-}
-
-/**
- * <p>
- *       Details about a package, including its format, namespace, and name. The
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html">ListPackages</a>
- *       operation returns a list of <code>PackageSummary</code> objects.
- *     </p>
- */
-export interface PackageSummary {
-  /**
-   * <p>
-   *       The format of the package.
-   *     </p>
-   */
-  format?: PackageFormat | string;
-
-  /**
-   * <p>The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
-   *           of those formats do not have a namespace.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  namespace?: string;
-
-  /**
-   * <p>
-   *       The name of the package.
-   *     </p>
-   */
-  package?: string;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
-   *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
-   *       that contains information about the upstream and publish package origin restrictions.</p>
-   */
-  originConfiguration?: PackageOriginConfiguration;
 }
 
 export interface ListPackagesResult {
@@ -2713,26 +2772,9 @@ export interface PackageDependency {
   package?: string;
 
   /**
-   * <p> The type of a package dependency. The possible values depend on the package type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>npm: <code>regular</code>, <code>dev</code>, <code>peer</code>, <code>optional</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>maven: <code>optional</code>, <code>parent</code>, <code>compile</code>, <code>runtime</code>, <code>test</code>, <code>system</code>, <code>provided</code>.</p>
-   *                <note>
-   *                   <p>Note that <code>parent</code> is not a regular Maven dependency type; instead this is extracted from the <code><parent></code> element if one is defined in the package version's POM file.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>nuget: The <code>dependencyType</code> field is never set for NuGet packages.</p>
-   *             </li>
-   *             <li>
-   *                <p>pypi: <code>Requires-Dist</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p> The type of a package dependency. The possible values depend on the package type.
+   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
+   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
    */
   dependencyType?: string;
 
@@ -3687,6 +3729,41 @@ export const DeleteDomainPermissionsPolicyResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageResultFilterSensitiveLog = (obj: DeletePackageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeletePackageVersionsRequestFilterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
   ...obj,
 });
@@ -3748,20 +3825,6 @@ export const DescribeDomainResultFilterSensitiveLog = (obj: DescribeDomainResult
  * @internal
  */
 export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
   ...obj,
 });
 
@@ -3980,13 +4043,6 @@ export const ListDomainsResultFilterSensitiveLog = (obj: ListDomainsResult): any
  * @internal
  */
 export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
   ...obj,
 });
 

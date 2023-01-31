@@ -33,6 +33,11 @@ import {
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
 import {
+  DeletePackageCommand,
+  DeletePackageCommandInput,
+  DeletePackageCommandOutput,
+} from "./commands/DeletePackageCommand";
+import {
   DeletePackageVersionsCommand,
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -658,11 +663,44 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
+   *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
+   */
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackageCommandOutput) => void),
+    cb?: (err: any, data?: DeletePackageCommandOutput) => void
+  ): Promise<DeletePackageCommandOutput> | void {
+    const command = new DeletePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Deletes one or more versions of a package. A deleted package version cannot be restored
    *       in your repository. If you want to remove a package version from your repository and be able
    *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
    *       downloaded from a repository and don't show up with list package APIs (for example,
-   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
+   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
    */
   public deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
@@ -1382,7 +1420,7 @@ export class Codeartifact extends CodeartifactClient {
    * <p>
    *         Returns a list of
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
-   *         objects for package versions in a repository that match the request parameters.
+   *         objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no  <code>--status</code> parameter.
    *       </p>
    */
   public listPackageVersions(

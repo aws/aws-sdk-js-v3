@@ -33,7 +33,7 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  *       in your repository. If you want to remove a package version from your repository and be able
  *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
  *       downloaded from a repository and don't show up with list package APIs (for example,
- *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
+ *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

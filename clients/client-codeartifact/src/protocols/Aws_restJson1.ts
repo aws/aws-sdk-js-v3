@@ -36,6 +36,7 @@ import {
   DeleteDomainPermissionsPolicyCommandInput,
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "../commands/DeleteDomainPermissionsPolicyCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "../commands/DeletePackageCommand";
 import {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -326,6 +327,34 @@ export const serializeAws_restJson1DeleteDomainPermissionsPolicyCommand = async 
     domain: [, __expectNonNull(input.domain!, `domain`)],
     "domain-owner": [, input.domainOwner!],
     "policy-revision": [, input.policyRevision!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeletePackageCommand = async (
+  input: DeletePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  const query: any = map({
+    domain: [, __expectNonNull(input.domain!, `domain`)],
+    "domain-owner": [, input.domainOwner!],
+    repository: [, __expectNonNull(input.repository!, `repository`)],
+    format: [, __expectNonNull(input.format!, `format`)],
+    namespace: [, input.namespace!],
+    package: [, __expectNonNull(input.package!, `package`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1533,6 +1562,62 @@ const deserializeAws_restJson1DeleteDomainPermissionsPolicyCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainPermissionsPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codeartifact#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.codeartifact#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeletePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeletePackageCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.deletedPackage != null) {
+    contents.deletedPackage = deserializeAws_restJson1PackageSummary(data.deletedPackage, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DeletePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
