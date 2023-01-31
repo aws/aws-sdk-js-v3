@@ -30,7 +30,7 @@ export interface AbortCriteria {
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *         <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -240,6 +240,12 @@ export interface CloudwatchLogsAction {
    * <p>The CloudWatch log group to which the action sends data.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code>
+   *             <i>(default)</i>.</p>
+   */
+  batchMode?: boolean;
 }
 
 /**
@@ -1734,7 +1740,7 @@ export interface AddThingsToThingGroupParams {
 export interface AddThingToBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
    *          </note>
    */
@@ -1874,12 +1880,12 @@ export interface AssociateTargetsWithJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -2012,19 +2018,19 @@ export interface AttachThingPrincipalResponse {}
 export interface AttributePayload {
   /**
    * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *          </p>
    */
   attributes?: Record<string, string>;
 
   /**
    * <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
    * 			the attributes stored in the registry, instead of overwriting them.</p>
-   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
-   * 		       <note>
-   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
-   * 		       </note>
+   *          <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
+   *          <note>
+   *             <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
+   *          </note>
    */
   merge?: boolean;
 }
@@ -2796,7 +2802,7 @@ export interface CancelJobRequest {
    * <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
    *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
    *           is <code>false</code>.</p>
-   *         <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
+   *          <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
    *           the job to be unable to update the job execution status.  Use caution and ensure that each
    *           device executing a job which is canceled is able to recover to a valid state.</p>
    */
@@ -2837,7 +2843,7 @@ export interface CancelJobExecutionRequest {
    *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
    *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
    *           will be thrown. The default is <code>false</code>.</p>
-   *         <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
+   *          <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
    *           to update the job execution status.  Use caution and ensure that the device is able to
    *           recover to a valid state.</p>
    */
@@ -3400,24 +3406,24 @@ export interface CreateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index name.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
   /**
    * <p>The dynamic thing group search query string.</p>
-   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+   *          <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
    */
   queryString: string | undefined;
 
   /**
    * <p>The dynamic thing group query version.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 
@@ -3672,7 +3678,7 @@ export interface ExponentialRolloutRate {
 
   /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   incrementFactor: number | undefined;
 
@@ -3706,10 +3712,10 @@ export interface PresignedUrlConfig {
   /**
    * <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
    *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
-   *         <important>
+   *          <important>
    *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
    *                 confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   roleArn?: string;
 
@@ -3791,14 +3797,14 @@ export interface CreateJobRequest {
 
   /**
    * <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
    *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -3822,11 +3828,11 @@ export interface CreateJobRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -3855,12 +3861,12 @@ export interface CreateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -3878,12 +3884,12 @@ export interface CreateJobRequest {
 
   /**
    * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: Record<string, string>;
 
@@ -3944,14 +3950,14 @@ export interface CreateJobTemplateRequest {
 
   /**
    * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
    *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -4291,7 +4297,7 @@ export interface AwsJobExponentialRolloutRate {
 
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   rateIncreaseCriteria: AwsJobRateIncreaseCriteria | undefined;
 }
@@ -5221,7 +5227,7 @@ export interface CreateStreamResponse {
 export interface CreateThingRequest {
   /**
    * <p>The name of the thing to create.</p>
-   * 		       <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -5234,9 +5240,9 @@ export interface CreateThingRequest {
   /**
    * <p>The attribute payload, which consists of up to three name/value pairs in a JSON
    * 			document. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *          </p>
    */
   attributePayload?: AttributePayload;
 
@@ -5828,12 +5834,12 @@ export interface DeleteJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -5873,12 +5879,12 @@ export interface DeleteJobExecutionRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */

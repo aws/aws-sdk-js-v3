@@ -32,8 +32,8 @@ export interface RemoveThingFromBillingGroupCommandOutput
 
 /**
  * <p>Removes the given thing from the billing group.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
- * 		       <note>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
+ *          <note>
  *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
  *          </note>
  * @example

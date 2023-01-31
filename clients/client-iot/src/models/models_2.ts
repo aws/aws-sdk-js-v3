@@ -378,7 +378,7 @@ export interface ListThingsRequest {
   /**
    * <p>When <code>true</code>, the action returns the thing resources with attribute values
    *                      that start with the <code>attributeValue</code> provided.</p>
-   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   *          <p>When <code>false</code>, or not present, the action returns only the thing
    * 			resources with attribute values that match the entire <code>attributeValue</code>
    * 			provided. </p>
    */
@@ -1957,15 +1957,15 @@ export interface UpdateAccountAuditConfigurationRequest {
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
    *             that are currently enabled.</p>
-   *           <p>Some data collection might start immediately when certain checks are enabled.
+   *          <p>Some data collection might start immediately when certain checks are enabled.
    *             When a check is disabled, any data collected so far in relation to the check is deleted.</p>
-   *           <p>You
+   *          <p>You
    *       cannot
    *       disable a check if
    *       it's
    *       used by any scheduled audit. You must first delete the check from the scheduled audit or
    *       delete the scheduled audit itself.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required and must specify at least one enabled check.</p>
    */
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
@@ -2304,9 +2304,9 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
@@ -2317,10 +2317,10 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group query version to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 }
@@ -2442,12 +2442,12 @@ export interface UpdateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -2796,7 +2796,7 @@ export interface UpdateStreamResponse {
 export interface UpdateThingRequest {
   /**
    * <p>The name of the thing to update.</p>
-   * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -2809,10 +2809,10 @@ export interface UpdateThingRequest {
   /**
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
    * 			example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
-   * 		       </p>
-   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
+   *          <p>
+   *             <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
+   *          </p>
+   *          <p>This data is used to add new attributes or update existing attributes.</p>
    */
   attributePayload?: AttributePayload;
 
