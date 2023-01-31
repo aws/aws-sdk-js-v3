@@ -19,7 +19,6 @@ jspm_packages
 .yarn-integrity
 .DS_Store
 .vscode/launch.json
-jest.process.env.js
 
 Makefile.private.mk
 lerna-debug.log
