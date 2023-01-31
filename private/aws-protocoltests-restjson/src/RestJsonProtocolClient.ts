@@ -63,6 +63,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -291,6 +292,7 @@ export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | DatetimeOffsetsCommandInput
   | DocumentTypeAsPayloadCommandInput
   | DocumentTypeCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -380,6 +382,7 @@ export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | DatetimeOffsetsCommandOutput
   | DocumentTypeAsPayloadCommandOutput
   | DocumentTypeCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput

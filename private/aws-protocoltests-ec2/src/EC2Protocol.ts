@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -97,6 +102,35 @@ import { EC2ProtocolClient } from "./EC2ProtocolClient";
  * An EC2 query service that sends query requests and XML responses.
  */
 export class EC2Protocol extends EC2ProtocolClient {
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * The example tests how requests and responses are serialized when there's
    * no request or response members.

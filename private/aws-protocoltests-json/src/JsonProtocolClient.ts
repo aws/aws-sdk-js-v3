@@ -55,6 +55,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "./commands/EmptyOperationCommand";
 import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
 import {
@@ -88,6 +89,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | DatetimeOffsetsCommandInput
   | EmptyOperationCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -102,6 +104,7 @@ export type ServiceInputTypes =
   | SimpleScalarPropertiesCommandInput;
 
 export type ServiceOutputTypes =
+  | DatetimeOffsetsCommandOutput
   | EmptyOperationCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput

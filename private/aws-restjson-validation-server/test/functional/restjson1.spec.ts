@@ -2754,6 +2754,462 @@ it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
 });
 
 /**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "short" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "short" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minShort" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minShort\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxShort" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxShort\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "integer" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "integer" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minInteger" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minInteger\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxInteger" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxInteger\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "long" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "long" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minLong" : 1 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value 1 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minLong\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRange: testFunction as MalformedRange<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRange",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxLong" : 9 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value 9 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxLong\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
  * When a byte member does not fit within range bounds,
  * the response should be a 400 ValidationException.
  */
@@ -3053,6 +3509,462 @@ it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value 6.7 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\",
     \"fieldList\" : [{\"message\": \"Value 6.7 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\", \"path\": \"/maxFloat\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "short" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "short" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minShort" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minShort\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxShort" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxShort\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "integer" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "integer" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minInteger" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minInteger\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a integer member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxInteger" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxInteger\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "long" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "long" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "minLong" : 3 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value 3 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minLong\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a long member does not fit within range bounds,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedRangeOverride: testFunction as MalformedRangeOverride<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedRangeOverride",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "maxLong" : 7 }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value 7 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxLong\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

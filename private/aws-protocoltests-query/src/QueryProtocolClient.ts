@@ -48,6 +48,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -105,6 +106,7 @@ import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./command
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -137,6 +139,7 @@ export type ServiceInputTypes =
   | XmlTimestampsCommandInput;
 
 export type ServiceOutputTypes =
+  | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput

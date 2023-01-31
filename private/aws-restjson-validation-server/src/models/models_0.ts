@@ -65,7 +65,7 @@ export namespace EnumUnion {
   export const validate = (obj: EnumUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -122,7 +122,7 @@ export namespace MalformedEnumInput {
   export const validate = (obj: MalformedEnumInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -196,7 +196,7 @@ export namespace ValidationExceptionField {
   export const validate = (obj: ValidationExceptionField, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "path": {
@@ -273,7 +273,7 @@ export namespace MalformedLengthInput {
   export const validate = (obj: MalformedLengthInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -355,7 +355,7 @@ export namespace MalformedLengthOverrideInput {
   export const validate = (obj: MalformedLengthOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "blob": {
@@ -427,7 +427,7 @@ export namespace MalformedLengthQueryStringInput {
   export const validate = (obj: MalformedLengthQueryStringInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -485,7 +485,7 @@ export namespace PatternUnion {
   export const validate = (obj: PatternUnion, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -544,7 +544,7 @@ export namespace MalformedPatternInput {
   export const validate = (obj: MalformedPatternInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -637,7 +637,7 @@ export namespace PatternUnionOverride {
   export const validate = (obj: PatternUnionOverride, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "first": {
@@ -694,7 +694,7 @@ export namespace MalformedPatternOverrideInput {
   export const validate = (obj: MalformedPatternOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -740,6 +740,15 @@ export interface MalformedRangeInput {
   byte?: number;
   minByte?: number;
   maxByte?: number;
+  short?: number;
+  minShort?: number;
+  maxShort?: number;
+  integer?: number;
+  minInteger?: number;
+  maxInteger?: number;
+  long?: number;
+  minLong?: number;
+  maxLong?: number;
   float?: number;
   minFloat?: number;
   maxFloat?: number;
@@ -756,6 +765,15 @@ export namespace MalformedRangeInput {
     byte?: __MultiConstraintValidator<number>;
     minByte?: __MultiConstraintValidator<number>;
     maxByte?: __MultiConstraintValidator<number>;
+    short?: __MultiConstraintValidator<number>;
+    minShort?: __MultiConstraintValidator<number>;
+    maxShort?: __MultiConstraintValidator<number>;
+    integer?: __MultiConstraintValidator<number>;
+    minInteger?: __MultiConstraintValidator<number>;
+    maxInteger?: __MultiConstraintValidator<number>;
+    long?: __MultiConstraintValidator<number>;
+    minLong?: __MultiConstraintValidator<number>;
+    maxLong?: __MultiConstraintValidator<number>;
     float?: __MultiConstraintValidator<number>;
     minFloat?: __MultiConstraintValidator<number>;
     maxFloat?: __MultiConstraintValidator<number>;
@@ -766,7 +784,7 @@ export namespace MalformedRangeInput {
   export const validate = (obj: MalformedRangeInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "byte": {
@@ -779,6 +797,42 @@ export namespace MalformedRangeInput {
           }
           case "maxByte": {
             memberValidators["maxByte"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
+          case "short": {
+            memberValidators["short"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minShort": {
+            memberValidators["minShort"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxShort": {
+            memberValidators["maxShort"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
+          case "integer": {
+            memberValidators["integer"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minInteger": {
+            memberValidators["minInteger"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxInteger": {
+            memberValidators["maxInteger"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
+          case "long": {
+            memberValidators["long"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minLong": {
+            memberValidators["minLong"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxLong": {
+            memberValidators["maxLong"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
             break;
           }
           case "float": {
@@ -801,6 +855,15 @@ export namespace MalformedRangeInput {
       ...getMemberValidator("byte").validate(obj.byte, `${path}/byte`),
       ...getMemberValidator("minByte").validate(obj.minByte, `${path}/minByte`),
       ...getMemberValidator("maxByte").validate(obj.maxByte, `${path}/maxByte`),
+      ...getMemberValidator("short").validate(obj.short, `${path}/short`),
+      ...getMemberValidator("minShort").validate(obj.minShort, `${path}/minShort`),
+      ...getMemberValidator("maxShort").validate(obj.maxShort, `${path}/maxShort`),
+      ...getMemberValidator("integer").validate(obj.integer, `${path}/integer`),
+      ...getMemberValidator("minInteger").validate(obj.minInteger, `${path}/minInteger`),
+      ...getMemberValidator("maxInteger").validate(obj.maxInteger, `${path}/maxInteger`),
+      ...getMemberValidator("long").validate(obj.long, `${path}/long`),
+      ...getMemberValidator("minLong").validate(obj.minLong, `${path}/minLong`),
+      ...getMemberValidator("maxLong").validate(obj.maxLong, `${path}/maxLong`),
       ...getMemberValidator("float").validate(obj.float, `${path}/float`),
       ...getMemberValidator("minFloat").validate(obj.minFloat, `${path}/minFloat`),
       ...getMemberValidator("maxFloat").validate(obj.maxFloat, `${path}/maxFloat`),
@@ -812,6 +875,15 @@ export interface MalformedRangeOverrideInput {
   byte?: number;
   minByte?: number;
   maxByte?: number;
+  short?: number;
+  minShort?: number;
+  maxShort?: number;
+  integer?: number;
+  minInteger?: number;
+  maxInteger?: number;
+  long?: number;
+  minLong?: number;
+  maxLong?: number;
   float?: number;
   minFloat?: number;
   maxFloat?: number;
@@ -828,6 +900,15 @@ export namespace MalformedRangeOverrideInput {
     byte?: __MultiConstraintValidator<number>;
     minByte?: __MultiConstraintValidator<number>;
     maxByte?: __MultiConstraintValidator<number>;
+    short?: __MultiConstraintValidator<number>;
+    minShort?: __MultiConstraintValidator<number>;
+    maxShort?: __MultiConstraintValidator<number>;
+    integer?: __MultiConstraintValidator<number>;
+    minInteger?: __MultiConstraintValidator<number>;
+    maxInteger?: __MultiConstraintValidator<number>;
+    long?: __MultiConstraintValidator<number>;
+    minLong?: __MultiConstraintValidator<number>;
+    maxLong?: __MultiConstraintValidator<number>;
     float?: __MultiConstraintValidator<number>;
     minFloat?: __MultiConstraintValidator<number>;
     maxFloat?: __MultiConstraintValidator<number>;
@@ -838,7 +919,7 @@ export namespace MalformedRangeOverrideInput {
   export const validate = (obj: MalformedRangeOverrideInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "byte": {
@@ -851,6 +932,42 @@ export namespace MalformedRangeOverrideInput {
           }
           case "maxByte": {
             memberValidators["maxByte"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
+          case "short": {
+            memberValidators["short"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minShort": {
+            memberValidators["minShort"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxShort": {
+            memberValidators["maxShort"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
+          case "integer": {
+            memberValidators["integer"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minInteger": {
+            memberValidators["minInteger"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxInteger": {
+            memberValidators["maxInteger"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
+          case "long": {
+            memberValidators["long"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minLong": {
+            memberValidators["minLong"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxLong": {
+            memberValidators["maxLong"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
             break;
           }
           case "float": {
@@ -873,6 +990,15 @@ export namespace MalformedRangeOverrideInput {
       ...getMemberValidator("byte").validate(obj.byte, `${path}/byte`),
       ...getMemberValidator("minByte").validate(obj.minByte, `${path}/minByte`),
       ...getMemberValidator("maxByte").validate(obj.maxByte, `${path}/maxByte`),
+      ...getMemberValidator("short").validate(obj.short, `${path}/short`),
+      ...getMemberValidator("minShort").validate(obj.minShort, `${path}/minShort`),
+      ...getMemberValidator("maxShort").validate(obj.maxShort, `${path}/maxShort`),
+      ...getMemberValidator("integer").validate(obj.integer, `${path}/integer`),
+      ...getMemberValidator("minInteger").validate(obj.minInteger, `${path}/minInteger`),
+      ...getMemberValidator("maxInteger").validate(obj.maxInteger, `${path}/maxInteger`),
+      ...getMemberValidator("long").validate(obj.long, `${path}/long`),
+      ...getMemberValidator("minLong").validate(obj.minLong, `${path}/minLong`),
+      ...getMemberValidator("maxLong").validate(obj.maxLong, `${path}/maxLong`),
       ...getMemberValidator("float").validate(obj.float, `${path}/float`),
       ...getMemberValidator("minFloat").validate(obj.minFloat, `${path}/minFloat`),
       ...getMemberValidator("maxFloat").validate(obj.maxFloat, `${path}/maxFloat`),
@@ -904,7 +1030,7 @@ export namespace MalformedRequiredInput {
   export const validate = (obj: MalformedRequiredInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -957,7 +1083,7 @@ export namespace SensitiveValidationInput {
   export const validate = (obj: SensitiveValidationInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1020,7 +1146,7 @@ export namespace RecursiveUnionOne {
   export const validate = (obj: RecursiveUnionOne, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1099,7 +1225,7 @@ export namespace RecursiveUnionTwo {
   export const validate = (obj: RecursiveUnionTwo, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "string": {
@@ -1153,7 +1279,7 @@ export namespace RecursiveStructuresInput {
   export const validate = (obj: RecursiveStructuresInput, path = ""): __ValidationFailure[] => {
     function getMemberValidator<T extends keyof typeof memberValidators>(
       member: T
-    ): NonNullable<(typeof memberValidators)[T]> {
+    ): NonNullable<typeof memberValidators[T]> {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "union": {

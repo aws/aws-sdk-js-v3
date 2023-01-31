@@ -60,6 +60,17 @@ export class ComplexError extends __BaseException {
   }
 }
 
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+
 export interface EmptyStruct {}
 
 /**

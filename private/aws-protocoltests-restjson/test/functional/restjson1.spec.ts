@@ -8,6 +8,7 @@ import { Readable } from "stream";
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";
 import { ConstantAndVariableQueryStringCommand } from "../../src/commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../src/commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { DocumentTypeAsPayloadCommand } from "../../src/commands/DocumentTypeAsPayloadCommand";
 import { DocumentTypeCommand } from "../../src/commands/DocumentTypeCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
@@ -269,6 +270,48 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
       3,
     ],
+
+    queryParamsMapOfStringList: {
+      String: ["Hello there"],
+
+      StringList: ["a", "b", "c"],
+
+      StringSet: ["a", "b", "c"],
+
+      Byte: ["1"],
+
+      Short: ["2"],
+
+      Integer: ["3"],
+
+      IntegerList: ["1", "2", "3"],
+
+      IntegerSet: ["1", "2", "3"],
+
+      Long: ["4"],
+
+      Float: ["1.1"],
+
+      Double: ["1.1"],
+
+      DoubleList: ["1.1", "2.1", "3.1"],
+
+      Boolean: ["true"],
+
+      BooleanList: ["true", "false", "true"],
+
+      Timestamp: ["1970-01-01T00:00:01Z"],
+
+      TimestampList: ["1970-01-01T00:00:01Z", "1970-01-01T00:00:02Z", "1970-01-01T00:00:03Z"],
+
+      Enum: ["Foo"],
+
+      EnumList: ["Foo", "Baz", "Bar"],
+
+      IntegerEnum: ["1"],
+
+      IntegerEnumList: ["1", "2", "3"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -375,6 +418,10 @@ it("RestJsonQueryStringEscaping:Request", async () => {
 
   const command = new AllQueryStringTypesCommand({
     queryString: "%:/?#[]@!$&'()*+,;=😹",
+
+    queryParamsMapOfStringList: {
+      String: ["%:/?#[]@!$&'()*+,;=😹"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -621,6 +668,84 @@ it("RestJsonConstantQueryString:Request", async () => {
 
     expect(r.body).toBeFalsy();
   }
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("RestJsonDateTimeWithNegativeOffset:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      undefined,
+      `      {
+                "datetime": "2019-12-16T22:48:18-01:00"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("RestJsonDateTimeWithPositiveOffset:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      undefined,
+      `      {
+                "datetime": "2019-12-17T00:48:18+01:00"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**

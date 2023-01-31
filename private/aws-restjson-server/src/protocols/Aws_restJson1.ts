@@ -79,6 +79,7 @@ import {
   ConstantQueryStringServerInput,
   ConstantQueryStringServerOutput,
 } from "../server/operations/ConstantQueryString";
+import { DatetimeOffsetsServerInput, DatetimeOffsetsServerOutput } from "../server/operations/DatetimeOffsets";
 import { DocumentTypeServerInput, DocumentTypeServerOutput } from "../server/operations/DocumentType";
 import {
   DocumentTypeAsPayloadServerInput,
@@ -616,6 +617,31 @@ export const deserializeConstantQueryStringRequest = async (
   if (parsedPath?.groups !== undefined) {
     contents.hello = decodeURIComponent(parsedPath.groups.hello);
   }
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeDatetimeOffsetsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
   await collectBody(output.body, context);
   return contents;
 };
@@ -3551,6 +3577,45 @@ export const serializeConstantQueryStringResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {});
   let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeDatetimeOffsetsResponse = async (
+  input: DatetimeOffsetsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
+  });
   if (
     body &&
     Object.keys(headers)

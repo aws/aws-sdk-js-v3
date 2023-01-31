@@ -32,6 +32,7 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
 import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
 import {
@@ -66,6 +67,7 @@ import { JsonProtocolServiceException as __BaseException } from "../models/JsonP
 import {
   ComplexError,
   ComplexNestedErrorData,
+  DatetimeOffsetsOutput,
   EmptyStruct,
   ErrorWithMembers,
   ErrorWithoutMembers,
@@ -87,6 +89,18 @@ import {
   StructWithJsonName,
   UnionInputOutput,
 } from "../models/models_0";
+
+export const serializeAws_json1_1DatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.DatetimeOffsets",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
@@ -256,6 +270,41 @@ export const serializeAws_json1_1SimpleScalarPropertiesCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleScalarPropertiesInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1DatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DatetimeOffsetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DatetimeOffsetsOutput(data, context);
+  const response: DatetimeOffsetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_json1_1EmptyOperationCommand = async (
@@ -1079,6 +1128,12 @@ const deserializeAws_json1_1ComplexError = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
     Foo: __expectString(output.Foo),
+  } as any;
+};
+
+const deserializeAws_json1_1DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+  return {
+    datetime: output.datetime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.datetime)) : undefined,
   } as any;
 };
 

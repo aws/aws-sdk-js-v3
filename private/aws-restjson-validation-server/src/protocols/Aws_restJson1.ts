@@ -2,8 +2,11 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectByte as __expectByte,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
+  expectShort as __expectShort,
   expectString as __expectString,
   expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -334,17 +337,44 @@ export const deserializeMalformedRangeRequest = async (
   if (data.float != null) {
     contents.float = __limitedParseFloat32(data.float);
   }
+  if (data.integer != null) {
+    contents.integer = __expectInt32(data.integer);
+  }
+  if (data.long != null) {
+    contents.long = __expectLong(data.long);
+  }
   if (data.maxByte != null) {
     contents.maxByte = __expectByte(data.maxByte);
   }
   if (data.maxFloat != null) {
     contents.maxFloat = __limitedParseFloat32(data.maxFloat);
   }
+  if (data.maxInteger != null) {
+    contents.maxInteger = __expectInt32(data.maxInteger);
+  }
+  if (data.maxLong != null) {
+    contents.maxLong = __expectLong(data.maxLong);
+  }
+  if (data.maxShort != null) {
+    contents.maxShort = __expectShort(data.maxShort);
+  }
   if (data.minByte != null) {
     contents.minByte = __expectByte(data.minByte);
   }
   if (data.minFloat != null) {
     contents.minFloat = __limitedParseFloat32(data.minFloat);
+  }
+  if (data.minInteger != null) {
+    contents.minInteger = __expectInt32(data.minInteger);
+  }
+  if (data.minLong != null) {
+    contents.minLong = __expectLong(data.minLong);
+  }
+  if (data.minShort != null) {
+    contents.minShort = __expectShort(data.minShort);
+  }
+  if (data.short != null) {
+    contents.short = __expectShort(data.short);
   }
   return contents;
 };
@@ -377,17 +407,44 @@ export const deserializeMalformedRangeOverrideRequest = async (
   if (data.float != null) {
     contents.float = __limitedParseFloat32(data.float);
   }
+  if (data.integer != null) {
+    contents.integer = __expectInt32(data.integer);
+  }
+  if (data.long != null) {
+    contents.long = __expectLong(data.long);
+  }
   if (data.maxByte != null) {
     contents.maxByte = __expectByte(data.maxByte);
   }
   if (data.maxFloat != null) {
     contents.maxFloat = __limitedParseFloat32(data.maxFloat);
   }
+  if (data.maxInteger != null) {
+    contents.maxInteger = __expectInt32(data.maxInteger);
+  }
+  if (data.maxLong != null) {
+    contents.maxLong = __expectLong(data.maxLong);
+  }
+  if (data.maxShort != null) {
+    contents.maxShort = __expectShort(data.maxShort);
+  }
   if (data.minByte != null) {
     contents.minByte = __expectByte(data.minByte);
   }
   if (data.minFloat != null) {
     contents.minFloat = __limitedParseFloat32(data.minFloat);
+  }
+  if (data.minInteger != null) {
+    contents.minInteger = __expectInt32(data.minInteger);
+  }
+  if (data.minLong != null) {
+    contents.minLong = __expectLong(data.minLong);
+  }
+  if (data.minShort != null) {
+    contents.minShort = __expectShort(data.minShort);
+  }
+  if (data.short != null) {
+    contents.short = __expectShort(data.short);
   }
   return contents;
 };

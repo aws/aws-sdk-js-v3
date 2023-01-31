@@ -38,6 +38,7 @@ import {
   ConstantQueryStringSerializer,
   ConstantQueryStringServerInput,
 } from "./operations/ConstantQueryString";
+import { DatetimeOffsets, DatetimeOffsetsSerializer, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
 import { DocumentType, DocumentTypeSerializer, DocumentTypeServerInput } from "./operations/DocumentType";
 import {
   DocumentTypeAsPayload,
@@ -363,6 +364,7 @@ export type RestJsonServiceOperations =
   | "AllQueryStringTypes"
   | "ConstantAndVariableQueryString"
   | "ConstantQueryString"
+  | "DatetimeOffsets"
   | "DocumentType"
   | "DocumentTypeAsPayload"
   | "EmptyInputAndEmptyOutput"
@@ -451,6 +453,7 @@ export interface RestJsonService<Context> {
   AllQueryStringTypes: AllQueryStringTypes<Context>;
   ConstantAndVariableQueryString: ConstantAndVariableQueryString<Context>;
   ConstantQueryString: ConstantQueryString<Context>;
+  DatetimeOffsets: DatetimeOffsets<Context>;
   DocumentType: DocumentType<Context>;
   DocumentTypeAsPayload: DocumentTypeAsPayload<Context>;
   EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
@@ -659,6 +662,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.ConstantQueryString,
           this.serializeFrameworkException,
           ConstantQueryStringServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "DatetimeOffsets": {
+        return handle(
+          request,
+          context,
+          "DatetimeOffsets",
+          this.serializerFactory("DatetimeOffsets"),
+          this.service.DatetimeOffsets,
+          this.serializeFrameworkException,
+          DatetimeOffsetsServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1700,6 +1715,12 @@ export const getRestJsonServiceHandler = <Context>(
       ],
       { service: "RestJson", operation: "ConstantQueryString" }
     ),
+    new httpbinding.UriSpec<"RestJson", "DatetimeOffsets">(
+      "POST",
+      [{ type: "path_literal", value: "DatetimeOffsets" }],
+      [],
+      { service: "RestJson", operation: "DatetimeOffsets" }
+    ),
     new httpbinding.UriSpec<"RestJson", "DocumentType">("PUT", [{ type: "path_literal", value: "DocumentType" }], [], {
       service: "RestJson",
       operation: "DocumentType",
@@ -2220,6 +2241,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new ConstantAndVariableQueryStringSerializer();
       case "ConstantQueryString":
         return new ConstantQueryStringSerializer();
+      case "DatetimeOffsets":
+        return new DatetimeOffsetsSerializer();
       case "DocumentType":
         return new DocumentTypeSerializer();
       case "DocumentTypeAsPayload":

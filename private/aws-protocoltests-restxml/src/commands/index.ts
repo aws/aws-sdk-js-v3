@@ -3,6 +3,7 @@ export * from "./AllQueryStringTypesCommand";
 export * from "./BodyWithXmlNameCommand";
 export * from "./ConstantAndVariableQueryStringCommand";
 export * from "./ConstantQueryStringCommand";
+export * from "./DatetimeOffsetsCommand";
 export * from "./EmptyInputAndEmptyOutputCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelHeaderOperationCommand";
