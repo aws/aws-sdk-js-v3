@@ -29,9 +29,9 @@ export interface LookupEventsCommandInput extends LookupEventsRequest {}
 export interface LookupEventsCommandOutput extends LookupEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
- *          You can look up events that occurred in a region within the last 90 days. Lookup supports the following attributes for management events:</p>
+ * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
+ *          You can look up events that occurred in a region within the last 90 days. Lookup supports
+ *          the following attributes for management events:</p>
  *          <ul>
  *             <li>
  *                <p>Amazon Web Services access key</p>
@@ -74,8 +74,8 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  *          maximum of 50 possible. The response includes a token that you can use to get the next page
  *          of results.</p>
  *          <important>
- *             <p>The rate of lookup requests is limited to two per second, per account, per region. If this
- *             limit is exceeded, a throttling error occurs.</p>
+ *             <p>The rate of lookup requests is limited to two per second, per account, per region. If
+ *             this limit is exceeded, a throttling error occurs.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

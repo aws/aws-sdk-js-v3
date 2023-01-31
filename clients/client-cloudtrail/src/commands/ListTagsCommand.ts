@@ -26,7 +26,7 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the trail or event data store in the current region.</p>
+ * <p>Lists the tags for the trail, event data store, or channel in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

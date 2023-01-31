@@ -29,9 +29,7 @@ export interface StopImportCommandInput extends StopImportRequest {}
 export interface StopImportCommandOutput extends StopImportResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Stops a specified import.
- *       </p>
+ * <p> Stops a specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -15,41 +15,39 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
-  GetQueryResultsRequest,
-  GetQueryResultsRequestFilterSensitiveLog,
-  GetQueryResultsResponse,
-  GetQueryResultsResponseFilterSensitiveLog,
+  DeleteChannelRequest,
+  DeleteChannelRequestFilterSensitiveLog,
+  DeleteChannelResponse,
+  DeleteChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryResultsCommand,
-  serializeAws_json1_1GetQueryResultsCommand,
+  deserializeAws_json1_1DeleteChannelCommand,
+  serializeAws_json1_1DeleteChannelCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
-export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
+export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
+export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
- *          returned by the <code>StartQuery</code> operation, and an ARN for
- *             <code>EventDataStore</code>.</p>
+ * <p>Deletes a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeleteChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, DeleteChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const command = new GetQueryResultsCommand(input);
+ * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
- * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
+ * @see {@link DeleteChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
-export class GetQueryResultsCommand extends $Command<
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
+export class DeleteChannelCommand extends $Command<
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput,
   CloudTrailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryResultsCommandInput) {
+  constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,21 @@ export class GetQueryResultsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryResultsCommandInput, GetQueryResultsCommandOutput> {
+  ): Handler<DeleteChannelCommandInput, DeleteChannelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryResultsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteChannelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudTrailClient";
-    const commandName = "GetQueryResultsCommand";
+    const commandName = "DeleteChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +99,12 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryResultsCommand(input, context);
+  private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteChannelCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
-    return deserializeAws_json1_1GetQueryResultsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
+    return deserializeAws_json1_1DeleteChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

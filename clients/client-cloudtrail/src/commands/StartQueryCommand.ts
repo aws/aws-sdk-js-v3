@@ -30,7 +30,9 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
 
 /**
  * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
- *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3 bucket.</p>
+ *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
+ *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
+ *          bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,13 +29,13 @@ export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequ
 export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the Insights event selectors that you configured for your trail. <code>GetInsightSelectors</code> shows
- *          if CloudTrail Insights event logging is enabled on the trail, and if it is, which insight types are enabled.
- *          If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception
- *          <code>InsightNotEnabledException</code>
+ * <p>Describes the settings for the Insights event selectors that you configured for your
+ *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
+ *          is enabled on the trail, and if it is, which insight types are enabled. If you run
+ *             <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
+ *          the operation throws the exception <code>InsightNotEnabledException</code>
  *          </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails
- *       </a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

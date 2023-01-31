@@ -31,7 +31,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes CloudTrail delegated administrator permissions from a member account in an organization.</p>
+ * <p>Removes CloudTrail delegated administrator permissions from a member account in
+ *          an organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

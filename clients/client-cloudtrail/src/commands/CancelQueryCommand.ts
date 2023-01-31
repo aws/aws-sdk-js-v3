@@ -29,9 +29,12 @@ export interface CancelQueryCommandInput extends CancelQueryRequest {}
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
- *          The ID of the query that you want to cancel is also required. When you run <code>CancelQuery</code>, the query status might
- *          show as <code>CANCELLED</code> even if the operation is not yet finished.</p>
+ * <p>Cancels a query if the query is not in a terminated state, such as
+ *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
+ *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
+ *          The ID of the query that you want to cancel is also required. When you run
+ *             <code>CancelQuery</code>, the query status might show as <code>CANCELLED</code> even if
+ *          the operation is not yet finished.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

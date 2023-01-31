@@ -15,41 +15,43 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
-  GetQueryResultsRequest,
-  GetQueryResultsRequestFilterSensitiveLog,
-  GetQueryResultsResponse,
-  GetQueryResultsResponseFilterSensitiveLog,
+  PutResourcePolicyRequest,
+  PutResourcePolicyRequestFilterSensitiveLog,
+  PutResourcePolicyResponse,
+  PutResourcePolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryResultsCommand,
-  serializeAws_json1_1GetQueryResultsCommand,
+  deserializeAws_json1_1PutResourcePolicyCommand,
+  serializeAws_json1_1PutResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
-export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
- *          returned by the <code>StartQuery</code> operation, and an ARN for
- *             <code>EventDataStore</code>.</p>
+ * <p>
+ *          Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of Amazon Web Services. For more information about resource-based policies, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
+ *          in the <i>CloudTrail User Guide</i>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, PutResourcePolicyCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, PutResourcePolicyCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const command = new GetQueryResultsCommand(input);
+ * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
- * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
-export class GetQueryResultsCommand extends $Command<
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
+export class PutResourcePolicyCommand extends $Command<
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
   CloudTrailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +66,7 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryResultsCommandInput) {
+  constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +79,23 @@ export class GetQueryResultsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryResultsCommandInput, GetQueryResultsCommandOutput> {
+  ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryResultsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudTrailClient";
-    const commandName = "GetQueryResultsCommand";
+    const commandName = "PutResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +105,12 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryResultsCommand(input, context);
+  private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1PutResourcePolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
-    return deserializeAws_json1_1GetQueryResultsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
+    return deserializeAws_json1_1PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

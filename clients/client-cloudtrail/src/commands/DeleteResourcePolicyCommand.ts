@@ -15,41 +15,41 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
-  GetQueryResultsRequest,
-  GetQueryResultsRequestFilterSensitiveLog,
-  GetQueryResultsResponse,
-  GetQueryResultsResponseFilterSensitiveLog,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyRequestFilterSensitiveLog,
+  DeleteResourcePolicyResponse,
+  DeleteResourcePolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryResultsCommand,
-  serializeAws_json1_1GetQueryResultsCommand,
+  deserializeAws_json1_1DeleteResourcePolicyCommand,
+  serializeAws_json1_1DeleteResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
-export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
- *          returned by the <code>StartQuery</code> operation, and an ARN for
- *             <code>EventDataStore</code>.</p>
+ * <p>
+ *          Deletes the resource-based policy attached to the CloudTrail channel.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const command = new GetQueryResultsCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
- * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
-export class GetQueryResultsCommand extends $Command<
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
+export class DeleteResourcePolicyCommand extends $Command<
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
   CloudTrailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +64,7 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryResultsCommandInput) {
+  constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +77,23 @@ export class GetQueryResultsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryResultsCommandInput, GetQueryResultsCommandOutput> {
+  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryResultsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudTrailClient";
-    const commandName = "GetQueryResultsCommand";
+    const commandName = "DeleteResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +103,12 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryResultsCommand(input, context);
+  private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteResourcePolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
-    return deserializeAws_json1_1GetQueryResultsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
+    return deserializeAws_json1_1DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

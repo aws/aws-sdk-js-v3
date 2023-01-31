@@ -29,19 +29,23 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Starts an import of logged trail events from a source S3 bucket to a destination event data store. By default, CloudTrail only imports events contained in the S3 bucket's <code>CloudTrail</code> prefix and the
- *          prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services services. If you want to import CloudTrail events contained in another prefix, you must include the prefix
- *          in the <code>S3LocationUri</code>. For more considerations about importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>.
- *       </p>
- *          <p>
- *          When you start a new import, the <code>Destinations</code> and
- *          <code>ImportSource</code> parameters are required. Before starting a new import, disable any access control lists (ACLs) attached to the source S3 bucket.
- *          For more information about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a>.
- *       </p>
- *          <p>
- *          When you retry an import, the <code>ImportID</code> parameter is required.
- *       </p>
+ * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
+ *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
+ *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
+ *          services. If you want to import CloudTrail events contained in another prefix, you
+ *          must include the prefix in the <code>S3LocationUri</code>. For more considerations about
+ *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>. </p>
+ *          <p> When you start a new import, the <code>Destinations</code> and
+ *             <code>ImportSource</code> parameters are required. Before starting a new import, disable
+ *          any access control lists (ACLs) attached to the source S3 bucket. For more information
+ *          about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of
+ *             objects and disabling ACLs for your bucket</a>. </p>
+ *          <p> When you retry an import, the <code>ImportID</code> parameter is required. </p>
+ *          <note>
+ *             <p> If the destination event data store is for an organization, you must use the
+ *             management account to import trail events. You cannot use the delegated administrator
+ *             account for the organization. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
