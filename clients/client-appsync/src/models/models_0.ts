@@ -997,6 +997,17 @@ export interface ElasticsearchDataSourceConfig {
 }
 
 /**
+ * <p>Describes an Amazon EventBridge bus data source configuration.</p>
+ */
+export interface EventBridgeDataSourceConfig {
+  /**
+   * <p>The ARN of the event bus. For more information about event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html">Amazon EventBridge event
+   *             buses</a>.</p>
+   */
+  eventBusArn: string | undefined;
+}
+
+/**
  * <p>Describes an HTTP data source configuration.</p>
  */
 export interface HttpDataSourceConfig {
@@ -1097,6 +1108,7 @@ export interface RelationalDatabaseDataSourceConfig {
 export enum DataSourceType {
   AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
   AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
+  AMAZON_EVENTBRIDGE = "AMAZON_EVENTBRIDGE",
   AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
   AWS_LAMBDA = "AWS_LAMBDA",
   HTTP = "HTTP",
@@ -1163,6 +1175,11 @@ export interface CreateDataSourceRequest {
    * <p>Relational database settings.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
+
+  /**
+   * <p>Amazon EventBridge settings.</p>
+   */
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
 /**
@@ -1205,6 +1222,10 @@ export interface DataSource {
    *             <li>
    *                <p>
    *                   <b>AMAZON_OPENSEARCH_SERVICE</b>: The data source is an Amazon OpenSearch Service domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AMAZON_EVENTBRIDGE</b>: The data source is an Amazon EventBridge configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1260,6 +1281,11 @@ export interface DataSource {
    * <p>Relational database settings.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
+
+  /**
+   * <p>Amazon EventBridge settings.</p>
+   */
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
 export interface CreateDataSourceResponse {
@@ -3013,6 +3039,11 @@ export interface UpdateDataSourceRequest {
    * <p>The new relational database configuration.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
+
+  /**
+   * <p>The new Amazon EventBridge settings.</p>
+   */
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
 export interface UpdateDataSourceResponse {
@@ -3445,6 +3476,13 @@ export const DynamodbDataSourceConfigFilterSensitiveLog = (obj: DynamodbDataSour
  * @internal
  */
 export const ElasticsearchDataSourceConfigFilterSensitiveLog = (obj: ElasticsearchDataSourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBridgeDataSourceConfigFilterSensitiveLog = (obj: EventBridgeDataSourceConfig): any => ({
   ...obj,
 });
 
