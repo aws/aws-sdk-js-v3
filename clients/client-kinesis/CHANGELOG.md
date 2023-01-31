@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-kinesis:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([6af967e](https://github.com/aws/aws-sdk-js-v3/commit/6af967ec2c91b641d158de174e38759a5eeec681))
+
+
+
+
+
 # [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis

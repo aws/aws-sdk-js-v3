@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-cloudtrail:** Add new "Channel" APIs to enable users to manage channels used for CloudTrail Lake integrations, and "Resource Policy" APIs to enable users to manage the resource-based permissions policy attached to a channel. ([d85ae10](https://github.com/aws/aws-sdk-js-v3/commit/d85ae108d3c206eca86eba0c8f5c52033dd901d0))
+
+
+
+
+
 # [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

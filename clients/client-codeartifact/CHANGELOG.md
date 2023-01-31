@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-codeartifact:** This release introduces a new DeletePackage API, which enables deletion of a package and all of its versions from a repository. ([5131521](https://github.com/aws/aws-sdk-js-v3/commit/51315211049bf58352feb48f528c8c4ed12801d8))
+
+
+
+
+
 # [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-codeartifact

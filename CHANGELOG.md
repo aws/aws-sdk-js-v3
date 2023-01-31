@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-accessanalyzer:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([5d929fd](https://github.com/aws/aws-sdk-js-v3/commit/5d929fda8db8fda4507c2b88beee7d4a81af3e50))
+* **client-appsync:** This release introduces the feature to support EventBridge as AppSync data source. ([32e4b9e](https://github.com/aws/aws-sdk-js-v3/commit/32e4b9e5bb198d01d39637ca8331ed1f11f60af7))
+* **client-cloudtrail-data:** Add CloudTrail Data Service to enable users to ingest activity events from non-AWS sources into CloudTrail Lake. ([6ad814a](https://github.com/aws/aws-sdk-js-v3/commit/6ad814a46b6760b27a1f510ebace31b770fb14a3))
+* **client-cloudtrail:** Add new "Channel" APIs to enable users to manage channels used for CloudTrail Lake integrations, and "Resource Policy" APIs to enable users to manage the resource-based permissions policy attached to a channel. ([d85ae10](https://github.com/aws/aws-sdk-js-v3/commit/d85ae108d3c206eca86eba0c8f5c52033dd901d0))
+* **client-codeartifact:** This release introduces a new DeletePackage API, which enables deletion of a package and all of its versions from a repository. ([5131521](https://github.com/aws/aws-sdk-js-v3/commit/51315211049bf58352feb48f528c8c4ed12801d8))
+* **client-connectparticipant:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([bdb884f](https://github.com/aws/aws-sdk-js-v3/commit/bdb884f1474cb0eb880bcd7b9563ea82ad46ff82))
+* **client-ec2:** This launch allows customers to associate up to 8 IP addresses to their NAT Gateways to increase the limit on concurrent connections to a single destination by eight times from 55K to 440K. ([02a5e1a](https://github.com/aws/aws-sdk-js-v3/commit/02a5e1a84c3db2e8599b374e46e98756ca1dbb5e))
+* **client-groundstation:** DigIF Expansion changes to the Customer APIs. ([f6f9e90](https://github.com/aws/aws-sdk-js-v3/commit/f6f9e900b47200db81449cd084404763d87f5db4))
+* **client-iot:** Added support for IoT Rules Engine Cloudwatch Logs action batch mode. ([3e1f2a5](https://github.com/aws/aws-sdk-js-v3/commit/3e1f2a5ce46407c6f3ffab66077da5dac6d4342d))
+* **client-kinesis:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([6af967e](https://github.com/aws/aws-sdk-js-v3/commit/6af967ec2c91b641d158de174e38759a5eeec681))
+* **client-opensearch:** Amazon OpenSearch Service adds the option for a VPC endpoint connection between two domains when the local domain uses OpenSearch version 1.3 or 2.3. You can now use remote reindex to copy indices from one VPC domain to another without a reverse proxy. ([f8656f0](https://github.com/aws/aws-sdk-js-v3/commit/f8656f0048b1befc9ac1206ada54c5dda43fc14d))
+* **client-outposts:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([0865158](https://github.com/aws/aws-sdk-js-v3/commit/0865158a4ebc784435116f03c4dc2af61bfd0d89))
+* **client-polly:** Amazon Polly adds two new neural American English voices - Ruth, Stephen ([58c3749](https://github.com/aws/aws-sdk-js-v3/commit/58c3749c8e8a9ad63e829e9551a1a9164765b554))
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports more completion criteria for Hyperparameter Optimization. ([6d04ea9](https://github.com/aws/aws-sdk-js-v3/commit/6d04ea956e2a022d41da4e7199c6a2ff46b95870))
+* **client-securityhub:** New fields have been added to the AWS Security Finding Format. Compliance.SecurityControlId is a unique identifier for a security control across standards. Compliance.AssociatedStandards contains all enabled standards in which a security control is enabled. ([51a6cc8](https://github.com/aws/aws-sdk-js-v3/commit/51a6cc862c4c04c50797c8f577c6f36de5b2fd76))
+* **client-support:** This fixes incorrect endpoint construction when a customer is explicitly setting a region. ([c6f86d2](https://github.com/aws/aws-sdk-js-v3/commit/c6f86d2bd368acda9a955d83be622a0062e40974))
+* **clients:** update client endpoints as of 2023-01-31 ([10f479f](https://github.com/aws/aws-sdk-js-v3/commit/10f479f293d31a1c7cb30450024dd26a3676627f))
+
+
+
+
+
 # [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-iot:** Added support for IoT Rules Engine Cloudwatch Logs action batch mode. ([3e1f2a5](https://github.com/aws/aws-sdk-js-v3/commit/3e1f2a5ce46407c6f3ffab66077da5dac6d4342d))
+
+
+
+
+
 # [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-iot
