@@ -110,6 +110,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "../commands/UpdateLiveSourceCommand";
+import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "../commands/UpdateProgramCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -127,6 +128,7 @@ import {
   Bumper,
   CdnConfiguration,
   Channel,
+  ClipRange,
   DashConfiguration,
   DashConfigurationForPut,
   DashPlaylistSettings,
@@ -158,6 +160,8 @@ import {
   SpliceInsertMessage,
   TimeSignalMessage,
   Transition,
+  UpdateProgramScheduleConfiguration,
+  UpdateProgramTransition,
   VodSource,
 } from "../models/models_0";
 
@@ -1388,6 +1392,40 @@ export const serializeAws_restJson1UpdateLiveSourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateProgramCommand = async (
+  input: UpdateProgramCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdBreaks != null && { AdBreaks: serializeAws_restJson1__listOfAdBreak(input.AdBreaks, context) }),
+    ...(input.ScheduleConfiguration != null && {
+      ScheduleConfiguration: serializeAws_restJson1UpdateProgramScheduleConfiguration(
+        input.ScheduleConfiguration,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateSourceLocationCommand = async (
   input: UpdateSourceLocationCommandInput,
   context: __SerdeContext
@@ -1749,8 +1787,14 @@ export const deserializeAws_restJson1CreateProgramCommand = async (
   if (data.ChannelName != null) {
     contents.ChannelName = __expectString(data.ChannelName);
   }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
   if (data.CreationTime != null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
   }
   if (data.LiveSourceName != null) {
     contents.LiveSourceName = __expectString(data.LiveSourceName);
@@ -2306,8 +2350,14 @@ export const deserializeAws_restJson1DescribeProgramCommand = async (
   if (data.ChannelName != null) {
     contents.ChannelName = __expectString(data.ChannelName);
   }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
   if (data.CreationTime != null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
   }
   if (data.LiveSourceName != null) {
     contents.LiveSourceName = __expectString(data.LiveSourceName);
@@ -3382,6 +3432,71 @@ const deserializeAws_restJson1UpdateLiveSourceCommandError = async (
   });
 };
 
+export const deserializeAws_restJson1UpdateProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AdBreaks != null) {
+    contents.AdBreaks = deserializeAws_restJson1__listOfAdBreak(data.AdBreaks, context);
+  }
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.ChannelName != null) {
+    contents.ChannelName = __expectString(data.ChannelName);
+  }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
+  if (data.CreationTime != null) {
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
+  }
+  if (data.LiveSourceName != null) {
+    contents.LiveSourceName = __expectString(data.LiveSourceName);
+  }
+  if (data.ProgramName != null) {
+    contents.ProgramName = __expectString(data.ProgramName);
+  }
+  if (data.ScheduledStartTime != null) {
+    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
+  }
+  if (data.SourceLocationName != null) {
+    contents.SourceLocationName = __expectString(data.SourceLocationName);
+  }
+  if (data.VodSourceName != null) {
+    contents.VodSourceName = __expectString(data.VodSourceName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1UpdateSourceLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3620,6 +3735,12 @@ const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context
   };
 };
 
+const serializeAws_restJson1ClipRange = (input: ClipRange, context: __SerdeContext): any => {
+  return {
+    ...(input.EndOffsetMillis != null && { EndOffsetMillis: input.EndOffsetMillis }),
+  };
+};
+
 const serializeAws_restJson1ConfigurationAliasesRequest = (
   input: Record<string, Record<string, string>>,
   context: __SerdeContext
@@ -3769,6 +3890,7 @@ const serializeAws_restJson1RequestOutputs = (input: RequestOutputItem[], contex
 
 const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.ClipRange != null && { ClipRange: serializeAws_restJson1ClipRange(input.ClipRange, context) }),
     ...(input.Transition != null && { Transition: serializeAws_restJson1Transition(input.Transition, context) }),
   };
 };
@@ -3849,6 +3971,28 @@ const serializeAws_restJson1Transition = (input: Transition, context: __SerdeCon
     ...(input.RelativeProgram != null && { RelativeProgram: input.RelativeProgram }),
     ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
     ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1UpdateProgramScheduleConfiguration = (
+  input: UpdateProgramScheduleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClipRange != null && { ClipRange: serializeAws_restJson1ClipRange(input.ClipRange, context) }),
+    ...(input.Transition != null && {
+      Transition: serializeAws_restJson1UpdateProgramTransition(input.Transition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1UpdateProgramTransition = (
+  input: UpdateProgramTransition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
+    ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
   };
 };
 
@@ -4129,6 +4273,12 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     PlaybackMode: __expectString(output.PlaybackMode),
     Tags: output.tags != null ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
     Tier: __expectString(output.Tier),
+  } as any;
+};
+
+const deserializeAws_restJson1ClipRange = (output: any, context: __SerdeContext): ClipRange => {
+  return {
+    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
   } as any;
 };
 

@@ -138,6 +138,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "./commands/UpdateLiveSourceCommand";
+import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "./commands/UpdateProgramCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -193,6 +194,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateChannelCommandInput
   | UpdateLiveSourceCommandInput
+  | UpdateProgramCommandInput
   | UpdateSourceLocationCommandInput
   | UpdateVodSourceCommandInput;
 
@@ -238,6 +240,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput
   | UpdateLiveSourceCommandOutput
+  | UpdateProgramCommandOutput
   | UpdateSourceLocationCommandOutput
   | UpdateVodSourceCommandOutput;
 

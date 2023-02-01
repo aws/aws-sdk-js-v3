@@ -40,5 +40,6 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateChannelCommand";
 export * from "./UpdateLiveSourceCommand";
+export * from "./UpdateProgramCommand";
 export * from "./UpdateSourceLocationCommand";
 export * from "./UpdateVodSourceCommand";
