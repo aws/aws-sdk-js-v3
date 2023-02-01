@@ -1,6 +1,7 @@
 import { ParsedIniData } from "@aws-sdk/types";
 
 import { loadSharedConfigFiles, SharedConfigInit } from "./loadSharedConfigFiles";
+import { mergeConfigFiles } from "./mergeConfigFiles";
 
 export interface SourceProfileInit extends SharedConfigInit {
   /**
@@ -17,8 +18,5 @@ export interface SourceProfileInit extends SharedConfigInit {
  */
 export const parseKnownFiles = async (init: SourceProfileInit): Promise<ParsedIniData> => {
   const parsedFiles = await loadSharedConfigFiles(init);
-  return {
-    ...parsedFiles.configFile,
-    ...parsedFiles.credentialsFile,
-  };
+  return mergeConfigFiles(parsedFiles.configFile, parsedFiles.credentialsFile);
 };
