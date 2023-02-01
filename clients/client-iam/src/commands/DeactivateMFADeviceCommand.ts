@@ -26,7 +26,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deactivates the specified MFA device and removes it from association with the user
  *             name for which it was originally enabled.</p>
- *         <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
+ *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
  *                 multi-factor authentication (MFA) device</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example

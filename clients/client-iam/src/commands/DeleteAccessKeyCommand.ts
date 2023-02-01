@@ -25,7 +25,7 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the access key pair associated with the specified IAM user.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
  *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  *             user credentials even if the Amazon Web Services account has no associated users.</p>

@@ -26,7 +26,7 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services
  *             servers.</p>
- *         <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
+ *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
  *                 device</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

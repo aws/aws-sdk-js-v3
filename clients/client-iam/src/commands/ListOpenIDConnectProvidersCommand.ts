@@ -31,10 +31,10 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
 /**
  * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  *             defined in the Amazon Web Services account.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a>GetOpenIDConnectProvider</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

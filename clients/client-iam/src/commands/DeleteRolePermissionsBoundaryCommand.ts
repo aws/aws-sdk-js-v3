@@ -28,11 +28,11 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
 
 /**
  * <p>Deletes the permissions boundary for the specified IAM role. </p>
- *         <important>
+ *          <important>
  *             <p>Deleting the permissions boundary for a role might increase its permissions. For
  *                 example, it might allow anyone who assumes the role to perform all the actions
  *                 granted in its permissions policies. </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

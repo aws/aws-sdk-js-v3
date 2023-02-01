@@ -26,13 +26,13 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified instance profile. The instance profile must not have an
  *             associated role.</p>
- *         <important>
+ *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the instance
  *                 profile you are about to delete. Deleting a role or instance profile that is
  *                 associated with a running instance will break any applications running on the
  *                 instance.</p>
- *         </important>
- *         <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
+ *          </important>
+ *          <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
  *             profiles</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

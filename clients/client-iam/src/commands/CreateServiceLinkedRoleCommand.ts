@@ -36,7 +36,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  *             improve service stability and proper cleanup when a service and its role are no longer
  *             needed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using service-linked
  *                 roles</a> in the <i>IAM User Guide</i>. </p>
- *         <p>To attach a policy to this service-linked role, you must make the request using the
+ *          <p>To attach a policy to this service-linked role, you must make the request using the
  *             Amazon Web Services service that depends on this role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

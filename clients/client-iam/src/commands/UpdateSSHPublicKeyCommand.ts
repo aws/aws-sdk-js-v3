@@ -27,7 +27,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public
  *             keys that are inactive cannot be used for authentication. This operation can be used to
  *             disable a user's SSH public key as part of a key rotation work flow.</p>
- *         <p>The SSH public key affected by this operation is used only for authenticating the
+ *          <p>The SSH public key affected by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>

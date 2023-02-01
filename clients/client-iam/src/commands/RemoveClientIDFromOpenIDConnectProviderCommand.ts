@@ -31,7 +31,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource
  *             object.</p>
- *         <p>This operation is idempotent; it does not fail or return an error if you try to remove
+ *          <p>This operation is idempotent; it does not fail or return an error if you try to remove
  *             a client ID that does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

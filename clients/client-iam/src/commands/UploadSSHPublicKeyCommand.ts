@@ -30,7 +30,7 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
 
 /**
  * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
- *         <p>The SSH public key uploaded by this operation can be used only for authenticating the
+ *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>

@@ -36,7 +36,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *             operation more than once for the same service-linked role and an earlier deletion task
  *             is not complete, then the <code>DeletionTaskId</code> of the earlier request is
  *             returned.</p>
- *         <p>If you submit a deletion request for a service-linked role whose linked service is
+ *          <p>If you submit a deletion request for a service-linked role whose linked service is
  *             still accessing a resource, then the deletion task fails. If it fails, the <a>GetServiceLinkedRoleDeletionStatus</a> operation returns the reason for the
  *             failure, usually including the resources that must be deleted. To delete the
  *             service-linked role, you must first remove those resources from the linked service and
@@ -44,7 +44,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *             linked to the role. For more information about removing resources from a service, see
  *             the <a href="http://docs.aws.amazon.com/">Amazon Web Services documentation</a> for your
  *             service.</p>
- *         <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles terms and concepts: Amazon Web Services service-linked role</a> in the
+ *          <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles terms and concepts: Amazon Web Services service-linked role</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

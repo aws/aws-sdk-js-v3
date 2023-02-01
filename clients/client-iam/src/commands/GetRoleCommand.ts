@@ -29,7 +29,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
  *             and the role's trust policy that grants permission to assume the role. For more
  *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>.</p>
- *         <note>
+ *          <note>
  *             <p>Policies returned by this operation are URL-encoded compliant
  *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
  *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you

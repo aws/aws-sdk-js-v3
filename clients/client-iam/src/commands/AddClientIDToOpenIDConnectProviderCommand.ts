@@ -29,7 +29,7 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
 /**
  * <p>Adds a new client ID (also known as audience) to the list of client IDs already
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
- *         <p>This operation is idempotent; it does not fail or return an error if you add an
+ *          <p>This operation is idempotent; it does not fail or return an error if you add an
  *             existing client ID to the provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

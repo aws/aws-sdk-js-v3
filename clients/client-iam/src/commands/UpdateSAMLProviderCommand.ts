@@ -30,9 +30,9 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
 
 /**
  * <p>Updates the metadata document for an existing SAML provider resource object.</p>
- *         <note>
+ *          <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

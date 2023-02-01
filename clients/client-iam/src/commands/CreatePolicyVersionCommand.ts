@@ -32,10 +32,10 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * <p>Creates a new version of the specified managed policy. To update a managed policy, you
  *             create a new policy version. A managed policy can have up to five versions. If the
  *             policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
- *         <p>Optionally, you can set the new version as the policy's default version. The default
+ *          <p>Optionally, you can set the new version as the policy's default version. The default
  *             version is the version that is in effect for the IAM users, groups, and roles to which
  *             the policy is attached.</p>
- *         <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+ *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

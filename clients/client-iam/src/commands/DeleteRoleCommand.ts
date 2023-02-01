@@ -21,13 +21,30 @@ export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
 export interface DeleteRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified role. The role must not have any policies attached. For more
- *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>.</p>
- *         <important>
+ * <p>Deletes the specified role. Unlike the Amazon Web Services Management Console, when you delete a role
+ *             programmatically, you must delete the items attached to the role manually, or the
+ *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting an IAM role</a>. Before attempting to delete a role, remove the
+ *             following attached items: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Inline policies (<a>DeleteRolePolicy</a>)</p>
+ *             </li>
+ *             <li>
+ *                <p>Attached managed policies (<a>DetachRolePolicy</a>)</p>
+ *             </li>
+ *             <li>
+ *                <p>Instance profile (<a>RemoveRoleFromInstanceProfile</a>)</p>
+ *             </li>
+ *             <li>
+ *                <p>Optional – Delete instance profile after detaching from role for
+ *                     resource clean up (<a>DeleteInstanceProfile</a>)</p>
+ *             </li>
+ *          </ul>
+ *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
  *                 are about to delete. Deleting a role or instance profile that is associated with a
  *                 running instance will break any applications running on the instance.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
