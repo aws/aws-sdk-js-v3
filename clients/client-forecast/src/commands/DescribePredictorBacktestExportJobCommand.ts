@@ -32,27 +32,27 @@ export interface DescribePredictorBacktestExportJobCommandOutput
 
 /**
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
- *         <p>In addition to listing the properties provided by the user in the
+ *          <p>In addition to listing the properties provided by the user in the
  *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
  *             following properties:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <code>CreationTime</code>
- *                 </p>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>LastModificationTime</code>
- *                 </p>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>Status</code>
- *                 </p>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Message</code> (if an error occurred)</p>
  *             </li>
  *          </ul>

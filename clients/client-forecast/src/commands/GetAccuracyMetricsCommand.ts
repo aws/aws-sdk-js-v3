@@ -41,7 +41,6 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *       metrics. If you want all items to contribute, specify <code>zero</code>. If you want only
  *       those items that have complete data in the range being evaluated to contribute, specify
  *         <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.</p>
- *
  *          <note>
  *             <p>Before you can get accuracy metrics, the <code>Status</code> of the predictor must be
  *           <code>ACTIVE</code>, signifying that training has completed. To get the status, use the

@@ -31,13 +31,13 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
 /**
  * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
  *             S3) bucket.</p>
- *         <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
- *             bucket and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+ *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
+ *             bucket and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
  *             bucket. For more information, see <a>aws-forecast-iam-roles</a>.</p>
- *         <note>
+ *          <note>
  *             <p>The <code>Status</code> of the export job must be <code>ACTIVE</code> before you
  *                 can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribeExplainabilityExport</a> operation.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

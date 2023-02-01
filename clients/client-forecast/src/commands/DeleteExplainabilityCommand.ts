@@ -25,7 +25,7 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Explainability resource.</p>
- *         <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
+ *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
  *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

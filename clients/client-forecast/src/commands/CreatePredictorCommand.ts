@@ -82,9 +82,6 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *                </p>
  *             </li>
  *          </ul>
- *
- *
- *
  *          <p>To get a list of all of your predictors, use the <a>ListPredictors</a>
  *       operation.</p>
  *          <note>
