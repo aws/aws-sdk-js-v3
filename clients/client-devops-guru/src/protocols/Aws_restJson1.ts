@@ -153,6 +153,7 @@ import {
   InsightStatus,
   InsightTimeRange,
   InternalServerException,
+  ListAnomaliesForInsightFilters,
   ListEventsFilters,
   ListInsightsAnyStatusFilter,
   ListInsightsClosedStatusFilter,
@@ -624,6 +625,9 @@ export const serializeAws_restJson1ListAnomaliesForInsightCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListAnomaliesForInsightFilters(input.Filters, context),
+    }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.StartTimeRange != null && {
@@ -3049,6 +3053,17 @@ const serializeAws_restJson1InsightStatuses = (input: (InsightStatus | string)[]
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1ListAnomaliesForInsightFilters = (
+  input: ListAnomaliesForInsightFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ServiceCollection != null && {
+      ServiceCollection: serializeAws_restJson1ServiceCollection(input.ServiceCollection, context),
+    }),
+  };
 };
 
 const serializeAws_restJson1ListEventsFilters = (input: ListEventsFilters, context: __SerdeContext): any => {
