@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.263.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.262.0...v3.263.0) (2023-02-01)
+
+
+### Features
+
+* **client-sns:** Additional attributes added for set-topic-attributes. ([dc09a43](https://github.com/aws/aws-sdk-js-v3/commit/dc09a43d7d3893b38a405e10b937ed612d836fa2))
+
+
+
+
+
 # [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-sns

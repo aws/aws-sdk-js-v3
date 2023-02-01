@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.263.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.262.0...v3.263.0) (2023-02-01)
+
+
+### Features
+
+* **client-forecast:** This release will enable customer select INCREMENTAL as ImportModel in Forecast's CreateDatasetImportJob API. Verified latest SDK containing required attribute, following https://w.amazon.com/bin/view/AWS-Seer/Launch/Trebuchet/ ([4b13633](https://github.com/aws/aws-sdk-js-v3/commit/4b136332dddfbadfda868435f70790449f6bc154))
+
+
+
+
+
 # [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-forecast
