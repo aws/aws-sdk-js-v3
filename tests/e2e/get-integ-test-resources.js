@@ -38,7 +38,7 @@ exports.getIntegTestResources = async () => {
 
   const sts = new STSClient({ logger });
   const { Account: AccountId } = await sts.send(new GetCallerIdentityCommand({}));
-  const s3Control = new S3ControlClient({ logger });
+  const s3Control = new S3ControlClient({ logger, region: "us-west-2" });
   const { AccessPoints } = await s3Control.send(new ListMultiRegionAccessPointsCommand({ AccountId }));
   const { Alias } = AccessPoints.find((accesspoint) => accesspoint.Name === multiRegionAccessPointName);
   const mrapArn = `arn:aws:s3::${AccountId}:accesspoint/${Alias}`;

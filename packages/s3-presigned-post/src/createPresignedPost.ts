@@ -86,21 +86,18 @@ export const createPresignedPost = async (
   const signingKey = await getSigningKey(sha256, clientCredentials, shortDate, clientRegion, "s3");
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
-  let endpoint = await client.config?.endpoint?.();
-  let isEndpointV2 = false;
-
-  if (!endpoint) {
-    isEndpointV2 = true;
-    endpoint = toEndpointV1(
-      await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+  const endpoint = toEndpointV1(
+    await getEndpointFromInstructions(
+      { Bucket, Key },
+      PutObjectCommand as EndpointParameterInstructionsSupplier,
+      {
         ...client.config,
-      })
-    );
-  }
-
-  if (endpoint && !client.config.isCustomEndpoint && !isEndpointV2) {
-    endpoint.path = `/${Bucket}`;
-  }
+      },
+      {
+        logger: client.config.logger,
+      }
+    )
+  );
 
   return {
     url: formatUrl(endpoint),

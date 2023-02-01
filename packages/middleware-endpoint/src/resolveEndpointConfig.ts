@@ -10,11 +10,19 @@ import { toEndpointV1 } from "./adaptors/toEndpointV1";
  */
 export interface EndpointInputConfig<T extends EndpointParameters = EndpointParameters> {
   /**
-   * The fully qualified endpoint of the webservice. This is only required when using
+   * The fully qualified endpoint of the webservice. This is only for using
    * a custom endpoint (for example, when using a local version of S3).
+   *
+   * Endpoint transformations such as S3 applying a bucket to the hostname are
+   * still applicable to this custom endpoint.
    */
   endpoint?: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 
+  /**
+   * Providing a custom endpointProvider will override
+   * built-in transformations of the endpoint such as S3 adding the bucket
+   * name to the hostname, since they are part of the default endpointProvider.
+   */
   endpointProvider?: (params: T, context?: { logger?: Logger }) => EndpointV2;
 
   /**
@@ -50,12 +58,6 @@ export interface EndpointResolvedConfig<T extends EndpointParameters = EndpointP
    * Custom endpoint provided by the user.
    * This is normalized to a single interface from the various acceptable types.
    * This field will be undefined if a custom endpoint is not provided.
-   *
-   * As of endpoints 2.0, this config method can not be used to resolve
-   * the endpoint for a service and region.
-   *
-   * @see https://github.com/aws/aws-sdk-js-v3/issues/4122
-   * @deprecated Use {@link EndpointResolvedConfig.endpointProvider} instead.
    */
   endpoint?: Provider<Endpoint>;
 
