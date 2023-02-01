@@ -33,7 +33,7 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
  *             also returned. Use the <code>NextToken</code> parameter in a new
  *                 <code>ListSubscriptions</code> call to get further results.</p>
- *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ *          <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

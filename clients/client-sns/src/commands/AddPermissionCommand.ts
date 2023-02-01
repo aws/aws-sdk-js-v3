@@ -26,11 +26,11 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             Amazon Web Services accounts to the specified actions.</p>
- *         <note>
+ *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
  *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
  *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

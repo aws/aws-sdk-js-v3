@@ -34,7 +34,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of
  *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
  *             that is opted out.</p>
- *         <p>To resume sending messages, you can opt in the number by using the
+ *          <p>To resume sending messages, you can opt in the number by using the
  *                 <code>OptInPhoneNumber</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

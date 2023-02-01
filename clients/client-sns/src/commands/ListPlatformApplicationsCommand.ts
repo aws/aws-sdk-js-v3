@@ -38,7 +38,7 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  *             previous call. When there are no more records to return, <code>NextToken</code> will be
  *             null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
  *             Notifications</a>. </p>
- *         <p>This action is throttled at 15 transactions per second (TPS).</p>
+ *          <p>This action is throttled at 15 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
