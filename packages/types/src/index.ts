@@ -5,6 +5,7 @@ export * from "./client";
 export * from "./command";
 export * from "./credentials";
 export * from "./crypto";
+export * from "./dns";
 export * from "./endpoint";
 export * from "./eventStream";
 export * from "./http";
