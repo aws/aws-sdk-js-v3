@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+
+### Bug Fixes
+
+* **s3-presigned-post:** use endpoints 2.0 for custom endpoints ([#4366](https://github.com/aws/aws-sdk-js-v3/issues/4366)) ([5054ba5](https://github.com/aws/aws-sdk-js-v3/commit/5054ba5fd8622960b699dfeb91a4b06dd77f5a70))
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig introduces KMS customer-managed key (CMK) encryption of configuration data, along with AWS Secrets Manager as a new configuration data source. S3 objects using SSE-KMS encryption and SSM Parameter Store SecureStrings are also now supported. ([ab41e92](https://github.com/aws/aws-sdk-js-v3/commit/ab41e929b91b9ebb94385c61478dffcfbc856eff))
+* **client-connect:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([c678efa](https://github.com/aws/aws-sdk-js-v3/commit/c678efa9e2b9d0a2b1be011a97b045e8cf7d06af))
+* **client-ec2:** Documentation updates for EC2. ([3ff7382](https://github.com/aws/aws-sdk-js-v3/commit/3ff7382c23805549032fe911ea4fd3a52cba3ce3))
+* **client-keyspaces:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([175c1f1](https://github.com/aws/aws-sdk-js-v3/commit/175c1f1dfd600341d18c8869e5cde3a2ea44da7c))
+* **client-quicksight:** QuickSight support for Radar Chart and Dashboard Publish Options ([1f89298](https://github.com/aws/aws-sdk-js-v3/commit/1f89298178466ad3a03a2153a80afb7f8e4e8cff))
+* **client-redshift:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([9456476](https://github.com/aws/aws-sdk-js-v3/commit/9456476213572aa6d178a46681430caf0c7ec14f))
+* **client-sso-admin:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([075eee7](https://github.com/aws/aws-sdk-js-v3/commit/075eee7602bd016f1b4f3f596e6277260267feac))
+* **clients:** update client endpoints as of 2023-02-02 ([323ff80](https://github.com/aws/aws-sdk-js-v3/commit/323ff80583888999d23f5366497a4b4e2d5b0460))
+
+
+
+
+
 # [3.263.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.262.0...v3.263.0) (2023-02-01)
 
 

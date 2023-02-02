@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+**Note:** Version bump only for package @aws-sdk/client-mediatailor
+
+
+
+
+
 # [3.263.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.262.0...v3.263.0) (2023-02-01)
 
 
