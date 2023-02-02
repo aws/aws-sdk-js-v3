@@ -6,26 +6,26 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/appconfig.json */
 
-const r="required",
-s="fn",
+const s="fn",
 t="argv",
 u="ref";
-const a="PartitionResult",
-b="tree",
-c="error",
-d="endpoint",
-e="stringEquals",
-f={[r]:false,"type":"String"},
-g={[r]:true,"default":false,"type":"Boolean"},
-h={[u]:"Region"},
-i={[u]:"Endpoint"},
-j={[s]:"booleanEquals",[t]:[{[u]:"UseFIPS"},true]},
-k={[s]:"booleanEquals",[t]:[{[u]:"UseDualStack"},true]},
-l={},
-m={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:a},"supportsFIPS"]}]},
-n={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:a},"supportsDualStack"]}]},
-o=[i],
-p=[j],
-q=[k];
-const _data={version:"1.0",parameters:{Region:f,UseDualStack:g,UseFIPS:g,Endpoint:f},rules:[{conditions:[{[s]:"aws.partition",[t]:[h],assign:a}],type:b,rules:[{conditions:[{[s]:"isSet",[t]:o},{[s]:"parseURL",[t]:o,assign:"url"}],type:b,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:i,properties:l,headers:l},type:d}]}]},{conditions:[j,k],type:b,rules:[{conditions:[m,n],type:b,rules:[{endpoint:{url:"https://appconfig-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:p,type:b,rules:[{conditions:[m],type:b,rules:[{type:b,rules:[{conditions:[{[s]:e,[t]:[h,"us-gov-west-1"]}],endpoint:{url:"https://appconfig.us-gov-west-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[s]:e,[t]:[h,"us-gov-east-1"]}],endpoint:{url:"https://appconfig.us-gov-east-1.amazonaws.com",properties:l,headers:l},type:d},{endpoint:{url:"https://appconfig-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:q,type:b,rules:[{conditions:[n],type:b,rules:[{endpoint:{url:"https://appconfig.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://appconfig.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]};
+const a=true,
+b=false,
+c="String",
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h="stringEquals",
+i={"required":true,"default":false,"type":"Boolean"},
+j={[u]:"Region"},
+k={[u]:"Endpoint"},
+l={[s]:"booleanEquals",[t]:[{[u]:"UseFIPS"},true]},
+m={[s]:"booleanEquals",[t]:[{[u]:"UseDualStack"},true]},
+n={},
+o={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:d},"supportsFIPS"]}]},
+p={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:d},"supportsDualStack"]}]},
+q=[l],
+r=[m];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[s]:"aws.partition",[t]:[j],assign:d}],type:e,rules:[{conditions:[{[s]:"isSet",[t]:[k]}],type:e,rules:[{conditions:q,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:r,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:k,properties:n,headers:n},type:g}]}]},{conditions:[l,m],type:e,rules:[{conditions:[o,p],type:e,rules:[{endpoint:{url:"https://appconfig-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:q,type:e,rules:[{conditions:[o],type:e,rules:[{type:e,rules:[{conditions:[{[s]:h,[t]:[j,"us-gov-east-1"]}],endpoint:{url:"https://appconfig.us-gov-east-1.amazonaws.com",properties:n,headers:n},type:g},{conditions:[{[s]:h,[t]:[j,"us-gov-west-1"]}],endpoint:{url:"https://appconfig.us-gov-west-1.amazonaws.com",properties:n,headers:n},type:g},{endpoint:{url:"https://appconfig-fips.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:r,type:e,rules:[{conditions:[p],type:e,rules:[{endpoint:{url:"https://appconfig.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://appconfig.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:g}]}]};
 export const ruleSet: RuleSetObject = _data;

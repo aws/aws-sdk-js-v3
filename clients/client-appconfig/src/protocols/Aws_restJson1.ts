@@ -1265,6 +1265,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
     ...(input.ConfigurationVersion != null && { ConfigurationVersion: input.ConfigurationVersion }),
     ...(input.DeploymentStrategyId != null && { DeploymentStrategyId: input.DeploymentStrategyId }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.KmsKeyIdentifier != null && { KmsKeyIdentifier: input.KmsKeyIdentifier }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -2630,6 +2631,12 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
+  }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
@@ -3476,6 +3483,12 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
+  }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
@@ -3579,6 +3592,12 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
   }
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
+  }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
   }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
