@@ -35,9 +35,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
 /**
  * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer.</p>
- *
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -58,7 +55,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
  * @example

@@ -151,7 +151,6 @@ import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 
 /**
  * <fullname>Elastic Load Balancing</fullname>
- *
  *          <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances.
  *       This enables you to increase the availability of your application. The load balancer also
  *       monitors the health of its registered targets and ensures that it routes traffic only to
@@ -160,7 +159,6 @@ import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
  *       clients to the load balancer. You configure a target group with a protocol and port number for
  *       connections from the load balancer to the targets, and with health check settings to be used
  *       when checking the health status of the targets.</p>
- *
  *          <p>Elastic Load Balancing supports the following types of load balancers: Application Load
  *       Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This
  *       reference covers the following load balancer types:</p>
@@ -177,16 +175,8 @@ import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User
  *       Guide</a>.</p>
- *
- *
- *
- *
- *
- *
- *
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
  */
@@ -196,7 +186,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *       or TLS listener.</p>
    *          <p>If the certificate in already in the certificate list, the call is successful but the
    *       certificate is not added again.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
    *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
    *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -263,8 +252,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
    *       Gateway Load Balancer.</p>
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -286,7 +273,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
    */
@@ -322,9 +308,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
    *       Balancer.</p>
-   *
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -345,7 +328,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
    */
@@ -411,9 +393,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Creates a target group.</p>
-   *
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -435,7 +414,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
    */
@@ -766,7 +744,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Describes the attributes for the specified Application Load Balancer, Network Load
    *       Balancer, or Gateway Load Balancer.</p>
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -1239,15 +1216,12 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Registers the specified targets with the specified target group.</p>
-   *
    *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
    *       register it.</p>
-   *
    *          <p>By default, the load balancer routes requests to registered targets using the protocol and
    *       port for the target group. Alternatively, you can override the port for a target when you
    *       register it. You can register each EC2 instance or IP address with the same target group
    *       multiple times using different ports.</p>
-   *
    *          <p>With a Network Load Balancer, you cannot register instances by instance ID if they have
    *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
    *       and T1. You can register instances of these types by IP address.</p>
