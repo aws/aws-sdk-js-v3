@@ -3100,10 +3100,10 @@ avvio@^8.2.0:
     debug "^4.0.0"
     fastq "^1.6.1"
 
-aws-crt@^1.13.2:
-  version "1.15.7"
-  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.15.7.tgz#919a30f1bb0dccdfd56be5447be79853dfe0e661"
-  integrity sha512-wq26kPlK6PYfJ1A4ckW5HDaf+mgkKqjDf3GoYdvQhGR97riO7mLltRRtbe1sPJ0CRUolA1ypt49HRvf1N/yp2g==
+aws-crt@^1.15.9:
+  version "1.15.9"
+  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.15.9.tgz#f603109bcf1bef3e27346c04367075f5be021078"
+  integrity sha512-tInTJwASvrj+iIQZd+p/S3fUf2nWp3mNQv+TJHndZIllCQg3tcy8vF6pkXR++3fF/eAIOYnr7adf7z2/JneJ8g==
   dependencies:
     "@aws-sdk/util-utf8-browser" "^3.109.0"
     "@httptoolkit/websocket-stream" "^6.0.0"
