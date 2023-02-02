@@ -31,7 +31,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
 /**
  * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
  *                 <code>available</code> state. </p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>

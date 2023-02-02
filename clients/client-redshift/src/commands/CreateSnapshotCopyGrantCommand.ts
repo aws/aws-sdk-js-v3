@@ -32,7 +32,7 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
  *             from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
- *         <p>
+ *          <p>
  * For more information about managing snapshot copy grants, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.

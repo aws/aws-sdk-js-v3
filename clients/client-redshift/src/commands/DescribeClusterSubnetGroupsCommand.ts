@@ -32,12 +32,12 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * <p>Returns one or more cluster subnet group objects, which contain metadata about your
  *             cluster subnet groups. By default, this operation returns information about all cluster
  *             subnet groups that are defined in your Amazon Web Services account.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all subnet groups that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all subnet groups that have
  *             any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, subnet groups are
+ *          <p>If both tag keys and values are omitted from the request, subnet groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example

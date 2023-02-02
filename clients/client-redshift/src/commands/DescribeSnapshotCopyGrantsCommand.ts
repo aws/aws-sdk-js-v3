@@ -31,7 +31,7 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
 /**
  * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  *             region.</p>
- *         <p>
+ *          <p>
  * For more information about managing snapshot copy grants, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.

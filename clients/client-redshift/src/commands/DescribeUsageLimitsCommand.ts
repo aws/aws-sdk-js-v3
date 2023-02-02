@@ -31,7 +31,7 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
 /**
  * <p>Shows usage limits on a cluster.
  *             Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>If usage limit identifier, cluster identifier, and feature type are not provided,
  *                 then all usage limit objects for the current account in the current region are returned.</p>

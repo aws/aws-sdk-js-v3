@@ -22,9 +22,9 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds tags to a cluster.</p>
- *         <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
+ *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *             resource, you will receive an error and the attempt will fail.</p>
- *         <p>If you specify a key that already exists for the resource, the value for that key
+ *          <p>If you specify a key that already exists for the resource, the value for that key
  *             will be updated with the new value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

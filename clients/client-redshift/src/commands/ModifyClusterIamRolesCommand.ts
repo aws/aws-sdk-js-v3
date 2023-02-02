@@ -31,7 +31,7 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
 /**
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
- *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+ *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
  *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
  *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example

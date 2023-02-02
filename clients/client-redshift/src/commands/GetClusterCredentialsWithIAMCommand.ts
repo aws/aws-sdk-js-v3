@@ -33,7 +33,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
  *             For more information about IAM identities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities (users, user groups, and roles)</a> in the
  *             Amazon Web Services Identity and Access Management User Guide.</p>
- *         <p>The Identity and Access Management (IAM) identity that runs
+ *          <p>The Identity and Access Management (IAM) identity that runs
  *             this operation must have an IAM policy attached that allows access to all
  *             necessary actions and resources.
  *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using identity-based policies (IAM policies)</a> in the

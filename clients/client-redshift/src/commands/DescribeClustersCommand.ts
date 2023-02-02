@@ -35,12 +35,12 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * For more information about managing clusters, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all clusters that match any combination of the specified keys and values. For example,
  *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
  *             combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, clusters are returned
+ *          <p>If both tag keys and values are omitted from the request, clusters are returned
  *             regardless of whether they have tag keys or values associated with them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

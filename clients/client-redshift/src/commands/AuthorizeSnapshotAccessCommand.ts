@@ -31,7 +31,7 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
 /**
  * <p>Authorizes the specified Amazon Web Services account to restore the specified
  *             snapshot.</p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>

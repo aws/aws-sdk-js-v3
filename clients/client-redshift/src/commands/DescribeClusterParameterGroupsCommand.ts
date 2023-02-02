@@ -34,16 +34,16 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  *             the parameter group name, description, and parameter group family name. You can
  *             optionally specify a name to retrieve the description of a specific parameter
  *             group.</p>
- *         <p>
+ *          <p>
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all parameter groups that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all parameter groups that
  *             have any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, parameter groups are
+ *          <p>If both tag keys and values are omitted from the request, parameter groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example

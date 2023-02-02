@@ -34,17 +34,17 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *             a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more
  *             information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
  *                 to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p>
- *         <p>The Identity and Access Management (IAM) user or role that runs
+ *          <p>The Identity and Access Management (IAM) user or role that runs
  *             GetClusterCredentials must have an IAM policy attached that allows access to all
  *             necessary actions and resources. For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource Policies for GetClusterCredentials</a> in the
  *             Amazon Redshift Cluster Management Guide.</p>
- *         <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the
+ *          <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the
  *                 <code>redshift:JoinGroup</code> action with access to the listed
  *                 <code>dbgroups</code>. </p>
- *         <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>,
+ *          <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>,
  *             then the policy must include the <code>redshift:CreateClusterUser</code>
  *             permission.</p>
- *         <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
+ *          <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
  *             to the resource <code>dbname</code> for the specified database name. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

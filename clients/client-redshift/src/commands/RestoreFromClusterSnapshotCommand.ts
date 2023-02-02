@@ -35,9 +35,9 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *             parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different
  *             parameter group with the restored cluster. If you are using a DS node type, you can also
  *             choose to change to another DS node type of the same size during restore.</p>
- *         <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where
+ *          <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where
  *             you want the cluster restored.</p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
