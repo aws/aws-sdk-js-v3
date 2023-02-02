@@ -6878,9 +6878,9 @@ export interface SpotFleetRequestConfigData {
   ClientToken?: string;
 
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if you decrease the
-   *             target capacity of the Spot Fleet request below the current size of the Spot
-   *             Fleet.</p>
+   * <p>Indicates whether running instances should be terminated if you decrease the
+   *             target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 

@@ -763,7 +763,7 @@ export interface AcceptVpcPeeringConnectionRequest {
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId: string | undefined;
 }
 
 /**
@@ -2913,13 +2913,13 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
    */
-  CertificateArn?: string;
+  CertificateArn: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM
    * 			certificate.</p>
    */
-  RoleArn?: string;
+  RoleArn: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3517,17 +3517,17 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId: string | undefined;
 
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    */
-  SubnetIds?: string[];
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4906,8 +4906,9 @@ export interface AuthorizeSecurityGroupIngressResult {
 export interface S3Storage {
   /**
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
-   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing
-   *         Amazon Web Services access keys</a>.</p>
+   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
+   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
+   *            Guide</i>.</p>
    */
   AWSAccessKeyId?: string;
 

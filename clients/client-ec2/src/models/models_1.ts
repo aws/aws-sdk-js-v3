@@ -2032,6 +2032,7 @@ export interface CreateFleetRequest {
   /**
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
@@ -3183,6 +3184,11 @@ export interface EbsBlockDevice {
    *          <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
    *          <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
+   *          <p>For <a>CreateImage</a> and <a>RegisterImage</a>, you can specify this
+   *             parameter only for block device mappings that result in new, empty volumes when instances are
+   *             launched from the image. Omit this parameter on block device mappings that include an existing
+   *             volume or snapshot. If you include this parameter, and specify an encryption setting that is
+   *             different from the existing volume or snapshot, the request will fail.</p>
    */
   Encrypted?: boolean;
 }
@@ -4088,7 +4094,7 @@ export enum IpamResourceDiscoveryState {
 }
 
 /**
- * <p>A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ * <p>A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  */
 export interface IpamResourceDiscovery {
   /**
@@ -5218,8 +5224,7 @@ export interface RequestLaunchTemplateData {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
-   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI">Use a Systems Manager parameter to find an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ImageId?: string;
 

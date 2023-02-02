@@ -29,7 +29,7 @@ export interface CreateIpamResourceDiscoveryCommandInput extends CreateIpamResou
 export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
- * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3263,6 +3263,9 @@ export interface CreateVolumeRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p>
+   *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Default: <code>gp2</code>
@@ -4120,7 +4123,7 @@ export interface CreateVpcPeeringConnectionRequest {
    * <p>The ID of the requester VPC. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcId?: string;
+  VpcId: string | undefined;
 
   /**
    * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region

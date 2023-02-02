@@ -501,6 +501,7 @@ export interface ModifyFleetRequest {
   /**
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
@@ -1070,7 +1071,7 @@ export interface InstanceCreditSpecificationRequest {
   /**
    * <p>The ID of the instance.</p>
    */
-  InstanceId?: string;
+  InstanceId: string | undefined;
 
   /**
    * <p>The credit option for CPU usage of the instance.</p>
@@ -1903,7 +1904,7 @@ export interface ModifyPrivateDnsNameOptionsRequest {
   /**
    * <p>The ID of the instance.</p>
    */
-  InstanceId?: string;
+  InstanceId: string | undefined;
 
   /**
    * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
@@ -2041,7 +2042,7 @@ export interface SecurityGroupRuleUpdate {
   /**
    * <p>The ID of the security group rule.</p>
    */
-  SecurityGroupRuleId?: string;
+  SecurityGroupRuleId: string | undefined;
 
   /**
    * <p>Information about the security group rule.</p>
@@ -2169,8 +2170,9 @@ export interface ModifySnapshotTierResult {
  */
 export interface ModifySpotFleetRequestRequest {
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if the target capacity
+   * <p>Indicates whether running instances should be terminated if the target capacity
    *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 
@@ -4529,7 +4531,7 @@ export interface RegisterTransitGatewayMulticastGroupMembersRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
@@ -4539,7 +4541,7 @@ export interface RegisterTransitGatewayMulticastGroupMembersRequest {
   /**
    * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
    */
-  NetworkInterfaceIds?: string[];
+  NetworkInterfaceIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4580,7 +4582,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
@@ -4590,7 +4592,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
   /**
    * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
    */
-  NetworkInterfaceIds?: string[];
+  NetworkInterfaceIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7027,7 +7029,7 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>One or more filters. The possible values are:</p>

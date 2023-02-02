@@ -3702,7 +3702,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public associateIpamResourceDiscovery(
     args: AssociateIpamResourceDiscoveryCommandInput,
@@ -5747,7 +5747,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public createIpamResourceDiscovery(
     args: CreateIpamResourceDiscoveryCommandInput,
@@ -8516,7 +8516,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public deleteIpamResourceDiscovery(
     args: DeleteIpamResourceDiscoveryCommandInput,
@@ -12641,7 +12641,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public describeIpamResourceDiscoveries(
     args: DescribeIpamResourceDiscoveriesCommandInput,
@@ -16601,7 +16601,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public disassociateIpamResourceDiscovery(
     args: DisassociateIpamResourceDiscoveryCommandInput,
@@ -18264,7 +18264,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public getIpamResourceCidrs(
     args: GetIpamResourceCidrsCommandInput,
@@ -20220,7 +20220,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+   * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public modifyIpamResourceDiscovery(
     args: ModifyIpamResourceDiscoveryCommandInput,
