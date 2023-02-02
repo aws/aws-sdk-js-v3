@@ -557,7 +557,6 @@ import {
   VisualTitleLabelOptions,
 } from "../models/models_0";
 import {
-  _Parameters,
   AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
@@ -614,8 +613,6 @@ import {
   DataFieldSeriesItem,
   DataPathSort,
   DataSetReference,
-  DateTimeParameter,
-  DecimalParameter,
   DonutCenterOptions,
   DonutOptions,
   EmptyVisual,
@@ -670,7 +667,6 @@ import {
   HistogramVisual,
   InsightConfiguration,
   InsightVisual,
-  IntegerParameter,
   InternalFailureException,
   InvalidParameterValueException,
   KPIConditionalFormatting,
@@ -721,11 +717,16 @@ import {
   PivotTableTotalOptions,
   PivotTableVisual,
   PivotTotalOptions,
-  PreconditionNotMetException,
   ProgressBarOptions,
+  RadarChartAggregatedFieldWells,
+  RadarChartAreaStyleSettings,
+  RadarChartConfiguration,
+  RadarChartFieldWells,
+  RadarChartSeriesSettings,
+  RadarChartSortConfiguration,
+  RadarChartVisual,
   ResourceExistsException,
   ResourceNotFoundException,
-  ResourcePermission,
   ResourceUnavailableException,
   RowAlternateColorOptions,
   SankeyDiagramAggregatedFieldWells,
@@ -744,7 +745,6 @@ import {
   SheetDefinition,
   SignupResponse,
   SimpleClusterMarker,
-  StringParameter,
   SubtotalOptions,
   TableAggregatedFieldWells,
   TableBorderOptions,
@@ -804,6 +804,7 @@ import {
   WordCloudVisual,
 } from "../models/models_1";
 import {
+  _Parameters,
   CreateColumnsOperation,
   CredentialPair,
   CustomSql,
@@ -820,6 +821,9 @@ import {
   DashboardVisualPublishOptions,
   DatabricksParameters,
   DataColorPalette,
+  DataPointDrillUpDownOption,
+  DataPointMenuLabelOption,
+  DataPointTooltipOption,
   DataSet,
   DataSetConfiguration,
   DataSetSchema,
@@ -832,11 +836,14 @@ import {
   DataSourceParameters,
   DataSourceSearchFilter,
   DataSourceSummary,
+  DateTimeParameter,
+  DecimalParameter,
   DomainNotWhitelistedException,
   ErrorInfo,
   ExasolParameters,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
+  ExportWithHiddenFieldsOption,
   FieldFolder,
   FilterOperation,
   Folder,
@@ -846,15 +853,13 @@ import {
   Font,
   Group,
   GroupMember,
-  GroupSearchFilter,
   GutterStyle,
   IAMPolicyAssignment,
-  IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
   Ingestion,
   InputColumn,
+  IntegerParameter,
   InvalidNextTokenException,
-  InvalidRequestException,
   JiraParameters,
   JoinInstruction,
   JoinKeyProperties,
@@ -873,6 +878,7 @@ import {
   OutputColumn,
   PhysicalTable,
   PostgreSqlParameters,
+  PreconditionNotMetException,
   PrestoParameters,
   ProjectOperation,
   QueueInfo,
@@ -886,6 +892,7 @@ import {
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   RelationalTable,
   RenameColumnOperation,
+  ResourcePermission,
   RowInfo,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
@@ -896,11 +903,13 @@ import {
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SheetControlsOption,
+  SheetLayoutElementMaximizationOption,
   SheetStyle,
   SnowflakeParameters,
   SparkParameters,
   SqlServerParameters,
   SslProperties,
+  StringParameter,
   TagColumnOperation,
   Template,
   TemplateAlias,
@@ -927,9 +936,19 @@ import {
   UntagColumnOperation,
   UploadSettings,
   User,
+  VisualAxisSortOption,
+  VisualMenuOption,
   VpcConnectionProperties,
 } from "../models/models_2";
-import { TemplateSummary, TemplateVersionSummary, ThemeSummary, ThemeVersionSummary } from "../models/models_3";
+import {
+  GroupSearchFilter,
+  IAMPolicyAssignmentSummary,
+  InvalidRequestException,
+  TemplateSummary,
+  TemplateVersionSummary,
+  ThemeSummary,
+  ThemeVersionSummary,
+} from "../models/models_3";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 export const serializeAws_restJson1CancelIngestionCommand = async (
@@ -8457,6 +8476,12 @@ export const deserializeAws_restJson1DescribeDashboardDefinitionCommand = async 
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DashboardId != null) {
     contents.DashboardId = __expectString(data.DashboardId);
+  }
+  if (data.DashboardPublishOptions != null) {
+    contents.DashboardPublishOptions = deserializeAws_restJson1DashboardPublishOptions(
+      data.DashboardPublishOptions,
+      context
+    );
   }
   if (data.Definition != null) {
     contents.Definition = deserializeAws_restJson1DashboardVersionDefinition(data.Definition, context);
@@ -16035,11 +16060,41 @@ const serializeAws_restJson1DashboardPublishOptions = (
     ...(input.AdHocFilteringOption != null && {
       AdHocFilteringOption: serializeAws_restJson1AdHocFilteringOption(input.AdHocFilteringOption, context),
     }),
+    ...(input.DataPointDrillUpDownOption != null && {
+      DataPointDrillUpDownOption: serializeAws_restJson1DataPointDrillUpDownOption(
+        input.DataPointDrillUpDownOption,
+        context
+      ),
+    }),
+    ...(input.DataPointMenuLabelOption != null && {
+      DataPointMenuLabelOption: serializeAws_restJson1DataPointMenuLabelOption(input.DataPointMenuLabelOption, context),
+    }),
+    ...(input.DataPointTooltipOption != null && {
+      DataPointTooltipOption: serializeAws_restJson1DataPointTooltipOption(input.DataPointTooltipOption, context),
+    }),
     ...(input.ExportToCSVOption != null && {
       ExportToCSVOption: serializeAws_restJson1ExportToCSVOption(input.ExportToCSVOption, context),
     }),
+    ...(input.ExportWithHiddenFieldsOption != null && {
+      ExportWithHiddenFieldsOption: serializeAws_restJson1ExportWithHiddenFieldsOption(
+        input.ExportWithHiddenFieldsOption,
+        context
+      ),
+    }),
     ...(input.SheetControlsOption != null && {
       SheetControlsOption: serializeAws_restJson1SheetControlsOption(input.SheetControlsOption, context),
+    }),
+    ...(input.SheetLayoutElementMaximizationOption != null && {
+      SheetLayoutElementMaximizationOption: serializeAws_restJson1SheetLayoutElementMaximizationOption(
+        input.SheetLayoutElementMaximizationOption,
+        context
+      ),
+    }),
+    ...(input.VisualAxisSortOption != null && {
+      VisualAxisSortOption: serializeAws_restJson1VisualAxisSortOption(input.VisualAxisSortOption, context),
+    }),
+    ...(input.VisualMenuOption != null && {
+      VisualMenuOption: serializeAws_restJson1VisualMenuOption(input.VisualMenuOption, context),
     }),
     ...(input.VisualPublishOptions != null && {
       VisualPublishOptions: serializeAws_restJson1DashboardVisualPublishOptions(input.VisualPublishOptions, context),
@@ -16267,6 +16322,30 @@ const serializeAws_restJson1DataPathValueList = (input: DataPathValue[], context
     .map((entry) => {
       return serializeAws_restJson1DataPathValue(entry, context);
     });
+};
+
+const serializeAws_restJson1DataPointDrillUpDownOption = (
+  input: DataPointDrillUpDownOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1DataPointMenuLabelOption = (
+  input: DataPointMenuLabelOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1DataPointTooltipOption = (input: DataPointTooltipOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
 };
 
 const serializeAws_restJson1DataSetConfiguration = (input: DataSetConfiguration, context: __SerdeContext): any => {
@@ -16894,6 +16973,15 @@ const serializeAws_restJson1ExportHiddenFieldsOption = (
 };
 
 const serializeAws_restJson1ExportToCSVOption = (input: ExportToCSVOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1ExportWithHiddenFieldsOption = (
+  input: ExportWithHiddenFieldsOption,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
   };
@@ -20101,6 +20189,147 @@ const serializeAws_restJson1ProjectOperation = (input: ProjectOperation, context
   };
 };
 
+const serializeAws_restJson1RadarChartAggregatedFieldWells = (
+  input: RadarChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && {
+      Category: serializeAws_restJson1RadarChartCategoryFieldList(input.Category, context),
+    }),
+    ...(input.Color != null && { Color: serializeAws_restJson1RadarChartColorFieldList(input.Color, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1RadarChartValuesFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1RadarChartAreaStyleSettings = (
+  input: RadarChartAreaStyleSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1RadarChartCategoryFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartColorFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartConfiguration = (
+  input: RadarChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AlternateBandColorsVisibility != null && {
+      AlternateBandColorsVisibility: input.AlternateBandColorsVisibility,
+    }),
+    ...(input.AlternateBandEvenColor != null && { AlternateBandEvenColor: input.AlternateBandEvenColor }),
+    ...(input.AlternateBandOddColor != null && { AlternateBandOddColor: input.AlternateBandOddColor }),
+    ...(input.BaseSeriesSettings != null && {
+      BaseSeriesSettings: serializeAws_restJson1RadarChartSeriesSettings(input.BaseSeriesSettings, context),
+    }),
+    ...(input.CategoryAxis != null && {
+      CategoryAxis: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxis, context),
+    }),
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.ColorAxis != null && { ColorAxis: serializeAws_restJson1AxisDisplayOptions(input.ColorAxis, context) }),
+    ...(input.ColorLabelOptions != null && {
+      ColorLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColorLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1RadarChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.Shape != null && { Shape: input.Shape }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1RadarChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.StartAngle != null && { StartAngle: __serializeFloat(input.StartAngle) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartFieldWells = (input: RadarChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.RadarChartAggregatedFieldWells != null && {
+      RadarChartAggregatedFieldWells: serializeAws_restJson1RadarChartAggregatedFieldWells(
+        input.RadarChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartSeriesSettings = (
+  input: RadarChartSeriesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AreaStyleSettings != null && {
+      AreaStyleSettings: serializeAws_restJson1RadarChartAreaStyleSettings(input.AreaStyleSettings, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartSortConfiguration = (
+  input: RadarChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.ColorItemsLimit != null && {
+      ColorItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.ColorItemsLimit, context),
+    }),
+    ...(input.ColorSort != null && { ColorSort: serializeAws_restJson1FieldSortOptionsList(input.ColorSort, context) }),
+  };
+};
+
+const serializeAws_restJson1RadarChartValuesFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1RadarChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
 const serializeAws_restJson1RangeEndsLabelType = (input: RangeEndsLabelType, context: __SerdeContext): any => {
   return {
     ...(input.Visibility != null && { Visibility: input.Visibility }),
@@ -20971,6 +21200,15 @@ const serializeAws_restJson1SheetElementRenderingRuleList = (
     .map((entry) => {
       return serializeAws_restJson1SheetElementRenderingRule(entry, context);
     });
+};
+
+const serializeAws_restJson1SheetLayoutElementMaximizationOption = (
+  input: SheetLayoutElementMaximizationOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
 };
 
 const serializeAws_restJson1SheetStyle = (input: SheetStyle, context: __SerdeContext): any => {
@@ -22176,6 +22414,9 @@ const serializeAws_restJson1Visual = (input: Visual, context: __SerdeContext): a
     ...(input.PivotTableVisual != null && {
       PivotTableVisual: serializeAws_restJson1PivotTableVisual(input.PivotTableVisual, context),
     }),
+    ...(input.RadarChartVisual != null && {
+      RadarChartVisual: serializeAws_restJson1RadarChartVisual(input.RadarChartVisual, context),
+    }),
     ...(input.SankeyDiagramVisual != null && {
       SankeyDiagramVisual: serializeAws_restJson1SankeyDiagramVisual(input.SankeyDiagramVisual, context),
     }),
@@ -22192,6 +22433,12 @@ const serializeAws_restJson1Visual = (input: Visual, context: __SerdeContext): a
     ...(input.WordCloudVisual != null && {
       WordCloudVisual: serializeAws_restJson1WordCloudVisual(input.WordCloudVisual, context),
     }),
+  };
+};
+
+const serializeAws_restJson1VisualAxisSortOption = (input: VisualAxisSortOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
   };
 };
 
@@ -22255,6 +22502,12 @@ const serializeAws_restJson1VisualList = (input: Visual[], context: __SerdeConte
     .map((entry) => {
       return serializeAws_restJson1Visual(entry, context);
     });
+};
+
+const serializeAws_restJson1VisualMenuOption = (input: VisualMenuOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
 };
 
 const serializeAws_restJson1VisualPalette = (input: VisualPalette, context: __SerdeContext): any => {
@@ -22572,6 +22825,12 @@ const deserializeAws_restJson1ActiveIAMPolicyAssignmentList = (
       return deserializeAws_restJson1ActiveIAMPolicyAssignment(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AdHocFilteringOption = (output: any, context: __SerdeContext): AdHocFilteringOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1AggregationFunction = (output: any, context: __SerdeContext): AggregationFunction => {
@@ -24361,6 +24620,61 @@ const deserializeAws_restJson1DashboardErrorList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1DashboardPublishOptions = (
+  output: any,
+  context: __SerdeContext
+): DashboardPublishOptions => {
+  return {
+    AdHocFilteringOption:
+      output.AdHocFilteringOption != null
+        ? deserializeAws_restJson1AdHocFilteringOption(output.AdHocFilteringOption, context)
+        : undefined,
+    DataPointDrillUpDownOption:
+      output.DataPointDrillUpDownOption != null
+        ? deserializeAws_restJson1DataPointDrillUpDownOption(output.DataPointDrillUpDownOption, context)
+        : undefined,
+    DataPointMenuLabelOption:
+      output.DataPointMenuLabelOption != null
+        ? deserializeAws_restJson1DataPointMenuLabelOption(output.DataPointMenuLabelOption, context)
+        : undefined,
+    DataPointTooltipOption:
+      output.DataPointTooltipOption != null
+        ? deserializeAws_restJson1DataPointTooltipOption(output.DataPointTooltipOption, context)
+        : undefined,
+    ExportToCSVOption:
+      output.ExportToCSVOption != null
+        ? deserializeAws_restJson1ExportToCSVOption(output.ExportToCSVOption, context)
+        : undefined,
+    ExportWithHiddenFieldsOption:
+      output.ExportWithHiddenFieldsOption != null
+        ? deserializeAws_restJson1ExportWithHiddenFieldsOption(output.ExportWithHiddenFieldsOption, context)
+        : undefined,
+    SheetControlsOption:
+      output.SheetControlsOption != null
+        ? deserializeAws_restJson1SheetControlsOption(output.SheetControlsOption, context)
+        : undefined,
+    SheetLayoutElementMaximizationOption:
+      output.SheetLayoutElementMaximizationOption != null
+        ? deserializeAws_restJson1SheetLayoutElementMaximizationOption(
+            output.SheetLayoutElementMaximizationOption,
+            context
+          )
+        : undefined,
+    VisualAxisSortOption:
+      output.VisualAxisSortOption != null
+        ? deserializeAws_restJson1VisualAxisSortOption(output.VisualAxisSortOption, context)
+        : undefined,
+    VisualMenuOption:
+      output.VisualMenuOption != null
+        ? deserializeAws_restJson1VisualMenuOption(output.VisualMenuOption, context)
+        : undefined,
+    VisualPublishOptions:
+      output.VisualPublishOptions != null
+        ? deserializeAws_restJson1DashboardVisualPublishOptions(output.VisualPublishOptions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
   return {
     Arn: __expectString(output.Arn),
@@ -24474,6 +24788,18 @@ const deserializeAws_restJson1DashboardVersionSummaryList = (
       return deserializeAws_restJson1DashboardVersionSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DashboardVisualPublishOptions = (
+  output: any,
+  context: __SerdeContext
+): DashboardVisualPublishOptions => {
+  return {
+    ExportHiddenFieldsOption:
+      output.ExportHiddenFieldsOption != null
+        ? deserializeAws_restJson1ExportHiddenFieldsOption(output.ExportHiddenFieldsOption, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1DataBarsOptions = (output: any, context: __SerdeContext): DataBarsOptions => {
@@ -24628,6 +24954,33 @@ const deserializeAws_restJson1DataPathValueList = (output: any, context: __Serde
       return deserializeAws_restJson1DataPathValue(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DataPointDrillUpDownOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointDrillUpDownOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPointMenuLabelOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointMenuLabelOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPointTooltipOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointTooltipOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1DataSet = (output: any, context: __SerdeContext): DataSet => {
@@ -25494,6 +25847,30 @@ const deserializeAws_restJson1ExplicitHierarchyColumnList = (
       return deserializeAws_restJson1ColumnIdentifier(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ExportHiddenFieldsOption = (
+  output: any,
+  context: __SerdeContext
+): ExportHiddenFieldsOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportToCSVOption = (output: any, context: __SerdeContext): ExportToCSVOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportWithHiddenFieldsOption = (
+  output: any,
+  context: __SerdeContext
+): ExportWithHiddenFieldsOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1FieldBasedTooltip = (output: any, context: __SerdeContext): FieldBasedTooltip => {
@@ -29195,6 +29572,173 @@ const deserializeAws_restJson1QueueInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1RadarChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): RadarChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null
+        ? deserializeAws_restJson1RadarChartCategoryFieldList(output.Category, context)
+        : undefined,
+    Color: output.Color != null ? deserializeAws_restJson1RadarChartColorFieldList(output.Color, context) : undefined,
+    Values:
+      output.Values != null ? deserializeAws_restJson1RadarChartValuesFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartAreaStyleSettings = (
+  output: any,
+  context: __SerdeContext
+): RadarChartAreaStyleSettings => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartCategoryFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartColorFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RadarChartConfiguration => {
+  return {
+    AlternateBandColorsVisibility: __expectString(output.AlternateBandColorsVisibility),
+    AlternateBandEvenColor: __expectString(output.AlternateBandEvenColor),
+    AlternateBandOddColor: __expectString(output.AlternateBandOddColor),
+    BaseSeriesSettings:
+      output.BaseSeriesSettings != null
+        ? deserializeAws_restJson1RadarChartSeriesSettings(output.BaseSeriesSettings, context)
+        : undefined,
+    CategoryAxis:
+      output.CategoryAxis != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxis, context)
+        : undefined,
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    ColorAxis:
+      output.ColorAxis != null ? deserializeAws_restJson1AxisDisplayOptions(output.ColorAxis, context) : undefined,
+    ColorLabelOptions:
+      output.ColorLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColorLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1RadarChartFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    Shape: __expectString(output.Shape),
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1RadarChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    StartAngle: __limitedParseDouble(output.StartAngle),
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartFieldWells = (output: any, context: __SerdeContext): RadarChartFieldWells => {
+  return {
+    RadarChartAggregatedFieldWells:
+      output.RadarChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1RadarChartAggregatedFieldWells(output.RadarChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartSeriesSettings = (
+  output: any,
+  context: __SerdeContext
+): RadarChartSeriesSettings => {
+  return {
+    AreaStyleSettings:
+      output.AreaStyleSettings != null
+        ? deserializeAws_restJson1RadarChartAreaStyleSettings(output.AreaStyleSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RadarChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    ColorItemsLimit:
+      output.ColorItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.ColorItemsLimit, context)
+        : undefined,
+    ColorSort:
+      output.ColorSort != null ? deserializeAws_restJson1FieldSortOptionsList(output.ColorSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartValuesFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1RadarChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
 const deserializeAws_restJson1RangeEndsLabelType = (output: any, context: __SerdeContext): RangeEndsLabelType => {
   return {
     Visibility: __expectString(output.Visibility),
@@ -29958,6 +30502,12 @@ const deserializeAws_restJson1SheetControlLayoutList = (output: any, context: __
   return retVal;
 };
 
+const deserializeAws_restJson1SheetControlsOption = (output: any, context: __SerdeContext): SheetControlsOption => {
+  return {
+    VisibilityState: __expectString(output.VisibilityState),
+  } as any;
+};
+
 const deserializeAws_restJson1SheetDefinition = (output: any, context: __SerdeContext): SheetDefinition => {
   return {
     ContentType: __expectString(output.ContentType),
@@ -30031,6 +30581,15 @@ const deserializeAws_restJson1SheetElementRenderingRuleList = (
       return deserializeAws_restJson1SheetElementRenderingRule(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SheetLayoutElementMaximizationOption = (
+  output: any,
+  context: __SerdeContext
+): SheetLayoutElementMaximizationOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1SheetList = (output: any, context: __SerdeContext): Sheet[] => {
@@ -31626,6 +32185,10 @@ const deserializeAws_restJson1Visual = (output: any, context: __SerdeContext): V
       output.PivotTableVisual != null
         ? deserializeAws_restJson1PivotTableVisual(output.PivotTableVisual, context)
         : undefined,
+    RadarChartVisual:
+      output.RadarChartVisual != null
+        ? deserializeAws_restJson1RadarChartVisual(output.RadarChartVisual, context)
+        : undefined,
     SankeyDiagramVisual:
       output.SankeyDiagramVisual != null
         ? deserializeAws_restJson1SankeyDiagramVisual(output.SankeyDiagramVisual, context)
@@ -31646,6 +32209,12 @@ const deserializeAws_restJson1Visual = (output: any, context: __SerdeContext): V
       output.WordCloudVisual != null
         ? deserializeAws_restJson1WordCloudVisual(output.WordCloudVisual, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VisualAxisSortOption = (output: any, context: __SerdeContext): VisualAxisSortOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
   } as any;
 };
 
@@ -31723,6 +32292,12 @@ const deserializeAws_restJson1VisualList = (output: any, context: __SerdeContext
       return deserializeAws_restJson1Visual(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1VisualMenuOption = (output: any, context: __SerdeContext): VisualMenuOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1VisualPalette = (output: any, context: __SerdeContext): VisualPalette => {

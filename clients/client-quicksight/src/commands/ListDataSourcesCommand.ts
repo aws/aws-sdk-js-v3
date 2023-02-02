@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDataSourcesRequest, ListDataSourcesRequestFilterSensitiveLog } from "../models/models_2";
-import { ListDataSourcesResponse, ListDataSourcesResponseFilterSensitiveLog } from "../models/models_3";
+import {
+  ListDataSourcesRequest,
+  ListDataSourcesRequestFilterSensitiveLog,
+  ListDataSourcesResponse,
+  ListDataSourcesResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListDataSourcesCommand,
   serializeAws_restJson1ListDataSourcesCommand,

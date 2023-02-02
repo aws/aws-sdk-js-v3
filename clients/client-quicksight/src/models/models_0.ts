@@ -1292,7 +1292,7 @@ export interface CategoryFilter {
   /**
    * <p>The configuration for a <code>CategoryFilter</code>.</p>
    */
-  Configuration?: CategoryFilterConfiguration;
+  Configuration: CategoryFilterConfiguration | undefined;
 }
 
 export enum NumericEqualityMatchOperator {

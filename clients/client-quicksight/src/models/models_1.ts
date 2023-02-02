@@ -3695,6 +3695,196 @@ export interface PivotTableVisual {
 }
 
 /**
+ * <p>The configured style settings of a radar chart.</p>
+ */
+export interface RadarChartAreaStyleSettings {
+  /**
+   * <p>The visibility settings of a radar chart.</p>
+   */
+  Visibility?: Visibility | string;
+}
+
+/**
+ * <p>The series settings of a radar chart.</p>
+ */
+export interface RadarChartSeriesSettings {
+  /**
+   * <p>The area style settings of a radar chart.</p>
+   */
+  AreaStyleSettings?: RadarChartAreaStyleSettings;
+}
+
+/**
+ * <p>The aggregated field well configuration of a <code>RadarChartVisual</code>.</p>
+ */
+export interface RadarChartAggregatedFieldWells {
+  /**
+   * <p>The aggregated field well categories of a radar chart.</p>
+   */
+  Category?: DimensionField[];
+
+  /**
+   * <p>The color that are assigned to the aggregated field wells of a radar chart.</p>
+   */
+  Color?: DimensionField[];
+
+  /**
+   * <p>The values that are assigned to the aggregated field wells of a radar chart.</p>
+   */
+  Values?: MeasureField[];
+}
+
+/**
+ * <p>The field wells of a radar chart visual.</p>
+ */
+export interface RadarChartFieldWells {
+  /**
+   * <p>The aggregated field wells of a radar chart visual.</p>
+   */
+  RadarChartAggregatedFieldWells?: RadarChartAggregatedFieldWells;
+}
+
+export enum RadarChartShape {
+  CIRCLE = "CIRCLE",
+  POLYGON = "POLYGON",
+}
+
+/**
+ * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
+ */
+export interface RadarChartSortConfiguration {
+  /**
+   * <p>The category sort options of a radar chart.</p>
+   */
+  CategorySort?: FieldSortOptions[];
+
+  /**
+   * <p>The category items limit for a radar chart.</p>
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration;
+
+  /**
+   * <p>The color sort configuration of a radar chart.</p>
+   */
+  ColorSort?: FieldSortOptions[];
+
+  /**
+   * <p>The color items limit of a radar chart.</p>
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration;
+}
+
+/**
+ * <p>The configuration of a <code>RadarChartVisual</code>.</p>
+ */
+export interface RadarChartConfiguration {
+  /**
+   * <p>The field well configuration of a <code>RadarChartVisual</code>.</p>
+   */
+  FieldWells?: RadarChartFieldWells;
+
+  /**
+   * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
+   */
+  SortConfiguration?: RadarChartSortConfiguration;
+
+  /**
+   * <p>The shape of the radar chart.</p>
+   */
+  Shape?: RadarChartShape | string;
+
+  /**
+   * <p>The base sreies settings of a radar chart.</p>
+   */
+  BaseSeriesSettings?: RadarChartSeriesSettings;
+
+  /**
+   * <p>The start angle of a radar chart's axis.</p>
+   */
+  StartAngle?: number;
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   */
+  VisualPalette?: VisualPalette;
+
+  /**
+   * <p>Determines the visibility of the colors of alternatign bands in a radar chart.</p>
+   */
+  AlternateBandColorsVisibility?: Visibility | string;
+
+  /**
+   * <p>The color of the even-numbered alternate bands of a radar chart.</p>
+   */
+  AlternateBandEvenColor?: string;
+
+  /**
+   * <p>The color of the odd-numbered alternate bands of a radar chart.</p>
+   */
+  AlternateBandOddColor?: string;
+
+  /**
+   * <p>The category axis of a radar chart.</p>
+   */
+  CategoryAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The category label options of a radar chart.</p>
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The color axis of a radar chart.</p>
+   */
+  ColorAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The color label options of a radar chart.</p>
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   */
+  Legend?: LegendOptions;
+}
+
+/**
+ * <p>A radar chart visual.</p>
+ */
+export interface RadarChartVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   */
+  ChartConfiguration?: RadarChartConfiguration;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
  * <p>The field well configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramAggregatedFieldWells {
@@ -4982,6 +5172,12 @@ export interface Visual {
    * <p>An empty visual.</p>
    */
   EmptyVisual?: EmptyVisual;
+
+  /**
+   * <p>A radar chart visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   */
+  RadarChartVisual?: RadarChartVisual;
 }
 
 /**
@@ -6138,204 +6334,6 @@ export interface CreateAccountSubscriptionResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-/**
- * <p>One or more preconditions aren't met.</p>
- */
-export class PreconditionNotMetException extends __BaseException {
-  readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
-    super({
-      name: "PreconditionNotMetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>A date-time parameter.</p>
- */
-export interface DateTimeParameter {
-  /**
-   * <p>A display name for the date-time parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the date-time parameter.</p>
-   */
-  Values: Date[] | undefined;
-}
-
-/**
- * <p>A decimal parameter.</p>
- */
-export interface DecimalParameter {
-  /**
-   * <p>A display name for the decimal parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the decimal parameter.</p>
-   */
-  Values: number[] | undefined;
-}
-
-/**
- * <p>An integer parameter.</p>
- */
-export interface IntegerParameter {
-  /**
-   * <p>The name of the integer parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the integer parameter.</p>
-   */
-  Values: number[] | undefined;
-}
-
-/**
- * <p>A string parameter.</p>
- */
-export interface StringParameter {
-  /**
-   * <p>A display name for a string parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values of a string parameter.</p>
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
- */
-export interface _Parameters {
-  /**
-   * <p>The parameters that have a data type of string.</p>
-   */
-  StringParameters?: StringParameter[];
-
-  /**
-   * <p>The parameters that have a data type of integer.</p>
-   */
-  IntegerParameters?: IntegerParameter[];
-
-  /**
-   * <p>The parameters that have a data type of decimal.</p>
-   */
-  DecimalParameters?: DecimalParameter[];
-
-  /**
-   * <p>The parameters that have a data type of date-time.</p>
-   */
-  DateTimeParameters?: DateTimeParameter[];
-}
-
-/**
- * <p>Permission for the resource.</p>
- */
-export interface ResourcePermission {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-   *             </li>
-   *             <li>
-   *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-   *             </li>
-   *             <li>
-   *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
-   *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
-   *                     (This is less common.) </p>
-   *             </li>
-   *          </ul>
-   */
-  Principal: string | undefined;
-
-  /**
-   * <p>The IAM action to grant or revoke permissions on.</p>
-   */
-  Actions: string[] | undefined;
-}
-
-export interface CreateAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
-   *             analysis.</p>
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A descriptive name for the analysis that you're creating. This name displays for the
-   *             analysis in the Amazon QuickSight console. </p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The parameter names and override values that you want to use. An analysis can have
-   *             any parameter type, and some parameters might accept multiple values. </p>
-   */
-  Parameters?: _Parameters;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-   *             providing a list of Identity and Access Management (IAM) action information for each
-   *             principal listed by Amazon Resource Name (ARN). </p>
-   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>A source entity to use for the analysis that you're creating. This metadata structure
-   *             contains details that describe a source template and one or more datasets.</p>
-   */
-  SourceEntity?: AnalysisSourceEntity;
-
-  /**
-   * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-   *             in the Amazon QuickSight console, make sure that you have access to it.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   *             analysis.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: AnalysisDefinition;
 }
 
 /**
@@ -7550,6 +7548,57 @@ export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any =
 /**
  * @internal
  */
+export const RadarChartAreaStyleSettingsFilterSensitiveLog = (obj: RadarChartAreaStyleSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RadarChartSeriesSettingsFilterSensitiveLog = (obj: RadarChartSeriesSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChartAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RadarChartFieldWellsFilterSensitiveLog = (obj: RadarChartFieldWells): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RadarChartSortConfigurationFilterSensitiveLog = (obj: RadarChartSortConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RadarChartConfigurationFilterSensitiveLog = (obj: RadarChartConfiguration): any => ({
+  ...obj,
+  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
+});
+
+/**
+ * @internal
+ */
+export const RadarChartVisualFilterSensitiveLog = (obj: RadarChartVisual): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SankeyDiagramAggregatedFieldWellsFilterSensitiveLog = (obj: SankeyDiagramAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Weight && { Weight: obj.Weight.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -8231,70 +8280,4 @@ export const SignupResponseFilterSensitiveLog = (obj: SignupResponse): any => ({
  */
 export const CreateAccountSubscriptionResponseFilterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DateTimeParameterFilterSensitiveLog = (obj: DateTimeParameter): any => ({
-  ...obj,
-  ...(obj.Values && { Values: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DecimalParameterFilterSensitiveLog = (obj: DecimalParameter): any => ({
-  ...obj,
-  ...(obj.Values && { Values: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const IntegerParameterFilterSensitiveLog = (obj: IntegerParameter): any => ({
-  ...obj,
-  ...(obj.Values && { Values: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StringParameterFilterSensitiveLog = (obj: StringParameter): any => ({
-  ...obj,
-  ...(obj.Values && { Values: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
-  ...obj,
-  ...(obj.StringParameters && {
-    StringParameters: obj.StringParameters.map((item) => StringParameterFilterSensitiveLog(item)),
-  }),
-  ...(obj.IntegerParameters && {
-    IntegerParameters: obj.IntegerParameters.map((item) => IntegerParameterFilterSensitiveLog(item)),
-  }),
-  ...(obj.DecimalParameters && {
-    DecimalParameters: obj.DecimalParameters.map((item) => DecimalParameterFilterSensitiveLog(item)),
-  }),
-  ...(obj.DateTimeParameters && {
-    DateTimeParameters: obj.DateTimeParameters.map((item) => DateTimeParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
 });

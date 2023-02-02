@@ -1,10 +1,8 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { AccountCustomization, ActiveIAMPolicyAssignment, ResourceStatus } from "./models_0";
 import {
-  _Parameters,
-  _ParametersFilterSensitiveLog,
   AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
@@ -12,15 +10,17 @@ import {
   AssignmentStatus,
   ColumnGroup,
   ColumnLevelPermissionRule,
-  ResourcePermission,
   Tag,
 } from "./models_1";
 import {
+  _Parameters,
+  _ParametersFilterSensitiveLog,
   DashboardPublishOptions,
   DashboardSearchFilter,
   DashboardSourceEntity,
   DashboardSummary,
   DashboardVersionDefinition,
+  DashboardVersionSummary,
   DataSetImportMode,
   DataSetSearchFilter,
   DataSetSummary,
@@ -37,8 +37,6 @@ import {
   FolderSummary,
   Group,
   GroupMember,
-  GroupSearchFilter,
-  IAMPolicyAssignmentSummary,
   IdentityType,
   Ingestion,
   LinkSharingConfiguration,
@@ -48,6 +46,7 @@ import {
   NamespaceInfoV2,
   PhysicalTable,
   PhysicalTableFilterSensitiveLog,
+  ResourcePermission,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
@@ -62,6 +61,281 @@ import {
   UserRole,
   VpcConnectionProperties,
 } from "./models_2";
+import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+export interface GetSessionEmbedUrlResponse {
+  /**
+   * <p>A single-use URL that you can put into your server-side web page to embed your
+   * 			Amazon QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
+   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
+   * 			that is valid for 10 hours. </p>
+   */
+  EmbedUrl?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export enum GroupFilterAttribute {
+  GROUP_NAME = "GROUP_NAME",
+}
+
+export enum GroupFilterOperator {
+  StartsWith = "StartsWith",
+}
+
+/**
+ * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
+ */
+export interface GroupSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator":
+   *                 "StartsWith"</code>. Currently, the only supported operator is
+   *                 <code>StartsWith</code>.</p>
+   */
+  Operator: GroupFilterOperator | string | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "GROUP_NAME"</code>. Currently, the only supported name is
+   *             <code>GROUP_NAME</code>.</p>
+   */
+  Name: GroupFilterAttribute | string | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>IAM policy assignment summary.</p>
+ */
+export interface IAMPolicyAssignmentSummary {
+  /**
+   * <p>Assignment name.</p>
+   */
+  AssignmentName?: string;
+
+  /**
+   * <p>Assignment status.</p>
+   */
+  AssignmentStatus?: AssignmentStatus | string;
+}
+
+/**
+ * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface ListAnalysesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListAnalysesResponse {
+  /**
+   * <p>Metadata describing each of the analyses that are listed.</p>
+   */
+  AnalysisSummaryList?: AnalysisSummary[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface ListDashboardsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
+   *             listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListDashboardsResponse {
+  /**
+   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
+   *             provides basic information about the dashboards.</p>
+   */
+  DashboardSummaryList?: DashboardSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface ListDashboardVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListDashboardVersionsResponse {
+  /**
+   * <p>A structure that contains information about each version of the dashboard.</p>
+   */
+  DashboardVersionSummaryList?: DashboardVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface ListDataSetsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListDataSetsResponse {
+  /**
+   * <p>The list of dataset summaries.</p>
+   */
+  DataSetSummaries?: DataSetSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export interface ListDataSourcesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListDataSourcesResponse {
   /**
@@ -2947,6 +3221,91 @@ export interface UpdateUserResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GroupSearchFilterFilterSensitiveLog = (obj: GroupSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IAMPolicyAssignmentSummaryFilterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnalysesRequestFilterSensitiveLog = (obj: ListAnalysesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnalysesResponseFilterSensitiveLog = (obj: ListAnalysesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardsRequestFilterSensitiveLog = (obj: ListDashboardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardsResponseFilterSensitiveLog = (obj: ListDashboardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardVersionsRequestFilterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardVersionsResponseFilterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsRequestFilterSensitiveLog = (obj: ListDataSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourcesRequestFilterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

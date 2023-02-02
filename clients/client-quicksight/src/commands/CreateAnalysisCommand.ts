@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAnalysisRequest, CreateAnalysisRequestFilterSensitiveLog } from "../models/models_1";
-import { CreateAnalysisResponse, CreateAnalysisResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  CreateAnalysisRequest,
+  CreateAnalysisRequestFilterSensitiveLog,
+  CreateAnalysisResponse,
+  CreateAnalysisResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateAnalysisCommand,
   serializeAws_restJson1CreateAnalysisCommand,
@@ -25,7 +29,7 @@ export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an analysis in Amazon QuickSight.</p>
+ * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
