@@ -6,6 +6,9 @@ import { PassThrough } from "stream";
 import { WebSocketHandler } from "./websocket-handler";
 
 describe("WebSocketHandler", () => {
+  const mockHostname = "localhost:6789";
+  const mockUrl = `ws://${mockHostname}/`;
+
   beforeEach(() => {
     (global as any).WebSocket = WebSocket;
   });
@@ -22,35 +25,34 @@ describe("WebSocketHandler", () => {
 
   it("populates socket in socket pool based on handle() requests", async () => {
     const handler = new WebSocketHandler();
-    const url = "ws://localhost:6789/";
-    const server = new WS(url);
+    const server = new WS(mockUrl);
 
     // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
-    expect(handler.sockets[url]).not.toBeDefined();
+    expect(handler.sockets[mockUrl]).not.toBeDefined();
 
     await handler.handle(
       new HttpRequest({
         body: new PassThrough(),
-        hostname: "localhost:6789",
+        hostname: mockHostname,
         protocol: "ws:",
       })
     );
 
     // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
-    expect(handler.sockets[url]).toBeDefined();
+    expect(handler.sockets[mockUrl]).toBeDefined();
     // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
-    expect(handler.sockets[url].length).toBe(1);
+    expect(handler.sockets[mockUrl].length).toBe(1);
 
     await handler.handle(
       new HttpRequest({
         body: new PassThrough(),
-        hostname: "localhost:6789",
+        hostname: mockHostname,
         protocol: "ws:",
       })
     );
 
     // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
-    expect(handler.sockets[url].length).toBe(2);
+    expect(handler.sockets[mockUrl].length).toBe(2);
   });
 
   it("should throw in output stream if input stream throws", async () => {
@@ -59,15 +61,14 @@ describe("WebSocketHandler", () => {
     //Using Node stream is fine because they are also async iterables.
     const payload = new PassThrough();
 
-    const url = "ws://localhost:6789/";
-    const server = new WS(url);
+    const server = new WS(mockUrl);
 
     const {
       response: { body: responsePayload },
     } = await handler.handle(
       new HttpRequest({
         body: payload,
-        hostname: "localhost:6789",
+        hostname: mockHostname,
         protocol: "ws:",
       })
     );
@@ -84,7 +85,7 @@ describe("WebSocketHandler", () => {
       expect(err).toBeDefined();
       expect(err.message).toEqual("FakeError");
       // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
-      expect(handler.sockets[url].length).toBe(0);
+      expect(handler.sockets[mockUrl].length).toBe(0);
     }
   });
 
