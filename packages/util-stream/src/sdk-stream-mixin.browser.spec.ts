@@ -5,7 +5,7 @@ import { toBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toUtf8 } from "@aws-sdk/util-utf8";
 
-import { sdkStreamMixin } from "./sdk-stream-mixin";
+import { sdkStreamMixin } from "./sdk-stream-mixin.browser";
 
 jest.mock("@aws-sdk/fetch-http-handler");
 jest.mock("@aws-sdk/util-base64");
