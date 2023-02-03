@@ -51,11 +51,11 @@
   ],
   "browser": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",
-    "./dist-es/sdk-stream-mixins": "./dist-es/sdk-stream-mixins.browser"
+    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser"
   },
   "react-native": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",
-    "./dist-es/sdk-stream-mixins": "./dist-es/sdk-stream-mixins.browser"
+    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-stream",
   "repository": {
