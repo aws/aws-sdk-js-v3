@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.265.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.264.0...v3.265.0) (2023-02-03)
+
+
+### Features
+
+* **client-proton:** Add new GetResourcesSummary API ([231ebe5](https://github.com/aws/aws-sdk-js-v3/commit/231ebe58fa5a0455c2aa01ea4ef24e452b3a2f8c))
+
+
+
+
+
 # [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
 
 **Note:** Version bump only for package @aws-sdk/client-proton
