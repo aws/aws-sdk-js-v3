@@ -158,7 +158,8 @@ export interface LoggingStatus {
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
+   *             <code>userlog</code>.</p>
    */
   LogExports?: string[];
 }
@@ -1455,7 +1456,7 @@ export interface EnableLoggingMessage {
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
    */
   LogExports?: string[];
 }
@@ -2917,14 +2918,14 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
-   *             case sensitive. You can specify this parameter or <code>snapshotArn</code>, but not both.</p>
+   *             case sensitive. You must specify this parameter or <code>snapshotArn</code>, but not both.</p>
    *          <p>Example: <code>my-snapshot-id</code>
    *          </p>
    */
   SnapshotIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster. You can specify
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster. You must specify
    *             this parameter or <code>snapshotIdentifier</code>, but not both.</p>
    */
   SnapshotArn?: string;

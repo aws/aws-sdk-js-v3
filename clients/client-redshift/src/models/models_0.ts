@@ -3692,11 +3692,17 @@ export interface CreateClusterMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must be 1 - 128 alphanumeric characters. The user name can't be
+   *                <p>Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be
    *                         <code>PUBLIC</code>.</p>
    *             </li>
    *             <li>
-   *                <p>First character must be a letter.</p>
+   *                <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not contain a colon (:) or a slash (/).</p>
    *             </li>
    *             <li>
    *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
@@ -6653,7 +6659,7 @@ export interface DescribeClustersMessage {
  */
 export interface DescribeClusterSecurityGroupsMessage {
   /**
-   * <p>The name of a cluster security group for which you are requesting details. You can
+   * <p>The name of a cluster security group for which you are requesting details. You must
    *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
    *          <p> Example: <code>securitygroup1</code>
    *          </p>
@@ -6678,7 +6684,7 @@ export interface DescribeClusterSecurityGroupsMessage {
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
-   *          <p>Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   *          <p>Constraints: You must specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
    */
   Marker?: string;
 
@@ -7301,7 +7307,7 @@ export interface DescribeEndpointAuthorizationMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AAmazon Web Services account ID of either the cluster owner (grantor) or grantee.
+   * <p>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
    *        If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>
    */
   Account?: string;

@@ -43,6 +43,8 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  *                 <code>NewTableName</code> parameter value in the call to
  *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
  *             table with the table created from the snapshot.</p>
+ *          <p>You can't use this operation to restore tables with
+ *             <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
