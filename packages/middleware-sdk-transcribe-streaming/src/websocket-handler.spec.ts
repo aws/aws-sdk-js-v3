@@ -55,6 +55,28 @@ describe("WebSocketHandler", () => {
     expect(handler.sockets[mockUrl].length).toBe(2);
   });
 
+  it("closes socket in socket pool on handler.destroy()", async () => {
+    const handler = new WebSocketHandler();
+    const server = new WS(mockUrl);
+
+    await handler.handle(
+      new HttpRequest({
+        body: new PassThrough(),
+        hostname: mockHostname,
+        protocol: "ws:",
+      })
+    );
+
+    // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
+    const socket = handler.sockets[mockUrl][0];
+
+    expect(socket.readyState).toBe(WebSocket.OPEN);
+    handler.destroy();
+
+    // Verify that socket.close() is called
+    expect(socket.readyState).toBe(WebSocket.CLOSING);
+  });
+
   it("should throw in output stream if input stream throws", async () => {
     expect.assertions(3);
     const handler = new WebSocketHandler();
