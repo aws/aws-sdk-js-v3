@@ -26,6 +26,7 @@ export class WebSocketHandler implements HttpHandler {
 
   constructor({ connectionTimeout }: WebSocketHandlerOptions = {}) {
     this.connectionTimeout = connectionTimeout || 2000;
+    this.sockets = {};
   }
 
   destroy(): void {
@@ -40,12 +41,21 @@ export class WebSocketHandler implements HttpHandler {
   async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
+
+    // Add socket to sockets pool
+    if (!this.sockets[url]) {
+      this.sockets[url] = [];
+    }
+    this.sockets[url].push(socket);
+
     socket.binaryType = "arraybuffer";
     await waitForReady(socket, this.connectionTimeout);
+
     const { body } = request;
     const bodyStream = getIterator(body);
     const asyncIterable = connect(socket, bodyStream);
     const outputPayload = toReadableStream(asyncIterable);
+
     return {
       response: new HttpResponse({
         statusCode: 200, // indicates connection success
