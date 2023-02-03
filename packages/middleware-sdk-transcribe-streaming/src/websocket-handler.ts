@@ -134,7 +134,9 @@ export class WebSocketHandler implements HttpHandler {
         socket.close(1000);
       }
     };
+
     send();
+
     return outputStream;
   }
 }
@@ -163,18 +165,21 @@ const waitForReady = (socket: WebSocket, connectionTimeout: number): Promise<voi
  */
 const getIterator = (stream: any): AsyncIterable<any> => {
   // Noop if stream is already an async iterable
-  if (stream[Symbol.asyncIterator]) return stream;
-  else if (isReadableStream(stream)) {
+  if (stream[Symbol.asyncIterator]) {
+    return stream;
+  }
+
+  if (isReadableStream(stream)) {
     //If stream is a ReadableStream, transfer the ReadableStream to async iterable.
     return readableStreamtoIterable(stream);
-  } else {
-    //For other types, just wrap them with an async iterable.
-    return {
-      [Symbol.asyncIterator]: async function* () {
-        yield stream;
-      },
-    };
   }
+
+  // For other types, just wrap them with an async iterable.
+  return {
+    [Symbol.asyncIterator]: async function* () {
+      yield stream;
+    },
+  };
 };
 
 /**
