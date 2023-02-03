@@ -29,6 +29,10 @@ export class WebSocketHandler implements HttpHandler {
     this.sockets = {};
   }
 
+  /**
+   * Destroys the WebSocketHandler.
+   * Closes all sockets from the socket pool.
+   */
   destroy(): void {
     for (const [key, sockets] of Object.entries(this.sockets)) {
       for (const socket of sockets) {
