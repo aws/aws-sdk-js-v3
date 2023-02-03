@@ -28,7 +28,14 @@ export class WebSocketHandler implements HttpHandler {
     this.connectionTimeout = connectionTimeout || 2000;
   }
 
-  destroy(): void {}
+  destroy(): void {
+    for (const [key, sockets] of Object.entries(this.sockets)) {
+      for (const socket of sockets) {
+        socket.close(1000, `Socket closed through destroy() call`);
+      }
+      delete this.sockets[key];
+    }
+  }
 
   async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
