@@ -42,6 +42,13 @@ export class WebSocketHandler implements HttpHandler {
     }
   }
 
+  /**
+   * Removes all closed sockets from the socket pool for URL.
+   */
+  private removeClosedSockets(url: string): void {
+    this.sockets[url] = this.sockets[url].filter((socket) => socket.readyState !== WebSocket.CLOSED);
+  }
+
   async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
@@ -87,6 +94,7 @@ export class WebSocketHandler implements HttpHandler {
             };
 
             socket.onclose = () => {
+              this.removeClosedSockets(socket.url);
               if (socketErrorOccurred) return;
 
               if (streamError) {
