@@ -60,7 +60,7 @@ export class WebSocketHandler implements HttpHandler {
     this.sockets[url].push(socket);
 
     socket.binaryType = "arraybuffer";
-    await waitForReady(socket, this.connectionTimeout);
+    await this.waitForReady(socket, this.connectionTimeout);
 
     const { body } = request;
     const bodyStream = getIterator(body);
@@ -73,6 +73,24 @@ export class WebSocketHandler implements HttpHandler {
         body: outputPayload,
       }),
     };
+  }
+
+  private waitForReady(socket: WebSocket, connectionTimeout: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        this.removeClosedSockets(socket.url);
+        reject({
+          $metadata: {
+            httpStatusCode: 500,
+          },
+        });
+      }, connectionTimeout);
+
+      socket.onopen = () => {
+        clearTimeout(timeout);
+        resolve();
+      };
+    });
   }
 
   private connect(socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
@@ -140,22 +158,6 @@ export class WebSocketHandler implements HttpHandler {
     return outputStream;
   }
 }
-
-const waitForReady = (socket: WebSocket, connectionTimeout: number): Promise<void> =>
-  new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      reject({
-        $metadata: {
-          httpStatusCode: 500,
-        },
-      });
-    }, connectionTimeout);
-
-    socket.onopen = () => {
-      clearTimeout(timeout);
-      resolve();
-    };
-  });
 
 /**
  * Transfer payload data to an AsyncIterable.

@@ -90,18 +90,24 @@ describe("WebSocketHandler", () => {
   });
 
   it("should return retryable error if cannot setup ws connection", async () => {
-    expect.assertions(4);
+    expect.assertions(5);
+
     const originalFn = setTimeout;
     (global as any).setTimeout = jest.fn().mockImplementation(setTimeout);
+
     const connectionTimeout = 1000;
     const handler = new WebSocketHandler({ connectionTimeout });
+
     //Using Node stream is fine because they are also async iterables.
     const payload = new PassThrough();
+    const mockInvalidHostname = "localhost:9876";
+    const mockInvalidUrl = `ws://${mockInvalidHostname}/`;
+
     try {
       await handler.handle(
         new HttpRequest({
           body: payload,
-          hostname: "localhost:9876", //invalid websocket endpoint
+          hostname: mockInvalidHostname, //invalid websocket endpoint
           protocol: "ws:",
         })
       );
@@ -115,6 +121,8 @@ describe("WebSocketHandler", () => {
           return args[0].toString().indexOf("$metadata") >= 0;
         })[0][1]
       ).toBe(connectionTimeout);
+      // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
+      expect(handler.sockets[mockInvalidUrl].length).toBe(0);
     }
     (global as any).setTimeout = originalFn;
   });
