@@ -72,16 +72,23 @@ export class WebSocketHandler implements HttpHandler {
     // To notify output stream any error thrown after response
     // is returned while data keeps streaming.
     let streamError: Error | undefined = undefined;
+
     const outputStream: AsyncIterable<Uint8Array> = {
       [Symbol.asyncIterator]: () => ({
         next: () => {
           return new Promise((resolve, reject) => {
+            // To notify onclose event that error has occurred
+            let socketErrorOccurred = false;
+
             socket.onerror = (error) => {
-              socket.onclose = null;
+              socketErrorOccurred = true;
               socket.close();
               reject(error);
             };
+
             socket.onclose = () => {
+              if (socketErrorOccurred) return;
+
               if (streamError) {
                 reject(streamError);
               } else {
@@ -91,6 +98,7 @@ export class WebSocketHandler implements HttpHandler {
                 });
               }
             };
+
             socket.onmessage = (event) => {
               resolve({
                 done: false,
