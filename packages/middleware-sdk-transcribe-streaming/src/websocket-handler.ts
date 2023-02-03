@@ -43,10 +43,12 @@ export class WebSocketHandler implements HttpHandler {
   }
 
   /**
-   * Removes all closed sockets from the socket pool for URL.
+   * Removes all closing/closed sockets from the socket pool for URL.
    */
-  private removeClosedSockets(url: string): void {
-    this.sockets[url] = this.sockets[url].filter((socket) => socket.readyState !== WebSocket.CLOSED);
+  private removeNotUsableSockets(url: string): void {
+    this.sockets[url] = this.sockets[url].filter(
+      (socket) => ![WebSocket.CLOSING, WebSocket.CLOSED].includes(socket.readyState)
+    );
   }
 
   async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
@@ -78,7 +80,7 @@ export class WebSocketHandler implements HttpHandler {
   private waitForReady(socket: WebSocket, connectionTimeout: number): Promise<void> {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
-        this.removeClosedSockets(socket.url);
+        this.removeNotUsableSockets(socket.url);
         reject({
           $metadata: {
             httpStatusCode: 500,
@@ -112,7 +114,7 @@ export class WebSocketHandler implements HttpHandler {
             };
 
             socket.onclose = () => {
-              this.removeClosedSockets(socket.url);
+              this.removeNotUsableSockets(socket.url);
               if (socketErrorOccurred) return;
 
               if (streamError) {
