@@ -32,6 +32,7 @@ export * from "./GetEnvironmentTemplateCommand";
 export * from "./GetEnvironmentTemplateVersionCommand";
 export * from "./GetRepositoryCommand";
 export * from "./GetRepositorySyncStatusCommand";
+export * from "./GetResourcesSummaryCommand";
 export * from "./GetServiceCommand";
 export * from "./GetServiceInstanceCommand";
 export * from "./GetServiceTemplateCommand";

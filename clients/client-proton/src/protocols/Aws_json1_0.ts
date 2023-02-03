@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -112,6 +113,10 @@ import {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "../commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourcesSummaryCommandInput,
+  GetResourcesSummaryCommandOutput,
+} from "../commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "../commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "../commands/GetServiceInstanceCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "../commands/GetServiceTemplateCommand";
@@ -262,6 +267,7 @@ import {
   Component,
   ComponentSummary,
   ConflictException,
+  CountsSummary,
   CreateComponentInput,
   CreateComponentOutput,
   CreateEnvironmentAccountConnectionInput,
@@ -328,6 +334,8 @@ import {
   GetRepositoryOutput,
   GetRepositorySyncStatusInput,
   GetRepositorySyncStatusOutput,
+  GetResourcesSummaryInput,
+  GetResourcesSummaryOutput,
   GetServiceInput,
   GetServiceInstanceInput,
   GetServiceInstanceOutput,
@@ -395,6 +403,7 @@ import {
   RepositorySyncAttempt,
   RepositorySyncDefinition,
   RepositorySyncEvent,
+  ResourceCountsSummary,
   ResourceNotFoundException,
   ResourceSyncAttempt,
   ResourceSyncEvent,
@@ -873,6 +882,19 @@ export const serializeAws_json1_0GetRepositorySyncStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRepositorySyncStatusInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetResourcesSummaryCommand = async (
+  input: GetResourcesSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetResourcesSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetResourcesSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3244,6 +3266,56 @@ const deserializeAws_json1_0GetRepositorySyncStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.proton#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetResourcesSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetResourcesSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetResourcesSummaryOutput(data, context);
+  const response: GetResourcesSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetResourcesSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -6018,6 +6090,13 @@ const serializeAws_json1_0GetRepositorySyncStatusInput = (
   };
 };
 
+const serializeAws_json1_0GetResourcesSummaryInput = (
+  input: GetResourcesSummaryInput,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
 const serializeAws_json1_0GetServiceInput = (input: GetServiceInput, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -6752,6 +6831,33 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_0CountsSummary = (output: any, context: __SerdeContext): CountsSummary => {
+  return {
+    components:
+      output.components != null ? deserializeAws_json1_0ResourceCountsSummary(output.components, context) : undefined,
+    environmentTemplates:
+      output.environmentTemplates != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.environmentTemplates, context)
+        : undefined,
+    environments:
+      output.environments != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.environments, context)
+        : undefined,
+    pipelines:
+      output.pipelines != null ? deserializeAws_json1_0ResourceCountsSummary(output.pipelines, context) : undefined,
+    serviceInstances:
+      output.serviceInstances != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.serviceInstances, context)
+        : undefined,
+    serviceTemplates:
+      output.serviceTemplates != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.serviceTemplates, context)
+        : undefined,
+    services:
+      output.services != null ? deserializeAws_json1_0ResourceCountsSummary(output.services, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0CreateComponentOutput = (output: any, context: __SerdeContext): CreateComponentOutput => {
   return {
     component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
@@ -7280,6 +7386,15 @@ const deserializeAws_json1_0GetRepositorySyncStatusOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0GetResourcesSummaryOutput = (
+  output: any,
+  context: __SerdeContext
+): GetResourcesSummaryOutput => {
+  return {
+    counts: output.counts != null ? deserializeAws_json1_0CountsSummary(output.counts, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0GetServiceInstanceOutput = (
   output: any,
   context: __SerdeContext
@@ -7739,6 +7854,16 @@ const deserializeAws_json1_0RepositorySyncEvents = (output: any, context: __Serd
       return deserializeAws_json1_0RepositorySyncEvent(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_0ResourceCountsSummary = (output: any, context: __SerdeContext): ResourceCountsSummary => {
+  return {
+    behindMajor: __expectInt32(output.behindMajor),
+    behindMinor: __expectInt32(output.behindMinor),
+    failed: __expectInt32(output.failed),
+    total: __expectInt32(output.total),
+    upToDate: __expectInt32(output.upToDate),
+  } as any;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (

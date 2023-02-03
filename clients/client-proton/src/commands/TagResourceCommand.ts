@@ -30,8 +30,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 
 /**
  * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
- *         <i>Proton User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+ *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

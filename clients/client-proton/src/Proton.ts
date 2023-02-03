@@ -166,6 +166,11 @@ import {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourcesSummaryCommand,
+  GetResourcesSummaryCommandInput,
+  GetResourcesSummaryCommandOutput,
+} from "./commands/GetResourcesSummaryCommand";
 import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   GetServiceInstanceCommand,
@@ -371,46 +376,54 @@ import {
 import { ProtonClient } from "./ProtonClient";
 
 /**
- * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton service.</p>
+ * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
+ *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
+ *    service.</p>
  *          <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
- *          <p>Alternatively, you can use the Amazon Web Services CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Amazon Web Services Command Line Interface User Guide</a>.</p>
- *          <p>The Proton service is a two-pronged automation framework. Administrators create service templates to provide standardized infrastructure
- *    and deployment tooling for serverless and container based applications. Developers, in turn, select from the available service templates to
- *    automate their application or service deployments.</p>
- *          <p>Because administrators define the infrastructure and tooling that Proton deploys and manages, they need permissions to use all of the
- *    listed API operations.</p>
- *          <p>When developers select a specific infrastructure and tooling set, Proton deploys their applications. To monitor their applications that are
- *    running on Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
- *     <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
- *     <i>update</i> API operations.</p>
+ *          <p>Alternatively, you can use the Amazon Web Services CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Amazon Web Services Command Line Interface User
+ *     Guide</a>.</p>
+ *          <p>The Proton service is a two-pronged automation framework. Administrators create service templates to provide
+ *    standardized infrastructure and deployment tooling for serverless and container based applications. Developers, in
+ *    turn, select from the available service templates to automate their application or service deployments.</p>
+ *          <p>Because administrators define the infrastructure and tooling that Proton deploys and manages, they need
+ *    permissions to use all of the listed API operations.</p>
+ *          <p>When developers select a specific infrastructure and tooling set, Proton deploys their applications. To
+ *    monitor their applications that are running on Proton, developers need permissions to the service
+ *     <i>create</i>, <i>list</i>, <i>update</i> and <i>delete</i>
+ *    API operations and the service instance <i>list</i> and <i>update</i> API
+ *    operations.</p>
  *          <p>To learn more about Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
  *          <p>
  *             <b>Ensuring Idempotency</b>
  *          </p>
- *          <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows of the operation are complete.
- *    Operations might also time out or encounter other server issues before they're complete, even if the request already returned a result. This might
- *    make it difficult to determine whether the request succeeded. Moreover, you might need to retry the request multiple times to ensure that the
- *    operation completes successfully. However, if the original request and the subsequent retries are successful, the operation occurs multiple times.
- *    This means that you might create more resources than you intended.</p>
+ *          <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows
+ *    of the operation are complete. Operations might also time out or encounter other server issues before they're
+ *    complete, even if the request already returned a result. This might make it difficult to determine whether the
+ *    request succeeded. Moreover, you might need to retry the request multiple times to ensure that the operation
+ *    completes successfully. However, if the original request and the subsequent retries are successful, the operation
+ *    occurs multiple times. This means that you might create more resources than you intended.</p>
  *          <p>
- *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an idempotent request, if the
- *    original request action completes successfully, any subsequent retries complete successfully without performing any further actions. However, the
- *    result might contain updated information, such as the current creation status.</p>
+ *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an
+ *    idempotent request, if the original request action completes successfully, any subsequent retries complete
+ *    successfully without performing any further actions. However, the result might contain updated information, such as
+ *    the current creation status.</p>
  *          <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
  *          <p>
  *             <b>Idempotent create APIs with a client token</b>
  *          </p>
- *          <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding Amazon Web Services CLI commands
- *    also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To make an
- *    idempotent API request using one of these actions, specify a client token in the request. We recommend that you <i>don't</i> reuse
- *    the same client token for other API requests. If you don’t provide a client token for these APIs, a default client token is automatically provided
- *    by SDKs.</p>
+ *          <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The
+ *    corresponding Amazon Web Services CLI commands also support idempotency using a client token. A client token is a unique,
+ *    case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions,
+ *    specify a client token in the request. We recommend that you <i>don't</i> reuse the same client token
+ *    for other API requests. If you don’t provide a client token for these APIs, a default client token is automatically
+ *    provided by SDKs.</p>
  *          <p>Given a request action that has succeeded:</p>
- *          <p>If you retry the request using the same client token and the same parameters, the retry succeeds without performing any further actions other
- *    than returning the original resource detail data in the response.</p>
- *          <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry throws a
- *     <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
- *          <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new resource is created.</p>
+ *          <p>If you retry the request using the same client token and the same parameters, the retry succeeds without
+ *    performing any further actions other than returning the original resource detail data in the response.</p>
+ *          <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry
+ *    throws a <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new
+ *    resource is created.</p>
  *          <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
  *          <p>Idempotent create APIs with a client token:</p>
  *          <ul>
@@ -428,8 +441,9 @@ import { ProtonClient } from "./ProtonClient";
  *             <b>Idempotent create APIs</b>
  *          </p>
  *          <p>Given a request action that has succeeded:</p>
- *          <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been modified, the retry succeeds
- *    without performing any further actions other than returning the original resource detail data in the response.</p>
+ *          <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been
+ *    modified, the retry succeeds without performing any further actions other than returning the original resource detail
+ *    data in the response.</p>
  *          <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
  *          <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
  *     <code>IdempotentParameterMismatch</code> error.</p>
@@ -452,7 +466,8 @@ import { ProtonClient } from "./ProtonClient";
  *             <b>Idempotent delete APIs</b>
  *          </p>
  *          <p>Given a request action that has succeeded:</p>
- *          <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in the response.</p>
+ *          <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in
+ *    the response.</p>
  *          <p>If you retry and the resource doesn't exist, the response is empty.</p>
  *          <p>In both cases, the retry succeeds.</p>
  *          <p>Idempotent delete APIs:</p>
@@ -477,8 +492,9 @@ import { ProtonClient } from "./ProtonClient";
  *             <b>Asynchronous idempotent delete APIs</b>
  *          </p>
  *          <p>Given a request action that has succeeded:</p>
- *          <p>If you retry the request with an API from this group, if the original request delete operation status is <code>DELETE_IN_PROGRESS</code>, the
- *    retry returns the resource detail data in the response without performing any further actions.</p>
+ *          <p>If you retry the request with an API from this group, if the original request delete operation status is
+ *     <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any
+ *    further actions.</p>
  *          <p>If the original request delete operation is complete, a retry returns an empty response.</p>
  *          <p>Asynchronous idempotent delete APIs:</p>
  *          <ul>
@@ -1041,11 +1057,12 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked repository is a repository that has been
-   *       registered with Proton. For more information, see <a>CreateRepository</a>.</p>
-   *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template bundles. If it detects a template bundle
-   *       change, a new major or minor version of its template is created, if the version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton User
-   *         Guide</i>.</p>
+   * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked
+   *    repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template
+   *    bundles. If it detects a template bundle change, a new major or minor version of its template is created, if the
+   *    version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the
+   *     <i>Proton User Guide</i>.</p>
    */
   public createTemplateSyncConfig(
     args: CreateTemplateSyncConfigCommandInput,
@@ -1686,6 +1703,47 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Get counts of Proton resources.</p>
+   *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action
+   *    returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it
+   *    uses and it needs an update to become current.</p>
+   *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version,
+   *    or behind a template minor version), the total number of resources, and the number of resources that are in a failed
+   *    state, grouped by resource type. Components, environments, and service templates are exceptions—see the
+   *     <code>components</code>, <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p>
+   *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the <i>Proton User Guide</i>.</p>
+   */
+  public getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesSummaryCommandOutput>;
+  public getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    cb: (err: any, data?: GetResourcesSummaryCommandOutput) => void
+  ): void;
+  public getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesSummaryCommandOutput) => void
+  ): void;
+  public getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcesSummaryCommandOutput) => void
+  ): Promise<GetResourcesSummaryCommandOutput> | void {
+    const command = new GetResourcesSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get detailed data for a service.</p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
@@ -2301,7 +2359,8 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List service instances with summary data. This action lists service instances of all services in the Amazon Web Services account.</p>
+   * <p>List service instances with summary data. This action lists service instances of all services in the
+   *    Amazon Web Services account.</p>
    */
   public listServiceInstances(
     args: ListServiceInstancesCommandInput,
@@ -2492,8 +2551,8 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and
-   *         tagging</a> in the <i>Proton User Guide</i>.</p>
+   * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User
+   *     Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2526,7 +2585,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
+   *     provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
   public notifyResourceDeploymentStatusChange(
     args: NotifyResourceDeploymentStatusChangeCommandInput,
@@ -2596,8 +2656,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
-   *         <i>Proton User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+   *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2623,9 +2683,10 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
-   *         <i>Proton User Guide</i>.</p>
+   * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton
+   *    resource.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+   *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3120,9 +3181,9 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>. Repository details (branch,
-   *       name, and provider) should be of a linked repository. A linked repository is a repository that has been registered with Proton. For more information,
-   *       see <a>CreateRepository</a>.</p>
+   * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
+   *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
+   *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   public updateTemplateSyncConfig(
     args: UpdateTemplateSyncConfigCommandInput,
