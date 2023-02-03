@@ -22,21 +22,52 @@ export class WebSocketHandler implements HttpHandler {
     handlerProtocol: "websocket",
   };
   private readonly connectionTimeout: number;
+  private readonly sockets: Record<string, WebSocket[]> = {};
+
   constructor({ connectionTimeout }: WebSocketHandlerOptions = {}) {
     this.connectionTimeout = connectionTimeout || 2000;
   }
 
-  destroy(): void {}
+  /**
+   * Destroys the WebSocketHandler.
+   * Closes all sockets from the socket pool.
+   */
+  destroy(): void {
+    for (const [key, sockets] of Object.entries(this.sockets)) {
+      for (const socket of sockets) {
+        socket.close(1000, `Socket closed through destroy() call`);
+      }
+      delete this.sockets[key];
+    }
+  }
+
+  /**
+   * Removes all closing/closed sockets from the socket pool for URL.
+   */
+  private removeNotUsableSockets(url: string): void {
+    this.sockets[url] = this.sockets[url].filter(
+      (socket) => ![WebSocket.CLOSING, WebSocket.CLOSED].includes(socket.readyState)
+    );
+  }
 
   async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
+
+    // Add socket to sockets pool
+    if (!this.sockets[url]) {
+      this.sockets[url] = [];
+    }
+    this.sockets[url].push(socket);
+
     socket.binaryType = "arraybuffer";
-    await waitForReady(socket, this.connectionTimeout);
+    await this.waitForReady(socket, this.connectionTimeout);
+
     const { body } = request;
     const bodyStream = getIterator(body);
-    const asyncIterable = connect(socket, bodyStream);
+    const asyncIterable = this.connect(socket, bodyStream);
     const outputPayload = toReadableStream(asyncIterable);
+
     return {
       response: new HttpResponse({
         statusCode: 200, // indicates connection success
@@ -44,76 +75,90 @@ export class WebSocketHandler implements HttpHandler {
       }),
     };
   }
-}
 
-const waitForReady = (socket: WebSocket, connectionTimeout: number): Promise<void> =>
-  new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      reject({
-        $metadata: {
-          httpStatusCode: 500,
-        },
-      });
-    }, connectionTimeout);
-    socket.onopen = () => {
-      clearTimeout(timeout);
-      resolve();
-    };
-  });
-
-const connect = (socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> => {
-  // To notify output stream any error thrown after response
-  // is returned while data keeps streaming.
-  let streamError: Error | undefined = undefined;
-  const outputStream: AsyncIterable<Uint8Array> = {
-    [Symbol.asyncIterator]: () => ({
-      next: () => {
-        return new Promise((resolve, reject) => {
-          socket.onerror = (error) => {
-            socket.onclose = null;
-            socket.close();
-            reject(error);
-          };
-          socket.onclose = () => {
-            if (streamError) {
-              reject(streamError);
-            } else {
-              resolve({
-                done: true,
-                value: undefined,
-              });
-            }
-          };
-          socket.onmessage = (event) => {
-            resolve({
-              done: false,
-              value: new Uint8Array(event.data),
-            });
-          };
+  private waitForReady(socket: WebSocket, connectionTimeout: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        this.removeNotUsableSockets(socket.url);
+        reject({
+          $metadata: {
+            httpStatusCode: 500,
+          },
         });
-      },
-    }),
-  };
+      }, connectionTimeout);
 
-  const send = async (): Promise<void> => {
-    try {
-      for await (const inputChunk of data) {
-        socket.send(inputChunk);
+      socket.onopen = () => {
+        clearTimeout(timeout);
+        resolve();
+      };
+    });
+  }
+
+  private connect(socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
+    // To notify output stream any error thrown after response
+    // is returned while data keeps streaming.
+    let streamError: Error | undefined = undefined;
+
+    const outputStream: AsyncIterable<Uint8Array> = {
+      [Symbol.asyncIterator]: () => ({
+        next: () => {
+          return new Promise((resolve, reject) => {
+            // To notify onclose event that error has occurred
+            let socketErrorOccurred = false;
+
+            socket.onerror = (error) => {
+              socketErrorOccurred = true;
+              socket.close();
+              reject(error);
+            };
+
+            socket.onclose = () => {
+              this.removeNotUsableSockets(socket.url);
+              if (socketErrorOccurred) return;
+
+              if (streamError) {
+                reject(streamError);
+              } else {
+                resolve({
+                  done: true,
+                  value: undefined,
+                });
+              }
+            };
+
+            socket.onmessage = (event) => {
+              resolve({
+                done: false,
+                value: new Uint8Array(event.data),
+              });
+            };
+          });
+        },
+      }),
+    };
+
+    const send = async (): Promise<void> => {
+      try {
+        for await (const inputChunk of data) {
+          socket.send(inputChunk);
+        }
+      } catch (err) {
+        // We don't throw the error here because the send()'s returned
+        // would already be settled by the time sending chunk throws error.
+        // Instead, the notify the output stream to throw if there's
+        // exceptions
+        streamError = err;
+      } finally {
+        // WS status code: https://tools.ietf.org/html/rfc6455#section-7.4
+        socket.close(1000);
       }
-    } catch (err) {
-      // We don't throw the error here because the send()'s returned
-      // would already be settled by the time sending chunk throws error.
-      // Instead, the notify the output stream to throw if there's
-      // exceptions
-      streamError = err;
-    } finally {
-      // WS status code: https://tools.ietf.org/html/rfc6455#section-7.4
-      socket.close(1000);
-    }
-  };
-  send();
-  return outputStream;
-};
+    };
+
+    send();
+
+    return outputStream;
+  }
+}
 
 /**
  * Transfer payload data to an AsyncIterable.
@@ -123,18 +168,21 @@ const connect = (socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncItera
  */
 const getIterator = (stream: any): AsyncIterable<any> => {
   // Noop if stream is already an async iterable
-  if (stream[Symbol.asyncIterator]) return stream;
-  else if (isReadableStream(stream)) {
+  if (stream[Symbol.asyncIterator]) {
+    return stream;
+  }
+
+  if (isReadableStream(stream)) {
     //If stream is a ReadableStream, transfer the ReadableStream to async iterable.
     return readableStreamtoIterable(stream);
-  } else {
-    //For other types, just wrap them with an async iterable.
-    return {
-      [Symbol.asyncIterator]: async function* () {
-        yield stream;
-      },
-    };
   }
+
+  // For other types, just wrap them with an async iterable.
+  return {
+    [Symbol.asyncIterator]: async function* () {
+      yield stream;
+    },
+  };
 };
 
 /**
