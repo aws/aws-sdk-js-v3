@@ -22,11 +22,10 @@ export class WebSocketHandler implements HttpHandler {
     handlerProtocol: "websocket",
   };
   private readonly connectionTimeout: number;
-  private readonly sockets: Record<string, WebSocket[]>;
+  private readonly sockets: Record<string, WebSocket[]> = {};
 
   constructor({ connectionTimeout }: WebSocketHandlerOptions = {}) {
     this.connectionTimeout = connectionTimeout || 2000;
-    this.sockets = {};
   }
 
   /**
