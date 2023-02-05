@@ -29,4 +29,13 @@ describe("marshall", () => {
       expect(convertToNative).toHaveBeenCalledWith({ M: input }, { wrapNumbers });
     });
   });
+
+  [false, true].forEach((returnSetsAsArrays) => {
+    it(`passes returnSetsAsArrays=${returnSetsAsArrays} to convertToNative`, () => {
+      // @ts-ignore output mocked for testing
+      expect(unmarshall(input, { returnSetsAsArrays })).toEqual(input);
+      expect(convertToNative).toHaveBeenCalledTimes(1);
+      expect(convertToNative).toHaveBeenCalledWith({ M: input }, { returnSetsAsArrays });
+    });
+  });
 });

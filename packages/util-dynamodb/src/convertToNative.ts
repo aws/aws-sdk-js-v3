@@ -28,11 +28,11 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
         case "M":
           return convertMap(value as Record<string, AttributeValue>, options);
         case "NS":
-          return new Set((value as string[]).map((item) => convertNumber(item, options)));
+          return convertNumberSet(value as string[], options);
         case "BS":
-          return new Set((value as Uint8Array[]).map(convertBinary));
+          return convertBinarySet(value as Uint8Array[], options);
         case "SS":
-          return new Set((value as string[]).map(convertString));
+          return convertStringSet(value as string[], options);
         default:
           throw new Error(`Unsupported type passed: ${key}`);
       }
@@ -79,3 +79,29 @@ const convertMap = (
     ),
     {}
   );
+
+const convertNumberSet = (
+  set: string[],
+  options?: unmarshallOptions
+): Set<number | bigint | NumberValue> | number[] | bigint[] | NumberValue[] =>
+  convertSet(
+    set.map((item) => convertNumber(item, options)),
+    options
+  );
+
+const convertBinarySet = (set: Uint8Array[], options?: unmarshallOptions): Set<Uint8Array> | Uint8Array[] =>
+  convertSet(
+    set.map((item) => convertBinary(item)),
+    options
+  );
+
+const convertStringSet = (set: string[], options?: unmarshallOptions): Set<string> | string[] =>
+  convertSet(
+    set.map((item) => convertString(item)),
+    options
+  );
+
+const convertSet = (
+  set: NativeAttributeValue[],
+  options?: unmarshallOptions
+): Set<NativeAttributeValue> | NativeAttributeValue[] => (options?.returnSetsAsArrays ? set : new Set(set));

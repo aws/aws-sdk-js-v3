@@ -12,6 +12,11 @@ export interface unmarshallOptions {
    * This allows for the safe round-trip transport of numbers of arbitrary size.
    */
   wrapNumbers?: boolean;
+  /**
+   * Whether to return sets as an array instead of converting them to native JavaScript sets.
+   * This allows for direct JSON serialization of sets.
+   */
+  returnSetsAsArrays?: boolean;
 }
 
 /**

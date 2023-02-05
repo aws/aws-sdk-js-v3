@@ -254,6 +254,37 @@ describe("convertToNative", () => {
       const input = ["one", "two", "three"];
       expect(convertToNative({ SS: input })).toEqual(new Set(input));
     });
+
+    it("string set with options.returnSetsAsArrays=true", () => {
+      const input = ["one", "two", "three"];
+      expect(convertToNative({ SS: input }, { returnSetsAsArrays: true })).toEqual(input);
+    });
+
+    describe("number set with options.returnSetsAsArrays=true", () => {
+      const input = ["1", "2", "9007199254740996"];
+
+      it("without options.wrapNumbers", () => {
+        expect(convertToNative({ NS: input }, { returnSetsAsArrays: true })).toEqual([1, 2, BigInt(9007199254740996)]);
+      });
+
+      it("with options.wrapNumbers=true", () => {
+        expect(convertToNative({ NS: input }, { returnSetsAsArrays: true, wrapNumbers: true })).toEqual(
+          input.map((numString) => ({ value: numString }))
+        );
+      });
+    });
+
+    it("binary set with options.returnSetsAsArrays=true", () => {
+      const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+      const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+      const input = [uint8Arr1, uint8Arr2];
+      expect(convertToNative({ BS: input }, { returnSetsAsArrays: true })).toEqual(input);
+    });
+
+    it("string set with options.returnSetsAsArrays=true", () => {
+      const input = ["one", "two", "three"];
+      expect(convertToNative({ SS: input }, { returnSetsAsArrays: true })).toEqual(input);
+    });
   });
 
   describe(`unsupported type`, () => {
