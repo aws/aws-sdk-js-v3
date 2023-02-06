@@ -30,7 +30,7 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
 
 /**
  * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
- * 	        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
+ *          <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,7 +30,7 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
 
 /**
  * <p>Deletes the specified event.</p>
- * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
