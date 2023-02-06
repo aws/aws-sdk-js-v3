@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **protocol-http:** add types for field ([#4390](https://github.com/aws/aws-sdk-js-v3/issues/4390)) ([688b866](https://github.com/aws/aws-sdk-js-v3/commit/688b8666f35b128cf1d696c9fa608e914039319a))
+
+
+
+
+
 # [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
 
 **Note:** Version bump only for package @aws-sdk/protocol-http

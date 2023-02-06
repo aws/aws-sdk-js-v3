@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **client-frauddetector:** My AWS Service (Amazon Fraud Detector) - This release introduces Cold Start Model Training which optimizes training for small datasets and adds intelligent methods for treating unlabeled data. You can now train Online Fraud Insights or Transaction Fraud Insights models with minimal historical-data. ([34dac99](https://github.com/aws/aws-sdk-js-v3/commit/34dac9954b1da6959fa1958abc94aa46edbace1b))
+
+
+
+
+
 # [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
 
 **Note:** Version bump only for package @aws-sdk/client-frauddetector

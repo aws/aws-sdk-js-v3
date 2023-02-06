@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **client-compute-optimizer:** AWS Compute optimizer can now infer if Kafka is running on an instance. ([65e7f31](https://github.com/aws/aws-sdk-js-v3/commit/65e7f31bcc29eb054b1547c633e0c956f0c75599))
+
+
+
+
+
 # [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
 
 **Note:** Version bump only for package @aws-sdk/client-compute-optimizer

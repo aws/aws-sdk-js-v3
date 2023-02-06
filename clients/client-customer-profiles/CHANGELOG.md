@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **client-customer-profiles:** This release deprecates the PartyType and Gender enum data types from the Profile model and replaces them with new PartyTypeString and GenderString attributes, which accept any string of length up to 255. ([4e190c7](https://github.com/aws/aws-sdk-js-v3/commit/4e190c7bc07a4e520a3d36cfe54b0484ea5d3636))
+
+
+
+
+
 # [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

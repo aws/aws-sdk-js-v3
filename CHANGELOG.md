@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Bug Fixes
+
+* **features-dynamodb:** remove testing for error-should-be message ([#4409](https://github.com/aws/aws-sdk-js-v3/issues/4409)) ([a3ed754](https://github.com/aws/aws-sdk-js-v3/commit/a3ed754d03f23a58b705b6c529652a5560c5812a))
+* **middleware-sdk-transcribe-streaming:** close sockets on WebSocketHandler.destroy() ([#4400](https://github.com/aws/aws-sdk-js-v3/issues/4400)) ([3a0cc76](https://github.com/aws/aws-sdk-js-v3/commit/3a0cc76f6cc65596d660f20e9d16561525e16816))
+
+
+### Features
+
+* **client-compute-optimizer:** AWS Compute optimizer can now infer if Kafka is running on an instance. ([65e7f31](https://github.com/aws/aws-sdk-js-v3/commit/65e7f31bcc29eb054b1547c633e0c956f0c75599))
+* **client-customer-profiles:** This release deprecates the PartyType and Gender enum data types from the Profile model and replaces them with new PartyTypeString and GenderString attributes, which accept any string of length up to 255. ([4e190c7](https://github.com/aws/aws-sdk-js-v3/commit/4e190c7bc07a4e520a3d36cfe54b0484ea5d3636))
+* **client-frauddetector:** My AWS Service (Amazon Fraud Detector) - This release introduces Cold Start Model Training which optimizes training for small datasets and adds intelligent methods for treating unlabeled data. You can now train Online Fraud Insights or Transaction Fraud Insights models with minimal historical-data. ([34dac99](https://github.com/aws/aws-sdk-js-v3/commit/34dac9954b1da6959fa1958abc94aa46edbace1b))
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has added improved scene change detection capabilities and a bandwidth reduction filter, along with video quality enhancements, to the AVC encoder. ([dea6044](https://github.com/aws/aws-sdk-js-v3/commit/dea6044a163b9283225036f81bf83c60ed2292e4))
+* **client-outposts:** Adds OrderType to Order structure. Adds PreviousOrderId and PreviousLineItemId to LineItem structure. Adds new line item status REPLACED. Increases maximum length of pagination token. ([312c4e4](https://github.com/aws/aws-sdk-js-v3/commit/312c4e4f822c6d0de9e8da21ebc38ed6fbc96429))
+* **clients:** update client endpoints as of 2023-02-06 ([f023912](https://github.com/aws/aws-sdk-js-v3/commit/f0239123c9eedb3d2d01ea66f14ad2429e06feb3))
+* **protocol-http:** add types for field ([#4390](https://github.com/aws/aws-sdk-js-v3/issues/4390)) ([688b866](https://github.com/aws/aws-sdk-js-v3/commit/688b8666f35b128cf1d696c9fa608e914039319a))
+* **types:** add request and response interfaces ([#4389](https://github.com/aws/aws-sdk-js-v3/issues/4389)) ([6b1be0b](https://github.com/aws/aws-sdk-js-v3/commit/6b1be0b6f00a4dfdfe091ae7e2c74a9256d98edb))
+* **util-stream:** create util-stream package ([#4402](https://github.com/aws/aws-sdk-js-v3/issues/4402)) ([91ec1aa](https://github.com/aws/aws-sdk-js-v3/commit/91ec1aa33af1f43e6576d00dc5e5e14643c35b73))
+
+
+
+
+
 # [3.265.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.264.0...v3.265.0) (2023-02-03)
 
 

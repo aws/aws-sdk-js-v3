@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **types:** add request and response interfaces ([#4389](https://github.com/aws/aws-sdk-js-v3/issues/4389)) ([6b1be0b](https://github.com/aws/aws-sdk-js-v3/commit/6b1be0b6f00a4dfdfe091ae7e2c74a9256d98edb))
+
+
+
+
+
 # [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
 
 

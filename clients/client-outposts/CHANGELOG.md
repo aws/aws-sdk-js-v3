@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **client-outposts:** Adds OrderType to Order structure. Adds PreviousOrderId and PreviousLineItemId to LineItem structure. Adds new line item status REPLACED. Increases maximum length of pagination token. ([312c4e4](https://github.com/aws/aws-sdk-js-v3/commit/312c4e4f822c6d0de9e8da21ebc38ed6fbc96429))
+
+
+
+
+
 # [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts
