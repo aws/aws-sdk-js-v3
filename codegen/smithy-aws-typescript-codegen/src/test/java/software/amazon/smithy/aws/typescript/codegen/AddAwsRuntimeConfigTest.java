@@ -36,7 +36,7 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                   containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                   containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
@@ -72,7 +72,7 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
@@ -108,7 +108,7 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 

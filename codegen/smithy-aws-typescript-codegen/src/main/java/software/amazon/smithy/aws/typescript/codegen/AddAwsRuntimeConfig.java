@@ -132,9 +132,9 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 });
             case NODE:
                 return MapUtils.of("region", writer -> {
-                    writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                    writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                     writer.addImport("loadConfig", "loadNodeConfig",
-                            AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName);
                     writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                     writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER.packageName);

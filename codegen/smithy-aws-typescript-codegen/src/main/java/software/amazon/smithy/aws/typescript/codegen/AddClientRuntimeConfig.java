@@ -74,15 +74,6 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-
-        writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
-                .write("maxAttempts?: number | __Provider<number>;\n");
-        writer.writeDocs("Specifies which retry algorithm to use.")
-                .write("retryMode?: string | __Provider<string>;\n");
-        writer.writeDocs("Optional logger for logging debug/info/warn/error.")
-                .write("logger?: __Logger;\n");
         writer.writeDocs("Enables IPv6/IPv4 dualstack endpoint.")
                 .write("useDualstackEndpoint?: boolean | __Provider<boolean>;\n");
         writer.writeDocs("Enables FIPS compatible endpoints.")
@@ -97,28 +88,8 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
             LanguageTarget target
     ) {
         switch (target) {
-            case SHARED:
-                return MapUtils.of(
-                        "logger", writer -> {
-                            writer.addImport("NoOpLogger", null, "@aws-sdk/smithy-client");
-                            writer.write("new NoOpLogger()");
-                        }
-                );
             case BROWSER:
                 return MapUtils.of(
-                        "maxAttempts", writer -> {
-                            writer.addDependency(TypeScriptDependency.UTIL_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
-                                    TypeScriptDependency.UTIL_RETRY.packageName);
-                            writer.write("DEFAULT_MAX_ATTEMPTS");
-                        },
-                        "retryMode", writer -> {
-                            writer.addDependency(TypeScriptDependency.UTIL_RETRY);
-                            writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
-                                    TypeScriptDependency.UTIL_RETRY.packageName);
-                            writer.write(
-                                    "(async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE)");
-                        },
                         "useDualstackEndpoint", writer -> {
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                             writer.addImport("DEFAULT_USE_DUALSTACK_ENDPOINT", "DEFAULT_USE_DUALSTACK_ENDPOINT",
@@ -134,33 +105,10 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                 );
             case NODE:
                 return MapUtils.of(
-                        "maxAttempts", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
-                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
-                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS)");
-                        },
-                        "retryMode", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
-                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("NODE_RETRY_MODE_CONFIG_OPTIONS", "NODE_RETRY_MODE_CONFIG_OPTIONS",
-                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
-                                    TypeScriptDependency.UTIL_RETRY.packageName);
-                            writer.openBlock("loadNodeConfig({", "})", () -> {
-                                writer.write("...NODE_RETRY_MODE_CONFIG_OPTIONS,");
-                                writer.write("default: async () => "
-                                        + "(await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,");
-                            });
-                        },
                         "useDualstackEndpoint", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                             writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName);
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                             writer.addImport("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
@@ -168,9 +116,9 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)");
                         },
                         "useFipsEndpoint", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                             writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName);
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                             writer.addImport("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
