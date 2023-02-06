@@ -1182,6 +1182,8 @@ export interface CreateProfileRequest {
   AdditionalInformation?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The type of profile used to describe the customer.</p>
    */
   PartyType?: PartyType | string;
@@ -1212,6 +1214,8 @@ export interface CreateProfileRequest {
   BirthDate?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
@@ -1790,8 +1794,8 @@ export interface GetIntegrationResponse {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
-   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
+   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
    */
   IsUnstructured?: boolean;
 }
@@ -2253,8 +2257,8 @@ export interface ListIntegrationItem {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
-   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
+   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
    */
   IsUnstructured?: boolean;
 }
@@ -2972,8 +2976,8 @@ export interface PutIntegrationResponse {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
-   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
+   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
    */
   IsUnstructured?: boolean;
 }
@@ -3242,6 +3246,8 @@ export interface Profile {
   AdditionalInformation?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The type of profile used to describe the customer.</p>
    */
   PartyType?: PartyType | string;
@@ -3272,6 +3278,8 @@ export interface Profile {
   BirthDate?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
@@ -3363,6 +3371,16 @@ export interface Profile {
    *          not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
    */
   FoundByItems?: FoundByKeyValue[];
+
+  /**
+   * <p>An alternative to PartyType which accepts any string as input.</p>
+   */
+  PartyTypeString?: string;
+
+  /**
+   * <p>An alternative to Gender which accepts any string as input.</p>
+   */
+  GenderString?: string;
 }
 
 export interface SearchProfilesResponse {
@@ -3578,6 +3596,8 @@ export interface UpdateProfileRequest {
   AccountNumber?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The type of profile used to describe the customer.</p>
    */
   PartyType?: PartyType | string;
@@ -3608,6 +3628,8 @@ export interface UpdateProfileRequest {
   BirthDate?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
