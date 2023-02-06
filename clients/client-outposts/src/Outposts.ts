@@ -86,11 +86,11 @@ import {
 import { OutpostsClient } from "./OutpostsClient";
 
 /**
- * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools
- *       to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts
- *       enables customers to build and run applications on premises using the same programming
- *       interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower
- *       latency and local data processing needs.</p>
+ * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to
+ *       customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables
+ *       customers to build and run applications on premises using the same programming interfaces as
+ *       in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
+ *       data processing needs.</p>
  */
 export class Outposts extends OutpostsClient {
   /**
@@ -179,9 +179,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>
-   *       Creates a site for an Outpost.
-   *     </p>
+   * <p> Creates a site for an Outpost. </p>
    */
   public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
   public createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
@@ -301,9 +299,7 @@ export class Outposts extends OutpostsClient {
    *             <p>
    *       Amazon Web Services uses this action to install Outpost servers.</p>
    *          </note>
-   *          <p>
-   *       Gets information about the specified connection.
-   *     </p>
+   *          <p> Gets information about the specified connection. </p>
    *          <p>
    *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
    *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -451,9 +447,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>
-   *       Gets the site address of the specified site.
-   *     </p>
+   * <p> Gets the site address of the specified site. </p>
    */
   public getSiteAddress(
     args: GetSiteAddressCommandInput,
@@ -607,7 +601,8 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results.</p>
+   * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
+   *       results.</p>
    *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
    *  all of the specified filters. For a filter where you can specify multiple values, the results include
    *  items that match any of the values that you specify for the filter.</p>
@@ -672,9 +667,7 @@ export class Outposts extends OutpostsClient {
    *             <p>
    *       Amazon Web Services uses this action to install Outpost servers.</p>
    *          </note>
-   *          <p>
-   *       Starts the connection required for Outpost server installation.
-   *     </p>
+   *          <p> Starts the connection required for Outpost server installation. </p>
    *          <p>
    *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
    *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -770,9 +763,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>
-   *       Updates an Outpost.
-   *     </p>
+   * <p> Updates an Outpost. </p>
    */
   public updateOutpost(
     args: UpdateOutpostCommandInput,
@@ -831,10 +822,10 @@ export class Outposts extends OutpostsClient {
 
   /**
    * <p>Updates the address of the specified site.</p>
-   *          <p>You can't update a site address if there is an order in progress. You must wait for the order
-   *       to complete or cancel the order.</p>
-   *          <p>You can update the operating address before you place an order at the
-   *       site, or after all Outposts that belong to the site have been deactivated.</p>
+   *          <p>You can't update a site address if there is an order in progress. You must wait for the
+   *       order to complete or cancel the order.</p>
+   *          <p>You can update the operating address before you place an order at the site, or after all
+   *       Outposts that belong to the site have been deactivated.</p>
    */
   public updateSiteAddress(
     args: UpdateSiteAddressCommandInput,

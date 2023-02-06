@@ -2451,6 +2451,8 @@ const deserializeAws_restJson1LineItem = (output: any, context: __SerdeContext):
         : undefined,
     CatalogItemId: __expectString(output.CatalogItemId),
     LineItemId: __expectString(output.LineItemId),
+    PreviousLineItemId: __expectString(output.PreviousLineItemId),
+    PreviousOrderId: __expectString(output.PreviousOrderId),
     Quantity: __expectInt32(output.Quantity),
     ShipmentInformation:
       output.ShipmentInformation != null
@@ -2535,6 +2537,7 @@ const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Or
       output.OrderSubmissionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
         : undefined,
+    OrderType: __expectString(output.OrderType),
     OutpostId: __expectString(output.OutpostId),
     PaymentOption: __expectString(output.PaymentOption),
     PaymentTerm: __expectString(output.PaymentTerm),
