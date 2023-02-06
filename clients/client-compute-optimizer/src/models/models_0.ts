@@ -194,6 +194,7 @@ export enum InferredWorkloadType {
   AMAZON_EMR = "AmazonEmr",
   APACHE_CASSANDRA = "ApacheCassandra",
   APACHE_HADOOP = "ApacheHadoop",
+  KAFKA = "Kafka",
   MEMCACHED = "Memcached",
   NGINX = "Nginx",
   POSTGRE_SQL = "PostgreSql",
@@ -1807,7 +1808,7 @@ export interface ECSServiceRecommendationFilter {
 export interface ExportECSServiceRecommendationsRequest {
   /**
    * <p>
-   *             The Amazon Web Services account IDs for the export ECS service recommendations.
+   *             The Amazon Web Services account IDs for the export Amazon ECS service recommendations.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
    *             of an organization, use this parameter to specify the member account you want to
@@ -1823,7 +1824,7 @@ export interface ExportECSServiceRecommendationsRequest {
   /**
    * <p>
    *             An array of objects to specify a filter that exports a more specific set
-   *             of ECS service recommendations.
+   *             of Amazon ECS service recommendations.
    *         </p>
    */
   filters?: ECSServiceRecommendationFilter[];
@@ -3006,6 +3007,11 @@ export interface InstanceRecommendation {
    *                   <code>Redis</code> - Infers that Redis might be running on the
    *                     instance.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Kafka</code> - Infers that Kafka might be running on the
+   *                     instance.</p>
+   *             </li>
    *          </ul>
    */
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
@@ -3165,7 +3171,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
 export interface GetECSServiceRecommendationProjectedMetricsRequest {
   /**
    * <p>
-   *             The ARN that identifies the ECS service.
+   *             The ARN that identifies the Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3214,7 +3220,7 @@ export enum ECSServiceMetricName {
  * <p>
  *             Describes the projected metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the metric data of your service against its projected metric data.</p>
  */
 export interface ECSServiceProjectedMetric {
@@ -3226,13 +3232,13 @@ export interface ECSServiceProjectedMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CPU</code> — The percentage of allocated compute units
-   *                     that are currently in use on the ECS service tasks.</p>
+   *                   <code>Cpu</code> — The percentage of allocated compute units
+   *                     that are currently in use on the service tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The percentage of memory that is
-   *                     currently in use on the ECS service tasks.</p>
+   *                   <code>Memory</code> — The percentage of memory that's
+   *                     currently in use on the service tasks.</p>
    *             </li>
    *          </ul>
    */
@@ -3264,20 +3270,20 @@ export interface ECSServiceProjectedMetric {
  * <p>
  *             Describes the projected metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the metric data of your service against its projected metric data.</p>
  */
 export interface ECSServiceRecommendedOptionProjectedMetric {
   /**
    * <p>
-   *             The recommended CPU size for the ECS service.
+   *             The recommended CPU size for the Amazon ECS service.
    *         </p>
    */
   recommendedCpuUnits?: number;
 
   /**
    * <p>
-   *             The recommended memory size for the ECS service.
+   *             The recommended memory size for the Amazon ECS service.
    *         </p>
    */
   recommendedMemorySize?: number;
@@ -3302,7 +3308,7 @@ export interface GetECSServiceRecommendationProjectedMetricsResponse {
 export interface GetECSServiceRecommendationsRequest {
   /**
    * <p>
-   *             The ARN that identifies the ECS service.
+   *             The ARN that identifies the Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3315,14 +3321,14 @@ export interface GetECSServiceRecommendationsRequest {
 
   /**
    * <p>
-   *             The token to advance to the next page of ECS service recommendations.
+   *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
    */
   nextToken?: string;
 
   /**
    * <p>
-   *             The maximum number of ECS service recommendations to return with a single request.
+   *             The maximum number of Amazon ECS service recommendations to return with a single request.
    *         </p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *             <code>nextToken</code> value.</p>
@@ -3331,17 +3337,17 @@ export interface GetECSServiceRecommendationsRequest {
 
   /**
    * <p>
-   *             An array of objects to specify a filter that returns a more specific list of ECS service recommendations.
+   *             An array of objects to specify a filter that returns a more specific list of Amazon ECS service recommendations.
    *         </p>
    */
   filters?: ECSServiceRecommendationFilter[];
 
   /**
    * <p>
-   *             Return the ECS service recommendations to the specified Amazon Web Services account IDs.
+   *             Return the Amazon ECS service recommendations to the specified Amazon Web Services account IDs.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
-   *             of an organization, use this parameter to return the ECS service recommendations to specific
+   *             of an organization, use this parameter to return the Amazon ECS service recommendations to specific
    *             member accounts.</p>
    *          <p>You can only specify one account ID per request.</p>
    */
@@ -3405,21 +3411,21 @@ export interface ContainerConfiguration {
 export interface ServiceConfiguration {
   /**
    * <p>
-   *             The amount of memory used by the tasks in the ECS service.
+   *             The amount of memory used by the tasks in the Amazon ECS service.
    *         </p>
    */
   memory?: number;
 
   /**
    * <p>
-   *             The number of CPU units used by the tasks in the ECS service.
+   *             The number of CPU units used by the tasks in the Amazon ECS service.
    *         </p>
    */
   cpu?: number;
 
   /**
    * <p>
-   *             The container configurations within a task of an ECS service.
+   *             The container configurations within a task of an Amazon ECS service.
    *         </p>
    */
   containerConfigurations?: ContainerConfiguration[];
@@ -3428,18 +3434,18 @@ export interface ServiceConfiguration {
    * <p>
    *             Describes the Auto Scaling configuration methods for an Amazon ECS service. This affects
    *             the generated recommendations. For example, if Auto Scaling is configured on a
-   *             ECS service’s CPU, then Compute Optimizer doesn’t generate CPU size recommendations.
+   *             service’s CPU, then Compute Optimizer doesn’t generate CPU size recommendations.
    *         </p>
    *          <p>The Auto Scaling configuration methods include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TARGET_TRACKING_SCALING_CPU</code> — If the ECS service is configured
+   *                   <code>TARGET_TRACKING_SCALING_CPU</code> — If the Amazon ECS service is configured
    *                     to use target scaling on CPU, Compute Optimizer doesn't generate CPU recommendations.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TARGET_TRACKING_SCALING_MEMORY</code> — If the ECS service is configured
+   *                   <code>TARGET_TRACKING_SCALING_MEMORY</code> — If the Amazon ECS service is configured
    *                     to use target scaling on memory, Compute Optimizer doesn't generate memory recommendations.</p>
    *             </li>
    *          </ul>
@@ -3454,7 +3460,7 @@ export interface ServiceConfiguration {
 
   /**
    * <p>
-   *             The task definition ARN used by the tasks in the ECS service.
+   *             The task definition ARN used by the tasks in the Amazon ECS service.
    *         </p>
    */
   taskDefinitionArn?: string;
@@ -3515,7 +3521,7 @@ export enum ECSServiceMetricStatistic {
  * <p>
  *             Describes the projected utilization metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the utilization metric data of your service against its projected utilization metric data.</p>
  */
 export interface ECSServiceProjectedUtilizationMetric {
@@ -3527,13 +3533,13 @@ export interface ECSServiceProjectedUtilizationMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CPU</code> — The percentage of allocated compute units
-   *                     that are currently in use on the ECS service tasks.</p>
+   *                   <code>Cpu</code> — The percentage of allocated compute units
+   *                     that are currently in use on the service tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The percentage of memory that is
-   *                     currently in use on the ECS service tasks.</p>
+   *                   <code>Memory</code> — The percentage of memory that's
+   *                     currently in use on the service tasks.</p>
    *             </li>
    *          </ul>
    */
@@ -3578,14 +3584,14 @@ export interface ECSServiceProjectedUtilizationMetric {
 export interface ECSServiceRecommendationOption {
   /**
    * <p>
-   *             The memory size of the ECS service recommendation option.
+   *             The memory size of the Amazon ECS service recommendation option.
    *         </p>
    */
   memory?: number;
 
   /**
    * <p>
-   *             The CPU size of the ECS service recommendation option.
+   *             The CPU size of the Amazon ECS service recommendation option.
    *         </p>
    */
   cpu?: number;
@@ -3612,14 +3618,14 @@ export interface ECSServiceRecommendationOption {
 
   /**
    * <p>
-   *             An array of objects that describe the projected utilization metrics of the ECS service recommendation option.
+   *             An array of objects that describe the projected utilization metrics of the Amazon ECS service recommendation option.
    *         </p>
    */
   projectedUtilizationMetrics?: ECSServiceProjectedUtilizationMetric[];
 
   /**
    * <p>
-   *             The CPU and memory size recommendations for the containers within the task of your ECS service.
+   *             The CPU and memory size recommendations for the containers within the task of your Amazon ECS service.
    *         </p>
    */
   containerRecommendations?: ContainerRecommendation[];
@@ -3629,7 +3635,7 @@ export interface ECSServiceRecommendationOption {
  * <p>
  *             Describes the utilization metric of an Amazon ECS service.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the utilization metric data of your service against its projected utilization metric data.</p>
  */
 export interface ECSServiceUtilizationMetric {
@@ -3641,11 +3647,11 @@ export interface ECSServiceUtilizationMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Cpu</code> — The amount of CPU units that are used in the service.</p>
+   *                   <code>Cpu</code> — The amount of CPU capacity that's used in the service.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The amount  of memory that is used in the service.</p>
+   *                   <code>Memory</code> — The amount of memory that's used in the service.</p>
    *             </li>
    *          </ul>
    */
@@ -3683,7 +3689,7 @@ export interface ECSServiceUtilizationMetric {
 export interface ECSServiceRecommendation {
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) of the current ECS service.
+   *             The Amazon Resource Name (ARN) of the current Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3696,35 +3702,35 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The Amazon Web Services account ID of the ECS service.
+   *             The Amazon Web Services account ID of the Amazon ECS service.
    *         </p>
    */
   accountId?: string;
 
   /**
    * <p>
-   *             The configuration of the current ECS service.
+   *             The configuration of the current Amazon ECS service.
    *         </p>
    */
   currentServiceConfiguration?: ServiceConfiguration;
 
   /**
    * <p>
-   *             An array of objects that describe the utilization metrics of the ECS service.
+   *             An array of objects that describe the utilization metrics of the Amazon ECS service.
    *         </p>
    */
   utilizationMetrics?: ECSServiceUtilizationMetric[];
 
   /**
    * <p>
-   *             The number of days the ECS service utilization metrics were analyzed.
+   *             The number of days the Amazon ECS service utilization metrics were analyzed.
    *         </p>
    */
   lookbackPeriodInDays?: number;
 
   /**
    * <p>
-   *             The launch type the ECS service is using.
+   *             The launch type the Amazon ECS service is using.
    *         </p>
    *          <note>
    *             <p>Compute Optimizer only supports the Fargate launch type.</p>
@@ -3734,24 +3740,24 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The timestamp of when the ECS service recommendation was last generated.
+   *             The timestamp of when the Amazon ECS service recommendation was last generated.
    *         </p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
    * <p>
-   *             The finding classification of an ECS service.
+   *             The finding classification of an Amazon ECS service.
    *         </p>
-   *          <p>Findings for ECS services include:</p>
+   *          <p>Findings for Amazon ECS services include:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>Underprovisioned</code>
    *                   </b> —
-   *                     When Compute Optimizer detects that there’s not enough memory or CPU, an ECS
-   *                     service is considered under-provisioned. An under-provisioned ECS service might
+   *                     When Compute Optimizer detects that there’s not enough memory or CPU, an Amazon ECS
+   *                     service is considered under-provisioned. An under-provisioned service might
    *                     result in poor application performance.</p>
    *             </li>
    *             <li>
@@ -3759,8 +3765,8 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>Overprovisioned</code>
    *                   </b> —
-   *                     When Compute Optimizer detects that there’s excessive memory or CPU, an ECS
-   *                     service is considered over-provisioned. An over-provisioned ECS service might
+   *                     When Compute Optimizer detects that there’s excessive memory or CPU, an Amazon ECS
+   *                     service is considered over-provisioned. An over-provisioned service might
    *                     result in additional infrastructure costs. </p>
    *             </li>
    *             <li>
@@ -3768,7 +3774,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>Optimized</code>
    *                   </b> —
-   *                     When both the CPU and memory of your ECS service meet the performance requirements
+   *                     When both the CPU and memory of your Amazon ECS service meet the performance requirements
    *                     of your workload, the service is considered optimized.</p>
    *             </li>
    *          </ul>
@@ -3777,16 +3783,16 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The reason for the finding classification of an ECS service.
+   *             The reason for the finding classification of an Amazon ECS service.
    *         </p>
-   *          <p>Finding reason codes for ECS services include:</p>
+   *          <p>Finding reason codes for Amazon ECS services include:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>CPUUnderprovisioned</code>
    *                   </b> —
-   *                     The ECS service CPU configuration can be sized up to enhance the performance of
+   *                     The service CPU configuration can be sized up to enhance the performance of
    *                     your workload. This is identified by analyzing the <code>CPUUtilization</code> metric of the
    *                     current service during the look-back period.</p>
    *             </li>
@@ -3795,7 +3801,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>CPUOverprovisioned</code>
    *                   </b> —
-   *                     The ECS service CPU configuration can be sized down while still meeting the performance
+   *                     The service CPU configuration can be sized down while still meeting the performance
    *                     requirements of your workload. This is identified by analyzing the <code>CPUUtilization</code>
    *                     metric of the current service during the look-back period. </p>
    *             </li>
@@ -3804,7 +3810,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>MemoryUnderprovisioned</code>
    *                   </b> —
-   *                     The ECS service memory configuration  can be sized up to enhance the performance of
+   *                     The service memory configuration  can be sized up to enhance the performance of
    *                     your workload. This is identified by analyzing the <code>MemoryUtilization</code> metric of the
    *                     current service during the look-back period.</p>
    *             </li>
@@ -3813,7 +3819,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>MemoryOverprovisioned</code>
    *                   </b> —
-   *                     The ECS service memory configuration can be sized down while still meeting the
+   *                     The service memory configuration can be sized down while still meeting the
    *                     performance requirements of your workload. This is identified by analyzing the
    *                     <code>MemoryUtilization</code> metric of the current service during the look-back period.</p>
    *             </li>
@@ -3823,14 +3829,14 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             An array of objects that describe the recommendation options for the ECS service.
+   *             An array of objects that describe the recommendation options for the Amazon ECS service.
    *         </p>
    */
   serviceRecommendationOptions?: ECSServiceRecommendationOption[];
 
   /**
    * <p>
-   *             The risk of the current ECS service not meeting the performance needs of its workloads.
+   *             The risk of the current Amazon ECS service not meeting the performance needs of its workloads.
    *             The higher the risk, the more likely the current service can't meet the performance
    *             requirements of its workload.
    *         </p>
@@ -3841,14 +3847,14 @@ export interface ECSServiceRecommendation {
 export interface GetECSServiceRecommendationsResponse {
   /**
    * <p>
-   *             The token to advance to the next page of ECS service recommendations.
+   *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
    */
   nextToken?: string;
 
   /**
    * <p>
-   *             An array of objects that describe the ECS service recommendations.
+   *             An array of objects that describe the Amazon ECS service recommendations.
    *         </p>
    */
   ecsServiceRecommendations?: ECSServiceRecommendation[];
