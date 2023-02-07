@@ -90,6 +90,10 @@ export interface As2ConnectorConfig {
 
   /**
    * <p>The algorithm that is used to encrypt the file.</p>
+   *          <note>
+   *             <p>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This ensures that
+   *         no traffic is sent in clear text.</p>
+   *          </note>
    */
   EncryptionAlgorithm?: EncryptionAlg | string;
 
@@ -101,7 +105,7 @@ export interface As2ConnectorConfig {
   /**
    * <p>The signing algorithm for the MDN response.</p>
    *          <note>
-   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code> is used.</p>
+   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code> is used.</p>
    *          </note>
    */
   MdnSigningAlgorithm?: MdnSigningAlg | string;
@@ -167,7 +171,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Reserved for future use.</p>
+ * <p>Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon Elastic File Systems
+ *       (Amazon EFS) for storage.</p>
  *          <p>
  *     </p>
  */
@@ -184,7 +189,7 @@ export interface EfsFileLocation {
 }
 
 /**
- * <p>Specifies the customer input S3 file location. If it is used inside <code>copyStepDetails.DestinationFileLocation</code>, it should be the S3 copy destination.</p>
+ * <p>Specifies the customer input Amazon S3 file location. If it is used inside <code>copyStepDetails.DestinationFileLocation</code>, it should be the S3 copy destination.</p>
  *          <p>
  *       You need to provide the bucket and key.
  *       The key can represent either a path or a file.
@@ -209,16 +214,17 @@ export interface S3InputFileLocation {
 }
 
 /**
- * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+ * <p>Specifies the location for the file that's being processed.</p>
  */
 export interface InputFileLocation {
   /**
-   * <p>Specifies the details for the S3 file being copied.</p>
+   * <p>Specifies the details for the Amazon S3 file that's being copied or decrypted.</p>
    */
   S3FileLocation?: S3InputFileLocation;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Specifies the details for the Amazon Elastic File System (Amazon EFS) file that's being
+   *       decrypted.</p>
    */
   EfsFileLocation?: EfsFileLocation;
 }
@@ -238,14 +244,27 @@ export interface CopyStepDetails {
   Name?: string;
 
   /**
-   * <p>Specifies the location for the file being copied. Only applicable for Copy type workflow
-   *       steps. Use <code>${Transfer:username}</code> in this field to parametrize the destination
-   *       prefix by username.</p>
+   * <p>Specifies the location for the file being copied. Use <code>${Transfer:username}</code> or <code>${Transfer:UploadDate}</code> in this field to parametrize the destination
+   *       prefix by username or uploaded date.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>${Transfer:username}</code> to copy uploaded files to
+   *         an Amazon S3 bucket that is prefixed with the name of the Transfer Family user that uploaded the file.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>${Transfer:UploadDate}</code> to copy uploaded files to
+   *           an Amazon S3 bucket that is prefixed with the date of the upload.</p>
+   *                <note>
+   *                   <p>The system resolves <code>UploadDate</code> to a date format of <i>YYYY-MM-DD</i>, based on the date the file
+   *             is uploaded.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
    */
   DestinationFileLocation?: InputFileLocation;
 
   /**
-   * <p>A flag that indicates whether or not to overwrite an existing file of the same name.
+   * <p>A flag that indicates whether to overwrite an existing file of the same name.
    *       The default is <code>FALSE</code>.</p>
    */
   OverwriteExisting?: OverwriteExisting | string;
@@ -255,12 +274,12 @@ export interface CopyStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -580,7 +599,7 @@ export interface CreateAgreementRequest {
   /**
    * <p>The landing directory (folder) for files transferred by using the AS2 protocol.</p>
    *          <p>A <code>BaseDirectory</code> example is
-   *           <i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>.</p>
+   *           <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.</p>
    */
   BaseDirectory: string | undefined;
 
@@ -953,7 +972,7 @@ export enum Protocol {
 
 /**
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
- *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+ *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
  *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
  *     the session disconnects.</p>
  */
@@ -1090,7 +1109,7 @@ export interface CreateServerRequest {
    *         server to a new server, don't update the host key. Accidentally changing a
    *         server's host key can be disruptive.</p>
    *          </important>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
 
@@ -1179,7 +1198,7 @@ export interface CreateServerRequest {
    *                <li>
    *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
    *             <code>EndpointType</code> must be <code>VPC</code> and the
-   *             <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
+   *             <code>IdentityProviderType</code> must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
@@ -1187,8 +1206,8 @@ export interface CreateServerRequest {
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
-   *             <code>SERVICE_MANAGED</code>.</p>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set any of the supported identity types:
+   *             <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
@@ -1240,7 +1259,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -1337,7 +1356,23 @@ export interface CreateUserRequest {
   /**
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
+   *          <p>The three standard SSH public key format elements are <code><key type></code>,
+   *         <code><body base64></code>, and  an optional <code><comment></code>, with spaces
+   *       between each element.</p>
    *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,
+   *             <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the
+   *           size of the key you generated.</p>
+   *             </li>
+   *          </ul>
    */
   SshPublicKeyBody?: string;
 
@@ -1392,12 +1427,12 @@ export interface CustomStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1408,13 +1443,44 @@ export enum EncryptionType {
   PGP = "PGP",
 }
 
+/**
+ * <p>Each step type has its own <code>StepDetails</code> structure.</p>
+ */
 export interface DecryptStepDetails {
-  Name?: string;
-  Type: EncryptionType | string | undefined;
-  SourceFileLocation?: string;
-  OverwriteExisting?: OverwriteExisting | string;
   /**
-   * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+   * <p>The name of the step, used as an identifier.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of encryption used. Currently, this value must be <code>PGP</code>.</p>
+   */
+  Type: EncryptionType | string | undefined;
+
+  /**
+   * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
+   *     for the workflow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *           In this case, this workflow step uses the output file from the previous workflow step as input.
+   *           This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceFileLocation?: string;
+
+  /**
+   * <p>A flag that indicates whether to overwrite an existing file of the same name.
+   *       The default is <code>FALSE</code>.</p>
+   */
+  OverwriteExisting?: OverwriteExisting | string;
+
+  /**
+   * <p>Specifies the location for the file that's being processed.</p>
    */
   DestinationFileLocation: InputFileLocation | undefined;
 }
@@ -1433,12 +1499,12 @@ export interface DeleteStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1480,12 +1546,12 @@ export interface TagStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1511,19 +1577,33 @@ export interface WorkflowStep {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>COPY</i>: Copy the file to another location.</p>
+   *                   <b>
+   *                      <code>COPY</code>
+   *                   </b> - Copy the file to another location.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>CUSTOM</i>: Perform a custom step with an Lambda function target.</p>
+   *                   <b>
+   *                      <code>CUSTOM</code>
+   *                   </b> - Perform a custom step with an Lambda function target.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>DELETE</i>: Delete the file.</p>
+   *                   <b>
+   *                      <code>DECRYPT</code>
+   *                   </b> - Decrypt a file that was encrypted before it was uploaded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>TAG</i>: Add a tag to the file.</p>
+   *                   <b>
+   *                      <code>DELETE</code>
+   *                   </b> - Delete the file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TAG</code>
+   *                   </b> - Add a tag to the file.</p>
    *             </li>
    *          </ul>
    */
@@ -1539,21 +1619,19 @@ export interface WorkflowStep {
    *                <p>A description</p>
    *             </li>
    *             <li>
-   *                <p>An S3 location for the destination of the file copy.</p>
+   *                <p>An Amazon S3 location for the destination of the file copy.</p>
    *             </li>
    *             <li>
-   *                <p>A flag that indicates whether or not to overwrite an existing file of the same name.
-   *         The default is <code>FALSE</code>.</p>
+   *                <p>A flag that indicates whether to overwrite an existing file of the same name. The default is
+   *             <code>FALSE</code>.</p>
    *             </li>
    *          </ul>
    */
   CopyStepDetails?: CopyStepDetails;
 
   /**
-   * <p>Details for a step that invokes a lambda function.</p>
-   *          <p>
-   *         Consists of the lambda function name, target, and timeout (in seconds).
-   *       </p>
+   * <p>Details for a step that invokes an Lambda function.</p>
+   *          <p>Consists of the Lambda function's name, target, and timeout (in seconds). </p>
    */
   CustomStepDetails?: CustomStepDetails;
 
@@ -1564,10 +1642,33 @@ export interface WorkflowStep {
 
   /**
    * <p>Details for a step that creates one or more tags.</p>
-   *          <p>You specify one or more tags: each tag contains a key/value pair.</p>
+   *          <p>You specify one or more tags. Each tag contains a key-value pair.</p>
    */
   TagStepDetails?: TagStepDetails;
 
+  /**
+   * <p>Details for a step that decrypts an encrypted file.</p>
+   *          <p>Consists of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A descriptive name</p>
+   *             </li>
+   *             <li>
+   *                <p>An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for the source file to
+   *           decrypt.</p>
+   *             </li>
+   *             <li>
+   *                <p>An S3 or Amazon EFS location for the destination of the file decryption.</p>
+   *             </li>
+   *             <li>
+   *                <p>A flag that indicates whether to overwrite an existing file of the same name. The default is
+   *             <code>FALSE</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The type of encryption that's used. Currently, only PGP encryption is supported.</p>
+   *             </li>
+   *          </ul>
+   */
   DecryptStepDetails?: DecryptStepDetails;
 }
 
@@ -1585,19 +1686,33 @@ export interface CreateWorkflowRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>COPY</i>: Copy the file to another location.</p>
+   *                   <b>
+   *                      <code>COPY</code>
+   *                   </b> - Copy the file to another location.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>CUSTOM</i>: Perform a custom step with an Lambda function target.</p>
+   *                   <b>
+   *                      <code>CUSTOM</code>
+   *                   </b> - Perform a custom step with an Lambda function target.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>DELETE</i>: Delete the file.</p>
+   *                   <b>
+   *                      <code>DECRYPT</code>
+   *                   </b> - Decrypt a file that was encrypted before it was uploaded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>TAG</i>: Add a tag to the file.</p>
+   *                   <b>
+   *                      <code>DELETE</code>
+   *                   </b> - Delete the file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TAG</code>
+   *                   </b> - Add a tag to the file.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -1605,7 +1720,7 @@ export interface CreateWorkflowRequest {
    *         Currently, copying and tagging are supported only on S3.
    *       </p>
    *          </note>
-   *          <p> For file location, you specify either the S3 bucket and key, or the EFS file system ID
+   *          <p> For file location, you specify either the Amazon S3 bucket and key, or the Amazon EFS file system ID
    *       and path. </p>
    */
   Steps: WorkflowStep[] | undefined;
@@ -2236,19 +2351,33 @@ export interface ExecutionStepResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>COPY</i>: Copy the file to another location.</p>
+   *                   <b>
+   *                      <code>COPY</code>
+   *                   </b> - Copy the file to another location.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>CUSTOM</i>: Perform a custom step with an Lambda function target.</p>
+   *                   <b>
+   *                      <code>CUSTOM</code>
+   *                   </b> - Perform a custom step with an Lambda function target.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>DELETE</i>: Delete the file.</p>
+   *                   <b>
+   *                      <code>DECRYPT</code>
+   *                   </b> - Decrypt a file that was encrypted before it was uploaded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>TAG</i>: Add a tag to the file.</p>
+   *                   <b>
+   *                      <code>DELETE</code>
+   *                   </b> - Delete the file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TAG</code>
+   *                   </b> - Add a tag to the file.</p>
    *             </li>
    *          </ul>
    */
@@ -2684,7 +2813,7 @@ export interface DescribedServer {
    *                <li>
    *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
    *             <code>EndpointType</code> must be <code>VPC</code> and the
-   *             <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
+   *             <code>IdentityProviderType</code> must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
@@ -2692,8 +2821,8 @@ export interface DescribedServer {
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
-   *             <code>SERVICE_MANAGED</code>.</p>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set any of the supported identity types:
+   *             <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
@@ -2740,7 +2869,7 @@ export interface DescribedServer {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -3027,7 +3156,15 @@ export interface ImportCertificateRequest {
   Usage: CertificateUsageType | string | undefined;
 
   /**
-   * <p>The file that contains the certificate to import.</p>
+   * <ul>
+   *             <li>
+   *                <p>For the CLI, provide a file path for a certificate in URI format. For example, <code>--certificate file://encryption-cert.pem</code>.
+   *         Alternatively, you can provide the raw content.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the SDK, specify the raw content of a certificate file. For example, <code>--certificate "`cat encryption-cert.pem`"</code>.</p>
+   *             </li>
+   *          </ul>
    */
   Certificate: string | undefined;
 
@@ -3038,7 +3175,16 @@ export interface ImportCertificateRequest {
   CertificateChain?: string;
 
   /**
-   * <p>The file that contains the private key for the certificate that's being imported.</p>
+   * <ul>
+   *             <li>
+   *                <p>For the CLI, provide a file path for a private key in URI format.For example, <code>--private-key file://encryption-key.pem</code>.
+   *         Alternatively, you can provide the raw content of the private key file.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the SDK, specify the raw content of a private key file. For example, <code>--private-key "`cat encryption-key.pem`"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   PrivateKey?: string;
 
@@ -3077,7 +3223,7 @@ export interface ImportHostKeyRequest {
   ServerId: string | undefined;
 
   /**
-   * <p>The public key portion of an SSH key pair.</p>
+   * <p>The private key portion of an SSH key pair.</p>
    *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
    */
   HostKeyBody: string | undefined;
@@ -4592,7 +4738,7 @@ export interface UpdateServerRequest {
    *         server to a new server, don't update the host key. Accidentally changing a
    *         server's host key can be disruptive.</p>
    *          </important>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
 
@@ -4661,7 +4807,7 @@ export interface UpdateServerRequest {
    *                <li>
    *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
    *             <code>EndpointType</code> must be <code>VPC</code> and the
-   *             <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
+   *             <code>IdentityProviderType</code> must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
@@ -4669,8 +4815,8 @@ export interface UpdateServerRequest {
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
-   *             <code>SERVICE_MANAGED</code>.</p>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set any of the supported identity types:
+   *             <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
    *                </li>
    *                <li>
    *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
@@ -4694,7 +4840,7 @@ export interface UpdateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
