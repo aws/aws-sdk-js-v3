@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* **types:** declare Blob type without requiring dom ([#4408](https://github.com/aws/aws-sdk-js-v3/issues/4408)) ([0b943b5](https://github.com/aws/aws-sdk-js-v3/commit/0b943b5c9e93bd8098cfd82899559bdde4208c27))
+
+
+
+
+
 # [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
 
 
