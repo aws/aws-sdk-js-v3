@@ -3361,6 +3361,9 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   if (data.ResourceArn != null) {
     contents.ResourceArn = __expectString(data.ResourceArn);
   }
+  if (data.ResourceName != null) {
+    contents.ResourceName = __expectString(data.ResourceName);
+  }
   if (data.ResourceType != null) {
     contents.ResourceType = __expectString(data.ResourceType);
   }
@@ -3674,6 +3677,9 @@ export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
   if (data.ResourceArn != null) {
     contents.ResourceArn = __expectString(data.ResourceArn);
   }
+  if (data.ResourceName != null) {
+    contents.ResourceName = __expectString(data.ResourceName);
+  }
   if (data.ResourceType != null) {
     contents.ResourceType = __expectString(data.ResourceType);
   }
@@ -3774,6 +3780,9 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   }
   if (data.ResourceArn != null) {
     contents.ResourceArn = __expectString(data.ResourceArn);
+  }
+  if (data.ResourceName != null) {
+    contents.ResourceName = __expectString(data.ResourceName);
   }
   if (data.ResourceType != null) {
     contents.ResourceType = __expectString(data.ResourceType);
@@ -7157,6 +7166,7 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     PercentDone: __expectString(output.PercentDone),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     ResourceArn: __expectString(output.ResourceArn),
+    ResourceName: __expectString(output.ResourceName),
     ResourceType: __expectString(output.ResourceType),
     StartBy:
       output.StartBy != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy))) : undefined,
@@ -7559,6 +7569,7 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
     NumberOfChildJobs: __expectLong(output.NumberOfChildJobs),
     ParentJobId: __expectString(output.ParentJobId),
     ResourceArn: __expectString(output.ResourceArn),
+    ResourceName: __expectString(output.ResourceName),
     ResourceType: __expectString(output.ResourceType),
     SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
     SourceRecoveryPointArn: __expectString(output.SourceRecoveryPointArn),
@@ -7738,6 +7749,7 @@ const deserializeAws_restJson1ProtectedResource = (output: any, context: __Serde
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
+    ResourceName: __expectString(output.ResourceName),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
@@ -7789,6 +7801,7 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
     ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     ResourceArn: __expectString(output.ResourceArn),
+    ResourceName: __expectString(output.ResourceName),
     ResourceType: __expectString(output.ResourceType),
     SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
     Status: __expectString(output.Status),
@@ -7826,6 +7839,7 @@ const deserializeAws_restJson1RecoveryPointByResource = (
     IsParent: __expectBoolean(output.IsParent),
     ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
+    ResourceName: __expectString(output.ResourceName),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
