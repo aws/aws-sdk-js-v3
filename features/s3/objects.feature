@@ -151,4 +151,4 @@ Feature: Working with Objects in S3
   Scenario: Error handling
     Given I put "data" to the key ""
     Then the error code should be "NoKeyProvided"
-    And the status code should be 404
+    And the error status code should be 404

@@ -14,7 +14,7 @@ Feature: Amazon Relational Database Service
   Scenario: Error handling
     Given I create a RDS security group with prefix name ""
     Then the error code should be "InvalidParameterValue"
-    And the status code should be 400
+    And the error status code should be 400
 
   # @pagination
   # Scenario: Paginating responses

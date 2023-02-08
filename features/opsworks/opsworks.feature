@@ -18,4 +18,4 @@ Feature: AWS OpsWorks
     Given I have an IAM username ""
     And I create an OpsWorks user profile with the IAM user ARN
     Then the error code should be "ValidationException"
-    And the status code should be 400
+    And the error status code should be 400
