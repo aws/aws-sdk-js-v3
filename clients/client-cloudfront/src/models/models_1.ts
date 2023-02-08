@@ -3014,8 +3014,7 @@ export interface OriginAccessControlSummary {
   SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
-   * <p>The type of origin that this origin access control is for. The only valid value is
-   * 				<code>s3</code>.</p>
+   * <p>The type of origin that this origin access control is for.</p>
    */
   OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
 }

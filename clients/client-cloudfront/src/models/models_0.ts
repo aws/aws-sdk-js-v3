@@ -6187,6 +6187,7 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
 }
 
 export enum OriginAccessControlOriginTypes {
+  mediastore = "mediastore",
   s3 = "s3",
 }
 
@@ -6255,8 +6256,7 @@ export interface OriginAccessControlConfig {
   SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
-   * <p>The type of origin that this origin access control is for. The only valid value is
-   * 				<code>s3</code>.</p>
+   * <p>The type of origin that this origin access control is for.</p>
    */
   OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
 }
