@@ -194,7 +194,6 @@ export interface TableResource {
 
   /**
    * <p>A wildcard object representing every table under a database.</p>
-   *
    *          <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>
    */
   TableWildcard?: TableWildcard;
@@ -212,7 +211,7 @@ export interface ColumnWildcard {
 
 /**
  * <p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>
- * 	        <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
+ *          <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
  */
 export interface TableWithColumnsResource {
   /**
@@ -481,7 +480,7 @@ export interface AddObjectInput {
 
   /**
    * <p>A list of partition values for the object. A value must be specified for each partition key associated with the table.</p>
-   * 	        <p>The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.</p>
+   *          <p>The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.</p>
    */
   PartitionValues?: string[];
 }
@@ -831,7 +830,6 @@ export interface DataCellsFilter {
 
   /**
    * <p>A wildcard with exclusions.</p>
-   *
    *          <p>You must specify either a <code>ColumnNames</code> list or the
    *       <code>ColumnWildCard</code>. </p>
    */
@@ -1121,22 +1119,16 @@ export interface DataLakeSettings {
 
   /**
    * <p>Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.</p>
-   *
    *          <p>A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.</p>
-   *
-   * 	        <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
-   *
+   *          <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing the Default Security Settings for Your Data Lake</a>.</p>
    */
   CreateDatabaseDefaultPermissions?: PrincipalPermissions[];
 
   /**
    * <p>Specifies whether access control on newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.</p>
-   *
    *          <p>A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.</p>
-   *
-   * 	        <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
-   *
+   *          <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing the Default Security Settings for Your Data Lake</a>.</p>
    */
   CreateTableDefaultPermissions?: PrincipalPermissions[];
@@ -1148,18 +1140,14 @@ export interface DataLakeSettings {
 
   /**
    * <p>A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log.</p>
-   *
-   * 	        <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
+   *          <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
    */
   TrustedResourceOwners?: string[];
 
   /**
    * <p>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </p>
-   *
    *          <p>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that are registered with Lake Formation.</p>
-   *
    *          <p>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3 locations that are registered with Lake Formation.</p>
-   *
    *          <p>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional) Allow Data Filtering on Amazon EMR</a>.</p>
    */
   AllowExternalDataFiltering?: boolean;
@@ -1206,7 +1194,6 @@ export interface GetEffectivePermissionsForPathRequest {
 
 /**
  * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
- *
  *          <p>If a catalog resource is shared through Resource Access Manager (RAM), then there will exist a corresponding RAM resource share ARN.</p>
  */
 export interface DetailsMap {
@@ -1313,8 +1300,7 @@ export interface GetQueryStateResponse {
 
   /**
    * <p>The state of a query previously submitted. The possible states are:</p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>PENDING: the query is pending.</p>
    *             </li>
@@ -1577,7 +1563,7 @@ export interface GetTableObjectsRequest {
 
   /**
    * <p>A predicate to filter the objects returned based on the partition keys defined in the governed table.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>The comparison operators supported are: =, >, <, >=, <=</p>
    *             </li>
@@ -1907,7 +1893,7 @@ export interface GrantPermissionsRequest {
 
   /**
    * <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>
-   * 	        <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>
+   *          <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>
    */
   Principal: DataLakePrincipal | undefined;
 
@@ -2181,9 +2167,8 @@ export interface StorageOptimizer {
 
   /**
    * <p>A message that contains information about any error (if present).</p>
-   *
-   * 	        <p>When an acceleration result has an enabled status, the error message is empty.</p>
-   * 	        <p>When an acceleration result has a disabled status, the message describes an error or simply indicates "disabled by the user".</p>
+   *          <p>When an acceleration result has an enabled status, the error message is empty.</p>
+   *          <p>When an acceleration result has a disabled status, the message describes an error or simply indicates "disabled by the user".</p>
    */
   ErrorMessage?: string;
 
@@ -2274,7 +2259,6 @@ export interface RegisterResourceRequest {
 
   /**
    * <p>Designates an Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html">Using Service-Linked Roles for Lake Formation</a>.</p>
    */
   UseServiceLinkedRole?: boolean;

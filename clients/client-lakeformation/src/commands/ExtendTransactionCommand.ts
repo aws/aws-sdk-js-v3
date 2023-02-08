@@ -30,8 +30,7 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
 
 /**
  * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
- *
- * 	        <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
+ *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

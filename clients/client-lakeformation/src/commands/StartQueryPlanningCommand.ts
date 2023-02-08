@@ -30,8 +30,7 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
 
 /**
  * <p>Submits a request to process a query statement.</p>
- *
- * 	        <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
+ *          <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

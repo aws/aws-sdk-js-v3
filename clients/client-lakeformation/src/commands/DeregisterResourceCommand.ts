@@ -30,7 +30,6 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
 
 /**
  * <p>Deregisters the resource as managed by the Data Catalog.</p>
- *
  *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
