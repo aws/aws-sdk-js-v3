@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+
+### Features
+
+* **client-backup:** This release added one attribute (resource name) in the output model of our 9 existing APIs in AWS backup so that customers will see the resource name at the output. No input required from Customers. ([162432f](https://github.com/aws/aws-sdk-js-v3/commit/162432fe88e9c79abd2eabd20227148f443685b6))
+
+
+
+
+
 ## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

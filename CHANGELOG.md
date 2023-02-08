@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+
+### Bug Fixes
+
+* prefix error when checking for error status codes ([#4419](https://github.com/aws/aws-sdk-js-v3/issues/4419)) ([f8e86c2](https://github.com/aws/aws-sdk-js-v3/commit/f8e86c26436eea4246c55572251a6917448be402))
+
+
+### Features
+
+* **client-backup:** This release added one attribute (resource name) in the output model of our 9 existing APIs in AWS backup so that customers will see the resource name at the output. No input required from Customers. ([162432f](https://github.com/aws/aws-sdk-js-v3/commit/162432fe88e9c79abd2eabd20227148f443685b6))
+* **client-cloudfront:** CloudFront Origin Access Control extends support to AWS Elemental MediaStore origins. ([8ff16f9](https://github.com/aws/aws-sdk-js-v3/commit/8ff16f910993ede7b979110c4b30b0b97064bdf8))
+* **client-glue:** DirectJDBCSource + Glue 4.0 streaming options ([0593722](https://github.com/aws/aws-sdk-js-v3/commit/0593722388e1bec1623e3ced4d3f1a4e47a27f0c))
+* **client-lakeformation:** This release removes the LFTagpolicyResource expression limits. ([690ee89](https://github.com/aws/aws-sdk-js-v3/commit/690ee897a4f1394f7018aa3ff2c122c24f399f21))
+* **clients:** update client endpoints as of 2023-02-08 ([4cef2b1](https://github.com/aws/aws-sdk-js-v3/commit/4cef2b1ec5cc9e919b701342d204080b4165dafa))
+* **util-dns:** add DNS interfaces and initial implementations ([#4386](https://github.com/aws/aws-sdk-js-v3/issues/4386)) ([2b5c0c5](https://github.com/aws/aws-sdk-js-v3/commit/2b5c0c5fd8df71191675de5fa1d1f9ec64ec7bd9))
+
+
+
+
+
 ## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
 
 
