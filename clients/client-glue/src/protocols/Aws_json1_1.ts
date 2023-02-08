@@ -17589,12 +17589,15 @@ const serializeAws_json1_1KafkaStreamingSourceOptions = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AddRecordTimestamp != null && { AddRecordTimestamp: input.AddRecordTimestamp }),
     ...(input.Assign != null && { Assign: input.Assign }),
     ...(input.BootstrapServers != null && { BootstrapServers: input.BootstrapServers }),
     ...(input.Classification != null && { Classification: input.Classification }),
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
+    ...(input.EmitConsumerLagMetrics != null && { EmitConsumerLagMetrics: input.EmitConsumerLagMetrics }),
     ...(input.EndingOffsets != null && { EndingOffsets: input.EndingOffsets }),
+    ...(input.IncludeHeaders != null && { IncludeHeaders: input.IncludeHeaders }),
     ...(input.MaxOffsetsPerTrigger != null && { MaxOffsetsPerTrigger: input.MaxOffsetsPerTrigger }),
     ...(input.MinPartitions != null && { MinPartitions: input.MinPartitions }),
     ...(input.NumRetries != null && { NumRetries: input.NumRetries }),
@@ -17621,10 +17624,12 @@ const serializeAws_json1_1KinesisStreamingSourceOptions = (
 ): any => {
   return {
     ...(input.AddIdleTimeBetweenReads != null && { AddIdleTimeBetweenReads: input.AddIdleTimeBetweenReads }),
+    ...(input.AddRecordTimestamp != null && { AddRecordTimestamp: input.AddRecordTimestamp }),
     ...(input.AvoidEmptyBatches != null && { AvoidEmptyBatches: input.AvoidEmptyBatches }),
     ...(input.Classification != null && { Classification: input.Classification }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
     ...(input.DescribeShardInterval != null && { DescribeShardInterval: input.DescribeShardInterval }),
+    ...(input.EmitConsumerLagMetrics != null && { EmitConsumerLagMetrics: input.EmitConsumerLagMetrics }),
     ...(input.EndpointUrl != null && { EndpointUrl: input.EndpointUrl }),
     ...(input.IdleTimeBetweenReadsInMs != null && { IdleTimeBetweenReadsInMs: input.IdleTimeBetweenReadsInMs }),
     ...(input.MaxFetchRecordsPerShard != null && { MaxFetchRecordsPerShard: input.MaxFetchRecordsPerShard }),
@@ -23912,12 +23917,15 @@ const deserializeAws_json1_1KafkaStreamingSourceOptions = (
   context: __SerdeContext
 ): KafkaStreamingSourceOptions => {
   return {
+    AddRecordTimestamp: __expectString(output.AddRecordTimestamp),
     Assign: __expectString(output.Assign),
     BootstrapServers: __expectString(output.BootstrapServers),
     Classification: __expectString(output.Classification),
     ConnectionName: __expectString(output.ConnectionName),
     Delimiter: __expectString(output.Delimiter),
+    EmitConsumerLagMetrics: __expectString(output.EmitConsumerLagMetrics),
     EndingOffsets: __expectString(output.EndingOffsets),
+    IncludeHeaders: __expectBoolean(output.IncludeHeaders),
     MaxOffsetsPerTrigger: __expectLong(output.MaxOffsetsPerTrigger),
     MinPartitions: __expectInt32(output.MinPartitions),
     NumRetries: __expectInt32(output.NumRetries),
@@ -23955,10 +23963,12 @@ const deserializeAws_json1_1KinesisStreamingSourceOptions = (
 ): KinesisStreamingSourceOptions => {
   return {
     AddIdleTimeBetweenReads: __expectBoolean(output.AddIdleTimeBetweenReads),
+    AddRecordTimestamp: __expectString(output.AddRecordTimestamp),
     AvoidEmptyBatches: __expectBoolean(output.AvoidEmptyBatches),
     Classification: __expectString(output.Classification),
     Delimiter: __expectString(output.Delimiter),
     DescribeShardInterval: __expectLong(output.DescribeShardInterval),
+    EmitConsumerLagMetrics: __expectString(output.EmitConsumerLagMetrics),
     EndpointUrl: __expectString(output.EndpointUrl),
     IdleTimeBetweenReadsInMs: __expectLong(output.IdleTimeBetweenReadsInMs),
     MaxFetchRecordsPerShard: __expectLong(output.MaxFetchRecordsPerShard),

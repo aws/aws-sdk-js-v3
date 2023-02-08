@@ -3309,12 +3309,12 @@ export interface CodeGenConfigurationNode {
   S3ParquetSource?: S3ParquetSource;
 
   /**
-   * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
+   * <p>Specifies a relational catalog data store in the Glue Data Catalog.</p>
    */
   RelationalCatalogSource?: RelationalCatalogSource;
 
   /**
-   * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
+   * <p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>
    */
   DynamoDBCatalogSource?: DynamoDBCatalogSource;
 
