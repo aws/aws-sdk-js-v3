@@ -1,5 +1,7 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.14.0 (2023-02-09)
+
 ## 0.13.0 (2023-01-31)
 
 ### Features
