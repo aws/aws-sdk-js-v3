@@ -150,4 +150,4 @@ Feature: Working with Objects in S3
   @error
   Scenario: Error handling
     Given I put "data" to the key ""
-    And the error status code should be 404
+    Then the error status code should be 404
