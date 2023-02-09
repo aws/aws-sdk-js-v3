@@ -160,6 +160,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
                 }
 
                 if (isText) {
+                  writer.write(streamCursor > 0 ? xhr.responseText.slice(streamCursor) : xhr.responseText);
                   writer.releaseLock();
                   stream.writable.close();
                   return stream.readable;
