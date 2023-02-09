@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.268.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.267.0...v3.268.0) (2023-02-09)
+
+
+### Features
+
+* **client-lex-runtime-v2:** AWS Lex now supports Network of Bots. ([ed0d68e](https://github.com/aws/aws-sdk-js-v3/commit/ed0d68ecf703c945408ad91b16616181f19b89b5))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-runtime-v2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.268.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.267.0...v3.268.0) (2023-02-09)
+
+
+### Features
+
+* **client-evidently:** Updated entity overrides parameter to accept up to 2500 overrides or a total of 40KB. ([48196dd](https://github.com/aws/aws-sdk-js-v3/commit/48196dda195c8f30e2bfae90c512adff546a4ccd))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/client-evidently

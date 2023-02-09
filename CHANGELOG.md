@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.268.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.267.0...v3.268.0) (2023-02-09)
+
+
+### Features
+
+* **client-emr-containers:** EMR on EKS allows configuring retry policies for job runs through the StartJobRun API. Using retry policies, a job cause a driver pod to be restarted automatically if it fails or is deleted. The job's status can be seen in the DescribeJobRun and ListJobRun APIs and monitored using CloudWatch events. ([858b40a](https://github.com/aws/aws-sdk-js-v3/commit/858b40ac0c7a85e4870cea905d77745c52f0fa25))
+* **client-evidently:** Updated entity overrides parameter to accept up to 2500 overrides or a total of 40KB. ([48196dd](https://github.com/aws/aws-sdk-js-v3/commit/48196dda195c8f30e2bfae90c512adff546a4ccd))
+* **client-lex-models-v2:** AWS Lex now supports Network of Bots. ([f1e14ec](https://github.com/aws/aws-sdk-js-v3/commit/f1e14ec275240e8b531f8d20b71c91f5b7f645bb))
+* **client-lex-runtime-v2:** AWS Lex now supports Network of Bots. ([ed0d68e](https://github.com/aws/aws-sdk-js-v3/commit/ed0d68ecf703c945408ad91b16616181f19b89b5))
+* **client-migration-hub-refactor-spaces:** This release adds support for creating environments with a network fabric type of NONE ([5246fd7](https://github.com/aws/aws-sdk-js-v3/commit/5246fd76c5879249388103b8a6ea79375e4c7cd2))
+* **clients:** update client endpoints as of 2023-02-09 ([48163fa](https://github.com/aws/aws-sdk-js-v3/commit/48163fac02b759fa9be59ee32fa82759ed17f409))
+* **codegen:** bump codegen version to 0.14.0 ([#4420](https://github.com/aws/aws-sdk-js-v3/issues/4420)) ([88c2ed3](https://github.com/aws/aws-sdk-js-v3/commit/88c2ed33af164600a3e118e0e549be4be5d87bc5))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 
