@@ -31,8 +31,8 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Batch create custom vocabulary item for the specified locale in the
- *          specified bot.</p>
+ * <p>Create a batch of custom vocabulary items for a given bot locale's
+ *          custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

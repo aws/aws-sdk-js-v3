@@ -271,7 +271,7 @@ export interface S3BucketLogDestination {
 export interface AudioLogDestination {
   /**
    * <p>The Amazon S3 bucket where the audio log files are stored. The IAM
-   *          role specified in the <code>roleArn</code> parameter of the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation must have permission to write to this
+   *          role specified in the <code>roleArn</code> parameter of the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation must have permission to write to this
    *          bucket.</p>
    */
   s3Bucket: S3BucketLogDestination | undefined;
@@ -321,26 +321,26 @@ export interface NewCustomVocabularyItem {
 
 export interface BatchCreateCustomVocabularyItemRequest {
   /**
-   * <p>The unique identifier of the bot to batch create the custom
-   *          vocabulary item for.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId: string | undefined;
 
   /**
-   * <p>The bot version of the bot to batch create the custom
-   *          vocabulary item for.</p>
+   * <p>The identifier of the version of the bot associated with this
+   *          custom vocabulary.</p>
    */
   botVersion: string | undefined;
 
   /**
-   * <p>The unique locale identifier of the bot to batch create the custom
-   *          vocabulary item for.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId: string | undefined;
 
   /**
-   * <p>The custom vocabulary item list of the bot to batch create the custom
-   *          vocabulary item for.</p>
+   * <p>A list of new custom vocabulary items. Each entry must contain a phrase and
+   *          can optionally contain a displayAs and/or a weight.</p>
    */
   customVocabularyItemList: NewCustomVocabularyItem[] | undefined;
 }
@@ -400,7 +400,7 @@ export interface CustomVocabularyItem {
   weight?: number;
 
   /**
-   * <p>The display as value for the custom vocabulary item
+   * <p>The DisplayAs value for the custom vocabulary item
    *          from the custom vocabulary list.</p>
    */
   displayAs?: string;
@@ -408,32 +408,32 @@ export interface CustomVocabularyItem {
 
 export interface BatchCreateCustomVocabularyItemResponse {
   /**
-   * <p>The unique identifier of the bot to batch create response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId?: string;
 
   /**
-   * <p>The bot version of the bot to batch create the custom
-   *          vocabulary item response for.</p>
+   * <p>The identifier of the version of the bot associated with this
+   *          custom vocabulary.</p>
    */
   botVersion?: string;
 
   /**
-   * <p>The unique locale identifier of the bot to batch create the custom
-   *          vocabulary item response for.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary is used.
+   *          The string must match one of the supported locales.
+   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId?: string;
 
   /**
-   * <p>The errors of the action to batch create the custom
-   *          vocabulary item response for a bot.</p>
+   * <p>A list of custom vocabulary items that failed to create during the operation.
+   *          The reason for the error is contained within each error object.</p>
    */
   errors?: FailedCustomVocabularyItem[];
 
   /**
-   * <p>The resources of the action to batch create the custom
-   *          vocabulary item response for a bot.</p>
+   * <p>A list of custom vocabulary items that were
+   *          successfully created during the operation.</p>
    */
   resources?: CustomVocabularyItem[];
 }
@@ -504,7 +504,11 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>The number of seconds after which the user can invoke the API again.</p>
+   */
   retryAfterSeconds?: number;
+
   /**
    * @internal
    */
@@ -553,116 +557,117 @@ export interface CustomVocabularyEntryId {
 
 export interface BatchDeleteCustomVocabularyItemRequest {
   /**
-   * <p>The unique identifier of the bot to batch delete request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId: string | undefined;
 
   /**
-   * <p>The version of the bot to batch delete request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botVersion: string | undefined;
 
   /**
-   * <p>The locale identifier of the bot to batch delete request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary is
+   *          used. The string must match one of the supported locales.
+   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId: string | undefined;
 
   /**
-   * <p>The custom vocabulary list to batch delete request for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items requested to be deleted.
+   *          Each entry must contain the unique custom vocabulary entry identifier.</p>
    */
   customVocabularyItemList: CustomVocabularyEntryId[] | undefined;
 }
 
 export interface BatchDeleteCustomVocabularyItemResponse {
   /**
-   * <p>The unique identifier of the bot to batch delete response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId?: string;
 
   /**
-   * <p>The version of the bot to batch delete response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botVersion?: string;
 
   /**
-   * <p>The locale identifier of the bot to batch delete response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary is
+   *          used. The string must match one of the supported locales.
+   *          For more information, see Supported
+   *          languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</p>
    */
   localeId?: string;
 
   /**
-   * <p>The errors of the action to batch delete response for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items that failed to delete during the operation.
+   *          The reason for the error is contained within each error object.</p>
    */
   errors?: FailedCustomVocabularyItem[];
 
   /**
-   * <p>The resources of the action to batch delete response for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items that were
+   *          successfully deleted during the operation.</p>
    */
   resources?: CustomVocabularyItem[];
 }
 
 export interface BatchUpdateCustomVocabularyItemRequest {
   /**
-   * <p>The unique identifier of the bot to the batch update request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary</p>
    */
   botId: string | undefined;
 
   /**
-   * <p>The bot version of the bot to the batch update request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botVersion: string | undefined;
 
   /**
-   * <p>The locale identifier of the bot to the batch update request for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId: string | undefined;
 
   /**
-   * <p>The custom vocabulary item list of the bot to the batch update request for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items with updated fields. Each entry must contain a phrase
+   *          and can optionally contain a displayAs and/or a weight.</p>
    */
   customVocabularyItemList: CustomVocabularyItem[] | undefined;
 }
 
 export interface BatchUpdateCustomVocabularyItemResponse {
   /**
-   * <p>The unique identifier of the bot to the batch update response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId?: string;
 
   /**
-   * <p>The bot version of the bot to the batch update response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botVersion?: string;
 
   /**
-   * <p>The locale identifier of the bot to the batch update response for the custom
-   *          vocabulary item.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId?: string;
 
   /**
-   * <p>The errors of the action to batch update response for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items that failed to update during the operation.
+   *          The reason for the error is contained within each error object.</p>
    */
   errors?: FailedCustomVocabularyItem[];
 
   /**
-   * <p>The resources of the action to batch update response for the custom
-   *          vocabulary item.</p>
+   * <p>A list of custom vocabulary items that were
+   *          successfully updated during the operation.</p>
    */
   resources?: CustomVocabularyItem[];
 }
@@ -743,12 +748,12 @@ export enum BotAliasStatus {
 }
 
 /**
- * <p>Summary information about bot aliases returned from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotAliases.html">ListBotAliases</a> operation.</p>
+ * <p>Summary information about bot aliases returned from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotAliases.html">ListBotAliases</a> operation.</p>
  */
 export interface BotAliasSummary {
   /**
    * <p>The unique identifier assigned to the bot alias. You can use this ID
-   *          to get detailed information about the alias using the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html">DescribeBotAlias</a> operation.</p>
+   *          to get detailed information about the alias using the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html">DescribeBotAlias</a> operation.</p>
    */
   botAliasId?: string;
 
@@ -804,11 +809,13 @@ export interface BotExportSpecification {
 
 export enum BotFilterName {
   BotName = "BotName",
+  BotType = "BotType",
 }
 
 export enum BotFilterOperator {
   Contains = "CO",
   Equals = "EQ",
+  NotEquals = "NE",
 }
 
 /**
@@ -1126,7 +1133,7 @@ export enum BotLocaleStatus {
 }
 
 /**
- * <p>Summary information about bot locales returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotLocales.html">ListBotLocales</a> operation.</p>
+ * <p>Summary information about bot locales returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotLocales.html">ListBotLocales</a> operation.</p>
  */
 export interface BotLocaleSummary {
   /**
@@ -1161,6 +1168,36 @@ export interface BotLocaleSummary {
    *          built.</p>
    */
   lastBuildSubmittedDateTime?: Date;
+}
+
+/**
+ * <p>A bot that is a member of a network of bots.</p>
+ */
+export interface BotMember {
+  /**
+   * <p>The unique ID of a bot that is a member of this network of bots.</p>
+   */
+  botMemberId: string | undefined;
+
+  /**
+   * <p>The unique name of a bot that is a member of this network of bots.</p>
+   */
+  botMemberName: string | undefined;
+
+  /**
+   * <p>The alias ID of a bot that is a member of this network of bots.</p>
+   */
+  botMemberAliasId: string | undefined;
+
+  /**
+   * <p>The alias name of a bot that is a member of this network of bots.</p>
+   */
+  botMemberAliasName: string | undefined;
+
+  /**
+   * <p>The version of a bot that is a member of this network of bots.</p>
+   */
+  botMemberVersion: string | undefined;
 }
 
 /**
@@ -1295,16 +1332,22 @@ export enum BotStatus {
   Failed = "Failed",
   Importing = "Importing",
   Inactive = "Inactive",
+  Updating = "Updating",
   Versioning = "Versioning",
 }
 
+export enum BotType {
+  Bot = "Bot",
+  BotNetwork = "BotNetwork",
+}
+
 /**
- * <p>Summary information about a bot returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBots.html">ListBots</a> operation.</p>
+ * <p>Summary information about a bot returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBots.html">ListBots</a> operation.</p>
  */
 export interface BotSummary {
   /**
    * <p>The unique identifier assigned to the bot. Use this ID to get
-   *          detailed information about the bot with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html">DescribeBot</a> operation.</p>
+   *          detailed information about the bot with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html">DescribeBot</a> operation.</p>
    */
   botId?: string;
 
@@ -1333,6 +1376,11 @@ export interface BotSummary {
    * <p>The date and time that the bot was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The type of the bot.</p>
+   */
+  botType?: BotType | string;
 }
 
 /**
@@ -1366,7 +1414,7 @@ export interface BotVersionSortBy {
 }
 
 /**
- * <p>Summary information about a bot version returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotVersions.html">ListBotVersions</a> operation.</p>
+ * <p>Summary information about a bot version returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotVersions.html">ListBotVersions</a> operation.</p>
  */
 export interface BotVersionSummary {
   /**
@@ -1401,7 +1449,7 @@ export interface BotVersionSummary {
 export interface BuildBotLocaleRequest {
   /**
    * <p>The identifier of the bot to build. The identifier is returned in
-   *          the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation.</p>
+   *          the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation.</p>
    */
   botId: string | undefined;
 
@@ -1517,7 +1565,7 @@ export interface BuiltInIntentSortBy {
 }
 
 /**
- * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
+ * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
  */
 export interface BuiltInIntentSummary {
   /**
@@ -1555,7 +1603,7 @@ export interface BuiltInSlotTypeSortBy {
 
 /**
  * <p>Provides summary information about a built-in slot type for the
- *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
+ *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
  *          operation.</p>
  */
 export interface BuiltInSlotTypeSummary {
@@ -1922,6 +1970,16 @@ export interface CreateBotRequest {
    *             <code>TagResource</code> operation.</p>
    */
   testBotAliasTags?: Record<string, string>;
+
+  /**
+   * <p>The type of a bot to create.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The list of bot members in a network to be created.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 export interface CreateBotResponse {
@@ -1960,7 +2018,7 @@ export interface CreateBotResponse {
    * <p>Shows the current status of the bot. The bot is first in the
    *             <code>Creating</code> status. Once the bot is read for use, it
    *          changes to the <code>Available</code> status. After the bot is created,
-   *          you can use the <code>Draft</code> version of the bot.</p>
+   *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
   botStatus?: BotStatus | string;
 
@@ -1979,6 +2037,16 @@ export interface CreateBotResponse {
    * <p>A list of tags associated with the test alias for the bot.</p>
    */
   testBotAliasTags?: Record<string, string>;
+
+  /**
+   * <p>The type of a bot that was created.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The list of bots in a network that was created.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 /**
@@ -2007,7 +2075,7 @@ export interface CreateBotAliasRequest {
 
   /**
    * <p>The version of the bot that this alias points to. You can use the
-   *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html">UpdateBotAlias</a> operation to change the
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html">UpdateBotAlias</a> operation to change the
    *          bot version associated with the alias.</p>
    */
   botVersion?: string;
@@ -2384,7 +2452,7 @@ export interface CreateExportResponse {
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>,
-   *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a> operation to get the
+   *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation to get the
    *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
   exportStatus?: ExportStatus | string;
@@ -3113,7 +3181,6 @@ export interface SlotValueSelectionSetting {
    * <p>Determines the slot resolution strategy that Amazon Lex uses to
    *          return slot type values. The field can be set to one of the following
    *          values:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>OriginalValue - Returns the value entered by the user, if the
@@ -3125,7 +3192,6 @@ export interface SlotValueSelectionSetting {
    *                value. If there is no resolution list, null is returned.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If you don't specify the valueSelectionStrategy, the default is
    *          OriginalValue. </p>
    */
@@ -3298,7 +3364,7 @@ export interface CreateUploadUrlRequest {}
 export interface CreateUploadUrlResponse {
   /**
    * <p>An identifier for a unique import job. Use it when you call the
-   *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html">StartImport</a> operation.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html">StartImport</a> operation.</p>
    */
   importId?: string;
 
@@ -3363,9 +3429,12 @@ export interface DeleteBotRequest {
   botId: string | undefined;
 
   /**
-   * <p>When <code>true</code>, Amazon Lex doesn't check to see if another
-   *          resource, such as an alias, is using the bot before it is
-   *          deleted.</p>
+   * <p>By default, Amazon Lex checks if any other resource, such as an alias or
+   *          bot network, is using the bot version before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the bot is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the bot even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
@@ -3396,8 +3465,12 @@ export interface DeleteBotAliasRequest {
   botId: string | undefined;
 
   /**
-   * <p>When this parameter is true, Amazon Lex doesn't check to see if any other
-   *          resource is using the alias before it is deleted.</p>
+   * <p>By default, Amazon Lex checks if any other resource, such as a bot network,
+   *          is using the bot alias before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the alias is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the alias even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
@@ -3478,12 +3551,12 @@ export interface DeleteBotVersionRequest {
   botVersion: string | undefined;
 
   /**
-   * <p>By default, the <code>DeleteBotVersion</code> operations throws a
-   *             <code>ResourceInUseException</code> exception if you try to delete a
-   *          bot version that has an alias pointing at it. Set the
-   *             <code>skipResourceInUseCheck</code> parameter to <code>true</code>
-   *          to skip this check and remove the version even if an alias points to
-   *          it.</p>
+   * <p>By default, Amazon Lex checks if any other resource, such as an alias or bot network,
+   *          is using the bot version before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the version is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the version even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
@@ -3565,7 +3638,7 @@ export interface DeleteExportResponse {
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the export will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html">ListExports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">
+   *          the export will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">
    *             DescribeExport</a> operation with the export identifier will
    *          fail.</p>
    */
@@ -3594,7 +3667,7 @@ export interface DeleteImportResponse {
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
+   *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
    *          fail.</p>
    */
   importStatus?: ImportStatus | string;
@@ -3773,7 +3846,7 @@ export interface DeleteUtterancesRequest {
 
   /**
    * <p>The unique identifier of the session with the user. The ID is
-   *          returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.</p>
+   *          returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.</p>
    */
   sessionId?: string;
 }
@@ -3838,6 +3911,22 @@ export interface DescribeBotResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The type of the bot that was described.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The list of bots in the network that was described.</p>
+   */
+  botMembers?: BotMember[];
+
+  /**
+   * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
+   *          a list of reasons that the bot couldn't be built.</p>
+   */
+  failureReasons?: string[];
 }
 
 export interface DescribeBotAliasRequest {
@@ -3851,6 +3940,21 @@ export interface DescribeBotAliasRequest {
    *          describe.</p>
    */
   botId: string | undefined;
+}
+
+/**
+ * <p>A network of bots.</p>
+ */
+export interface ParentBotNetwork {
+  /**
+   * <p>The identifier of the network of bots assigned by Amazon Lex.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the network of bots.</p>
+   */
+  botVersion: string | undefined;
 }
 
 export interface DescribeBotAliasResponse {
@@ -3919,6 +4023,11 @@ export interface DescribeBotAliasResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>A list of the networks to which the bot alias you described belongs.</p>
+   */
+  parentBotNetworks?: ParentBotNetwork[];
 }
 
 export interface DescribeBotLocaleRequest {
@@ -4274,7 +4383,7 @@ export interface DescribeBotVersionResponse {
   botName?: string;
 
   /**
-   * <p>The version of the bot to describe.</p>
+   * <p>The version of the bot that was described.</p>
    */
   botVersion?: string;
 
@@ -4317,6 +4426,21 @@ export interface DescribeBotVersionResponse {
    *          created.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>A list of the networks to which the bot version you described belongs.</p>
+   */
+  parentBotNetworks?: ParentBotNetwork[];
+
+  /**
+   * <p>The type of the bot in the version that was described.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The members of bot network in the version that was described.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 export interface DescribeCustomVocabularyMetadataRequest {
@@ -4721,7 +4845,7 @@ export enum ExportFilterOperator {
 }
 
 /**
- * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html">ListExports</a> operation</p>
+ * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation</p>
  */
 export interface ExportFilter {
   /**
@@ -4812,7 +4936,7 @@ export enum ImportFilterOperator {
 }
 
 /**
- * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html">ListImports</a> operation.</p>
+ * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
  */
 export interface ImportFilter {
   /**
@@ -5659,8 +5783,8 @@ export interface ListBuiltInSlotTypesResponse {
 
 export interface ListCustomVocabularyItemsRequest {
   /**
-   * <p>The unique identifier of the bot to the list custom vocabulary
-   *          request.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botId: string | undefined;
 
@@ -5671,14 +5795,15 @@ export interface ListCustomVocabularyItemsRequest {
   botVersion: string | undefined;
 
   /**
-   * <p>The locale identifier of the bot to the list custom vocabulary
-   *          request.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see Supported
+   *          languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</p>
    */
   localeId: string | undefined;
 
   /**
-   * <p>The maximum results to the list custom vocabulary
-   *          request.</p>
+   * <p>The maximum number of items returned by the list operation.</p>
    */
   maxResults?: number;
 
@@ -5691,20 +5816,20 @@ export interface ListCustomVocabularyItemsRequest {
 
 export interface ListCustomVocabularyItemsResponse {
   /**
-   * <p>The unique identifier of the bot to the list custom vocabulary
-   *          response.</p>
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
    */
   botId?: string;
 
   /**
-   * <p>The bot version of the bot to the list custom vocabulary
-   *          response.</p>
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
    */
   botVersion?: string;
 
   /**
-   * <p>The locale identifier of the bot to the list custom vocabulary
-   *          response.</p>
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    */
   localeId?: string;
 
@@ -6703,7 +6828,7 @@ export interface StartBotRecommendationResponse {
 export interface StartImportRequest {
   /**
    * <p>The unique identifier for the import. It is included in the response
-   *          from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html">CreateUploadUrl</a> operation.</p>
+   *          from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateUploadUrl.html">CreateUploadUrl</a> operation.</p>
    */
   importId: string | undefined;
 
@@ -6835,24 +6960,6 @@ export interface TagResourceRequest {
    */
   tags: Record<string, string> | undefined;
 }
-
-export interface TagResourceResponse {}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove the tags
-   *          from.</p>
-   */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>A list of tag keys to remove from the resource. If a tag key does
-   *          not exist on the resource, it is ignored.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export interface UntagResourceResponse {}
 
 /**
  * @internal
@@ -7136,6 +7243,13 @@ export const BotLocaleSortByFilterSensitiveLog = (obj: BotLocaleSortBy): any => 
  * @internal
  */
 export const BotLocaleSummaryFilterSensitiveLog = (obj: BotLocaleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotMemberFilterSensitiveLog = (obj: BotMember): any => ({
   ...obj,
 });
 
@@ -7938,6 +8052,13 @@ export const DescribeBotAliasRequestFilterSensitiveLog = (obj: DescribeBotAliasR
 /**
  * @internal
  */
+export const ParentBotNetworkFilterSensitiveLog = (obj: ParentBotNetwork): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeBotAliasResponseFilterSensitiveLog = (obj: DescribeBotAliasResponse): any => ({
   ...obj,
 });
@@ -8546,26 +8667,5 @@ export const StopBotRecommendationResponseFilterSensitiveLog = (obj: StopBotReco
  * @internal
  */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
 });

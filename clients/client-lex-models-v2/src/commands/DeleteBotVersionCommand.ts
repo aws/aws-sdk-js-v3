@@ -29,8 +29,8 @@ export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific version of a bot. To delete all version of a bot,
- *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a> operation.</p>
+ * <p>Deletes a specific version of a bot. To delete all versions of a bot,
+ *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

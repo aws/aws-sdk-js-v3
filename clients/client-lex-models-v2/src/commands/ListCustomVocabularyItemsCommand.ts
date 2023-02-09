@@ -29,8 +29,8 @@ export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabul
 export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
 
 /**
- * <p>List custom vocabulary items for the specified locale in the
- *          specified bot.</p>
+ * <p>Paginated list of custom vocabulary items for a given bot locale's
+ *          custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

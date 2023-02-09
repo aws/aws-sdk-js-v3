@@ -185,6 +185,7 @@ import {
   BotLocaleImportSpecification,
   BotLocaleSortBy,
   BotLocaleSummary,
+  BotMember,
   BotRecommendationResults,
   BotRecommendationResultStatistics,
   BotRecommendationSummary,
@@ -247,6 +248,7 @@ import {
   NewCustomVocabularyItem,
   ObfuscationSetting,
   OutputContext,
+  ParentBotNetwork,
   PathFormat,
   PlainTextMessage,
   PreconditionFailedException,
@@ -450,8 +452,10 @@ export const serializeAws_restJson1CreateBotCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
   body = JSON.stringify({
+    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
     ...(input.botName != null && { botName: input.botName }),
     ...(input.botTags != null && { botTags: serializeAws_restJson1TagMap(input.botTags, context) }),
+    ...(input.botType != null && { botType: input.botType }),
     ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
@@ -2131,7 +2135,9 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
     ...(input.botName != null && { botName: input.botName }),
+    ...(input.botType != null && { botType: input.botType }),
     ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
@@ -2753,6 +2759,9 @@ export const deserializeAws_restJson1CreateBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
@@ -2761,6 +2770,9 @@ export const deserializeAws_restJson1CreateBotCommand = async (
   }
   if (data.botTags != null) {
     contents.botTags = deserializeAws_restJson1TagMap(data.botTags, context);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -4370,11 +4382,17 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -4384,6 +4402,9 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
+  }
+  if (data.failureReasons != null) {
+    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
   }
   if (data.idleSessionTTLInSeconds != null) {
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
@@ -4485,6 +4506,9 @@ export const deserializeAws_restJson1DescribeBotAliasCommand = async (
   }
   if (data.lastUpdatedDateTime != null) {
     contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
+  }
+  if (data.parentBotNetworks != null) {
+    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
   }
   if (data.sentimentAnalysisSettings != null) {
     contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
@@ -4734,11 +4758,17 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
@@ -4757,6 +4787,9 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
   }
   if (data.idleSessionTTLInSeconds != null) {
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
+  }
+  if (data.parentBotNetworks != null) {
+    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
   }
   if (data.roleArn != null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -6771,11 +6804,17 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -7894,6 +7933,24 @@ const serializeAws_restJson1BotLocaleSortBy = (input: BotLocaleSortBy, context: 
     ...(input.attribute != null && { attribute: input.attribute }),
     ...(input.order != null && { order: input.order }),
   };
+};
+
+const serializeAws_restJson1BotMember = (input: BotMember, context: __SerdeContext): any => {
+  return {
+    ...(input.botMemberAliasId != null && { botMemberAliasId: input.botMemberAliasId }),
+    ...(input.botMemberAliasName != null && { botMemberAliasName: input.botMemberAliasName }),
+    ...(input.botMemberId != null && { botMemberId: input.botMemberId }),
+    ...(input.botMemberName != null && { botMemberName: input.botMemberName }),
+    ...(input.botMemberVersion != null && { botMemberVersion: input.botMemberVersion }),
+  };
+};
+
+const serializeAws_restJson1BotMembers = (input: BotMember[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1BotMember(entry, context);
+    });
 };
 
 const serializeAws_restJson1BotSortBy = (input: BotSortBy, context: __SerdeContext): any => {
@@ -9635,6 +9692,28 @@ const deserializeAws_restJson1BotLocaleSummaryList = (output: any, context: __Se
   return retVal;
 };
 
+const deserializeAws_restJson1BotMember = (output: any, context: __SerdeContext): BotMember => {
+  return {
+    botMemberAliasId: __expectString(output.botMemberAliasId),
+    botMemberAliasName: __expectString(output.botMemberAliasName),
+    botMemberId: __expectString(output.botMemberId),
+    botMemberName: __expectString(output.botMemberName),
+    botMemberVersion: __expectString(output.botMemberVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1BotMembers = (output: any, context: __SerdeContext): BotMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BotMember(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1BotRecommendationResults = (
   output: any,
   context: __SerdeContext
@@ -9698,6 +9777,7 @@ const deserializeAws_restJson1BotSummary = (output: any, context: __SerdeContext
     botId: __expectString(output.botId),
     botName: __expectString(output.botName),
     botStatus: __expectString(output.botStatus),
+    botType: __expectString(output.botType),
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime != null
@@ -10588,6 +10668,25 @@ const deserializeAws_restJson1OutputContextsList = (output: any, context: __Serd
         return null as any;
       }
       return deserializeAws_restJson1OutputContext(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ParentBotNetwork = (output: any, context: __SerdeContext): ParentBotNetwork => {
+  return {
+    botId: __expectString(output.botId),
+    botVersion: __expectString(output.botVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1ParentBotNetworks = (output: any, context: __SerdeContext): ParentBotNetwork[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ParentBotNetwork(entry, context);
     });
   return retVal;
 };
