@@ -27,7 +27,13 @@ export interface StartMeetingTranscriptionCommandInput extends StartMeetingTrans
 export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts transcription for the specified <code>meetingId</code>.</p>
+ * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+ *             Using Amazon Chime SDK live transcription
+ *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
+ *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
