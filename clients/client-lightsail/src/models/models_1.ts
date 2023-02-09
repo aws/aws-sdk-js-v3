@@ -4954,7 +4954,8 @@ export interface UpdateInstanceMetadataOptionsRequest {
 
 export interface UpdateInstanceMetadataOptionsResult {
   /**
-   * <p>Describes the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }

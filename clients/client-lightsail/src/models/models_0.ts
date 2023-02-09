@@ -1285,7 +1285,8 @@ export interface AutoSnapshotDetails {
 }
 
 /**
- * <p>Describes an Availability Zone.</p>
+ * <p>Describes an Availability Zone. This is returned only as part of a <code>GetRegions</code>
+ *       request.</p>
  */
 export interface AvailabilityZone {
   /**
@@ -3405,7 +3406,7 @@ export interface ContainerServicePower {
 }
 
 /**
- * <p>Describes the login information for the container image registry of an Amazon Lightsail
+ * <p>Describes the sign-in credentials for the container image registry of an Amazon Lightsail
  *       account.</p>
  */
 export interface ContainerServiceRegistryLogin {
@@ -3422,7 +3423,7 @@ export interface ContainerServiceRegistryLogin {
   password?: string;
 
   /**
-   * <p>The timestamp of when the container image registry username and password expire.</p>
+   * <p>The timestamp of when the container image registry sign-in credentials expire.</p>
    *          <p>The log in credentials expire 12 hours after they are created, at which point you will
    *       need to create a new set of log in credentials using the
    *         <code>CreateContainerServiceRegistryLogin</code> action.</p>
@@ -4434,9 +4435,10 @@ export interface DomainEntry {
   target?: string;
 
   /**
-   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the
-   *       Lightsail load balancer. You can include an alias (A type) record in your request, which
-   *       points to a load balancer DNS name and routes traffic to your load balancer.</p>
+   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the Lightsail load balancer, Lightsail container service, Lightsail content delivery network (CDN) distribution, or another Amazon Web Services
+   *       resource. You can include an alias (A type) record in your request, which points to the DNS
+   *       name of a load balancer, container service, CDN distribution, or other Amazon Web Services
+   *       resource and routes traffic to that resource.</p>
    */
   isAlias?: boolean;
 
