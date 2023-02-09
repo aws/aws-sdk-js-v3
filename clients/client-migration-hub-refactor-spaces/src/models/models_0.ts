@@ -598,6 +598,7 @@ export class ValidationException extends __BaseException {
 }
 
 export enum NetworkFabricType {
+  NONE = "NONE",
   TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
 }
 
