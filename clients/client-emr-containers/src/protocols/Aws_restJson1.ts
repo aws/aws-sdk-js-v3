@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -89,6 +90,8 @@ import {
   ParametricMonitoringConfiguration,
   ParametricS3MonitoringConfiguration,
   ResourceNotFoundException,
+  RetryPolicyConfiguration,
+  RetryPolicyExecution,
   S3MonitoringConfiguration,
   SparkSqlJobDriver,
   SparkSubmitJobDriver,
@@ -607,6 +610,9 @@ export const serializeAws_restJson1StartJobRunCommand = async (
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
+    ...(input.retryPolicyConfiguration != null && {
+      retryPolicyConfiguration: serializeAws_restJson1RetryPolicyConfiguration(input.retryPolicyConfiguration, context),
+    }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -1815,6 +1821,15 @@ const serializeAws_restJson1ParametricS3MonitoringConfiguration = (
   };
 };
 
+const serializeAws_restJson1RetryPolicyConfiguration = (
+  input: RetryPolicyConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxAttempts != null && { maxAttempts: input.maxAttempts }),
+  };
+};
+
 const serializeAws_restJson1S3MonitoringConfiguration = (
   input: S3MonitoringConfiguration,
   context: __SerdeContext
@@ -2065,6 +2080,14 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
     jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
     name: __expectString(output.name),
     releaseLabel: __expectString(output.releaseLabel),
+    retryPolicyConfiguration:
+      output.retryPolicyConfiguration != null
+        ? deserializeAws_restJson1RetryPolicyConfiguration(output.retryPolicyConfiguration, context)
+        : undefined,
+    retryPolicyExecution:
+      output.retryPolicyExecution != null
+        ? deserializeAws_restJson1RetryPolicyExecution(output.retryPolicyExecution, context)
+        : undefined,
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -2200,6 +2223,21 @@ const deserializeAws_restJson1ParametricS3MonitoringConfiguration = (
 ): ParametricS3MonitoringConfiguration => {
   return {
     logUri: __expectString(output.logUri),
+  } as any;
+};
+
+const deserializeAws_restJson1RetryPolicyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RetryPolicyConfiguration => {
+  return {
+    maxAttempts: __expectInt32(output.maxAttempts),
+  } as any;
+};
+
+const deserializeAws_restJson1RetryPolicyExecution = (output: any, context: __SerdeContext): RetryPolicyExecution => {
+  return {
+    currentAttemptCount: __expectInt32(output.currentAttemptCount),
   } as any;
 };
 
