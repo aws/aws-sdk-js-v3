@@ -9,7 +9,7 @@
 
 AWS SDK for JavaScript LexRuntimeV2 Client for Node.js, Browser and React Native.
 
-<p></p>
+<p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
 
 ## Installing
 

@@ -26,7 +26,7 @@ import {
 import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
 
 /**
- * <p></p>
+ * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
  */
 export class LexRuntimeV2 extends LexRuntimeV2Client {
   /**
