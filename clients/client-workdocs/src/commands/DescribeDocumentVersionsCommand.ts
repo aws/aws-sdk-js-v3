@@ -30,7 +30,7 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
 
 /**
  * <p>Retrieves the document versions for the specified document.</p>
- *         <p>By default, only active versions are returned.</p>
+ *          <p>By default, only active versions are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

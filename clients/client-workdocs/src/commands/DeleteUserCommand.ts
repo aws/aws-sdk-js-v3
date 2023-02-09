@@ -25,6 +25,9 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
+ *          <important>
+ *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

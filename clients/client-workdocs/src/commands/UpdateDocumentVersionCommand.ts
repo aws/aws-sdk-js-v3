@@ -25,7 +25,7 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the status of the document version to ACTIVE. </p>
- *         <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
+ *          <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
  *             in a document upload, after the client uploads the document to an S3-presigned URL
  *             returned by <a>InitiateDocumentVersionUpload</a>. </p>
  * @example
