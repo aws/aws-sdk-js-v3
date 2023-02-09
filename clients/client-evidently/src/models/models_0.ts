@@ -537,7 +537,6 @@ export interface CreateExperimentRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with an experiment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -898,7 +897,6 @@ export interface CreateFeatureRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a feature.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1128,7 +1126,6 @@ export interface ScheduledSplitConfig {
    * <p>The traffic allocation percentages among the feature variations during one step of a
    *       launch. This is a set of key-value pairs. The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
-   *
    *          <p>The values is expressed in thousandths of a percent,
    *        so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>
    *          <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000,
@@ -1209,7 +1206,6 @@ export interface CreateLaunchRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a launch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1508,7 +1504,6 @@ export interface CreateProjectRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a project.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1687,7 +1682,6 @@ export interface CreateSegmentRequest {
    *       permissions by granting a user
    *       permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a segment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1879,7 +1873,6 @@ export interface EvaluateFeatureRequest {
    *       this value to match user sessions with defined audience segments. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
    *         audience</a>.</p>
-   *
    *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    */
   evaluationContext?: __LazyJsonString | string;

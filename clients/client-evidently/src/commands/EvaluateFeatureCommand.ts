@@ -35,7 +35,6 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  *          <p>The first rules that are evaluated are the override rules. If the user's
  *         <code>entityID</code> matches an override rule, the user is served the variation specified
  *       by that rule.</p>
- *
  *          <p>If there is a current launch with this feature that uses segment overrides, and
  *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
  *       segment override, the configuration in the segment overrides is used. For more information
