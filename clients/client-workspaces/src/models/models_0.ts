@@ -783,26 +783,26 @@ export interface CreateIpGroupResult {
 }
 
 /**
- * <p>Describes a Standby WorkSpace.</p>
+ * <p>Describes a standby WorkSpace.</p>
  */
 export interface StandbyWorkspace {
   /**
-   * <p>The identifier of the Standby WorkSpace.</p>
+   * <p>The identifier of the standby WorkSpace.</p>
    */
   PrimaryWorkspaceId: string | undefined;
 
   /**
-   * <p>The volume encryption key of the Standby WorkSpace.</p>
+   * <p>The volume encryption key of the standby WorkSpace.</p>
    */
   VolumeEncryptionKey?: string;
 
   /**
-   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The tags associated with the Standby WorkSpace.</p>
+   * <p>The tags associated with the standby WorkSpace.</p>
    */
   Tags?: Tag[];
 }
@@ -814,27 +814,27 @@ export interface CreateStandbyWorkspacesRequest {
   PrimaryRegion: string | undefined;
 
   /**
-   * <p>Information about the Standby WorkSpace to be created.</p>
+   * <p>Information about the standby WorkSpace to be created.</p>
    */
   StandbyWorkspaces: StandbyWorkspace[] | undefined;
 }
 
 /**
- * <p>Describes the Standby WorkSpace that could not be created.</p>
+ * <p>Describes the standby WorkSpace that could not be created.</p>
  */
 export interface FailedCreateStandbyWorkspacesRequest {
   /**
-   * <p>Information about the Standby WorkSpace that could not be created.</p>
+   * <p>Information about the standby WorkSpace that could not be created.</p>
    */
   StandbyWorkspaceRequest?: StandbyWorkspace;
 
   /**
-   * <p>The error code that is returned if the Standby WorkSpace could not be created.</p>
+   * <p>The error code that is returned if the standby WorkSpace could not be created.</p>
    */
   ErrorCode?: string;
 
   /**
-   * <p>The text of the error message that is returned if the Standby WorkSpace could not be created.</p>
+   * <p>The text of the error message that is returned if the standby WorkSpace could not be created.</p>
    */
   ErrorMessage?: string;
 }
@@ -860,11 +860,11 @@ export enum WorkspaceState {
 }
 
 /**
- * <p>Information about the Standby WorkSpace.</p>
+ * <p>Information about the standby WorkSpace.</p>
  */
 export interface PendingCreateStandbyWorkspacesRequest {
   /**
-   * <p>Describes the Standby WorkSpace that was created.</p>
+   * <p>Describes the standby WorkSpace that was created.</p>
    *          <p>Because this operation is asynchronous, the identifier returned is not immediately
    *          available for use with other operations. For example, if you call
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
@@ -874,29 +874,29 @@ export interface PendingCreateStandbyWorkspacesRequest {
   UserName?: string;
 
   /**
-   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
    */
   DirectoryId?: string;
 
   /**
-   * <p>The operational state of the Standby WorkSpace.</p>
+   * <p>The operational state of the standby WorkSpace.</p>
    */
   State?: WorkspaceState | string;
 
   /**
-   * <p>The identifier of the Standby WorkSpace.</p>
+   * <p>The identifier of the standby WorkSpace.</p>
    */
   WorkspaceId?: string;
 }
 
 export interface CreateStandbyWorkspacesResult {
   /**
-   * <p>Information about the Standby WorkSpace that could not be created. </p>
+   * <p>Information about the standby WorkSpace that could not be created. </p>
    */
   FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[];
 
   /**
-   * <p>Information about the Standby WorkSpace that was created.</p>
+   * <p>Information about the standby WorkSpace that was created.</p>
    */
   PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[];
 }
@@ -984,7 +984,6 @@ export interface CreateWorkspaceBundleRequest {
 
   /**
    * <p>The tags associated with the bundle.</p>
-   *
    *          <note>
    *             <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that
    *             grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
@@ -1276,8 +1275,8 @@ export enum StandbyWorkspaceRelationshipType {
 }
 
 /**
- * <p>Describes the related WorkSpace. The related WorkSpace could be a Standby WorkSpace or
- *          Primary WorkSpace related to the specified WorkSpace.</p>
+ * <p>Describes the related WorkSpace. The related WorkSpace could be a standby WorkSpace or
+ *          primary WorkSpace related to the specified WorkSpace.</p>
  */
 export interface RelatedWorkspaceProperties {
   /**
@@ -1393,7 +1392,7 @@ export interface Workspace {
   ModificationStates?: ModificationState[];
 
   /**
-   * <p>The Standby WorkSpace or Primary WorkSpace related to the specified WorkSpace.</p>
+   * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
    */
   RelatedWorkspaces?: RelatedWorkspaceProperties[];
 }
@@ -2151,7 +2150,6 @@ export interface SamlProperties {
    * <p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to
    *          the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query
    *          parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>
-   *
    *          <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state
    *          URL. Consult your IdP documentation for more information.</p>
    */

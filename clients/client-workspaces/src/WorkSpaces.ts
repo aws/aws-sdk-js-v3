@@ -595,7 +595,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Creates a Standby WorkSpace in a secondary region.</p>
+   * <p>Creates a standby WorkSpace in a secondary Region.</p>
    */
   public createStandbyWorkspaces(
     args: CreateStandbyWorkspacesCommandInput,
@@ -654,15 +654,15 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Creates a new updated WorkSpace image based on the specified source image. The new
-   *          updated WorkSpace image has the latest drivers and other updates required by the Amazon
-   *          WorkSpaces components.</p>
+   *          updated WorkSpace image has the latest drivers and other updates required by the
+   *          Amazon WorkSpaces components.</p>
    *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
    *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
    *             DescribeWorkspaceImages</a>.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images
+   *                   <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
    *                   can be programmatically updated at this time.</p>
    *                </li>
    *                <li>
@@ -1758,7 +1758,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) or Windows Server 2016 BYOL
+   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
    *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
    *          in your Amazon Web Services account, and you must own the image. For more information about
    *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
@@ -2612,7 +2612,6 @@ export class WorkSpaces extends WorkSpacesClient {
    * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
    *             Update a Custom WorkSpaces Bundle</a>.</p>
-   *
    *          <important>
    *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
    *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
