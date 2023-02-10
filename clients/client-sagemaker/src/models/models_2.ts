@@ -13,7 +13,6 @@ import {
   AlgorithmStatusDetails,
   AlgorithmSummary,
   AlgorithmValidationSpecification,
-  AppImageConfigSortKey,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
@@ -97,7 +96,6 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
-  DeployedImage,
   DirectInternetAccess,
   DriftCheckBaselines,
   EndpointInfo,
@@ -178,6 +176,42 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+export interface DeleteWorkteamResponse {
+  /**
+   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
+   *             returns <code>false</code>.</p>
+   */
+  Success: boolean | undefined;
+}
+
+/**
+ * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
+ *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
+ *             of the primary container when you created the model hosted in this
+ *                 <code>ProductionVariant</code>, the path resolves to a path of the form
+ *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
+ *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+ */
+export interface DeployedImage {
+  /**
+   * <p>The image path you specified when you created the model.</p>
+   */
+  SpecifiedImage?: string;
+
+  /**
+   * <p>The specific digest path of the image hosted in this
+   *             <code>ProductionVariant</code>.</p>
+   */
+  ResolvedImage?: string;
+
+  /**
+   * <p>The date and time when the image path for the model resolved to the
+   *                 <code>ResolvedImage</code>
+   *          </p>
+   */
+  ResolutionTime?: Date;
+}
 
 export enum StageStatus {
   Creating = "CREATING",
@@ -646,7 +680,7 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobArn: string | undefined;
 
   /**
-   * <p>Returns the input data configuration for the AutoML job..</p>
+   * <p>Returns the input data configuration for the AutoML job.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -732,7 +766,7 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobArtifacts?: AutoMLJobArtifacts;
 
   /**
-   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
+   * <p>Contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
    *             <code>CompletionCriteria</code>. If you do not provide these values, they are
    *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
    */
@@ -2533,7 +2567,7 @@ export interface DescribeHubContentResponse {
   HubContentDescription?: string;
 
   /**
-   * <p>Markdown files associated with the hub content to import.</p>
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
    */
   HubContentMarkdown?: string;
 
@@ -9102,7 +9136,7 @@ export interface ImportHubContentRequest {
   HubContentDescription?: string;
 
   /**
-   * <p>Markdown files associated with the hub content to import.</p>
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
    */
   HubContentMarkdown?: string;
 
@@ -9642,66 +9676,19 @@ export interface ListAliasesRequest {
   NextToken?: string;
 }
 
-export interface ListAliasesResponse {
-  /**
-   * <p>A list of SageMaker image version aliases.</p>
-   */
-  SageMakerImageVersionAliases?: string[];
+/**
+ * @internal
+ */
+export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListAppImageConfigsRequest {
-  /**
-   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
-   *         10. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
-   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
-   */
-  ModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
-   */
-  ModifiedTimeAfter?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: AppImageConfigSortKey | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
+/**
+ * @internal
+ */
+export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11439,19 +11426,5 @@ export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput
  * @internal
  */
 export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
   ...obj,
 });

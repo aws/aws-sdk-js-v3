@@ -42,13 +42,20 @@ import {
   WorkforceVpcConfigRequest,
 } from "./models_1";
 import { DesiredWeightAndCapacity, FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
-import {
-  NestedFilters,
-  ProfilerConfigForUpdate,
-  ResourceConfigForUpdate,
-  SearchSortOrder,
-  VariantPropertyType,
-} from "./models_3";
+import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   */
+  DomainArn?: string;
+}
+
+export enum VariantPropertyType {
+  DataCaptureConfig = "DataCaptureConfig",
+  DesiredInstanceCount = "DesiredInstanceCount",
+  DesiredWeight = "DesiredWeight",
+}
 
 /**
  * <p>Specifies a production variant property type for an Endpoint.</p>
@@ -1203,6 +1210,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

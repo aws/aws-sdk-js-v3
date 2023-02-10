@@ -808,6 +808,8 @@ import {
   AsyncInferenceNotificationConfig,
   AsyncInferenceOutputConfig,
   AthenaDatasetDefinition,
+  AutoMLAlgorithm,
+  AutoMLAlgorithmConfig,
   AutoMLCandidate,
   AutoMLCandidateGenerationConfig,
   AutoMLCandidateStep,
@@ -899,8 +901,6 @@ import {
   CreateEdgeDeploymentPlanResponse,
   CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
-  CreateEndpointConfigInput,
-  CreateEndpointConfigOutput,
   CreateEndpointInput,
   CreateEndpointOutput,
   CustomImage,
@@ -1000,6 +1000,8 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateEndpointConfigInput,
+  CreateEndpointConfigOutput,
   CreateExperimentRequest,
   CreateExperimentResponse,
   CreateFeatureGroupRequest,
@@ -1139,8 +1141,6 @@ import {
   DeleteWorkforceRequest,
   DeleteWorkforceResponse,
   DeleteWorkteamRequest,
-  DeleteWorkteamResponse,
-  DeployedImage,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1270,6 +1270,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteWorkteamResponse,
+  DeployedImage,
   DeploymentStageStatusSummary,
   DeregisterDevicesRequest,
   DescribeActionRequest,
@@ -1470,8 +1472,6 @@ import {
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
   ListAliasesRequest,
-  ListAliasesResponse,
-  ListAppImageConfigsRequest,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1513,6 +1513,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListAliasesResponse,
+  ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
   ListAppsResponse,
@@ -1762,7 +1764,6 @@ import {
   UpdateDeviceFleetRequest,
   UpdateDevicesRequest,
   UpdateDomainRequest,
-  UpdateDomainResponse,
   UserProfileDetails,
   Vertex,
 } from "../models/models_3";
@@ -1770,6 +1771,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateDomainResponse,
   UpdateEndpointInput,
   UpdateEndpointOutput,
   UpdateEndpointWeightsAndCapacitiesInput,
@@ -17848,11 +17850,38 @@ const serializeAws_json1_1AttributeNames = (input: string[], context: __SerdeCon
     });
 };
 
+const serializeAws_json1_1AutoMLAlgorithmConfig = (input: AutoMLAlgorithmConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoMLAlgorithms != null && {
+      AutoMLAlgorithms: serializeAws_json1_1AutoMLAlgorithms(input.AutoMLAlgorithms, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AutoMLAlgorithms = (input: (AutoMLAlgorithm | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1AutoMLAlgorithmsConfig = (input: AutoMLAlgorithmConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1AutoMLCandidateGenerationConfig = (
   input: AutoMLCandidateGenerationConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlgorithmsConfig != null && {
+      AlgorithmsConfig: serializeAws_json1_1AutoMLAlgorithmsConfig(input.AlgorithmsConfig, context),
+    }),
     ...(input.FeatureSpecificationS3Uri != null && { FeatureSpecificationS3Uri: input.FeatureSpecificationS3Uri }),
   };
 };
@@ -26700,6 +26729,42 @@ const deserializeAws_json1_1AttributeNames = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1AutoMLAlgorithmConfig = (output: any, context: __SerdeContext): AutoMLAlgorithmConfig => {
+  return {
+    AutoMLAlgorithms:
+      output.AutoMLAlgorithms != null
+        ? deserializeAws_json1_1AutoMLAlgorithms(output.AutoMLAlgorithms, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithms = (output: any, context: __SerdeContext): (AutoMLAlgorithm | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithmsConfig = (
+  output: any,
+  context: __SerdeContext
+): AutoMLAlgorithmConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1AutoMLCandidate = (output: any, context: __SerdeContext): AutoMLCandidate => {
   return {
     CandidateName: __expectString(output.CandidateName),
@@ -26738,6 +26803,10 @@ const deserializeAws_json1_1AutoMLCandidateGenerationConfig = (
   context: __SerdeContext
 ): AutoMLCandidateGenerationConfig => {
   return {
+    AlgorithmsConfig:
+      output.AlgorithmsConfig != null
+        ? deserializeAws_json1_1AutoMLAlgorithmsConfig(output.AlgorithmsConfig, context)
+        : undefined,
     FeatureSpecificationS3Uri: __expectString(output.FeatureSpecificationS3Uri),
   } as any;
 };
@@ -31563,6 +31632,7 @@ const deserializeAws_json1_1FinalAutoMLJobObjectiveMetric = (
 ): FinalAutoMLJobObjectiveMetric => {
   return {
     MetricName: __expectString(output.MetricName),
+    StandardMetricName: __expectString(output.StandardMetricName),
     Type: __expectString(output.Type),
     Value: __limitedParseFloat32(output.Value),
   } as any;

@@ -8,6 +8,7 @@ import {
   AppSpecification,
   AppType,
   ArtifactSource,
+  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AwsManagedHumanLoopRequestSource,
   BatchDataCaptureConfig,
@@ -28,7 +29,9 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  DataCaptureConfig,
   EndpointInput,
+  ExplainerConfig,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -49,6 +52,7 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
+  ProductionVariant,
   ProductionVariantInstanceType,
   ResourceConfig,
   StoppingCondition,
@@ -62,6 +66,104 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+export interface CreateEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a> request. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint.</p>
+   */
+  ProductionVariants: ProductionVariant[] | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfig;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
+   *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
+   *             hosts the endpoint.</p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
+   *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
+   *                 Policies in Amazon Web Services KMS </a>
+   *          </p>
+   *          <note>
+   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
+   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
+   *                 You can't request a <code>KmsKeyId</code> when using an instance type with local
+   *                 storage. If any of the models that you specify in the
+   *                     <code>ProductionVariants</code> parameter use nitro-based instances with local
+   *                 storage, do not specify a value for the <code>KmsKeyId</code> parameter. If you
+   *                 specify a value for <code>KmsKeyId</code> when using any nitro-based instances with
+   *                 local storage, the call to <code>CreateEndpointConfig</code> fails.</p>
+   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+   *                     Instance Store Volumes</a>.</p>
+   *          </note>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies configuration for how an endpoint performs asynchronous inference. This is a
+   *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
+   *             specify one variant for <code>ProductionVariants</code> and one variant for
+   *                 <code>ShadowProductionVariants</code>.</p>
+   */
+  ShadowProductionVariants?: ProductionVariant[];
+}
+
+export interface CreateEndpointConfigOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
+   */
+  EndpointConfigArn: string | undefined;
+}
 
 export interface CreateExperimentRequest {
   /**
@@ -278,7 +380,7 @@ export interface OnlineStoreSecurityConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The caller (either IAM user or IAM role) to all DataPlane operations
+   *          <p>The caller (either user or IAM role) to all DataPlane operations
    *             (<code>PutRecord</code>, <code>GetRecord</code>, <code>DeleteRecord</code>) must have
    *          the following permissions to the <code>KmsKeyId</code>:</p>
    *          <ul>
@@ -1250,7 +1352,7 @@ export interface CreateFlowDefinitionResponse {
  */
 export interface HubS3StorageConfig {
   /**
-   * <p>The Amazon S3 output path for the hub.</p>
+   * <p>The Amazon S3 bucket prefix for hosting hub content.</p>
    */
   S3OutputPath?: string;
 }
@@ -1454,7 +1556,7 @@ export interface HyperbandStrategyConfig {
   /**
    * <p>The minimum number of resources (such as epochs) that can be used by a training job
    *          launched by a hyperparameter tuning job. If the value for <code>MinResource</code> has not
-   *          been reached, the training job will not be stopped by <code>Hyperband</code>.</p>
+   *          been reached, the training job is not stopped by <code>Hyperband</code>.</p>
    */
   MinResource?: number;
 
@@ -9175,41 +9277,19 @@ export interface DeleteWorkteamRequest {
   WorkteamName: string | undefined;
 }
 
-export interface DeleteWorkteamResponse {
-  /**
-   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
-   *             returns <code>false</code>.</p>
-   */
-  Success: boolean | undefined;
-}
+/**
+ * @internal
+ */
+export const CreateEndpointConfigInputFilterSensitiveLog = (obj: CreateEndpointConfigInput): any => ({
+  ...obj,
+});
 
 /**
- * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
- *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
- *             of the primary container when you created the model hosted in this
- *                 <code>ProductionVariant</code>, the path resolves to a path of the form
- *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
- *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+ * @internal
  */
-export interface DeployedImage {
-  /**
-   * <p>The image path you specified when you created the model.</p>
-   */
-  SpecifiedImage?: string;
-
-  /**
-   * <p>The specific digest path of the image hosted in this
-   *             <code>ProductionVariant</code>.</p>
-   */
-  ResolvedImage?: string;
-
-  /**
-   * <p>The date and time when the image path for the model resolved to the
-   *                 <code>ResolvedImage</code>
-   *          </p>
-   */
-  ResolutionTime?: Date;
-}
+export const CreateEndpointConfigOutputFilterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11138,19 +11218,5 @@ export const DeleteWorkforceResponseFilterSensitiveLog = (obj: DeleteWorkforceRe
  * @internal
  */
 export const DeleteWorkteamRequestFilterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
   ...obj,
 });

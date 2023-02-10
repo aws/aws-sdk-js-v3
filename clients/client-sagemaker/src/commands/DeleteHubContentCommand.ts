@@ -25,6 +25,9 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the contents of a hub.</p>
+ *          <note>
+ *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

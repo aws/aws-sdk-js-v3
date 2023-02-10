@@ -7,6 +7,7 @@ import {
   AlgorithmSpecification,
   AppDetails,
   AppImageConfigDetails,
+  AppImageConfigSortKey,
   AppSecurityGroupManagement,
   AppSortKey,
   AppSpecification,
@@ -182,6 +183,67 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListAliasesResponse {
+  /**
+   * <p>A list of SageMaker image version aliases.</p>
+   */
+  SageMakerImageVersionAliases?: string[];
+
+  /**
+   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAppImageConfigsRequest {
+  /**
+   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
+   *         10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
+   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: AppImageConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
 
 export interface ListAppImageConfigsResponse {
   /**
@@ -8438,18 +8500,19 @@ export interface UpdateDomainRequest {
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 }
 
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   */
-  DomainArn?: string;
-}
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
 
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
+/**
+ * @internal
+ */
+export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10262,12 +10325,5 @@ export const UpdateDevicesRequestFilterSensitiveLog = (obj: UpdateDevicesRequest
  * @internal
  */
 export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
   ...obj,
 });

@@ -1948,7 +1948,7 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
    *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
-   *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.
+   *     policy, and Amazon Virtual Private Cloud (VPC) configurations.
    *     Users within a domain can share notebook files and other artifacts with each other.</p>
    *          <p>
    *             <b>EFS storage</b>
@@ -2151,7 +2151,7 @@ export class SageMaker extends SageMakerClient {
    *             API.</p>
    *          <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
    *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
-   *             S3 path you provided. Amazon Web Services STS is activated in your IAM user account by
+   *             S3 path you provided. Amazon Web Services STS is activated in your Amazon Web Services account by
    *             default. If you previously deactivated Amazon Web Services STS for a region, you need to
    *             reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
    *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
@@ -2412,6 +2412,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Create a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public createHub(args: CreateHubCommandInput, options?: __HttpHandlerOptions): Promise<CreateHubCommandOutput>;
   public createHub(args: CreateHubCommandInput, cb: (err: any, data?: CreateHubCommandOutput) => void): void;
@@ -4383,6 +4386,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Delete a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public deleteHub(args: DeleteHubCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHubCommandOutput>;
   public deleteHub(args: DeleteHubCommandInput, cb: (err: any, data?: DeleteHubCommandOutput) => void): void;
@@ -4409,6 +4415,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Delete the contents of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public deleteHubContent(
     args: DeleteHubContentCommandInput,
@@ -5972,6 +5981,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Describe a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public describeHub(args: DescribeHubCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHubCommandOutput>;
   public describeHub(args: DescribeHubCommandInput, cb: (err: any, data?: DescribeHubCommandOutput) => void): void;
@@ -5998,6 +6010,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Describe the content of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public describeHubContent(
     args: DescribeHubContentCommandInput,
@@ -7424,6 +7439,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Import hub content.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public importHubContent(
     args: ImportHubContentCommandInput,
@@ -8165,6 +8183,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>List the contents of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public listHubContents(
     args: ListHubContentsCommandInput,
@@ -8197,6 +8218,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>List hub content versions.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public listHubContentVersions(
     args: ListHubContentVersionsCommandInput,
@@ -8229,6 +8253,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>List all existing hubs.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public listHubs(args: ListHubsCommandInput, options?: __HttpHandlerOptions): Promise<ListHubsCommandOutput>;
   public listHubs(args: ListHubsCommandInput, cb: (err: any, data?: ListHubsCommandOutput) => void): void;
@@ -10150,7 +10177,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>A method for forcing the termination of a running job.</p>
+   * <p>A method for forcing a running job to shut down.</p>
    */
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
@@ -11083,6 +11110,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Update a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
    */
   public updateHub(args: UpdateHubCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHubCommandOutput>;
   public updateHub(args: UpdateHubCommandInput, cb: (err: any, data?: UpdateHubCommandOutput) => void): void;
