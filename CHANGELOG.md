@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.269.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.268.0...v3.269.0) (2023-02-10)
+
+
+### Features
+
+* **client-auto-scaling:** You can now either terminate/replace, ignore, or wait for EC2 Auto Scaling instances on standby or protected from scale in. Also, you can also roll back changes from a failed instance refresh. ([39dae43](https://github.com/aws/aws-sdk-js-v3/commit/39dae43c882e8aceb194f0057f6dcdb8f59b54b3))
+* **client-connect:** This update provides the Wisdom session ARN for contacts enabled for Wisdom in the chat channel. ([672092d](https://github.com/aws/aws-sdk-js-v3/commit/672092dbf10850029bcf6619224ae7781a9fde9e))
+* **client-ec2:** Adds support for waiters that automatically poll for an imported snapshot until it reaches the completed state. ([f4a09f3](https://github.com/aws/aws-sdk-js-v3/commit/f4a09f3ecaf92fd97252a5aaff706c056f7278bb))
+* **client-polly:** Amazon Polly adds two new neural Japanese voices - Kazuha, Tomoko ([6e4a848](https://github.com/aws/aws-sdk-js-v3/commit/6e4a84812c3f3d316b9cd8c4889569f8cea4b6ea))
+* **client-sagemaker:** Amazon SageMaker Autopilot adds support for selecting algorithms in CreateAutoMLJob API. ([ca2a385](https://github.com/aws/aws-sdk-js-v3/commit/ca2a3851a86fb997af245d7940b9777fadc9dd21))
+* **clients:** update client endpoints as of 2023-02-10 ([d734ab2](https://github.com/aws/aws-sdk-js-v3/commit/d734ab293053bd2efc21a3ff38cdb5b005f217a9))
+
+
+
+
+
 # [3.268.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.267.0...v3.268.0) (2023-02-09)
 
 
