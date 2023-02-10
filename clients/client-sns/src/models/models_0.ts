@@ -455,7 +455,16 @@ export interface CreateTopicInput {
    *                   <code>SignatureVersion</code> – The signature version corresponds to
    *                     the hashing algorithm used while creating the signature of the notifications,
    *                     subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
-   *                     By default, <code>SignatureVersion</code> is set to 1.</p>
+   *                     By default, <code>SignatureVersion</code> is set to <code>1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data
+   *                     to topic owner account if the sampled flag in the tracing header is true. This
+   *                     is only supported on standard topics.</p>
    *             </li>
    *          </ul>
    *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side
@@ -991,8 +1000,10 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SignatureVersion</code> – The version of the Amazon SNS signature used
-   *                     for the topic.</p>
+   *                   <code>SignatureVersion</code> – The signature version corresponds to
+   *                     the hashing algorithm used while creating the signature of the notifications,
+   *                     subscription confirmations, or unsubscribe confirmation messages sent by
+   *                     Amazon SNS.</p>
    *                <ul>
    *                   <li>
    *                      <p>By default, <code>SignatureVersion</code> is set to <b>1</b>. The signature is a Base64-encoded
@@ -1026,6 +1037,15 @@ export interface GetTopicAttributesResponse {
    *             <li>
    *                <p>
    *                   <code>TopicArn</code> – The topic's ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data
+   *                     to topic owner account if the sampled flag in the tracing header is true. This
+   *                     is only supported on standard topics.</p>
    *             </li>
    *          </ul>
    *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
@@ -1671,12 +1691,12 @@ export class PlatformApplicationDisabledException extends __BaseException {
 /**
  * <p>The user-specified message attribute value. For string data types, the value attribute
  *             has the same restrictions on the content as the message body. For more information, see
- *             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
  *          <p>Name, type, and value must not be empty or null. In addition, the message body should
  *             not be empty or null. All parts of the message attribute, including name, type, and
  *             value, are included in the message size restriction, which is currently 256 KB (262,144
  *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message attributes</a> and
- *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
+ *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
  *                 to a mobile phone</a> in the <i>Amazon SNS Developer Guide.</i>
  *          </p>
  */
@@ -1690,7 +1710,7 @@ export interface MessageAttributeValue {
 
   /**
    * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
-   *             Characters</a>.</p>
+   *                 Characters</a>.</p>
    */
   StringValue?: string;
 
@@ -1955,14 +1975,16 @@ export class InvalidBatchEntryIdException extends __BaseException {
 }
 
 /**
- * <p>Contains the details of a single Amazon SNS message along with an <code>Id</code> that identifies a message within the batch. </p>
+ * <p>Contains the details of a single Amazon SNS message along with an <code>Id</code> that
+ *             identifies a message within the batch. </p>
  */
 export interface PublishBatchRequestEntry {
   /**
    * <p>An identifier for the message in this batch.</p>
    *          <note>
    *             <p>The <code>Ids</code> of a batch request must be unique within a request. </p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_). </p>
+   *             <p>This identifier can have up to 80 characters. The following characters are
+   *                 accepted: alphanumeric characters, hyphens(-), and underscores (_). </p>
    *          </note>
    */
   Id: string | undefined;
@@ -1978,13 +2000,18 @@ export interface PublishBatchRequestEntry {
   Subject?: string;
 
   /**
-   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must: </p>
+   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
+   *             message for each protocol. For example, using one publish action, you can send a short
+   *             message to your SMS subscribers and a longer message to your email subscribers. If you
+   *             set <code>MessageStructure</code> to <code>json</code>, the value of the
+   *                 <code>Message</code> parameter must: </p>
    *          <ul>
    *             <li>
    *                <p>be a syntactically valid JSON object; and</p>
    *             </li>
    *             <li>
-   *                <p>contain at least a top-level JSON key of "default" with a value that is a string.</p>
+   *                <p>contain at least a top-level JSON key of "default" with a value that is a
+   *                     string.</p>
    *             </li>
    *          </ul>
    *          <p>You can define other top-level keys that define the message you want to send to a
@@ -1993,63 +2020,94 @@ export interface PublishBatchRequestEntry {
   MessageStructure?: string;
 
   /**
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
+   *                 <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in
+   *             the Amazon SNS Developer Guide.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
-   *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered.</p>
+   *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication
+   *             interval. If a message with a particular <code>MessageDeduplicationId</code> is sent
+   *             successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are
+   *             accepted successfully but aren't delivered.</p>
    *          <ul>
    *             <li>
    *                <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>
    *                <ul>
    *                   <li>
-   *                      <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p>
+   *                      <p>You may provide a <code>MessageDeduplicationId</code>
+   *                             explicitly.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p>
+   *                      <p>If you aren't able to provide a <code>MessageDeduplicationId</code>
+   *                             and you enable <code>ContentBasedDeduplication</code> for your topic,
+   *                             Amazon SNS uses a SHA-256 hash to generate the
+   *                                 <code>MessageDeduplicationId</code> using the body of the message
+   *                             (but not the attributes of the message).</p>
    *                   </li>
    *                   <li>
-   *                      <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p>
+   *                      <p>If you don't provide a <code>MessageDeduplicationId</code> and the
+   *                             topic doesn't have <code>ContentBasedDeduplication</code> set, the
+   *                             action fails with an error.</p>
    *                   </li>
    *                   <li>
    *                      <p>If the topic has a <code>ContentBasedDeduplication</code> set, your
-   *                                 <code>MessageDeduplicationId</code> overrides the generated one. </p>
+   *                                 <code>MessageDeduplicationId</code> overrides the generated one.
+   *                         </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p>
+   *                <p>When <code>ContentBasedDeduplication</code> is in effect, messages with
+   *                     identical content sent within the deduplication interval are treated as
+   *                     duplicates and only one copy of the message is delivered.</p>
    *             </li>
    *             <li>
-   *                <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another
-   *                     message with a <code>MessageDeduplicationId</code> that is the same as the one
-   *                     generated for the first <code>MessageDeduplicationId</code>, the two messages
-   *                     are treated as duplicates and only one copy of the message is delivered. </p>
+   *                <p>If you send one message with <code>ContentBasedDeduplication</code> enabled,
+   *                     and then another message with a <code>MessageDeduplicationId</code> that is the
+   *                     same as the one generated for the first <code>MessageDeduplicationId</code>, the
+   *                     two messages are treated as duplicates and only one copy of the message is
+   *                     delivered. </p>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
-   *             <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SNS can't detect duplicate messages. </p>
-   *             <p>Amazon SNS continues to keep track of the message deduplication ID even after the message is received and deleted. </p>
+   *             <p>The <code>MessageDeduplicationId</code> is available to the consumer of the
+   *                 message (this can be useful for troubleshooting delivery issues).</p>
+   *             <p>If a message is sent successfully but the acknowledgement is lost and the message
+   *                 is resent with the same <code>MessageDeduplicationId</code> after the deduplication
+   *                 interval, Amazon SNS can't detect duplicate messages. </p>
+   *             <p>Amazon SNS continues to keep track of the message deduplication ID even after the
+   *                 message is received and deleted. </p>
    *          </note>
    *          <p>The length of <code>MessageDeduplicationId</code> is 128 characters.</p>
    *          <p>
-   *             <code>MessageDeduplicationId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *             <code>MessageDeduplicationId</code> can contain alphanumeric characters <code>(a-z,
+   *                 A-Z, 0-9)</code> and punctuation
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    */
   MessageDeduplicationId?: string;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
-   *          <p>The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single topic, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the topic, but the session data of each user is processed in a FIFO fashion. </p>
-   *          <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you don't provide a <code>MessageGroupId</code>, the action fails. </p>
+   *          <p>The tag that specifies that a message belongs to a specific message group. Messages
+   *             that belong to the same message group are processed in a FIFO manner (however, messages
+   *             in different message groups might be processed out of order). To interleave multiple
+   *             ordered streams within a single topic, use <code>MessageGroupId</code> values (for
+   *             example, session data for multiple users). In this scenario, multiple consumers can
+   *             process the topic, but the session data of each user is processed in a FIFO fashion. </p>
+   *          <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you
+   *             don't provide a <code>MessageGroupId</code>, the action fails. </p>
    *          <p>The length of <code>MessageGroupId</code> is 128 characters.</p>
    *          <p>
-   *             <code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *             <code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z,
+   *                 0-9)</code> and punctuation
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    *          <important>
    *             <p>
-   *                <code>MessageGroupId</code> is required for FIFO topics. You can't use it for standard topics. </p>
+   *                <code>MessageGroupId</code> is required for FIFO topics. You can't use it for
+   *                 standard topics. </p>
    *          </important>
    */
   MessageGroupId?: string;
@@ -2110,7 +2168,8 @@ export interface PublishBatchResultEntry {
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
    *          <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
-   *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
+   *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code>
+   *             continues to increase for a particular <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
 }
@@ -2553,6 +2612,15 @@ export interface SetTopicAttributesInput {
    *                     topic.</p>
    *             </li>
    *             <li>
+   *                <p>
+   *                   <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+   *                         <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+   *                     passes through the tracing header it receives from an Amazon SNS publisher to its
+   *                     subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data
+   *                     to topic owner account if the sampled flag in the tracing header is true. This
+   *                     is only supported on standard topics.</p>
+   *             </li>
+   *             <li>
    *                <p>HTTP</p>
    *                <ul>
    *                   <li>
@@ -2638,16 +2706,16 @@ export interface SetTopicAttributesInput {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>ApplicationFailureFeedbackRoleArn</code> – Indicates failed
-   *                             message delivery status for an Amazon SNS topic that is subscribed to an
-   *                             Amazon Web Services application endpoint.</p>
+   *                         <code>ApplicationFailureFeedbackRoleArn</code> – Indicates
+   *                             failed message delivery status for an Amazon SNS topic that is subscribed to
+   *                             an Amazon Web Services application endpoint.</p>
    *                   </li>
    *                </ul>
    *                <note>
    *                   <p>In addition to being able to configure topic attributes for message
    *                         delivery status of notification messages sent to Amazon SNS application
-   *                         endpoints, you can also configure application attributes for the
-   *                         delivery status of push notification messages sent to push notification
+   *                         endpoints, you can also configure application attributes for the delivery
+   *                         status of push notification messages sent to push notification
    *                         services.</p>
    *                   <p>For example, For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application
    *                             Attributes for Message Delivery Status</a>. </p>
@@ -2679,11 +2747,11 @@ export interface SetTopicAttributesInput {
    *          </ul>
    *          <note>
    *             <p>The <ENDPOINT>SuccessFeedbackRoleArn and <ENDPOINT>FailureFeedbackRoleArn
-   *             attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
-   *             The <ENDPOINT>SuccessFeedbackSampleRate attribute is for specifying the sample rate
-   *             percentage (0-100) of successfully delivered messages. After you configure the
-   *             <ENDPOINT>FailureFeedbackRoleArn attribute, then all failed message deliveries
-   *             generate CloudWatch Logs. </p>
+   *                 attributes are used to give Amazon SNS write access to use CloudWatch Logs on your
+   *                 behalf. The <ENDPOINT>SuccessFeedbackSampleRate attribute is for specifying the
+   *                 sample rate percentage (0-100) of successfully delivered messages. After you
+   *                 configure the <ENDPOINT>FailureFeedbackRoleArn attribute, then all failed message
+   *                 deliveries generate CloudWatch Logs. </p>
    *          </note>
    *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
    *          <ul>
@@ -2697,8 +2765,8 @@ export interface SetTopicAttributesInput {
    *                <p>
    *                   <code>SignatureVersion</code> – The signature version corresponds to the
    *                     hashing algorithm used while creating the signature of the notifications,
-   *                     subscription confirmations, or unsubscribe confirmation messages sent by
-   *                     Amazon SNS.</p>
+   *                     subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+   *                     By default, <code>SignatureVersion</code> is set to <code>1</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
