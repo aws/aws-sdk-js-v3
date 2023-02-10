@@ -138,7 +138,9 @@ import {
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
+  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
+  SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
@@ -9164,6 +9166,9 @@ export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanc
  */
 export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
   ...obj,
+  ...(obj.SpotFleetRequestConfig && {
+    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
+  }),
 });
 
 /**
@@ -9178,6 +9183,7 @@ export const RequestSpotFleetResponseFilterSensitiveLog = (obj: RequestSpotFleet
  */
 export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9185,6 +9191,9 @@ export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpo
  */
 export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
   ...obj,
+  ...(obj.LaunchSpecification && {
+    LaunchSpecification: RequestSpotLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
+  }),
 });
 
 /**
@@ -9192,6 +9201,9 @@ export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotIn
  */
 export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
   ...obj,
+  ...(obj.SpotInstanceRequests && {
+    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -9547,6 +9559,7 @@ export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
  */
 export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
   ...obj,
+  ...(obj.LaunchSpecification && { LaunchSpecification: SENSITIVE_STRING }),
 });
 
 /**

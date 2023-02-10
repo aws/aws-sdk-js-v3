@@ -40,6 +40,7 @@ import {
   PlatformValues,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
+  ResponseLaunchTemplateDataFilterSensitiveLog,
   ShutdownBehavior,
   TargetCapacityUnitType,
   Vpc,
@@ -154,8 +155,8 @@ export interface VolumeStatusItem {
 
 export interface DescribeVolumeStatusResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -284,13 +285,14 @@ export interface DescribeVpcClassicLinkResult {
 
 export interface DescribeVpcClassicLinkDnsSupportRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -317,7 +319,7 @@ export interface ClassicLinkDnsSupport {
 
 export interface DescribeVpcClassicLinkDnsSupportResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -983,13 +985,14 @@ export interface DescribeVpcPeeringConnectionsRequest {
   VpcPeeringConnectionIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -1001,7 +1004,7 @@ export interface DescribeVpcPeeringConnectionsResult {
   VpcPeeringConnections?: VpcPeeringConnection[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -1098,13 +1101,14 @@ export interface DescribeVpcsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -1116,7 +1120,7 @@ export interface DescribeVpcsResult {
   Vpcs?: Vpc[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -6695,13 +6699,15 @@ export interface ListImagesInRecycleBinResult {
 
 export interface ListSnapshotsInRecycleBinRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -6756,7 +6762,8 @@ export interface ListSnapshotsInRecycleBinResult {
   Snapshots?: SnapshotRecycleBinInfo[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -8365,6 +8372,9 @@ export const GetLaunchTemplateDataRequestFilterSensitiveLog = (obj: GetLaunchTem
  */
 export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
   ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
 });
 
 /**

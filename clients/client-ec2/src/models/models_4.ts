@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   ActiveInstance,
@@ -46,6 +48,7 @@ import {
   KeyType,
   LaunchTemplate,
   LaunchTemplateVersion,
+  LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -139,8 +142,8 @@ export interface DescribeInstancesResult {
   Reservations?: Reservation[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -235,15 +238,16 @@ export interface DescribeInstanceStatusRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
+   * <p>The maximum number of items to return for this request. To retrieve the next page of
+   *             items, make another request with the token returned in the output. This value
    *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
+   *             parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -414,8 +418,8 @@ export interface DescribeInstanceStatusResult {
   InstanceStatuses?: InstanceStatus[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -457,13 +461,14 @@ export interface DescribeInstanceTypeOfferingsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -496,8 +501,8 @@ export interface DescribeInstanceTypeOfferingsResult {
   InstanceTypeOfferings?: InstanceTypeOffering[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -744,13 +749,14 @@ export interface DescribeInstanceTypesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -1364,8 +1370,8 @@ export interface DescribeInstanceTypesResult {
   InstanceTypes?: InstanceTypeInfo[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -1418,13 +1424,14 @@ export interface DescribeInternetGatewaysRequest {
   InternetGatewayIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -1436,7 +1443,7 @@ export interface DescribeInternetGatewaysResult {
   InternetGateways?: InternetGateway[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -2790,8 +2797,9 @@ export interface DescribeNatGatewaysRequest {
   Filter?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -2801,7 +2809,7 @@ export interface DescribeNatGatewaysRequest {
   NatGatewayIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -2813,7 +2821,7 @@ export interface DescribeNatGatewaysResult {
   NatGateways?: NatGateway[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -2919,13 +2927,14 @@ export interface DescribeNetworkAclsRequest {
   NetworkAclIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -2937,7 +2946,7 @@ export interface DescribeNetworkAclsResult {
   NetworkAcls?: NetworkAcl[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3419,13 +3428,16 @@ export interface DescribeNetworkInterfacePermissionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   * 		    Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   * 			make another request with the token returned in the output. If this parameter is not specified,
+   * 			up to 50 results are returned by default. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -3440,7 +3452,8 @@ export interface DescribeNetworkInterfacePermissionsResult {
   NetworkInterfacePermissions?: NetworkInterfacePermission[];
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The token to include in another request to get the next page of items.
+   * 		  This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3631,21 +3644,20 @@ export interface DescribeNetworkInterfacesRequest {
   NetworkInterfaceIds?: string[];
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   * 		    Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you
-   *             can specify in a subsequent call to get the next set of results. You cannot specify this
-   *             parameter and the network interface IDs parameter in the same request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   * 		    make another request with the token returned in the output. You cannot specify this
+   * 		    parameter and the network interface IDs parameter in the same request. For more information,
+   * 		    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
 
-/**
- * <p>Contains the output of DescribeNetworkInterfaces.</p>
- */
 export interface DescribeNetworkInterfacesResult {
   /**
    * <p>Information about one or more network interfaces.</p>
@@ -3653,7 +3665,8 @@ export interface DescribeNetworkInterfacesResult {
   NetworkInterfaces?: NetworkInterface[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   * 		    This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4063,13 +4076,15 @@ export interface DescribeReplaceRootVolumeTasksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -4088,7 +4103,8 @@ export interface DescribeReplaceRootVolumeTasksResult {
   ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4993,13 +5009,14 @@ export interface DescribeRouteTablesRequest {
   RouteTableIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -5014,7 +5031,7 @@ export interface DescribeRouteTablesResult {
   RouteTables?: RouteTable[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5496,15 +5513,16 @@ export interface DescribeSecurityGroupRulesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all results are
-   *             returned.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. This value
+   *             can be between 5 and 1000. If this parameter is not specified, then all items are
+   *             returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -5516,7 +5534,8 @@ export interface DescribeSecurityGroupRulesResult {
   SecurityGroupRules?: SecurityGroupRule[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5671,15 +5690,16 @@ export interface DescribeSecurityGroupsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all results are
-   *             returned.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *             make another request with the token returned in the output. This value can be between 5 and 1000.
+   *             If this parameter is not specified, then all items are returned. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -5736,7 +5756,8 @@ export interface DescribeSecurityGroupsResult {
   SecurityGroups?: SecurityGroup[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5869,24 +5890,17 @@ export interface DescribeSnapshotsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in
-   *       paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *         <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000,
-   *       only 1,000 results are returned. If this parameter is not used, then
-   *         <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and
-   *       the snapshot IDs parameter in the same request.</p>
+   * <p>The maximum number of snapshots to return for this request.
+   *       This value can be between 5 and 1,000; if this value is larger than 1,000, only 1,000 results are returned.
+   *       If this parameter is not used, then the request returns all snapshots.
+   *       You cannot specify this parameter and the snapshot IDs parameter in the same request. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeSnapshots</code> request where <code>MaxResults</code> was used and the
-   *       results exceeded the value of that parameter. Pagination continues from the end of the
-   *       previous results that returned the <code>NextToken</code> value. This value is
-   *         <code>null</code> when there are no more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -5922,10 +5936,8 @@ export interface DescribeSnapshotsResult {
   Snapshots?: Snapshot[];
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeSnapshots</code>
-   *       request. When the results of a <code>DescribeSnapshots</code> request exceed
-   *         <code>MaxResults</code>, this value can be used to retrieve the next page of results. This
-   *       value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to return the next page of snapshots.
+   *       This value is <code>null</code> when there are no more snapshots to return.</p>
    */
   NextToken?: string;
 }
@@ -5960,13 +5972,15 @@ export interface DescribeSnapshotTierStatusRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -6059,7 +6073,8 @@ export interface DescribeSnapshotTierStatusResult {
   SnapshotTierStatuses?: SnapshotTierStatus[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -7770,12 +7785,15 @@ export interface DescribeStaleSecurityGroupsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *           make another request with the token returned in the output. For more information,
+   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * <p>The token returned from a previous paginated request.
+   *           Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -7859,7 +7877,8 @@ export interface StaleSecurityGroup {
 
 export interface DescribeStaleSecurityGroupsResult {
   /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *           If there are no additional items to return, the string is empty.</p>
    */
   NextToken?: string;
 
@@ -8121,13 +8140,14 @@ export interface DescribeSubnetsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -8139,7 +8159,7 @@ export interface DescribeSubnetsResult {
   Subnets?: Subnet[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -8182,14 +8202,15 @@ export interface DescribeTagsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *       This value can be between 5 and 1000.
-   * 			To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
+   *          To get the next page of items, make another request with the token returned in the output.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *          Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -8221,8 +8242,8 @@ export interface TagDescription {
 
 export interface DescribeTagsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *          <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *          This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -9684,24 +9705,16 @@ export interface DescribeVolumesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
-   *       output. When this parameter is used, <code>DescribeVolumes</code> only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *         <code>DescribeVolumes</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 500; if <code>MaxResults</code> is given a value larger than 500,
-   *       only 500 results are returned. If this parameter is not used, then
-   *         <code>DescribeVolumes</code> returns all results. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request.</p>
+   * <p>The maximum number of volumes to return for this request.
+   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
+   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
+   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results
-   *       exceeded the value of that parameter. Pagination continues from the end of the previous
-   *       results that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *       there are no more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned from the previous request.</p>
    */
   NextToken?: string;
 }
@@ -9713,10 +9726,8 @@ export interface DescribeVolumesResult {
   Volumes?: Volume[];
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumes</code>
-   *       request. When the results of a <code>DescribeVolumes</code> request exceed
-   *         <code>MaxResults</code>, this value can be used to retrieve the next page of results. This
-   *       value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -9789,13 +9800,14 @@ export interface DescribeVolumesModificationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The <code>nextToken</code> value returned by a previous paginated request.</p>
+   * <p>The token returned by a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
-   *       request.</p>
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -9901,7 +9913,8 @@ export interface DescribeVolumesModificationsResult {
   VolumesModifications?: VolumeModification[];
 
   /**
-   * <p>Token for pagination, null if there are no more results </p>
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> if there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -9974,22 +9987,17 @@ export interface DescribeVolumeStatusRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
-   *       paginated output. When this parameter is used, the request only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000;
-   *       if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.
-   *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
-   *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *       make another request with the token returned in the output. This value can be between 5 and 1,000;
+   *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
+   *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
+   *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
-   *       request. When the results of the request exceed <code>MaxResults</code>, this value can be
-   *       used to retrieve the next page of results. This value is <code>null</code> when there are no
-   *       more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -10508,6 +10516,9 @@ export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
   obj: DescribeLaunchTemplateVersionsResult
 ): any => ({
   ...obj,
+  ...(obj.LaunchTemplateVersions && {
+    LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -11384,6 +11395,7 @@ export const SpotFleetTagSpecificationFilterSensitiveLog = (obj: SpotFleetTagSpe
  */
 export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -11454,6 +11466,9 @@ export const SpotMaintenanceStrategiesFilterSensitiveLog = (obj: SpotMaintenance
  */
 export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
   ...obj,
+  ...(obj.LaunchSpecifications && {
+    LaunchSpecifications: obj.LaunchSpecifications.map((item) => SpotFleetLaunchSpecificationFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -11461,6 +11476,9 @@ export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetReque
  */
 export const SpotFleetRequestConfigFilterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
   ...obj,
+  ...(obj.SpotFleetRequestConfig && {
+    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
+  }),
 });
 
 /**
@@ -11491,6 +11509,7 @@ export const RunInstancesMonitoringEnabledFilterSensitiveLog = (obj: RunInstance
  */
 export const LaunchSpecificationFilterSensitiveLog = (obj: LaunchSpecification): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -11505,6 +11524,9 @@ export const SpotInstanceStatusFilterSensitiveLog = (obj: SpotInstanceStatus): a
  */
 export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest): any => ({
   ...obj,
+  ...(obj.LaunchSpecification && {
+    LaunchSpecification: LaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
+  }),
 });
 
 /**
@@ -11512,6 +11534,9 @@ export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest):
  */
 export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
   ...obj,
+  ...(obj.SpotInstanceRequests && {
+    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
+  }),
 });
 
 /**

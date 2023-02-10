@@ -3183,12 +3183,37 @@ export interface EbsBlockDevice {
    *          <p>In no case can you remove encryption from an encrypted volume.</p>
    *          <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
-   *          <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
-   *          <p>For <a>CreateImage</a> and <a>RegisterImage</a>, you can specify this
-   *             parameter only for block device mappings that result in new, empty volumes when instances are
-   *             launched from the image. Omit this parameter on block device mappings that include an existing
-   *             volume or snapshot. If you include this parameter, and specify an encryption setting that is
-   *             different from the existing volume or snapshot, the request will fail.</p>
+   *          <p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p>
+   *          <p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can
+   *             include this parameter, and the allowed values differ depending on the type of block
+   *             device mapping you are creating.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are creating a block device mapping for a <b>new (empty)
+   *                     volume</b>, you can include this parameter, and specify either <code>true</code>
+   *                     for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit
+   *                     this parameter, it defaults to <code>false</code> (unencrypted).</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     encrypted or unencrypted snapshot</b>, you must omit this parameter. If you
+   *                     include this parameter, the request will fail, regardless of the value that you
+   *                     specify.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     unencrypted volume</b>, you can include this parameter, but you must specify
+   *                     <code>false</code>. If you specify <code>true</code>, the request will fail. In this
+   *                     case, we recommend that you omit the parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     encrypted volume</b>, you can include this parameter, and specify either
+   *                     <code>true</code> or <code>false</code>. However, if you specify <code>false</code>,
+   *                     the parameter is ignored and the block device mapping is always encrypted. In this
+   *                     case, we recommend that you omit the parameter.</p>
+   *             </li>
+   *          </ul>
    */
   Encrypted?: boolean;
 }
@@ -10015,6 +10040,7 @@ export const LaunchTemplateTagSpecificationFilterSensitiveLog = (obj: LaunchTemp
  */
 export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -10022,6 +10048,9 @@ export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunch
  */
 export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
   ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
 });
 
 /**
@@ -10029,6 +10058,9 @@ export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersi
  */
 export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
   ...obj,
+  ...(obj.LaunchTemplateVersion && {
+    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
+  }),
 });
 
 /**

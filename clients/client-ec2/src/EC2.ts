@@ -4589,8 +4589,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
-   *       information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a>
-   *       in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
+   *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   public cancelImageLaunchPermission(
     args: CancelImageLaunchPermissionCommandInput,
@@ -14106,11 +14107,7 @@ export class EC2 extends EC2Client {
    *         <code>self</code> for snapshots for which you own or have explicit permissions, or
    *         <code>all</code> for public snapshots.</p>
    *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the
-   *       list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
-   *       results.</p>
+   *       list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
    *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -15199,11 +15196,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
    *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
-   *       more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
-   *       results.</p>
+   *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumes(
@@ -24109,7 +24102,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Unassigns secondary private NAT gateway IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
    *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
    *             private IP addresses stay associated and support the existing connections but do not
