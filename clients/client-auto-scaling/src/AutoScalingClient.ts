@@ -229,6 +229,10 @@ import {
   RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand";
 import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "./commands/ResumeProcessesCommand";
+import {
+  RollbackInstanceRefreshCommandInput,
+  RollbackInstanceRefreshCommandOutput,
+} from "./commands/RollbackInstanceRefreshCommand";
 import { SetDesiredCapacityCommandInput, SetDesiredCapacityCommandOutput } from "./commands/SetDesiredCapacityCommand";
 import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "./commands/SetInstanceHealthCommand";
 import {
@@ -314,6 +318,7 @@ export type ServiceInputTypes =
   | PutWarmPoolCommandInput
   | RecordLifecycleActionHeartbeatCommandInput
   | ResumeProcessesCommandInput
+  | RollbackInstanceRefreshCommandInput
   | SetDesiredCapacityCommandInput
   | SetInstanceHealthCommandInput
   | SetInstanceProtectionCommandInput
@@ -380,6 +385,7 @@ export type ServiceOutputTypes =
   | PutWarmPoolCommandOutput
   | RecordLifecycleActionHeartbeatCommandOutput
   | ResumeProcessesCommandOutput
+  | RollbackInstanceRefreshCommandOutput
   | SetDesiredCapacityCommandOutput
   | SetInstanceHealthCommandOutput
   | SetInstanceProtectionCommandOutput

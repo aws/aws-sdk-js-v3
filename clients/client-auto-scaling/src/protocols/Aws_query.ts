@@ -202,6 +202,10 @@ import {
   RecordLifecycleActionHeartbeatCommandOutput,
 } from "../commands/RecordLifecycleActionHeartbeatCommand";
 import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "../commands/ResumeProcessesCommand";
+import {
+  RollbackInstanceRefreshCommandInput,
+  RollbackInstanceRefreshCommandOutput,
+} from "../commands/RollbackInstanceRefreshCommand";
 import { SetDesiredCapacityCommandInput, SetDesiredCapacityCommandOutput } from "../commands/SetDesiredCapacityCommand";
 import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "../commands/SetInstanceHealthCommand";
 import {
@@ -332,6 +336,7 @@ import {
   InstanceReusePolicy,
   InstancesDistribution,
   InvalidNextToken,
+  IrreversibleInstanceRefreshFault,
   LaunchConfiguration,
   LaunchConfigurationNamesType,
   LaunchConfigurationNameType,
@@ -383,6 +388,9 @@ import {
   RefreshPreferences,
   ResourceContentionFault,
   ResourceInUseFault,
+  RollbackDetails,
+  RollbackInstanceRefreshAnswer,
+  RollbackInstanceRefreshType,
   ScalingActivityInProgressFault,
   ScalingPolicy,
   ScalingProcessQuery,
@@ -1306,6 +1314,22 @@ export const serializeAws_queryResumeProcessesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryScalingProcessQuery(input, context),
     Action: "ResumeProcesses",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRollbackInstanceRefreshCommand = async (
+  input: RollbackInstanceRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRollbackInstanceRefreshType(input, context),
+    Action: "RollbackInstanceRefresh",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3883,6 +3907,56 @@ const deserializeAws_queryResumeProcessesCommandError = async (
   }
 };
 
+export const deserializeAws_queryRollbackInstanceRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RollbackInstanceRefreshCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRollbackInstanceRefreshCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRollbackInstanceRefreshAnswer(data.RollbackInstanceRefreshResult, context);
+  const response: RollbackInstanceRefreshCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRollbackInstanceRefreshCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RollbackInstanceRefreshCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ActiveInstanceRefreshNotFound":
+    case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
+      throw await deserializeAws_queryActiveInstanceRefreshNotFoundFaultResponse(parsedOutput, context);
+    case "IrreversibleInstanceRefresh":
+    case "com.amazonaws.autoscaling#IrreversibleInstanceRefreshFault":
+      throw await deserializeAws_queryIrreversibleInstanceRefreshFaultResponse(parsedOutput, context);
+    case "LimitExceeded":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
+    case "ResourceContention":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_querySetDesiredCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4228,6 +4302,19 @@ const deserializeAws_queryInvalidNextTokenResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidNextToken(body.Error, context);
   const exception = new InvalidNextToken({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryIrreversibleInstanceRefreshFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IrreversibleInstanceRefreshFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryIrreversibleInstanceRefreshFault(body.Error, context);
+  const exception = new IrreversibleInstanceRefreshFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6827,6 +6914,26 @@ const serializeAws_queryRefreshPreferences = (input: RefreshPreferences, context
   if (input.SkipMatching != null) {
     entries["SkipMatching"] = input.SkipMatching;
   }
+  if (input.AutoRollback != null) {
+    entries["AutoRollback"] = input.AutoRollback;
+  }
+  if (input.ScaleInProtectedInstances != null) {
+    entries["ScaleInProtectedInstances"] = input.ScaleInProtectedInstances;
+  }
+  if (input.StandbyInstances != null) {
+    entries["StandbyInstances"] = input.StandbyInstances;
+  }
+  return entries;
+};
+
+const serializeAws_queryRollbackInstanceRefreshType = (
+  input: RollbackInstanceRefreshType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName != null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
   return entries;
 };
 
@@ -8708,6 +8815,7 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
     ProgressDetails: undefined,
     Preferences: undefined,
     DesiredConfiguration: undefined,
+    RollbackDetails: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
@@ -8741,6 +8849,9 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
   }
   if (output["DesiredConfiguration"] !== undefined) {
     contents.DesiredConfiguration = deserializeAws_queryDesiredConfiguration(output["DesiredConfiguration"], context);
+  }
+  if (output["RollbackDetails"] !== undefined) {
+    contents.RollbackDetails = deserializeAws_queryRollbackDetails(output["RollbackDetails"], context);
   }
   return contents;
 };
@@ -9034,6 +9145,19 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
 };
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryIrreversibleInstanceRefreshFault = (
+  output: any,
+  context: __SerdeContext
+): IrreversibleInstanceRefreshFault => {
   const contents: any = {
     message: undefined,
   };
@@ -9987,6 +10111,9 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
     CheckpointPercentages: undefined,
     CheckpointDelay: undefined,
     SkipMatching: undefined,
+    AutoRollback: undefined,
+    ScaleInProtectedInstances: undefined,
+    StandbyInstances: undefined,
   };
   if (output["MinHealthyPercentage"] !== undefined) {
     contents.MinHealthyPercentage = __strictParseInt32(output["MinHealthyPercentage"]) as number;
@@ -10008,6 +10135,15 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
   if (output["SkipMatching"] !== undefined) {
     contents.SkipMatching = __parseBoolean(output["SkipMatching"]);
   }
+  if (output["AutoRollback"] !== undefined) {
+    contents.AutoRollback = __parseBoolean(output["AutoRollback"]);
+  }
+  if (output["ScaleInProtectedInstances"] !== undefined) {
+    contents.ScaleInProtectedInstances = __expectString(output["ScaleInProtectedInstances"]);
+  }
+  if (output["StandbyInstances"] !== undefined) {
+    contents.StandbyInstances = __expectString(output["StandbyInstances"]);
+  }
   return contents;
 };
 
@@ -10027,6 +10163,48 @@ const deserializeAws_queryResourceInUseFault = (output: any, context: __SerdeCon
   };
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryRollbackDetails = (output: any, context: __SerdeContext): RollbackDetails => {
+  const contents: any = {
+    RollbackReason: undefined,
+    RollbackStartTime: undefined,
+    PercentageCompleteOnRollback: undefined,
+    InstancesToUpdateOnRollback: undefined,
+    ProgressDetailsOnRollback: undefined,
+  };
+  if (output["RollbackReason"] !== undefined) {
+    contents.RollbackReason = __expectString(output["RollbackReason"]);
+  }
+  if (output["RollbackStartTime"] !== undefined) {
+    contents.RollbackStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RollbackStartTime"]));
+  }
+  if (output["PercentageCompleteOnRollback"] !== undefined) {
+    contents.PercentageCompleteOnRollback = __strictParseInt32(output["PercentageCompleteOnRollback"]) as number;
+  }
+  if (output["InstancesToUpdateOnRollback"] !== undefined) {
+    contents.InstancesToUpdateOnRollback = __strictParseInt32(output["InstancesToUpdateOnRollback"]) as number;
+  }
+  if (output["ProgressDetailsOnRollback"] !== undefined) {
+    contents.ProgressDetailsOnRollback = deserializeAws_queryInstanceRefreshProgressDetails(
+      output["ProgressDetailsOnRollback"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRollbackInstanceRefreshAnswer = (
+  output: any,
+  context: __SerdeContext
+): RollbackInstanceRefreshAnswer => {
+  const contents: any = {
+    InstanceRefreshId: undefined,
+  };
+  if (output["InstanceRefreshId"] !== undefined) {
+    contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
   }
   return contents;
 };

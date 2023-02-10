@@ -33,41 +33,12 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
- *          <p>To help you determine the status of an instance refresh, this operation returns
- *             information about the instance refreshes you previously initiated, including their
- *             status, end time, the percentage of the instance refresh that is complete, and the
- *             number of instances remaining to update before the instance refresh is complete.</p>
- *          <p>The following are the possible statuses: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Pending</code> - The request was created, but the operation has not
- *                     started.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>InProgress</code> - The operation is in progress.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Successful</code> - The operation completed successfully.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Failed</code> - The operation failed to complete. You can troubleshoot
- *                     using the status reason and the scaling activities. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Cancelling</code> - An ongoing operation is being cancelled.
- *                     Cancellation does not roll back any replacements that have already been
- *                     completed, but it prevents new replacements from being started. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Cancelled</code> - The operation is cancelled. </p>
- *             </li>
- *          </ul>
+ *          <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information
+ *             about the instance refreshes you previously initiated, including their status, start
+ *             time, end time, the percentage of the instance refresh that is complete, and the number
+ *             of instances remaining to update before the instance refresh is complete. If a rollback
+ *             is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information
+ *             about the rollback of the instance refresh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
