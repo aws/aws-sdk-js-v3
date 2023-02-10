@@ -699,8 +699,8 @@ export interface AssociateLambdaFunctionRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is
-   *    140.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters
+   *    allowed is 140.</p>
    */
   FunctionArn: string | undefined;
 }
@@ -1554,6 +1554,9 @@ export interface CreateRoutingProfileRequest {
   /**
    * <p>The inbound queues associated with the routing profile. If no queue is added, the agent can
    *    make only outbound calls.</p>
+   *          <p>The limit of 10 array members applies to the maximum number of <code>RoutingProfileQueueConfig</code>
+   *    objects that can be passed during a CreateRoutingProfile API request. It is different
+   *    from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a>. </p>
    */
   QueueConfigs?: RoutingProfileQueueConfig[];
 
@@ -2759,6 +2762,16 @@ export interface QueueInfo {
 }
 
 /**
+ * <p>Information about Amazon Connect Wisdom.</p>
+ */
+export interface WisdomInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+   */
+  SessionArn?: string;
+}
+
+/**
  * <p>Contains information about a contact.</p>
  */
 export interface Contact {
@@ -2842,6 +2855,11 @@ export interface Contact {
    *    contact.</p>
    */
   RelatedContactId?: string;
+
+  /**
+   * <p>Information about Amazon Connect Wisdom.</p>
+   */
+  WisdomInfo?: WisdomInfo;
 }
 
 export interface DescribeContactResponse {
@@ -5766,8 +5784,8 @@ export interface LexBotConfig {
 
 export interface ListBotsResponse {
   /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the
-   *    specified instance.</p>
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots
+   *    associated with the specified instance.</p>
    */
   LexBots?: LexBotConfig[];
 
@@ -5934,27 +5952,6 @@ export interface ListContactReferencesRequest {
 export enum ReferenceStatus {
   APPROVED = "APPROVED",
   REJECTED = "REJECTED",
-}
-
-/**
- * <p>Information about a reference when the <code>referenceType</code> is
- *    <code>ATTACHMENT</code>. Otherwise, null.</p>
- */
-export interface AttachmentReference {
-  /**
-   * <p>Identifier of the attachment reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The location path of the attachment reference.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>Status of the attachment reference type.</p>
-   */
-  Status?: ReferenceStatus | string;
 }
 
 /**
@@ -6806,6 +6803,13 @@ export const QueueInfoFilterSensitiveLog = (obj: QueueInfo): any => ({
 /**
  * @internal
  */
+export const WisdomInfoFilterSensitiveLog = (obj: WisdomInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ContactFilterSensitiveLog = (obj: Contact): any => ({
   ...obj,
 });
@@ -7637,12 +7641,5 @@ export const ListContactFlowsResponseFilterSensitiveLog = (obj: ListContactFlows
  * @internal
  */
 export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
   ...obj,
 });

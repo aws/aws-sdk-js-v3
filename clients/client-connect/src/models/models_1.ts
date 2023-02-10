@@ -5,8 +5,6 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   ActionSummary,
   AgentStatusState,
-  AttachmentReference,
-  AttachmentReferenceFilterSensitiveLog,
   Attribute,
   Channel,
   ContactFlowModuleState,
@@ -31,6 +29,7 @@ import {
   QuickConnectConfig,
   QuickConnectType,
   Reference,
+  ReferenceStatus,
   RoutingProfile,
   RoutingProfileQueueConfig,
   RuleAction,
@@ -48,6 +47,27 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is
+ *    <code>ATTACHMENT</code>. Otherwise, null.</p>
+ */
+export interface AttachmentReference {
+  /**
+   * <p>Identifier of the attachment reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The location path of the attachment reference.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Status of the attachment reference type.</p>
+   */
+  Status?: ReferenceStatus | string;
+}
 
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
@@ -657,8 +677,8 @@ export interface ListLexBotsRequest {
 
 export interface ListLexBotsResponse {
   /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the specified
-   *    instance.</p>
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the
+   *    specified instance.</p>
    */
   LexBots?: LexBot[];
 
@@ -2413,9 +2433,8 @@ export enum RehydrationType {
 }
 
 /**
- * <p>Enable persistent chats. For more
- *    information about enabling persistent chat, and for example use cases and how to configure for them, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ * <p>Enable persistent chats. For more information about enabling persistent chat, and for
+ *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
  */
 export interface PersistentChat {
   /**
@@ -2437,8 +2456,7 @@ export interface PersistentChat {
    *      in the <code>sourceContactId</code> field. </p>
    *             </li>
    *          </ul>
-   *          <p>The actual contactId used for rehydration is provided in the response of this API.
-   *   </p>
+   *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
    */
   RehydrationType?: RehydrationType | string;
 
@@ -2509,9 +2527,8 @@ export interface StartChatContactRequest {
   SupportedMessagingContentTypes?: string[];
 
   /**
-   * <p>Enable persistent chats. For more
-   *    information about enabling persistent chat, and for example use cases and how to configure for them, see
-   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+   * <p>Enable persistent chats. For more information about enabling persistent chat, and for
+   *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
    */
   PersistentChat?: PersistentChat;
 }
@@ -4326,6 +4343,13 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
+  ...obj,
+});
 
 /**
  * @internal

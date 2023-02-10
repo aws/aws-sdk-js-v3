@@ -504,7 +504,6 @@ import {
   AgentStatusReference,
   AgentStatusSummary,
   AssignContactCategoryActionDefinition,
-  AttachmentReference,
   Attribute,
   Channel,
   ClaimedPhoneNumberSummary,
@@ -612,9 +611,11 @@ import {
   UserQuickConnectConfig,
   UserReference,
   Vocabulary,
+  WisdomInfo,
 } from "../models/models_0";
 import {
   AnswerMachineDetectionConfig,
+  AttachmentReference,
   AvailableNumberSummary,
   ChatMessage,
   ChatParticipantRoleConfig,
@@ -16701,6 +16702,7 @@ const deserializeAws_restJson1Contact = (output: any, context: __SerdeContext): 
       output.ScheduledTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScheduledTimestamp)))
         : undefined,
+    WisdomInfo: output.WisdomInfo != null ? deserializeAws_restJson1WisdomInfo(output.WisdomInfo, context) : undefined,
   } as any;
 };
 
@@ -18639,6 +18641,12 @@ const deserializeAws_restJson1VocabularySummaryList = (output: any, context: __S
       return deserializeAws_restJson1VocabularySummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1WisdomInfo = (output: any, context: __SerdeContext): WisdomInfo => {
+  return {
+    SessionArn: __expectString(output.SessionArn),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

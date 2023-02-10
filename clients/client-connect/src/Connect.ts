@@ -837,8 +837,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot.</p>
    */
   public associateBot(
     args: AssociateBotCommandInput,
@@ -973,7 +973,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
    */
   public associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -2868,8 +2869,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot. </p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot. </p>
    */
   public disassociateBot(
     args: DisassociateBotCommandInput,
@@ -2936,8 +2937,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Remove the Lambda function from the dropdown options available in the relevant flow
-   *    blocks.</p>
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant
+   *    flow blocks.</p>
    */
   public disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
@@ -2970,7 +2971,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    bot.</p>
    */
   public disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -3482,9 +3484,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. Use this API to returns both Amazon Lex V1 and V2
-   *    bots.</p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -3850,8 +3850,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To
-   *    return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
+   *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
    *    </p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
