@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
+
+
+### Features
+
+* **client-snowball:** Adds support for EKS Anywhere on Snowball. AWS Snow Family customers can now install EKS Anywhere service on Snowball Edge Compute Optimized devices. ([19042b5](https://github.com/aws/aws-sdk-js-v3/commit/19042b533433f90dc738f58a34c530e8ee603dad))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/client-snowball

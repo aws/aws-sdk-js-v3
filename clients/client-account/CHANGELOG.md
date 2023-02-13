@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
+
+
+### Features
+
+* **client-account:** This release of the Account Management API enables customers to view and manage whether AWS Opt-In Regions are enabled or disabled for their Account. For more information, see https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html ([820e2e2](https://github.com/aws/aws-sdk-js-v3/commit/820e2e267b769ecd35fea9fa7f3d177fda00e617))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/client-account

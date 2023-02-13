@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
+
+
+### Features
+
+* **client-appconfigdata:** AWS AppConfig now offers the option to set a version label on hosted configuration versions. If a labeled hosted configuration version is deployed, its version label is available in the GetLatestConfiguration response. ([f274732](https://github.com/aws/aws-sdk-js-v3/commit/f27473290cf4588f55c32df39ffeba2fef19290b))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/client-appconfigdata

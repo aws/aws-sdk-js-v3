@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
+
+
+### Features
+
+* **client-account:** This release of the Account Management API enables customers to view and manage whether AWS Opt-In Regions are enabled or disabled for their Account. For more information, see https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html ([820e2e2](https://github.com/aws/aws-sdk-js-v3/commit/820e2e267b769ecd35fea9fa7f3d177fda00e617))
+* **client-appconfigdata:** AWS AppConfig now offers the option to set a version label on hosted configuration versions. If a labeled hosted configuration version is deployed, its version label is available in the GetLatestConfiguration response. ([f274732](https://github.com/aws/aws-sdk-js-v3/commit/f27473290cf4588f55c32df39ffeba2fef19290b))
+* **client-snowball:** Adds support for EKS Anywhere on Snowball. AWS Snow Family customers can now install EKS Anywhere service on Snowball Edge Compute Optimized devices. ([19042b5](https://github.com/aws/aws-sdk-js-v3/commit/19042b533433f90dc738f58a34c530e8ee603dad))
+* **clients:** update client endpoints as of 2023-02-13 ([2241bdd](https://github.com/aws/aws-sdk-js-v3/commit/2241bdd9fc340e8dd6d5f16e3c41447f634f0d29))
+
+
+
+
+
 # [3.269.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.268.0...v3.269.0) (2023-02-10)
 
 
