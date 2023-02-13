@@ -52,7 +52,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
 
       })();
 
-      // SEARCH LIVE REGION
+      // SEARCH LIVE REGION & RESULTS KEYBOARD NAVIGATION WITH ARROW KEYS
       (() => {
         function debounce(fn) {
           let timeoutId;
@@ -81,7 +81,9 @@ class SdkThemeContext extends DefaultThemeRenderContext {
             resultText = 'Selected ' + document.querySelector('.results .current').innerText
           }
 
-          if (results.children.length === 0) {
+          if (document.querySelector('.results .current')) {
+            resultText = document.querySelector('.results .current').innerText + ' is currently selected, type to search and use arrow keys to navigate results'
+          } else if (results.children.length === 0) {
             resultText = 'Enter text to search, use arrow keys to navigate results.'
           } else {
             resultText = results.children.length + " items found, use arrow keys to navigate results"
