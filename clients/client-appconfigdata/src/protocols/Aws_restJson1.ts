@@ -104,6 +104,7 @@ export const deserializeAws_restJson1GetLatestConfigurationCommand = async (
       () => __strictParseInt32(output.headers["next-poll-interval-in-seconds"]),
     ],
     ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["version-label"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Configuration = data;

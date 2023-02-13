@@ -31,16 +31,17 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
 /**
  * <p>Retrieves the latest deployed configuration. This API may return empty configuration
  *          data if the client already has the latest version. For more information about this API
- *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+ *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
  *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
  *          <important>
  *             <p>Note the following important information.</p>
  *             <ul>
  *                <li>
- *                   <p>Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.
- *                   The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code> that
- *                   should always replace the token used for the just-completed call in preparation
- *                   for the next one. </p>
+ *                   <p>Each configuration token is only valid for one call to
+ *                      <code>GetLatestConfiguration</code>. The <code>GetLatestConfiguration</code>
+ *                   response includes a <code>NextPollConfigurationToken</code> that should always
+ *                   replace the token used for the just-completed call in preparation for the next
+ *                   one. </p>
  *                </li>
  *                <li>
  *                   <p>
