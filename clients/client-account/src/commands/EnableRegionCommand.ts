@@ -14,42 +14,35 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
+import { EnableRegionRequest, EnableRegionRequestFilterSensitiveLog } from "../models/models_0";
 import {
-  GetContactInformationRequest,
-  GetContactInformationRequestFilterSensitiveLog,
-  GetContactInformationResponse,
-  GetContactInformationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactInformationCommand,
-  serializeAws_restJson1GetContactInformationCommand,
+  deserializeAws_restJson1EnableRegionCommand,
+  serializeAws_restJson1EnableRegionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface GetContactInformationCommandInput extends GetContactInformationRequest {}
-export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
+export interface EnableRegionCommandInput extends EnableRegionRequest {}
+export interface EnableRegionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves the primary contact information of an Amazon Web Services account.</p>
- *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
- *                 the primary and alternate contact information</a>.</p>
+ * <p>Enables (opts-in) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, GetContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, GetContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, EnableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
+ * // const { AccountClient, EnableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const command = new GetContactInformationCommand(input);
+ * const command = new EnableRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetContactInformationCommandInput} for command's `input` shape.
- * @see {@link GetContactInformationCommandOutput} for command's `response` shape.
+ * @see {@link EnableRegionCommandInput} for command's `input` shape.
+ * @see {@link EnableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  */
-export class GetContactInformationCommand extends $Command<
-  GetContactInformationCommandInput,
-  GetContactInformationCommandOutput,
+export class EnableRegionCommand extends $Command<
+  EnableRegionCommandInput,
+  EnableRegionCommandOutput,
   AccountClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +57,7 @@ export class GetContactInformationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetContactInformationCommandInput) {
+  constructor(readonly input: EnableRegionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +70,21 @@ export class GetContactInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccountClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetContactInformationCommandInput, GetContactInformationCommandOutput> {
+  ): Handler<EnableRegionCommandInput, EnableRegionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetContactInformationCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, EnableRegionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AccountClient";
-    const commandName = "GetContactInformationCommand";
+    const commandName = "EnableRegionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactInformationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: EnableRegionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +94,12 @@ export class GetContactInformationCommand extends $Command<
     );
   }
 
-  private serialize(input: GetContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactInformationCommand(input, context);
+  private serialize(input: EnableRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1EnableRegionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactInformationCommandOutput> {
-    return deserializeAws_restJson1GetContactInformationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRegionCommandOutput> {
+    return deserializeAws_restJson1EnableRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

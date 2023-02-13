@@ -53,6 +53,8 @@ import {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
+import { DisableRegionCommandInput, DisableRegionCommandOutput } from "./commands/DisableRegionCommand";
+import { EnableRegionCommandInput, EnableRegionCommandOutput } from "./commands/EnableRegionCommand";
 import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -61,6 +63,8 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
+import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
+import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -79,15 +83,23 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | DeleteAlternateContactCommandInput
+  | DisableRegionCommandInput
+  | EnableRegionCommandInput
   | GetAlternateContactCommandInput
   | GetContactInformationCommandInput
+  | GetRegionOptStatusCommandInput
+  | ListRegionsCommandInput
   | PutAlternateContactCommandInput
   | PutContactInformationCommandInput;
 
 export type ServiceOutputTypes =
   | DeleteAlternateContactCommandOutput
+  | DisableRegionCommandOutput
+  | EnableRegionCommandOutput
   | GetAlternateContactCommandOutput
   | GetContactInformationCommandOutput
+  | GetRegionOptStatusCommandOutput
+  | ListRegionsCommandOutput
   | PutAlternateContactCommandOutput
   | PutContactInformationCommandOutput;
 

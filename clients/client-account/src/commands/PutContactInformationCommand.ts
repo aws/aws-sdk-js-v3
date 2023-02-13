@@ -25,7 +25,7 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the primary contact information of an Amazon Web Services account.</p>
- *         <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
+ *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *             the primary and alternate contact information</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
