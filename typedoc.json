@@ -10,7 +10,8 @@
     "features/**",
     "codegen/**",
     // "lib/**",
-    // "packages/**",
+    "packages/**",
+
     "private/**",
     "scripts/**",
     "tests/**",
@@ -21,7 +22,7 @@
   "skipErrorChecking": true,
   "entryPointStrategy": "packages",
   "name": "AWS SDK for JavaScript v3",
-  "out": "docs",
+  "out": "doc",
   "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/core-packages-documentation-generator"],
   "readme": "README.md",
   "theme": "sdk",

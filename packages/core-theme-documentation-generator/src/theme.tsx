@@ -214,9 +214,13 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                   <div class="tsd-accordion-details">
                     <ul>
                       {category.children.map((reflection) => {
+                        let urlTo = this.urlTo(reflection)
+                        if (urlTo && !urlTo.includes('.html')) {
+                          urlTo += '/'
+                        }
                         return (
                           <li class={selected ? "selected" : ""}>
-                            <a href={this.urlTo(reflection) + '/'}>
+                            <a href={urlTo}>
                               <wbr>{reflection.name}</wbr>
                             </a>
                           </li>

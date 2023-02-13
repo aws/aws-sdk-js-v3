@@ -47,5 +47,7 @@ export class SdkClientRenameProjectPlugin {
       this.projectName = name;
     }
     event.project.name = this.projectName;
+    event.project.name = "AWS SDK for JS v3";
+    console.log(event.project.name);
   };
 }

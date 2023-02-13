@@ -6,8 +6,9 @@
   "skipErrorChecking": true,
   "excludeInternal": true,
   "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/service-client-documentation-generator"],
-  "defaultServiceSuffix": "AWS SDK for JavaScript v3",
   "theme": "sdk",
   "categorizeByGroup": true,
-  "categoryOrder": ["Clients", "Commands", "Paginators", "Waiters"]
+  "categoryOrder": ["Clients", "Commands", "Paginators", "Waiters"],
+  "name": "AWS SDK for JavaScript v3",
+  "titleLink": "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html"
 }
