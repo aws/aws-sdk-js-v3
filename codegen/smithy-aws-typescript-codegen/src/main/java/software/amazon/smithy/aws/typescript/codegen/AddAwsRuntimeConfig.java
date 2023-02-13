@@ -37,14 +37,17 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * AWS clients need to know the service name for collecting metrics, the
- * region name used to resolve endpoints. For non AWS clients that use
- * AWS Auth, region name is used as signing region.
+ * region name used to resolve endpoints, and whether to use Dualstack and
+ * Fips endpoints. For non AWS clients that use AWS Auth, region name is
+ * used as signing region.
  *
  * <p>This plugin adds the following config interface fields:
  *
  * <ul>
  *     <li>serviceId: Unique name to identify the AWS service.</li>
  *     <li>region: The AWS region to which this client will send requests</li>
+ *     <li>useDualstackEndpoint: Enables IPv6/IPv4 dualstack endpoint.</li>
+ *     <li>useFipsEndpoint: Enables FIPS compatible endpoints.</li>
  * </ul>
  *
  * <p>This plugin adds the following Node runtime specific values:
@@ -53,6 +56,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     <li>serviceId: Unique name to identify the AWS service.</li>
  *     <li>region: Uses the default region provider that checks things like
  *      environment variables and the AWS config file.</li>
+ *     <li>useDualstackEndpoint: Uses default useDualstackEndpoint provider.</li>
+ *     <li>useFipsEndpoint: Uses default useFipsEndpoint provider.</li>
  * </ul>
  *
  * <p>This plugin adds the following Browser runtime specific values:
@@ -62,6 +67,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     <li>region: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
+ *     <li>useDualstackEndpoint: Sets to false.</li>
+ *     <li>useFipsEndpoint: Sets to false.</li>
  * </ul>
  */
 @SmithyInternalApi
@@ -79,6 +86,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         if (isAwsService(settings, model)) {
             writer.writeDocs("Unique service identifier.\n@internal")
                     .write("serviceId?: string;\n");
+            writer.writeDocs("Enables IPv6/IPv4 dualstack endpoint.")
+                    .write("useDualstackEndpoint?: boolean | __Provider<boolean>;\n");
+            writer.writeDocs("Enables FIPS compatible endpoints.")
+                    .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
         }
         if (isSigV4Service(settings, model)) {
             writer.writeDocs(isAwsService(settings, model)
@@ -111,6 +122,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             }
         }
         runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
+        runtimeConfigs.putAll(getEndpointConfigWriters(target, settings, model));
         return runtimeConfigs;
     }
 
@@ -143,6 +155,58 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.write(
                             "loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS)");
                 });
+            default:
+                return Collections.emptyMap();
+        }
+    }
+
+    private Map<String, Consumer<TypeScriptWriter>> getEndpointConfigWriters(
+            LanguageTarget target,
+            TypeScriptSettings settings,
+            Model model
+    ) {
+        if (!isAwsService(settings, model)) {
+            return Collections.emptyMap();
+        }
+        switch (target) {
+            case BROWSER:
+                return MapUtils.of(
+                        "useDualstackEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("DEFAULT_USE_DUALSTACK_ENDPOINT", "DEFAULT_USE_DUALSTACK_ENDPOINT",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("(() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))");
+                        },
+                        "useFipsEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("DEFAULT_USE_FIPS_ENDPOINT", "DEFAULT_USE_FIPS_ENDPOINT",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("(() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))");
+                        }
+                );
+            case NODE:
+                return MapUtils.of(
+                        "useDualstackEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
+                                    "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)");
+                        },
+                        "useFipsEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
+                                    "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS)");
+                        }
+                );
             default:
                 return Collections.emptyMap();
         }
