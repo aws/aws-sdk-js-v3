@@ -10,8 +10,7 @@
     "features/**",
     "codegen/**",
     // "lib/**",
-    "packages/**",
-
+    // "packages/**",
     "private/**",
     "scripts/**",
     "tests/**",
