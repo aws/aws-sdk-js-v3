@@ -48,9 +48,16 @@ export interface HostResolverArguments {
  */
 export interface HostResolver {
   /**
-   * Resolves the address(es) for {@link HostResolverArguments}. Calls to this
-   * function will likely alter the cache (if implemented) so that if there's
-   * multiple addresses, a different set will be returned on the next call.
+   * Resolves the address(es) for {@link HostResolverArguments} and returns a
+   * list of addresses with (most likely) two addresses, one {@link HostAddressType.AAAA}
+   * and one {@link HostAddressType.A}. Calls to this function will likely alter
+   * the cache (if implemented) so that if there's multiple addresses, a different
+   * set will be returned on the next call.
+   * In the case of multi-answer, still only a maximum of two records should be
+   * returned. The resolver implementation is responsible for caching and rotation
+   * of the multiple addresses that get returned.
+   * Implementations don't have to explictly call getaddrinfo(), they can use
+   * high level abstractions provided in their language runtimes/libraries.
    * @param args arguments with host name query addresses for
    * @returns promise with a list of {@link HostAddress}
    */
