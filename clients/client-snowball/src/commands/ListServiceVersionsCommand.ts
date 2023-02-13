@@ -14,43 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  GetSnowballUsageRequest,
-  GetSnowballUsageRequestFilterSensitiveLog,
-  GetSnowballUsageResult,
-  GetSnowballUsageResultFilterSensitiveLog,
+  ListServiceVersionsRequest,
+  ListServiceVersionsRequestFilterSensitiveLog,
+  ListServiceVersionsResult,
+  ListServiceVersionsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetSnowballUsageCommand,
-  serializeAws_json1_1GetSnowballUsageCommand,
+  deserializeAws_json1_1ListServiceVersionsCommand,
+  serializeAws_json1_1ListServiceVersionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
-export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
-export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
+export interface ListServiceVersionsCommandInput extends ListServiceVersionsRequest {}
+export interface ListServiceVersionsCommandOutput extends ListServiceVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about the Snow Family service limit for your account, and also the
- *       number of Snow devices your account has in use.</p>
- *          <p>The default service limit for the number of Snow devices that you can have at one time
- *       is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
+ * <p>Lists all supported versions for Snow on-device services. Returns an
+ *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, GetSnowballUsageCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, GetSnowballUsageCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, ListServiceVersionsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, ListServiceVersionsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const command = new GetSnowballUsageCommand(input);
+ * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetSnowballUsageCommandInput} for command's `input` shape.
- * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
+ * @see {@link ListServiceVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListServiceVersionsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
-export class GetSnowballUsageCommand extends $Command<
-  GetSnowballUsageCommandInput,
-  GetSnowballUsageCommandOutput,
+export class ListServiceVersionsCommand extends $Command<
+  ListServiceVersionsCommandInput,
+  ListServiceVersionsCommandOutput,
   SnowballClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +63,7 @@ export class GetSnowballUsageCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetSnowballUsageCommandInput) {
+  constructor(readonly input: ListServiceVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +76,23 @@ export class GetSnowballUsageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput> {
+  ): Handler<ListServiceVersionsCommandInput, ListServiceVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSnowballUsageCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListServiceVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SnowballClient";
-    const commandName = "GetSnowballUsageCommand";
+    const commandName = "ListServiceVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnowballUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnowballUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: ListServiceVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListServiceVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +102,12 @@ export class GetSnowballUsageCommand extends $Command<
     );
   }
 
-  private serialize(input: GetSnowballUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnowballUsageCommand(input, context);
+  private serialize(input: ListServiceVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListServiceVersionsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnowballUsageCommandOutput> {
-    return deserializeAws_json1_1GetSnowballUsageCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceVersionsCommandOutput> {
+    return deserializeAws_json1_1ListServiceVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra
