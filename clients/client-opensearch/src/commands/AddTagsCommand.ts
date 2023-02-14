@@ -25,8 +25,8 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
- *    case-sensitive key-value pairs. An domain can have up to 10 tags. For more information, see
- *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
+ *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
+ *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4614,6 +4614,7 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
     FoundByItems:
       output.FoundByItems != null ? deserializeAws_restJson1foundByList(output.FoundByItems, context) : undefined,
     Gender: __expectString(output.Gender),
+    GenderString: __expectString(output.GenderString),
     HomePhoneNumber: __expectString(output.HomePhoneNumber),
     LastName: __expectString(output.LastName),
     MailingAddress:
@@ -4621,6 +4622,7 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
     MiddleName: __expectString(output.MiddleName),
     MobilePhoneNumber: __expectString(output.MobilePhoneNumber),
     PartyType: __expectString(output.PartyType),
+    PartyTypeString: __expectString(output.PartyTypeString),
     PersonalEmailAddress: __expectString(output.PersonalEmailAddress),
     PhoneNumber: __expectString(output.PhoneNumber),
     ProfileId: __expectString(output.ProfileId),

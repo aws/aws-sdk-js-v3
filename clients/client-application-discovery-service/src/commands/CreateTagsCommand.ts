@@ -35,7 +35,6 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
 /**
  * <p>Creates one or more tags for configuration items. Tags are metadata that help you
  *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
- *
  *          <important>
  *             <p>Do not store sensitive information (like personal data) in tags.</p>
  *          </important>

@@ -36,7 +36,7 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  *          </p>
  *          <p>The <ExportTimestamp> component is in Java SimpleDateFormat
  *       (yyyy-MM-ddTHH-mm-ssZ).</p>
- *          <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management
+ *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
  *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
  *       <a>aws-forecast-iam-roles</a>.</p>
  *          <p>For more information, see <a>howitworks-forecast</a>.</p>

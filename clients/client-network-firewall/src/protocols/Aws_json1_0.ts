@@ -3144,6 +3144,7 @@ const serializeAws_json1_0StatelessRulesAndCustomActions = (
 
 const serializeAws_json1_0SubnetMapping = (input: SubnetMapping, context: __SerdeContext): any => {
   return {
+    ...(input.IPAddressType != null && { IPAddressType: input.IPAddressType }),
     ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
@@ -4404,6 +4405,7 @@ const deserializeAws_json1_0StatelessRulesAndCustomActions = (
 
 const deserializeAws_json1_0SubnetMapping = (output: any, context: __SerdeContext): SubnetMapping => {
   return {
+    IPAddressType: __expectString(output.IPAddressType),
     SubnetId: __expectString(output.SubnetId),
   } as any;
 };

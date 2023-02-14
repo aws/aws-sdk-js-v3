@@ -14,14 +14,19 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteContactFlowRequest, DeleteContactFlowRequestFilterSensitiveLog } from "../models/models_0";
+import {
+  DeleteContactFlowRequest,
+  DeleteContactFlowRequestFilterSensitiveLog,
+  DeleteContactFlowResponse,
+  DeleteContactFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteContactFlowCommand,
   serializeAws_restJson1DeleteContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 export interface DeleteContactFlowCommandInput extends DeleteContactFlowRequest {}
-export interface DeleteContactFlowCommandOutput extends __MetadataBearer {}
+export interface DeleteContactFlowCommandOutput extends DeleteContactFlowResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a flow for the specified Amazon Connect instance.</p>
@@ -86,7 +91,7 @@ export class DeleteContactFlowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: DeleteContactFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

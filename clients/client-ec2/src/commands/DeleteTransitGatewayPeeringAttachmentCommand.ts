@@ -19,7 +19,7 @@ import {
   DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
   DeleteTransitGatewayPeeringAttachmentResult,
   DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,

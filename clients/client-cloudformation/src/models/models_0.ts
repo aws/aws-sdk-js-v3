@@ -4760,6 +4760,8 @@ export interface StackSet {
    *          conflicting operations.</p>
    */
   ManagedExecution?: ManagedExecution;
+
+  Regions?: string[];
 }
 
 export interface DescribeStackSetOutput {
@@ -7770,7 +7772,6 @@ export interface RegisterTypeInput {
    *                   <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The following organization namespaces are reserved and can't be used in your
    *             extension names:</p>

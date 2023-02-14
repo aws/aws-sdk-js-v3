@@ -396,7 +396,7 @@ export interface AliasRoutingConfiguration {
 }
 
 /**
- * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  */
 export interface AliasConfiguration {
   /**
@@ -654,6 +654,16 @@ export enum FunctionResponseType {
   ReportBatchItemFailures = "ReportBatchItemFailures",
 }
 
+/**
+ * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
+ */
+export interface ScalingConfig {
+  /**
+   * <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
+   */
+  MaximumConcurrency?: number;
+}
+
 export enum EndPointType {
   KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
 }
@@ -701,41 +711,41 @@ export interface SourceAccessConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>
+   *                   <code>BASIC_AUTH</code> – (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>
+   *                   <code>BASIC_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SUBNET</code> - (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
+   *                   <code>VPC_SUBNET</code> – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SECURITY_GROUP</code> - (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
+   *                   <code>VPC_SECURITY_GROUP</code> – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_256_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_256_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_512_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_512_AUTH</code> – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VIRTUAL_HOST</code> - (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+   *                   <code>VIRTUAL_HOST</code> –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
    *   This property cannot be specified in an UpdateEventSourceMapping API call.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
+   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
    *   private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+   *                   <code>SERVER_ROOT_CA_CERTIFICATE</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
    *   </p>
    *             </li>
    *          </ul>
@@ -760,23 +770,23 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *                   <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *                   <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
+   *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -790,19 +800,19 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -822,27 +832,27 @@ export interface CreateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
@@ -941,6 +951,11 @@ export interface CreateEventSourceMappingRequest {
    * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 /**
@@ -1085,6 +1100,11 @@ export interface EventSourceMappingConfiguration {
    * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 /**
@@ -1306,9 +1326,10 @@ export enum SnapStartApplyOn {
 }
 
 /**
- * <p>The function's SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
- *       snapshot of the initialized execution environment when you publish a function version. For more information, see
- *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda
+ * <p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
+ *       snapshot of the initialized execution environment when you publish a function version.</p>
+ *          <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see
+ *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda
  *         SnapStart</a>.</p>
  */
 export interface SnapStart {
@@ -1621,6 +1642,36 @@ export interface Layer {
   SigningJobArn?: string;
 }
 
+/**
+ * <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
+ */
+export interface RuntimeVersionError {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The ARN of the runtime and any errors that occured.</p>
+ */
+export interface RuntimeVersionConfig {
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   */
+  RuntimeVersionArn?: string;
+
+  /**
+   * <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
+   */
+  Error?: RuntimeVersionError;
+}
+
 export enum SnapStartOptimizationStatus {
   Off = "Off",
   On = "On",
@@ -1882,9 +1933,14 @@ export interface FunctionConfiguration {
 
   /**
    * <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution
-   *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+   *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
    */
   SnapStart?: SnapStartResponse;
+
+  /**
+   * <p>The ARN of the runtime and any errors that occured.</p>
+   */
+  RuntimeVersionConfig?: RuntimeVersionConfig;
 }
 
 /**
@@ -2963,6 +3019,57 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
   }
 }
 
+export interface GetRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *     <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+}
+
+export enum UpdateRuntimeOn {
+  Auto = "Auto",
+  FunctionUpdate = "FunctionUpdate",
+  Manual = "Manual",
+}
+
+export interface GetRuntimeManagementConfigResponse {
+  /**
+   * <p>The current runtime update mode of the function.</p>
+   */
+  UpdateRuntimeOn?: UpdateRuntimeOn | string;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code>
+   *     is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+}
+
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
@@ -3530,7 +3637,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ * <p>The <code>afterRestore()</code>
+ *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  */
 export class SnapStartException extends __BaseException {
   readonly name: "SnapStartException" = "SnapStartException";
@@ -3576,7 +3684,7 @@ export class SnapStartNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook failed to complete within the timeout limit (2 seconds).</p>
+ * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
  */
 export class SnapStartTimeoutException extends __BaseException {
   readonly name: "SnapStartTimeoutException" = "SnapStartTimeoutException";
@@ -3769,23 +3877,23 @@ export interface ListEventSourceMappingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *                   <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *                   <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ</b> - The ARN of the broker.</p>
+   *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
    *             </li>
    *          </ul>
    */
@@ -3799,19 +3907,19 @@ export interface ListEventSourceMappingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -4737,6 +4845,88 @@ export interface PutProvisionedConcurrencyConfigResponse {
   LastModified?: string;
 }
 
+export interface PutRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *       <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>Specify the runtime update mode.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase">Two-phase runtime version rollout</a>. This is the best
+   *         choice for most customers to ensure they always benefit from runtime updates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function update</b> - Lambda updates the runtime of your function  to the most recent and secure runtime version when you update your
+   *         function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and
+   *         mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely.
+   *         In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information,
+   *         see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   *          <note>
+   *             <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
+   *          </note>
+   */
+  RuntimeVersionArn?: string;
+}
+
+export interface PutRuntimeManagementConfigResponse {
+  /**
+   * <p>The runtime update mode.</p>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the function</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code>
+   *       is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+}
+
 export interface RemoveLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4922,19 +5112,19 @@ export interface UpdateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *                   <b>Function name</b> – <code>MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
+   *                   <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
@@ -4954,27 +5144,27 @@ export interface UpdateEventSourceMappingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
@@ -5035,6 +5225,11 @@ export interface UpdateEventSourceMappingRequest {
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   */
+  ScalingConfig?: ScalingConfig;
 }
 
 export interface UpdateFunctionCodeRequest {
@@ -5533,6 +5728,13 @@ export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
 /**
  * @internal
  */
+export const ScalingConfigFilterSensitiveLog = (obj: ScalingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SelfManagedEventSourceFilterSensitiveLog = (obj: SelfManagedEventSource): any => ({
   ...obj,
 });
@@ -5682,6 +5884,22 @@ export const LayerFilterSensitiveLog = (obj: Layer): any => ({
 /**
  * @internal
  */
+export const RuntimeVersionErrorFilterSensitiveLog = (obj: RuntimeVersionError): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RuntimeVersionConfigFilterSensitiveLog = (obj: RuntimeVersionConfig): any => ({
+  ...obj,
+  ...(obj.Error && { Error: RuntimeVersionErrorFilterSensitiveLog(obj.Error) }),
+});
+
+/**
+ * @internal
+ */
 export const SnapStartResponseFilterSensitiveLog = (obj: SnapStartResponse): any => ({
   ...obj,
 });
@@ -5708,6 +5926,9 @@ export const FunctionConfigurationFilterSensitiveLog = (obj: FunctionConfigurati
   ...(obj.Environment && { Environment: EnvironmentResponseFilterSensitiveLog(obj.Environment) }),
   ...(obj.ImageConfigResponse && {
     ImageConfigResponse: ImageConfigResponseFilterSensitiveLog(obj.ImageConfigResponse),
+  }),
+  ...(obj.RuntimeVersionConfig && {
+    RuntimeVersionConfig: RuntimeVersionConfigFilterSensitiveLog(obj.RuntimeVersionConfig),
   }),
 });
 
@@ -6032,6 +6253,20 @@ export const GetProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetRuntimeManagementConfigRequestFilterSensitiveLog = (obj: GetRuntimeManagementConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuntimeManagementConfigResponseFilterSensitiveLog = (obj: GetRuntimeManagementConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const InvocationRequestFilterSensitiveLog = (obj: InvocationRequest): any => ({
   ...obj,
   ...(obj.Payload && { Payload: SENSITIVE_STRING }),
@@ -6350,6 +6585,20 @@ export const PutProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
 export const PutProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
   obj: PutProvisionedConcurrencyConfigResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuntimeManagementConfigRequestFilterSensitiveLog = (obj: PutRuntimeManagementConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuntimeManagementConfigResponseFilterSensitiveLog = (obj: PutRuntimeManagementConfigResponse): any => ({
   ...obj,
 });
 

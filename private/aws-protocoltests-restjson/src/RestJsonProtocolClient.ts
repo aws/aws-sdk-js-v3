@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -61,6 +63,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -131,6 +134,7 @@ import {
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "./commands/JsonIntEnumsCommand";
 import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
@@ -288,6 +292,7 @@ export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | DatetimeOffsetsCommandInput
   | DocumentTypeAsPayloadCommandInput
   | DocumentTypeCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -313,6 +318,7 @@ export type ServiceInputTypes =
   | InputAndOutputWithHeadersCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
+  | JsonIntEnumsCommandInput
   | JsonListsCommandInput
   | JsonMapsCommandInput
   | JsonTimestampsCommandInput
@@ -376,6 +382,7 @@ export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | DatetimeOffsetsCommandOutput
   | DocumentTypeAsPayloadCommandOutput
   | DocumentTypeCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
@@ -401,6 +408,7 @@ export type ServiceOutputTypes =
   | InputAndOutputWithHeadersCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput
+  | JsonIntEnumsCommandOutput
   | JsonListsCommandOutput
   | JsonMapsCommandOutput
   | JsonTimestampsCommandOutput
@@ -467,11 +475,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -578,16 +586,16 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
-  md5?: __HashConstructor;
+  md5?: __ChecksumConstructor | __HashConstructor;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data

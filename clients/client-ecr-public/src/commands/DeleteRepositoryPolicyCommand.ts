@@ -29,7 +29,7 @@ export interface DeleteRepositoryPolicyCommandInput extends DeleteRepositoryPoli
 export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the repository policy associated with the specified repository.</p>
+ * <p>Deletes the repository policy that's associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

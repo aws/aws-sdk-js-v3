@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** append content-encoding aws-chunked instead of replacing ([#4368](https://github.com/aws/aws-sdk-js-v3/issues/4368)) ([dac8a92](https://github.com/aws/aws-sdk-js-v3/commit/dac8a926157f845e6ba13758f9c77b7eeafa76b0))
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* **util-utf8:** add missing dependency in middleware-flexible-checksums ([#4349](https://github.com/aws/aws-sdk-js-v3/issues/4349)) ([1aed07e](https://github.com/aws/aws-sdk-js-v3/commit/1aed07e4f63117086899ecbd5bab6e826f9913ae))
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums

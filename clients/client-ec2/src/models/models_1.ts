@@ -16,15 +16,20 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  CoipCidr,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientVpnAuthenticationRequest,
+  ConnectionLogOptions,
   CurrencyCodeValues,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
+  NatGatewayAddress,
   PortRange,
   Protocol,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
+  SelfServicePortal,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -33,6 +38,327 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export enum TransportProtocol {
+  tcp = "tcp",
+  udp = "udp",
+}
+
+export interface CreateClientVpnEndpointRequest {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
+   */
+  ClientCidrBlock: string | undefined;
+
+  /**
+   * <p>The ARN of the server certificate. For more information, see
+   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+   */
+  ServerCertificateArn: string | undefined;
+
+  /**
+   * <p>Information about the authentication method to be used to authenticate clients.</p>
+   */
+  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
+
+  /**
+   * <p>Information about the client connection logging options.</p>
+   *          <p>If you enable client connection logging, data about client connections is sent to a
+   * 			Cloudwatch Logs log stream. The following information is logged:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection results (successful and unsuccessful)</p>
+   *             </li>
+   *             <li>
+   *                <p>Reasons for unsuccessful client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection termination time</p>
+   *             </li>
+   *          </ul>
+   */
+  ConnectionLogOptions: ConnectionLogOptions | undefined;
+
+  /**
+   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
+   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * <p>The transport protocol to be used by the VPN session.</p>
+   *          <p>Default value: <code>udp</code>
+   *          </p>
+   */
+  TransportProtocol?: TransportProtocol | string;
+
+  /**
+   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          </p>
+   *          <p>Default Value: <code>443</code>
+   *          </p>
+   */
+  VpnPort?: number;
+
+  /**
+   * <p>A brief description of the Client VPN endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
+   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   * 			<i>Client VPN Administrator Guide</i>.</p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+   *          <p>Default Value: <code>enabled</code>
+   *          </p>
+   */
+  SelfServicePortal?: SelfServicePortal | string;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   */
+  ClientConnectOptions?: ClientConnectOptions;
+
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   *          <p>Default value: <code>24</code>
+   *          </p>
+   */
+  SessionTimeoutHours?: number;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   */
+  ClientLoginBannerOptions?: ClientLoginBannerOptions;
+}
+
+export enum ClientVpnEndpointStatusCode {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending_associate = "pending-associate",
+}
+
+/**
+ * <p>Describes the state of a Client VPN endpoint.</p>
+ */
+export interface ClientVpnEndpointStatus {
+  /**
+   * <p>The state of the Client VPN endpoint. Possible states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
+   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
+   * 					associated. The Client VPN endpoint can accept connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
+   * 					connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
+   * 					connections.</p>
+   *             </li>
+   *          </ul>
+   */
+  Code?: ClientVpnEndpointStatusCode | string;
+
+  /**
+   * <p>A message about the status of the Client VPN endpoint.</p>
+   */
+  Message?: string;
+}
+
+export interface CreateClientVpnEndpointResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The current state of the Client VPN endpoint.</p>
+   */
+  Status?: ClientVpnEndpointStatus;
+
+  /**
+   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
+   */
+  DnsName?: string;
+}
+
+export interface CreateClientVpnRouteRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
+   *             </li>
+   *             <li>
+   *                <p>To add a route for the local network, enter the client CIDR range</p>
+   *             </li>
+   *          </ul>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
+   * 			an existing target network of the Client VPN endpoint.</p>
+   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
+   */
+  TargetVpcSubnetId: string | undefined;
+
+  /**
+   * <p>A brief description of the route.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum ClientVpnRouteStatusCode {
+  active = "active",
+  creating = "creating",
+  deleting = "deleting",
+  failed = "failed",
+}
+
+/**
+ * <p>Describes the state of a Client VPN endpoint route.</p>
+ */
+export interface ClientVpnRouteStatus {
+  /**
+   * <p>The state of the Client VPN endpoint route.</p>
+   */
+  Code?: ClientVpnRouteStatusCode | string;
+
+  /**
+   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
+   */
+  Message?: string;
+}
+
+export interface CreateClientVpnRouteResult {
+  /**
+   * <p>The current state of the route.</p>
+   */
+  Status?: ClientVpnRouteStatus;
+}
+
+export interface CreateCoipCidrRequest {
+  /**
+   * <p>
+   *       A customer-owned IP address range to create.
+   *       </p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the address pool.
+   *       </p>
+   */
+  CoipPoolId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>
+ *       Information about a customer-owned IP address range.
+ *       </p>
+ */
+export interface CoipCidr {
+  /**
+   * <p>
+   *       An address range in a customer-owned IP address space.
+   *       </p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>
+   *          The ID of the address pool.
+   *       </p>
+   */
+  CoipPoolId?: string;
+
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId?: string;
+}
 
 export interface CreateCoipCidrResult {
   /**
@@ -1661,12 +1987,12 @@ export interface TargetCapacitySpecificationRequest {
 
   /**
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *             <code>On-Demand</code>.</p>
+   *          <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -1706,6 +2032,7 @@ export interface CreateFleetRequest {
   /**
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
@@ -2856,7 +3183,37 @@ export interface EbsBlockDevice {
    *          <p>In no case can you remove encryption from an encrypted volume.</p>
    *          <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
-   *          <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
+   *          <p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p>
+   *          <p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can
+   *             include this parameter, and the allowed values differ depending on the type of block
+   *             device mapping you are creating.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are creating a block device mapping for a <b>new (empty)
+   *                     volume</b>, you can include this parameter, and specify either <code>true</code>
+   *                     for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit
+   *                     this parameter, it defaults to <code>false</code> (unencrypted).</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     encrypted or unencrypted snapshot</b>, you must omit this parameter. If you
+   *                     include this parameter, the request will fail, regardless of the value that you
+   *                     specify.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     unencrypted volume</b>, you can include this parameter, but you must specify
+   *                     <code>false</code>. If you specify <code>true</code>, the request will fail. In this
+   *                     case, we recommend that you omit the parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a block device mapping from an <b>existing
+   *                     encrypted volume</b>, you can include this parameter, and specify either
+   *                     <code>true</code> or <code>false</code>. However, if you specify <code>false</code>,
+   *                     the parameter is ignored and the block device mapping is always encrypted. In this
+   *                     case, we recommend that you omit the parameter.</p>
+   *             </li>
+   *          </ul>
    */
   Encrypted?: boolean;
 }
@@ -3293,8 +3650,7 @@ export interface CreateIpamRequest {
   Description?: string;
 
   /**
-   * <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
-   *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   * <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions. </p>
    *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -3313,8 +3669,7 @@ export interface CreateIpamRequest {
 }
 
 /**
- * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
- *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 export interface IpamOperatingRegion {
@@ -3354,7 +3709,7 @@ export interface Ipam {
   IpamId?: string;
 
   /**
-   * <p>The ARN of the IPAM.</p>
+   * <p>The Amazon Resource Name (ARN) of the IPAM.</p>
    */
   IpamArn?: string;
 
@@ -3385,8 +3740,7 @@ export interface Ipam {
   Description?: string;
 
   /**
-   * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
-   *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
    *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   OperatingRegions?: IpamOperatingRegion[];
@@ -3401,6 +3755,21 @@ export interface Ipam {
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The IPAM's default resource discovery ID.</p>
+   */
+  DefaultResourceDiscoveryId?: string;
+
+  /**
+   * <p>The IPAM's default resource discovery association ID.</p>
+   */
+  DefaultResourceDiscoveryAssociationId?: string;
+
+  /**
+   * <p>The IPAM's resource discovery association count.</p>
+   */
+  ResourceDiscoveryAssociationCount?: number;
 }
 
 export interface CreateIpamResult {
@@ -3427,6 +3796,11 @@ export interface RequestIpamResourceTag {
 
 export enum IpamPoolAwsService {
   ec2 = "ec2",
+}
+
+export enum IpamPoolPublicIpSource {
+  amazon = "amazon",
+  byoip = "byoip",
 }
 
 export interface CreateIpamPoolRequest {
@@ -3518,6 +3892,12 @@ export interface CreateIpamPoolRequest {
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
   AwsService?: IpamPoolAwsService | string;
+
+  /**
+   * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  PublicIpSource?: IpamPoolPublicIpSource | string;
 }
 
 /**
@@ -3576,7 +3956,7 @@ export interface IpamPool {
   SourceIpamPoolId?: string;
 
   /**
-   * <p>The ARN of the IPAM pool.</p>
+   * <p>The Amazon Resource Name (ARN) of the IPAM pool.</p>
    */
   IpamPoolArn?: string;
 
@@ -3679,6 +4059,12 @@ export interface IpamPool {
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
   AwsService?: IpamPoolAwsService | string;
+
+  /**
+   * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  PublicIpSource?: IpamPoolPublicIpSource | string;
 }
 
 export interface CreateIpamPoolResult {
@@ -3686,6 +4072,157 @@ export interface CreateIpamPoolResult {
    * <p>Information about the IPAM pool created.</p>
    */
   IpamPool?: IpamPool;
+}
+
+export interface CreateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A description for the IPAM resource discovery.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Operating Regions for the IPAM resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   */
+  OperatingRegions?: AddIpamOperatingRegion[];
+
+  /**
+   * <p>Tag specifications for the IPAM resource discovery.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A client token for the IPAM resource discovery.</p>
+   */
+  ClientToken?: string;
+}
+
+export enum IpamResourceDiscoveryState {
+  CREATE_COMPLETE = "create-complete",
+  CREATE_FAILED = "create-failed",
+  CREATE_IN_PROGRESS = "create-in-progress",
+  DELETE_COMPLETE = "delete-complete",
+  DELETE_FAILED = "delete-failed",
+  DELETE_IN_PROGRESS = "delete-in-progress",
+  ISOLATE_COMPLETE = "isolate-complete",
+  ISOLATE_IN_PROGRESS = "isolate-in-progress",
+  MODIFY_COMPLETE = "modify-complete",
+  MODIFY_FAILED = "modify-failed",
+  MODIFY_IN_PROGRESS = "modify-in-progress",
+  RESTORE_IN_PROGRESS = "restore-in-progress",
+}
+
+/**
+ * <p>A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+ */
+export interface IpamResourceDiscovery {
+  /**
+   * <p>The ID of the owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The resource discovery Amazon Resource Name (ARN).</p>
+   */
+  IpamResourceDiscoveryArn?: string;
+
+  /**
+   * <p>The resource discovery Region.</p>
+   */
+  IpamResourceDiscoveryRegion?: string;
+
+  /**
+   * <p>The resource discovery description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The operating Regions for the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   */
+  OperatingRegions?: IpamOperatingRegion[];
+
+  /**
+   * <p>Defines if the resource discovery is the default. The default resource discovery is the resource discovery automatically created when you create an IPAM.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The lifecycle state of the resource discovery.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>create-in-progress</code> - Resource discovery is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-complete</code> - Resource discovery creation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-failed</code> - Resource discovery creation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modify-in-progress</code> - Resource discovery is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modify-complete</code> - Resource discovery modification is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modify-failed</code> - Resource discovery modification has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delete-in-progress</code> - Resource discovery is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delete-complete</code> - Resource discovery deletion is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delete-failed</code> - Resource discovery deletion has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery has been removed and the resource discovery is being isolated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>restore-in-progress</code> - Amazon Web Services account that created the resource discovery and was isolated has been restored.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: IpamResourceDiscoveryState | string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateIpamResourceDiscoveryResult {
+  /**
+   * <p>An IPAM resource discovery.</p>
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery;
 }
 
 export interface CreateIpamScopeRequest {
@@ -3749,7 +4286,7 @@ export interface IpamScope {
   IpamScopeId?: string;
 
   /**
-   * <p>The ARN of the scope.</p>
+   * <p>The Amazon Resource Name (ARN) of the scope.</p>
    */
   IpamScopeArn?: string;
 
@@ -4301,17 +4838,27 @@ export enum LaunchTemplateInstanceMetadataTagsState {
  */
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
+   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
+   *                 <code>required</code> (in other words, set the use of IMDSv2 to
+   *                 <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: LaunchTemplateHttpTokensState | string;
 
@@ -4677,7 +5224,32 @@ export interface RequestLaunchTemplateData {
   NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[];
 
   /**
-   * <p>The ID of the AMI.</p>
+   * <p>The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which
+   *             will resolve to an AMI ID on launch.</p>
+   *          <p>Valid formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ami-17characters00000</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:parameter-name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:parameter-name:version-number</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:parameter-name:label</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI">Use a Systems Manager parameter to find an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ImageId?: string;
 
@@ -4869,7 +5441,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Indicates whether to enable the instance for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
+   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DisableApiStop?: boolean;
 }
@@ -5052,6 +5624,15 @@ export interface CreateLaunchTemplateVersionRequest {
    * <p>The information for the launch template.</p>
    */
   LaunchTemplateData: RequestLaunchTemplateData | undefined;
+
+  /**
+   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+   *             the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
+   *                 Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  ResolveAlias?: boolean;
 }
 
 /**
@@ -5358,17 +5939,18 @@ export interface LaunchTemplateInstanceMetadataOptions {
   State?: LaunchTemplateInstanceMetadataOptionsState | string;
 
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   * <p>Indicates whether IMDSv2 is <code>optional</code> or <code>required</code>.</p>
+   *          <p>
+   *             <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *          <p>
+   *             <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *          <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: LaunchTemplateHttpTokensState | string;
 
@@ -5680,7 +6262,25 @@ export interface ResponseLaunchTemplateData {
   NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecification[];
 
   /**
-   * <p>The ID of the AMI that was used to launch the instance.</p>
+   * <p>The ID of the AMI or a Systems Manager parameter. The Systems Manager parameter will
+   *             resolve to the ID of the AMI at instance launch.</p>
+   *          <p>The value depends on what you specified in the request. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If an AMI ID was specified in the request, then this is the AMI ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a Systems Manager parameter was specified in the request, and
+   *                     <code>ResolveAlias</code> was configured as <code>true</code>, then this is
+   *                     the AMI ID that the parameter is mapped to in the Parameter Store.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a Systems Manager parameter was specified in the request, and <code>ResolveAlias</code> was configured
+   *                     as <code>false</code>, then this is the parameter value.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
+   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ImageId?: string;
 
@@ -5817,7 +6417,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Indicates whether the instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
+   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DisableApiStop?: boolean;
 }
@@ -5886,7 +6486,7 @@ export interface CreateLocalGatewayRouteRequest {
    * <p>The CIDR range used for destination matches. Routing decisions are based on
    *         the most specific match.</p>
    */
-  DestinationCidrBlock: string | undefined;
+  DestinationCidrBlock?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -5909,6 +6509,14 @@ export interface CreateLocalGatewayRouteRequest {
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export enum LocalGatewayRouteState {
@@ -5977,6 +6585,13 @@ export interface LocalGatewayRoute {
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the prefix list.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export interface CreateLocalGatewayRouteResult {
@@ -6469,7 +7084,7 @@ export interface CreateNatGatewayRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The subnet in which to create the NAT gateway.</p>
+   * <p>The ID of the subnet in which to create the NAT gateway.</p>
    */
   SubnetId: string | undefined;
 
@@ -6488,31 +7103,21 @@ export interface CreateNatGatewayRequest {
    * <p>The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.</p>
    */
   PrivateIpAddress?: string;
-}
-
-/**
- * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
- */
-export interface NatGatewayAddress {
-  /**
-   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
-   */
-  AllocationId?: string;
 
   /**
-   * <p>The ID of the network interface associated with the NAT gateway.</p>
+   * <p>Secondary EIP allocation IDs. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  NetworkInterfaceId?: string;
+  SecondaryAllocationIds?: string[];
 
   /**
-   * <p>The private IP address associated with the NAT gateway.</p>
+   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  PrivateIp?: string;
+  SecondaryPrivateIpAddresses?: string[];
 
   /**
-   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
+   * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  PublicIp?: string;
+  SecondaryPrivateIpAddressCount?: number;
 }
 
 /**
@@ -8243,468 +8848,60 @@ export interface RouteTableAssociation {
 }
 
 /**
- * <p>Describes a virtual private gateway propagating route.</p>
+ * @internal
  */
-export interface PropagatingVgw {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  GatewayId?: string;
-}
-
-export enum RouteOrigin {
-  CreateRoute = "CreateRoute",
-  CreateRouteTable = "CreateRouteTable",
-  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
-}
-
-export enum RouteState {
-  active = "active",
-  blackhole = "blackhole",
-}
+export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a route in a route table.</p>
+ * @internal
  */
-export interface Route {
-  /**
-   * <p>The IPv4 CIDR block used for the destination match.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR block used for the destination match.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The prefix of the Amazon Web Service.</p>
-   */
-  DestinationPrefixListId?: string;
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The ID of a gateway attached to your VPC.</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The ID of Amazon Web Services account that owns the instance.</p>
-   */
-  InstanceOwnerId?: string;
-
-  /**
-   * <p>The ID of a NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>Describes how the route was created.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
-   *             </li>
-   *          </ul>
-   */
-  Origin?: RouteOrigin | string;
-
-  /**
-   * <p>The state of the route. The <code>blackhole</code> state indicates that the
-   * 				route's target isn't available (for example, the specified gateway isn't attached to the
-   * 				VPC, or the specified NAT instance has been terminated).</p>
-   */
-  State?: RouteState | string;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   */
-  CoreNetworkArn?: string;
-}
+export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a route table.</p>
+ * @internal
  */
-export interface RouteTable {
-  /**
-   * <p>The associations between the route table and one or more subnets or a gateway.</p>
-   */
-  Associations?: RouteTableAssociation[];
-
-  /**
-   * <p>Any virtual private gateway (VGW) propagating routes.</p>
-   */
-  PropagatingVgws?: PropagatingVgw[];
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId?: string;
-
-  /**
-   * <p>The routes in the route table.</p>
-   */
-  Routes?: Route[];
-
-  /**
-   * <p>Any tags assigned to the route table.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
-   */
-  OwnerId?: string;
-}
-
-export interface CreateRouteTableResult {
-  /**
-   * <p>Information about the route table.</p>
-   */
-  RouteTable?: RouteTable;
-}
-
-export interface CreateSecurityGroupRequest {
-  /**
-   * <p>A description for the security group. This is informational only.</p>
-   *          <p>Constraints: Up to 255 characters in length</p>
-   *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The name of the security group.</p>
-   *          <p>Constraints: Up to 255 characters in length. Cannot start with
-   *             <code>sg-</code>.</p>
-   *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The tags to assign to the security group.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface CreateSecurityGroupResult {
-  /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The tags assigned to the security group.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateSnapshotRequest {
-  /**
-   * <p>A description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local
-   *   	snapshot.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot
-   *   				is created in the same Region as the volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot in the
-   *   				Region, omit this parameter. The snapshot is created in the Region for the
-   *   				Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot on an
-   *   			Outpost, specify the ARN of the destination Outpost. The snapshot must be created on
-   *   			the same Outpost as the volume.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the Amazon EBS volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>The tags to apply to the snapshot during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export enum SnapshotState {
-  completed = "completed",
-  error = "error",
-  pending = "pending",
-  recoverable = "recoverable",
-  recovering = "recovering",
-}
-
-export enum StorageTier {
-  archive = "archive",
-  standard = "standard",
-}
+export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a snapshot.</p>
+ * @internal
  */
-export interface Snapshot {
-  /**
-   * <p>The data encryption key identifier for the snapshot. This value is a unique identifier
-   *       that corresponds to the data encryption key that was used to encrypt the original volume or
-   *       snapshot copy. Because data encryption keys are inherited by volumes created from snapshots,
-   *       and vice versa, if snapshots share the same data encryption key identifier, then they belong
-   *       to the same volume/snapshot lineage. This parameter is only returned by <a>DescribeSnapshots</a>.</p>
-   */
-  DataEncryptionKeyId?: string;
-
-  /**
-   * <p>The description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
-   *       volume encryption key for the parent volume.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The progress of the snapshot, as a percentage.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
-   *       created.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The time stamp when the snapshot was initiated.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The snapshot state.</p>
-   */
-  State?: SnapshotState | string;
-
-  /**
-   * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
-   *       (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error
-   *       state details to help you diagnose why the error occurred. This parameter is only returned by
-   *       <a>DescribeSnapshots</a>.</p>
-   */
-  StateMessage?: string;
-
-  /**
-   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
-   *       purpose.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   */
-  VolumeSize?: number;
-
-  /**
-   * <p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
-   *       the user-configured Amazon Web Services account alias set using the IAM console.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Any tags assigned to the snapshot.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
-   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
-   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
-   *       it must be restored before it can be used.</p>
-   */
-  StorageTier?: StorageTier | string;
-
-  /**
-   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
-   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
-   */
-  RestoreExpiryTime?: Date;
-}
-
-export enum CopyTagsFromSource {
-  volume = "volume",
-}
+export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>The instance details to specify which volumes should be snapshotted.</p>
+ * @internal
  */
-export interface InstanceSpecification {
-  /**
-   * <p>The instance to specify which volumes should be snapshotted.</p>
-   */
-  InstanceId?: string;
+export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Excludes the root volume from being snapshotted.</p>
-   */
-  ExcludeBootVolume?: boolean;
+/**
+ * @internal
+ */
+export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set.
-   *       If you specify the ID of the root volume, the request fails. To exclude the root volume,
-   *       use <b>ExcludeBootVolume</b>.</p>
-   *          <p>You can specify up to 40 volume IDs per request.</p>
-   */
-  ExcludeDataVolumeIds?: string[];
-}
+/**
+ * @internal
+ */
+export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
+  ...obj,
+});
 
-export interface CreateSnapshotsRequest {
-  /**
-   * <p> A description propagated to every snapshot specified by the instance.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The instance to specify which volumes should be included in the snapshots.</p>
-   */
-  InstanceSpecification: InstanceSpecification | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local
-   *   		snapshots.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To create snapshots from an instance in a Region, omit this parameter. The
-   *   				snapshots are created in the same Region as the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
-   *   				in the Region, omit this parameter. The snapshots are created in the Region
-   *   				for the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
-   *   				on an Outpost, specify the ARN of the destination Outpost. The snapshots must
-   *   				be created on the same Outpost as the instance.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
-   *   		Create multi-volume local snapshots from instances on an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Tags to apply to every snapshot specified by the instance.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Copies the tags from the specified volume to corresponding snapshot.</p>
-   */
-  CopyTagsFromSource?: CopyTagsFromSource | string;
-}
+/**
+ * @internal
+ */
+export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9344,6 +9541,27 @@ export const CreateIpamPoolResultFilterSensitiveLog = (obj: CreateIpamPoolResult
 /**
  * @internal
  */
+export const CreateIpamResourceDiscoveryRequestFilterSensitiveLog = (obj: CreateIpamResourceDiscoveryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamResourceDiscoveryFilterSensitiveLog = (obj: IpamResourceDiscovery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIpamResourceDiscoveryResultFilterSensitiveLog = (obj: CreateIpamResourceDiscoveryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateIpamScopeRequestFilterSensitiveLog = (obj: CreateIpamScopeRequest): any => ({
   ...obj,
 });
@@ -9822,6 +10040,7 @@ export const LaunchTemplateTagSpecificationFilterSensitiveLog = (obj: LaunchTemp
  */
 export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9829,6 +10048,9 @@ export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunch
  */
 export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
   ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
 });
 
 /**
@@ -9836,6 +10058,9 @@ export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersi
  */
 export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
   ...obj,
+  ...(obj.LaunchTemplateVersion && {
+    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
+  }),
 });
 
 /**
@@ -9968,13 +10193,6 @@ export const CreateManagedPrefixListResultFilterSensitiveLog = (obj: CreateManag
  * @internal
  */
 export const CreateNatGatewayRequestFilterSensitiveLog = (obj: CreateNatGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NatGatewayAddressFilterSensitiveLog = (obj: NatGatewayAddress): any => ({
   ...obj,
 });
 
@@ -10330,75 +10548,5 @@ export const CreateRouteTableRequestFilterSensitiveLog = (obj: CreateRouteTableR
  * @internal
  */
 export const RouteTableAssociationFilterSensitiveLog = (obj: RouteTableAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropagatingVgwFilterSensitiveLog = (obj: PropagatingVgw): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteFilterSensitiveLog = (obj: Route): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteTableFilterSensitiveLog = (obj: RouteTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteTableResultFilterSensitiveLog = (obj: CreateRouteTableResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityGroupRequestFilterSensitiveLog = (obj: CreateSecurityGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityGroupResultFilterSensitiveLog = (obj: CreateSecurityGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceSpecificationFilterSensitiveLog = (obj: InstanceSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotsRequestFilterSensitiveLog = (obj: CreateSnapshotsRequest): any => ({
   ...obj,
 });

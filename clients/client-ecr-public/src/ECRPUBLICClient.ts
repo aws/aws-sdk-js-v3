@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -174,11 +176,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -283,9 +285,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type ECRPUBLICClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -318,12 +320,12 @@ export interface ECRPUBLICClientResolvedConfig extends ECRPUBLICClientResolvedCo
 
 /**
  * <fullname>Amazon Elastic Container Registry Public</fullname>
- *          <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Amazon ECR provides both
- *          public and private registries to host your container images. You can use the familiar
- *          Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR provides a
- *          secure, scalable, and reliable registry for your Docker or Open Container Initiative (OCI)
- *          images. Amazon ECR supports public repositories with this API. For information about the Amazon ECR
- *          API for private repositories, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html">Amazon Elastic Container Registry API Reference</a>.</p>
+ *          <p>Amazon Elastic Container Registry Public (Amazon ECR Public) is a managed container image registry service. Amazon ECR provides both
+ *          public and private registries to host your container images. You can use the Docker CLI or
+ *          your preferred client to push, pull, and manage images. Amazon ECR provides a secure, scalable,
+ *          and reliable registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR
+ *          supports public repositories with this API. For information about the Amazon ECR API for private
+ *          repositories, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html">Amazon Elastic Container Registry API Reference</a>.</p>
  */
 export class ECRPUBLICClient extends __Client<
   __HttpHandlerOptions,

@@ -10,7 +10,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2601,7 +2601,8 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
     playbackUrl: __expectString(output.playbackUrl),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
@@ -2610,7 +2611,8 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
   return {
-    eventTime: output.eventTime != null ? __expectNonNull(__parseRfc3339DateTime(output.eventTime)) : undefined,
+    eventTime:
+      output.eventTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.eventTime)) : undefined,
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;
@@ -2684,7 +2686,7 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeContext): StreamSession => {
   return {
     channel: output.channel != null ? deserializeAws_restJson1Channel(output.channel, context) : undefined,
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     ingestConfiguration:
       output.ingestConfiguration != null
         ? deserializeAws_restJson1IngestConfiguration(output.ingestConfiguration, context)
@@ -2693,7 +2695,8 @@ const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeCont
       output.recordingConfiguration != null
         ? deserializeAws_restJson1RecordingConfiguration(output.recordingConfiguration, context)
         : undefined,
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
     truncatedEvents:
       output.truncatedEvents != null
@@ -2716,9 +2719,10 @@ const deserializeAws_restJson1StreamSessionList = (output: any, context: __Serde
 
 const deserializeAws_restJson1StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {
   return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     hasErrorEvent: __expectBoolean(output.hasErrorEvent),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
   } as any;
 };
@@ -2727,7 +2731,8 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
   return {
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),

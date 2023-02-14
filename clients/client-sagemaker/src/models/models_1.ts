@@ -2,19 +2,19 @@
 import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
-  ActionSource,
-  ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AnnotationConsolidationConfig,
   AppSpecification,
   AppType,
   ArtifactSource,
+  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AwsManagedHumanLoopRequestSource,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
+  BestObjectiveNotImproving,
   Bias,
   CaptureContentTypeHeader,
   CaptureStatus,
@@ -28,11 +28,10 @@ import {
   ContainerDefinition,
   ContentClassifier,
   ContinuousParameterRange,
-  DataCatalogConfig,
-  DeviceSelectionConfig,
-  EdgeDeploymentConfig,
+  ConvergenceDetected,
+  DataCaptureConfig,
   EndpointInput,
-  FeatureDefinition,
+  ExplainerConfig,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -53,9 +52,9 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
+  ProductionVariant,
   ProductionVariantInstanceType,
   ResourceConfig,
-  S3StorageConfig,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -64,10 +63,218 @@ import {
   TransformJobDefinition,
   TransformOutput,
   TransformResources,
-  UserContext,
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+export interface CreateEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a> request. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint.</p>
+   */
+  ProductionVariants: ProductionVariant[] | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfig;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
+   *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
+   *             hosts the endpoint.</p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
+   *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
+   *                 Policies in Amazon Web Services KMS </a>
+   *          </p>
+   *          <note>
+   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
+   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
+   *                 You can't request a <code>KmsKeyId</code> when using an instance type with local
+   *                 storage. If any of the models that you specify in the
+   *                     <code>ProductionVariants</code> parameter use nitro-based instances with local
+   *                 storage, do not specify a value for the <code>KmsKeyId</code> parameter. If you
+   *                 specify a value for <code>KmsKeyId</code> when using any nitro-based instances with
+   *                 local storage, the call to <code>CreateEndpointConfig</code> fails.</p>
+   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+   *                     Instance Store Volumes</a>.</p>
+   *          </note>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies configuration for how an endpoint performs asynchronous inference. This is a
+   *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
+   *             specify one variant for <code>ProductionVariants</code> and one variant for
+   *                 <code>ShadowProductionVariants</code>.</p>
+   */
+  ShadowProductionVariants?: ProductionVariant[];
+}
+
+export interface CreateEndpointConfigOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
+   */
+  EndpointConfigArn: string | undefined;
+}
+
+export interface CreateExperimentRequest {
+  /**
+   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
+   *       case-sensitive.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't
+   *       specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
+   *       displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
+   *       to search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+export enum FeatureType {
+  FRACTIONAL = "Fractional",
+  INTEGRAL = "Integral",
+  STRING = "String",
+}
+
+/**
+ * <p>A list of features. You must include <code>FeatureName</code> and
+ *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
+ *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
+ */
+export interface FeatureDefinition {
+  /**
+   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
+   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
+   *             <code>api_invocation_time</code>.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
+   */
+  FeatureType?: FeatureType | string;
+}
+
+/**
+ * <p>The meta data of the Glue table which serves as data catalog for the
+ *             <code>OfflineStore</code>. </p>
+ */
+export interface DataCatalogConfig {
+  /**
+   * <p>The name of the Glue table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the Glue table catalog.</p>
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The name of the Glue table database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
+ */
+export interface S3StorageConfig {
+  /**
+   * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
+   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
+   *          written into the <code>OfflineStore</code> S3 location.</p>
+   *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
+   *             <code>CreateFeatureGroup</code> must have below permissions to the
+   *          <code>KmsKeyId</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"kms:GenerateDataKey"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The S3 path where offline records are written.</p>
+   */
+  ResolvedOutputS3Uri?: string;
+}
 
 export enum TableFormat {
   GLUE = "Glue",
@@ -173,7 +380,7 @@ export interface OnlineStoreSecurityConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The caller (either IAM user or IAM role) to all DataPlane operations
+   *          <p>The caller (either user or IAM role) to all DataPlane operations
    *             (<code>PutRecord</code>, <code>GetRecord</code>, <code>DeleteRecord</code>) must have
    *          the following permissions to the <code>KmsKeyId</code>:</p>
    *          <ul>
@@ -1145,7 +1352,7 @@ export interface CreateFlowDefinitionResponse {
  */
 export interface HubS3StorageConfig {
   /**
-   * <p>The Amazon S3 output path for the hub.</p>
+   * <p>The Amazon S3 bucket prefix for hosting hub content.</p>
    */
   S3OutputPath?: string;
 }
@@ -1308,27 +1515,26 @@ export interface ParameterRanges {
 }
 
 /**
- * <p>Specifies the maximum number of
- *             training
- *             jobs and parallel training jobs that a hyperparameter tuning job can
- *             launch.</p>
+ * <p>Specifies the maximum number of training jobs and parallel training jobs that a
+ *             hyperparameter tuning job can launch.</p>
  */
 export interface ResourceLimits {
   /**
-   * <p>The
-   *             maximum
-   *             number of training jobs that a hyperparameter tuning job can
+   * <p>The maximum number of training jobs that a hyperparameter tuning job can
    *             launch.</p>
    */
   MaxNumberOfTrainingJobs?: number;
 
   /**
-   * <p>The
-   *             maximum
-   *             number of concurrent training jobs that a hyperparameter tuning job can
+   * <p>The maximum number of concurrent training jobs that a hyperparameter tuning job can
    *             launch.</p>
    */
   MaxParallelTrainingJobs: number | undefined;
+
+  /**
+   * <p>The maximum time in seconds that a training job launched by a hyperparameter tuning job can run.</p>
+   */
+  MaxRuntimeInSeconds?: number;
 }
 
 export enum HyperParameterTuningJobStrategyType {
@@ -1350,7 +1556,7 @@ export interface HyperbandStrategyConfig {
   /**
    * <p>The minimum number of resources (such as epochs) that can be used by a training job
    *          launched by a hyperparameter tuning job. If the value for <code>MinResource</code> has not
-   *          been reached, the training job will not be stopped by <code>Hyperband</code>.</p>
+   *          been reached, the training job is not stopped by <code>Hyperband</code>.</p>
    */
   MinResource?: number;
 
@@ -1428,7 +1634,17 @@ export interface TuningJobCompletionCriteria {
   /**
    * <p>The value of the objective metric.</p>
    */
-  TargetObjectiveMetricValue: number | undefined;
+  TargetObjectiveMetricValue?: number;
+
+  /**
+   * <p>A flag to stop your hyperparameter tuning job if model performance fails to improve as evaluated against an objective function.</p>
+   */
+  BestObjectiveNotImproving?: BestObjectiveNotImproving;
+
+  /**
+   * <p>A flag to top your hyperparameter tuning job if automatic model tuning (AMT) has detected that your model has converged as evaluated against your objective function.</p>
+   */
+  ConvergenceDetected?: ConvergenceDetected;
 }
 
 /**
@@ -1597,7 +1813,7 @@ export interface HyperParameterTuningInstanceConfig {
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
    *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/data-parallel-use-api.html">SageMaker distributed training
-   *                 jobs</a> for more informcration.</p>
+   *                 jobs</a> for more information.</p>
    */
   InstanceCount: number | undefined;
 
@@ -1779,13 +1995,11 @@ export interface HyperParameterTrainingJobDefinition {
   InputDataConfig?: Channel[];
 
   /**
-   * <p>The <a>VpcConfig</a> object that
-   *             specifies
-   *             the VPC that you want the training jobs that this hyperparameter
-   *             tuning job launches to connect to. Control access to and from your
-   *             training
-   *             container by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>.</p>
+   * <p>The <a>VpcConfig</a> object that specifies the VPC that you want the
+   *             training jobs that this hyperparameter tuning job launches to connect to. Control access
+   *             to and from your training container by configuring the VPC. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect
+   *                 Training Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: VpcConfig;
 
@@ -1869,6 +2083,20 @@ export interface HyperParameterTrainingJobDefinition {
    *             the storage volume (optional).</p>
    */
   HyperParameterTuningResourceConfig?: HyperParameterTuningResourceConfig;
+
+  /**
+   * <p>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment variable from the training container</a> or use your own. See
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
+   *                 and variables</a> for more information.</p>
+   *          <note>
+   *             <p>The maximum number of items specified for <code>Map Entries</code> refers to the
+   *                 maximum number of environment variables for each <code>TrainingJobDefinition</code>
+   *                 and also the maximum for the hyperparameter tuning job itself. That is, the sum of
+   *                 the number of environment variables for all the training job definitions can't
+   *                 exceed the maximum number specified.</p>
+   *          </note>
+   */
+  Environment?: Record<string, string>;
 }
 
 /**
@@ -2606,6 +2834,13 @@ export interface RecommendationJobContainerConfig {
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
   SupportedInstanceTypes?: string[];
+
+  /**
+   * <p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form.
+   *          This field is used for optimizing your model using SageMaker Neo. For more information, see
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</p>
+   */
+  DataInputConfig?: string;
 }
 
 /**
@@ -2726,7 +2961,7 @@ export interface RecommendationJobInputConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
    */
-  ModelPackageVersionArn: string | undefined;
+  ModelPackageVersionArn?: string;
 
   /**
    * <p>Specifies the maximum duration of the job, in seconds.></p>
@@ -2804,6 +3039,11 @@ export interface RecommendationJobInputConfig {
    * <p>Inference Recommender provisions SageMaker endpoints with access to VPC in the inference recommendation job.</p>
    */
   VpcConfig?: RecommendationJobVpcConfig;
+
+  /**
+   * <p>The name of the created model.</p>
+   */
+  ModelName?: string;
 }
 
 export enum RecommendationJobType {
@@ -9037,200 +9277,54 @@ export interface DeleteWorkteamRequest {
   WorkteamName: string | undefined;
 }
 
-export interface DeleteWorkteamResponse {
-  /**
-   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
-   *             returns <code>false</code>.</p>
-   */
-  Success: boolean | undefined;
-}
+/**
+ * @internal
+ */
+export const CreateEndpointConfigInputFilterSensitiveLog = (obj: CreateEndpointConfigInput): any => ({
+  ...obj,
+});
 
 /**
- * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
- *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
- *             of the primary container when you created the model hosted in this
- *                 <code>ProductionVariant</code>, the path resolves to a path of the form
- *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
- *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+ * @internal
  */
-export interface DeployedImage {
-  /**
-   * <p>The image path you specified when you created the model.</p>
-   */
-  SpecifiedImage?: string;
-
-  /**
-   * <p>The specific digest path of the image hosted in this
-   *             <code>ProductionVariant</code>.</p>
-   */
-  ResolvedImage?: string;
-
-  /**
-   * <p>The date and time when the image path for the model resolved to the
-   *                 <code>ResolvedImage</code>
-   *          </p>
-   */
-  ResolutionTime?: Date;
-}
-
-export enum StageStatus {
-  Creating = "CREATING",
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const CreateEndpointConfigOutputFilterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains information summarizing the deployment stage results.</p>
+ * @internal
  */
-export interface EdgeDeploymentStatus {
-  /**
-   * <p>The general status of the current stage.</p>
-   */
-  StageStatus: StageStatus | string | undefined;
-
-  /**
-   * <p>The number of edge devices with the successful deployment in the current stage.</p>
-   */
-  EdgeDeploymentSuccessInStage: number | undefined;
-
-  /**
-   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
-   */
-  EdgeDeploymentPendingInStage: number | undefined;
-
-  /**
-   * <p>The number of edge devices that failed the deployment in current stage.</p>
-   */
-  EdgeDeploymentFailedInStage: number | undefined;
-
-  /**
-   * <p>A detailed message about deployment status in current stage.</p>
-   */
-  EdgeDeploymentStatusMessage?: string;
-
-  /**
-   * <p>The time when the deployment API started.</p>
-   */
-  EdgeDeploymentStageStartTime?: Date;
-}
+export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains information summarizing the deployment stage results.</p>
+ * @internal
  */
-export interface DeploymentStageStatusSummary {
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName: string | undefined;
+export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Configuration of the devices in the stage.</p>
-   */
-  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+/**
+ * @internal
+ */
+export const FeatureDefinitionFilterSensitiveLog = (obj: FeatureDefinition): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Configuration of the deployment details.</p>
-   */
-  DeploymentConfig: EdgeDeploymentConfig | undefined;
+/**
+ * @internal
+ */
+export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>General status of the current state.</p>
-   */
-  DeploymentStatus: EdgeDeploymentStatus | undefined;
-}
-
-export interface DeregisterDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The unique IDs of the devices.</p>
-   */
-  DeviceNames: string[] | undefined;
-}
-
-export interface DescribeActionRequest {
-  /**
-   * <p>The name of the action to describe.</p>
-   */
-  ActionName: string | undefined;
-}
-
-export interface DescribeActionResponse {
-  /**
-   * <p>The name of the action.</p>
-   */
-  ActionName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-
-  /**
-   * <p>The source of the action.</p>
-   */
-  Source?: ActionSource;
-
-  /**
-   * <p>The type of the action.</p>
-   */
-  ActionType?: string;
-
-  /**
-   * <p>The description of the action.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the action.</p>
-   */
-  Status?: ActionStatus | string;
-
-  /**
-   * <p>A list of the action's properties.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>When the action was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the action was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-}
+/**
+ * @internal
+ */
+export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11124,54 +11218,5 @@ export const DeleteWorkforceResponseFilterSensitiveLog = (obj: DeleteWorkforceRe
  * @internal
  */
 export const DeleteWorkteamRequestFilterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
   ...obj,
 });

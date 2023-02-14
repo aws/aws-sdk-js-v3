@@ -20,8 +20,6 @@ import {
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatus,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
   CurrencyCodeValues,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
@@ -31,8 +29,8 @@ import {
   IamInstanceProfileAssociation,
   InstanceEventWindow,
   Tag,
+  TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TransportProtocol,
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
@@ -42,6 +40,8 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  ClientVpnEndpointStatus,
+  ClientVpnRouteStatus,
   CoipPool,
   CustomerGateway,
   DefaultTargetCapacityType,
@@ -71,15 +71,214 @@ import {
   StateReason,
   TargetCapacityUnitType,
   TrafficType,
+  TransportProtocol,
 } from "./models_1";
 import {
   FleetStateCode,
+  TransitGateway,
+  TransitGatewayConnect,
+  TransitGatewayConnectPeer,
+  TransitGatewayMulticastDomain,
+  TransitGatewayPolicyTable,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+export interface DeleteTrafficMirrorTargetRequest {
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTrafficMirrorTargetResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId?: string;
+}
+
+export interface DeleteTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayResult {
+  /**
+   * <p>Information about the deleted transit gateway.</p>
+   */
+  TransitGateway?: TransitGateway;
+}
+
+export interface DeleteTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayConnectResult {
+  /**
+   * <p>Information about the deleted Connect attachment.</p>
+   */
+  TransitGatewayConnect?: TransitGatewayConnect;
+}
+
+export interface DeleteTransitGatewayConnectPeerRequest {
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  TransitGatewayConnectPeerId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayConnectPeerResult {
+  /**
+   * <p>Information about the deleted Connect peer.</p>
+   */
+  TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
+}
+
+export interface DeleteTransitGatewayMulticastDomainRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayMulticastDomainResult {
+  /**
+   * <p>Information about the deleted transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain;
+}
+
+export interface DeleteTransitGatewayPeeringAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>The transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+}
+
+export interface DeleteTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The transit gateway policy table to delete.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayPolicyTableResult {
+  /**
+   * <p>Provides details about the deleted transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
+}
+
+export interface DeleteTransitGatewayPrefixListReferenceRequest {
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayPrefixListReferenceResult {
+  /**
+   * <p>Information about the deleted prefix list reference.</p>
+   */
+  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
+}
+
+export interface DeleteTransitGatewayRouteRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface DeleteTransitGatewayRouteResult {
   /**
@@ -296,7 +495,7 @@ export interface DeleteVpcEndpointConnectionNotificationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more notification IDs.</p>
+   * <p>The IDs of the notifications.</p>
    */
   ConnectionNotificationIds: string[] | undefined;
 }
@@ -309,9 +508,6 @@ export interface DeleteVpcEndpointConnectionNotificationsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
-/**
- * <p>Contains the parameters for DeleteVpcEndpoints.</p>
- */
 export interface DeleteVpcEndpointsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -321,14 +517,11 @@ export interface DeleteVpcEndpointsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more VPC endpoint IDs.</p>
+   * <p>The IDs of the VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
 
-/**
- * <p>Contains the output of DeleteVpcEndpoints.</p>
- */
 export interface DeleteVpcEndpointsResult {
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
@@ -345,7 +538,7 @@ export interface DeleteVpcEndpointServiceConfigurationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The IDs of one or more services.</p>
+   * <p>The IDs of the services.</p>
    */
   ServiceIds: string[] | undefined;
 }
@@ -473,6 +666,7 @@ export interface DeprovisionIpamPoolCidrRequest {
 
 export enum IpamPoolCidrFailureCode {
   cidr_not_available = "cidr-not-available",
+  limit_exceeded = "limit-exceeded",
 }
 
 /**
@@ -520,6 +714,16 @@ export interface IpamPoolCidr {
    * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
    */
   FailureReason?: IpamPoolCidrFailureReason;
+
+  /**
+   * <p>The IPAM pool CIDR ID.</p>
+   */
+  IpamPoolCidrId?: string;
+
+  /**
+   * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. "NetmaskLength" or "Cidr" is required.</p>
+   */
+  NetmaskLength?: number;
 }
 
 export interface DeprovisionIpamPoolCidrResult {
@@ -993,7 +1197,7 @@ export interface DescribeAvailabilityZonesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>opt-in-status</code> - The opt-in status (<code>opted-in</code>, and
+   *                   <code>opt-in-status</code> - The opt-in status (<code>opted-in</code> |
    *             <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p>
    *             </li>
    *             <li>
@@ -1024,17 +1228,14 @@ export interface DescribeAvailabilityZonesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>zone-name</code> - The name of the Availability Zone (for example,
    *             <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or
    *           the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p>
+   *                   <code>zone-type</code> - The type of zone (<code>availability-zone</code> |
+   *           <code>local-zone</code> | <code>wavelength-zone</code>).</p>
    *             </li>
    *          </ul>
    */
@@ -1817,14 +2018,15 @@ export interface DescribeClassicLinkInstancesRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -1864,7 +2066,7 @@ export interface DescribeClassicLinkInstancesResult {
   Instances?: ClassicLinkInstance[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3015,13 +3217,14 @@ export interface DescribeDhcpOptionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -3033,7 +3236,7 @@ export interface DescribeDhcpOptionsResult {
   DhcpOptions?: DhcpOptions[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3052,13 +3255,14 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   EgressOnlyInternetGatewayIds?: string[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -3086,7 +3290,7 @@ export interface DescribeEgressOnlyInternetGatewaysResult {
   EgressOnlyInternetGateways?: EgressOnlyInternetGateway[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3541,13 +3745,15 @@ export interface DescribeFastSnapshotRestoresRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -3646,7 +3852,8 @@ export interface DescribeFastSnapshotRestoresResult {
   FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4372,12 +4579,12 @@ export interface TargetCapacitySpecification {
 
   /**
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *             <code>On-Demand</code>.</p>
+   *          <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -4422,6 +4629,7 @@ export interface FleetData {
   /**
    * <p>Indicates whether running instances should be terminated if the target capacity of the
    *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
@@ -4592,13 +4800,14 @@ export interface DescribeFlowLogsRequest {
   FlowLogIds?: string[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -4725,7 +4934,7 @@ export interface DescribeFlowLogsResult {
   FlowLogs?: FlowLog[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to request the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5059,6 +5268,9 @@ export interface FpgaImage {
    */
   DataRetentionSupport?: boolean;
 
+  /**
+   * <p>The instance types supported by the AFI.</p>
+   */
   InstanceTypes?: string[];
 }
 
@@ -5623,13 +5835,15 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -5641,7 +5855,8 @@ export interface DescribeIamInstanceProfileAssociationsResult {
   IamInstanceProfileAssociations?: IamInstanceProfileAssociation[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -6899,15 +7114,16 @@ export interface DescribeInstanceCreditSpecificationsRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. This value
    *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
+   *             parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -6936,8 +7152,8 @@ export interface DescribeInstanceCreditSpecificationsResult {
   InstanceCreditSpecifications?: InstanceCreditSpecification[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -7227,14 +7443,21 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>metadata-options.http-put-response-hop-limit</code> - The http metadata
+   *                   <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata
    *                     request put response hop limit (integer, possible values <code>1</code> to
    *                         <code>64</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>metadata-options.http-endpoint</code> - Enable or disable metadata
-   *                     access on http endpoint (<code>enabled</code> | <code>disabled</code>)</p>
+   *                   <code>metadata-options.http-endpoint</code> - The status of access to the HTTP
+   *                     metadata endpoint on your instance (<code>enabled</code> |
+   *                     <code>disabled</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>metadata-options.instance-metadata-tags</code> - The status of access to
+   *                     instance tags from the instance metadata (<code>enabled</code> |
+   *                         <code>disabled</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7544,15 +7767,16 @@ export interface DescribeInstancesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *             make another request with the token returned in the output. This value can be between 5 and 1000.
+   *             You cannot specify this parameter and the instance IDs parameter in the same request. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -7751,16 +7975,25 @@ export interface InstanceMetadataOptionsResponse {
   State?: InstanceMetadataOptionsState | string;
 
   /**
-   * <p>The state of token usage for your instance metadata requests.</p>
-   *          <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a session token on your request. If you retrieve the IAM
-   *             role credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid session token, the
-   *             version 2.0 role credentials are returned.</p>
-   *          <p>If the state is <code>required</code>, you must send a session token with any instance
-   *             metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
-   *             not available.</p>
+   * <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is
+   *                 <code>optional</code> (in other words, indicates whether the use of IMDSv2 is
+   *                 <code>optional</code>) or <code>required</code> (in other words, indicates whether
+   *             the use of IMDSv2 is <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
    *          <p>Default: <code>optional</code>
    *          </p>
    */
@@ -8425,660 +8658,143 @@ export interface Instance {
 }
 
 /**
- * <p>Describes a launch request for one or more instances, and includes owner, requester,
- *             and security group information that applies to all instances in the launch
- *             request.</p>
+ * @internal
  */
-export interface Reservation {
-  /**
-   * <p>[EC2-Classic only] The security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The instances.</p>
-   */
-  Instances?: Instance[];
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the reservation.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the requester that launched the instances on your behalf (for example,
-   *                 Amazon Web Services Management Console or Auto Scaling).</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  ReservationId?: string;
-}
-
-export interface DescribeInstancesResult {
-  /**
-   * <p>Information about the reservations.</p>
-   */
-  Reservations?: Reservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeInstanceStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.code</code> - The code for the scheduled event
-   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
-   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
-   *                         <code>instance-stop</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
-   *                     you are modifying.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the scheduled event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the scheduled
-   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-state-code</code> - The code for the instance state, as a
-   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
-   *                     be ignored. The low byte is set based on the state represented. The valid values
-   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-status.reachability</code> - Filters on instance status where
-   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
-   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-status.status</code> - The status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-status.reachability</code> - Filters on system status where the
-   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
-   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-status.status</code> - The system status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *          <p>Default: Describes all your instances.</p>
-   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  IncludeAllInstances?: boolean;
-}
-
-export enum EventCode {
-  instance_reboot = "instance-reboot",
-  instance_retirement = "instance-retirement",
-  instance_stop = "instance-stop",
-  system_maintenance = "system-maintenance",
-  system_reboot = "system-reboot",
-}
+export const DeleteTrafficMirrorTargetRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a scheduled event for an instance.</p>
+ * @internal
  */
-export interface InstanceStatusEvent {
-  /**
-   * <p>The ID of the event.</p>
-   */
-  InstanceEventId?: string;
-
-  /**
-   * <p>The event code.</p>
-   */
-  Code?: EventCode | string;
-
-  /**
-   * <p>A description of the event.</p>
-   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
-   *             the event has been completed, this description starts with the following text:
-   *             [Completed].</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The latest scheduled end time for the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest scheduled start time for the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The deadline for starting the event.</p>
-   */
-  NotBeforeDeadline?: Date;
-}
-
-export enum StatusName {
-  reachability = "reachability",
-}
-
-export enum StatusType {
-  failed = "failed",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  passed = "passed",
-}
+export const DeleteTrafficMirrorTargetResultFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the instance status.</p>
+ * @internal
  */
-export interface InstanceStatusDetails {
-  /**
-   * <p>The time when a status check failed. For an instance that was launched and impaired,
-   *             this is the time when the instance was launched.</p>
-   */
-  ImpairedSince?: Date;
-
-  /**
-   * <p>The type of instance status.</p>
-   */
-  Name?: StatusName | string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: StatusType | string;
-}
-
-export enum SummaryStatus {
-  impaired = "impaired",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  not_applicable = "not-applicable",
-  ok = "ok",
-}
+export const DeleteTransitGatewayRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the status of an instance.</p>
+ * @internal
  */
-export interface InstanceStatusSummary {
-  /**
-   * <p>The system instance health or application instance health.</p>
-   */
-  Details?: InstanceStatusDetails[];
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: SummaryStatus | string;
-}
+export const DeleteTransitGatewayResultFilterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the status of an instance.</p>
+ * @internal
  */
-export interface InstanceStatus {
-  /**
-   * <p>The Availability Zone of the instance.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Any scheduled events associated with the instance.</p>
-   */
-  Events?: InstanceStatusEvent[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
-   *             that an instance be in the <code>running</code> state.</p>
-   */
-  InstanceState?: InstanceState;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues internal to the instance, such
-   *             as impaired reachability.</p>
-   */
-  InstanceStatus?: InstanceStatusSummary;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues related to the systems that
-   *             support an instance, such as hardware failures and network connectivity problems.</p>
-   */
-  SystemStatus?: InstanceStatusSummary;
-}
-
-export interface DescribeInstanceStatusResult {
-  /**
-   * <p>Information about the status of the instances.</p>
-   */
-  InstanceStatuses?: InstanceStatus[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export enum LocationType {
-  availability_zone = "availability-zone",
-  availability_zone_id = "availability-zone-id",
-  region = "region",
-}
-
-export interface DescribeInstanceTypeOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>location</code> - This depends on the location type. For example, if the location type is
-   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type. For example,
-   *      <code>c5.2xlarge</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+export const DeleteTransitGatewayConnectRequestFilterSensitiveLog = (obj: DeleteTransitGatewayConnectRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>The instance types offered.</p>
+ * @internal
  */
-export interface InstanceTypeOffering {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
+export const DeleteTransitGatewayConnectResultFilterSensitiveLog = (obj: DeleteTransitGatewayConnectResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayConnectPeerRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayConnectPeerRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
-   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
-   */
-  Location?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayConnectPeerResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayConnectPeerResult
+): any => ({
+  ...obj,
+});
 
-export interface DescribeInstanceTypeOfferingsResult {
-  /**
-   * <p>The instance types offered.</p>
-   */
-  InstanceTypeOfferings?: InstanceTypeOffering[];
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayMulticastDomainRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayMulticastDomainRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayMulticastDomainResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayMulticastDomainResult
+): any => ({
+  ...obj,
+});
 
-export interface DescribeInstanceTypesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPeeringAttachmentRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceTypes?: (_InstanceType | string)[];
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPeeringAttachmentResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
-   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
-   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
-   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
-   *      operations per second for an EBS-optimized instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
-   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
-   *                     performance for an EBS-optimized instance type, in Mbps.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
-   *                     operations per second for an EBS-optimized instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
-   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
-   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
-   *      <code>default</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
-   *       (<code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
-   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
-   *      GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
-   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
-   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
-   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
-   *      <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
-   *      instance storage, in GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
-   *      instance storage  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
-   *      c5*).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
-   *      Fabric Adapters (EFAs) per instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
-   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
-   *      supported or required (<code>required</code> | <code>supported</code> |
-   *       <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
-   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
-   *      instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
-   *      Gigabit").</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
-   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
-   *       <code>uefi</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
-   *       <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
-   *       <code>spot</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
-   *       <code>paravirtual</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
-   *      type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
-   *         For example, "1" or "1,2".</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPolicyTableRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPolicyTableRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPolicyTableResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPolicyTableResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPrefixListReferenceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayPrefixListReferenceResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTransitGatewayRouteRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10855,93 +10571,5 @@ export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
  * @internal
  */
 export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceStatusRequestFilterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusEventFilterSensitiveLog = (obj: InstanceStatusEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusDetailsFilterSensitiveLog = (obj: InstanceStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusSummaryFilterSensitiveLog = (obj: InstanceStatusSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusFilterSensitiveLog = (obj: InstanceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceStatusResultFilterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeInstanceTypeOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeOfferingFilterSensitiveLog = (obj: InstanceTypeOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeOfferingsResultFilterSensitiveLog = (
-  obj: DescribeInstanceTypeOfferingsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypesRequestFilterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
   ...obj,
 });

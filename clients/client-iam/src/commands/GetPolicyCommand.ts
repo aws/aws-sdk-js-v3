@@ -32,9 +32,9 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  *             the policy is attached to, use <a>ListEntitiesForPolicy</a>. This operation
  *             returns metadata about the policy. To retrieve the actual policy document for a specific
  *             version of the policy, use <a>GetPolicyVersion</a>.</p>
- *         <p>This operation retrieves information about managed policies. To retrieve information
+ *          <p>This operation retrieves information about managed policies. To retrieve information
  *             about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>
- *         <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./DatetimeOffsetsCommand";
 export * from "./EmptyOperationCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelOperationCommand";

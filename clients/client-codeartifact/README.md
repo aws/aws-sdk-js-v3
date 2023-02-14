@@ -15,12 +15,10 @@ share packages with development teams and pull packages. Packages can be pulled 
 public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
 repository and another repository, which effectively merges their contents from the point of
 view of a package manager client. </p>
-
 <p>
 <b>CodeArtifact Components</b>
 </p>
 <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
-
 <ul>
 <li>
 <p>
@@ -96,7 +94,6 @@ allows creating an upstream relationship between two repositories.</p>
 <code>.tgz</code> file or Maven POM and JAR files.</p>
 </li>
 </ul>
-
 <p>CodeArtifact supports these operations:</p>
 <ul>
 <li>

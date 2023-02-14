@@ -26,9 +26,7 @@ export interface GetImportCommandInput extends GetImportRequest {}
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns information about a specific import.
- *       </p>
+ * <p> Returns information about a specific import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

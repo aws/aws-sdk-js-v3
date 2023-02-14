@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-endpoint
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-endpoint
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-endpoint
+
+
+
+
+
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+
+### Bug Fixes
+
+* **s3-presigned-post:** use endpoints 2.0 for custom endpoints ([#4366](https://github.com/aws/aws-sdk-js-v3/issues/4366)) ([5054ba5](https://github.com/aws/aws-sdk-js-v3/commit/5054ba5fd8622960b699dfeb91a4b06dd77f5a70))
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/middleware-endpoint
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-endpoint
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/middleware-endpoint

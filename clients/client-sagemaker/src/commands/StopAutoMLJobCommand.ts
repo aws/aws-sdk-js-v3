@@ -24,7 +24,7 @@ export interface StopAutoMLJobCommandInput extends StopAutoMLJobRequest {}
 export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>A method for forcing the termination of a running job.</p>
+ * <p>A method for forcing a running job to shut down.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

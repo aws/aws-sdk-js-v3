@@ -31,8 +31,9 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message will remain. Exceptions are stored by default, for a 2 week period of time from when a record was
- *          created in Security Lake. This API does not take input parameters. This API does not take input parameters.</p>
+ * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
+ *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
+ *          in Amazon Security Lake. This API does not take input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

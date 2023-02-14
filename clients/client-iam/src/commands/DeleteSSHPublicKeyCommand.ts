@@ -25,7 +25,7 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified SSH public key.</p>
- *         <p>The SSH public key deleted by this operation is used only for authenticating the
+ *          <p>The SSH public key deleted by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>

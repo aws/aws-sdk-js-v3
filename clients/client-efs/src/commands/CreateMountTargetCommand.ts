@@ -67,7 +67,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>After creating the mount target, Amazon EFS returns a response that includes, a
  *         <code>MountTargetId</code> and an <code>IpAddress</code>. You use this IP address when
  *       mounting the file system in an EC2 instance. You can also use the mount target's DNS name
@@ -88,7 +87,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *           mount targets</p>
  *             </li>
  *          </ul>
- *
  *          <p>If the request satisfies the requirements, Amazon EFS does the following:</p>
  *          <ul>
  *             <li>

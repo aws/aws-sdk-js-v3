@@ -2434,6 +2434,12 @@ const serializeAws_json1_0CodeConfigurationValues = (input: CodeConfigurationVal
     ...(input.BuildCommand != null && { BuildCommand: input.BuildCommand }),
     ...(input.Port != null && { Port: input.Port }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.RuntimeEnvironmentSecrets != null && {
+      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
+        input.RuntimeEnvironmentSecrets,
+        context
+      ),
+    }),
     ...(input.RuntimeEnvironmentVariables != null && {
       RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
         input.RuntimeEnvironmentVariables,
@@ -2702,6 +2708,12 @@ const serializeAws_json1_0HealthCheckConfiguration = (
 const serializeAws_json1_0ImageConfiguration = (input: ImageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Port != null && { Port: input.Port }),
+    ...(input.RuntimeEnvironmentSecrets != null && {
+      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
+        input.RuntimeEnvironmentSecrets,
+        context
+      ),
+    }),
     ...(input.RuntimeEnvironmentVariables != null && {
       RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
         input.RuntimeEnvironmentVariables,
@@ -2855,6 +2867,16 @@ const serializeAws_json1_0ResumeServiceRequest = (input: ResumeServiceRequest, c
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
+};
+
+const serializeAws_json1_0RuntimeEnvironmentSecrets = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0RuntimeEnvironmentVariables = (
@@ -3118,6 +3140,10 @@ const deserializeAws_json1_0CodeConfigurationValues = (
     BuildCommand: __expectString(output.BuildCommand),
     Port: __expectString(output.Port),
     Runtime: __expectString(output.Runtime),
+    RuntimeEnvironmentSecrets:
+      output.RuntimeEnvironmentSecrets != null
+        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
@@ -3439,6 +3465,10 @@ const deserializeAws_json1_0HealthCheckConfiguration = (
 const deserializeAws_json1_0ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
   return {
     Port: __expectString(output.Port),
+    RuntimeEnvironmentSecrets:
+      output.RuntimeEnvironmentSecrets != null
+        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
@@ -3709,6 +3739,19 @@ const deserializeAws_json1_0ResumeServiceResponse = (output: any, context: __Ser
     OperationId: __expectString(output.OperationId),
     Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0RuntimeEnvironmentSecrets = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0RuntimeEnvironmentVariables = (

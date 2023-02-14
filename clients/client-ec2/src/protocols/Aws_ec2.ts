@@ -7,7 +7,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -70,6 +70,10 @@ import {
   AssignPrivateIpAddressesCommandInput,
   AssignPrivateIpAddressesCommandOutput,
 } from "../commands/AssignPrivateIpAddressesCommand";
+import {
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "../commands/AssignPrivateNatGatewayAddressCommand";
 import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "../commands/AssociateAddressCommand";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
@@ -91,6 +95,14 @@ import {
   AssociateInstanceEventWindowCommandInput,
   AssociateInstanceEventWindowCommandOutput,
 } from "../commands/AssociateInstanceEventWindowCommand";
+import {
+  AssociateIpamResourceDiscoveryCommandInput,
+  AssociateIpamResourceDiscoveryCommandOutput,
+} from "../commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "../commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -242,6 +254,10 @@ import {
 } from "../commands/CreateInternetGatewayCommand";
 import { CreateIpamCommandInput, CreateIpamCommandOutput } from "../commands/CreateIpamCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "../commands/CreateIpamPoolCommand";
+import {
+  CreateIpamResourceDiscoveryCommandInput,
+  CreateIpamResourceDiscoveryCommandOutput,
+} from "../commands/CreateIpamResourceDiscoveryCommand";
 import { CreateIpamScopeCommandInput, CreateIpamScopeCommandOutput } from "../commands/CreateIpamScopeCommand";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "../commands/CreateKeyPairCommand";
 import {
@@ -472,6 +488,10 @@ import {
 } from "../commands/DeleteInternetGatewayCommand";
 import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "../commands/DeleteIpamCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "../commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamResourceDiscoveryCommandInput,
+  DeleteIpamResourceDiscoveryCommandOutput,
+} from "../commands/DeleteIpamResourceDiscoveryCommand";
 import { DeleteIpamScopeCommandInput, DeleteIpamScopeCommandOutput } from "../commands/DeleteIpamScopeCommand";
 import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "../commands/DeleteKeyPairCommand";
 import {
@@ -869,6 +889,14 @@ import {
   DescribeInternetGatewaysCommandOutput,
 } from "../commands/DescribeInternetGatewaysCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "../commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamResourceDiscoveriesCommandInput,
+  DescribeIpamResourceDiscoveriesCommandOutput,
+} from "../commands/DescribeIpamResourceDiscoveriesCommand";
+import {
+  DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
+} from "../commands/DescribeIpamResourceDiscoveryAssociationsCommand";
 import { DescribeIpamsCommandInput, DescribeIpamsCommandOutput } from "../commands/DescribeIpamsCommand";
 import { DescribeIpamScopesCommandInput, DescribeIpamScopesCommandOutput } from "../commands/DescribeIpamScopesCommand";
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "../commands/DescribeIpv6PoolsCommand";
@@ -1275,6 +1303,14 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "../commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamResourceDiscoveryCommandInput,
+  DisassociateIpamResourceDiscoveryCommandOutput,
+} from "../commands/DisassociateIpamResourceDiscoveryCommand";
+import {
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "../commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "../commands/DisassociateRouteTableCommand";
@@ -1423,6 +1459,14 @@ import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "../commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamDiscoveredAccountsCommandInput,
+  GetIpamDiscoveredAccountsCommandOutput,
+} from "../commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredResourceCidrsCommandInput,
+  GetIpamDiscoveredResourceCidrsCommandOutput,
+} from "../commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
   GetIpamPoolAllocationsCommandInput,
   GetIpamPoolAllocationsCommandOutput,
@@ -1611,6 +1655,10 @@ import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
 } from "../commands/ModifyIpamResourceCidrCommand";
+import {
+  ModifyIpamResourceDiscoveryCommandInput,
+  ModifyIpamResourceDiscoveryCommandOutput,
+} from "../commands/ModifyIpamResourceDiscoveryCommand";
 import { ModifyIpamScopeCommandInput, ModifyIpamScopeCommandOutput } from "../commands/ModifyIpamScopeCommand";
 import {
   ModifyLaunchTemplateCommandInput,
@@ -1954,6 +2002,10 @@ import {
   UnassignPrivateIpAddressesCommandInput,
   UnassignPrivateIpAddressesCommandOutput,
 } from "../commands/UnassignPrivateIpAddressesCommand";
+import {
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "../commands/UnassignPrivateNatGatewayAddressCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "../commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -2026,6 +2078,8 @@ import {
   AssignIpv6AddressesResult,
   AssignPrivateIpAddressesRequest,
   AssignPrivateIpAddressesResult,
+  AssignPrivateNatGatewayAddressRequest,
+  AssignPrivateNatGatewayAddressResult,
   AssociateAddressRequest,
   AssociateAddressResult,
   AssociateClientVpnTargetNetworkRequest,
@@ -2037,6 +2091,10 @@ import {
   AssociateIamInstanceProfileResult,
   AssociateInstanceEventWindowRequest,
   AssociateInstanceEventWindowResult,
+  AssociateIpamResourceDiscoveryRequest,
+  AssociateIpamResourceDiscoveryResult,
+  AssociateNatGatewayAddressRequest,
+  AssociateNatGatewayAddressResult,
   AssociateRouteTableRequest,
   AssociateRouteTableResult,
   AssociateSubnetCidrBlockRequest,
@@ -2106,9 +2164,6 @@ import {
   ClientLoginBannerOptions,
   ClientVpnAuthenticationRequest,
   ClientVpnAuthorizationRuleStatus,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
-  CoipCidr,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
   ConnectionLogOptions,
@@ -2124,11 +2179,6 @@ import {
   CreateCapacityReservationResult,
   CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
-  CreateClientVpnEndpointRequest,
-  CreateClientVpnEndpointResult,
-  CreateClientVpnRouteRequest,
-  CreateClientVpnRouteResult,
-  CreateCoipCidrRequest,
   DeviceOptions,
   DirectoryServiceAuthenticationRequest,
   EnaSrdSpecification,
@@ -2146,11 +2196,13 @@ import {
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
   IpamPoolAllocation,
+  IpamResourceDiscoveryAssociation,
   IpPermission,
   IpRange,
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
+  NatGatewayAddress,
   OidcOptions,
   PacketHeaderStatement,
   PacketHeaderStatementRequest,
@@ -2216,8 +2268,16 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  ClientVpnEndpointStatus,
+  ClientVpnRouteStatus,
+  CoipCidr,
   CoipPool,
   CpuManufacturer,
+  CreateClientVpnEndpointRequest,
+  CreateClientVpnEndpointResult,
+  CreateClientVpnRouteRequest,
+  CreateClientVpnRouteResult,
+  CreateCoipCidrRequest,
   CreateCoipCidrResult,
   CreateCoipPoolRequest,
   CreateCoipPoolResult,
@@ -2250,6 +2310,8 @@ import {
   CreateIpamPoolRequest,
   CreateIpamPoolResult,
   CreateIpamRequest,
+  CreateIpamResourceDiscoveryRequest,
+  CreateIpamResourceDiscoveryResult,
   CreateIpamResult,
   CreateIpamScopeRequest,
   CreateIpamScopeResult,
@@ -2294,11 +2356,6 @@ import {
   CreateRouteRequest,
   CreateRouteResult,
   CreateRouteTableRequest,
-  CreateRouteTableResult,
-  CreateSecurityGroupRequest,
-  CreateSecurityGroupResult,
-  CreateSnapshotRequest,
-  CreateSnapshotsRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2328,12 +2385,12 @@ import {
   InstanceIpv6AddressRequest,
   InstanceRequirements,
   InstanceRequirementsRequest,
-  InstanceSpecification,
   InternetGateway,
   InternetGatewayAttachment,
   Ipam,
   IpamOperatingRegion,
   IpamPool,
+  IpamResourceDiscovery,
   IpamResourceTag,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
@@ -2392,7 +2449,6 @@ import {
   MemoryMiB,
   MemoryMiBRequest,
   NatGateway,
-  NatGatewayAddress,
   NetworkAcl,
   NetworkAclAssociation,
   NetworkAclEntry,
@@ -2418,16 +2474,12 @@ import {
   PriceScheduleSpecification,
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
-  PropagatingVgw,
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
-  Route,
-  RouteTable,
   RouteTableAssociation,
-  Snapshot,
   SpotOptionsRequest,
   StateReason,
   StorageLocation,
@@ -2445,6 +2497,11 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateRouteTableResult,
+  CreateSecurityGroupRequest,
+  CreateSecurityGroupResult,
+  CreateSnapshotRequest,
+  CreateSnapshotsRequest,
   CreateSnapshotsResult,
   CreateSpotDatafeedSubscriptionRequest,
   CreateSpotDatafeedSubscriptionResult,
@@ -2546,6 +2603,8 @@ import {
   DeleteIpamPoolRequest,
   DeleteIpamPoolResult,
   DeleteIpamRequest,
+  DeleteIpamResourceDiscoveryRequest,
+  DeleteIpamResourceDiscoveryResult,
   DeleteIpamResult,
   DeleteIpamScopeRequest,
   DeleteIpamScopeResult,
@@ -2602,23 +2661,6 @@ import {
   DeleteTrafficMirrorFilterRuleResult,
   DeleteTrafficMirrorSessionRequest,
   DeleteTrafficMirrorSessionResult,
-  DeleteTrafficMirrorTargetRequest,
-  DeleteTrafficMirrorTargetResult,
-  DeleteTransitGatewayConnectPeerRequest,
-  DeleteTransitGatewayConnectPeerResult,
-  DeleteTransitGatewayConnectRequest,
-  DeleteTransitGatewayConnectResult,
-  DeleteTransitGatewayMulticastDomainRequest,
-  DeleteTransitGatewayMulticastDomainResult,
-  DeleteTransitGatewayPeeringAttachmentRequest,
-  DeleteTransitGatewayPeeringAttachmentResult,
-  DeleteTransitGatewayPolicyTableRequest,
-  DeleteTransitGatewayPolicyTableResult,
-  DeleteTransitGatewayPrefixListReferenceRequest,
-  DeleteTransitGatewayPrefixListReferenceResult,
-  DeleteTransitGatewayRequest,
-  DeleteTransitGatewayResult,
-  DeleteTransitGatewayRouteRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2626,6 +2668,7 @@ import {
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
+  InstanceSpecification,
   LastError,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
@@ -2640,12 +2683,16 @@ import {
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   PrivateDnsNameConfiguration,
+  PropagatingVgw,
   ResponseError,
+  Route,
+  RouteTable,
   S3ObjectTag,
   SecurityGroupIdentifier,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  Snapshot,
   SnapshotInfo,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
@@ -2717,6 +2764,23 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteTrafficMirrorTargetRequest,
+  DeleteTrafficMirrorTargetResult,
+  DeleteTransitGatewayConnectPeerRequest,
+  DeleteTransitGatewayConnectPeerResult,
+  DeleteTransitGatewayConnectRequest,
+  DeleteTransitGatewayConnectResult,
+  DeleteTransitGatewayMulticastDomainRequest,
+  DeleteTransitGatewayMulticastDomainResult,
+  DeleteTransitGatewayPeeringAttachmentRequest,
+  DeleteTransitGatewayPeeringAttachmentResult,
+  DeleteTransitGatewayPolicyTableRequest,
+  DeleteTransitGatewayPolicyTableResult,
+  DeleteTransitGatewayPrefixListReferenceRequest,
+  DeleteTransitGatewayPrefixListReferenceResult,
+  DeleteTransitGatewayRequest,
+  DeleteTransitGatewayResult,
+  DeleteTransitGatewayRouteRequest,
   DeleteTransitGatewayRouteResult,
   DeleteTransitGatewayRouteTableAnnouncementRequest,
   DeleteTransitGatewayRouteTableAnnouncementResult,
@@ -2858,12 +2922,6 @@ import {
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
   DescribeInstancesRequest,
-  DescribeInstancesResult,
-  DescribeInstanceStatusRequest,
-  DescribeInstanceStatusResult,
-  DescribeInstanceTypeOfferingsRequest,
-  DescribeInstanceTypeOfferingsResult,
-  DescribeInstanceTypesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2919,12 +2977,7 @@ import {
   InstanceNetworkInterfaceAttachment,
   InstancePrivateIpAddress,
   InstanceState,
-  InstanceStatus,
-  InstanceStatusDetails,
-  InstanceStatusEvent,
-  InstanceStatusSummary,
   InstanceTagNotificationAttribute,
-  InstanceTypeOffering,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
   LaunchPermission,
@@ -2935,7 +2988,6 @@ import {
   PciId,
   PrivateDnsNameOptionsResponse,
   ProductCode,
-  Reservation,
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
@@ -2950,15 +3002,24 @@ import {
 import {
   ArchitectureType,
   BootModeType,
-  ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstancesResult,
+  DescribeInstanceStatusRequest,
+  DescribeInstanceStatusResult,
+  DescribeInstanceTypeOfferingsRequest,
+  DescribeInstanceTypeOfferingsResult,
+  DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
   DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
+  DescribeIpamResourceDiscoveriesRequest,
+  DescribeIpamResourceDiscoveriesResult,
+  DescribeIpamResourceDiscoveryAssociationsRequest,
+  DescribeIpamResourceDiscoveryAssociationsResult,
   DescribeIpamScopesRequest,
   DescribeIpamScopesResult,
   DescribeIpamsRequest,
@@ -3108,20 +3169,6 @@ import {
   DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult,
-  DescribeVpcAttributeRequest,
-  DescribeVpcAttributeResult,
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportResult,
-  DescribeVpcClassicLinkRequest,
-  DescribeVpcClassicLinkResult,
-  DescribeVpcEndpointConnectionNotificationsRequest,
-  DescribeVpcEndpointConnectionNotificationsResult,
-  DescribeVpcEndpointConnectionsRequest,
-  DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointServiceConfigurationsRequest,
-  DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3136,8 +3183,13 @@ import {
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   InstanceNetworkInterfaceSpecification,
+  InstanceStatus,
+  InstanceStatusDetails,
+  InstanceStatusEvent,
+  InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTypeInfo,
+  InstanceTypeOffering,
   Ipv6Pool,
   KeyPairInfo,
   LaunchSpecification,
@@ -3164,6 +3216,7 @@ import {
   PublicIpv4PoolRange,
   RecurringCharge,
   Region,
+  Reservation,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -3213,27 +3266,36 @@ import {
   VolumeStatusAttachmentStatus,
   VolumeStatusDetails,
   VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
 } from "../models/models_4";
 import {
   AssociatedRole,
   AthenaIntegration,
-  BlobAttributeValue,
   CapacityReservationGroup,
-  CapacityReservationSpecification,
+  ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVolumeStatusResult,
+  DescribeVpcAttributeRequest,
+  DescribeVpcAttributeResult,
+  DescribeVpcClassicLinkDnsSupportRequest,
+  DescribeVpcClassicLinkDnsSupportResult,
+  DescribeVpcClassicLinkRequest,
+  DescribeVpcClassicLinkResult,
+  DescribeVpcEndpointConnectionNotificationsRequest,
+  DescribeVpcEndpointConnectionNotificationsResult,
+  DescribeVpcEndpointConnectionsRequest,
+  DescribeVpcEndpointConnectionsResult,
+  DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
   DescribeVpcEndpointServicesRequest,
   DescribeVpcEndpointServicesResult,
+  DescribeVpcEndpointsRequest,
+  DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcsRequest,
@@ -3286,6 +3348,10 @@ import {
   DisassociateIamInstanceProfileResult,
   DisassociateInstanceEventWindowRequest,
   DisassociateInstanceEventWindowResult,
+  DisassociateIpamResourceDiscoveryRequest,
+  DisassociateIpamResourceDiscoveryResult,
+  DisassociateNatGatewayAddressRequest,
+  DisassociateNatGatewayAddressResult,
   DisassociateRouteTableRequest,
   DisassociateSubnetCidrBlockRequest,
   DisassociateSubnetCidrBlockResult,
@@ -3301,8 +3367,6 @@ import {
   DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
-  DnsServersOptionsModifyStructure,
-  EbsInstanceBlockDeviceSpecification,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
@@ -3376,6 +3440,10 @@ import {
   GetInstanceUefiDataResult,
   GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
+  GetIpamDiscoveredAccountsRequest,
+  GetIpamDiscoveredAccountsResult,
+  GetIpamDiscoveredResourceCidrsRequest,
+  GetIpamDiscoveredResourceCidrsResult,
   GetIpamPoolAllocationsRequest,
   GetIpamPoolAllocationsResult,
   GetIpamPoolCidrsRequest,
@@ -3440,7 +3508,6 @@ import {
   ImportSnapshotResult,
   ImportVolumeRequest,
   ImportVolumeResult,
-  InstanceBlockDeviceMappingSpecification,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3448,18 +3515,71 @@ import {
   InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
+  IpamDiscoveredAccount,
+  IpamDiscoveredResourceCidr,
+  IpamDiscoveryFailureReason,
   IpamResourceCidr,
   Ipv6CidrAssociation,
-  LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
   ListSnapshotsInRecycleBinRequest,
   ListSnapshotsInRecycleBinResult,
-  LoadPermissionModifications,
-  LoadPermissionRequest,
   MetricPoint,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
+  PrefixListAssociation,
+  PrefixListEntry,
+  PrivateDnsDetails,
+  Purchase,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  ServiceDetail,
+  SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
+  SpotPlacementScore,
+  TargetConfiguration,
+  TargetReservationValue,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
+  TransitGatewayPolicyTableEntry,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+  VpnConnectionDeviceType,
+} from "../models/models_5";
+import {
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  CidrAuthorizationContext,
+  CpuOptionsRequest,
+  CreateVolumePermissionModifications,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceBlockDeviceMappingSpecification,
+  InstanceCreditSpecificationRequest,
+  InstanceMaintenanceOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
+  InstanceStateChange,
+  IpamCidrAuthorizationContext,
+  LaunchPermissionModifications,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
+  LoadPermissionModifications,
+  LoadPermissionRequest,
   ModifyAvailabilityZoneGroupRequest,
   ModifyAvailabilityZoneGroupResult,
   ModifyCapacityReservationFleetRequest,
@@ -3484,47 +3604,6 @@ import {
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrivateDnsDetails,
-  Purchase,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  ServiceDetail,
-  SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
-  SpotPlacementScore,
-  TargetConfiguration,
-  TargetReservationValue,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPolicyRule,
-  TransitGatewayPolicyRuleMetaData,
-  TransitGatewayPolicyTableEntry,
-  TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-  VpnConnectionDeviceType,
-} from "../models/models_5";
-import {
-  CidrAuthorizationContext,
-  CpuOptionsRequest,
-  CreateVolumePermissionModifications,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceCreditSpecificationRequest,
-  InstanceMaintenanceOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceMonitoring,
-  InstanceStateChange,
-  IpamCidrAuthorizationContext,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
@@ -3542,6 +3621,8 @@ import {
   ModifyIpamRequest,
   ModifyIpamResourceCidrRequest,
   ModifyIpamResourceCidrResult,
+  ModifyIpamResourceDiscoveryRequest,
+  ModifyIpamResourceDiscoveryResult,
   ModifyIpamResult,
   ModifyIpamScopeRequest,
   ModifyIpamScopeResult,
@@ -3734,7 +3815,6 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
-  SecurityGroupRuleDescription,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
@@ -3761,23 +3841,28 @@ import {
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
-  UnassignIpv6AddressesResult,
-  UnassignPrivateIpAddressesRequest,
-  UnmonitorInstancesRequest,
-  UnmonitorInstancesResult,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
-  UpdateSecurityGroupRuleDescriptionsEgressRequest,
-  UpdateSecurityGroupRuleDescriptionsEgressResult,
-  UpdateSecurityGroupRuleDescriptionsIngressRequest,
-  UpdateSecurityGroupRuleDescriptionsIngressResult,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
   VerifiedAccessLogS3DestinationOptions,
+} from "../models/models_6";
+import {
+  SecurityGroupRuleDescription,
+  UnassignIpv6AddressesResult,
+  UnassignPrivateIpAddressesRequest,
+  UnassignPrivateNatGatewayAddressRequest,
+  UnassignPrivateNatGatewayAddressResult,
+  UnmonitorInstancesRequest,
+  UnmonitorInstancesResult,
+  UpdateSecurityGroupRuleDescriptionsEgressRequest,
+  UpdateSecurityGroupRuleDescriptionsEgressResult,
+  UpdateSecurityGroupRuleDescriptionsIngressRequest,
+  UpdateSecurityGroupRuleDescriptionsIngressResult,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
-} from "../models/models_6";
+} from "../models/models_7";
 
 export const serializeAws_ec2AcceptAddressTransferCommand = async (
   input: AcceptAddressTransferCommandInput,
@@ -4003,6 +4088,22 @@ export const serializeAws_ec2AssignPrivateIpAddressesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2AssignPrivateNatGatewayAddressCommand = async (
+  input: AssignPrivateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssignPrivateNatGatewayAddressRequest(input, context),
+    Action: "AssignPrivateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2AssociateAddressCommand = async (
   input: AssociateAddressCommandInput,
   context: __SerdeContext
@@ -4094,6 +4195,38 @@ export const serializeAws_ec2AssociateInstanceEventWindowCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AssociateInstanceEventWindowRequest(input, context),
     Action: "AssociateInstanceEventWindow",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateIpamResourceDiscoveryCommand = async (
+  input: AssociateIpamResourceDiscoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateIpamResourceDiscoveryRequest(input, context),
+    Action: "AssociateIpamResourceDiscovery",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateNatGatewayAddressCommand = async (
+  input: AssociateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateNatGatewayAddressRequest(input, context),
+    Action: "AssociateNatGatewayAddress",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4926,6 +5059,22 @@ export const serializeAws_ec2CreateIpamPoolCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreateIpamPoolRequest(input, context),
     Action: "CreateIpamPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateIpamResourceDiscoveryCommand = async (
+  input: CreateIpamResourceDiscoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateIpamResourceDiscoveryRequest(input, context),
+    Action: "CreateIpamResourceDiscovery",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6110,6 +6259,22 @@ export const serializeAws_ec2DeleteIpamPoolCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteIpamPoolRequest(input, context),
     Action: "DeleteIpamPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteIpamResourceDiscoveryCommand = async (
+  input: DeleteIpamResourceDiscoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteIpamResourceDiscoveryRequest(input, context),
+    Action: "DeleteIpamResourceDiscovery",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8003,6 +8168,38 @@ export const serializeAws_ec2DescribeIpamPoolsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeIpamResourceDiscoveriesCommand = async (
+  input: DescribeIpamResourceDiscoveriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeIpamResourceDiscoveriesRequest(input, context),
+    Action: "DescribeIpamResourceDiscoveries",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand = async (
+  input: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsRequest(input, context),
+    Action: "DescribeIpamResourceDiscoveryAssociations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeIpamsCommand = async (
   input: DescribeIpamsCommandInput,
   context: __SerdeContext
@@ -9779,6 +9976,38 @@ export const serializeAws_ec2DisassociateInstanceEventWindowCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisassociateIpamResourceDiscoveryCommand = async (
+  input: DisassociateIpamResourceDiscoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateIpamResourceDiscoveryRequest(input, context),
+    Action: "DisassociateIpamResourceDiscovery",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DisassociateNatGatewayAddressCommand = async (
+  input: DisassociateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateNatGatewayAddressRequest(input, context),
+    Action: "DisassociateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisassociateRouteTableCommand = async (
   input: DisassociateRouteTableCommandInput,
   context: __SerdeContext
@@ -10430,6 +10659,38 @@ export const serializeAws_ec2GetIpamAddressHistoryCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetIpamAddressHistoryRequest(input, context),
     Action: "GetIpamAddressHistory",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetIpamDiscoveredAccountsCommand = async (
+  input: GetIpamDiscoveredAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamDiscoveredAccountsRequest(input, context),
+    Action: "GetIpamDiscoveredAccounts",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand = async (
+  input: GetIpamDiscoveredResourceCidrsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamDiscoveredResourceCidrsRequest(input, context),
+    Action: "GetIpamDiscoveredResourceCidrs",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11326,6 +11587,22 @@ export const serializeAws_ec2ModifyIpamResourceCidrCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyIpamResourceCidrRequest(input, context),
     Action: "ModifyIpamResourceCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyIpamResourceDiscoveryCommand = async (
+  input: ModifyIpamResourceDiscoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyIpamResourceDiscoveryRequest(input, context),
+    Action: "ModifyIpamResourceDiscovery",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12931,6 +13208,22 @@ export const serializeAws_ec2UnassignPrivateIpAddressesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2UnassignPrivateNatGatewayAddressCommand = async (
+  input: UnassignPrivateNatGatewayAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2UnassignPrivateNatGatewayAddressRequest(input, context),
+    Action: "UnassignPrivateNatGatewayAddress",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2UnmonitorInstancesCommand = async (
   input: UnmonitorInstancesCommandInput,
   context: __SerdeContext
@@ -13485,6 +13778,41 @@ const deserializeAws_ec2AssignPrivateIpAddressesCommandError = async (
   });
 };
 
+export const deserializeAws_ec2AssignPrivateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssignPrivateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssignPrivateNatGatewayAddressResult(data, context);
+  const response: AssignPrivateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssignPrivateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2AssociateAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13678,6 +14006,76 @@ const deserializeAws_ec2AssociateInstanceEventWindowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateInstanceEventWindowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2AssociateIpamResourceDiscoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpamResourceDiscoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateIpamResourceDiscoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateIpamResourceDiscoveryResult(data, context);
+  const response: AssociateIpamResourceDiscoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateIpamResourceDiscoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpamResourceDiscoveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2AssociateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateNatGatewayAddressResult(data, context);
+  const response: AssociateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateNatGatewayAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -15489,6 +15887,41 @@ const deserializeAws_ec2CreateIpamPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIpamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateIpamResourceDiscoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamResourceDiscoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateIpamResourceDiscoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateIpamResourceDiscoveryResult(data, context);
+  const response: CreateIpamResourceDiscoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateIpamResourceDiscoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamResourceDiscoveryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -18061,6 +18494,41 @@ const deserializeAws_ec2DeleteIpamPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIpamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteIpamResourceDiscoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamResourceDiscoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteIpamResourceDiscoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteIpamResourceDiscoveryResult(data, context);
+  const response: DeleteIpamResourceDiscoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteIpamResourceDiscoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamResourceDiscoveryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -22151,6 +22619,76 @@ const deserializeAws_ec2DescribeIpamPoolsCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamResourceDiscoveriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeIpamResourceDiscoveriesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeIpamResourceDiscoveriesResult(data, context);
+  const response: DescribeIpamResourceDiscoveriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeIpamResourceDiscoveriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamResourceDiscoveriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsResult(data, context);
+  const response: DescribeIpamResourceDiscoveryAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DescribeIpamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -26024,6 +26562,76 @@ const deserializeAws_ec2DisassociateInstanceEventWindowCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpamResourceDiscoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateIpamResourceDiscoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateIpamResourceDiscoveryResult(data, context);
+  const response: DisassociateIpamResourceDiscoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateIpamResourceDiscoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpamResourceDiscoveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DisassociateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateNatGatewayAddressResult(data, context);
+  const response: DisassociateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DisassociateRouteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27436,6 +28044,76 @@ const deserializeAws_ec2GetIpamAddressHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIpamAddressHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2GetIpamDiscoveredAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredAccountsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamDiscoveredAccountsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamDiscoveredAccountsResult(data, context);
+  const response: GetIpamDiscoveredAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamDiscoveredAccountsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamDiscoveredResourceCidrsResult(data, context);
+  const response: GetIpamDiscoveredResourceCidrsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -29384,6 +30062,41 @@ const deserializeAws_ec2ModifyIpamResourceCidrCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyIpamResourceCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyIpamResourceDiscoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamResourceDiscoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyIpamResourceDiscoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyIpamResourceDiscoveryResult(data, context);
+  const response: ModifyIpamResourceDiscoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyIpamResourceDiscoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamResourceDiscoveryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -32850,6 +33563,41 @@ const deserializeAws_ec2UnassignPrivateIpAddressesCommandError = async (
   });
 };
 
+export const deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2UnassignPrivateNatGatewayAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2UnassignPrivateNatGatewayAddressResult(data, context);
+  const response: UnassignPrivateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2UnassignPrivateNatGatewayAddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2UnmonitorInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -33633,6 +34381,33 @@ const serializeAws_ec2AssignPrivateIpAddressesRequest = (
   return entries;
 };
 
+const serializeAws_ec2AssignPrivateNatGatewayAddressRequest = (
+  input: AssignPrivateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateIpAddressCount != null) {
+    entries["PrivateIpAddressCount"] = input.PrivateIpAddressCount;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AssociateAddressRequest = (input: AssociateAddressRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AllocationId != null) {
@@ -33751,6 +34526,73 @@ const serializeAws_ec2AssociateInstanceEventWindowRequest = (
       const loc = `AssociationTarget.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_ec2AssociateIpamResourceDiscoveryRequest = (
+  input: AssociateIpamResourceDiscoveryRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId != null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AssociateNatGatewayAddressRequest = (
+  input: AssociateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.AllocationIds != null) {
+    const memberEntries = serializeAws_ec2AllocationIdList(input.AllocationIds, context);
+    if (input.AllocationIds?.length === 0) {
+      entries.AllocationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -35825,10 +36667,53 @@ const serializeAws_ec2CreateIpamPoolRequest = (input: CreateIpamPoolRequest, con
   if (input.AwsService != null) {
     entries["AwsService"] = input.AwsService;
   }
+  if (input.PublicIpSource != null) {
+    entries["PublicIpSource"] = input.PublicIpSource;
+  }
   return entries;
 };
 
 const serializeAws_ec2CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.OperatingRegions != null) {
+    const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.OperatingRegions, context);
+    if (input.OperatingRegions?.length === 0) {
+      entries.OperatingRegion = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateIpamResourceDiscoveryRequest = (
+  input: CreateIpamResourceDiscoveryRequest,
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -35989,6 +36874,9 @@ const serializeAws_ec2CreateLaunchTemplateVersionRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ResolveAlias != null) {
+    entries["ResolveAlias"] = input.ResolveAlias;
+  }
   return entries;
 };
 
@@ -36011,6 +36899,9 @@ const serializeAws_ec2CreateLocalGatewayRouteRequest = (
   }
   if (input.NetworkInterfaceId != null) {
     entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
+  }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
   }
   return entries;
 };
@@ -36174,6 +37065,29 @@ const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest,
   }
   if (input.PrivateIpAddress != null) {
     entries["PrivateIpAddress"] = input.PrivateIpAddress;
+  }
+  if (input.SecondaryAllocationIds != null) {
+    const memberEntries = serializeAws_ec2AllocationIdList(input.SecondaryAllocationIds, context);
+    if (input.SecondaryAllocationIds?.length === 0) {
+      entries.SecondaryAllocationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecondaryAllocationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecondaryPrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.SecondaryPrivateIpAddresses, context);
+    if (input.SecondaryPrivateIpAddresses?.length === 0) {
+      entries.SecondaryPrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecondaryPrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecondaryPrivateIpAddressCount != null) {
+    entries["SecondaryPrivateIpAddressCount"] = input.SecondaryPrivateIpAddressCount;
   }
   return entries;
 };
@@ -38527,6 +39441,20 @@ const serializeAws_ec2DeleteIpamRequest = (input: DeleteIpamRequest, context: __
   return entries;
 };
 
+const serializeAws_ec2DeleteIpamResourceDiscoveryRequest = (
+  input: DeleteIpamResourceDiscoveryRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteIpamScopeRequest = (input: DeleteIpamScopeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DryRun != null) {
@@ -38609,6 +39537,9 @@ const serializeAws_ec2DeleteLocalGatewayRouteRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
   }
   return entries;
 };
@@ -41252,6 +42183,80 @@ const serializeAws_ec2DescribeIpamPoolsRequest = (input: DescribeIpamPoolsReques
   return entries;
 };
 
+const serializeAws_ec2DescribeIpamResourceDiscoveriesRequest = (
+  input: DescribeIpamResourceDiscoveriesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryIds != null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.IpamResourceDiscoveryIds, context);
+    if (input.IpamResourceDiscoveryIds?.length === 0) {
+      entries.IpamResourceDiscoveryId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamResourceDiscoveryId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsRequest = (
+  input: DescribeIpamResourceDiscoveryAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryAssociationIds != null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.IpamResourceDiscoveryAssociationIds, context);
+    if (input.IpamResourceDiscoveryAssociationIds?.length === 0) {
+      entries.IpamResourceDiscoveryAssociationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamResourceDiscoveryAssociationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeIpamScopesRequest = (input: DescribeIpamScopesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DryRun != null) {
@@ -41487,6 +42492,9 @@ const serializeAws_ec2DescribeLaunchTemplateVersionsRequest = (
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.ResolveAlias != null) {
+    entries["ResolveAlias"] = input.ResolveAlias;
   }
   return entries;
 };
@@ -44824,6 +45832,47 @@ const serializeAws_ec2DisassociateInstanceEventWindowRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisassociateIpamResourceDiscoveryRequest = (
+  input: DisassociateIpamResourceDiscoveryRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryAssociationId != null) {
+    entries["IpamResourceDiscoveryAssociationId"] = input.IpamResourceDiscoveryAssociationId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DisassociateNatGatewayAddressRequest = (
+  input: DisassociateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.AssociationIds != null) {
+    const memberEntries = serializeAws_ec2EipAssociationIdList(input.AssociationIds, context);
+    if (input.AssociationIds?.length === 0) {
+      entries.AssociationId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxDrainDurationSeconds != null) {
+    entries["MaxDrainDurationSeconds"] = input.MaxDrainDurationSeconds;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisassociateRouteTableRequest = (
   input: DisassociateRouteTableRequest,
   context: __SerdeContext
@@ -45069,6 +46118,19 @@ const serializeAws_ec2EbsInstanceBlockDeviceSpecification = (
 };
 
 const serializeAws_ec2EgressOnlyInternetGatewayIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2EipAssociationIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -46269,6 +47331,72 @@ const serializeAws_ec2GetIpamAddressHistoryRequest = (
   }
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetIpamDiscoveredAccountsRequest = (
+  input: GetIpamDiscoveredAccountsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  if (input.DiscoveryRegion != null) {
+    entries["DiscoveryRegion"] = input.DiscoveryRegion;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetIpamDiscoveredResourceCidrsRequest = (
+  input: GetIpamDiscoveredResourceCidrsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  if (input.ResourceRegion != null) {
+    entries["ResourceRegion"] = input.ResourceRegion;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
@@ -48411,6 +49539,19 @@ const serializeAws_ec2IpamPoolAllocationDisallowedCidrs = (input: string[], cont
   return entries;
 };
 
+const serializeAws_ec2IpList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.FromPort != null) {
@@ -50503,6 +51644,43 @@ const serializeAws_ec2ModifyIpamResourceCidrRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifyIpamResourceDiscoveryRequest = (
+  input: ModifyIpamResourceDiscoveryRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamResourceDiscoveryId != null) {
+    entries["IpamResourceDiscoveryId"] = input.IpamResourceDiscoveryId;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.AddOperatingRegions != null) {
+    const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.AddOperatingRegions, context);
+    if (input.AddOperatingRegions?.length === 0) {
+      entries.AddOperatingRegion = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RemoveOperatingRegions != null) {
+    const memberEntries = serializeAws_ec2RemoveIpamOperatingRegionSet(input.RemoveOperatingRegions, context);
+    if (input.RemoveOperatingRegions?.length === 0) {
+      entries.RemoveOperatingRegion = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyIpamScopeRequest = (input: ModifyIpamScopeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DryRun != null) {
@@ -50559,6 +51737,9 @@ const serializeAws_ec2ModifyLocalGatewayRouteRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.DestinationPrefixListId != null) {
+    entries["DestinationPrefixListId"] = input.DestinationPrefixListId;
   }
   return entries;
 };
@@ -53002,6 +54183,15 @@ const serializeAws_ec2ProvisionIpamPoolCidrRequest = (
       const loc = `CidrAuthorizationContext.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.NetmaskLength != null) {
+    entries["NetmaskLength"] = input.NetmaskLength;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
   }
   return entries;
 };
@@ -57072,6 +58262,33 @@ const serializeAws_ec2UnassignPrivateIpAddressesRequest = (
   return entries;
 };
 
+const serializeAws_ec2UnassignPrivateNatGatewayAddressRequest = (
+  input: UnassignPrivateNatGatewayAddressRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NatGatewayId != null) {
+    entries["NatGatewayId"] = input.NatGatewayId;
+  }
+  if (input.PrivateIpAddresses != null) {
+    const memberEntries = serializeAws_ec2IpList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxDrainDurationSeconds != null) {
+    entries["MaxDrainDurationSeconds"] = input.MaxDrainDurationSeconds;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2UnmonitorInstancesRequest = (input: UnmonitorInstancesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceIds != null) {
@@ -58334,12 +59551,12 @@ const deserializeAws_ec2AddressTransfer = (output: any, context: __SerdeContext)
   }
   if (output["transferOfferExpirationTimestamp"] !== undefined) {
     contents.TransferOfferExpirationTimestamp = __expectNonNull(
-      __parseRfc3339DateTime(output["transferOfferExpirationTimestamp"])
+      __parseRfc3339DateTimeWithOffset(output["transferOfferExpirationTimestamp"])
     );
   }
   if (output["transferOfferAcceptedTimestamp"] !== undefined) {
     contents.TransferOfferAcceptedTimestamp = __expectNonNull(
-      __parseRfc3339DateTime(output["transferOfferAcceptedTimestamp"])
+      __parseRfc3339DateTimeWithOffset(output["transferOfferAcceptedTimestamp"])
     );
   }
   if (output["addressTransferStatus"] !== undefined) {
@@ -58851,6 +60068,28 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   return contents;
 };
 
+const deserializeAws_ec2AssignPrivateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): AssignPrivateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2AssociateAddressResult = (output: any, context: __SerdeContext): AssociateAddressResult => {
   const contents: any = {
     AssociationId: undefined,
@@ -58979,6 +60218,44 @@ const deserializeAws_ec2AssociateInstanceEventWindowResult = (
   };
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AssociateIpamResourceDiscoveryResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateIpamResourceDiscoveryResult => {
+  const contents: any = {
+    IpamResourceDiscoveryAssociation: undefined,
+  };
+  if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
+    contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
+      output["ipamResourceDiscoveryAssociation"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AssociateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -59531,7 +60808,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
     contents.Progress = __expectString(output["progress"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -59540,7 +60817,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
     contents.Storage = deserializeAws_ec2Storage(output["storage"], context);
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updateTime"]));
   }
   return contents;
 };
@@ -59966,10 +61243,10 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     contents.State = __expectString(output["state"]);
   }
   if (output["startDate"] !== undefined) {
-    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
   }
   if (output["endDateType"] !== undefined) {
     contents.EndDateType = __expectString(output["endDateType"]);
@@ -59978,7 +61255,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     contents.InstanceMatchCriteria = __expectString(output["instanceMatchCriteria"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createDate"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -60039,10 +61316,10 @@ const deserializeAws_ec2CapacityReservationFleet = (output: any, context: __Serd
     contents.Tenancy = __expectString(output["tenancy"]);
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["instanceMatchCriteria"] !== undefined) {
     contents.InstanceMatchCriteria = __expectString(output["instanceMatchCriteria"]);
@@ -61123,10 +62400,10 @@ const deserializeAws_ec2CreateCapacityReservationFleetResult = (
     contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
   }
   if (output["tenancy"] !== undefined) {
     contents.Tenancy = __expectString(output["tenancy"]);
@@ -61496,6 +62773,19 @@ const deserializeAws_ec2CreateIpamPoolResult = (output: any, context: __SerdeCon
   };
   if (output["ipamPool"] !== undefined) {
     contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateIpamResourceDiscoveryResult = (
+  output: any,
+  context: __SerdeContext
+): CreateIpamResourceDiscoveryResult => {
+  const contents: any = {
+    IpamResourceDiscovery: undefined,
+  };
+  if (output["ipamResourceDiscovery"] !== undefined) {
+    contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
   }
   return contents;
 };
@@ -62640,6 +63930,19 @@ const deserializeAws_ec2DeleteIpamPoolResult = (output: any, context: __SerdeCon
   };
   if (output["ipamPool"] !== undefined) {
     contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteIpamResourceDiscoveryResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteIpamResourceDiscoveryResult => {
+  const contents: any = {
+    IpamResourceDiscovery: undefined,
+  };
+  if (output["ipamResourceDiscovery"] !== undefined) {
+    contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
   }
   return contents;
 };
@@ -64069,7 +65372,7 @@ const deserializeAws_ec2DescribeFastLaunchImagesSuccessItem = (
     contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
   }
   if (output["stateTransitionTime"] !== undefined) {
-    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["stateTransitionTime"]));
   }
   return contents;
 };
@@ -64143,19 +65446,19 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disabledTime"]));
   }
   return contents;
 };
@@ -64216,7 +65519,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
     );
   }
   if (output["lastEvaluatedTime"] !== undefined) {
-    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTime(output["lastEvaluatedTime"]));
+    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lastEvaluatedTime"]));
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -64225,7 +65528,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
     contents.FleetId = __expectString(output["fleetId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   return contents;
 };
@@ -64730,6 +66033,56 @@ const deserializeAws_ec2DescribeIpamPoolsResult = (output: any, context: __Serde
     contents.IpamPools = [];
   } else if (output["ipamPoolSet"] !== undefined && output["ipamPoolSet"]["item"] !== undefined) {
     contents.IpamPools = deserializeAws_ec2IpamPoolSet(__getArrayIfSingleItem(output["ipamPoolSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeIpamResourceDiscoveriesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeIpamResourceDiscoveriesResult => {
+  const contents: any = {
+    IpamResourceDiscoveries: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamResourceDiscoverySet === "") {
+    contents.IpamResourceDiscoveries = [];
+  } else if (
+    output["ipamResourceDiscoverySet"] !== undefined &&
+    output["ipamResourceDiscoverySet"]["item"] !== undefined
+  ) {
+    contents.IpamResourceDiscoveries = deserializeAws_ec2IpamResourceDiscoverySet(
+      __getArrayIfSingleItem(output["ipamResourceDiscoverySet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeIpamResourceDiscoveryAssociationsResult => {
+  const contents: any = {
+    IpamResourceDiscoveryAssociations: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamResourceDiscoveryAssociationSet === "") {
+    contents.IpamResourceDiscoveryAssociations = [];
+  } else if (
+    output["ipamResourceDiscoveryAssociationSet"] !== undefined &&
+    output["ipamResourceDiscoveryAssociationSet"]["item"] !== undefined
+  ) {
+    contents.IpamResourceDiscoveryAssociations = deserializeAws_ec2IpamResourceDiscoveryAssociationSet(
+      __getArrayIfSingleItem(output["ipamResourceDiscoveryAssociationSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };
@@ -65733,7 +67086,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
     );
   }
   if (output["lastEvaluatedTime"] !== undefined) {
-    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTime(output["lastEvaluatedTime"]));
+    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lastEvaluatedTime"]));
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -65742,7 +67095,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
     contents.SpotFleetRequestId = __expectString(output["spotFleetRequestId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   return contents;
 };
@@ -66970,7 +68323,7 @@ const deserializeAws_ec2DisableFastLaunchResult = (output: any, context: __Serde
     contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
   }
   if (output["stateTransitionTime"] !== undefined) {
-    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["stateTransitionTime"]));
   }
   return contents;
 };
@@ -67119,19 +68472,19 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disabledTime"]));
   }
   return contents;
 };
@@ -67280,6 +68633,44 @@ const deserializeAws_ec2DisassociateInstanceEventWindowResult = (
   };
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateIpamResourceDiscoveryResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateIpamResourceDiscoveryResult => {
+  const contents: any = {
+    IpamResourceDiscoveryAssociation: undefined,
+  };
+  if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
+    contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
+      output["ipamResourceDiscoveryAssociation"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -67556,7 +68947,7 @@ const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeC
     VolumeId: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
   if (output["deleteOnTermination"] !== undefined) {
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
@@ -67782,7 +69173,7 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
   }
   if (output["elasticInferenceAcceleratorAssociationTime"] !== undefined) {
     contents.ElasticInferenceAcceleratorAssociationTime = __expectNonNull(
-      __parseRfc3339DateTime(output["elasticInferenceAcceleratorAssociationTime"])
+      __parseRfc3339DateTimeWithOffset(output["elasticInferenceAcceleratorAssociationTime"])
     );
   }
   return contents;
@@ -67881,7 +69272,7 @@ const deserializeAws_ec2EnableFastLaunchResult = (output: any, context: __SerdeC
     contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
   }
   if (output["stateTransitionTime"] !== undefined) {
-    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["stateTransitionTime"]));
   }
   return contents;
 };
@@ -68030,19 +69421,19 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["disabledTime"]));
   }
   return contents;
 };
@@ -68828,7 +70219,7 @@ const deserializeAws_ec2FleetCapacityReservation = (output: any, context: __Serd
     contents.EbsOptimized = __parseBoolean(output["ebsOptimized"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createDate"]));
   }
   if (output["weight"] !== undefined) {
     contents.Weight = __strictParseFloat(output["weight"]) as number;
@@ -68878,7 +70269,7 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["fleetId"] !== undefined) {
     contents.FleetId = __expectString(output["fleetId"]);
@@ -68919,10 +70310,10 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validUntil"]));
   }
   if (output["replaceUnhealthyInstances"] !== undefined) {
     contents.ReplaceUnhealthyInstances = __parseBoolean(output["replaceUnhealthyInstances"]);
@@ -69131,7 +70522,7 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
     DestinationOptions: undefined,
   };
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output["deliverLogsErrorMessage"] !== undefined) {
     contents.DeliverLogsErrorMessage = __expectString(output["deliverLogsErrorMessage"]);
@@ -69272,10 +70663,10 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
     contents.State = deserializeAws_ec2FpgaImageState(output["state"], context);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updateTime"]));
   }
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -69527,7 +70918,7 @@ const deserializeAws_ec2GetConsoleOutputResult = (output: any, context: __SerdeC
     contents.Output = __expectString(output["output"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -69708,6 +71099,56 @@ const deserializeAws_ec2GetIpamAddressHistoryResult = (
   } else if (output["historyRecordSet"] !== undefined && output["historyRecordSet"]["item"] !== undefined) {
     contents.HistoryRecords = deserializeAws_ec2IpamAddressHistoryRecordSet(
       __getArrayIfSingleItem(output["historyRecordSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetIpamDiscoveredAccountsResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamDiscoveredAccountsResult => {
+  const contents: any = {
+    IpamDiscoveredAccounts: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamDiscoveredAccountSet === "") {
+    contents.IpamDiscoveredAccounts = [];
+  } else if (
+    output["ipamDiscoveredAccountSet"] !== undefined &&
+    output["ipamDiscoveredAccountSet"]["item"] !== undefined
+  ) {
+    contents.IpamDiscoveredAccounts = deserializeAws_ec2IpamDiscoveredAccountSet(
+      __getArrayIfSingleItem(output["ipamDiscoveredAccountSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetIpamDiscoveredResourceCidrsResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamDiscoveredResourceCidrsResult => {
+  const contents: any = {
+    IpamDiscoveredResourceCidrs: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamDiscoveredResourceCidrSet === "") {
+    contents.IpamDiscoveredResourceCidrs = [];
+  } else if (
+    output["ipamDiscoveredResourceCidrSet"] !== undefined &&
+    output["ipamDiscoveredResourceCidrSet"]["item"] !== undefined
+  ) {
+    contents.IpamDiscoveredResourceCidrs = deserializeAws_ec2IpamDiscoveredResourceCidrSet(
+      __getArrayIfSingleItem(output["ipamDiscoveredResourceCidrSet"]["item"]),
       context
     );
   }
@@ -69899,7 +71340,7 @@ const deserializeAws_ec2GetPasswordDataResult = (output: any, context: __SerdeCo
     contents.PasswordData = __expectString(output["passwordData"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -69927,7 +71368,7 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   }
   if (output["outputReservedInstancesWillExpireAt"] !== undefined) {
     contents.OutputReservedInstancesWillExpireAt = __expectNonNull(
-      __parseRfc3339DateTime(output["outputReservedInstancesWillExpireAt"])
+      __parseRfc3339DateTimeWithOffset(output["outputReservedInstancesWillExpireAt"])
     );
   }
   if (output["paymentDue"] !== undefined) {
@@ -70399,7 +71840,7 @@ const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): 
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -70417,7 +71858,7 @@ const deserializeAws_ec2HistoryRecordEntry = (output: any, context: __SerdeConte
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -70492,10 +71933,10 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     contents.State = __expectString(output["state"]);
   }
   if (output["allocationTime"] !== undefined) {
-    contents.AllocationTime = __expectNonNull(__parseRfc3339DateTime(output["allocationTime"]));
+    contents.AllocationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["allocationTime"]));
   }
   if (output["releaseTime"] !== undefined) {
-    contents.ReleaseTime = __expectNonNull(__parseRfc3339DateTime(output["releaseTime"]));
+    contents.ReleaseTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["releaseTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -70652,7 +72093,7 @@ const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext)
     contents.Duration = __strictParseInt32(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
-    contents.End = __expectNonNull(__parseRfc3339DateTime(output["end"]));
+    contents.End = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["end"]));
   }
   if (output.hostIdSet === "") {
     contents.HostIdSet = [];
@@ -70678,7 +72119,7 @@ const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext)
     contents.PaymentOption = __expectString(output["paymentOption"]);
   }
   if (output["start"] !== undefined) {
-    contents.Start = __expectNonNull(__parseRfc3339DateTime(output["start"]));
+    contents.Start = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["start"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -70740,7 +72181,7 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
     contents.State = __expectString(output["state"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -70794,7 +72235,7 @@ const deserializeAws_ec2IdFormat = (output: any, context: __SerdeContext): IdFor
     UseLongIds: undefined,
   };
   if (output["deadline"] !== undefined) {
-    contents.Deadline = __expectNonNull(__parseRfc3339DateTime(output["deadline"]));
+    contents.Deadline = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["deadline"]));
   }
   if (output["resource"] !== undefined) {
     contents.Resource = __expectString(output["resource"]);
@@ -71068,10 +72509,10 @@ const deserializeAws_ec2ImageRecycleBinInfo = (output: any, context: __SerdeCont
     contents.Description = __expectString(output["description"]);
   }
   if (output["recycleBinEnterTime"] !== undefined) {
-    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinEnterTime"]));
+    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["recycleBinEnterTime"]));
   }
   if (output["recycleBinExitTime"] !== undefined) {
-    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinExitTime"]));
+    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["recycleBinExitTime"]));
   }
   return contents;
 };
@@ -71628,7 +73069,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     contents.KeyName = __expectString(output["keyName"]);
   }
   if (output["launchTime"] !== undefined) {
-    contents.LaunchTime = __expectNonNull(__parseRfc3339DateTime(output["launchTime"]));
+    contents.LaunchTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["launchTime"]));
   }
   if (output["monitoring"] !== undefined) {
     contents.Monitoring = deserializeAws_ec2Monitoring(output["monitoring"], context);
@@ -71806,7 +73247,9 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     contents.UsageOperation = __expectString(output["usageOperation"]);
   }
   if (output["usageOperationUpdateTime"] !== undefined) {
-    contents.UsageOperationUpdateTime = __expectNonNull(__parseRfc3339DateTime(output["usageOperationUpdateTime"]));
+    contents.UsageOperationUpdateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["usageOperationUpdateTime"])
+    );
   }
   if (output["privateDnsNameOptions"] !== undefined) {
     contents.PrivateDnsNameOptions = deserializeAws_ec2PrivateDnsNameOptionsResponse(
@@ -72493,7 +73936,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
     NetworkCardIndex: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
   if (output["attachmentId"] !== undefined) {
     contents.AttachmentId = __expectString(output["attachmentId"]);
@@ -72918,7 +74361,7 @@ const deserializeAws_ec2InstanceStatusDetails = (output: any, context: __SerdeCo
     Status: undefined,
   };
   if (output["impairedSince"] !== undefined) {
-    contents.ImpairedSince = __expectNonNull(__parseRfc3339DateTime(output["impairedSince"]));
+    contents.ImpairedSince = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["impairedSince"]));
   }
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
@@ -72956,13 +74399,13 @@ const deserializeAws_ec2InstanceStatusEvent = (output: any, context: __SerdeCont
     contents.Description = __expectString(output["description"]);
   }
   if (output["notAfter"] !== undefined) {
-    contents.NotAfter = __expectNonNull(__parseRfc3339DateTime(output["notAfter"]));
+    contents.NotAfter = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["notAfter"]));
   }
   if (output["notBefore"] !== undefined) {
-    contents.NotBefore = __expectNonNull(__parseRfc3339DateTime(output["notBefore"]));
+    contents.NotBefore = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["notBefore"]));
   }
   if (output["notBeforeDeadline"] !== undefined) {
-    contents.NotBeforeDeadline = __expectNonNull(__parseRfc3339DateTime(output["notBeforeDeadline"]));
+    contents.NotBeforeDeadline = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["notBeforeDeadline"]));
   }
   return contents;
 };
@@ -73361,6 +74804,9 @@ const deserializeAws_ec2Ipam = (output: any, context: __SerdeContext): Ipam => {
     OperatingRegions: undefined,
     State: undefined,
     Tags: undefined,
+    DefaultResourceDiscoveryId: undefined,
+    DefaultResourceDiscoveryAssociationId: undefined,
+    ResourceDiscoveryAssociationCount: undefined,
   };
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -73401,6 +74847,17 @@ const deserializeAws_ec2Ipam = (output: any, context: __SerdeContext): Ipam => {
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["defaultResourceDiscoveryId"] !== undefined) {
+    contents.DefaultResourceDiscoveryId = __expectString(output["defaultResourceDiscoveryId"]);
+  }
+  if (output["defaultResourceDiscoveryAssociationId"] !== undefined) {
+    contents.DefaultResourceDiscoveryAssociationId = __expectString(output["defaultResourceDiscoveryAssociationId"]);
+  }
+  if (output["resourceDiscoveryAssociationCount"] !== undefined) {
+    contents.ResourceDiscoveryAssociationCount = __strictParseInt32(
+      output["resourceDiscoveryAssociationCount"]
+    ) as number;
   }
   return contents;
 };
@@ -73447,10 +74904,10 @@ const deserializeAws_ec2IpamAddressHistoryRecord = (output: any, context: __Serd
     contents.VpcId = __expectString(output["vpcId"]);
   }
   if (output["sampledStartTime"] !== undefined) {
-    contents.SampledStartTime = __expectNonNull(__parseRfc3339DateTime(output["sampledStartTime"]));
+    contents.SampledStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["sampledStartTime"]));
   }
   if (output["sampledEndTime"] !== undefined) {
-    contents.SampledEndTime = __expectNonNull(__parseRfc3339DateTime(output["sampledEndTime"]));
+    contents.SampledEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["sampledEndTime"]));
   }
   return contents;
 };
@@ -73464,6 +74921,126 @@ const deserializeAws_ec2IpamAddressHistoryRecordSet = (
     .map((entry: any) => {
       return deserializeAws_ec2IpamAddressHistoryRecord(entry, context);
     });
+};
+
+const deserializeAws_ec2IpamDiscoveredAccount = (output: any, context: __SerdeContext): IpamDiscoveredAccount => {
+  const contents: any = {
+    AccountId: undefined,
+    DiscoveryRegion: undefined,
+    FailureReason: undefined,
+    LastAttemptedDiscoveryTime: undefined,
+    LastSuccessfulDiscoveryTime: undefined,
+  };
+  if (output["accountId"] !== undefined) {
+    contents.AccountId = __expectString(output["accountId"]);
+  }
+  if (output["discoveryRegion"] !== undefined) {
+    contents.DiscoveryRegion = __expectString(output["discoveryRegion"]);
+  }
+  if (output["failureReason"] !== undefined) {
+    contents.FailureReason = deserializeAws_ec2IpamDiscoveryFailureReason(output["failureReason"], context);
+  }
+  if (output["lastAttemptedDiscoveryTime"] !== undefined) {
+    contents.LastAttemptedDiscoveryTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["lastAttemptedDiscoveryTime"])
+    );
+  }
+  if (output["lastSuccessfulDiscoveryTime"] !== undefined) {
+    contents.LastSuccessfulDiscoveryTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["lastSuccessfulDiscoveryTime"])
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamDiscoveredAccountSet = (output: any, context: __SerdeContext): IpamDiscoveredAccount[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2IpamDiscoveredAccount(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamDiscoveredResourceCidr = (
+  output: any,
+  context: __SerdeContext
+): IpamDiscoveredResourceCidr => {
+  const contents: any = {
+    IpamResourceDiscoveryId: undefined,
+    ResourceRegion: undefined,
+    ResourceId: undefined,
+    ResourceOwnerId: undefined,
+    ResourceCidr: undefined,
+    ResourceType: undefined,
+    ResourceTags: undefined,
+    IpUsage: undefined,
+    VpcId: undefined,
+    SampleTime: undefined,
+  };
+  if (output["ipamResourceDiscoveryId"] !== undefined) {
+    contents.IpamResourceDiscoveryId = __expectString(output["ipamResourceDiscoveryId"]);
+  }
+  if (output["resourceRegion"] !== undefined) {
+    contents.ResourceRegion = __expectString(output["resourceRegion"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceOwnerId"] !== undefined) {
+    contents.ResourceOwnerId = __expectString(output["resourceOwnerId"]);
+  }
+  if (output["resourceCidr"] !== undefined) {
+    contents.ResourceCidr = __expectString(output["resourceCidr"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output.resourceTagSet === "") {
+    contents.ResourceTags = [];
+  } else if (output["resourceTagSet"] !== undefined && output["resourceTagSet"]["item"] !== undefined) {
+    contents.ResourceTags = deserializeAws_ec2IpamResourceTagList(
+      __getArrayIfSingleItem(output["resourceTagSet"]["item"]),
+      context
+    );
+  }
+  if (output["ipUsage"] !== undefined) {
+    contents.IpUsage = __strictParseFloat(output["ipUsage"]) as number;
+  }
+  if (output["vpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["vpcId"]);
+  }
+  if (output["sampleTime"] !== undefined) {
+    contents.SampleTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["sampleTime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamDiscoveredResourceCidrSet = (
+  output: any,
+  context: __SerdeContext
+): IpamDiscoveredResourceCidr[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2IpamDiscoveredResourceCidr(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamDiscoveryFailureReason = (
+  output: any,
+  context: __SerdeContext
+): IpamDiscoveryFailureReason => {
+  const contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["code"] !== undefined) {
+    contents.Code = __expectString(output["code"]);
+  }
+  if (output["message"] !== undefined) {
+    contents.Message = __expectString(output["message"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2IpamOperatingRegion = (output: any, context: __SerdeContext): IpamOperatingRegion => {
@@ -73508,6 +75085,7 @@ const deserializeAws_ec2IpamPool = (output: any, context: __SerdeContext): IpamP
     AllocationResourceTags: undefined,
     Tags: undefined,
     AwsService: undefined,
+    PublicIpSource: undefined,
   };
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -73585,6 +75163,9 @@ const deserializeAws_ec2IpamPool = (output: any, context: __SerdeContext): IpamP
   if (output["awsService"] !== undefined) {
     contents.AwsService = __expectString(output["awsService"]);
   }
+  if (output["publicIpSource"] !== undefined) {
+    contents.PublicIpSource = __expectString(output["publicIpSource"]);
+  }
   return contents;
 };
 
@@ -73635,6 +75216,8 @@ const deserializeAws_ec2IpamPoolCidr = (output: any, context: __SerdeContext): I
     Cidr: undefined,
     State: undefined,
     FailureReason: undefined,
+    IpamPoolCidrId: undefined,
+    NetmaskLength: undefined,
   };
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
@@ -73644,6 +75227,12 @@ const deserializeAws_ec2IpamPoolCidr = (output: any, context: __SerdeContext): I
   }
   if (output["failureReason"] !== undefined) {
     contents.FailureReason = deserializeAws_ec2IpamPoolCidrFailureReason(output["failureReason"], context);
+  }
+  if (output["ipamPoolCidrId"] !== undefined) {
+    contents.IpamPoolCidrId = __expectString(output["ipamPoolCidrId"]);
+  }
+  if (output["netmaskLength"] !== undefined) {
+    contents.NetmaskLength = __strictParseInt32(output["netmaskLength"]) as number;
   }
   return contents;
 };
@@ -73757,6 +75346,129 @@ const deserializeAws_ec2IpamResourceCidrSet = (output: any, context: __SerdeCont
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_ec2IpamResourceCidr(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamResourceDiscovery = (output: any, context: __SerdeContext): IpamResourceDiscovery => {
+  const contents: any = {
+    OwnerId: undefined,
+    IpamResourceDiscoveryId: undefined,
+    IpamResourceDiscoveryArn: undefined,
+    IpamResourceDiscoveryRegion: undefined,
+    Description: undefined,
+    OperatingRegions: undefined,
+    IsDefault: undefined,
+    State: undefined,
+    Tags: undefined,
+  };
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["ipamResourceDiscoveryId"] !== undefined) {
+    contents.IpamResourceDiscoveryId = __expectString(output["ipamResourceDiscoveryId"]);
+  }
+  if (output["ipamResourceDiscoveryArn"] !== undefined) {
+    contents.IpamResourceDiscoveryArn = __expectString(output["ipamResourceDiscoveryArn"]);
+  }
+  if (output["ipamResourceDiscoveryRegion"] !== undefined) {
+    contents.IpamResourceDiscoveryRegion = __expectString(output["ipamResourceDiscoveryRegion"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output.operatingRegionSet === "") {
+    contents.OperatingRegions = [];
+  } else if (output["operatingRegionSet"] !== undefined && output["operatingRegionSet"]["item"] !== undefined) {
+    contents.OperatingRegions = deserializeAws_ec2IpamOperatingRegionSet(
+      __getArrayIfSingleItem(output["operatingRegionSet"]["item"]),
+      context
+    );
+  }
+  if (output["isDefault"] !== undefined) {
+    contents.IsDefault = __parseBoolean(output["isDefault"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamResourceDiscoveryAssociation = (
+  output: any,
+  context: __SerdeContext
+): IpamResourceDiscoveryAssociation => {
+  const contents: any = {
+    OwnerId: undefined,
+    IpamResourceDiscoveryAssociationId: undefined,
+    IpamResourceDiscoveryAssociationArn: undefined,
+    IpamResourceDiscoveryId: undefined,
+    IpamId: undefined,
+    IpamArn: undefined,
+    IpamRegion: undefined,
+    IsDefault: undefined,
+    ResourceDiscoveryStatus: undefined,
+    State: undefined,
+    Tags: undefined,
+  };
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["ipamResourceDiscoveryAssociationId"] !== undefined) {
+    contents.IpamResourceDiscoveryAssociationId = __expectString(output["ipamResourceDiscoveryAssociationId"]);
+  }
+  if (output["ipamResourceDiscoveryAssociationArn"] !== undefined) {
+    contents.IpamResourceDiscoveryAssociationArn = __expectString(output["ipamResourceDiscoveryAssociationArn"]);
+  }
+  if (output["ipamResourceDiscoveryId"] !== undefined) {
+    contents.IpamResourceDiscoveryId = __expectString(output["ipamResourceDiscoveryId"]);
+  }
+  if (output["ipamId"] !== undefined) {
+    contents.IpamId = __expectString(output["ipamId"]);
+  }
+  if (output["ipamArn"] !== undefined) {
+    contents.IpamArn = __expectString(output["ipamArn"]);
+  }
+  if (output["ipamRegion"] !== undefined) {
+    contents.IpamRegion = __expectString(output["ipamRegion"]);
+  }
+  if (output["isDefault"] !== undefined) {
+    contents.IsDefault = __parseBoolean(output["isDefault"]);
+  }
+  if (output["resourceDiscoveryStatus"] !== undefined) {
+    contents.ResourceDiscoveryStatus = __expectString(output["resourceDiscoveryStatus"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamResourceDiscoveryAssociationSet = (
+  output: any,
+  context: __SerdeContext
+): IpamResourceDiscoveryAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2IpamResourceDiscoveryAssociation(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamResourceDiscoverySet = (output: any, context: __SerdeContext): IpamResourceDiscovery[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2IpamResourceDiscovery(entry, context);
     });
 };
 
@@ -74239,7 +75951,7 @@ const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): Ke
     contents.PublicKey = __expectString(output["publicKey"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   return contents;
 };
@@ -74405,7 +76117,7 @@ const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext):
     contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["createdBy"] !== undefined) {
     contents.CreatedBy = __expectString(output["createdBy"]);
@@ -75014,7 +76726,7 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
     contents.BlockDurationMinutes = __strictParseInt32(output["blockDurationMinutes"]) as number;
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validUntil"]));
   }
   if (output["instanceInterruptionBehavior"] !== undefined) {
     contents.InstanceInterruptionBehavior = __expectString(output["instanceInterruptionBehavior"]);
@@ -75076,7 +76788,7 @@ const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeCo
     contents.VersionDescription = __expectString(output["versionDescription"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["createdBy"] !== undefined) {
     contents.CreatedBy = __expectString(output["createdBy"]);
@@ -75239,6 +76951,7 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
     SubnetId: undefined,
     CoipPoolId: undefined,
     NetworkInterfaceId: undefined,
+    DestinationPrefixListId: undefined,
   };
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
@@ -75269,6 +76982,9 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
   }
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
+  }
+  if (output["destinationPrefixListId"] !== undefined) {
+    contents.DestinationPrefixListId = __expectString(output["destinationPrefixListId"]);
   }
   return contents;
 };
@@ -75680,10 +77396,10 @@ const deserializeAws_ec2MetricPoint = (output: any, context: __SerdeContext): Me
     Status: undefined,
   };
   if (output["startDate"] !== undefined) {
-    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
   }
   if (output["value"] !== undefined) {
     contents.Value = __strictParseFloat(output["value"]) as number;
@@ -75988,6 +77704,19 @@ const deserializeAws_ec2ModifyIpamResourceCidrResult = (
   return contents;
 };
 
+const deserializeAws_ec2ModifyIpamResourceDiscoveryResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyIpamResourceDiscoveryResult => {
+  const contents: any = {
+    IpamResourceDiscovery: undefined,
+  };
+  if (output["ipamResourceDiscovery"] !== undefined) {
+    contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ModifyIpamResult = (output: any, context: __SerdeContext): ModifyIpamResult => {
   const contents: any = {
     Ipam: undefined,
@@ -76095,7 +77824,7 @@ const deserializeAws_ec2ModifySnapshotTierResult = (output: any, context: __Serd
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["tieringStartTime"] !== undefined) {
-    contents.TieringStartTime = __expectNonNull(__parseRfc3339DateTime(output["tieringStartTime"]));
+    contents.TieringStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["tieringStartTime"]));
   }
   return contents;
 };
@@ -76567,10 +78296,10 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
     ConnectivityType: undefined,
   };
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["deleteTime"] !== undefined) {
-    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTime(output["deleteTime"]));
+    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["deleteTime"]));
   }
   if (output["failureCode"] !== undefined) {
     contents.FailureCode = __expectString(output["failureCode"]);
@@ -76618,6 +78347,10 @@ const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContex
     NetworkInterfaceId: undefined,
     PrivateIp: undefined,
     PublicIp: undefined,
+    AssociationId: undefined,
+    IsPrimary: undefined,
+    FailureMessage: undefined,
+    Status: undefined,
   };
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
@@ -76630,6 +78363,18 @@ const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContex
   }
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
+  }
+  if (output["associationId"] !== undefined) {
+    contents.AssociationId = __expectString(output["associationId"]);
+  }
+  if (output["isPrimary"] !== undefined) {
+    contents.IsPrimary = __parseBoolean(output["isPrimary"]);
+  }
+  if (output["failureMessage"] !== undefined) {
+    contents.FailureMessage = __expectString(output["failureMessage"]);
+  }
+  if (output["status"] !== undefined) {
+    contents.Status = __expectString(output["status"]);
   }
   return contents;
 };
@@ -76897,10 +78642,10 @@ const deserializeAws_ec2NetworkInsightsAccessScope = (
     contents.NetworkInsightsAccessScopeArn = __expectString(output["networkInsightsAccessScopeArn"]);
   }
   if (output["createdDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["createdDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createdDate"]));
   }
   if (output["updatedDate"] !== undefined) {
-    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["updatedDate"]));
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updatedDate"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -76946,10 +78691,10 @@ const deserializeAws_ec2NetworkInsightsAccessScopeAnalysis = (
     contents.WarningMessage = __expectString(output["warningMessage"]);
   }
   if (output["startDate"] !== undefined) {
-    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
   }
   if (output["findingsFound"] !== undefined) {
     contents.FindingsFound = __expectString(output["findingsFound"]);
@@ -77063,7 +78808,7 @@ const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __Serde
     );
   }
   if (output["startDate"] !== undefined) {
-    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
@@ -77161,7 +78906,7 @@ const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeCont
     contents.NetworkInsightsPathArn = __expectString(output["networkInsightsPathArn"]);
   }
   if (output["createdDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["createdDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createdDate"]));
   }
   if (output["source"] !== undefined) {
     contents.Source = __expectString(output["source"]);
@@ -77393,7 +79138,7 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
     EnaSrdSpecification: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
   if (output["attachmentId"] !== undefined) {
     contents.AttachmentId = __expectString(output["attachmentId"]);
@@ -78591,13 +80336,13 @@ const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeCon
     Status: undefined,
   };
   if (output["provisionTime"] !== undefined) {
-    contents.ProvisionTime = __expectNonNull(__parseRfc3339DateTime(output["provisionTime"]));
+    contents.ProvisionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["provisionTime"]));
   }
   if (output["provisioned"] !== undefined) {
     contents.Provisioned = __expectString(output["provisioned"]);
   }
   if (output["requestTime"] !== undefined) {
-    contents.RequestTime = __expectNonNull(__parseRfc3339DateTime(output["requestTime"]));
+    contents.RequestTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["requestTime"]));
   }
   if (output["requested"] !== undefined) {
     contents.Requested = __expectString(output["requested"]);
@@ -79361,7 +81106,7 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.Duration = __strictParseLong(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
-    contents.End = __expectNonNull(__parseRfc3339DateTime(output["end"]));
+    contents.End = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["end"]));
   }
   if (output["fixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["fixedPrice"]) as number;
@@ -79379,7 +81124,7 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
   if (output["start"] !== undefined) {
-    contents.Start = __expectNonNull(__parseRfc3339DateTime(output["start"]));
+    contents.Start = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["start"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -79482,7 +81227,7 @@ const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __Serd
     contents.ClientToken = __expectString(output["clientToken"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createDate"]));
   }
   if (output.instanceCounts === "") {
     contents.InstanceCounts = [];
@@ -79518,7 +81263,7 @@ const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __Serd
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
   if (output["updateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["updateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updateDate"]));
   }
   return contents;
 };
@@ -79553,10 +81298,10 @@ const deserializeAws_ec2ReservedInstancesModification = (
     contents.ClientToken = __expectString(output["clientToken"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createDate"]));
   }
   if (output["effectiveDate"] !== undefined) {
-    contents.EffectiveDate = __expectNonNull(__parseRfc3339DateTime(output["effectiveDate"]));
+    contents.EffectiveDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["effectiveDate"]));
   }
   if (output.modificationResultSet === "") {
     contents.ModificationResults = [];
@@ -79584,7 +81329,7 @@ const deserializeAws_ec2ReservedInstancesModification = (
     contents.StatusMessage = __expectString(output["statusMessage"]);
   }
   if (output["updateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["updateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updateDate"]));
   }
   return contents;
 };
@@ -80101,7 +81846,7 @@ const deserializeAws_ec2RestoreSnapshotFromRecycleBinResult = (
     contents.Progress = __expectString(output["progress"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   if (output["status"] !== undefined) {
     contents.State = __expectString(output["status"]);
@@ -80129,7 +81874,7 @@ const deserializeAws_ec2RestoreSnapshotTierResult = (
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["restoreStartTime"] !== undefined) {
-    contents.RestoreStartTime = __expectNonNull(__parseRfc3339DateTime(output["restoreStartTime"]));
+    contents.RestoreStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["restoreStartTime"]));
   }
   if (output["restoreDuration"] !== undefined) {
     contents.RestoreDuration = __strictParseInt32(output["restoreDuration"]) as number;
@@ -80473,7 +82218,7 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createDate"]));
   }
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
@@ -80488,13 +82233,13 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.NetworkPlatform = __expectString(output["networkPlatform"]);
   }
   if (output["nextSlotStartTime"] !== undefined) {
-    contents.NextSlotStartTime = __expectNonNull(__parseRfc3339DateTime(output["nextSlotStartTime"]));
+    contents.NextSlotStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["nextSlotStartTime"]));
   }
   if (output["platform"] !== undefined) {
     contents.Platform = __expectString(output["platform"]);
   }
   if (output["previousSlotEndTime"] !== undefined) {
-    contents.PreviousSlotEndTime = __expectNonNull(__parseRfc3339DateTime(output["previousSlotEndTime"]));
+    contents.PreviousSlotEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["previousSlotEndTime"]));
   }
   if (output["recurrence"] !== undefined) {
     contents.Recurrence = deserializeAws_ec2ScheduledInstanceRecurrence(output["recurrence"], context);
@@ -80506,10 +82251,10 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.SlotDurationInHours = __strictParseInt32(output["slotDurationInHours"]) as number;
   }
   if (output["termEndDate"] !== undefined) {
-    contents.TermEndDate = __expectNonNull(__parseRfc3339DateTime(output["termEndDate"]));
+    contents.TermEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["termEndDate"]));
   }
   if (output["termStartDate"] !== undefined) {
-    contents.TermStartDate = __expectNonNull(__parseRfc3339DateTime(output["termStartDate"]));
+    contents.TermStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["termStartDate"]));
   }
   if (output["totalScheduledInstanceHours"] !== undefined) {
     contents.TotalScheduledInstanceHours = __strictParseInt32(output["totalScheduledInstanceHours"]) as number;
@@ -80543,7 +82288,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
     contents.AvailableInstanceCount = __strictParseInt32(output["availableInstanceCount"]) as number;
   }
   if (output["firstSlotStartTime"] !== undefined) {
-    contents.FirstSlotStartTime = __expectNonNull(__parseRfc3339DateTime(output["firstSlotStartTime"]));
+    contents.FirstSlotStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["firstSlotStartTime"]));
   }
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
@@ -81161,7 +82906,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   if (output["status"] !== undefined) {
     contents.State = __expectString(output["status"]);
@@ -81190,7 +82935,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
     contents.StorageTier = __expectString(output["storageTier"]);
   }
   if (output["restoreExpiryTime"] !== undefined) {
-    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTime(output["restoreExpiryTime"]));
+    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["restoreExpiryTime"]));
   }
   return contents;
 };
@@ -81284,7 +83029,7 @@ const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): S
     contents.VolumeSize = __strictParseInt32(output["volumeSize"]) as number;
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   if (output["progress"] !== undefined) {
     contents.Progress = __expectString(output["progress"]);
@@ -81321,10 +83066,10 @@ const deserializeAws_ec2SnapshotRecycleBinInfo = (output: any, context: __SerdeC
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["recycleBinEnterTime"] !== undefined) {
-    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinEnterTime"]));
+    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["recycleBinEnterTime"]));
   }
   if (output["recycleBinExitTime"] !== undefined) {
-    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinExitTime"]));
+    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["recycleBinExitTime"]));
   }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
@@ -81440,7 +83185,7 @@ const deserializeAws_ec2SnapshotTierStatus = (output: any, context: __SerdeConte
     contents.StorageTier = __expectString(output["storageTier"]);
   }
   if (output["lastTieringStartTime"] !== undefined) {
-    contents.LastTieringStartTime = __expectNonNull(__parseRfc3339DateTime(output["lastTieringStartTime"]));
+    contents.LastTieringStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lastTieringStartTime"]));
   }
   if (output["lastTieringProgress"] !== undefined) {
     contents.LastTieringProgress = __strictParseInt32(output["lastTieringProgress"]) as number;
@@ -81452,10 +83197,10 @@ const deserializeAws_ec2SnapshotTierStatus = (output: any, context: __SerdeConte
     contents.LastTieringOperationStatusDetail = __expectString(output["lastTieringOperationStatusDetail"]);
   }
   if (output["archivalCompleteTime"] !== undefined) {
-    contents.ArchivalCompleteTime = __expectNonNull(__parseRfc3339DateTime(output["archivalCompleteTime"]));
+    contents.ArchivalCompleteTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["archivalCompleteTime"]));
   }
   if (output["restoreExpiryTime"] !== undefined) {
-    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTime(output["restoreExpiryTime"]));
+    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["restoreExpiryTime"]));
   }
   return contents;
 };
@@ -81639,7 +83384,7 @@ const deserializeAws_ec2SpotFleetRequestConfig = (output: any, context: __SerdeC
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["spotFleetRequestConfig"] !== undefined) {
     contents.SpotFleetRequestConfig = deserializeAws_ec2SpotFleetRequestConfigData(
@@ -81758,10 +83503,10 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validUntil"]));
   }
   if (output["replaceUnhealthyInstances"] !== undefined) {
     contents.ReplaceUnhealthyInstances = __parseBoolean(output["replaceUnhealthyInstances"]);
@@ -81865,7 +83610,7 @@ const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeCont
     contents.BlockDurationMinutes = __strictParseInt32(output["blockDurationMinutes"]) as number;
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["fault"] !== undefined) {
     contents.Fault = deserializeAws_ec2SpotInstanceStateFault(output["fault"], context);
@@ -81906,10 +83651,10 @@ const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeCont
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["validUntil"]));
   }
   if (output["instanceInterruptionBehavior"] !== undefined) {
     contents.InstanceInterruptionBehavior = __expectString(output["instanceInterruptionBehavior"]);
@@ -81952,7 +83697,7 @@ const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeConte
     contents.Message = __expectString(output["message"]);
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["updateTime"]));
   }
   return contents;
 };
@@ -82076,7 +83821,7 @@ const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): Spot
     contents.SpotPrice = __expectString(output["spotPrice"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["timestamp"]));
   }
   return contents;
 };
@@ -82303,7 +84048,7 @@ const deserializeAws_ec2StoreImageTaskResult = (output: any, context: __SerdeCon
     contents.AmiId = __expectString(output["amiId"]);
   }
   if (output["taskStartTime"] !== undefined) {
-    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTime(output["taskStartTime"]));
+    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["taskStartTime"]));
   }
   if (output["bucket"] !== undefined) {
     contents.Bucket = __expectString(output["bucket"]);
@@ -83266,7 +85011,7 @@ const deserializeAws_ec2TransitGateway = (output: any, context: __SerdeContext):
     contents.Description = __expectString(output["description"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayOptions(output["options"], context);
@@ -83346,7 +85091,7 @@ const deserializeAws_ec2TransitGatewayAttachment = (output: any, context: __Serd
     contents.Association = deserializeAws_ec2TransitGatewayAttachmentAssociation(output["association"], context);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -83475,7 +85220,7 @@ const deserializeAws_ec2TransitGatewayConnect = (output: any, context: __SerdeCo
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayConnectOptions(output["options"], context);
@@ -83531,7 +85276,7 @@ const deserializeAws_ec2TransitGatewayConnectPeer = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output["connectPeerConfiguration"] !== undefined) {
     contents.ConnectPeerConfiguration = deserializeAws_ec2TransitGatewayConnectPeerConfiguration(
@@ -83696,7 +85441,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -84029,7 +85774,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -84131,7 +85876,7 @@ const deserializeAws_ec2TransitGatewayPolicyTable = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -84429,7 +86174,7 @@ const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __Serd
     contents.DefaultPropagationRouteTable = __parseBoolean(output["defaultPropagationRouteTable"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -84484,7 +86229,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAnnouncement = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -84668,7 +86413,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
     );
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayVpcAttachmentOptions(output["options"], context);
@@ -84935,6 +86680,28 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   ) {
     contents.UnassignedIpv6Prefixes = deserializeAws_ec2IpPrefixList(
       __getArrayIfSingleItem(output["unassignedIpv6PrefixSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2UnassignPrivateNatGatewayAddressResult = (
+  output: any,
+  context: __SerdeContext
+): UnassignPrivateNatGatewayAddressResult => {
+  const contents: any = {
+    NatGatewayId: undefined,
+    NatGatewayAddresses: undefined,
+  };
+  if (output["natGatewayId"] !== undefined) {
+    contents.NatGatewayId = __expectString(output["natGatewayId"]);
+  }
+  if (output.natGatewayAddressSet === "") {
+    contents.NatGatewayAddresses = [];
+  } else if (output["natGatewayAddressSet"] !== undefined && output["natGatewayAddressSet"]["item"] !== undefined) {
+    contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
   }
@@ -85767,7 +87534,7 @@ const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): V
     contents.AcceptedRouteCount = __strictParseInt32(output["acceptedRouteCount"]) as number;
   }
   if (output["lastStatusChange"] !== undefined) {
-    contents.LastStatusChange = __expectNonNull(__parseRfc3339DateTime(output["lastStatusChange"]));
+    contents.LastStatusChange = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["lastStatusChange"]));
   }
   if (output["outsideIpAddress"] !== undefined) {
     contents.OutsideIpAddress = __expectString(output["outsideIpAddress"]);
@@ -85834,7 +87601,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = __parseBoolean(output["encrypted"]);
@@ -85890,7 +87657,7 @@ const deserializeAws_ec2VolumeAttachment = (output: any, context: __SerdeContext
     DeleteOnTermination: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
   if (output["device"] !== undefined) {
     contents.Device = __expectString(output["device"]);
@@ -85988,10 +87755,10 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
     contents.Progress = __strictParseLong(output["progress"]) as number;
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startTime"]));
   }
   if (output["endTime"] !== undefined) {
-    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["endTime"]));
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endTime"]));
   }
   return contents;
 };
@@ -86103,10 +87870,10 @@ const deserializeAws_ec2VolumeStatusEvent = (output: any, context: __SerdeContex
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["notAfter"] !== undefined) {
-    contents.NotAfter = __expectNonNull(__parseRfc3339DateTime(output["notAfter"]));
+    contents.NotAfter = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["notAfter"]));
   }
   if (output["notBefore"] !== undefined) {
-    contents.NotBefore = __expectNonNull(__parseRfc3339DateTime(output["notBefore"]));
+    contents.NotBefore = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["notBefore"]));
   }
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
@@ -86442,7 +88209,7 @@ const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): Vp
     contents.DnsEntries = deserializeAws_ec2DnsEntrySet(__getArrayIfSingleItem(output["dnsEntrySet"]["item"]), context);
   }
   if (output["creationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["creationTimestamp"]));
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTimestamp"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -86485,7 +88252,7 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
     contents.VpcEndpointState = __expectString(output["vpcEndpointState"]);
   }
   if (output["creationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["creationTimestamp"]));
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTimestamp"]));
   }
   if (output.dnsEntrySet === "") {
     contents.DnsEntries = [];
@@ -86605,7 +88372,7 @@ const deserializeAws_ec2VpcPeeringConnection = (output: any, context: __SerdeCon
     contents.AccepterVpcInfo = deserializeAws_ec2VpcPeeringConnectionVpcInfo(output["accepterVpcInfo"], context);
   }
   if (output["expirationTime"] !== undefined) {
-    contents.ExpirationTime = __expectNonNull(__parseRfc3339DateTime(output["expirationTime"]));
+    contents.ExpirationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["expirationTime"]));
   }
   if (output["requesterVpcInfo"] !== undefined) {
     contents.RequesterVpcInfo = deserializeAws_ec2VpcPeeringConnectionVpcInfo(output["requesterVpcInfo"], context);
@@ -87072,7 +88839,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Errors.Error.Code !== undefined) {
+  if (data.Errors.Error?.Code !== undefined) {
     return data.Errors.Error.Code;
   }
   if (output.statusCode == 404) {

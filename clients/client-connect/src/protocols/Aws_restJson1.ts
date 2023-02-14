@@ -504,7 +504,6 @@ import {
   AgentStatusReference,
   AgentStatusSummary,
   AssignContactCategoryActionDefinition,
-  AttachmentReference,
   Attribute,
   Channel,
   ClaimedPhoneNumberSummary,
@@ -521,7 +520,6 @@ import {
   CurrentMetricData,
   CurrentMetricResult,
   CurrentMetricSortCriteria,
-  DateReference,
   Dimensions,
   Distribution,
   DuplicateResourceException,
@@ -613,15 +611,18 @@ import {
   UserQuickConnectConfig,
   UserReference,
   Vocabulary,
+  WisdomInfo,
 } from "../models/models_0";
 import {
   AnswerMachineDetectionConfig,
+  AttachmentReference,
   AvailableNumberSummary,
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactNotFoundException,
   ControlPlaneTagFilter,
+  DateReference,
   DefaultVocabulary,
   DestinationNotAllowedException,
   EmailReference,
@@ -637,6 +638,7 @@ import {
   ParticipantDetails,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
+  PersistentChat,
   PhoneNumberSummary,
   PromptSummary,
   QueueSearchCriteria,
@@ -4209,6 +4211,9 @@ export const serializeAws_restJson1StartChatContactCommand = async (
     ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
     ...(input.ParticipantDetails != null && {
       ParticipantDetails: serializeAws_restJson1ParticipantDetails(input.ParticipantDetails, context),
+    }),
+    ...(input.PersistentChat != null && {
+      PersistentChat: serializeAws_restJson1PersistentChat(input.PersistentChat, context),
     }),
     ...(input.SupportedMessagingContentTypes != null && {
       SupportedMessagingContentTypes: serializeAws_restJson1SupportedMessagingContentTypes(
@@ -12512,6 +12517,9 @@ export const deserializeAws_restJson1StartChatContactCommand = async (
   if (data.ContactId != null) {
     contents.ContactId = __expectString(data.ContactId);
   }
+  if (data.ContinuedFromContactId != null) {
+    contents.ContinuedFromContactId = __expectString(data.ContinuedFromContactId);
+  }
   if (data.ParticipantId != null) {
     contents.ParticipantId = __expectString(data.ParticipantId);
   }
@@ -15818,6 +15826,13 @@ const serializeAws_restJson1PermissionsList = (input: string[], context: __Serde
     });
 };
 
+const serializeAws_restJson1PersistentChat = (input: PersistentChat, context: __SerdeContext): any => {
+  return {
+    ...(input.RehydrationType != null && { RehydrationType: input.RehydrationType }),
+    ...(input.SourceContactId != null && { SourceContactId: input.SourceContactId }),
+  };
+};
+
 const serializeAws_restJson1PhoneNumberCountryCodes = (
   input: (PhoneNumberCountryCode | string)[],
   context: __SerdeContext
@@ -16682,10 +16697,12 @@ const deserializeAws_restJson1Contact = (output: any, context: __SerdeContext): 
     Name: __expectString(output.Name),
     PreviousContactId: __expectString(output.PreviousContactId),
     QueueInfo: output.QueueInfo != null ? deserializeAws_restJson1QueueInfo(output.QueueInfo, context) : undefined,
+    RelatedContactId: __expectString(output.RelatedContactId),
     ScheduledTimestamp:
       output.ScheduledTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScheduledTimestamp)))
         : undefined,
+    WisdomInfo: output.WisdomInfo != null ? deserializeAws_restJson1WisdomInfo(output.WisdomInfo, context) : undefined,
   } as any;
 };
 
@@ -18624,6 +18641,12 @@ const deserializeAws_restJson1VocabularySummaryList = (output: any, context: __S
       return deserializeAws_restJson1VocabularySummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1WisdomInfo = (output: any, context: __SerdeContext): WisdomInfo => {
+  return {
+    SessionArn: __expectString(output.SessionArn),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

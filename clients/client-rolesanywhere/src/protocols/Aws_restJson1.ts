@@ -10,7 +10,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2016,7 +2016,7 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
     enabled: __expectBoolean(output.enabled),
     failed: __expectBoolean(output.failed),
     issuer: __expectString(output.issuer),
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
     serialNumber: __expectString(output.serialNumber),
     x509CertificateData: __expectString(output.x509CertificateData),
   } as any;
@@ -2024,14 +2024,16 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     crlArn: __expectString(output.crlArn),
     crlData: output.crlData != null ? context.base64Decoder(output.crlData) : undefined,
     crlId: __expectString(output.crlId),
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
     trustAnchorArn: __expectString(output.trustAnchorArn),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2064,7 +2066,7 @@ const deserializeAws_restJson1InstanceProperty = (output: any, context: __SerdeC
     failed: __expectBoolean(output.failed),
     properties:
       output.properties != null ? deserializeAws_restJson1InstancePropertyMap(output.properties, context) : undefined,
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
   } as any;
 };
 
@@ -2092,7 +2094,8 @@ const deserializeAws_restJson1ManagedPolicyList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     durationSeconds: __expectInt32(output.durationSeconds),
     enabled: __expectBoolean(output.enabled),
@@ -2106,7 +2109,8 @@ const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeCont
     requireInstanceProperties: __expectBoolean(output.requireInstanceProperties),
     roleArns: output.roleArns != null ? deserializeAws_restJson1RoleArnList(output.roleArns, context) : undefined,
     sessionPolicy: __expectString(output.sessionPolicy),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2156,7 +2160,8 @@ const deserializeAws_restJson1SourceData = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     credentials:
       output.credentials != null ? deserializeAws_restJson1CredentialSummaries(output.credentials, context) : undefined,
     enabled: __expectBoolean(output.enabled),
@@ -2164,10 +2169,12 @@ const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeCont
       output.instanceProperties != null
         ? deserializeAws_restJson1InstanceProperties(output.instanceProperties, context)
         : undefined,
-    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
+    lastSeenAt:
+      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2186,12 +2193,15 @@ const deserializeAws_restJson1SubjectSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
-    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
+    lastSeenAt:
+      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2217,13 +2227,15 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
     source: output.source != null ? deserializeAws_restJson1Source(output.source, context) : undefined,
     trustAnchorArn: __expectString(output.trustAnchorArn),
     trustAnchorId: __expectString(output.trustAnchorId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 

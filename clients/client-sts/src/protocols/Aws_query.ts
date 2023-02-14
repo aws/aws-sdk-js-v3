@@ -6,7 +6,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getValueFromTextNode as __getValueFromTextNode,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -1063,7 +1063,7 @@ const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): 
     contents.SessionToken = __expectString(output["SessionToken"]);
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
   }
   return contents;
 };
@@ -1344,7 +1344,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -339,11 +341,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -448,9 +450,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type AppStreamClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -483,15 +485,12 @@ export interface AppStreamClientResolvedConfig extends AppStreamClientResolvedCo
 
 /**
  * <fullname>Amazon AppStream 2.0</fullname>
- *         <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
- *
- *         <note>
+ *          <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
+ *          <note>
  *             <p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
  *          </note>
- *
- *         <p>To learn more about AppStream 2.0, see the following resources:</p>
- *
- *             <ul>
+ *          <p>To learn more about AppStream 2.0, see the following resources:</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a>

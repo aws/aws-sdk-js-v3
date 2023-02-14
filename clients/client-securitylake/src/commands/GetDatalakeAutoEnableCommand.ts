@@ -29,7 +29,9 @@ export interface GetDatalakeAutoEnableCommandInput extends GetDatalakeAutoEnable
 export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration that will be automatically set up for accounts added to the organization after the organization has on boarded to Amazon Security Lake. This API does not take input parameters.</p>
+ * <p>Retrieves the configuration that will be automatically set up for accounts added to the
+ *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
+ *          input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

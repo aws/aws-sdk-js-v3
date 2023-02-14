@@ -292,7 +292,6 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>

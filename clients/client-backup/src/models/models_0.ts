@@ -268,6 +268,12 @@ export interface BackupJob {
    *          a parent (composite) backup job.</p>
    */
   IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 /**
@@ -1368,6 +1374,12 @@ export interface CopyJob {
    *          child (nested) copy jobs.</p>
    */
   ChildJobsInState?: Record<string, number>;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface CreateBackupPlanInput {
@@ -2233,6 +2245,12 @@ export interface DescribeBackupJobOutput {
    * <p>This returns the statistics of the included child (nested) backup jobs.</p>
    */
   ChildJobsInState?: Record<string, number>;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeBackupVaultInput {
@@ -2473,6 +2491,12 @@ export interface DescribeProtectedResourceOutput {
    *          AM.</p>
    */
   LastBackupTime?: Date;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeRecoveryPointInput {
@@ -2675,6 +2699,12 @@ export interface DescribeRecoveryPointOutput {
    * <p>This returns the boolean value that a recovery point is a parent (composite) job.</p>
    */
   IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeRegionSettingsInput {}
@@ -4041,6 +4071,12 @@ export interface ProtectedResource {
    *          AM.</p>
    */
   LastBackupTime?: Date;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListProtectedResourcesOutput {
@@ -4267,6 +4303,12 @@ export interface RecoveryPointByBackupVault {
    *          a parent (composite) recovery point.</p>
    */
   IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListRecoveryPointsByBackupVaultOutput {
@@ -4414,6 +4456,12 @@ export interface RecoveryPointByResource {
    *          recovery point.</p>
    */
   ParentRecoveryPointArn?: string;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListRecoveryPointsByResourceOutput {
@@ -4919,7 +4967,11 @@ export interface StartBackupJobOutput {
   BackupJobId?: string;
 
   /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
+   * <p>
+   *             <i>Note: This field is only returned for Amazon EFS and Advanced DynamoDB
+   *          resources.</i>
+   *          </p>
+   *          <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn?: string;

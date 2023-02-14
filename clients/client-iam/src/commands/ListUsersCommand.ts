@@ -29,11 +29,11 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
  *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
  *             operation returns an empty list.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.</p>
- *         </note>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          </note>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

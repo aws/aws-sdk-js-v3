@@ -3,5 +3,6 @@ export * from "./Account";
 export * from "./AccountClient";
 export * from "./commands";
 export * from "./models";
+export * from "./pagination";
 
 export { AccountServiceException } from "./models/AccountServiceException";

@@ -192,6 +192,20 @@ export interface AvailMatchingCriteria {
   Operator: Operator | string | undefined;
 }
 
+export enum LogType {
+  AS_RUN = "AS_RUN",
+}
+
+/**
+ * <p>The log configuration for the channel.</p>
+ */
+export interface LogConfigurationForChannel {
+  /**
+   * <p>The log types.</p>
+   */
+  LogTypes?: (LogType | string)[];
+}
+
 /**
  * <p>Dash manifest configuration parameters.</p>
  */
@@ -316,6 +330,11 @@ export interface Channel {
    * <p>The tier for this channel. STANDARD tier channels can contain live programs.</p>
    */
   Tier: string | undefined;
+
+  /**
+   * <p>The log configuration.</p>
+   */
+  LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
 export enum Type {
@@ -1007,6 +1026,30 @@ export interface PutChannelPolicyRequest {
 
 export interface PutChannelPolicyResponse {}
 
+export interface ConfigureLogsForChannelRequest {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The types of logs to collect.</p>
+   */
+  LogTypes: (LogType | string)[] | undefined;
+}
+
+export interface ConfigureLogsForChannelResponse {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The types of logs collected.</p>
+   */
+  LogTypes?: (LogType | string)[];
+}
+
 /**
  * <p>The output configuration for this channel.</p>
  */
@@ -1203,6 +1246,11 @@ export interface DescribeChannelResponse {
    * <p>The channel's tier.</p>
    */
   Tier?: string;
+
+  /**
+   * <p>The log configuration for the channel.</p>
+   */
+  LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
 export interface GetChannelScheduleRequest {
@@ -1266,6 +1314,16 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * <p>Clip range configuration for the VOD source associated with the program.</p>
+ */
+export interface ClipRange {
+  /**
+   * <p>The end offset of the clip range, in milliseconds, starting from the beginning of the VOD source associated with the program.</p>
+   */
+  EndOffsetMillis: number | undefined;
+}
+
 export enum RelativePosition {
   AFTER_PROGRAM = "AFTER_PROGRAM",
   BEFORE_PROGRAM = "BEFORE_PROGRAM",
@@ -1317,6 +1375,11 @@ export interface ScheduleConfiguration {
    * <p>Program transition configurations.</p>
    */
   Transition: Transition | undefined;
+
+  /**
+   * <p>Program clip range configuration.</p>
+   */
+  ClipRange?: ClipRange;
 }
 
 export interface CreateProgramRequest {
@@ -1401,6 +1464,16 @@ export interface CreateProgramResponse {
    * <p>The name that's used to refer to a VOD source.</p>
    */
   VodSourceName?: string;
+
+  /**
+   * <p>The clip range configuration settings.</p>
+   */
+  ClipRange?: ClipRange;
+
+  /**
+   * <p>The duration of the live program in milliseconds.</p>
+   */
+  DurationMillis?: number;
 }
 
 export interface DeleteProgramRequest {
@@ -1474,6 +1547,125 @@ export interface DescribeProgramResponse {
    * <p>The name that's used to refer to a VOD source.</p>
    */
   VodSourceName?: string;
+
+  /**
+   * <p>The clip range configuration settings.</p>
+   */
+  ClipRange?: ClipRange;
+
+  /**
+   * <p>The duration of the live program in milliseconds.</p>
+   */
+  DurationMillis?: number;
+}
+
+/**
+ * <p>Program transition configuration.</p>
+ */
+export interface UpdateProgramTransition {
+  /**
+   * <p>The date and time that the program is scheduled to start, in epoch milliseconds.</p>
+   */
+  ScheduledStartTimeMillis?: number;
+
+  /**
+   * <p>The duration of the live program in seconds.</p>
+   */
+  DurationMillis?: number;
+}
+
+/**
+ * <p>Schedule configuration parameters.</p>
+ */
+export interface UpdateProgramScheduleConfiguration {
+  /**
+   * <p>Program transition configuration.</p>
+   */
+  Transition?: UpdateProgramTransition;
+
+  /**
+   * <p>Program clip range configuration.</p>
+   */
+  ClipRange?: ClipRange;
+}
+
+export interface UpdateProgramRequest {
+  /**
+   * <p>The ad break configuration settings.</p>
+   */
+  AdBreaks?: AdBreak[];
+
+  /**
+   * <p>The name of the channel for this Program.</p>
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the Program.</p>
+   */
+  ProgramName: string | undefined;
+
+  /**
+   * <p>The schedule configuration settings.</p>
+   */
+  ScheduleConfiguration: UpdateProgramScheduleConfiguration | undefined;
+}
+
+export interface UpdateProgramResponse {
+  /**
+   * <p>The ad break configuration settings.</p>
+   */
+  AdBreaks?: AdBreak[];
+
+  /**
+   * <p>The ARN to assign to the program.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name to assign to the channel for this program.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The time the program was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The name to assign to this program.</p>
+   */
+  ProgramName?: string;
+
+  /**
+   * <p>The name to assign to the source location for this program.</p>
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The name that's used to refer to a VOD source.</p>
+   */
+  VodSourceName?: string;
+
+  /**
+   * <p>The name of the LiveSource for this Program.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
+   * <p>The clip range configuration settings.</p>
+   */
+  ClipRange?: ClipRange;
+
+  /**
+   * <p>The duration of the live program in milliseconds.</p>
+   */
+  DurationMillis?: number;
+
+  /**
+   * <p>The scheduled start time for this Program.</p>
+   */
+  ScheduledStartTime?: Date;
 }
 
 export interface StartChannelRequest {
@@ -2844,6 +3036,13 @@ export const AvailMatchingCriteriaFilterSensitiveLog = (obj: AvailMatchingCriter
 /**
  * @internal
  */
+export const LogConfigurationForChannelFilterSensitiveLog = (obj: LogConfigurationForChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DashPlaylistSettingsFilterSensitiveLog = (obj: DashPlaylistSettings): any => ({
   ...obj,
 });
@@ -3086,6 +3285,20 @@ export const PutChannelPolicyResponseFilterSensitiveLog = (obj: PutChannelPolicy
 /**
  * @internal
  */
+export const ConfigureLogsForChannelRequestFilterSensitiveLog = (obj: ConfigureLogsForChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsForChannelResponseFilterSensitiveLog = (obj: ConfigureLogsForChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RequestOutputItemFilterSensitiveLog = (obj: RequestOutputItem): any => ({
   ...obj,
 });
@@ -3163,6 +3376,13 @@ export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse
 /**
  * @internal
  */
+export const ClipRangeFilterSensitiveLog = (obj: ClipRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TransitionFilterSensitiveLog = (obj: Transition): any => ({
   ...obj,
 });
@@ -3213,6 +3433,34 @@ export const DescribeProgramRequestFilterSensitiveLog = (obj: DescribeProgramReq
  * @internal
  */
 export const DescribeProgramResponseFilterSensitiveLog = (obj: DescribeProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProgramTransitionFilterSensitiveLog = (obj: UpdateProgramTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProgramScheduleConfigurationFilterSensitiveLog = (obj: UpdateProgramScheduleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProgramRequestFilterSensitiveLog = (obj: UpdateProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProgramResponseFilterSensitiveLog = (obj: UpdateProgramResponse): any => ({
   ...obj,
 });
 

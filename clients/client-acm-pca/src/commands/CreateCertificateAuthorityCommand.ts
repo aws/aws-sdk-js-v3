@@ -40,16 +40,16 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * 			CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3
  * 			bucket that is included in certificates issued by the CA. If successful, this action
  * 			returns the Amazon Resource Name (ARN) of the CA.</p>
- * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
- * 			CRLs</a>.</p>
- * 		       <note>
- *                         <p>Both PCA and the IAM principal must have permission to write to
+ *          <note>
+ *             <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is
- *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access
  * 						policies for CRLs in Amazon S3</a>.</p>
  *          </note>
+ *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
+ *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
+ * 			CRLs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

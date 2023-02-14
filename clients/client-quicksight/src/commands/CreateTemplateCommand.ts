@@ -29,8 +29,8 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting
- * 			template to create a dashboard.</p>
+ * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
+ * 			template to create additional dashboards, templates, or analyses.</p>
  *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
  * 			required to create an analysis and that you can use to create s dashboard. A template adds
  * 			a layer of abstraction by using placeholders to replace the dataset associated with the

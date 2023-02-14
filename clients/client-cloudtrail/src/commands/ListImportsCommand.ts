@@ -29,9 +29,8 @@ export interface ListImportsCommandInput extends ListImportsRequest {}
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns information on all imports, or a select set of imports by <code>ImportStatus</code> or <code>Destination</code>.
- *       </p>
+ * <p> Returns information on all imports, or a select set of imports by
+ *             <code>ImportStatus</code> or <code>Destination</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

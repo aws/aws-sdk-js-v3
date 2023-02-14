@@ -15,7 +15,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2797,7 +2797,7 @@ export const deserializeAws_restJson1CreateAnnotationStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -2877,7 +2877,7 @@ export const deserializeAws_restJson1CreateReferenceStoreCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -3016,7 +3016,7 @@ export const deserializeAws_restJson1CreateSequenceStoreCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -3084,7 +3084,7 @@ export const deserializeAws_restJson1CreateVariantStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -3683,10 +3683,10 @@ export const deserializeAws_restJson1GetAnnotationImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.destinationName != null) {
     contents.destinationName = __expectString(data.destinationName);
@@ -3713,7 +3713,7 @@ export const deserializeAws_restJson1GetAnnotationImportJobCommand = async (
     contents.statusMessage = __expectString(data.statusMessage);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -3766,7 +3766,7 @@ export const deserializeAws_restJson1GetAnnotationStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -3805,7 +3805,7 @@ export const deserializeAws_restJson1GetAnnotationStoreCommand = async (
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -3919,10 +3919,10 @@ export const deserializeAws_restJson1GetReadSetActivationJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -3993,10 +3993,10 @@ export const deserializeAws_restJson1GetReadSetExportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.destination != null) {
     contents.destination = __expectString(data.destination);
@@ -4070,10 +4070,10 @@ export const deserializeAws_restJson1GetReadSetImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -4150,7 +4150,7 @@ export const deserializeAws_restJson1GetReadSetMetadataCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -4297,10 +4297,10 @@ export const deserializeAws_restJson1GetReferenceImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -4377,7 +4377,7 @@ export const deserializeAws_restJson1GetReferenceMetadataCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -4401,7 +4401,7 @@ export const deserializeAws_restJson1GetReferenceMetadataCommand = async (
     contents.status = __expectString(data.status);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -4460,7 +4460,7 @@ export const deserializeAws_restJson1GetReferenceStoreCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -4531,7 +4531,7 @@ export const deserializeAws_restJson1GetRunCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.definition != null) {
     contents.definition = __expectString(data.definition);
@@ -4570,7 +4570,7 @@ export const deserializeAws_restJson1GetRunCommand = async (
     contents.runId = __expectString(data.runId);
   }
   if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTime(data.startTime));
+    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
   }
   if (data.startedBy != null) {
     contents.startedBy = __expectString(data.startedBy);
@@ -4582,7 +4582,7 @@ export const deserializeAws_restJson1GetRunCommand = async (
     contents.statusMessage = __expectString(data.statusMessage);
   }
   if (data.stopTime != null) {
-    contents.stopTime = __expectNonNull(__parseRfc3339DateTime(data.stopTime));
+    contents.stopTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.stopTime));
   }
   if (data.storageCapacity != null) {
     contents.storageCapacity = __expectInt32(data.storageCapacity);
@@ -4659,7 +4659,7 @@ export const deserializeAws_restJson1GetRunGroupCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -4742,7 +4742,7 @@ export const deserializeAws_restJson1GetRunTaskCommand = async (
     contents.cpus = __expectInt32(data.cpus);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.logStream != null) {
     contents.logStream = __expectString(data.logStream);
@@ -4754,7 +4754,7 @@ export const deserializeAws_restJson1GetRunTaskCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTime(data.startTime));
+    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
   }
   if (data.status != null) {
     contents.status = __expectString(data.status);
@@ -4763,7 +4763,7 @@ export const deserializeAws_restJson1GetRunTaskCommand = async (
     contents.statusMessage = __expectString(data.statusMessage);
   }
   if (data.stopTime != null) {
-    contents.stopTime = __expectNonNull(__parseRfc3339DateTime(data.stopTime));
+    contents.stopTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.stopTime));
   }
   if (data.taskId != null) {
     contents.taskId = __expectString(data.taskId);
@@ -4831,7 +4831,7 @@ export const deserializeAws_restJson1GetSequenceStoreCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -4899,10 +4899,10 @@ export const deserializeAws_restJson1GetVariantImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTime(data.completionTime));
+    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.destinationName != null) {
     contents.destinationName = __expectString(data.destinationName);
@@ -4926,7 +4926,7 @@ export const deserializeAws_restJson1GetVariantImportJobCommand = async (
     contents.statusMessage = __expectString(data.statusMessage);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -4979,7 +4979,7 @@ export const deserializeAws_restJson1GetVariantStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -5012,7 +5012,7 @@ export const deserializeAws_restJson1GetVariantStoreCommand = async (
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -5068,7 +5068,7 @@ export const deserializeAws_restJson1GetWorkflowCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.definition != null) {
     contents.definition = __expectString(data.definition);
@@ -6240,7 +6240,7 @@ export const deserializeAws_restJson1StartReadSetActivationJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -6308,7 +6308,7 @@ export const deserializeAws_restJson1StartReadSetExportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.destination != null) {
     contents.destination = __expectString(data.destination);
@@ -6379,7 +6379,7 @@ export const deserializeAws_restJson1StartReadSetImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -6450,7 +6450,7 @@ export const deserializeAws_restJson1StartReferenceImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -6766,7 +6766,7 @@ export const deserializeAws_restJson1UpdateAnnotationStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -6790,7 +6790,7 @@ export const deserializeAws_restJson1UpdateAnnotationStoreCommand = async (
     contents.storeOptions = deserializeAws_restJson1StoreOptions(__expectUnion(data.storeOptions), context);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -6902,7 +6902,7 @@ export const deserializeAws_restJson1UpdateVariantStoreCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -6920,7 +6920,7 @@ export const deserializeAws_restJson1UpdateVariantStoreCommand = async (
     contents.status = __expectString(data.status);
   }
   if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTime(data.updateTime));
+    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
   }
   return contents;
 };
@@ -7558,9 +7558,11 @@ const deserializeAws_restJson1ActivateReadSetJobItem = (
 ): ActivateReadSetJobItem => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     id: __expectString(output.id),
     sequenceStoreId: __expectString(output.sequenceStoreId),
     status: __expectString(output.status),
@@ -7639,15 +7641,18 @@ const deserializeAws_restJson1AnnotationImportJobItem = (
 ): AnnotationImportJobItem => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     destinationName: __expectString(output.destinationName),
     id: __expectString(output.id),
     roleArn: __expectString(output.roleArn),
     runLeftNormalization: __expectBoolean(output.runLeftNormalization),
     status: __expectString(output.status),
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -7669,7 +7674,7 @@ const deserializeAws_restJson1AnnotationImportJobItems = (
 const deserializeAws_restJson1AnnotationStoreItem = (output: any, context: __SerdeContext): AnnotationStoreItem => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -7683,7 +7688,8 @@ const deserializeAws_restJson1AnnotationStoreItem = (output: any, context: __Ser
     storeArn: __expectString(output.storeArn),
     storeFormat: __expectString(output.storeFormat),
     storeSizeBytes: __expectLong(output.storeSizeBytes),
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -7728,9 +7734,11 @@ const deserializeAws_restJson1ExportReadSetJobDetail = (
 ): ExportReadSetJobDetail => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     destination: __expectString(output.destination),
     id: __expectString(output.id),
     sequenceStoreId: __expectString(output.sequenceStoreId),
@@ -7791,9 +7799,11 @@ const deserializeAws_restJson1FormatToHeader = (output: any, context: __SerdeCon
 const deserializeAws_restJson1ImportReadSetJobItem = (output: any, context: __SerdeContext): ImportReadSetJobItem => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     id: __expectString(output.id),
     roleArn: __expectString(output.roleArn),
     sequenceStoreId: __expectString(output.sequenceStoreId),
@@ -7854,9 +7864,11 @@ const deserializeAws_restJson1ImportReferenceJobItem = (
 ): ImportReferenceJobItem => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     id: __expectString(output.id),
     referenceStoreId: __expectString(output.referenceStoreId),
     roleArn: __expectString(output.roleArn),
@@ -7966,7 +7978,7 @@ const deserializeAws_restJson1ReadSetListItem = (output: any, context: __SerdeCo
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     fileType: __expectString(output.fileType),
     id: __expectString(output.id),
@@ -8013,14 +8025,15 @@ const deserializeAws_restJson1ReferenceListItem = (output: any, context: __Serde
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     md5: __expectString(output.md5),
     name: __expectString(output.name),
     referenceStoreId: __expectString(output.referenceStoreId),
     status: __expectString(output.status),
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -8028,7 +8041,7 @@ const deserializeAws_restJson1ReferenceStoreDetail = (output: any, context: __Se
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -8067,7 +8080,7 @@ const deserializeAws_restJson1RunGroupListItem = (output: any, context: __SerdeC
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     id: __expectString(output.id),
     maxCpus: __expectInt32(output.maxCpus),
     maxDuration: __expectInt32(output.maxDuration),
@@ -8092,13 +8105,14 @@ const deserializeAws_restJson1RunListItem = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     priority: __expectInt32(output.priority),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     status: __expectString(output.status),
-    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTime(output.stopTime)) : undefined,
+    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopTime)) : undefined,
     storageCapacity: __expectInt32(output.storageCapacity),
     workflowId: __expectString(output.workflowId),
   } as any;
@@ -8159,7 +8173,7 @@ const deserializeAws_restJson1SequenceStoreDetail = (output: any, context: __Ser
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -8231,12 +8245,13 @@ const deserializeAws_restJson1TaskListItem = (output: any, context: __SerdeConte
   return {
     cpus: __expectInt32(output.cpus),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     memory: __expectInt32(output.memory),
     name: __expectString(output.name),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     status: __expectString(output.status),
-    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTime(output.stopTime)) : undefined,
+    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopTime)) : undefined,
     taskId: __expectString(output.taskId),
   } as any;
 };
@@ -8287,15 +8302,18 @@ const deserializeAws_restJson1VariantImportItemDetails = (
 const deserializeAws_restJson1VariantImportJobItem = (output: any, context: __SerdeContext): VariantImportJobItem => {
   return {
     completionTime:
-      output.completionTime != null ? __expectNonNull(__parseRfc3339DateTime(output.completionTime)) : undefined,
+      output.completionTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
+        : undefined,
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     destinationName: __expectString(output.destinationName),
     id: __expectString(output.id),
     roleArn: __expectString(output.roleArn),
     runLeftNormalization: __expectBoolean(output.runLeftNormalization),
     status: __expectString(output.status),
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -8317,7 +8335,7 @@ const deserializeAws_restJson1VariantImportJobItems = (
 const deserializeAws_restJson1VariantStoreItem = (output: any, context: __SerdeContext): VariantStoreItem => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -8330,7 +8348,8 @@ const deserializeAws_restJson1VariantStoreItem = (output: any, context: __SerdeC
     statusMessage: __expectString(output.statusMessage),
     storeArn: __expectString(output.storeArn),
     storeSizeBytes: __expectLong(output.storeSizeBytes),
-    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
+    updateTime:
+      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
   } as any;
 };
 
@@ -8369,7 +8388,7 @@ const deserializeAws_restJson1WorkflowListItem = (output: any, context: __SerdeC
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     digest: __expectString(output.digest),
     id: __expectString(output.id),
     name: __expectString(output.name),

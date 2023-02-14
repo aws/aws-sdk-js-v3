@@ -11,7 +11,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -176,6 +176,7 @@ import {
   ActionTarget,
   Adjustment,
   AdminAccount,
+  AssociatedStandard,
   AvailabilityZone,
   AwsApiCallAction,
   AwsApiCallActionDomainDetails,
@@ -435,7 +436,6 @@ import {
   AwsIamAccessKeySessionContextAttributes,
   AwsIamAccessKeySessionContextSessionIssuer,
   AwsIamAttachedManagedPolicy,
-  AwsIamGroupDetails,
   AwsIamGroupPolicy,
   AwsMountPoint,
   CidrBlockAssociation,
@@ -462,6 +462,7 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsIamGroupDetails,
   AwsIamInstanceProfile,
   AwsIamInstanceProfileRole,
   AwsIamPermissionsBoundary,
@@ -5323,6 +5324,20 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1AssociatedStandard = (input: AssociatedStandard, context: __SerdeContext): any => {
+  return {
+    ...(input.StandardsId != null && { StandardsId: input.StandardsId }),
+  };
+};
+
+const serializeAws_restJson1AssociatedStandardsList = (input: AssociatedStandard[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AssociatedStandard(entry, context);
     });
 };
 
@@ -12959,6 +12974,15 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
     ...(input.CompanyName != null && {
       CompanyName: serializeAws_restJson1StringFilterList(input.CompanyName, context),
     }),
+    ...(input.ComplianceAssociatedStandardsId != null && {
+      ComplianceAssociatedStandardsId: serializeAws_restJson1StringFilterList(
+        input.ComplianceAssociatedStandardsId,
+        context
+      ),
+    }),
+    ...(input.ComplianceSecurityControlId != null && {
+      ComplianceSecurityControlId: serializeAws_restJson1StringFilterList(input.ComplianceSecurityControlId, context),
+    }),
     ...(input.ComplianceStatus != null && {
       ComplianceStatus: serializeAws_restJson1StringFilterList(input.ComplianceStatus, context),
     }),
@@ -14046,9 +14070,13 @@ const serializeAws_restJson1ClassificationStatus = (input: ClassificationStatus,
 
 const serializeAws_restJson1Compliance = (input: Compliance, context: __SerdeContext): any => {
   return {
+    ...(input.AssociatedStandards != null && {
+      AssociatedStandards: serializeAws_restJson1AssociatedStandardsList(input.AssociatedStandards, context),
+    }),
     ...(input.RelatedRequirements != null && {
       RelatedRequirements: serializeAws_restJson1RelatedRequirementsList(input.RelatedRequirements, context),
     }),
+    ...(input.SecurityControlId != null && { SecurityControlId: input.SecurityControlId }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.StatusReasons != null && {
       StatusReasons: serializeAws_restJson1StatusReasonsList(input.StatusReasons, context),
@@ -15978,6 +16006,27 @@ const deserializeAws_restJson1AdminAccounts = (output: any, context: __SerdeCont
         return null as any;
       }
       return deserializeAws_restJson1AdminAccount(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssociatedStandard = (output: any, context: __SerdeContext): AssociatedStandard => {
+  return {
+    StandardsId: __expectString(output.StandardsId),
+  } as any;
+};
+
+const deserializeAws_restJson1AssociatedStandardsList = (
+  output: any,
+  context: __SerdeContext
+): AssociatedStandard[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssociatedStandard(entry, context);
     });
   return retVal;
 };
@@ -24156,6 +24205,14 @@ const deserializeAws_restJson1AwsSecurityFindingFilters = (
       output.AwsAccountId != null ? deserializeAws_restJson1StringFilterList(output.AwsAccountId, context) : undefined,
     CompanyName:
       output.CompanyName != null ? deserializeAws_restJson1StringFilterList(output.CompanyName, context) : undefined,
+    ComplianceAssociatedStandardsId:
+      output.ComplianceAssociatedStandardsId != null
+        ? deserializeAws_restJson1StringFilterList(output.ComplianceAssociatedStandardsId, context)
+        : undefined,
+    ComplianceSecurityControlId:
+      output.ComplianceSecurityControlId != null
+        ? deserializeAws_restJson1StringFilterList(output.ComplianceSecurityControlId, context)
+        : undefined,
     ComplianceStatus:
       output.ComplianceStatus != null
         ? deserializeAws_restJson1StringFilterList(output.ComplianceStatus, context)
@@ -25349,10 +25406,15 @@ const deserializeAws_restJson1ClassificationStatus = (output: any, context: __Se
 
 const deserializeAws_restJson1Compliance = (output: any, context: __SerdeContext): Compliance => {
   return {
+    AssociatedStandards:
+      output.AssociatedStandards != null
+        ? deserializeAws_restJson1AssociatedStandardsList(output.AssociatedStandards, context)
+        : undefined,
     RelatedRequirements:
       output.RelatedRequirements != null
         ? deserializeAws_restJson1RelatedRequirementsList(output.RelatedRequirements, context)
         : undefined,
+    SecurityControlId: __expectString(output.SecurityControlId),
     Status: __expectString(output.Status),
     StatusReasons:
       output.StatusReasons != null
@@ -25791,7 +25853,8 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     AccountId: __expectString(output.AccountId),
     InvitationId: __expectString(output.InvitationId),
-    InvitedAt: output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt)) : undefined,
+    InvitedAt:
+      output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedAt)) : undefined,
     MemberStatus: __expectString(output.MemberStatus),
   } as any;
 };
@@ -25932,10 +25995,12 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
     AccountId: __expectString(output.AccountId),
     AdministratorId: __expectString(output.AdministratorId),
     Email: __expectString(output.Email),
-    InvitedAt: output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt)) : undefined,
+    InvitedAt:
+      output.InvitedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedAt)) : undefined,
     MasterId: __expectString(output.MasterId),
     MemberStatus: __expectString(output.MemberStatus),
-    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
   } as any;
 };
 
@@ -27254,7 +27319,7 @@ const deserializeAws_restJson1StandardsControl = (output: any, context: __SerdeC
     ControlStatus: __expectString(output.ControlStatus),
     ControlStatusUpdatedAt:
       output.ControlStatusUpdatedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.ControlStatusUpdatedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ControlStatusUpdatedAt))
         : undefined,
     Description: __expectString(output.Description),
     DisabledReason: __expectString(output.DisabledReason),

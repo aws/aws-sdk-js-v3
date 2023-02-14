@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -105,11 +107,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -214,9 +216,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -249,89 +251,89 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
 
 /**
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
- *         <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What Is Amazon MWAA?</a>.</p>
- *         <p>
+ *          <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What Is Amazon MWAA?</a>.</p>
+ *          <p>
  *             <b>Endpoints</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>api.airflow.{region}.amazonaws.com</code> - This endpoint is used for environment management.</p>
- *                 <ul>
+ *                <ul>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html">CreateEnvironment</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html">DeleteEnvironment</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html">GetEnvironment</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html">ListEnvironments</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html">ListTagsForResource</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html">TagResource</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html">UntagResource</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html">UpdateEnvironment</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>env.airflow.{region}.amazonaws.com</code> - This endpoint is used to operate the Airflow environment.</p>
- *                 <ul>
+ *                <ul>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html ">CreateCliToken</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
- *                 <ul>
+ *                <ul>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html ">PublishMetrics</a>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Regions</b>
  *          </p>
- *         <p>For a list of regions that Amazon MWAA supports, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa">Region availability</a> in the <i>Amazon MWAA User Guide</i>.</p>
+ *          <p>For a list of regions that Amazon MWAA supports, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa">Region availability</a> in the <i>Amazon MWAA User Guide</i>.</p>
  */
 export class MWAAClient extends __Client<
   __HttpHandlerOptions,

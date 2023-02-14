@@ -25,7 +25,7 @@ import {
   map as __map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
@@ -59,6 +59,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -129,6 +130,7 @@ import {
 } from "../commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "../commands/JsonBlobsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "../commands/JsonIntEnumsCommand";
 import { JsonListsCommandInput, JsonListsCommandOutput } from "../commands/JsonListsCommand";
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "../commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "../commands/JsonTimestampsCommand";
@@ -286,6 +288,7 @@ import {
   FooEnum,
   FooError,
   GreetingStruct,
+  IntegerEnum,
   InvalidGreeting,
   MyUnion,
   NestedPayload,
@@ -362,6 +365,11 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
     ],
     Enum: [, input.queryEnum!],
     EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
+    IntegerEnum: [() => input.queryIntegerEnum !== void 0, () => input.queryIntegerEnum!.toString()],
+    IntegerEnumList: [
+      () => input.queryIntegerEnumList !== void 0,
+      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -424,6 +432,28 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DatetimeOffsets";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1113,6 +1143,14 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
       () => isSerializableHeaderValue(input.headerEnumList),
       () => (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
     ],
+    "x-integerenum": [
+      () => isSerializableHeaderValue(input.headerIntegerEnum),
+      () => input.headerIntegerEnum!.toString(),
+    ],
+    "x-integerenumlist": [
+      () => isSerializableHeaderValue(input.headerIntegerEnumList),
+      () => (input.headerIntegerEnumList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    ],
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
@@ -1181,6 +1219,41 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
   });
 };
 
+export const serializeAws_restJson1JsonIntEnumsCommand = async (
+  input: JsonIntEnumsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonIntEnums";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.integerEnum1 != null && { integerEnum1: input.integerEnum1 }),
+    ...(input.integerEnum2 != null && { integerEnum2: input.integerEnum2 }),
+    ...(input.integerEnum3 != null && { integerEnum3: input.integerEnum3 }),
+    ...(input.integerEnumList != null && {
+      integerEnumList: serializeAws_restJson1IntegerEnumList(input.integerEnumList, context),
+    }),
+    ...(input.integerEnumMap != null && {
+      integerEnumMap: serializeAws_restJson1IntegerEnumMap(input.integerEnumMap, context),
+    }),
+    ...(input.integerEnumSet != null && {
+      integerEnumSet: serializeAws_restJson1IntegerEnumSet(input.integerEnumSet, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1JsonListsCommand = async (
   input: JsonListsCommandInput,
   context: __SerdeContext
@@ -1194,6 +1267,9 @@ export const serializeAws_restJson1JsonListsCommand = async (
   body = JSON.stringify({
     ...(input.booleanList != null && { booleanList: serializeAws_restJson1BooleanList(input.booleanList, context) }),
     ...(input.enumList != null && { enumList: serializeAws_restJson1FooEnumList(input.enumList, context) }),
+    ...(input.intEnumList != null && {
+      intEnumList: serializeAws_restJson1IntegerEnumList(input.intEnumList, context),
+    }),
     ...(input.integerList != null && { integerList: serializeAws_restJson1IntegerList(input.integerList, context) }),
     ...(input.nestedStringList != null && {
       nestedStringList: serializeAws_restJson1NestedStringList(input.nestedStringList, context),
@@ -1284,8 +1360,15 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.dateTimeOnTarget != null && {
+      dateTimeOnTarget: input.dateTimeOnTarget.toISOString().split(".")[0] + "Z",
+    }),
     ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
+    ...(input.epochSecondsOnTarget != null && {
+      epochSecondsOnTarget: Math.round(input.epochSecondsOnTarget.getTime() / 1000),
+    }),
     ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
+    ...(input.httpDateOnTarget != null && { httpDateOnTarget: __dateToUtcString(input.httpDateOnTarget) }),
     ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
   return new __HttpRequest({
@@ -2892,6 +2975,41 @@ const deserializeAws_restJson1ConstantQueryStringCommandError = async (
   });
 };
 
+export const deserializeAws_restJson1DatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DatetimeOffsetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.datetime != null) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.datetime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1DocumentTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3705,6 +3823,17 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
       () => void 0 !== output.headers["x-enumlist"],
       () => (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
+    headerIntegerEnum: [
+      () => void 0 !== output.headers["x-integerenum"],
+      () => __strictParseInt32(output.headers["x-integerenum"]),
+    ],
+    headerIntegerEnumList: [
+      () => void 0 !== output.headers["x-integerenumlist"],
+      () =>
+        (output.headers["x-integerenumlist"] || "")
+          .split(",")
+          .map((_entry) => __strictParseInt32(_entry.trim()) as any),
+    ],
   });
   await collectBody(output.body, context);
   return contents;
@@ -3813,6 +3942,56 @@ const deserializeAws_restJson1JsonEnumsCommandError = async (
   });
 };
 
+export const deserializeAws_restJson1JsonIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JsonIntEnumsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1JsonIntEnumsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.integerEnum1 != null) {
+    contents.integerEnum1 = __expectInt32(data.integerEnum1);
+  }
+  if (data.integerEnum2 != null) {
+    contents.integerEnum2 = __expectInt32(data.integerEnum2);
+  }
+  if (data.integerEnum3 != null) {
+    contents.integerEnum3 = __expectInt32(data.integerEnum3);
+  }
+  if (data.integerEnumList != null) {
+    contents.integerEnumList = deserializeAws_restJson1IntegerEnumList(data.integerEnumList, context);
+  }
+  if (data.integerEnumMap != null) {
+    contents.integerEnumMap = deserializeAws_restJson1IntegerEnumMap(data.integerEnumMap, context);
+  }
+  if (data.integerEnumSet != null) {
+    contents.integerEnumSet = deserializeAws_restJson1IntegerEnumSet(data.integerEnumSet, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1JsonIntEnumsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JsonIntEnumsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1JsonListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3829,6 +4008,9 @@ export const deserializeAws_restJson1JsonListsCommand = async (
   }
   if (data.enumList != null) {
     contents.enumList = deserializeAws_restJson1FooEnumList(data.enumList, context);
+  }
+  if (data.intEnumList != null) {
+    contents.intEnumList = deserializeAws_restJson1IntegerEnumList(data.intEnumList, context);
   }
   if (data.integerList != null) {
     contents.integerList = deserializeAws_restJson1IntegerList(data.integerList, context);
@@ -3946,13 +4128,22 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dateTime != null) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.dateTime));
+  }
+  if (data.dateTimeOnTarget != null) {
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.dateTimeOnTarget));
   }
   if (data.epochSeconds != null) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
   }
+  if (data.epochSecondsOnTarget != null) {
+    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSecondsOnTarget)));
+  }
   if (data.httpDate != null) {
     contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data.httpDate));
+  }
+  if (data.httpDateOnTarget != null) {
+    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data.httpDateOnTarget));
   }
   if (data.normal != null) {
     contents.normal = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.normal)));
@@ -5769,7 +5960,7 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     memberDateTime: [
       () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-memberdatetime"])),
     ],
     defaultFormat: [
       () => void 0 !== output.headers["x-defaultformat"],
@@ -5785,7 +5976,7 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     ],
     targetDateTime: [
       () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-targetdatetime"])),
     ],
   });
   await collectBody(output.body, context);
@@ -6153,6 +6344,35 @@ const serializeAws_restJson1GreetingStruct = (input: GreetingStruct, context: __
   return {
     ...(input.hi != null && { hi: input.hi }),
   };
+};
+
+const serializeAws_restJson1IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1IntegerEnumMap = (
+  input: Record<string, IntegerEnum | number>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1IntegerList = (input: number[], context: __SerdeContext): any => {
@@ -6530,6 +6750,43 @@ const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeCon
   return {
     hi: __expectString(output.hi),
   } as any;
+};
+
+const deserializeAws_restJson1IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1IntegerEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IntegerEnum | number> => {
+  return Object.entries(output).reduce((acc: Record<string, IntegerEnum | number>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectInt32(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContext): number[] => {

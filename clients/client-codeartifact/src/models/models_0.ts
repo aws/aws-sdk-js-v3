@@ -103,6 +103,11 @@ export interface AssociateExternalConnectionRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>public:pypi</code> - for the Python Package Index.
    *         </p>
    *             </li>
@@ -518,7 +523,6 @@ export interface CopyPackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be copied. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1004,6 +1008,147 @@ export interface DeleteDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+export interface DeletePackageRequest {
+  /**
+   * <p>The name of the domain that contains the package to delete.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The name of the repository that contains the package to delete.</p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>The format of the requested package to delete.</p>
+   */
+  format: PackageFormat | string | undefined;
+
+  /**
+   * <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>. The namespace is required when deleting Maven package versions.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain corresponding components, packages of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package to delete.</p>
+   */
+  package: string | undefined;
+}
+
+/**
+ * <p>Details about the origin restrictions set on the package.
+ *       The package origin restrictions determine how new versions of a package
+ *       can be added to a specific repository.</p>
+ */
+export interface PackageOriginRestrictions {
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
+   */
+  publish: AllowPublish | string | undefined;
+
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
+   */
+  upstream: AllowUpstream | string | undefined;
+}
+
+/**
+ * <p>Details about the package origin configuration of a package.</p>
+ */
+export interface PackageOriginConfiguration {
+  /**
+   * <p>A <code>PackageOriginRestrictions</code> object that contains information
+   *     about the upstream and publish package origin configuration for the package.</p>
+   */
+  restrictions?: PackageOriginRestrictions;
+}
+
+/**
+ * <p>
+ *       Details about a package, including its format, namespace, and name.
+ *     </p>
+ */
+export interface PackageSummary {
+  /**
+   * <p>
+   *       The format of the package.
+   *     </p>
+   */
+  format?: PackageFormat | string;
+
+  /**
+   * <p>The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package.
+   *     </p>
+   */
+  package?: string;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
+   *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
+   *       that contains information about the upstream and publish package origin restrictions.</p>
+   */
+  originConfiguration?: PackageOriginConfiguration;
+}
+
+export interface DeletePackageResult {
+  /**
+   * <p>
+   *       Details about a package, including its format, namespace, and name.
+   *     </p>
+   */
+  deletedPackage?: PackageSummary;
+}
+
 export interface DeletePackageVersionsRequest {
   /**
    * <p>
@@ -1037,7 +1182,6 @@ export interface DeletePackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be deleted. The package version component that specifies its
    *         namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1257,7 +1401,6 @@ export interface DescribePackageRequest {
   /**
    * <p>The namespace of the requested package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1286,34 +1429,6 @@ export interface DescribePackageRequest {
 }
 
 /**
- * <p>Details about the origin restrictions set on the package.
- *       The package origin restrictions determine how new versions of a package
- *       can be added to a specific repository.</p>
- */
-export interface PackageOriginRestrictions {
-  /**
-   * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
-   */
-  publish: AllowPublish | string | undefined;
-
-  /**
-   * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
-   */
-  upstream: AllowUpstream | string | undefined;
-}
-
-/**
- * <p>Details about the package origin configuration of a package.</p>
- */
-export interface PackageOriginConfiguration {
-  /**
-   * <p>A <code>PackageOriginRestrictions</code> object that contains information
-   *     about the upstream and publish package origin configuration for the package.</p>
-   */
-  restrictions?: PackageOriginRestrictions;
-}
-
-/**
  * <p>Details about a package.</p>
  */
 export interface PackageDescription {
@@ -1325,7 +1440,6 @@ export interface PackageDescription {
   /**
    * <p>The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1397,7 +1511,6 @@ export interface DescribePackageVersionRequest {
   /**
    * <p>The namespace of the requested package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1509,7 +1622,6 @@ export interface PackageVersionDescription {
   /**
    * <p>The namespace of the package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1723,7 +1835,6 @@ export interface DisposePackageVersionsRequest {
   /**
    * <p>The namespace of the package versions to be disposed. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1923,7 +2034,6 @@ export interface GetPackageVersionAssetRequest {
   /**
    * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2029,13 +2139,16 @@ export interface GetPackageVersionReadmeRequest {
    * <p>
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
+   *          <note>
+   *             <p>Although <code>maven</code> is
+   *       listed as a valid value, CodeArtifact does not support displaying readme files for Maven packages.</p>
+   *          </note>
    */
   format: PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2083,7 +2196,6 @@ export interface GetPackageVersionReadmeResult {
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2321,7 +2433,6 @@ export interface ListPackagesRequest {
   /**
    * <p>The namespace used to filter requested packages. Only packages with the provided namespace will be returned.
    *       The package component that specifies its namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2379,61 +2490,6 @@ export interface ListPackagesRequest {
   upstream?: AllowUpstream | string;
 }
 
-/**
- * <p>
- *       Details about a package, including its format, namespace, and name. The
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html">ListPackages</a>
- *       operation returns a list of <code>PackageSummary</code> objects.
- *     </p>
- */
-export interface PackageSummary {
-  /**
-   * <p>
-   *       The format of the package.
-   *     </p>
-   */
-  format?: PackageFormat | string;
-
-  /**
-   * <p>The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
-   *           of those formats do not have a namespace.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  namespace?: string;
-
-  /**
-   * <p>
-   *       The name of the package.
-   *     </p>
-   */
-  package?: string;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
-   *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
-   *       that contains information about the upstream and publish package origin restrictions.</p>
-   */
-  originConfiguration?: PackageOriginConfiguration;
-}
-
 export interface ListPackagesResult {
   /**
    * <p>
@@ -2484,7 +2540,6 @@ export interface ListPackageVersionAssetsRequest {
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2546,7 +2601,6 @@ export interface ListPackageVersionAssetsResult {
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *        namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2637,7 +2691,6 @@ export interface ListPackageVersionDependenciesRequest {
   /**
    * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2690,7 +2743,6 @@ export interface PackageDependency {
   /**
    * <p>The namespace of the package that this package depends on. The package component that specifies its
    *        namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2747,7 +2799,6 @@ export interface ListPackageVersionDependenciesResult {
   /**
    * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2842,7 +2893,6 @@ export interface ListPackageVersionsRequest {
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2973,7 +3023,6 @@ export interface ListPackageVersionsResult {
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3247,7 +3296,6 @@ export interface PutPackageOriginConfigurationRequest {
   /**
    * <p>The namespace of the package to be updated. The package component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3279,7 +3327,6 @@ export interface PutPackageOriginConfigurationRequest {
    *       object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions.
    *       The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories.
    *     The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
-   *
    *          <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
    */
   restrictions: PackageOriginRestrictions | undefined;
@@ -3400,7 +3447,6 @@ export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>The namespace of the package version to be updated. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3683,6 +3729,41 @@ export const DeleteDomainPermissionsPolicyResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageResultFilterSensitiveLog = (obj: DeletePackageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeletePackageVersionsRequestFilterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
   ...obj,
 });
@@ -3744,20 +3825,6 @@ export const DescribeDomainResultFilterSensitiveLog = (obj: DescribeDomainResult
  * @internal
  */
 export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
   ...obj,
 });
 
@@ -3976,13 +4043,6 @@ export const ListDomainsResultFilterSensitiveLog = (obj: ListDomainsResult): any
  * @internal
  */
 export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
   ...obj,
 });
 

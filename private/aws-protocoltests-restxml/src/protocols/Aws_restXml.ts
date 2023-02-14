@@ -18,7 +18,7 @@ import {
   map as __map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   splitEvery as __splitEvery,
@@ -52,6 +52,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -170,6 +171,7 @@ import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../comman
 import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "../commands/XmlEmptyMapsCommand";
 import { XmlEmptyStringsCommandInput, XmlEmptyStringsCommandOutput } from "../commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
@@ -181,6 +183,7 @@ import {
   ComplexNestedErrorData,
   FooEnum,
   GreetingStruct,
+  IntegerEnum,
   InvalidGreeting,
   NestedPayload,
   PayloadWithXmlName,
@@ -256,6 +259,11 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
     ],
     Enum: [, input.queryEnum!],
     EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
+    IntegerEnum: [() => input.queryIntegerEnum !== void 0, () => input.queryIntegerEnum!.toString()],
+    IntegerEnumList: [
+      () => input.queryIntegerEnumList !== void 0,
+      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -346,6 +354,28 @@ export const serializeAws_restXmlConstantQueryStringCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DatetimeOffsets";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1669,6 +1699,14 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
       bodyNode.addChildNode(node);
     });
   }
+  if (input.intEnumList !== undefined) {
+    const nodes = serializeAws_restXmlIntegerEnumList(input.intEnumList, context);
+    const containerNode = new __XmlNode("intEnumList");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
   if (input.integerList !== undefined) {
     const nodes = serializeAws_restXmlIntegerList(input.integerList, context);
     const containerNode = new __XmlNode("integerList");
@@ -1857,6 +1895,66 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   });
 };
 
+export const serializeAws_restXmlXmlIntEnumsCommand = async (
+  input: XmlIntEnumsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlIntEnums";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("XmlIntEnumsInputOutput");
+  if (input.intEnum1 !== undefined) {
+    const node = __XmlNode.of("IntegerEnum", String(input.intEnum1)).withName("intEnum1");
+    bodyNode.addChildNode(node);
+  }
+  if (input.intEnum2 !== undefined) {
+    const node = __XmlNode.of("IntegerEnum", String(input.intEnum2)).withName("intEnum2");
+    bodyNode.addChildNode(node);
+  }
+  if (input.intEnum3 !== undefined) {
+    const node = __XmlNode.of("IntegerEnum", String(input.intEnum3)).withName("intEnum3");
+    bodyNode.addChildNode(node);
+  }
+  if (input.intEnumList !== undefined) {
+    const nodes = serializeAws_restXmlIntegerEnumList(input.intEnumList, context);
+    const containerNode = new __XmlNode("intEnumList");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.intEnumMap !== undefined) {
+    const nodes = serializeAws_restXmlIntegerEnumMap(input.intEnumMap, context);
+    const containerNode = new __XmlNode("intEnumMap");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.intEnumSet !== undefined) {
+    const nodes = serializeAws_restXmlIntegerEnumSet(input.intEnumSet, context);
+    const containerNode = new __XmlNode("intEnumSet");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlXmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
@@ -1919,6 +2017,14 @@ export const serializeAws_restXmlXmlListsCommand = async (
       node = node.withName("flattenedStructureList");
       bodyNode.addChildNode(node);
     });
+  }
+  if (input.intEnumList !== undefined) {
+    const nodes = serializeAws_restXmlIntegerEnumList(input.intEnumList, context);
+    const containerNode = new __XmlNode("intEnumList");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   if (input.integerList !== undefined) {
     const nodes = serializeAws_restXmlIntegerList(input.integerList, context);
@@ -2099,14 +2205,32 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
       .withName("dateTime");
     bodyNode.addChildNode(node);
   }
+  if (input.dateTimeOnTarget !== undefined) {
+    const node = __XmlNode
+      .of("DateTime", (input.dateTimeOnTarget.toISOString().split(".")[0] + "Z").toString())
+      .withName("dateTimeOnTarget");
+    bodyNode.addChildNode(node);
+  }
   if (input.epochSeconds !== undefined) {
     const node = __XmlNode
       .of("Timestamp", Math.round(input.epochSeconds.getTime() / 1000).toString())
       .withName("epochSeconds");
     bodyNode.addChildNode(node);
   }
+  if (input.epochSecondsOnTarget !== undefined) {
+    const node = __XmlNode
+      .of("EpochSeconds", Math.round(input.epochSecondsOnTarget.getTime() / 1000).toString())
+      .withName("epochSecondsOnTarget");
+    bodyNode.addChildNode(node);
+  }
   if (input.httpDate !== undefined) {
     const node = __XmlNode.of("Timestamp", __dateToUtcString(input.httpDate).toString()).withName("httpDate");
+    bodyNode.addChildNode(node);
+  }
+  if (input.httpDateOnTarget !== undefined) {
+    const node = __XmlNode
+      .of("HttpDate", __dateToUtcString(input.httpDateOnTarget).toString())
+      .withName("httpDateOnTarget");
     bodyNode.addChildNode(node);
   }
   if (input.normal !== undefined) {
@@ -2270,6 +2394,41 @@ const deserializeAws_restXmlConstantQueryStringCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlDatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDatetimeOffsetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["datetime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlDatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3544,7 +3703,7 @@ export const deserializeAws_restXmlTimestampFormatHeadersCommand = async (
     ],
     memberDateTime: [
       () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-memberdatetime"])),
     ],
     defaultFormat: [
       () => void 0 !== output.headers["x-defaultformat"],
@@ -3560,7 +3719,7 @@ export const deserializeAws_restXmlTimestampFormatHeadersCommand = async (
     ],
     targetDateTime: [
       () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-targetdatetime"])),
     ],
   });
   await collectBody(output.body, context);
@@ -3790,6 +3949,14 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
       context
     );
   }
+  if (data.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_restXmlIntegerEnumList(
+      __getArrayIfSingleItem(data["intEnumList"]["member"]),
+      context
+    );
+  }
   if (data.integerList === "") {
     contents.integerList = [];
   } else if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
@@ -4004,6 +4171,71 @@ const deserializeAws_restXmlXmlEnumsCommandError = async (
   });
 };
 
+export const deserializeAws_restXmlXmlIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlXmlIntEnumsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["intEnum1"] !== undefined) {
+    contents.intEnum1 = __strictParseInt32(data["intEnum1"]) as number;
+  }
+  if (data["intEnum2"] !== undefined) {
+    contents.intEnum2 = __strictParseInt32(data["intEnum2"]) as number;
+  }
+  if (data["intEnum3"] !== undefined) {
+    contents.intEnum3 = __strictParseInt32(data["intEnum3"]) as number;
+  }
+  if (data.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_restXmlIntegerEnumList(
+      __getArrayIfSingleItem(data["intEnumList"]["member"]),
+      context
+    );
+  }
+  if (data.intEnumMap === "") {
+    contents.intEnumMap = {};
+  } else if (data["intEnumMap"] !== undefined && data["intEnumMap"]["entry"] !== undefined) {
+    contents.intEnumMap = deserializeAws_restXmlIntegerEnumMap(
+      __getArrayIfSingleItem(data["intEnumMap"]["entry"]),
+      context
+    );
+  }
+  if (data.intEnumSet === "") {
+    contents.intEnumSet = [];
+  } else if (data["intEnumSet"] !== undefined && data["intEnumSet"]["member"] !== undefined) {
+    contents.intEnumSet = deserializeAws_restXmlIntegerEnumSet(
+      __getArrayIfSingleItem(data["intEnumSet"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlXmlIntEnumsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restXmlXmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4065,6 +4297,14 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   } else if (data["flattenedStructureList"] !== undefined) {
     contents.flattenedStructureList = deserializeAws_restXmlStructureList(
       __getArrayIfSingleItem(data["flattenedStructureList"]),
+      context
+    );
+  }
+  if (data.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_restXmlIntegerEnumList(
+      __getArrayIfSingleItem(data["intEnumList"]["member"]),
       context
     );
   }
@@ -4269,16 +4509,25 @@ export const deserializeAws_restXmlXmlTimestampsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data["dateTime"]));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["dateTime"]));
+  }
+  if (data["dateTimeOnTarget"] !== undefined) {
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["dateTimeOnTarget"]));
   }
   if (data["epochSeconds"] !== undefined) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(data["epochSeconds"]));
   }
+  if (data["epochSecondsOnTarget"] !== undefined) {
+    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(data["epochSecondsOnTarget"]));
+  }
   if (data["httpDate"] !== undefined) {
     contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data["httpDate"]));
   }
+  if (data["httpDateOnTarget"] !== undefined) {
+    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data["httpDateOnTarget"]));
+  }
   if (data["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTime(data["normal"]));
+    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["normal"]));
   }
   return contents;
 };
@@ -4759,6 +5008,41 @@ const serializeAws_restXmlGreetingStruct = (input: GreetingStruct, context: __Se
   return bodyNode;
 };
 
+const serializeAws_restXmlIntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("IntegerEnum", String(entry));
+      return node.withName("member");
+    });
+};
+
+const serializeAws_restXmlIntegerEnumMap = (
+  input: Record<string, IntegerEnum | number>,
+  context: __SerdeContext
+): any => {
+  return Object.keys(input)
+    .filter((key) => input[key] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("key");
+      entryNode.addChildNode(keyNode);
+      let node;
+      node = __XmlNode.of("IntegerEnum", String(input[key]));
+      entryNode.addChildNode(node.withName("value"));
+      return entryNode;
+    });
+};
+
+const serializeAws_restXmlIntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("IntegerEnum", String(entry));
+      return node.withName("member");
+    });
+};
+
 const serializeAws_restXmlIntegerList = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5196,6 +5480,35 @@ const deserializeAws_restXmlGreetingStruct = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_restXmlIntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
+    });
+};
+
+const deserializeAws_restXmlIntegerEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IntegerEnum | number> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restXmlIntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
+    });
+};
+
 const deserializeAws_restXmlIntegerList = (output: any, context: __SerdeContext): number[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -5232,7 +5545,7 @@ const deserializeAws_restXmlTimestampList = (output: any, context: __SerdeContex
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return __expectNonNull(__parseRfc3339DateTime(entry));
+      return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
 };
 
@@ -5299,7 +5612,7 @@ const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
 };
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -36,6 +36,51 @@ import {
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
+export interface DescribeDBParametersMessage {
+  /**
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName: string | undefined;
+
+  /**
+   * <p>The parameter types to return.</p>
+   *          <p>Default: All parameter types returned</p>
+   *          <p>Valid Values: <code>user | system | engine-default</code>
+   *          </p>
+   */
+  Source?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
 export interface DescribeDBProxiesRequest {
   /**
    * <p>The name of the DB proxy. If you omit this parameter,
@@ -3213,6 +3258,11 @@ export interface ModifyCertificatesMessage {
 export interface ModifyCertificatesResult {
   /**
    * <p>A CA certificate for an Amazon Web Services account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
    */
   Certificate?: Certificate;
 }
@@ -3408,7 +3458,7 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    *          <p>Example: <code>my-cluster2</code>
    *          </p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   NewDBClusterIdentifier?: string;
 
@@ -4505,8 +4555,13 @@ export interface ModifyDBInstanceMessage {
   TdeCredentialPassword?: string;
 
   /**
-   * <p>Specifies the certificate to associate with the DB instance.</p>
+   * <p>Specifies the CA certificate identifier to use for the DB instance’s server certificate.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
    */
   CACertificateIdentifier?: string;
 
@@ -7737,6 +7792,16 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </ul>
    */
   DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in
+   *             CreateDBInstance.</p>
+   *          <note>
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed. You can also
+   *                 allocate additional memory for future growth.</p>
+   *          </note>
+   */
+  AllocatedStorage?: number;
 }
 
 export interface RestoreDBInstanceFromDBSnapshotResult {
@@ -7778,11 +7843,10 @@ export interface RestoreDBInstanceFromS3Message {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The amount of storage (in gigabytes) to allocate initially for the DB instance.
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance
-   *                 so that the restore operation can succeed.
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
    *                 You can also allocate additional memory for future growth.</p>
    *          </note>
    */
@@ -8737,6 +8801,16 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
+   *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <note>
+   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
+   *                 You can also allocate additional memory for future growth.</p>
+   *          </note>
+   */
+  AllocatedStorage?: number;
 }
 
 export interface RestoreDBInstanceToPointInTimeResult {
@@ -9090,35 +9164,35 @@ export interface StartExportTaskMessage {
   /**
    * <p>The ID of the Amazon Web Services KMS key to use to encrypt the snapshot exported to Amazon S3. The Amazon Web Services KMS
    *             key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-   *             The caller of this operation must be authorized to execute the following operations.
+   *             The caller of this operation must be authorized to run the following operations.
    *             These can be set in the Amazon Web Services KMS key policy:</p>
    *          <ul>
    *             <li>
-   *                <p>GrantOperation.Encrypt</p>
+   *                <p>kms:Encrypt</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.Decrypt</p>
+   *                <p>kms:Decrypt</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.GenerateDataKey</p>
+   *                <p>kms:GenerateDataKey</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.GenerateDataKeyWithoutPlaintext</p>
+   *                <p>kms:GenerateDataKeyWithoutPlaintext</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.ReEncryptFrom</p>
+   *                <p>kms:ReEncryptFrom</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.ReEncryptTo</p>
+   *                <p>kms:ReEncryptTo</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.CreateGrant</p>
+   *                <p>kms:CreateGrant</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.DescribeKey</p>
+   *                <p>kms:DescribeKey</p>
    *             </li>
    *             <li>
-   *                <p>GrantOperation.RetireGrant</p>
+   *                <p>kms:RetireGrant</p>
    *             </li>
    *          </ul>
    */
@@ -9321,6 +9395,13 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBParametersMessageFilterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
+  ...obj,
+});
 
 /**
  * @internal

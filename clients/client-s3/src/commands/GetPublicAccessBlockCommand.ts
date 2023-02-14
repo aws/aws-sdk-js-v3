@@ -33,7 +33,6 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *          this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code> permission.
  *          For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
  *          Policy</a>.</p>
- *
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -42,9 +41,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *             account, Amazon S3 uses the most restrictive combination of the bucket-level and
  *             account-level settings.</p>
  *          </important>
- *
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *
  *          <p>The following operations are related to <code>GetPublicAccessBlock</code>:</p>
  *          <ul>
  *             <li>

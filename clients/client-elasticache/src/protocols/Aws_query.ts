@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
@@ -8814,7 +8814,9 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheClusterCreateTime"]));
+    contents.CacheClusterCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
+    );
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
     contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
@@ -8883,7 +8885,9 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["AuthTokenLastModifiedDate"]));
+    contents.AuthTokenLastModifiedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
+    );
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
     contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
@@ -9050,7 +9054,7 @@ const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): Ca
     contents.CacheNodeStatus = __expectString(output["CacheNodeStatus"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheNodeCreateTime"]));
+    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
@@ -9196,23 +9200,25 @@ const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __Serde
     contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTime(output["NodeDeletionDate"]));
+    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
   }
   if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateStartDate"]));
+    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
   }
   if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateEndDate"]));
+    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
     contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateInitiatedDate"]));
+    contents.NodeUpdateInitiatedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
+    );
   }
   if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
     contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["NodeUpdateStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
     );
   }
   return contents;
@@ -10154,7 +10160,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     contents.Message = __expectString(output["Message"]);
   }
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   return contents;
 };
@@ -10881,23 +10887,25 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
     contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTime(output["NodeDeletionDate"]));
+    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
   }
   if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateStartDate"]));
+    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
   }
   if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateEndDate"]));
+    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
     contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateInitiatedDate"]));
+    contents.NodeUpdateInitiatedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
+    );
   }
   if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
     contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["NodeUpdateStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
     );
   }
   return contents;
@@ -11025,10 +11033,10 @@ const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext):
     contents.CacheSize = __expectString(output["CacheSize"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheNodeCreateTime"]));
+    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
   }
   return contents;
 };
@@ -11419,7 +11427,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["AuthTokenLastModifiedDate"]));
+    contents.AuthTokenLastModifiedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
+    );
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
     contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
@@ -11464,7 +11474,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["ReplicationGroupCreateTime"] !== undefined) {
-    contents.ReplicationGroupCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ReplicationGroupCreateTime"]));
+    contents.ReplicationGroupCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ReplicationGroupCreateTime"])
+    );
   }
   if (output["DataTiering"] !== undefined) {
     contents.DataTiering = __expectString(output["DataTiering"]);
@@ -11649,7 +11661,7 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
@@ -11933,17 +11945,19 @@ const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext)
     contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateReleaseDate"]));
+    contents.ServiceUpdateReleaseDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
+    );
   }
   if (output["ServiceUpdateEndDate"] !== undefined) {
-    contents.ServiceUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateEndDate"]));
+    contents.ServiceUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ServiceUpdateEndDate"]));
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
     contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTime(output["ServiceUpdateRecommendedApplyByDate"])
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
     );
   }
   if (output["ServiceUpdateStatus"] !== undefined) {
@@ -12088,7 +12102,9 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheClusterCreateTime"]));
+    contents.CacheClusterCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
+    );
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
     contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
@@ -12430,7 +12446,9 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
     contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateReleaseDate"]));
+    contents.ServiceUpdateReleaseDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
+    );
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
     contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
@@ -12440,14 +12458,16 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTime(output["ServiceUpdateRecommendedApplyByDate"])
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
     );
   }
   if (output["ServiceUpdateType"] !== undefined) {
     contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
   }
   if (output["UpdateActionAvailableDate"] !== undefined) {
-    contents.UpdateActionAvailableDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateActionAvailableDate"]));
+    contents.UpdateActionAvailableDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["UpdateActionAvailableDate"])
+    );
   }
   if (output["UpdateActionStatus"] !== undefined) {
     contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
@@ -12457,7 +12477,7 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   }
   if (output["UpdateActionStatusModifiedDate"] !== undefined) {
     contents.UpdateActionStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["UpdateActionStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["UpdateActionStatusModifiedDate"])
     );
   }
   if (output["SlaMet"] !== undefined) {
@@ -12878,7 +12898,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

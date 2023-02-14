@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupDetails,
-  DBParameterGroupDetailsFilterSensitiveLog,
-  DescribeDBParametersMessage,
-  DescribeDBParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBParameterGroupDetails, DBParameterGroupDetailsFilterSensitiveLog } from "../models/models_0";
+import { DescribeDBParametersMessage, DescribeDBParametersMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBParametersCommand,
   serializeAws_queryDescribeDBParametersCommand,

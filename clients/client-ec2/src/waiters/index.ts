@@ -18,6 +18,7 @@ export * from "./waitForKeyPairExists";
 export * from "./waitForNatGatewayAvailable";
 export * from "./waitForNatGatewayDeleted";
 export * from "./waitForNetworkInterfaceAvailable";
+export * from "./waitForSnapshotImported";
 export * from "./waitForSecurityGroupExists";
 export * from "./waitForSnapshotCompleted";
 export * from "./waitForSpotInstanceRequestFulfilled";

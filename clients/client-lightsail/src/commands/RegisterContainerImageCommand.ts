@@ -30,7 +30,6 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
 
 /**
  * <p>Registers a container image to your Amazon Lightsail container service.</p>
- *
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
  *         (lightsailctl) plugin to push container images to your Lightsail container service. For

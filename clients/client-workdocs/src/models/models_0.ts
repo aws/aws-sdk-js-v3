@@ -5,7 +5,7 @@ import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceEx
 
 export interface AbortDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -68,7 +68,7 @@ export class EntityNotExistsException extends __BaseException {
 }
 
 /**
- * <p>The AWS Directory Service cannot reach an on-premises instance. Or a dependency
+ * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
  */
@@ -183,7 +183,7 @@ export interface ActivateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -579,7 +579,7 @@ export interface Activity {
 export interface NotificationOptions {
   /**
    * <p>Boolean value to indicate an email notification should be sent to the
-   *             receipients.</p>
+   *             recipients.</p>
    */
   SendEmail?: boolean;
 
@@ -626,7 +626,7 @@ export interface SharePrincipal {
 
 export interface AddResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -700,7 +700,7 @@ export enum CommentVisibilityType {
 
 export interface CreateCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -848,7 +848,7 @@ export class InvalidCommentOperationException extends __BaseException {
 
 export interface CreateCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -916,7 +916,7 @@ export class ConflictingOperationException extends __BaseException {
 
 export interface CreateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1060,7 +1060,7 @@ export interface CreateLabelsRequest {
   Labels: string[] | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -1234,7 +1234,7 @@ export interface CreateUserRequest {
   StorageRule?: StorageRuleType;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -1253,14 +1253,14 @@ export interface DeactivateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
 
 export interface DeleteCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1282,7 +1282,7 @@ export interface DeleteCommentRequest {
 
 export interface DeleteCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1313,7 +1313,7 @@ export interface DeleteCustomMetadataResponse {}
 
 export interface DeleteDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1325,22 +1325,22 @@ export interface DeleteDocumentRequest {
 
 export interface DeleteDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
   /**
-   * <p>The ID of a document.</p>
+   * <p>The ID of the document associated with the version being deleted.</p>
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The version ID of a document.</p>
+   * <p>The ID of the version being deleted.</p>
    */
   VersionId: string | undefined;
 
   /**
-   * <p>When set to <code>TRUE</code>, deletes the specified version and <i>all prior versions</i> of a document.</p>
+   * <p>Deletes all versions of a document prior to the current version.</p>
    */
   DeletePriorVersions: boolean | undefined;
 }
@@ -1368,7 +1368,7 @@ export class InvalidOperationException extends __BaseException {
 
 export interface DeleteFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1380,7 +1380,7 @@ export interface DeleteFolderRequest {
 
 export interface DeleteFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1397,7 +1397,7 @@ export interface DeleteLabelsRequest {
   ResourceId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1429,7 +1429,7 @@ export interface DeleteNotificationSubscriptionRequest {
 export interface DeleteUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   *             administrative API actions, as in accessing the API using Amazon Web Services credentials.</p>
    */
   AuthenticationToken?: string;
 
@@ -1441,7 +1441,7 @@ export interface DeleteUserRequest {
 
 export interface DescribeActivitiesRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1514,7 +1514,7 @@ export interface DescribeActivitiesResponse {
 
 export interface DescribeCommentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1555,7 +1555,7 @@ export interface DescribeCommentsResponse {
 
 export interface DescribeDocumentVersionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1726,7 +1726,7 @@ export enum FolderContentType {
 
 export interface DescribeFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1833,7 +1833,7 @@ export interface DescribeFolderContentsResponse {
 
 export interface DescribeGroupsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1905,7 +1905,7 @@ export interface DescribeNotificationSubscriptionsResponse {
 
 export interface DescribeResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2029,7 +2029,7 @@ export enum UserSortType {
 
 export interface DescribeUsersRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2045,7 +2045,7 @@ export interface DescribeUsersRequest {
 
   /**
    * <p>A query to filter users by user name. Remember the following about the <code>Userids</code> and <code>Query</code> parameters:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>If you don't use either parameter, the API returns a paginated list of all users on the site.</p>
    *             </li>
@@ -2155,7 +2155,7 @@ export interface GetCurrentUserResponse {
 
 export interface GetDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2184,7 +2184,7 @@ export interface GetDocumentResponse {
 
 export interface GetDocumentPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2244,7 +2244,7 @@ export interface GetDocumentPathResponse {
 
 export interface GetDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2284,7 +2284,7 @@ export interface GetDocumentVersionResponse {
 
 export interface GetFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2313,7 +2313,7 @@ export interface GetFolderResponse {
 
 export interface GetFolderPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2352,7 +2352,7 @@ export enum ResourceCollectionType {
 
 export interface GetResourcesRequest {
   /**
-   * <p>The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2419,7 +2419,7 @@ export class DraftUploadOutOfSyncException extends __BaseException {
 
 export interface InitiateDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2551,7 +2551,7 @@ export class StorageLimitWillExceedException extends __BaseException {
 
 export interface RemoveAllResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2563,7 +2563,7 @@ export interface RemoveAllResourcePermissionsRequest {
 
 export interface RemoveResourcePermissionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2585,7 +2585,7 @@ export interface RemoveResourcePermissionRequest {
 
 export interface RestoreDocumentVersionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2597,7 +2597,7 @@ export interface RestoreDocumentVersionsRequest {
 
 export interface UpdateDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2629,7 +2629,7 @@ export enum DocumentVersionStatus {
 
 export interface UpdateDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2651,7 +2651,7 @@ export interface UpdateDocumentVersionRequest {
 
 export interface UpdateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2728,7 +2728,7 @@ export enum BooleanEnumType {
 
 export interface UpdateUserRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2768,7 +2768,7 @@ export interface UpdateUserRequest {
   Locale?: LocaleType | string;
 
   /**
-   * <p>Boolean value to determine whether the user is granted Poweruser privileges.</p>
+   * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
    */
   GrantPoweruserPrivileges?: BooleanEnumType | string;
 }

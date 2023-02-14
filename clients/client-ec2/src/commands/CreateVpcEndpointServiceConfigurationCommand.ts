@@ -33,7 +33,7 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
 
 /**
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
- *             IAM users, and IAM roles) can connect.</p>
+ *             users, and IAM roles) can connect.</p>
  *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
  *          <ul>
  *             <li>

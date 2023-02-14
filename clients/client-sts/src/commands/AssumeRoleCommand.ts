@@ -28,11 +28,10 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
 
 /**
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
- *          resources that you might not normally have access to. These temporary credentials consist
- *          of an access key ID, a secret access key, and a security token. Typically, you use
- *             <code>AssumeRole</code> within your account or for cross-account access. For a
- *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
- *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *          resources. These temporary credentials consist of an access key ID, a secret access key,
+ *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+ *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+ *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
  *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
@@ -82,7 +81,6 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          additional identity-based policy is required. For more information about trust policies and
  *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
  *             <i>IAM User Guide</i>.</p>
- *
  *          <p>
  *             <b>Tags</b>
  *          </p>

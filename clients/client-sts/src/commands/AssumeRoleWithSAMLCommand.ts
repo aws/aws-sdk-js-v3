@@ -108,7 +108,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
- *
  *          <note>
  *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
  *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -116,7 +115,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *                <code>PackedPolicySize</code> response element indicates by percentage how close the
  *             policies and tags for your request are to the upper size limit.</p>
  *          </note>
- *
  *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
  *          you do, session tags override the role's tags with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The

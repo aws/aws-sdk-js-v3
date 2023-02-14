@@ -72,6 +72,11 @@ import {
   AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
 import {
+  AssignPrivateNatGatewayAddressCommand,
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/AssignPrivateNatGatewayAddressCommand";
+import {
   AssociateAddressCommand,
   AssociateAddressCommandInput,
   AssociateAddressCommandOutput,
@@ -101,6 +106,16 @@ import {
   AssociateInstanceEventWindowCommandInput,
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
+import {
+  AssociateIpamResourceDiscoveryCommand,
+  AssociateIpamResourceDiscoveryCommandInput,
+  AssociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommand,
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "./commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
@@ -345,6 +360,11 @@ import {
   CreateIpamPoolCommandInput,
   CreateIpamPoolCommandOutput,
 } from "./commands/CreateIpamPoolCommand";
+import {
+  CreateIpamResourceDiscoveryCommand,
+  CreateIpamResourceDiscoveryCommandInput,
+  CreateIpamResourceDiscoveryCommandOutput,
+} from "./commands/CreateIpamResourceDiscoveryCommand";
 import {
   CreateIpamScopeCommand,
   CreateIpamScopeCommandInput,
@@ -699,6 +719,11 @@ import {
   DeleteIpamPoolCommandInput,
   DeleteIpamPoolCommandOutput,
 } from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamResourceDiscoveryCommand,
+  DeleteIpamResourceDiscoveryCommandInput,
+  DeleteIpamResourceDiscoveryCommandOutput,
+} from "./commands/DeleteIpamResourceDiscoveryCommand";
 import {
   DeleteIpamScopeCommand,
   DeleteIpamScopeCommandInput,
@@ -1278,6 +1303,16 @@ import {
   DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
 import {
+  DescribeIpamResourceDiscoveriesCommand,
+  DescribeIpamResourceDiscoveriesCommandInput,
+  DescribeIpamResourceDiscoveriesCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveriesCommand";
+import {
+  DescribeIpamResourceDiscoveryAssociationsCommand,
+  DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveryAssociationsCommand";
+import {
   DescribeIpamsCommand,
   DescribeIpamsCommandInput,
   DescribeIpamsCommandOutput,
@@ -1833,6 +1868,16 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamResourceDiscoveryCommand,
+  DisassociateIpamResourceDiscoveryCommandInput,
+  DisassociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import {
+  DisassociateNatGatewayAddressCommand,
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "./commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -2033,6 +2078,16 @@ import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamDiscoveredAccountsCommand,
+  GetIpamDiscoveredAccountsCommandInput,
+  GetIpamDiscoveredAccountsCommandOutput,
+} from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredResourceCidrsCommand,
+  GetIpamDiscoveredResourceCidrsCommandInput,
+  GetIpamDiscoveredResourceCidrsCommandOutput,
+} from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
   GetIpamPoolAllocationsCommand,
   GetIpamPoolAllocationsCommandInput,
@@ -2297,6 +2352,11 @@ import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
 } from "./commands/ModifyIpamResourceCidrCommand";
+import {
+  ModifyIpamResourceDiscoveryCommand,
+  ModifyIpamResourceDiscoveryCommandInput,
+  ModifyIpamResourceDiscoveryCommandOutput,
+} from "./commands/ModifyIpamResourceDiscoveryCommand";
 import {
   ModifyIpamScopeCommand,
   ModifyIpamScopeCommandInput,
@@ -2798,6 +2858,11 @@ import {
   UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
 import {
+  UnassignPrivateNatGatewayAddressCommand,
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/UnassignPrivateNatGatewayAddressCommand";
+import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -2830,19 +2895,19 @@ import { EC2Client } from "./EC2Client";
  *          <p>To learn more, see the following resources:</p>
  *          <ul>
  *             <li>
- *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a>
+ *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="https://docs.aws.amazon.com/ec2/index.html">Amazon EC2 documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
+ *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/ebs/index.html">Amazon EBS documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a>
+ *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="https://docs.aws.amazon.com/vpc/index.html">Amazon VPC documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a>
+ *                <p>VPN: <a href="http://aws.amazon.com/vpn">VPN product page</a>, <a href="https://docs.aws.amazon.com/vpn/index.html">VPN documentation</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -3017,7 +3082,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
+   * <p>Accepts connection requests to your VPC endpoint service.</p>
    */
   public acceptVpcEndpointConnections(
     args: AcceptVpcEndpointConnectionsCommandInput,
@@ -3209,7 +3274,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public allocateIpamPoolCidr(
@@ -3355,6 +3420,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssignPrivateIpAddressesCommandOutput) => void
   ): Promise<AssignPrivateIpAddressesCommandOutput> | void {
     const command = new AssignPrivateIpAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput>;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new AssignPrivateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3594,6 +3691,71 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
   ): Promise<AssociateInstanceEventWindowCommandOutput> | void {
     const command = new AssociateInstanceEventWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput>;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new AssociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateNatGatewayAddressCommandOutput>;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssociateNatGatewayAddressCommandOutput> | void {
+    const command = new AssociateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4427,8 +4589,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
-   *       information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a>
-   *       in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
+   *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   public cancelImageLaunchPermission(
     args: CancelImageLaunchPermissionCommandInput,
@@ -5585,6 +5748,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput>;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new CreateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
@@ -6668,24 +6863,23 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a subnet in a specified VPC.</p>
-   *          <p>You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you
-   *             can't change its CIDR block. The allowed block size is between a /16 netmask (65,536 IP
-   *             addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with the
-   *             CIDR block of an existing subnet in the VPC.</p>
-   *          <p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an
-   *             IPv6 CIDR block that uses a /64 prefix length. </p>
-   *          <important>
-   *             <p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR
-   *                 block. They're not available for use.</p>
-   *          </important>
+   * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
+   *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
+   *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
+   *             an IPv4 CIDR block and an IPv6 CIDR block.</p>
+   *          <p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC.
+   *             After you create a subnet, you can't change its CIDR block.</p>
+   *          <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
+   *             a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
+   *             the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p>
+   *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block
+   *             with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p>
    *          <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
    *             logical router in the middle.</p>
    *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
    *             therefore possible to have a subnet with no running instances (they're all stopped), but
    *             no remaining IP addresses available.</p>
-   *          <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createSubnet(
     args: CreateSubnetCommandInput,
@@ -7480,16 +7674,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
-   * 			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
-   * 			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and
-   * 				subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Creates a VPC with the specified CIDR blocks. For more information, see
+   * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
    *            IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address
    *            pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
-   *          <p>By default, each instance you launch in the VPC has the default DHCP options, which
+   *          <p>By default, each instance that you launch in the VPC has the default DHCP options, which
    * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
-   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can specify the instance tenancy value for the VPC when you create it. You can't change
    *           this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -7592,7 +7784,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
-   *             IAM users, and IAM roles) can connect.</p>
+   *             users, and IAM roles) can connect.</p>
    *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
    *          <ul>
    *             <li>
@@ -8314,6 +8506,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteIpamPoolCommandOutput) => void
   ): Promise<DeleteIpamPoolCommandOutput> | void {
     const command = new DeleteIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput>;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DeleteIpamResourceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9958,7 +10182,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint connection notifications.</p>
+   * <p>Deletes the specified VPC endpoint connection notifications.</p>
    */
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -9992,31 +10216,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
-   *          <ul>
-   *             <li>
-   *                <p>Gateway endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Gateway Load Balancer endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Interface endpoint</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following rules apply when you delete a VPC endpoint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
-   *                <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
-   *             </li>
-   *          </ul>
+   * <p>Deletes the specified VPC endpoints.</p>
+   *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
+   *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
+   *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+   *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
    */
   public deleteVpcEndpoints(
     args: DeleteVpcEndpointsCommandInput,
@@ -10048,9 +10252,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
-   *             delete the endpoint service configuration, you must reject any <code>Available</code> or
-   *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+   * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
+   *             an endpoint service configuration, you must reject any <code>Available</code> or
+   *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
    *             the service.</p>
    */
   public deleteVpcEndpointServiceConfigurations(
@@ -12438,6 +12642,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput>;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
+   */
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput>;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveryAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get information about your IPAM pools.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -13837,11 +14107,7 @@ export class EC2 extends EC2Client {
    *         <code>self</code> for snapshots for which you own or have explicit permissions, or
    *         <code>all</code> for public snapshots.</p>
    *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the
-   *       list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
-   *       results.</p>
+   *       list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
    *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -14930,11 +15196,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
    *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
-   *       more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
-   *       results.</p>
+   *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumes(
@@ -15244,7 +15506,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more of your VPC endpoints.</p>
+   * <p>Describes your VPC endpoints.</p>
    */
   public describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
@@ -16321,6 +16583,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void
   ): Promise<DisassociateInstanceEventWindowCommandOutput> | void {
     const command = new DisassociateInstanceEventWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput>;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DisassociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
+   *             associated and support the existing connections but do not support any new connections
+   *             (new connections are distributed across the remaining associated EIPs). As the existing
+   *             connections drain out, the EIPs (and the corresponding private IPs mapped to them) get
+   *             released.</p>
+   */
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateNatGatewayAddressCommandOutput>;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): Promise<DisassociateNatGatewayAddressCommandOutput> | void {
+    const command = new DisassociateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -17797,6 +18129,70 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
+   */
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput>;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput> | void {
+    const command = new GetIpamDiscoveredAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+   */
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput>;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> | void {
+    const command = new GetIpamDiscoveredResourceCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
    */
   public getIpamPoolAllocations(
@@ -17861,7 +18257,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Get information about the resources in a scope.</p>
+   * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public getIpamResourceCidrs(
     args: GetIpamResourceCidrsCommandInput,
@@ -19817,6 +20213,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput>;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput> | void {
+    const command = new ModifyIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modify an IPAM scope.</p>
    */
   public modifyIpamScope(
@@ -20964,8 +21392,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
-   * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
+   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
+   *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
+   *             your endpoint service.</p>
    *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
    * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
    * 	        attachments are automatically approved.</p>
@@ -21340,8 +21769,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
-   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+   * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
+   *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
   public moveByoipCidrToIpam(
     args: MoveByoipCidrToIpamCommandInput,
@@ -21938,8 +22367,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint
-   *             service.</p>
+   * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
    */
   public rejectVpcEndpointConnections(
     args: RejectVpcEndpointConnectionsCommandInput,
@@ -23663,6 +24091,46 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void
   ): Promise<UnassignPrivateIpAddressesCommandOutput> | void {
     const command = new UnassignPrivateIpAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
+   *             private IP addresses stay associated and support the existing connections but do not
+   *             support any new connections (new connections are distributed across the remaining
+   *             assigned private IP address). After the existing connections drain out, the private IP
+   *             addresses get released. </p>
+   *          <p></p>
+   *          <p></p>
+   */
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput>;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new UnassignPrivateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

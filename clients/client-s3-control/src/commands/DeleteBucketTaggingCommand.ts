@@ -31,13 +31,10 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
  *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>To use this action, you must have permission to perform the
  *             <code>PutBucketTagging</code> action. By default, the bucket owner has this permission
  *          and can grant this permission to others. </p>
- *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples">Examples</a> section.</p>
- *
  *          <p>The following actions are related to <code>DeleteBucketTagging</code>:</p>
  *          <ul>
  *             <li>

@@ -99,9 +99,10 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
                        + "  data: any\n"
                        + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
-                writer.write("return $L;", errorCodeLocation);
+            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                writer.write("return $L;", errorCodeAccessLocation);
             });
 
             // Default a 404 status code to the NotFound code.

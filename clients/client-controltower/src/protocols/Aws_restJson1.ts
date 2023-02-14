@@ -6,7 +6,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -492,9 +492,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const deserializeAws_restJson1ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
   return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     operationType: __expectString(output.operationType),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
   } as any;

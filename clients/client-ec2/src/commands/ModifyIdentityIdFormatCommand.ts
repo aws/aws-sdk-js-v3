@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdentityIdFormatRequest, ModifyIdentityIdFormatRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyIdentityIdFormatRequest, ModifyIdentityIdFormatRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyIdentityIdFormatCommand,
   serializeAws_ec2ModifyIdentityIdFormatCommand,

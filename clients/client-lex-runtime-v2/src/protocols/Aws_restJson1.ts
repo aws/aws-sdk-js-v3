@@ -53,6 +53,7 @@ import {
   Message,
   PlaybackCompletionEvent,
   PlaybackInterruptionEvent,
+  RecognizedBotMember,
   ResourceNotFoundException,
   RuntimeHintDetails,
   RuntimeHints,
@@ -468,6 +469,9 @@ export const deserializeAws_restJson1RecognizeTextCommand = async (
   if (data.messages != null) {
     contents.messages = deserializeAws_restJson1Messages(data.messages, context);
   }
+  if (data.recognizedBotMember != null) {
+    contents.recognizedBotMember = deserializeAws_restJson1RecognizedBotMember(data.recognizedBotMember, context);
+  }
   if (data.requestAttributes != null) {
     contents.requestAttributes = deserializeAws_restJson1StringMap(data.requestAttributes, context);
   }
@@ -542,6 +546,7 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
     requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
     sessionId: [, output.headers["x-amz-lex-session-id"]],
     inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
+    recognizedBotMember: [, output.headers["x-amz-lex-recognized-bot-member"]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -1542,6 +1547,10 @@ const deserializeAws_restJson1IntentResultEvent = (output: any, context: __Serde
       output.interpretations != null
         ? deserializeAws_restJson1Interpretations(output.interpretations, context)
         : undefined,
+    recognizedBotMember:
+      output.recognizedBotMember != null
+        ? deserializeAws_restJson1RecognizedBotMember(output.recognizedBotMember, context)
+        : undefined,
     requestAttributes:
       output.requestAttributes != null
         ? deserializeAws_restJson1StringMap(output.requestAttributes, context)
@@ -1607,6 +1616,13 @@ const deserializeAws_restJson1PlaybackInterruptionEvent = (
     causedByEventId: __expectString(output.causedByEventId),
     eventId: __expectString(output.eventId),
     eventReason: __expectString(output.eventReason),
+  } as any;
+};
+
+const deserializeAws_restJson1RecognizedBotMember = (output: any, context: __SerdeContext): RecognizedBotMember => {
+  return {
+    botId: __expectString(output.botId),
+    botName: __expectString(output.botName),
   } as any;
 };
 

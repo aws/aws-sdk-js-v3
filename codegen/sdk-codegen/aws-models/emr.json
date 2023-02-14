@@ -30,26 +30,32 @@
   },
   "shapes": {
     "com.amazonaws.emr#ActionOnFailure": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TERMINATE_JOB_FLOW",
-            "name": "TERMINATE_JOB_FLOW"
-          },
-          {
-            "value": "TERMINATE_CLUSTER",
-            "name": "TERMINATE_CLUSTER"
-          },
-          {
-            "value": "CANCEL_AND_WAIT",
-            "name": "CANCEL_AND_WAIT"
-          },
-          {
-            "value": "CONTINUE",
-            "name": "CONTINUE"
+      "type": "enum",
+      "members": {
+        "TERMINATE_JOB_FLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_JOB_FLOW"
           }
-        ]
+        },
+        "TERMINATE_CLUSTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_CLUSTER"
+          }
+        },
+        "CANCEL_AND_WAIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCEL_AND_WAIT"
+          }
+        },
+        "CONTINUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUE"
+          }
+        }
       }
     },
     "com.amazonaws.emr#AddInstanceFleet": {
@@ -193,7 +199,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed\n         in each job flow.</p>\n         <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may\n         require more than 256 steps to process your data. You can bypass the 256-step limitation in\n         various ways, including using SSH to connect to the master node and submitting queries\n         directly to the software running on the master node, such as Hive and Hadoop. For more\n         information on how to do this, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a\n            Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>\n         <p>A step specifies the location of a JAR file stored either on the master node of the\n         cluster or in Amazon S3. Each step is performed by the main function of the main\n         class of the JAR file. The main class can be specified either in the manifest of the JAR or\n         by using the MainFunction parameter of the step.</p>\n         <p>Amazon EMR executes each step in the order listed. For a step to be considered\n         complete, the main function must exit with a zero exit code and all Hadoop jobs started\n         while the step was running must have completed and run successfully.</p>\n         <p>You can only add steps to a cluster that is in one of the following states: STARTING,\n         BOOTSTRAPPING, RUNNING, or WAITING.</p>\n         <note>\n            <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total\n            of 10240 characters.</p>\n         </note>"
+        "smithy.api#documentation": "<p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed\n         in each job flow.</p>\n         <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may\n         require more than 256 steps to process your data. You can bypass the 256-step limitation in\n         various ways, including using SSH to connect to the master node and submitting queries\n         directly to the software running on the master node, such as Hive and Hadoop.</p>\n         <p>A step specifies the location of a JAR file stored either on the master node of the\n         cluster or in Amazon S3. Each step is performed by the main function of the main\n         class of the JAR file. The main class can be specified either in the manifest of the JAR or\n         by using the MainFunction parameter of the step.</p>\n         <p>Amazon EMR executes each step in the order listed. For a step to be considered\n         complete, the main function must exit with a zero exit code and all Hadoop jobs started\n         while the step was running must have completed and run successfully.</p>\n         <p>You can only add steps to a cluster that is in one of the following states: STARTING,\n         BOOTSTRAPPING, RUNNING, or WAITING.</p>\n         <note>\n            <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total\n            of 10240 characters.</p>\n         </note>"
       }
     },
     "com.amazonaws.emr#AddJobFlowStepsInput": {
@@ -288,22 +294,26 @@
       }
     },
     "com.amazonaws.emr#AdjustmentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CHANGE_IN_CAPACITY",
-            "name": "CHANGE_IN_CAPACITY"
-          },
-          {
-            "value": "PERCENT_CHANGE_IN_CAPACITY",
-            "name": "PERCENT_CHANGE_IN_CAPACITY"
-          },
-          {
-            "value": "EXACT_CAPACITY",
-            "name": "EXACT_CAPACITY"
+      "type": "enum",
+      "members": {
+        "CHANGE_IN_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHANGE_IN_CAPACITY"
           }
-        ]
+        },
+        "PERCENT_CHANGE_IN_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENT_CHANGE_IN_CAPACITY"
+          }
+        },
+        "EXACT_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXACT_CAPACITY"
+          }
+        }
       }
     },
     "com.amazonaws.emr#Application": {
@@ -354,18 +364,20 @@
       }
     },
     "com.amazonaws.emr#AuthMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SSO",
-            "name": "SSO"
-          },
-          {
-            "value": "IAM",
-            "name": "IAM"
+      "type": "enum",
+      "members": {
+        "SSO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SSO"
           }
-        ]
+        },
+        "IAM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM"
+          }
+        }
       }
     },
     "com.amazonaws.emr#AutoScalingPolicy": {
@@ -417,34 +429,44 @@
       }
     },
     "com.amazonaws.emr#AutoScalingPolicyState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "ATTACHING",
-            "name": "ATTACHING"
-          },
-          {
-            "value": "ATTACHED",
-            "name": "ATTACHED"
-          },
-          {
-            "value": "DETACHING",
-            "name": "DETACHING"
-          },
-          {
-            "value": "DETACHED",
-            "name": "DETACHED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "ATTACHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ATTACHING"
+          }
+        },
+        "ATTACHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ATTACHED"
+          }
+        },
+        "DETACHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DETACHING"
+          }
+        },
+        "DETACHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DETACHED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#AutoScalingPolicyStateChangeReason": {
@@ -468,22 +490,26 @@
       }
     },
     "com.amazonaws.emr#AutoScalingPolicyStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "USER_REQUEST",
-            "name": "USER_REQUEST"
-          },
-          {
-            "value": "PROVISION_FAILURE",
-            "name": "PROVISION_FAILURE"
-          },
-          {
-            "value": "CLEANUP_FAILURE",
-            "name": "CLEANUP_FAILURE"
+      "type": "enum",
+      "members": {
+        "USER_REQUEST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_REQUEST"
           }
-        ]
+        },
+        "PROVISION_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISION_FAILURE"
+          }
+        },
+        "CLEANUP_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLEANUP_FAILURE"
+          }
+        }
       }
     },
     "com.amazonaws.emr#AutoScalingPolicyStatus": {
@@ -735,18 +761,20 @@
       }
     },
     "com.amazonaws.emr#CancelStepsRequestStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUBMITTED",
-            "name": "SUBMITTED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "SUBMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBMITTED"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#CloudWatchAlarmDefinition": {
@@ -1016,38 +1044,50 @@
       "type": "string"
     },
     "com.amazonaws.emr#ClusterState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "BOOTSTRAPPING",
-            "name": "BOOTSTRAPPING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "WAITING",
-            "name": "WAITING"
-          },
-          {
-            "value": "TERMINATING",
-            "name": "TERMINATING"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "TERMINATED_WITH_ERRORS",
-            "name": "TERMINATED_WITH_ERRORS"
+      "type": "enum",
+      "members": {
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
           }
-        ]
+        },
+        "BOOTSTRAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAPPING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "WAITING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WAITING"
+          }
+        },
+        "TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATING"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        },
+        "TERMINATED_WITH_ERRORS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED_WITH_ERRORS"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ClusterStateChangeReason": {
@@ -1071,42 +1111,56 @@
       }
     },
     "com.amazonaws.emr#ClusterStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
-          },
-          {
-            "value": "VALIDATION_ERROR",
-            "name": "VALIDATION_ERROR"
-          },
-          {
-            "value": "INSTANCE_FAILURE",
-            "name": "INSTANCE_FAILURE"
-          },
-          {
-            "value": "INSTANCE_FLEET_TIMEOUT",
-            "name": "INSTANCE_FLEET_TIMEOUT"
-          },
-          {
-            "value": "BOOTSTRAP_FAILURE",
-            "name": "BOOTSTRAP_FAILURE"
-          },
-          {
-            "value": "USER_REQUEST",
-            "name": "USER_REQUEST"
-          },
-          {
-            "value": "STEP_FAILURE",
-            "name": "STEP_FAILURE"
-          },
-          {
-            "value": "ALL_STEPS_COMPLETED",
-            "name": "ALL_STEPS_COMPLETED"
+      "type": "enum",
+      "members": {
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
           }
-        ]
+        },
+        "VALIDATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATION_ERROR"
+          }
+        },
+        "INSTANCE_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FAILURE"
+          }
+        },
+        "INSTANCE_FLEET_TIMEOUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FLEET_TIMEOUT"
+          }
+        },
+        "BOOTSTRAP_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAP_FAILURE"
+          }
+        },
+        "USER_REQUEST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_REQUEST"
+          }
+        },
+        "STEP_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STEP_FAILURE"
+          }
+        },
+        "ALL_STEPS_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL_STEPS_COMPLETED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ClusterStateList": {
@@ -1250,26 +1304,32 @@
       }
     },
     "com.amazonaws.emr#ComparisonOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "GREATER_THAN_OR_EQUAL",
-            "name": "GREATER_THAN_OR_EQUAL"
-          },
-          {
-            "value": "GREATER_THAN",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "LESS_THAN",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "LESS_THAN_OR_EQUAL",
-            "name": "LESS_THAN_OR_EQUAL"
+      "type": "enum",
+      "members": {
+        "GREATER_THAN_OR_EQUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN_OR_EQUAL"
           }
-        ]
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "LESS_THAN_OR_EQUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN_OR_EQUAL"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ComputeLimits": {
@@ -1314,22 +1374,26 @@
       }
     },
     "com.amazonaws.emr#ComputeLimitsUnitType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InstanceFleetUnits",
-            "name": "InstanceFleetUnits"
-          },
-          {
-            "value": "Instances",
-            "name": "Instances"
-          },
-          {
-            "value": "VCPU",
-            "name": "VCPU"
+      "type": "enum",
+      "members": {
+        "InstanceFleetUnits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InstanceFleetUnits"
           }
-        ]
+        },
+        "Instances": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Instances"
+          }
+        },
+        "VCPU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VCPU"
+          }
+        }
       }
     },
     "com.amazonaws.emr#Configuration": {
@@ -1461,7 +1525,7 @@
         "AuthMode": {
           "target": "com.amazonaws.emr#AuthMode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>",
+            "smithy.api#documentation": "<p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1489,7 +1553,7 @@
         "UserRole": {
           "target": "com.amazonaws.emr#XmlString",
           "traits": {
-            "smithy.api#documentation": "<p>The IAM user role that users and groups assume when logged in to an Amazon EMR\n         Studio. Only specify a <code>UserRole</code> when you use Amazon Web Services SSO\n         authentication. The permissions attached to the <code>UserRole</code> can be scoped down\n         for each user or group using session policies.</p>"
+            "smithy.api#documentation": "<p>The IAM user role that users and groups assume when logged in to an Amazon EMR\n         Studio. Only specify a <code>UserRole</code> when you use IAM Identity Center\n         authentication. The permissions attached to the <code>UserRole</code> can be scoped down\n         for each user or group using session policies.</p>"
           }
         },
         "WorkspaceSecurityGroupId": {
@@ -1567,7 +1631,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Maps a user or group to the Amazon EMR Studio specified by\n         <code>StudioId</code>, and applies a session policy to refine Studio permissions for that\n         user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when\n         you use Amazon Web Services SSO authentication. For instructions on how to assign users to a\n         Studio when you use IAM authentication, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups\">Assign a user or group to your EMR Studio</a>.</p>"
+        "smithy.api#documentation": "<p>Maps a user or group to the Amazon EMR Studio specified by\n         <code>StudioId</code>, and applies a session policy to refine Studio permissions for that\n         user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when\n         you use IAM Identity Center authentication. For instructions on how to assign users to a\n         Studio when you use IAM authentication, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups\">Assign a user or group to your EMR Studio</a>.</p>"
       }
     },
     "com.amazonaws.emr#CreateStudioSessionMappingInput": {
@@ -1583,13 +1647,13 @@
         "IdentityId": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO\n         Identity Store. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified, but not both.</p>"
+            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center\n         Identity Store. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified, but not both.</p>"
           }
         },
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified, but not both.</p>"
+            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified, but not both.</p>"
           }
         },
         "IdentityType": {
@@ -1606,6 +1670,20 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.emr#Credentials": {
+      "type": "union",
+      "members": {
+        "UsernamePassword": {
+          "target": "com.amazonaws.emr#UsernamePassword",
+          "traits": {
+            "smithy.api#documentation": "<p>The username and password that you use to connect to cluster endpoints.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The credentials that you can use to connect to cluster endpoints. Credentials consist of a username and a password.</p>"
       }
     },
     "com.amazonaws.emr#Date": {
@@ -1712,13 +1790,13 @@
         "IdentityId": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
+            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
           }
         },
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user name or group to remove from the Amazon EMR Studio. For\n         more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Store API Reference</i>.\n         Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>"
+            "smithy.api#documentation": "<p>The name of the user name or group to remove from the Amazon EMR Studio. For\n         more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Store API Reference</i>.\n         Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>"
           }
         },
         "IdentityType": {
@@ -2481,6 +2559,9 @@
           "target": "com.amazonaws.emr#GetBlockPublicAccessConfiguration"
         },
         {
+          "target": "com.amazonaws.emr#GetClusterSessionCredentials"
+        },
+        {
           "target": "com.amazonaws.emr#GetManagedScalingPolicy"
         },
         {
@@ -2599,7 +2680,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2648,15 +2729,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -2944,9 +3016,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2957,9 +3029,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2970,9 +3042,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2983,9 +3055,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2996,9 +3068,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3009,9 +3081,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3022,9 +3094,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3035,9 +3107,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3048,9 +3120,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3061,9 +3133,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3074,9 +3146,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3087,9 +3159,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3100,9 +3172,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3113,9 +3185,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3126,9 +3198,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3139,9 +3211,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3152,9 +3224,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3165,9 +3237,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3178,9 +3250,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3191,9 +3263,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3204,9 +3276,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3217,9 +3289,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3230,9 +3302,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3243,9 +3315,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3256,9 +3328,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3269,9 +3341,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3282,9 +3354,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3295,9 +3367,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3308,9 +3380,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3321,9 +3393,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3334,9 +3406,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3347,9 +3419,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3358,9 +3430,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3371,9 +3443,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3382,9 +3454,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3395,9 +3467,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3408,9 +3480,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3421,9 +3493,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3434,9 +3506,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3447,9 +3519,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3460,9 +3532,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3473,9 +3545,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3486,9 +3558,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3499,9 +3571,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3512,9 +3584,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3525,9 +3597,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3538,9 +3610,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3551,9 +3623,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3564,9 +3636,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3577,9 +3649,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3590,9 +3662,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3603,9 +3675,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3616,9 +3688,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3629,9 +3701,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3642,9 +3714,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3655,9 +3727,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3668,9 +3740,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3681,9 +3753,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3694,9 +3766,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3707,9 +3779,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3720,9 +3792,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3733,9 +3805,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3746,9 +3818,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3759,9 +3831,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3772,9 +3844,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3785,9 +3857,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3798,9 +3870,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3811,9 +3883,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3824,9 +3896,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3837,9 +3909,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3850,9 +3922,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3863,9 +3935,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3876,9 +3948,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3889,9 +3961,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3902,9 +3974,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3915,9 +3987,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3928,9 +4000,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3941,9 +4013,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3954,9 +4026,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3967,9 +4039,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3980,9 +4052,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3993,9 +4065,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4006,9 +4078,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4019,9 +4091,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4032,9 +4104,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4045,9 +4117,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4058,9 +4130,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4071,9 +4143,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4084,9 +4156,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4097,9 +4169,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4110,9 +4182,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4123,9 +4195,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4136,9 +4208,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4149,9 +4221,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4162,9 +4234,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4175,9 +4247,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4188,9 +4260,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4201,9 +4273,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4214,9 +4286,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4227,9 +4299,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4240,9 +4312,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4253,9 +4325,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4266,9 +4338,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4279,9 +4351,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4292,9 +4364,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4305,9 +4377,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4318,9 +4390,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4331,9 +4403,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4342,9 +4414,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4355,9 +4427,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4366,9 +4438,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4379,9 +4451,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4392,9 +4464,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4405,9 +4477,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4418,9 +4490,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4431,9 +4503,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4444,9 +4516,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4457,9 +4529,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4470,9 +4542,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4483,9 +4555,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4496,9 +4568,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4509,9 +4581,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4522,9 +4594,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4535,9 +4607,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4548,9 +4620,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4561,9 +4633,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4574,9 +4646,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4587,9 +4659,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4600,9 +4672,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4613,9 +4685,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4626,9 +4698,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4639,9 +4711,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4650,9 +4722,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -4663,9 +4735,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -4674,9 +4746,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -4687,9 +4759,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -4700,9 +4772,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -4712,9 +4784,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -4724,9 +4796,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -4775,14 +4847,14 @@
       }
     },
     "com.amazonaws.emr#ExecutionEngineType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EMR",
-            "name": "EMR"
+      "type": "enum",
+      "members": {
+        "EMR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMR"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.emr#FailureDetails": {
@@ -4889,6 +4961,62 @@
         }
       }
     },
+    "com.amazonaws.emr#GetClusterSessionCredentials": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.emr#GetClusterSessionCredentialsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.emr#GetClusterSessionCredentialsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.emr#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.emr#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides Temporary, basic HTTP credentials that are associated with a given runtime IAM role \n         and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username-based and password-based authentication.</p>"
+      }
+    },
+    "com.amazonaws.emr#GetClusterSessionCredentialsInput": {
+      "type": "structure",
+      "members": {
+        "ClusterId": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExecutionRoleArn": {
+          "target": "com.amazonaws.emr#ArnType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission on the cluster. \n         The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, \n         and role type using the following format: <code>arn:partition:service:region:account:resource</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.emr#GetClusterSessionCredentialsOutput": {
+      "type": "structure",
+      "members": {
+        "Credentials": {
+          "target": "com.amazonaws.emr#Credentials",
+          "traits": {
+            "smithy.api#documentation": "<p>The credentials that you can use to connect to cluster endpoints that support username-based and password-based authentication.</p>"
+          }
+        },
+        "ExpiresAt": {
+          "target": "com.amazonaws.emr#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the credentials that are returned by the <code>GetClusterSessionCredentials</code> API expire.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.emr#GetManagedScalingPolicy": {
       "type": "operation",
       "input": {
@@ -4957,13 +5085,13 @@
         "IdentityId": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group. For more information, see\n            <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
+            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group. For more information, see\n            <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
           }
         },
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user or group to fetch. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
+            "smithy.api#documentation": "<p>The name of the user or group to fetch. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
           }
         },
         "IdentityType": {
@@ -5052,18 +5180,20 @@
       }
     },
     "com.amazonaws.emr#IdentityType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "USER",
-            "name": "USER"
-          },
-          {
-            "value": "GROUP",
-            "name": "GROUP"
+      "type": "enum",
+      "members": {
+        "USER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER"
           }
-        ]
+        },
+        "GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GROUP"
+          }
+        }
       }
     },
     "com.amazonaws.emr#Instance": {
@@ -5147,18 +5277,20 @@
       }
     },
     "com.amazonaws.emr#InstanceCollectionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INSTANCE_FLEET",
-            "name": "INSTANCE_FLEET"
-          },
-          {
-            "value": "INSTANCE_GROUP",
-            "name": "INSTANCE_GROUP"
+      "type": "enum",
+      "members": {
+        "INSTANCE_FLEET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FLEET"
           }
-        ]
+        },
+        "INSTANCE_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_GROUP"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceFleet": {
@@ -5337,38 +5469,50 @@
       }
     },
     "com.amazonaws.emr#InstanceFleetState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROVISIONING",
-            "name": "PROVISIONING"
-          },
-          {
-            "value": "BOOTSTRAPPING",
-            "name": "BOOTSTRAPPING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "RESIZING",
-            "name": "RESIZING"
-          },
-          {
-            "value": "SUSPENDED",
-            "name": "SUSPENDED"
-          },
-          {
-            "value": "TERMINATING",
-            "name": "TERMINATING"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
+      "type": "enum",
+      "members": {
+        "PROVISIONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISIONING"
           }
-        ]
+        },
+        "BOOTSTRAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAPPING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "RESIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESIZING"
+          }
+        },
+        "SUSPENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUSPENDED"
+          }
+        },
+        "TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATING"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceFleetStateChangeReason": {
@@ -5392,26 +5536,32 @@
       }
     },
     "com.amazonaws.emr#InstanceFleetStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
-          },
-          {
-            "value": "VALIDATION_ERROR",
-            "name": "VALIDATION_ERROR"
-          },
-          {
-            "value": "INSTANCE_FAILURE",
-            "name": "INSTANCE_FAILURE"
-          },
-          {
-            "value": "CLUSTER_TERMINATED",
-            "name": "CLUSTER_TERMINATED"
+      "type": "enum",
+      "members": {
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
           }
-        ]
+        },
+        "VALIDATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATION_ERROR"
+          }
+        },
+        "INSTANCE_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FAILURE"
+          }
+        },
+        "CLUSTER_TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLUSTER_TERMINATED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceFleetStatus": {
@@ -5467,22 +5617,26 @@
       }
     },
     "com.amazonaws.emr#InstanceFleetType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MASTER",
-            "name": "MASTER"
-          },
-          {
-            "value": "CORE",
-            "name": "CORE"
-          },
-          {
-            "value": "TASK",
-            "name": "TASK"
+      "type": "enum",
+      "members": {
+        "MASTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASTER"
           }
-        ]
+        },
+        "CORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CORE"
+          }
+        },
+        "TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceGroup": {
@@ -5858,54 +6012,74 @@
       }
     },
     "com.amazonaws.emr#InstanceGroupState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROVISIONING",
-            "name": "PROVISIONING"
-          },
-          {
-            "value": "BOOTSTRAPPING",
-            "name": "BOOTSTRAPPING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "RECONFIGURING",
-            "name": "RECONFIGURING"
-          },
-          {
-            "value": "RESIZING",
-            "name": "RESIZING"
-          },
-          {
-            "value": "SUSPENDED",
-            "name": "SUSPENDED"
-          },
-          {
-            "value": "TERMINATING",
-            "name": "TERMINATING"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "ARRESTED",
-            "name": "ARRESTED"
-          },
-          {
-            "value": "SHUTTING_DOWN",
-            "name": "SHUTTING_DOWN"
-          },
-          {
-            "value": "ENDED",
-            "name": "ENDED"
+      "type": "enum",
+      "members": {
+        "PROVISIONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISIONING"
           }
-        ]
+        },
+        "BOOTSTRAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAPPING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "RECONFIGURING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECONFIGURING"
+          }
+        },
+        "RESIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESIZING"
+          }
+        },
+        "SUSPENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUSPENDED"
+          }
+        },
+        "TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATING"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        },
+        "ARRESTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ARRESTED"
+          }
+        },
+        "SHUTTING_DOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHUTTING_DOWN"
+          }
+        },
+        "ENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENDED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceGroupStateChangeReason": {
@@ -5929,26 +6103,32 @@
       }
     },
     "com.amazonaws.emr#InstanceGroupStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
-          },
-          {
-            "value": "VALIDATION_ERROR",
-            "name": "VALIDATION_ERROR"
-          },
-          {
-            "value": "INSTANCE_FAILURE",
-            "name": "INSTANCE_FAILURE"
-          },
-          {
-            "value": "CLUSTER_TERMINATED",
-            "name": "CLUSTER_TERMINATED"
+      "type": "enum",
+      "members": {
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
           }
-        ]
+        },
+        "VALIDATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATION_ERROR"
+          }
+        },
+        "INSTANCE_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FAILURE"
+          }
+        },
+        "CLUSTER_TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLUSTER_TERMINATED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceGroupStatus": {
@@ -6004,22 +6184,26 @@
       }
     },
     "com.amazonaws.emr#InstanceGroupType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MASTER",
-            "name": "MASTER"
-          },
-          {
-            "value": "CORE",
-            "name": "CORE"
-          },
-          {
-            "value": "TASK",
-            "name": "TASK"
+      "type": "enum",
+      "members": {
+        "MASTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASTER"
           }
-        ]
+        },
+        "CORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CORE"
+          }
+        },
+        "TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceGroupTypeList": {
@@ -6064,49 +6248,61 @@
       }
     },
     "com.amazonaws.emr#InstanceRoleType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MASTER",
-            "name": "MASTER"
-          },
-          {
-            "value": "CORE",
-            "name": "CORE"
-          },
-          {
-            "value": "TASK",
-            "name": "TASK"
+      "type": "enum",
+      "members": {
+        "MASTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MASTER"
           }
-        ]
+        },
+        "CORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CORE"
+          }
+        },
+        "TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWAITING_FULFILLMENT",
-            "name": "AWAITING_FULFILLMENT"
-          },
-          {
-            "value": "PROVISIONING",
-            "name": "PROVISIONING"
-          },
-          {
-            "value": "BOOTSTRAPPING",
-            "name": "BOOTSTRAPPING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
+      "type": "enum",
+      "members": {
+        "AWAITING_FULFILLMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWAITING_FULFILLMENT"
           }
-        ]
+        },
+        "PROVISIONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISIONING"
+          }
+        },
+        "BOOTSTRAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAPPING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceStateChangeReason": {
@@ -6130,30 +6326,38 @@
       }
     },
     "com.amazonaws.emr#InstanceStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
-          },
-          {
-            "value": "VALIDATION_ERROR",
-            "name": "VALIDATION_ERROR"
-          },
-          {
-            "value": "INSTANCE_FAILURE",
-            "name": "INSTANCE_FAILURE"
-          },
-          {
-            "value": "BOOTSTRAP_FAILURE",
-            "name": "BOOTSTRAP_FAILURE"
-          },
-          {
-            "value": "CLUSTER_TERMINATED",
-            "name": "CLUSTER_TERMINATED"
+      "type": "enum",
+      "members": {
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
           }
-        ]
+        },
+        "VALIDATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATION_ERROR"
+          }
+        },
+        "INSTANCE_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTANCE_FAILURE"
+          }
+        },
+        "BOOTSTRAP_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAP_FAILURE"
+          }
+        },
+        "CLUSTER_TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLUSTER_TERMINATED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#InstanceStateList": {
@@ -6505,43 +6709,59 @@
       }
     },
     "com.amazonaws.emr#JobFlowExecutionState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The type of instance.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "BOOTSTRAPPING",
-            "name": "BOOTSTRAPPING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "WAITING",
-            "name": "WAITING"
-          },
-          {
-            "value": "SHUTTING_DOWN",
-            "name": "SHUTTING_DOWN"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
           }
-        ]
+        },
+        "BOOTSTRAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOTSTRAPPING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "WAITING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WAITING"
+          }
+        },
+        "SHUTTING_DOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHUTTING_DOWN"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of instance.</p>"
       }
     },
     "com.amazonaws.emr#JobFlowExecutionStateList": {
@@ -7645,18 +7865,20 @@
       "type": "string"
     },
     "com.amazonaws.emr#MarketType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ON_DEMAND",
-            "name": "ON_DEMAND"
-          },
-          {
-            "value": "SPOT",
-            "name": "SPOT"
+      "type": "enum",
+      "members": {
+        "ON_DEMAND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEMAND"
           }
-        ]
+        },
+        "SPOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPOT"
+          }
+        }
       }
     },
     "com.amazonaws.emr#MaxResultsNumber": {
@@ -7829,7 +8051,7 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0
+          "min": 0.0
         }
       }
     },
@@ -7920,50 +8142,68 @@
       }
     },
     "com.amazonaws.emr#NotebookExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_PENDING",
-            "name": "START_PENDING"
-          },
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "FINISHING",
-            "name": "FINISHING"
-          },
-          {
-            "value": "FINISHED",
-            "name": "FINISHED"
-          },
-          {
-            "value": "FAILING",
-            "name": "FAILING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "STOP_PENDING",
-            "name": "STOP_PENDING"
-          },
-          {
-            "value": "STOPPING",
-            "name": "STOPPING"
-          },
-          {
-            "value": "STOPPED",
-            "name": "STOPPED"
+      "type": "enum",
+      "members": {
+        "START_PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_PENDING"
           }
-        ]
+        },
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "FINISHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FINISHING"
+          }
+        },
+        "FINISHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FINISHED"
+          }
+        },
+        "FAILING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "STOP_PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOP_PENDING"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#NotebookExecutionSummary": {
@@ -8063,40 +8303,42 @@
       }
     },
     "com.amazonaws.emr#OnDemandCapacityReservationPreference": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "open",
-            "name": "OPEN"
-          },
-          {
-            "value": "none",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "open"
           }
-        ]
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
+          }
+        }
       }
     },
     "com.amazonaws.emr#OnDemandCapacityReservationUsageStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "use-capacity-reservations-first",
-            "name": "USE_CAPACITY_RESERVATIONS_FIRST"
+      "type": "enum",
+      "members": {
+        "USE_CAPACITY_RESERVATIONS_FIRST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "use-capacity-reservations-first"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.emr#OnDemandProvisioningAllocationStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "lowest-price",
-            "name": "LOWEST_PRICE"
+      "type": "enum",
+      "members": {
+        "LOWEST_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "lowest-price"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.emr#OnDemandProvisioningSpecification": {
@@ -8157,26 +8399,32 @@
       }
     },
     "com.amazonaws.emr#PlacementGroupStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SPREAD",
-            "name": "SPREAD"
-          },
-          {
-            "value": "PARTITION",
-            "name": "PARTITION"
-          },
-          {
-            "value": "CLUSTER",
-            "name": "CLUSTER"
-          },
-          {
-            "value": "NONE",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "SPREAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPREAD"
           }
-        ]
+        },
+        "PARTITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTITION"
+          }
+        },
+        "CLUSTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLUSTER"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        }
       }
     },
     "com.amazonaws.emr#PlacementType": {
@@ -8408,18 +8656,20 @@
       "members": {}
     },
     "com.amazonaws.emr#ReconfigurationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OVERWRITE",
-            "name": "OVERWRITE"
-          },
-          {
-            "value": "MERGE",
-            "name": "MERGE"
+      "type": "enum",
+      "members": {
+        "OVERWRITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OVERWRITE"
           }
-        ]
+        },
+        "MERGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MERGE"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ReleaseLabelFilter": {
@@ -8583,18 +8833,20 @@
       }
     },
     "com.amazonaws.emr#RepoUpgradeOnBoot": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SECURITY",
-            "name": "SECURITY"
-          },
-          {
-            "value": "NONE",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "SECURITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECURITY"
           }
-        ]
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ResourceId": {
@@ -8614,7 +8866,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the\n         steps specified. After the steps complete, the cluster stops and the HDFS partition is\n         lost. To prevent loss of data, configure the last step of the job flow to store results in\n            Amazon S3. If the <a>JobFlowInstancesConfig</a>\n            <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster\n         transitions to the WAITING state rather than shutting down after the steps have completed. </p>\n         <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a>\n            <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and\n         prevent it from being terminated by API call, user intervention, or in the event of a job\n         flow error.</p>\n         <p>A maximum of 256 steps are allowed in each job flow.</p>\n         <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may\n         require more than 256 steps to process your data. You can bypass the 256-step limitation in\n         various ways, including using the SSH shell to connect to the master node and submitting\n         queries directly to the software running on the master node, such as Hive and Hadoop. For\n         more information on how to do this, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a\n            Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>\n         <p>For long running clusters, we recommend that you periodically store your results.</p>\n         <note>\n            <p>The instance fleets configuration is available only in Amazon EMR versions\n            4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain\n            InstanceFleets parameters or InstanceGroups parameters, but not both.</p>\n         </note>"
+        "smithy.api#documentation": "<p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the\n         steps specified. After the steps complete, the cluster stops and the HDFS partition is\n         lost. To prevent loss of data, configure the last step of the job flow to store results in\n            Amazon S3. If the <a>JobFlowInstancesConfig</a>\n            <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster\n         transitions to the WAITING state rather than shutting down after the steps have completed. </p>\n         <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a>\n            <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and\n         prevent it from being terminated by API call, user intervention, or in the event of a job\n         flow error.</p>\n         <p>A maximum of 256 steps are allowed in each job flow.</p>\n         <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may\n         require more than 256 steps to process your data. You can bypass the 256-step limitation in\n         various ways, including using the SSH shell to connect to the master node and submitting\n         queries directly to the software running on the master node, such as Hive and Hadoop.</p>\n         <p>For long-running clusters, we recommend that you periodically store your results.</p>\n         <note>\n            <p>The instance fleets configuration is available only in Amazon EMR versions\n            4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain\n            InstanceFleets parameters or InstanceGroups parameters, but not both.</p>\n         </note>"
       }
     },
     "com.amazonaws.emr#RunJobFlowInput": {
@@ -8716,7 +8968,7 @@
         "ServiceRole": {
           "target": "com.amazonaws.emr#XmlString",
           "traits": {
-            "smithy.api#documentation": "<p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services\n         resources on your behalf.</p>"
+            "smithy.api#documentation": "<p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services\n         resources on your behalf. If you've created a custom service role path, you must specify it for the service role when you launch your cluster.</p>"
           }
         },
         "Tags": {
@@ -8820,18 +9072,20 @@
       }
     },
     "com.amazonaws.emr#ScaleDownBehavior": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TERMINATE_AT_INSTANCE_HOUR",
-            "name": "TERMINATE_AT_INSTANCE_HOUR"
-          },
-          {
-            "value": "TERMINATE_AT_TASK_COMPLETION",
-            "name": "TERMINATE_AT_TASK_COMPLETION"
+      "type": "enum",
+      "members": {
+        "TERMINATE_AT_INSTANCE_HOUR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_AT_INSTANCE_HOUR"
           }
-        ]
+        },
+        "TERMINATE_AT_TASK_COMPLETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_AT_TASK_COMPLETION"
+          }
+        }
       }
     },
     "com.amazonaws.emr#ScalingAction": {
@@ -9004,7 +9258,7 @@
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>.</p>"
+            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>.</p>"
           }
         },
         "IdentityType": {
@@ -9048,13 +9302,13 @@
         "IdentityId": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO\n         Identity Store.</p>"
+            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center\n         Identity Store.</p>"
           }
         },
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>.</p>"
+            "smithy.api#documentation": "<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>.</p>"
           }
         },
         "IdentityType": {
@@ -9240,14 +9494,14 @@
       }
     },
     "com.amazonaws.emr#SpotProvisioningAllocationStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "capacity-optimized",
-            "name": "CAPACITY_OPTIMIZED"
+      "type": "enum",
+      "members": {
+        "CAPACITY_OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "capacity-optimized"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.emr#SpotProvisioningSpecification": {
@@ -9285,18 +9539,20 @@
       }
     },
     "com.amazonaws.emr#SpotProvisioningTimeoutAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SWITCH_TO_ON_DEMAND",
-            "name": "SWITCH_TO_ON_DEMAND"
-          },
-          {
-            "value": "TERMINATE_CLUSTER",
-            "name": "TERMINATE_CLUSTER"
+      "type": "enum",
+      "members": {
+        "SWITCH_TO_ON_DEMAND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SWITCH_TO_ON_DEMAND"
           }
-        ]
+        },
+        "TERMINATE_CLUSTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_CLUSTER"
+          }
+        }
       }
     },
     "com.amazonaws.emr#StartNotebookExecution": {
@@ -9388,30 +9644,38 @@
       }
     },
     "com.amazonaws.emr#Statistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SAMPLE_COUNT",
-            "name": "SAMPLE_COUNT"
-          },
-          {
-            "value": "AVERAGE",
-            "name": "AVERAGE"
-          },
-          {
-            "value": "SUM",
-            "name": "SUM"
-          },
-          {
-            "value": "MINIMUM",
-            "name": "MINIMUM"
-          },
-          {
-            "value": "MAXIMUM",
-            "name": "MAXIMUM"
+      "type": "enum",
+      "members": {
+        "SAMPLE_COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAMPLE_COUNT"
           }
-        ]
+        },
+        "AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVERAGE"
+          }
+        },
+        "SUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUM"
+          }
+        },
+        "MINIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MINIMUM"
+          }
+        },
+        "MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAXIMUM"
+          }
+        }
       }
     },
     "com.amazonaws.emr#Step": {
@@ -9459,18 +9723,20 @@
       }
     },
     "com.amazonaws.emr#StepCancellationOption": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SEND_INTERRUPT",
-            "name": "SEND_INTERRUPT"
-          },
-          {
-            "value": "TERMINATE_PROCESS",
-            "name": "TERMINATE_PROCESS"
+      "type": "enum",
+      "members": {
+        "SEND_INTERRUPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SEND_INTERRUPT"
           }
-        ]
+        },
+        "TERMINATE_PROCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE_PROCESS"
+          }
+        }
       }
     },
     "com.amazonaws.emr#StepConfig": {
@@ -9536,38 +9802,50 @@
       }
     },
     "com.amazonaws.emr#StepExecutionState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "CONTINUE",
-            "name": "CONTINUE"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "INTERRUPTED",
-            "name": "INTERRUPTED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "CONTINUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUE"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "INTERRUPTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERRUPTED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#StepExecutionStatusDetail": {
@@ -9620,38 +9898,50 @@
       }
     },
     "com.amazonaws.emr#StepState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "CANCEL_PENDING",
-            "name": "CANCEL_PENDING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "INTERRUPTED",
-            "name": "INTERRUPTED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "CANCEL_PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCEL_PENDING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "INTERRUPTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERRUPTED"
+          }
+        }
       }
     },
     "com.amazonaws.emr#StepStateChangeReason": {
@@ -9675,14 +9965,14 @@
       }
     },
     "com.amazonaws.emr#StepStateChangeReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NONE",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.emr#StepStateList": {
@@ -9873,7 +10163,7 @@
         "AuthMode": {
           "target": "com.amazonaws.emr#AuthMode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the Amazon EMR Studio authenticates users using IAM or Amazon Web Services SSO.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the Amazon EMR Studio authenticates users using IAM or IAM Identity Center.</p>"
           }
         },
         "VpcId": {
@@ -9989,7 +10279,7 @@
         "AuthMode": {
           "target": "com.amazonaws.emr#AuthMode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>"
           }
         },
         "CreationTime": {
@@ -10108,118 +10398,170 @@
       }
     },
     "com.amazonaws.emr#Unit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
-            "value": "SECONDS",
-            "name": "SECONDS"
-          },
-          {
-            "value": "MICRO_SECONDS",
-            "name": "MICRO_SECONDS"
-          },
-          {
-            "value": "MILLI_SECONDS",
-            "name": "MILLI_SECONDS"
-          },
-          {
-            "value": "BYTES",
-            "name": "BYTES"
-          },
-          {
-            "value": "KILO_BYTES",
-            "name": "KILO_BYTES"
-          },
-          {
-            "value": "MEGA_BYTES",
-            "name": "MEGA_BYTES"
-          },
-          {
-            "value": "GIGA_BYTES",
-            "name": "GIGA_BYTES"
-          },
-          {
-            "value": "TERA_BYTES",
-            "name": "TERA_BYTES"
-          },
-          {
-            "value": "BITS",
-            "name": "BITS"
-          },
-          {
-            "value": "KILO_BITS",
-            "name": "KILO_BITS"
-          },
-          {
-            "value": "MEGA_BITS",
-            "name": "MEGA_BITS"
-          },
-          {
-            "value": "GIGA_BITS",
-            "name": "GIGA_BITS"
-          },
-          {
-            "value": "TERA_BITS",
-            "name": "TERA_BITS"
-          },
-          {
-            "value": "PERCENT",
-            "name": "PERCENT"
-          },
-          {
-            "value": "COUNT",
-            "name": "COUNT"
-          },
-          {
-            "value": "BYTES_PER_SECOND",
-            "name": "BYTES_PER_SECOND"
-          },
-          {
-            "value": "KILO_BYTES_PER_SECOND",
-            "name": "KILO_BYTES_PER_SECOND"
-          },
-          {
-            "value": "MEGA_BYTES_PER_SECOND",
-            "name": "MEGA_BYTES_PER_SECOND"
-          },
-          {
-            "value": "GIGA_BYTES_PER_SECOND",
-            "name": "GIGA_BYTES_PER_SECOND"
-          },
-          {
-            "value": "TERA_BYTES_PER_SECOND",
-            "name": "TERA_BYTES_PER_SECOND"
-          },
-          {
-            "value": "BITS_PER_SECOND",
-            "name": "BITS_PER_SECOND"
-          },
-          {
-            "value": "KILO_BITS_PER_SECOND",
-            "name": "KILO_BITS_PER_SECOND"
-          },
-          {
-            "value": "MEGA_BITS_PER_SECOND",
-            "name": "MEGA_BITS_PER_SECOND"
-          },
-          {
-            "value": "GIGA_BITS_PER_SECOND",
-            "name": "GIGA_BITS_PER_SECOND"
-          },
-          {
-            "value": "TERA_BITS_PER_SECOND",
-            "name": "TERA_BITS_PER_SECOND"
-          },
-          {
-            "value": "COUNT_PER_SECOND",
-            "name": "COUNT_PER_SECOND"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
-        ]
+        },
+        "SECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECONDS"
+          }
+        },
+        "MICRO_SECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MICRO_SECONDS"
+          }
+        },
+        "MILLI_SECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MILLI_SECONDS"
+          }
+        },
+        "BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYTES"
+          }
+        },
+        "KILO_BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KILO_BYTES"
+          }
+        },
+        "MEGA_BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEGA_BYTES"
+          }
+        },
+        "GIGA_BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIGA_BYTES"
+          }
+        },
+        "TERA_BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERA_BYTES"
+          }
+        },
+        "BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BITS"
+          }
+        },
+        "KILO_BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KILO_BITS"
+          }
+        },
+        "MEGA_BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEGA_BITS"
+          }
+        },
+        "GIGA_BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIGA_BITS"
+          }
+        },
+        "TERA_BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERA_BITS"
+          }
+        },
+        "PERCENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENT"
+          }
+        },
+        "COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COUNT"
+          }
+        },
+        "BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYTES_PER_SECOND"
+          }
+        },
+        "KILO_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KILO_BYTES_PER_SECOND"
+          }
+        },
+        "MEGA_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEGA_BYTES_PER_SECOND"
+          }
+        },
+        "GIGA_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIGA_BYTES_PER_SECOND"
+          }
+        },
+        "TERA_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERA_BYTES_PER_SECOND"
+          }
+        },
+        "BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BITS_PER_SECOND"
+          }
+        },
+        "KILO_BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KILO_BITS_PER_SECOND"
+          }
+        },
+        "MEGA_BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEGA_BITS_PER_SECOND"
+          }
+        },
+        "GIGA_BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIGA_BITS_PER_SECOND"
+          }
+        },
+        "TERA_BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERA_BITS_PER_SECOND"
+          }
+        },
+        "COUNT_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COUNT_PER_SECOND"
+          }
+        }
       }
     },
     "com.amazonaws.emr#UpdateStudio": {
@@ -10311,13 +10653,13 @@
         "IdentityId": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group. For more information, see\n            <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
+            "smithy.api#documentation": "<p>The globally unique identifier (GUID) of the user or group. For more information, see\n            <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
           }
         },
         "IdentityName": {
           "target": "com.amazonaws.emr#XmlStringMaxLen256",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user or group to update. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
+            "smithy.api#documentation": "<p>The name of the user or group to update. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API\n            Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must\n         be specified.</p>"
           }
         },
         "IdentityType": {
@@ -10336,13 +10678,34 @@
         }
       }
     },
+    "com.amazonaws.emr#UsernamePassword": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>The username associated with the temporary credentials that you use to connect to cluster endpoints.</p>"
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.emr#XmlStringMaxLen256",
+          "traits": {
+            "smithy.api#documentation": "<p>The password associated with the temporary credentials that you use to connect to cluster endpoints.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The username and password that you use to connect to cluster endpoints.</p>",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.emr#VolumeSpecification": {
       "type": "structure",
       "members": {
         "VolumeType": {
           "target": "com.amazonaws.emr#String",
           "traits": {
-            "smithy.api#documentation": "<p>The volume type. Volume types supported are gp2, io1, and standard.</p>",
+            "smithy.api#documentation": "<p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10362,7 +10725,7 @@
         "Throughput": {
           "target": "com.amazonaws.emr#ThroughputVal",
           "traits": {
-            "smithy.api#documentation": "<p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.</p>"
+            "smithy.api#documentation": "<p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number \n           from 125 - 1000 and is valid only for gp3 volumes.</p>"
           }
         }
       },

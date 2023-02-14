@@ -31,7 +31,7 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
 /**
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  *             messages to them.</p>
- *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
+ *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
  *             returns up to 100 phone numbers. If additional phone numbers are available after the
  *             first page of results, then a <code>NextToken</code> string will be returned. To receive
  *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the

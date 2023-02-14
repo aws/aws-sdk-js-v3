@@ -27,7 +27,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
  *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
  *             Notifications</a>. </p>
- *         <p>When you delete an endpoint that is also subscribed to a topic, then you must also
+ *          <p>When you delete an endpoint that is also subscribed to a topic, then you must also
  *             unsubscribe the endpoint from the topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -158,9 +158,10 @@ export class EFS extends EFSClient {
    *       the application's own directory and any subdirectories. To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a file system using EFS access
    *         points</a>.</p>
    *          <note>
-   *             <p>If multiple requests to create access points on the same file system are sent in quick succession, and the file system is
-   *       near the limit of 120 access points, you may experience a throttling response for these requests. This
-   *       is to ensure that the file system does not exceed the stated access point limit.</p>
+   *             <p>If multiple requests to create access points on the same file system are sent in quick
+   *         succession, and the file system is near the limit of 1000 access points, you may experience
+   *         a throttling response for these requests. This is to ensure that the file system does not
+   *         exceed the stated access point limit.</p>
    *          </note>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
    */
@@ -223,14 +224,12 @@ export class EFS extends EFSClient {
    *          <p>For more information, see
    *       <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating a file system</a>
    *      in the <i>Amazon EFS User Guide</i>.</p>
-   *
    *          <note>
    *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
    *         state is still <code>creating</code>. You can check the file system creation status by
    *         calling the <a>DescribeFileSystems</a> operation, which among other things returns the file
    *         system state.</p>
    *          </note>
-   *
    *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you
    *       choose for your file system. We recommend <code>generalPurpose</code> performance mode for
    *       most file systems. File systems using the <code>maxIO</code> performance mode can scale to
@@ -238,14 +237,11 @@ export class EFS extends EFSClient {
    *       higher latencies for most file operations. The performance mode can't be changed after
    *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
    *         modes</a>.</p>
-   *
    *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
-   *
    *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
    *         <code>available</code>, at which point you can create one or more mount targets for the file
    *       system in your VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS file system on an EC2 instances in
    *       your VPC by using the mount target. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
-   *
    *          <p> This operation requires permissions for the
    *         <code>elasticfilesystem:CreateFileSystem</code> action. </p>
    */
@@ -317,7 +313,6 @@ export class EFS extends EFSClient {
    *                </ul>
    *             </li>
    *          </ul>
-   *
    *          <p>After creating the mount target, Amazon EFS returns a response that includes, a
    *         <code>MountTargetId</code> and an <code>IpAddress</code>. You use this IP address when
    *       mounting the file system in an EC2 instance. You can also use the mount target's DNS name
@@ -338,7 +333,6 @@ export class EFS extends EFSClient {
    *           mount targets</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the request satisfies the requirements, Amazon EFS does the following:</p>
    *          <ul>
    *             <li>
@@ -500,7 +494,6 @@ export class EFS extends EFSClient {
    *                </ul>
    *             </li>
    *          </ul>
-   *
    *          <p>The following properties are set by default:</p>
    *          <ul>
    *             <li>
@@ -517,7 +510,6 @@ export class EFS extends EFSClient {
    *           throughput mode.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following properties are turned off by default:</p>
    *          <ul>
    *             <li>
@@ -534,7 +526,6 @@ export class EFS extends EFSClient {
    *           setting.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
    *           <i>Amazon EFS User Guide</i>.</p>
    */
@@ -652,14 +643,12 @@ export class EFS extends EFSClient {
    *          </note>
    *          <p> You can't delete a file system that is in use. That is, if the file system has
    *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
-   *
    *          <note>
    *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
    *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
    *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
    *         error.</p>
    *          </note>
-   *
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
    */
@@ -729,7 +718,6 @@ export class EFS extends EFSClient {
 
   /**
    * <p>Deletes the specified mount target.</p>
-   *
    *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
    *       that is being deleted, which might disrupt instances or applications using those mounts. To
    *       avoid applications getting cut off abruptly, you might consider unmounting any mounts of the
@@ -746,13 +734,11 @@ export class EFS extends EFSClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The <code>DeleteMountTarget</code> call returns while the mount target state is still
    *           <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a> operation, which returns a list of mount target
    *         descriptions for the given file system. </p>
    *          </note>
-   *
    *          <p>The operation also requires permissions for the following Amazon EC2 action on the
    *       mount target's network interface:</p>
    *          <ul>
@@ -840,7 +826,6 @@ export class EFS extends EFSClient {
    *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
    *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
    *         <i>Billing and Cost Management User Guide</i>.</p>
-   *
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
    *       action.</p>
    */
@@ -1005,20 +990,17 @@ export class EFS extends EFSClient {
    *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
    *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
    *       Amazon Web Services Region of the endpoint that you're calling.</p>
-   *
    *          <p>When retrieving all file system descriptions, you can optionally specify the
    *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.
-   *       Currently, this number is automatically set to 10. If more file system descriptions remain,
+   *       This number is automatically set to 100. If more file system descriptions remain,
    *       Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response. In this case,
    *       you should send a subsequent request with the <code>Marker</code> request parameter set to the
    *       value of <code>NextMarker</code>. </p>
-   *
    *          <p>To retrieve a list of your file system descriptions, this operation is used in an
    *       iterative process, where <code>DescribeFileSystems</code> is called first without the
    *         <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
    *       parameter set to the value of the <code>NextMarker</code> from the previous response until the
    *       response has no <code>NextMarker</code>. </p>
-   *
    *          <p> The order of file systems returned in the response of one
    *         <code>DescribeFileSystems</code> call and the order of file systems returned across the
    *       responses of a multi-call iteration is unspecified. </p>
@@ -1098,7 +1080,6 @@ export class EFS extends EFSClient {
    * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
    *       for a file system. When requesting all of the current mount targets, the order of mount
    *       targets returned in the response is unspecified.</p>
-   *
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
    *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
@@ -1476,7 +1457,6 @@ export class EFS extends EFSClient {
    *             <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
    *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
    *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
@@ -1501,7 +1481,6 @@ export class EFS extends EFSClient {
    *                </note>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
    *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
    *       need the same Key Management Service permissions as when you created the encrypted file system.</p>

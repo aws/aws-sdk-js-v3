@@ -600,9 +600,11 @@ export interface DescribeSecretRequest {
  */
 export interface RotationRulesType {
   /**
-   * <p>The number of days between automatic scheduled rotations of the secret. You can use this
+   * <p>The number of days between rotations of the secret. You can use this
    *       value to check that your secret meets your compliance guidelines for how often secrets must
-   *       be rotated.</p>
+   *       be rotated. If you use this field to set the rotation schedule, Secrets Manager calculates the next rotation
+   *       date based on the previous rotation. Manually updating the secret value by calling
+   *       <code>PutSecretValue</code> or <code>UpdateSecret</code> is considered a valid rotation.</p>
    *          <p>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated from
    *       the rotation schedule after every successful rotation. In <code>RotateSecret</code>, you can
    *       set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
@@ -716,6 +718,11 @@ export interface DescribeSecretResponse {
   DeletedDate?: Date;
 
   /**
+   * <p>The next date and time that Secrets Manager will rotate the secret, rounded to the nearest hour. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   */
+  NextRotationDate?: Date;
+
+  /**
    * <p>The list of tags attached to the secret. To add tags to a
    *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
    */
@@ -789,6 +796,7 @@ export enum FilterNameStringType {
   all = "all",
   description = "description",
   name = "name",
+  owning_service = "owning-service",
   primary_region = "primary-region",
   tag_key = "tag-key",
   tag_value = "tag-value",
@@ -820,6 +828,10 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <b>primary-region</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>owning-service</b>: Prefix match, case-sensitive.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1026,6 +1038,11 @@ export enum SortOrderType {
 
 export interface ListSecretsRequest {
   /**
+   * <p>Specifies whether to include secrets scheduled for deletion.</p>
+   */
+  IncludePlannedDeletion?: boolean;
+
+  /**
    * <p>The number of results to include in the response.</p>
    *          <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
    *       To get the next results, call <code>ListSecrets</code> again with the value from
@@ -1123,6 +1140,11 @@ export interface SecretListEntry {
    *             </a> operation.</p>
    */
   DeletedDate?: Date;
+
+  /**
+   * <p>The next date and time that Secrets Manager will attempt to rotate the secret, rounded to the nearest hour. This value is null if the secret is not set up for rotation.</p>
+   */
+  NextRotationDate?: Date;
 
   /**
    * <p>The list of user-defined tags associated with the secret. To add tags to a

@@ -17,7 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateIpAddressesRequestFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2UnassignPrivateIpAddressesCommand,
   serializeAws_ec2UnassignPrivateIpAddressesCommand,

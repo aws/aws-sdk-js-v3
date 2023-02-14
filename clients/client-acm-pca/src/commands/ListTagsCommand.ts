@@ -28,8 +28,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 /**
  * <p>Lists the tags, if any, that are associated with your private CA or one that has been
  * 			shared with you. Tags are labels that you can use to identify and organize your CAs.
- * 			Each tag consists of a key and an optional value. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>
- * 			action to add one or more tags to your CA. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a> action to remove tags. </p>
+ * 			Each tag consists of a key and an optional value. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>
+ * 			action to add one or more tags to your CA. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a> action to remove tags. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

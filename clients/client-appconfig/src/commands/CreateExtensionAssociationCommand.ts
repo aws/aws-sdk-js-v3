@@ -29,11 +29,11 @@ export interface CreateExtensionAssociationCommandInput extends CreateExtensionA
 export interface CreateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
- * <p>When you create an extension or configure an Amazon Web Services-authored extension, you
+ * <p>When you create an extension or configure an Amazon Web Services authored extension, you
  *          associate the extension with an AppConfig application, environment, or
  *          configuration profile. For example, you can choose to run the <code>AppConfig
  *             deployment events to Amazon SNS</code>
- *          Amazon Web Services-authored extension and receive notifications on an Amazon SNS
+ *          Amazon Web Services authored extension and receive notifications on an Amazon SNS
  *          topic anytime a configuration deployment is started for a specific application. Defining
  *          which extension to associate with an AppConfig resource is called an
  *             <i>extension association</i>. An extension association is a specified

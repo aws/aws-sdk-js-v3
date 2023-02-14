@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -142,6 +144,10 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
@@ -198,6 +204,10 @@ import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "./commands/PutRuntimeManagementConfigCommand";
 import {
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
@@ -268,6 +278,7 @@ export type ServiceInputTypes =
   | GetLayerVersionPolicyCommandInput
   | GetPolicyCommandInput
   | GetProvisionedConcurrencyConfigCommandInput
+  | GetRuntimeManagementConfigCommandInput
   | InvokeAsyncCommandInput
   | InvokeCommandInput
   | ListAliasesCommandInput
@@ -288,6 +299,7 @@ export type ServiceInputTypes =
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
+  | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
   | TagResourceCommandInput
@@ -333,6 +345,7 @@ export type ServiceOutputTypes =
   | GetLayerVersionPolicyCommandOutput
   | GetPolicyCommandOutput
   | GetProvisionedConcurrencyConfigCommandOutput
+  | GetRuntimeManagementConfigCommandOutput
   | InvokeAsyncCommandOutput
   | InvokeCommandOutput
   | ListAliasesCommandOutput
@@ -353,6 +366,7 @@ export type ServiceOutputTypes =
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
+  | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput
   | TagResourceCommandOutput
@@ -372,11 +386,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -481,9 +495,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type LambdaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -541,7 +555,6 @@ export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigTy
  *          <p>
  *             <b>CA certificates</b>
  *          </p>
- *
  *          <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers
  *         can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your
  *         computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate

@@ -25,11 +25,11 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
- *         <note>
+ *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
  *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
  *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

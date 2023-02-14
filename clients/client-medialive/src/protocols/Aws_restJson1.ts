@@ -8089,6 +8089,9 @@ const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __Serd
     ...(input.Scte27Pids != null && { scte27Pids: input.Scte27Pids }),
     ...(input.Scte35Control != null && { scte35Control: input.Scte35Control }),
     ...(input.Scte35Pid != null && { scte35Pid: input.Scte35Pid }),
+    ...(input.Scte35PrerollPullupMilliseconds != null && {
+      scte35PrerollPullupMilliseconds: __serializeFloat(input.Scte35PrerollPullupMilliseconds),
+    }),
     ...(input.SegmentationMarkers != null && { segmentationMarkers: input.SegmentationMarkers }),
     ...(input.SegmentationStyle != null && { segmentationStyle: input.SegmentationStyle }),
     ...(input.SegmentationTime != null && { segmentationTime: __serializeFloat(input.SegmentationTime) }),
@@ -11480,6 +11483,7 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
     Scte27Pids: __expectString(output.scte27Pids),
     Scte35Control: __expectString(output.scte35Control),
     Scte35Pid: __expectString(output.scte35Pid),
+    Scte35PrerollPullupMilliseconds: __limitedParseDouble(output.scte35PrerollPullupMilliseconds),
     SegmentationMarkers: __expectString(output.segmentationMarkers),
     SegmentationStyle: __expectString(output.segmentationStyle),
     SegmentationTime: __limitedParseDouble(output.segmentationTime),

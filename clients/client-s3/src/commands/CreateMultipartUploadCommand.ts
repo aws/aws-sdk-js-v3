@@ -35,32 +35,26 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
  *          upload ID in the final request to either complete or abort the multipart upload
  *          request.</p>
- *
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a>.</p>
- *
  *          <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the
  *          upload must complete within the number of days specified in the bucket lifecycle
  *          configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort
  *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting
  *             Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
- *
  *          <p>For information about the permissions required to use the multipart upload API, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *             Permissions</a>.</p>
- *
  *          <p>For request signing, multipart upload is just a series of regular requests. You initiate
  *          a multipart upload, send one or more requests to upload parts, and then complete the
  *          multipart upload process. You sign each request individually. There is nothing special
  *          about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
  *             Requests (Amazon Web Services Signature Version 4)</a>.</p>
- *
  *          <note>
  *             <p> After you initiate a multipart upload and upload one or more parts, to stop being
  *             charged for storing the uploaded parts, you must either complete or abort the multipart
  *             upload. Amazon S3 frees up the space used to store the parts and stop charging you for
  *             storing them only after you either complete or abort a multipart upload. </p>
  *          </note>
- *
  *          <p>You can optionally request server-side encryption. For server-side encryption, Amazon S3
  *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
  *          access it. You can provide your own encryption key, or use Amazon Web Services KMS keys or Amazon S3-managed encryption keys. If you choose to provide
@@ -72,16 +66,12 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          from the encrypted file parts before it completes the multipart upload. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API
  *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account
  *          as the KMS key, then you must have these permissions on the key policy. If your IAM
  *          user or role belongs to a different account than the key, then you must have the
  *          permissions on both the key policy and your IAM user or role.</p>
- *
- *
  *          <p> For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting
  *             Data Using Server-Side Encryption</a>.</p>
- *
  *          <dl>
  *             <dt>Access Permissions</dt>
  *             <dd>
@@ -278,10 +268,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                      </p>
  *                   </li>
  *                </ul>
- *
  *             </dd>
  *          </dl>
- *
  *          <p>The following operations are related to <code>CreateMultipartUpload</code>:</p>
  *          <ul>
  *             <li>

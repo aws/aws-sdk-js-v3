@@ -29,7 +29,7 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
  *                 404</code> error is returned. If a resize operation was initiated and completed, the
  *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
- *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
+ *          <p>A resize operation can be requested using <a>ModifyCluster</a> and
  *             specifying a different number or type of nodes for the cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

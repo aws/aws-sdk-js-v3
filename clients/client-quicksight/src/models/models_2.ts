@@ -27,10 +27,8 @@ import {
   Sheet,
 } from "./models_0";
 import {
-  _Parameters,
-  _ParametersFilterSensitiveLog,
   AnalysisDefinition,
-  AnalysisSummary,
+  AnalysisSourceEntity,
   AnonymousUserEmbeddingExperienceConfiguration,
   AssignmentStatus,
   AthenaParameters,
@@ -55,12 +53,273 @@ import {
   ColumnTagName,
   DashboardVisualId,
   DataSetReference,
+  ExceptionResourceType,
   FilterOperator,
-  ResourcePermission,
   SheetDefinition,
   Tag,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>One or more preconditions aren't met.</p>
+ */
+export class PreconditionNotMetException extends __BaseException {
+  readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
+    super({
+      name: "PreconditionNotMetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>A date-time parameter.</p>
+ */
+export interface DateTimeParameter {
+  /**
+   * <p>A display name for the date-time parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the date-time parameter.</p>
+   */
+  Values: Date[] | undefined;
+}
+
+/**
+ * <p>A decimal parameter.</p>
+ */
+export interface DecimalParameter {
+  /**
+   * <p>A display name for the decimal parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the decimal parameter.</p>
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>An integer parameter.</p>
+ */
+export interface IntegerParameter {
+  /**
+   * <p>The name of the integer parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the integer parameter.</p>
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>A string parameter.</p>
+ */
+export interface StringParameter {
+  /**
+   * <p>A display name for a string parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values of a string parameter.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+ */
+export interface _Parameters {
+  /**
+   * <p>The parameters that have a data type of string.</p>
+   */
+  StringParameters?: StringParameter[];
+
+  /**
+   * <p>The parameters that have a data type of integer.</p>
+   */
+  IntegerParameters?: IntegerParameter[];
+
+  /**
+   * <p>The parameters that have a data type of decimal.</p>
+   */
+  DecimalParameters?: DecimalParameter[];
+
+  /**
+   * <p>The parameters that have a data type of date-time.</p>
+   */
+  DateTimeParameters?: DateTimeParameter[];
+}
+
+/**
+ * <p>Permission for the resource.</p>
+ */
+export interface ResourcePermission {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+   *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+   *                     (This is less common.) </p>
+   *             </li>
+   *          </ul>
+   */
+  Principal: string | undefined;
+
+  /**
+   * <p>The IAM action to grant or revoke permissions on.</p>
+   */
+  Actions: string[] | undefined;
+}
+
+export interface CreateAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're creating. This name displays for the
+   *             analysis in the Amazon QuickSight console. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   */
+  Parameters?: _Parameters;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+   *             providing a list of Identity and Access Management (IAM) action information for each
+   *             principal listed by Amazon Resource Name (ARN). </p>
+   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>A source entity to use for the analysis that you're creating. This metadata structure
+   *             contains details that describe a source template and one or more datasets.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   */
+  SourceEntity?: AnalysisSourceEntity;
+
+  /**
+   * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
+   *             in the Amazon QuickSight console, make sure that you have access to it.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   *             analysis.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
+   */
+  Definition?: AnalysisDefinition;
+}
+
+export interface CreateAnalysisResponse {
+  /**
+   * <p>The ARN for the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The status of the creation of the analysis. </p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * <p>A limit is exceeded.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>Limit exceeded.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
 
 /**
  * <p>This error indicates that you are calling an operation on an Amazon QuickSight
@@ -103,11 +362,51 @@ export interface CreateColumnsOperation {
 }
 
 /**
+ * <p>The drill down options for data points in a dashbaord.</p>
+ */
+export interface DataPointDrillUpDownOption {
+  /**
+   * <p>The status of the drill down options of data points.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>The data point menu options of a dashboard.</p>
+ */
+export interface DataPointMenuLabelOption {
+  /**
+   * <p>The status of the data point menu options.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>The data point tooltip options.</p>
+ */
+export interface DataPointTooltipOption {
+  /**
+   * <p>The status of the data point tool tip options.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
  * <p>Export to .csv option.</p>
  */
 export interface ExportToCSVOption {
   /**
    * <p>Availability status.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+ */
+export interface ExportWithHiddenFieldsOption {
+  /**
+   * <p>The status of the export with hidden fields options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
 }
@@ -128,21 +427,51 @@ export interface SheetControlsOption {
 }
 
 /**
- * <p></p>
+ * <p>The sheet layout maximization options of a dashbaord.</p>
  */
-export interface ExportHiddenFieldsOption {
+export interface SheetLayoutElementMaximizationOption {
   /**
-   * <p></p>
+   * <p>The status of the sheet layout maximization options of a dashbaord.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
 /**
- * <p></p>
+ * <p>The axis sort options for a visual.</p>
+ */
+export interface VisualAxisSortOption {
+  /**
+   * <p>The availaiblity status of a visual's axis sort options.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>The menu options for a visual.</p>
+ */
+export interface VisualMenuOption {
+  /**
+   * <p>The availaiblity status of a visual's menu options.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>Determines if hidden fields are included in an exported dashboard.</p>
+ */
+export interface ExportHiddenFieldsOption {
+  /**
+   * <p>The status of the export hidden fields options of a dashbaord.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior | string;
+}
+
+/**
+ * <p>The visual publish options of a visual in a dashboard</p>
  */
 export interface DashboardVisualPublishOptions {
   /**
-   * <p></p>
+   * <p>Determines if hidden fields are included in an exported dashboard.</p>
    */
   ExportHiddenFieldsOption?: ExportHiddenFieldsOption;
 }
@@ -167,9 +496,46 @@ export interface DashboardPublishOptions {
   SheetControlsOption?: SheetControlsOption;
 
   /**
-   * <p></p>
+   * @deprecated
+   *
+   * <p>The visual publish options of a visual in a dashboard.</p>
    */
   VisualPublishOptions?: DashboardVisualPublishOptions;
+
+  /**
+   * <p>The sheet layout maximization options of a dashbaord.</p>
+   */
+  SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption;
+
+  /**
+   * <p>The menu options of a visual in a dashboard.</p>
+   */
+  VisualMenuOption?: VisualMenuOption;
+
+  /**
+   * <p>The axis sort options of a dashboard.</p>
+   */
+  VisualAxisSortOption?: VisualAxisSortOption;
+
+  /**
+   * <p>Determines if hidden fields are exported with a dashboard.</p>
+   */
+  ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption;
+
+  /**
+   * <p>The drill-down options of data points in a dashboard.</p>
+   */
+  DataPointDrillUpDownOption?: DataPointDrillUpDownOption;
+
+  /**
+   * <p>The data point menu label options of a dashboard.</p>
+   */
+  DataPointMenuLabelOption?: DataPointMenuLabelOption;
+
+  /**
+   * <p>The data point tool tip options of a dashboard.</p>
+   */
+  DataPointTooltipOption?: DataPointTooltipOption;
 }
 
 /**
@@ -288,6 +654,8 @@ export interface CreateDashboardRequest {
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
    */
   SourceEntity?: DashboardSourceEntity;
 
@@ -341,6 +709,8 @@ export interface CreateDashboardRequest {
   /**
    * <p>The definition of a dashboard.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   *             order for the request to be valid.</p>
    */
   Definition?: DashboardVersionDefinition;
 }
@@ -720,7 +1090,7 @@ export interface LogicalTable {
   Alias: string | undefined;
 
   /**
-   * <p>Transform operations that act on this logical table.</p>
+   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
    */
   DataTransforms?: TransformOperation[];
 
@@ -3101,6 +3471,8 @@ export interface CreateTemplateRequest {
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   * 			order for the request to be valid.</p>
    */
   SourceEntity?: TemplateSourceEntity;
 
@@ -3120,6 +3492,8 @@ export interface CreateTemplateRequest {
   /**
    * <p>The definition of a template.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
+   * 			order for the request to be valid.</p>
    */
   Definition?: TemplateVersionDefinition;
 }
@@ -3620,7 +3994,7 @@ export interface DashboardError {
   Message?: string;
 
   /**
-   * <p></p>
+   * <p>Lists the violated entities that caused the dashboard error.</p>
    */
   ViolatedEntities?: Entity[];
 }
@@ -5351,6 +5725,34 @@ export interface DescribeDashboardDefinitionResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>Options for publishing the dashboard:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
+   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *          </ul>
+   */
+  DashboardPublishOptions?: DashboardPublishOptions;
 }
 
 export interface DescribeDashboardPermissionsRequest {
@@ -6238,7 +6640,7 @@ export interface TemplateError {
   Message?: string;
 
   /**
-   * <p></p>
+   * <p>An error path that shows which entities caused the template error.</p>
    */
   ViolatedEntities?: Entity[];
 }
@@ -6263,7 +6665,44 @@ export interface TemplateVersion {
   VersionNumber?: number;
 
   /**
-   * <p>The HTTP status of the request.</p>
+   * <p>The status that is associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: ResourceStatus | string;
 
@@ -7628,323 +8067,78 @@ export interface GetSessionEmbedUrlRequest {
   UserArn?: string;
 }
 
-export interface GetSessionEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side web page to embed your
-   * 			Amazon QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
-   */
-  EmbedUrl?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export enum GroupFilterAttribute {
-  GROUP_NAME = "GROUP_NAME",
-}
-
-export enum GroupFilterOperator {
-  StartsWith = "StartsWith",
-}
+/**
+ * @internal
+ */
+export const DateTimeParameterFilterSensitiveLog = (obj: DateTimeParameter): any => ({
+  ...obj,
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
 
 /**
- * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
+ * @internal
  */
-export interface GroupSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator":
-   *                 "StartsWith"</code>. Currently, the only supported operator is
-   *                 <code>StartsWith</code>.</p>
-   */
-  Operator: GroupFilterOperator | string | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
-   *                 "GROUP_NAME"</code>. Currently, the only supported name is
-   *             <code>GROUP_NAME</code>.</p>
-   */
-  Name: GroupFilterAttribute | string | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
-   */
-  Value: string | undefined;
-}
+export const DecimalParameterFilterSensitiveLog = (obj: DecimalParameter): any => ({
+  ...obj,
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
 
 /**
- * <p>IAM policy assignment summary.</p>
+ * @internal
  */
-export interface IAMPolicyAssignmentSummary {
-  /**
-   * <p>Assignment name.</p>
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>Assignment status.</p>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-}
+export const IntegerParameterFilterSensitiveLog = (obj: IntegerParameter): any => ({
+  ...obj,
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
 
 /**
- * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ * @internal
  */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
+export const StringParameterFilterSensitiveLog = (obj: StringParameter): any => ({
+  ...obj,
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
 
-export interface ListAnalysesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
-   */
-  AwsAccountId: string | undefined;
+/**
+ * @internal
+ */
+export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
+  ...obj,
+  ...(obj.StringParameters && {
+    StringParameters: obj.StringParameters.map((item) => StringParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.IntegerParameters && {
+    IntegerParameters: obj.IntegerParameters.map((item) => IntegerParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.DecimalParameters && {
+    DecimalParameters: obj.DecimalParameters.map((item) => DecimalParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.DateTimeParameters && {
+    DateTimeParameters: obj.DateTimeParameters.map((item) => DateTimeParameterFilterSensitiveLog(item)),
+  }),
+});
 
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
+});
 
-export interface ListAnalysesResponse {
-  /**
-   * <p>Metadata describing each of the analyses that are listed.</p>
-   */
-  AnalysisSummaryList?: AnalysisSummary[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
-   *             listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListDashboardsResponse {
-  /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
-   *             provides basic information about the dashboards.</p>
-   */
-  DashboardSummaryList?: DashboardSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export interface ListDashboardVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
-   *             for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListDashboardVersionsResponse {
-  /**
-   * <p>A structure that contains information about each version of the dashboard.</p>
-   */
-  DashboardVersionSummaryList?: DashboardVersionSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export interface ListDataSetsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListDataSetsResponse {
-  /**
-   * <p>The list of dataset summaries.</p>
-   */
-  DataSetSummaries?: DataSetSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export interface ListDataSourcesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   */
-  DataSources?: DataSource[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export interface ListFolderMembersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const CreateAnalysisResponseFilterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7957,6 +8151,27 @@ export const CreateColumnsOperationFilterSensitiveLog = (obj: CreateColumnsOpera
 /**
  * @internal
  */
+export const DataPointDrillUpDownOptionFilterSensitiveLog = (obj: DataPointDrillUpDownOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataPointMenuLabelOptionFilterSensitiveLog = (obj: DataPointMenuLabelOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataPointTooltipOptionFilterSensitiveLog = (obj: DataPointTooltipOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ExportToCSVOptionFilterSensitiveLog = (obj: ExportToCSVOption): any => ({
   ...obj,
 });
@@ -7964,7 +8179,37 @@ export const ExportToCSVOptionFilterSensitiveLog = (obj: ExportToCSVOption): any
 /**
  * @internal
  */
+export const ExportWithHiddenFieldsOptionFilterSensitiveLog = (obj: ExportWithHiddenFieldsOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SheetControlsOptionFilterSensitiveLog = (obj: SheetControlsOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SheetLayoutElementMaximizationOptionFilterSensitiveLog = (
+  obj: SheetLayoutElementMaximizationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VisualAxisSortOptionFilterSensitiveLog = (obj: VisualAxisSortOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VisualMenuOptionFilterSensitiveLog = (obj: VisualMenuOption): any => ({
   ...obj,
 });
 
@@ -9843,105 +10088,5 @@ export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboard
  * @internal
  */
 export const GetSessionEmbedUrlRequestFilterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GroupSearchFilterFilterSensitiveLog = (obj: GroupSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IAMPolicyAssignmentSummaryFilterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalysesRequestFilterSensitiveLog = (obj: ListAnalysesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalysesResponseFilterSensitiveLog = (obj: ListAnalysesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardsRequestFilterSensitiveLog = (obj: ListDashboardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardsResponseFilterSensitiveLog = (obj: ListDashboardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardVersionsRequestFilterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardVersionsResponseFilterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetsRequestFilterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSourcesRequestFilterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSourcesResponseFilterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-  ...obj,
-  ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListFolderMembersRequestFilterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
   ...obj,
 });

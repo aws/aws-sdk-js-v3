@@ -28,7 +28,6 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
  *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
- *
  *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code> request element to grant access to other people. The
  *             <code>Permissions</code> request element specifies the kind of access the grantee has to
  *          the logs.</p>
@@ -38,13 +37,11 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *             to grant access to others. Permissions can only be granted using policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
  *                <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *
  *          <p>
  *             <b>Grantee Values</b>
  *          </p>
  *          <p>You can specify the person (grantee) to whom you're assigning access rights (using
  *          request elements) in the following ways:</p>
- *
  *          <ul>
  *             <li>
  *                <p>By the person's ID:</p>
@@ -72,21 +69,15 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
- *
  *          <p>To enable logging, you use LoggingEnabled and its children request elements. To disable
  *          logging, you use an empty BucketLoggingStatus request element:</p>
- *
  *          <p>
  *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01"
  *             /></code>
  *          </p>
- *
  *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the <i>Amazon S3 User Guide</i>. </p>
- *
  *          <p>For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>. For more
  *          information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.</p>
- *
  *          <p>The following operations are related to <code>PutBucketLogging</code>:</p>
  *          <ul>
  *             <li>

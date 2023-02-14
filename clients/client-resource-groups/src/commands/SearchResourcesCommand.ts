@@ -29,31 +29,31 @@ export interface SearchResourcesCommandInput extends SearchResourcesInput {}
 export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of AWS resource identifiers that matches the specified query. The
- *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
- *             operation.</p>
- *         <p>
+ * <p>Returns a list of Amazon Web Services resource identifiers that matches the specified query. The
+ *             query uses the same format as a resource query in a <a>CreateGroup</a> or
+ *                 <a>UpdateGroupQuery</a> operation.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:SearchResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:DescribeStacks</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:ListStackResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:GetResources</code>
  *                </p>
  *             </li>

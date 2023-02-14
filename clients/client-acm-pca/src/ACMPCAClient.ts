@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -174,11 +176,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -283,9 +285,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type ACMPCAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -317,20 +319,20 @@ type ACMPCAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface ACMPCAClientResolvedConfig extends ACMPCAClientResolvedConfigType {}
 
 /**
- * <p>This is the <i>Private Certificate Authority (PCA) API Reference</i>. It provides descriptions,
+ * <p>This is the <i>Amazon Web Services Private Certificate Authority API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing a private certificate authority (CA) for your organization.</p>
- * 		       <p>The documentation for each action shows the API request parameters and the JSON
+ *          <p>The documentation for each action shows the API request parameters and the JSON
  * 			response. Alternatively, you can use one of the Amazon Web Services SDKs to access an API that is
  * 			tailored to the programming language or platform that you prefer. For more information,
  * 			see <a href="https://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
- * 		       <p>Each ACM Private CA API operation has a quota that determines the number of times the
- * 			operation can be called per second. ACM Private CA throttles API requests at different rates
- * 			depending on the operation. Throttling means that ACM Private CA rejects an otherwise valid
+ *          <p>Each Amazon Web Services Private CA API operation has a quota that determines the number of times the
+ * 			operation can be called per second. Amazon Web Services Private CA throttles API requests at different rates
+ * 			depending on the operation. Throttling means that Amazon Web Services Private CA rejects an otherwise valid
  * 			request because the request exceeds the operation's quota for the number of requests per
- * 			second. When a request is throttled, ACM Private CA returns a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html">ThrottlingException</a> error. ACM Private CA does not guarantee a minimum request
+ * 			second. When a request is throttled, Amazon Web Services Private CA returns a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html">ThrottlingException</a> error. Amazon Web Services Private CA does not guarantee a minimum request
  * 			rate for APIs. </p>
- * 		       <p>To see an up-to-date list of your ACM Private CA quotas, or to request a quota increase,
+ *          <p>To see an up-to-date list of your Amazon Web Services Private CA quotas, or to request a quota increase,
  * 			log into your Amazon Web Services account and visit the <a href="https://console.aws.amazon.com/servicequotas/">Service Quotas</a>
  * 			console.</p>
  */

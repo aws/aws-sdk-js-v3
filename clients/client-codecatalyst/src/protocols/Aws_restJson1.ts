@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -777,7 +777,7 @@ export const deserializeAws_restJson1CreateAccessTokenCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.expiresTime != null) {
-    contents.expiresTime = __expectNonNull(__parseRfc3339DateTime(data.expiresTime));
+    contents.expiresTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.expiresTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -969,7 +969,7 @@ export const deserializeAws_restJson1CreateSourceRepositoryBranchCommand = async
     contents.headCommitId = __expectString(data.headCommitId);
   }
   if (data.lastUpdatedTime != null) {
-    contents.lastUpdatedTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedTime));
+    contents.lastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1164,7 +1164,7 @@ export const deserializeAws_restJson1GetDevEnvironmentCommand = async (
     contents.instanceType = __expectString(data.instanceType);
   }
   if (data.lastUpdatedTime != null) {
-    contents.lastUpdatedTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedTime));
+    contents.lastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedTime));
   }
   if (data.persistentStorage != null) {
     contents.persistentStorage = deserializeAws_restJson1PersistentStorage(data.persistentStorage, context);
@@ -2511,7 +2511,8 @@ const deserializeAws_restJson1AccessTokenSummaries = (output: any, context: __Se
 
 const deserializeAws_restJson1AccessTokenSummary = (output: any, context: __SerdeContext): AccessTokenSummary => {
   return {
-    expiresTime: output.expiresTime != null ? __expectNonNull(__parseRfc3339DateTime(output.expiresTime)) : undefined,
+    expiresTime:
+      output.expiresTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.expiresTime)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
   } as any;
@@ -2561,7 +2562,9 @@ const deserializeAws_restJson1DevEnvironmentSummary = (output: any, context: __S
     inactivityTimeoutMinutes: __expectInt32(output.inactivityTimeoutMinutes),
     instanceType: __expectString(output.instanceType),
     lastUpdatedTime:
-      output.lastUpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdatedTime)) : undefined,
+      output.lastUpdatedTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdatedTime))
+        : undefined,
     persistentStorage:
       output.persistentStorage != null
         ? deserializeAws_restJson1PersistentStorage(output.persistentStorage, context)
@@ -2617,7 +2620,8 @@ const deserializeAws_restJson1EventLogEntry = (output: any, context: __SerdeCont
     eventCategory: __expectString(output.eventCategory),
     eventName: __expectString(output.eventName),
     eventSource: __expectString(output.eventSource),
-    eventTime: output.eventTime != null ? __expectNonNull(__parseRfc3339DateTime(output.eventTime)) : undefined,
+    eventTime:
+      output.eventTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.eventTime)) : undefined,
     eventType: __expectString(output.eventType),
     id: __expectString(output.id),
     operationType: __expectString(output.operationType),
@@ -2689,11 +2693,14 @@ const deserializeAws_restJson1ListSourceRepositoriesItem = (
   context: __SerdeContext
 ): ListSourceRepositoriesItem => {
   return {
-    createdTime: output.createdTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createdTime)) : undefined,
+    createdTime:
+      output.createdTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedTime:
-      output.lastUpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdatedTime)) : undefined,
+      output.lastUpdatedTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdatedTime))
+        : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2720,7 +2727,9 @@ const deserializeAws_restJson1ListSourceRepositoryBranchesItem = (
   return {
     headCommitId: __expectString(output.headCommitId),
     lastUpdatedTime:
-      output.lastUpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdatedTime)) : undefined,
+      output.lastUpdatedTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdatedTime))
+        : undefined,
     name: __expectString(output.name),
     ref: __expectString(output.ref),
   } as any;

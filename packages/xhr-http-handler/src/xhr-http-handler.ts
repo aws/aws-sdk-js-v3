@@ -68,6 +68,7 @@ const EVENTS: XhrHttpHandlerEvents = {
  */
 export class XhrHttpHandler extends EventEmitter implements HttpHandler {
   public static readonly EVENTS: XhrHttpHandlerEvents = EVENTS;
+  public static readonly ERROR_IDENTIFIER = "XHR_HTTP_HANDLER_ERROR";
 
   private config?: XhrHttpHandlerOptions;
   private readonly configProvider: Promise<XhrHttpHandlerOptions>;
@@ -130,7 +131,10 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
         xhr.addEventListener("progress", (event: ProgressEvent) => {
           this.emit(XhrHttpHandler.EVENTS.PROGRESS, event, request);
         });
-        xhr.addEventListener("error", reject);
+        xhr.addEventListener("error", (err) => {
+          const error = new Error(XhrHttpHandler.ERROR_IDENTIFIER + ": " + err);
+          reject(error);
+        });
         xhr.addEventListener("timeout", () => {
           reject(new Error("XMLHttpRequest timed out."));
         });

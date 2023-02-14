@@ -29,7 +29,7 @@ export interface DescribeRepositoriesCommandInput extends DescribeRepositoriesRe
 export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes repositories in a public registry.</p>
+ * <p>Describes repositories that are in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

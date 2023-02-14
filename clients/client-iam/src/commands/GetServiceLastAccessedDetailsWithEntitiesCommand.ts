@@ -38,25 +38,25 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *                 <code>GetServiceLastAccessedDetailsWithEntities</code>. This operation retrieves the
  *             status of your report job and a list of entities that could have used group or policy
  *             permissions to access the specified service.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Group</b> – For a group report, this
  *                     operation returns a list of users in the group that could have used the group’s
  *                     policies in an attempt to access the service.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Policy</b> – For a policy report, this
  *                     operation returns a list of entities (users or roles) that could have used the
  *                     policy in an attempt to access the service.</p>
  *             </li>
  *          </ul>
- *         <p>You can also use this operation for user or role reports to retrieve details about
+ *          <p>You can also use this operation for user or role reports to retrieve details about
  *             those entities.</p>
- *         <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
+ *          <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
  *             operation returns the reason that it failed.</p>
- *         <p>By default, the list of associated entities is sorted by date, with the most recent
+ *          <p>By default, the list of associated entities is sorted by date, with the most recent
  *             access listed first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

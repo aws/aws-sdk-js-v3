@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   ActiveInstance,
@@ -9,6 +11,7 @@ import {
   CurrencyCodeValues,
   Explanation,
   IamInstanceProfileSpecification,
+  IpamResourceDiscoveryAssociation,
   IpPermission,
   PathComponent,
   ReservedInstancesListing,
@@ -38,12 +41,14 @@ import {
   InternetGateway,
   Ipam,
   IpamPool,
+  IpamResourceDiscovery,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   KeyType,
   LaunchTemplate,
   LaunchTemplateVersion,
+  LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -58,23 +63,19 @@ import {
   PlacementGroup,
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
-  RouteTable,
-  Snapshot,
-  SnapshotState,
   SpotInstanceType,
-  StorageTier,
   Subnet,
   TargetCapacityUnitType,
   Tenancy,
   VolumeType,
 } from "./models_1";
 import {
-  ConnectionNotification,
-  DnsEntry,
-  IpAddressType,
+  RouteTable,
+  Snapshot,
+  SnapshotState,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
-  State,
+  StorageTier,
   TrafficMirrorFilter,
   TrafficMirrorSession,
   TrafficMirrorTarget,
@@ -88,17 +89,677 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
-  VpcEndpoint,
 } from "./models_2";
 import {
   AttributeBooleanValue,
   EventInformation,
   Filter,
   IdFormat,
+  Instance,
+  InstanceState,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes a launch request for one or more instances, and includes owner, requester,
+ *             and security group information that applies to all instances in the launch
+ *             request.</p>
+ */
+export interface Reservation {
+  /**
+   * <p>[EC2-Classic only] The security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The instances.</p>
+   */
+  Instances?: Instance[];
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the reservation.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the requester that launched the instances on your behalf (for example,
+   *                 Amazon Web Services Management Console or Auto Scaling).</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * <p>The ID of the reservation.</p>
+   */
+  ReservationId?: string;
+}
+
+export interface DescribeInstancesResult {
+  /**
+   * <p>Information about the reservations.</p>
+   */
+  Reservations?: Reservation[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeInstanceStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.code</code> - The code for the scheduled event
+   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
+   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
+   *                         <code>instance-stop</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
+   *                     you are modifying.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-after</code> - The latest end time for the scheduled event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before</code> - The earliest start time for the scheduled
+   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-code</code> - The code for the instance state, as a
+   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
+   *                     be ignored. The low byte is set based on the state represented. The valid values
+   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
+   *                     (stopping), and 80 (stopped).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-state-name</code> - The state of the instance
+   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
+   *                         <code>terminated</code> | <code>stopping</code> |
+   *                     <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-status.reachability</code> - Filters on instance status where
+   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
+   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-status.status</code> - The status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-status.reachability</code> - Filters on system status where the
+   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
+   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-status.status</code> - The system status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *          <p>Default: Describes all your instances.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of items to return for this request. To retrieve the next page of
+   *             items, make another request with the token returned in the output. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>When <code>true</code>, includes the health status for all instances. When
+   *                 <code>false</code>, includes the health status for running instances only.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  IncludeAllInstances?: boolean;
+}
+
+export enum EventCode {
+  instance_reboot = "instance-reboot",
+  instance_retirement = "instance-retirement",
+  instance_stop = "instance-stop",
+  system_maintenance = "system-maintenance",
+  system_reboot = "system-reboot",
+}
+
+/**
+ * <p>Describes a scheduled event for an instance.</p>
+ */
+export interface InstanceStatusEvent {
+  /**
+   * <p>The ID of the event.</p>
+   */
+  InstanceEventId?: string;
+
+  /**
+   * <p>The event code.</p>
+   */
+  Code?: EventCode | string;
+
+  /**
+   * <p>A description of the event.</p>
+   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
+   *             the event has been completed, this description starts with the following text:
+   *             [Completed].</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The latest scheduled end time for the event.</p>
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>The earliest scheduled start time for the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>The deadline for starting the event.</p>
+   */
+  NotBeforeDeadline?: Date;
+}
+
+export enum StatusName {
+  reachability = "reachability",
+}
+
+export enum StatusType {
+  failed = "failed",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  passed = "passed",
+}
+
+/**
+ * <p>Describes the instance status.</p>
+ */
+export interface InstanceStatusDetails {
+  /**
+   * <p>The time when a status check failed. For an instance that was launched and impaired,
+   *             this is the time when the instance was launched.</p>
+   */
+  ImpairedSince?: Date;
+
+  /**
+   * <p>The type of instance status.</p>
+   */
+  Name?: StatusName | string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: StatusType | string;
+}
+
+export enum SummaryStatus {
+  impaired = "impaired",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  not_applicable = "not-applicable",
+  ok = "ok",
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatusSummary {
+  /**
+   * <p>The system instance health or application instance health.</p>
+   */
+  Details?: InstanceStatusDetails[];
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: SummaryStatus | string;
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatus {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Any scheduled events associated with the instance.</p>
+   */
+  Events?: InstanceStatusEvent[];
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
+   *             that an instance be in the <code>running</code> state.</p>
+   */
+  InstanceState?: InstanceState;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues internal to the instance, such
+   *             as impaired reachability.</p>
+   */
+  InstanceStatus?: InstanceStatusSummary;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues related to the systems that
+   *             support an instance, such as hardware failures and network connectivity problems.</p>
+   */
+  SystemStatus?: InstanceStatusSummary;
+}
+
+export interface DescribeInstanceStatusResult {
+  /**
+   * <p>Information about the status of the instances.</p>
+   */
+  InstanceStatuses?: InstanceStatus[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export enum LocationType {
+  availability_zone = "availability-zone",
+  availability_zone_id = "availability-zone-id",
+  region = "region",
+}
+
+export interface DescribeInstanceTypeOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - This depends on the location type. For example, if the location type is
+   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type. For example,
+   *      <code>c5.2xlarge</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The instance types offered.</p>
+ */
+export interface InstanceTypeOffering {
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
+   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   */
+  Location?: string;
+}
+
+export interface DescribeInstanceTypeOfferingsResult {
+  /**
+   * <p>The instance types offered.</p>
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeInstanceTypesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceTypes?: (_InstanceType | string)[];
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
+   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
+   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
+   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
+   *                     performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
+   *                     operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
+   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
+   *      <code>default</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
+   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
+   *      GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
+   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
+   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
+   *      <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
+   *      instance storage, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
+   *      instance storage  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
+   *      c5*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
+   *      Fabric Adapters (EFAs) per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
+   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
+   *      supported or required (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
+   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
+   *      instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
+   *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
+   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
+   *       <code>uefi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
+   *       <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
+   *       <code>paravirtual</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
+   *         For example, "1" or "1,2".</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * <p>Describes the optimized EBS performance for supported instance types.</p>
@@ -709,8 +1370,8 @@ export interface DescribeInstanceTypesResult {
   InstanceTypes?: InstanceTypeInfo[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -763,13 +1424,14 @@ export interface DescribeInternetGatewaysRequest {
   InternetGatewayIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -781,7 +1443,7 @@ export interface DescribeInternetGatewaysResult {
   InternetGateways?: InternetGateway[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -825,6 +1487,88 @@ export interface DescribeIpamPoolsResult {
    * <p>Information about the IPAM pools.</p>
    */
   IpamPools?: IpamPool[];
+}
+
+export interface DescribeIpamResourceDiscoveriesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IPAM resource discovery IDs.</p>
+   */
+  IpamResourceDiscoveryIds?: string[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource discoveries to return in one page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The resource discovery filters.</p>
+   */
+  Filters?: Filter[];
+}
+
+export interface DescribeIpamResourceDiscoveriesResult {
+  /**
+   * <p>The resource discoveries.</p>
+   */
+  IpamResourceDiscoveries?: IpamResourceDiscovery[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeIpamResourceDiscoveryAssociationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The resource discovery association IDs.</p>
+   */
+  IpamResourceDiscoveryAssociationIds?: string[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource discovery associations to return in one page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The resource discovery association filters.</p>
+   */
+  Filters?: Filter[];
+}
+
+export interface DescribeIpamResourceDiscoveryAssociationsResult {
+  /**
+   * <p>The resource discovery associations.</p>
+   */
+  IpamResourceDiscoveryAssociations?: IpamResourceDiscoveryAssociation[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export interface DescribeIpamsRequest {
@@ -1329,6 +2073,18 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+   *             the AMI ID is displayed in the response for <code>imageId</code>.</p>
+   *          <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+   *             the parameter is displayed in the response for <code>imageId</code>.</p>
+   *          <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
+   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  ResolveAlias?: boolean;
 }
 
 export interface DescribeLaunchTemplateVersionsResult {
@@ -2041,8 +2797,9 @@ export interface DescribeNatGatewaysRequest {
   Filter?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -2052,7 +2809,7 @@ export interface DescribeNatGatewaysRequest {
   NatGatewayIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -2064,7 +2821,7 @@ export interface DescribeNatGatewaysResult {
   NatGateways?: NatGateway[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -2170,13 +2927,14 @@ export interface DescribeNetworkAclsRequest {
   NetworkAclIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -2188,7 +2946,7 @@ export interface DescribeNetworkAclsResult {
   NetworkAcls?: NetworkAcl[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -2670,13 +3428,16 @@ export interface DescribeNetworkInterfacePermissionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   * 		    Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   * 			make another request with the token returned in the output. If this parameter is not specified,
+   * 			up to 50 results are returned by default. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -2691,7 +3452,8 @@ export interface DescribeNetworkInterfacePermissionsResult {
   NetworkInterfacePermissions?: NetworkInterfacePermission[];
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The token to include in another request to get the next page of items.
+   * 		  This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -2882,21 +3644,20 @@ export interface DescribeNetworkInterfacesRequest {
   NetworkInterfaceIds?: string[];
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   * 		    Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you
-   *             can specify in a subsequent call to get the next set of results. You cannot specify this
-   *             parameter and the network interface IDs parameter in the same request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   * 		    make another request with the token returned in the output. You cannot specify this
+   * 		    parameter and the network interface IDs parameter in the same request. For more information,
+   * 		    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
 
-/**
- * <p>Contains the output of DescribeNetworkInterfaces.</p>
- */
 export interface DescribeNetworkInterfacesResult {
   /**
    * <p>Information about one or more network interfaces.</p>
@@ -2904,7 +3665,8 @@ export interface DescribeNetworkInterfacesResult {
   NetworkInterfaces?: NetworkInterface[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   * 		    This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3314,13 +4076,15 @@ export interface DescribeReplaceRootVolumeTasksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -3339,7 +4103,8 @@ export interface DescribeReplaceRootVolumeTasksResult {
   ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4244,13 +5009,14 @@ export interface DescribeRouteTablesRequest {
   RouteTableIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -4265,7 +5031,7 @@ export interface DescribeRouteTablesResult {
   RouteTables?: RouteTable[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4747,15 +5513,16 @@ export interface DescribeSecurityGroupRulesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all results are
-   *             returned.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. This value
+   *             can be between 5 and 1000. If this parameter is not specified, then all items are
+   *             returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -4767,7 +5534,8 @@ export interface DescribeSecurityGroupRulesResult {
   SecurityGroupRules?: SecurityGroupRule[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4922,15 +5690,16 @@ export interface DescribeSecurityGroupsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all results are
-   *             returned.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *             make another request with the token returned in the output. This value can be between 5 and 1000.
+   *             If this parameter is not specified, then all items are returned. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -4987,7 +5756,8 @@ export interface DescribeSecurityGroupsResult {
   SecurityGroups?: SecurityGroup[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5120,24 +5890,17 @@ export interface DescribeSnapshotsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in
-   *       paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *         <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000,
-   *       only 1,000 results are returned. If this parameter is not used, then
-   *         <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and
-   *       the snapshot IDs parameter in the same request.</p>
+   * <p>The maximum number of snapshots to return for this request.
+   *       This value can be between 5 and 1,000; if this value is larger than 1,000, only 1,000 results are returned.
+   *       If this parameter is not used, then the request returns all snapshots.
+   *       You cannot specify this parameter and the snapshot IDs parameter in the same request. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeSnapshots</code> request where <code>MaxResults</code> was used and the
-   *       results exceeded the value of that parameter. Pagination continues from the end of the
-   *       previous results that returned the <code>NextToken</code> value. This value is
-   *         <code>null</code> when there are no more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -5173,10 +5936,8 @@ export interface DescribeSnapshotsResult {
   Snapshots?: Snapshot[];
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeSnapshots</code>
-   *       request. When the results of a <code>DescribeSnapshots</code> request exceed
-   *         <code>MaxResults</code>, this value can be used to retrieve the next page of results. This
-   *       value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to return the next page of snapshots.
+   *       This value is <code>null</code> when there are no more snapshots to return.</p>
    */
   NextToken?: string;
 }
@@ -5211,13 +5972,15 @@ export interface DescribeSnapshotTierStatusRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -5310,7 +6073,8 @@ export interface DescribeSnapshotTierStatusResult {
   SnapshotTierStatuses?: SnapshotTierStatus[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -6129,9 +6893,9 @@ export interface SpotFleetRequestConfigData {
   ClientToken?: string;
 
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if you decrease the
-   *             target capacity of the Spot Fleet request below the current size of the Spot
-   *             Fleet.</p>
+   * <p>Indicates whether running instances should be terminated if you decrease the
+   *             target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 
@@ -6300,7 +7064,7 @@ export interface SpotFleetRequestConfigData {
   Context?: string;
 
   /**
-   * <p>The unit for the target capacity.</p>
+   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
@@ -7021,12 +7785,15 @@ export interface DescribeStaleSecurityGroupsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *           make another request with the token returned in the output. For more information,
+   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * <p>The token returned from a previous paginated request.
+   *           Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -7042,7 +7809,7 @@ export interface DescribeStaleSecurityGroupsRequest {
 export interface StaleIpPermission {
   /**
    * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
+   *         -1 indicates all ICMP types. </p>
    */
   FromPort?: number;
 
@@ -7110,7 +7877,8 @@ export interface StaleSecurityGroup {
 
 export interface DescribeStaleSecurityGroupsResult {
   /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *           If there are no additional items to return, the string is empty.</p>
    */
   NextToken?: string;
 
@@ -7372,13 +8140,14 @@ export interface DescribeSubnetsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -7390,7 +8159,7 @@ export interface DescribeSubnetsResult {
   Subnets?: Subnet[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -7433,14 +8202,15 @@ export interface DescribeTagsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *       This value can be between 5 and 1000.
-   * 			To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
+   *          To get the next page of items, make another request with the token returned in the output.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
+   * <p>The token returned from a previous paginated request.
+   *          Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -7472,8 +8242,8 @@ export interface TagDescription {
 
 export interface DescribeTagsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *          <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *          This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -8935,24 +9705,16 @@ export interface DescribeVolumesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
-   *       output. When this parameter is used, <code>DescribeVolumes</code> only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *         <code>DescribeVolumes</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 500; if <code>MaxResults</code> is given a value larger than 500,
-   *       only 500 results are returned. If this parameter is not used, then
-   *         <code>DescribeVolumes</code> returns all results. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request.</p>
+   * <p>The maximum number of volumes to return for this request.
+   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
+   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
+   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results
-   *       exceeded the value of that parameter. Pagination continues from the end of the previous
-   *       results that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *       there are no more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned from the previous request.</p>
    */
   NextToken?: string;
 }
@@ -8964,10 +9726,8 @@ export interface DescribeVolumesResult {
   Volumes?: Volume[];
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumes</code>
-   *       request. When the results of a <code>DescribeVolumes</code> request exceed
-   *         <code>MaxResults</code>, this value can be used to retrieve the next page of results. This
-   *       value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -9040,13 +9800,14 @@ export interface DescribeVolumesModificationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The <code>nextToken</code> value returned by a previous paginated request.</p>
+   * <p>The token returned by a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
-   *       request.</p>
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -9152,7 +9913,8 @@ export interface DescribeVolumesModificationsResult {
   VolumesModifications?: VolumeModification[];
 
   /**
-   * <p>Token for pagination, null if there are no more results </p>
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> if there are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -9225,22 +9987,17 @@ export interface DescribeVolumeStatusRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
-   *       paginated output. When this parameter is used, the request only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000;
-   *       if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.
-   *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
-   *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *       make another request with the token returned in the output. This value can be between 5 and 1,000;
+   *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
+   *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
+   *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
-   *       request. When the results of the request exceed <code>MaxResults</code>, this value can be
-   *       used to retrieve the next page of results. This value is <code>null</code> when there are no
-   *       more results to return.</p>
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -9353,586 +10110,93 @@ export interface VolumeStatusDetails {
   Status?: string;
 }
 
-export enum VolumeStatusInfoStatus {
-  impaired = "impaired",
-  insufficient_data = "insufficient-data",
-  ok = "ok",
-}
+/**
+ * @internal
+ */
+export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the status of a volume.</p>
+ * @internal
  */
-export interface VolumeStatusInfo {
-  /**
-   * <p>The details of the volume status.</p>
-   */
-  Details?: VolumeStatusDetails[];
-
-  /**
-   * <p>The status of the volume.</p>
-   */
-  Status?: VolumeStatusInfoStatus | string;
-}
+export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the volume status.</p>
+ * @internal
  */
-export interface VolumeStatusItem {
-  /**
-   * <p>The details of the operation.</p>
-   */
-  Actions?: VolumeStatusAction[];
-
-  /**
-   * <p>The Availability Zone of the volume.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>A list of events associated with the volume.</p>
-   */
-  Events?: VolumeStatusEvent[];
-
-  /**
-   * <p>The volume ID.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The volume status.</p>
-   */
-  VolumeStatus?: VolumeStatusInfo;
-
-  /**
-   * <p>Information about the instances to which the volume is attached.</p>
-   */
-  AttachmentStatuses?: VolumeStatusAttachmentStatus[];
-}
-
-export interface DescribeVolumeStatusResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   */
-  VolumeStatuses?: VolumeStatusItem[];
-}
-
-export enum VpcAttributeName {
-  enableDnsHostnames = "enableDnsHostnames",
-  enableDnsSupport = "enableDnsSupport",
-  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
-}
-
-export interface DescribeVpcAttributeRequest {
-  /**
-   * <p>The VPC attribute.</p>
-   */
-  Attribute: VpcAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeVpcAttributeResult {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
-   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
-   * 				otherwise, they do not.</p>
-   */
-  EnableDnsHostnames?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether DNS resolution is enabled for
-   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
-   * 				resolves DNS hostnames for your instances to their corresponding
-   * 				IP addresses; otherwise, it does not.</p>
-   */
-  EnableDnsSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
-   */
-  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
-}
-
-export interface DescribeVpcClassicLinkRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
-   * 					   (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
-   */
-  VpcIds?: string[];
-}
+export const DescribeInstanceStatusRequestFilterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
+  ...obj,
+});
 
 /**
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ * @internal
  */
-export interface VpcClassicLink {
-  /**
-   * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
-   */
-  ClassicLinkEnabled?: boolean;
-
-  /**
-   * <p>Any tags assigned to the VPC.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface DescribeVpcClassicLinkResult {
-  /**
-   * <p>The ClassicLink status of one or more VPCs.</p>
-   */
-  Vpcs?: VpcClassicLink[];
-}
-
-export interface DescribeVpcClassicLinkDnsSupportRequest {
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more VPC IDs.</p>
-   */
-  VpcIds?: string[];
-}
+export const InstanceStatusEventFilterSensitiveLog = (obj: InstanceStatusEvent): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ * @internal
  */
-export interface ClassicLinkDnsSupport {
-  /**
-   * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
-   */
-  ClassicLinkDnsSupported?: boolean;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface DescribeVpcClassicLinkDnsSupportResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
-   */
-  Vpcs?: ClassicLinkDnsSupport[];
-}
-
-export interface DescribeVpcEndpointConnectionNotificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the notification.</p>
-   */
-  ConnectionNotificationId?: string;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-arn</code> - The ARN of the SNS topic for the
-   *                     notification.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-id</code> - The ID of the
-   *                     notification.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-state</code> - The state of the notification
-   *                         (<code>Enabled</code> | <code>Disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection-notification-type</code> - The type of notification
-   *                         (<code>Topic</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the endpoint service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointConnectionNotificationsResult {
-  /**
-   * <p>One or more notifications.</p>
-   */
-  ConnectionNotificationSet?: ConnectionNotification[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *             <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
-   * 		        that owns the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   * 			        (<code>pendingAcceptance</code> | <code>pending</code> |
-   * 			        <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   * 			        <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+export const InstanceStatusDetailsFilterSensitiveLog = (obj: InstanceStatusDetails): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a VPC endpoint connection to a service.</p>
+ * @internal
  */
-export interface VpcEndpointConnection {
-  /**
-   * <p>The ID of the service to which the endpoint is connected.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>The ID of the VPC endpoint.</p>
-   */
-  VpcEndpointId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
-   */
-  VpcEndpointOwner?: string;
-
-  /**
-   * <p>The state of the VPC endpoint.</p>
-   */
-  VpcEndpointState?: State | string;
-
-  /**
-   * <p>The date and time that the VPC endpoint was created.</p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>The DNS entries for the VPC endpoint.</p>
-   */
-  DnsEntries?: DnsEntry[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
-   */
-  NetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
-   */
-  GatewayLoadBalancerArns?: string[];
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   */
-  IpAddressType?: IpAddressType | string;
-
-  /**
-   * <p>The ID of the VPC endpoint connection.</p>
-   */
-  VpcEndpointConnectionId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface DescribeVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about one or more VPC endpoint connections.</p>
-   */
-  VpcEndpointConnections?: VpcEndpointConnection[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+export const InstanceStatusSummaryFilterSensitiveLog = (obj: InstanceStatusSummary): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DescribeVpcEndpoints.</p>
+ * @internal
  */
-export interface DescribeVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more endpoint IDs.</p>
-   */
-  VpcEndpointIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   *                         <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   */
-  NextToken?: string;
-}
+export const InstanceStatusFilterSensitiveLog = (obj: InstanceStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of DescribeVpcEndpoints.</p>
+ * @internal
  */
-export interface DescribeVpcEndpointsResult {
-  /**
-   * <p>Information about the endpoints.</p>
-   */
-  VpcEndpoints?: VpcEndpoint[];
+export const DescribeInstanceStatusResultFilterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeInstanceTypeOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeInstanceTypeOfferingsRequest
+): any => ({
+  ...obj,
+});
 
-export interface DescribeVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const InstanceTypeOfferingFilterSensitiveLog = (obj: InstanceTypeOffering): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds?: string[];
+/**
+ * @internal
+ */
+export const DescribeInstanceTypeOfferingsResultFilterSensitiveLog = (
+  obj: DescribeInstanceTypeOfferingsResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
-   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
-   *                         <code>Failed</code>). </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeInstanceTypesRequestFilterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10112,6 +10376,42 @@ export const DescribeIpamPoolsResultFilterSensitiveLog = (obj: DescribeIpamPools
 /**
  * @internal
  */
+export const DescribeIpamResourceDiscoveriesRequestFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveriesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveriesResultFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveriesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveryAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveryAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpamResourceDiscoveryAssociationsResultFilterSensitiveLog = (
+  obj: DescribeIpamResourceDiscoveryAssociationsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeIpamsRequestFilterSensitiveLog = (obj: DescribeIpamsRequest): any => ({
   ...obj,
 });
@@ -10216,6 +10516,9 @@ export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
   obj: DescribeLaunchTemplateVersionsResult
 ): any => ({
   ...obj,
+  ...(obj.LaunchTemplateVersions && {
+    LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -11092,6 +11395,7 @@ export const SpotFleetTagSpecificationFilterSensitiveLog = (obj: SpotFleetTagSpe
  */
 export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -11162,6 +11466,9 @@ export const SpotMaintenanceStrategiesFilterSensitiveLog = (obj: SpotMaintenance
  */
 export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
   ...obj,
+  ...(obj.LaunchSpecifications && {
+    LaunchSpecifications: obj.LaunchSpecifications.map((item) => SpotFleetLaunchSpecificationFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -11169,6 +11476,9 @@ export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetReque
  */
 export const SpotFleetRequestConfigFilterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
   ...obj,
+  ...(obj.SpotFleetRequestConfig && {
+    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
+  }),
 });
 
 /**
@@ -11199,6 +11509,7 @@ export const RunInstancesMonitoringEnabledFilterSensitiveLog = (obj: RunInstance
  */
 export const LaunchSpecificationFilterSensitiveLog = (obj: LaunchSpecification): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -11213,6 +11524,9 @@ export const SpotInstanceStatusFilterSensitiveLog = (obj: SpotInstanceStatus): a
  */
 export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest): any => ({
   ...obj,
+  ...(obj.LaunchSpecification && {
+    LaunchSpecification: LaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
+  }),
 });
 
 /**
@@ -11220,6 +11534,9 @@ export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest):
  */
 export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
   ...obj,
+  ...(obj.SpotInstanceRequests && {
+    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -11806,152 +12123,5 @@ export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any
  * @internal
  */
 export const VolumeStatusDetailsFilterSensitiveLog = (obj: VolumeStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusInfoFilterSensitiveLog = (obj: VolumeStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusItemFilterSensitiveLog = (obj: VolumeStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeStatusResultFilterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeRequestFilterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeResultFilterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkRequestFilterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcClassicLinkFilterSensitiveLog = (obj: VpcClassicLink): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkResultFilterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLinkDnsSupportFilterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointConnectionFilterSensitiveLog = (obj: VpcEndpointConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsResultFilterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServiceConfigurationsRequest
-): any => ({
   ...obj,
 });

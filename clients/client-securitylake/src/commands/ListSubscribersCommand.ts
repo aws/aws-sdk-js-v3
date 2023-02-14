@@ -29,7 +29,8 @@ export interface ListSubscribersCommandInput extends ListSubscribersRequest {}
 export interface ListSubscribersCommandOutput extends ListSubscribersResponse, __MetadataBearer {}
 
 /**
- * <p>List all subscribers for the specific Security Lake account ID.</p>
+ * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
+ *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

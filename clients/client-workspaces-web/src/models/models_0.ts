@@ -319,6 +319,11 @@ export interface AssociateUserSettingsResponse {
   userSettingsArn: string | undefined;
 }
 
+export enum AuthenticationType {
+  IAM_IDENTITY_CENTER = "IAM_Identity_Center",
+  STANDARD = "Standard",
+}
+
 /**
  * <p>The tag.</p>
  */
@@ -685,6 +690,23 @@ export interface CreatePortalRequest {
    *          SDK.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
 }
 
 export interface CreatePortalResponse {
@@ -1297,6 +1319,23 @@ export interface Portal {
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
   userAccessLoggingSettingsArn?: string;
+
+  /**
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
 }
 
 export interface GetPortalResponse {
@@ -1719,6 +1758,23 @@ export interface PortalSummary {
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
   userAccessLoggingSettingsArn?: string;
+
+  /**
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
 }
 
 export interface ListPortalsResponse {
@@ -2290,6 +2346,23 @@ export interface UpdatePortalRequest {
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
    */
   displayName?: string;
+
+  /**
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
 }
 
 export interface UpdatePortalResponse {

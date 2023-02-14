@@ -31,10 +31,9 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update the expiration period for the exception message to your preferred time, and control
- *          the time-to-live (TTL) for the exception message to remain.
- *          Exceptions are stored by default, for a 2 week period of time from when a record was
- *          created in Security Lake. </p>
+ * <p>Update the expiration period for the exception message to your preferred time, and
+ *          control the time-to-live (TTL) for the exception message to remain. Exceptions are stored
+ *          by default for 2 weeks from when a record was created in Amazon Security Lake. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

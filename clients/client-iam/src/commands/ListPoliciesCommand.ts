@@ -28,20 +28,20 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
 /**
  * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
  *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
- *         <p>You can filter the list of policies that is returned using the optional
+ *          <p>You can filter the list of policies that is returned using the optional
  *                 <code>OnlyAttached</code>, <code>Scope</code>, and <code>PathPrefix</code>
  *             parameters. For example, to list only the customer managed policies in your Amazon Web Services
  *             account, set <code>Scope</code> to <code>Local</code>. To list only Amazon Web Services managed
  *             policies, set <code>Scope</code> to <code>AWS</code>.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
- *         <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a customer manged policy, see
  *                     <a>GetPolicy</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

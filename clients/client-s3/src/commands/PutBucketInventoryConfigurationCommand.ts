@@ -53,7 +53,6 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *          by default and can grant this permission to others. For more information about permissions,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a> in the Amazon S3 User Guide.</p>
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>
@@ -107,7 +106,6 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>

@@ -62,7 +62,9 @@ export enum Channel {
 export enum ContactInitiationMethod {
   API = "API",
   CALLBACK = "CALLBACK",
+  DISCONNECT = "DISCONNECT",
   INBOUND = "INBOUND",
+  MONITOR = "MONITOR",
   OUTBOUND = "OUTBOUND",
   QUEUE_TRANSFER = "QUEUE_TRANSFER",
   TRANSFER = "TRANSFER",
@@ -697,8 +699,8 @@ export interface AssociateLambdaFunctionRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is
-   *    140.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters
+   *    allowed is 140.</p>
    */
   FunctionArn: string | undefined;
 }
@@ -1552,6 +1554,9 @@ export interface CreateRoutingProfileRequest {
   /**
    * <p>The inbound queues associated with the routing profile. If no queue is added, the agent can
    *    make only outbound calls.</p>
+   *          <p>The limit of 10 array members applies to the maximum number of <code>RoutingProfileQueueConfig</code>
+   *    objects that can be passed during a CreateRoutingProfile API request. It is different
+   *    from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a>. </p>
    */
   QueueConfigs?: RoutingProfileQueueConfig[];
 
@@ -1581,8 +1586,8 @@ export interface CreateRoutingProfileResponse {
 
 /**
  * <p>This action must be set if <code>TriggerEventSource</code> is one of the following values:
- *    <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
- *    <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
+ *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+ *     <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
  *          <p>
  *             <code>RuleName</code> is used as <code>ContactCategory</code>.</p>
  */
@@ -1725,7 +1730,7 @@ export interface RuleAction {
   /**
    * <p>Information about the task action. This field is required if <code>TriggerEventSource</code>
    *    is one of the following values: <code>OnZendeskTicketCreate</code> |
-   *    <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
    *          </p>
    */
   TaskAction?: TaskActionDefinition;
@@ -1763,7 +1768,7 @@ export enum EventSourceName {
 /**
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
  *    following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
- *    <code>OnSalesforceCaseCreate</code>
+ *     <code>OnSalesforceCaseCreate</code>
  *          </p>
  */
 export interface RuleTriggerEventSource {
@@ -1863,8 +1868,8 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string>;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> |
-   *    <code>RoutingProfile</code>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> |
+   *     <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code>
    *          </p>
    */
   TagRestrictedResources?: string[];
@@ -2490,6 +2495,8 @@ export interface DeleteContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
+export interface DeleteContactFlowResponse {}
+
 export interface DeleteContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2755,6 +2762,16 @@ export interface QueueInfo {
 }
 
 /**
+ * <p>Information about Amazon Connect Wisdom.</p>
+ */
+export interface WisdomInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+   */
+  SessionArn?: string;
+}
+
+/**
  * <p>Contains information about a contact.</p>
  */
 export interface Contact {
@@ -2832,6 +2849,17 @@ export interface Contact {
    *   </p>
    */
   ScheduledTimestamp?: Date;
+
+  /**
+   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this
+   *    contact.</p>
+   */
+  RelatedContactId?: string;
+
+  /**
+   * <p>Information about Amazon Connect Wisdom.</p>
+   */
+  WisdomInfo?: WisdomInfo;
 }
 
 export interface DescribeContactResponse {
@@ -4651,7 +4679,8 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *          </ul>
    *          <p>Metric data is retrieved only for the resources associated with the queues or routing
-   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
+   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
+   *    routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: Filters | undefined;
@@ -4667,9 +4696,9 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *             <li>
    *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-   *      profile filter. In addition, a routing profile filter is
-   *      required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and
-   *      <code> OLDEST_CONTACT_AGE</code>.</p>
+   *      profile filter. In addition, a routing profile filter is required for metrics
+   *       <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code>
+   *       OLDEST_CONTACT_AGE</code>.</p>
    *             </li>
    *             <li>
    *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
@@ -4796,7 +4825,8 @@ export interface GetCurrentMetricDataRequest {
    *          <p>Note the following:</p>
    *          <ul>
    *             <li>
-   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p>
+   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not
+   *      supported.</p>
    *             </li>
    *          </ul>
    */
@@ -4941,7 +4971,8 @@ export interface GetCurrentUserDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The filters to apply to returned user data. You can filter up to the following limits:</p>
+   * <p>The filters to apply to returned user data. You can filter up to the following
+   *    limits:</p>
    *          <ul>
    *             <li>
    *                <p>Queues: 100</p>
@@ -4959,9 +4990,8 @@ export interface GetCurrentUserDataRequest {
    *                <p>User hierarchy groups: 1</p>
    *             </li>
    *          </ul>
-   *          <p> The user data is retrieved for only the specified
-   *   values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles,
-   *   agents, and user hierarchy groups. </p>
+   *          <p> The user data is retrieved for only the specified values/resources in the filter. A maximum
+   *    of one filter can be passed from queues, routing profiles, agents, and user hierarchy groups. </p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: UserDataFilters | undefined;
@@ -5754,8 +5784,8 @@ export interface LexBotConfig {
 
 export interface ListBotsResponse {
   /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the
-   *    specified instance.</p>
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots
+   *    associated with the specified instance.</p>
    */
   LexBots?: LexBotConfig[];
 
@@ -5922,43 +5952,6 @@ export interface ListContactReferencesRequest {
 export enum ReferenceStatus {
   APPROVED = "APPROVED",
   REJECTED = "REJECTED",
-}
-
-/**
- * <p>Information about a reference when the <code>referenceType</code> is
- *    <code>ATTACHMENT</code>. Otherwise, null.</p>
- */
-export interface AttachmentReference {
-  /**
-   * <p>Identifier of the attachment reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The location path of the attachment reference.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>Status of the attachment reference type.</p>
-   */
-  Status?: ReferenceStatus | string;
-}
-
-/**
- * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
- *    Otherwise, null.</p>
- */
-export interface DateReference {
-  /**
-   * <p>Identifier of the date reference.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A valid date.</p>
-   */
-  Value?: string;
 }
 
 /**
@@ -6650,6 +6643,13 @@ export const DeleteContactFlowRequestFilterSensitiveLog = (obj: DeleteContactFlo
 /**
  * @internal
  */
+export const DeleteContactFlowResponseFilterSensitiveLog = (obj: DeleteContactFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteContactFlowModuleRequestFilterSensitiveLog = (obj: DeleteContactFlowModuleRequest): any => ({
   ...obj,
 });
@@ -6797,6 +6797,13 @@ export const DescribeContactRequestFilterSensitiveLog = (obj: DescribeContactReq
  * @internal
  */
 export const QueueInfoFilterSensitiveLog = (obj: QueueInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WisdomInfoFilterSensitiveLog = (obj: WisdomInfo): any => ({
   ...obj,
 });
 
@@ -7634,19 +7641,5 @@ export const ListContactFlowsResponseFilterSensitiveLog = (obj: ListContactFlows
  * @internal
  */
 export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
   ...obj,
 });

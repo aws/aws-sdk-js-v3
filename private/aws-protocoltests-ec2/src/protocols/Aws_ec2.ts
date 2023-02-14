@@ -13,7 +13,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
@@ -32,6 +32,7 @@ import {
 import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -68,6 +69,7 @@ import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "../commands/XmlBlob
 import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "../commands/XmlEmptyBlobsCommand";
 import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../commands/XmlEmptyListsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
@@ -75,6 +77,7 @@ import { EC2ProtocolServiceException as __BaseException } from "../models/EC2Pro
 import {
   ComplexError,
   ComplexNestedErrorData,
+  DatetimeOffsetsOutput,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FooEnum,
@@ -82,6 +85,7 @@ import {
   GreetingWithErrorsOutput,
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
+  IntegerEnum,
   InvalidGreeting,
   NestedStructuresInput,
   NestedStructWithList,
@@ -98,11 +102,26 @@ import {
   StructureListMember,
   XmlBlobsOutput,
   XmlEnumsOutput,
+  XmlIntEnumsOutput,
   XmlListsOutput,
   XmlNamespaceNested,
   XmlNamespacesOutput,
   XmlTimestampsOutput,
 } from "../models/models_0";
+
+export const serializeAws_ec2DatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "DatetimeOffsets",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
@@ -388,6 +407,20 @@ export const serializeAws_ec2XmlEnumsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2XmlIntEnumsCommand = async (
+  input: XmlIntEnumsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "XmlIntEnums",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2XmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
@@ -428,6 +461,41 @@ export const serializeAws_ec2XmlTimestampsCommand = async (
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_ec2DatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DatetimeOffsetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DatetimeOffsetsOutput(data, context);
+  const response: DatetimeOffsetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
@@ -1045,6 +1113,41 @@ const deserializeAws_ec2XmlEnumsCommandError = async (
   });
 };
 
+export const deserializeAws_ec2XmlIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2XmlIntEnumsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2XmlIntEnumsOutput(data, context);
+  const response: XmlIntEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2XmlIntEnumsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2XmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1429,6 +1532,16 @@ const deserializeAws_ec2ComplexNestedErrorData = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_ec2DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+  const contents: any = {
+    datetime: undefined,
+  };
+  if (output["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
+  }
+  return contents;
+};
+
 const deserializeAws_ec2EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
@@ -1663,6 +1776,51 @@ const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext):
   return contents;
 };
 
+const deserializeAws_ec2XmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnumsOutput => {
+  const contents: any = {
+    intEnum1: undefined,
+    intEnum2: undefined,
+    intEnum3: undefined,
+    intEnumList: undefined,
+    intEnumSet: undefined,
+    intEnumMap: undefined,
+  };
+  if (output["intEnum1"] !== undefined) {
+    contents.intEnum1 = __strictParseInt32(output["intEnum1"]) as number;
+  }
+  if (output["intEnum2"] !== undefined) {
+    contents.intEnum2 = __strictParseInt32(output["intEnum2"]) as number;
+  }
+  if (output["intEnum3"] !== undefined) {
+    contents.intEnum3 = __strictParseInt32(output["intEnum3"]) as number;
+  }
+  if (output.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_ec2IntegerEnumList(
+      __getArrayIfSingleItem(output["intEnumList"]["member"]),
+      context
+    );
+  }
+  if (output.intEnumSet === "") {
+    contents.intEnumSet = [];
+  } else if (output["intEnumSet"] !== undefined && output["intEnumSet"]["member"] !== undefined) {
+    contents.intEnumSet = deserializeAws_ec2IntegerEnumSet(
+      __getArrayIfSingleItem(output["intEnumSet"]["member"]),
+      context
+    );
+  }
+  if (output.intEnumMap === "") {
+    contents.intEnumMap = {};
+  } else if (output["intEnumMap"] !== undefined && output["intEnumMap"]["entry"] !== undefined) {
+    contents.intEnumMap = deserializeAws_ec2IntegerEnumMap(
+      __getArrayIfSingleItem(output["intEnumMap"]["entry"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   const contents: any = {
     stringList: undefined,
@@ -1671,6 +1829,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
     booleanList: undefined,
     timestampList: undefined,
     enumList: undefined,
+    intEnumList: undefined,
     nestedStringList: undefined,
     renamedListMembers: undefined,
     flattenedList: undefined,
@@ -1717,6 +1876,14 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
     contents.enumList = [];
   } else if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_ec2FooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
+  }
+  if (output.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_ec2IntegerEnumList(
+      __getArrayIfSingleItem(output["intEnumList"]["member"]),
+      context
+    );
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
@@ -1815,20 +1982,32 @@ const deserializeAws_ec2XmlTimestampsOutput = (output: any, context: __SerdeCont
   const contents: any = {
     normal: undefined,
     dateTime: undefined,
+    dateTimeOnTarget: undefined,
     epochSeconds: undefined,
+    epochSecondsOnTarget: undefined,
     httpDate: undefined,
+    httpDateOnTarget: undefined,
   };
   if (output["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTime(output["normal"]));
+    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["normal"]));
   }
   if (output["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(output["dateTime"]));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTime"]));
+  }
+  if (output["dateTimeOnTarget"] !== undefined) {
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTimeOnTarget"]));
   }
   if (output["epochSeconds"] !== undefined) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(output["epochSeconds"]));
   }
+  if (output["epochSecondsOnTarget"] !== undefined) {
+    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(output["epochSecondsOnTarget"]));
+  }
   if (output["httpDate"] !== undefined) {
     contents.httpDate = __expectNonNull(__parseRfc7231DateTime(output["httpDate"]));
+  }
+  if (output["httpDateOnTarget"] !== undefined) {
+    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(output["httpDateOnTarget"]));
   }
   return contents;
 };
@@ -1864,6 +2043,35 @@ const deserializeAws_ec2FooEnumSet = (output: any, context: __SerdeContext): (Fo
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_ec2IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
+    });
+};
+
+const deserializeAws_ec2IntegerEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IntegerEnum | number> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_ec2IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
     });
 };
 
@@ -1903,7 +2111,7 @@ const deserializeAws_ec2TimestampList = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return __expectNonNull(__parseRfc3339DateTime(entry));
+      return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
 };
 
@@ -1993,7 +2201,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Errors.Error.Code !== undefined) {
+  if (data.Errors.Error?.Code !== undefined) {
     return data.Errors.Error.Code;
   }
   if (output.statusCode == 404) {

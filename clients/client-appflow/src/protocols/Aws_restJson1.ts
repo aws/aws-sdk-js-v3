@@ -166,6 +166,10 @@ import {
   Operator,
   OperatorPropertiesKeys,
   Operators,
+  PardotConnectorProfileCredentials,
+  PardotConnectorProfileProperties,
+  PardotMetadata,
+  PardotSourceProperties,
   PathPrefix,
   PrefixConfig,
   PrivateConnectionProvisioningState,
@@ -2360,6 +2364,7 @@ const serializeAws_restJson1ConnectorOperator = (input: ConnectorOperator, conte
     ...(input.GoogleAnalytics != null && { GoogleAnalytics: input.GoogleAnalytics }),
     ...(input.InforNexus != null && { InforNexus: input.InforNexus }),
     ...(input.Marketo != null && { Marketo: input.Marketo }),
+    ...(input.Pardot != null && { Pardot: input.Pardot }),
     ...(input.S3 != null && { S3: input.S3 }),
     ...(input.SAPOData != null && { SAPOData: input.SAPOData }),
     ...(input.Salesforce != null && { Salesforce: input.Salesforce }),
@@ -2417,6 +2422,9 @@ const serializeAws_restJson1ConnectorProfileCredentials = (
     }),
     ...(input.Marketo != null && {
       Marketo: serializeAws_restJson1MarketoConnectorProfileCredentials(input.Marketo, context),
+    }),
+    ...(input.Pardot != null && {
+      Pardot: serializeAws_restJson1PardotConnectorProfileCredentials(input.Pardot, context),
     }),
     ...(input.Redshift != null && {
       Redshift: serializeAws_restJson1RedshiftConnectorProfileCredentials(input.Redshift, context),
@@ -2483,6 +2491,9 @@ const serializeAws_restJson1ConnectorProfileProperties = (
     }),
     ...(input.Marketo != null && {
       Marketo: serializeAws_restJson1MarketoConnectorProfileProperties(input.Marketo, context),
+    }),
+    ...(input.Pardot != null && {
+      Pardot: serializeAws_restJson1PardotConnectorProfileProperties(input.Pardot, context),
     }),
     ...(input.Redshift != null && {
       Redshift: serializeAws_restJson1RedshiftConnectorProfileProperties(input.Redshift, context),
@@ -3009,6 +3020,37 @@ const serializeAws_restJson1OAuthScopeList = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_restJson1PardotConnectorProfileCredentials = (
+  input: PardotConnectorProfileCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accessToken != null && { accessToken: input.accessToken }),
+    ...(input.clientCredentialsArn != null && { clientCredentialsArn: input.clientCredentialsArn }),
+    ...(input.oAuthRequest != null && {
+      oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
+    }),
+    ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
+  };
+};
+
+const serializeAws_restJson1PardotConnectorProfileProperties = (
+  input: PardotConnectorProfileProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.businessUnitId != null && { businessUnitId: input.businessUnitId }),
+    ...(input.instanceUrl != null && { instanceUrl: input.instanceUrl }),
+    ...(input.isSandboxEnvironment != null && { isSandboxEnvironment: input.isSandboxEnvironment }),
+  };
+};
+
+const serializeAws_restJson1PardotSourceProperties = (input: PardotSourceProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.object != null && { object: input.object }),
+  };
+};
+
 const serializeAws_restJson1PathPrefixHierarchy = (input: (PathPrefix | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3398,6 +3440,7 @@ const serializeAws_restJson1SourceConnectorProperties = (
       InforNexus: serializeAws_restJson1InforNexusSourceProperties(input.InforNexus, context),
     }),
     ...(input.Marketo != null && { Marketo: serializeAws_restJson1MarketoSourceProperties(input.Marketo, context) }),
+    ...(input.Pardot != null && { Pardot: serializeAws_restJson1PardotSourceProperties(input.Pardot, context) }),
     ...(input.S3 != null && { S3: serializeAws_restJson1S3SourceProperties(input.S3, context) }),
     ...(input.SAPOData != null && {
       SAPOData: serializeAws_restJson1SAPODataSourceProperties(input.SAPOData, context),
@@ -3962,6 +4005,7 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
     InforNexus:
       output.InforNexus != null ? deserializeAws_restJson1InforNexusMetadata(output.InforNexus, context) : undefined,
     Marketo: output.Marketo != null ? deserializeAws_restJson1MarketoMetadata(output.Marketo, context) : undefined,
+    Pardot: output.Pardot != null ? deserializeAws_restJson1PardotMetadata(output.Pardot, context) : undefined,
     Redshift: output.Redshift != null ? deserializeAws_restJson1RedshiftMetadata(output.Redshift, context) : undefined,
     S3: output.S3 != null ? deserializeAws_restJson1S3Metadata(output.S3, context) : undefined,
     SAPOData: output.SAPOData != null ? deserializeAws_restJson1SAPODataMetadata(output.SAPOData, context) : undefined,
@@ -4002,6 +4046,7 @@ const deserializeAws_restJson1ConnectorOperator = (output: any, context: __Serde
     GoogleAnalytics: __expectString(output.GoogleAnalytics),
     InforNexus: __expectString(output.InforNexus),
     Marketo: __expectString(output.Marketo),
+    Pardot: __expectString(output.Pardot),
     S3: __expectString(output.S3),
     SAPOData: __expectString(output.SAPOData),
     Salesforce: __expectString(output.Salesforce),
@@ -4090,6 +4135,10 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
     Marketo:
       output.Marketo != null
         ? deserializeAws_restJson1MarketoConnectorProfileProperties(output.Marketo, context)
+        : undefined,
+    Pardot:
+      output.Pardot != null
+        ? deserializeAws_restJson1PardotConnectorProfileProperties(output.Pardot, context)
         : undefined,
     Redshift:
       output.Redshift != null
@@ -4907,6 +4956,30 @@ const deserializeAws_restJson1OAuthScopeList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1PardotConnectorProfileProperties = (
+  output: any,
+  context: __SerdeContext
+): PardotConnectorProfileProperties => {
+  return {
+    businessUnitId: __expectString(output.businessUnitId),
+    instanceUrl: __expectString(output.instanceUrl),
+    isSandboxEnvironment: __expectBoolean(output.isSandboxEnvironment),
+  } as any;
+};
+
+const deserializeAws_restJson1PardotMetadata = (output: any, context: __SerdeContext): PardotMetadata => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1PardotSourceProperties = (
+  output: any,
+  context: __SerdeContext
+): PardotSourceProperties => {
+  return {
+    object: __expectString(output.object),
+  } as any;
+};
+
 const deserializeAws_restJson1PathPrefixHierarchy = (output: any, context: __SerdeContext): (PathPrefix | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -5350,6 +5423,7 @@ const deserializeAws_restJson1SourceConnectorProperties = (
         : undefined,
     Marketo:
       output.Marketo != null ? deserializeAws_restJson1MarketoSourceProperties(output.Marketo, context) : undefined,
+    Pardot: output.Pardot != null ? deserializeAws_restJson1PardotSourceProperties(output.Pardot, context) : undefined,
     S3: output.S3 != null ? deserializeAws_restJson1S3SourceProperties(output.S3, context) : undefined,
     SAPOData:
       output.SAPOData != null ? deserializeAws_restJson1SAPODataSourceProperties(output.SAPOData, context) : undefined,

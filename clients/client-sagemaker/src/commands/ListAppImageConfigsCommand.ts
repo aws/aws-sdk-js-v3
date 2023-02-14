@@ -18,7 +18,7 @@ import {
   ListAppImageConfigsRequestFilterSensitiveLog,
   ListAppImageConfigsResponse,
   ListAppImageConfigsResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListAppImageConfigsCommand,
   serializeAws_json1_1ListAppImageConfigsCommand,

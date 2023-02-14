@@ -30,7 +30,7 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
 
 /**
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
- * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

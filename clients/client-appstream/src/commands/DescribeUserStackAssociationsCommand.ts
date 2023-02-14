@@ -32,7 +32,7 @@ export interface DescribeUserStackAssociationsCommandOutput
 
 /**
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>The stack name</p>
  *             </li>

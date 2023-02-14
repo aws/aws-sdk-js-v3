@@ -236,6 +236,9 @@
             "smithy.api#documentation": "<p>The major version of this extension you want to activate, if multiple major versions are\n         available. The default is the latest major version. CloudFormation uses the latest\n         available <i>minor</i> version of the major version selected.</p>\n         <p>You can specify <code>MajorVersion</code> or <code>VersionBump</code>, but not\n         both.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ActivateTypeOutput": {
@@ -247,6 +250,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the activated extension, in this account and\n         region.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#AllowedValue": {
@@ -363,6 +369,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#BatchDescribeTypeConfigurationsOutput": {
@@ -386,6 +395,9 @@
             "smithy.api#documentation": "<p>A list of any of the specified extension configurations from the CloudFormation\n         registry.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#BoxedInteger": {
@@ -469,7 +481,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>CancelUpdateStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>CancelUpdateStack</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#Capabilities": {
@@ -1223,7 +1236,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1272,15 +1285,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -1394,12 +1398,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://cloudformation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cloudformation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -1448,6 +1458,31 @@
                           "conditions": [],
                           "type": "tree",
                           "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://cloudformation.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
                             {
                               "conditions": [],
                               "endpoint": {
@@ -1504,12 +1539,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://cloudformation.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cloudformation.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -1522,12 +1563,56 @@
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://cloudformation.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-east-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://cloudformation.us-gov-east-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-west-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://cloudformation.us-gov-west-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://cloudformation.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
                 }
               ]
             }
@@ -1536,149 +1621,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1686,1032 +1628,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-east-1",
-                "UseDualStack": true
+                "Region": "eu-south-1"
               }
             },
             {
@@ -2722,460 +1641,22 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "ap-east-1",
-                "UseDualStack": false
+                "Region": "ap-east-1"
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://cloudformation-fips.cn-north-1.api.amazonwebservices.com.cn"
+                  "url": "https://cloudformation.sa-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-4.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-4.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-4",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3186,48 +1667,373 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": false
+                "Region": "us-east-2"
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://cloudformation-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://cloudformation-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "us-east-2"
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://cloudformation-fips.cn-northwest-1.amazonaws.com.cn"
+                  "url": "https://cloudformation.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://cloudformation.cn-northwest-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3238,44 +2044,48 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
+                "Region": "cn-northwest-1"
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://cloudformation-fips.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://cloudformation-fips.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "Region": "cn-north-1"
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
               "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
+                "endpoint": {
+                  "url": "https://cloudformation-fips.cn-north-1.amazonaws.com.cn"
+                }
               },
               "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -3286,9 +2096,100 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudformation.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -3299,9 +2200,9 @@
                 }
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3311,9 +2212,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseDualStack": false,
                 "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3323,9 +2224,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseDualStack": true,
                 "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3401,14 +2302,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>ContinueUpdateRollback</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>ContinueUpdateRollback</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ContinueUpdateRollbackOutput": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>ContinueUpdateRollback</a> operation.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>ContinueUpdateRollback</a> operation.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#CreateChangeSet": {
@@ -3543,7 +2446,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>CreateChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>CreateChangeSet</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#CreateChangeSetOutput": {
@@ -3563,7 +2467,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>CreateChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>CreateChangeSet</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStack": {
@@ -3700,7 +2605,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>CreateStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>CreateStack</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStackInstances": {
@@ -3789,6 +2695,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the\n                  <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStackInstancesOutput": {
@@ -3800,6 +2709,9 @@
             "smithy.api#documentation": "<p>The unique identifier for this stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStackOutput": {
@@ -3813,7 +2725,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>CreateStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>CreateStack</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStackSet": {
@@ -3934,6 +2847,9 @@
             "smithy.api#documentation": "<p>Describes whether StackSets performs non-conflicting operations concurrently and queues\n         conflicting operations.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#CreateStackSetOutput": {
@@ -3945,6 +2861,9 @@
             "smithy.api#documentation": "<p>The ID of the stack set that you're creating.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#CreatedButModifiedException": {
@@ -4009,11 +2928,17 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the extension, in this account and region.</p>\n         <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and\n            <code>Type</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeactivateTypeOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#DeleteChangeSet": {
       "type": "operation",
@@ -4050,14 +2975,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>DeleteChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>DeleteChangeSet</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteChangeSetOutput": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>DeleteChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>DeleteChangeSet</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteStack": {
@@ -4107,7 +3034,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>DeleteStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>DeleteStack</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteStackInstances": {
@@ -4195,6 +3123,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteStackInstancesOutput": {
@@ -4206,6 +3137,9 @@
             "smithy.api#documentation": "<p>The unique identifier for this stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteStackSet": {
@@ -4244,11 +3178,17 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeleteStackSetOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#DeletionTime": {
       "type": "timestamp"
@@ -4350,11 +3290,17 @@
             "smithy.api#documentation": "<p>The ID of a specific version of the extension. The version ID is the value at the end of\n         the Amazon Resource Name (ARN) assigned to the extension version when it is\n         registered.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DeregisterTypeOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#DescribeAccountLimits": {
       "type": "operation",
@@ -4384,7 +3330,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>DescribeAccountLimits</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>DescribeAccountLimits</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeAccountLimitsOutput": {
@@ -4404,7 +3351,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>DescribeAccountLimits</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>DescribeAccountLimits</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeChangeSet": {
@@ -4504,6 +3452,9 @@
             "smithy.api#documentation": "<p>If specified, lists only the hooks related to the specified\n            <code>LogicalResourceId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeChangeSetHooksOutput": {
@@ -4551,6 +3502,9 @@
             "smithy.api#documentation": "<p>The stack name.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeChangeSetInput": {
@@ -4577,7 +3531,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>DescribeChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>DescribeChangeSet</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeChangeSetOutput": {
@@ -4699,7 +3654,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>DescribeChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>DescribeChangeSet</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribePublisher": {
@@ -4729,6 +3685,9 @@
             "smithy.api#documentation": "<p>The ID of the extension publisher.</p>\n         <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension\n         publisher, <code>DescribePublisher</code> returns information about your own publisher\n         account.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribePublisherOutput": {
@@ -4758,6 +3717,9 @@
             "smithy.api#documentation": "<p>The URL to the publisher's profile with the identity provider.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackDriftDetectionStatus": {
@@ -4782,6 +3744,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackDriftDetectionStatusOutput": {
@@ -4833,6 +3798,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackEvents": {
@@ -4869,7 +3837,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>DescribeStackEvents</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>DescribeStackEvents</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackEventsOutput": {
@@ -4889,7 +3858,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>DescribeStackEvents</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>DescribeStackEvents</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackInstance": {
@@ -4942,6 +3912,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackInstanceOutput": {
@@ -4953,6 +3926,9 @@
             "smithy.api#documentation": "<p>The stack instance that matches the specified request parameters.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResource": {
@@ -5012,6 +3988,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to be returned with a single call. If the number of\n         available results exceeds this maximum, the response includes a <code>NextToken</code>\n         value that you can assign to the <code>NextToken</code> request parameter to get the next\n         set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResourceDriftsOutput": {
@@ -5030,6 +4009,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all the remaining results, <code>NextToken</code> is set\n         to a token. To retrieve the next set of results, call\n            <code>DescribeStackResourceDrifts</code> again and assign that token to the request\n         object's <code>NextToken</code> parameter. If the request returns all results,\n            <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResourceInput": {
@@ -5051,7 +4033,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>DescribeStackResource</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>DescribeStackResource</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResourceOutput": {
@@ -5065,7 +4048,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>DescribeStackResource</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>DescribeStackResource</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResources": {
@@ -5103,7 +4087,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>DescribeStackResources</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>DescribeStackResources</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackResourcesOutput": {
@@ -5117,7 +4102,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>DescribeStackResources</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>DescribeStackResources</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackSet": {
@@ -5153,6 +4139,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackSetOperation": {
@@ -5198,6 +4187,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackSetOperationOutput": {
@@ -5209,6 +4201,9 @@
             "smithy.api#documentation": "<p>The specified stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStackSetOutput": {
@@ -5220,6 +4215,9 @@
             "smithy.api#documentation": "<p>The specified stack set.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStacks": {
@@ -5606,7 +4604,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>DescribeStacks</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>DescribeStacks</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeStacksOutput": {
@@ -5626,7 +4625,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>DescribeStacks</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>DescribeStacks</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeType": {
@@ -5689,6 +4689,9 @@
             "smithy.api#documentation": "<p>The version number of a public third-party extension.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeTypeOutput": {
@@ -5856,6 +4859,9 @@
             "smithy.api#documentation": "<p>Whether CloudFormation automatically updates the extension in this account and\n         region when a new <i>minor</i> version is published by the extension\n         publisher. Major versions released by the publisher must be manually updated. For more\n         information, see <a href=\"AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable\">Activating public extensions for use in your account</a> in the <i>CloudFormation User Guide</i>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeTypeRegistration": {
@@ -5914,6 +4920,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DescribeTypeRegistrationOutput": {
@@ -5943,6 +4952,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of this specific version of the extension being\n         registered.</p>\n         <p>For registration requests with a <code>ProgressStatus</code> of other than\n            <code>COMPLETE</code>, this will be <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#Description": {
@@ -5982,6 +4994,9 @@
             "smithy.api#documentation": "<p>The logical names of any resources you want to use as filters.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DetectStackDriftOutput": {
@@ -5994,6 +5009,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DetectStackResourceDrift": {
@@ -6025,6 +5043,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DetectStackResourceDriftOutput": {
@@ -6037,6 +5058,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DetectStackSetDrift": {
@@ -6088,6 +5112,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#DetectStackSetDriftOutput": {
@@ -6099,6 +5126,9 @@
             "smithy.api#documentation": "<p>The ID of the drift detection stack set operation.</p>\n         <p>You can use this operation ID with <code>\n               <a>DescribeStackSetOperation</a>\n            </code> to monitor the progress of the drift detection operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#DifferenceType": {
@@ -6192,7 +5222,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for an <a>EstimateTemplateCost</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for an <a>EstimateTemplateCost</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#EstimateTemplateCostOutput": {
@@ -6206,7 +5237,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>EstimateTemplateCost</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>EstimateTemplateCost</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#EvaluationType": {
@@ -6285,14 +5317,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>ExecuteChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>ExecuteChangeSet</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ExecuteChangeSetOutput": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>ExecuteChangeSet</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>ExecuteChangeSet</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ExecutionRoleName": {
@@ -6434,7 +5468,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>GetStackPolicy</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>GetStackPolicy</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#GetStackPolicyOutput": {
@@ -6448,7 +5483,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>GetStackPolicy</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>GetStackPolicy</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#GetTemplate": {
@@ -6491,7 +5527,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for a <a>GetTemplate</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for a <a>GetTemplate</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#GetTemplateOutput": {
@@ -6511,7 +5548,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for <a>GetTemplate</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for <a>GetTemplate</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#GetTemplateSummary": {
@@ -6566,7 +5604,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>GetTemplateSummary</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>GetTemplateSummary</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#GetTemplateSummaryOutput": {
@@ -6628,7 +5667,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>GetTemplateSummary</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>GetTemplateSummary</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#HandlerErrorCode": {
@@ -6986,6 +6026,9 @@
             "smithy.api#documentation": "<p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>For service managed stack sets, specify <code>DELEGATED_ADMIN</code>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ImportStacksToStackSetOutput": {
@@ -6997,6 +6040,9 @@
             "smithy.api#documentation": "<p>The unique identifier for the stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#Imports": {
@@ -7167,7 +6213,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>ListChangeSets</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>ListChangeSets</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListChangeSetsOutput": {
@@ -7187,7 +6234,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for the <a>ListChangeSets</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for the <a>ListChangeSets</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListExports": {
@@ -7216,6 +6264,9 @@
             "smithy.api#documentation": "<p>A string (provided by the <a>ListExports</a> response output) that identifies\n         the next page of exported output values that you asked to retrieve.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListExportsOutput": {
@@ -7233,6 +6284,9 @@
             "smithy.api#documentation": "<p>If the output exceeds 100 exported output values, a string that identifies the next page\n         of exports. If there is no additional page, this value is null.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListImports": {
@@ -7268,6 +6322,9 @@
             "smithy.api#documentation": "<p>A string (provided by the <a>ListImports</a> response output) that identifies\n         the next page of stacks that are importing the specified exported output value.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListImportsOutput": {
@@ -7285,6 +6342,9 @@
             "smithy.api#documentation": "<p>A string that identifies the next page of exports. If there is no additional page, this\n         value is null.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackInstances": {
@@ -7356,6 +6416,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackInstancesOutput": {
@@ -7373,6 +6436,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all the remaining results, <code>NextToken</code> is set\n         to a token. To retrieve the next set of results, call <code>ListStackInstances</code> again\n         and assign that token to the request object's <code>NextToken</code> parameter. If the\n         request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackResources": {
@@ -7410,7 +6476,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>ListStackResource</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>ListStackResource</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackResourcesOutput": {
@@ -7430,7 +6497,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for a <a>ListStackResources</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for a <a>ListStackResources</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSetOperationResults": {
@@ -7500,6 +6568,9 @@
             "smithy.api#documentation": "<p>The filter to apply to operation results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSetOperationResultsOutput": {
@@ -7517,6 +6588,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To\n         retrieve the next set of results, call <code>ListOperationResults</code> again and assign\n         that token to the request object's <code>NextToken</code> parameter. If there are no\n         remaining results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSetOperations": {
@@ -7570,6 +6644,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSetOperationsOutput": {
@@ -7587,6 +6664,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To\n         retrieve the next set of results, call <code>ListOperationResults</code> again and assign\n         that token to the request object's <code>NextToken</code> parameter. If there are no\n         remaining results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSets": {
@@ -7634,6 +6714,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the management account or as a delegated administrator in a\n         member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStackSetsOutput": {
@@ -7651,6 +6734,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results, <code>NextToken</code> is\n         set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>\n         again and assign that token to the request object's <code>NextToken</code> parameter. If\n         the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListStacks": {
@@ -7687,7 +6773,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>ListStacks</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>ListStacks</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListStacksOutput": {
@@ -7707,7 +6794,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for <a>ListStacks</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for <a>ListStacks</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypeRegistrations": {
@@ -7772,6 +6860,9 @@
             "smithy.api#documentation": "<p>If the previous paginated request didn't return all the remaining results, the response\n         object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set\n         of results, call this action again and assign that token to the request object's\n            <code>NextToken</code> parameter. If there are no remaining results, the previous\n         response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypeRegistrationsOutput": {
@@ -7789,6 +6880,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all the remaining results, <code>NextToken</code> is set\n         to a token. To retrieve the next set of results, call this action again and assign that\n         token to the request object's <code>NextToken</code> parameter. If the request returns all\n         results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypeVersions": {
@@ -7859,6 +6953,9 @@
             "smithy.api#documentation": "<p>The publisher ID of the extension publisher.</p>\n         <p>Extensions published by Amazon aren't assigned a publisher ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypeVersionsOutput": {
@@ -7876,6 +6973,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results, <code>NextToken</code> is\n         set to a token. To retrieve the next set of results, call this action again and assign that\n         token to the request object's <code>NextToken</code> parameter. If the request returns all\n         results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypes": {
@@ -7947,6 +7047,9 @@
             "smithy.api#documentation": "<p>If the previous paginated request didn't return all the remaining results, the response\n         object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set\n         of results, call this action again and assign that token to the request object's\n            <code>NextToken</code> parameter. If there are no remaining results, the previous\n         response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ListTypesOutput": {
@@ -7964,6 +7067,9 @@
             "smithy.api#documentation": "<p>If the request doesn't return all the remaining results, <code>NextToken</code> is set\n         to a token. To retrieve the next set of results, call this action again and assign that\n         token to the request object's <code>NextToken</code> parameter. If the request returns all\n         results, <code>NextToken</code> is set to <code>null</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#LogGroupName": {
@@ -8691,6 +7797,9 @@
             "smithy.api#documentation": "<p>The version number to assign to this version of the extension.</p>\n         <p>Use the following format, and adhere to semantic versioning when assigning a version\n         number to your extension:</p>\n         <p>\n            <code>MAJOR.MINOR.PATCH</code>\n         </p>\n         <p>For more information, see <a href=\"https://semver.org/\">Semantic Versioning\n            2.0.0</a>.</p>\n         <p>If you don't specify a version number, CloudFormation increments the version\n         number by one minor version release.</p>\n         <p>You cannot specify a version number the first time you publish a type. CloudFormation\n         automatically sets the first version number to be <code>1.0.0</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#PublishTypeOutput": {
@@ -8702,6 +7811,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#PublisherId": {
@@ -8822,11 +7934,17 @@
             "smithy.api#documentation": "<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#RecordHandlerProgressOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#Region": {
       "type": "string",
@@ -8890,6 +8008,9 @@
             "smithy.api#documentation": "<p>If you are using a Bitbucket or GitHub account for identity verification, the Amazon\n         Resource Name (ARN) for your connection to that account.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs\">Registering your account to publish CloudFormation\n            extensions</a> in the <i>CloudFormation CLI User\n         Guide</i>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#RegisterPublisherOutput": {
@@ -8901,6 +8022,9 @@
             "smithy.api#documentation": "<p>The ID assigned this account by CloudFormation for publishing\n         extensions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#RegisterType": {
@@ -8933,7 +8057,7 @@
         "TypeName": {
           "target": "com.amazonaws.cloudformation#TypeName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the extension being registered.</p>\n         <p>We suggest that extension names adhere to the following patterns:</p>\n         <ul>\n            <li>\n               <p>For resource types,\n                  <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</p>\n            </li>\n            <li>\n               <p>For modules,\n                  <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</p>\n            </li>\n            <li>\n               <p>For hooks,\n                  <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The following organization namespaces are reserved and can't be used in your\n            extension names:</p>\n            <ul>\n               <li>\n                  <p>\n                     <code>Alexa</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>AMZN</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Amazon</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>AWS</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Custom</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Dev</code>\n                  </p>\n               </li>\n            </ul>\n         </note>",
+            "smithy.api#documentation": "<p>The name of the extension being registered.</p>\n         <p>We suggest that extension names adhere to the following patterns:</p>\n         <ul>\n            <li>\n               <p>For resource types,\n                  <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</p>\n            </li>\n            <li>\n               <p>For modules,\n                  <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</p>\n            </li>\n            <li>\n               <p>For hooks,\n                  <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The following organization namespaces are reserved and can't be used in your\n            extension names:</p>\n            <ul>\n               <li>\n                  <p>\n                     <code>Alexa</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>AMZN</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Amazon</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>AWS</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Custom</code>\n                  </p>\n               </li>\n               <li>\n                  <p>\n                     <code>Dev</code>\n                  </p>\n               </li>\n            </ul>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -8962,6 +8086,9 @@
             "smithy.api#documentation": "<p>A unique identifier that acts as an idempotency key for this registration request.\n         Specifying a client request token prevents CloudFormation from generating more\n         than one version of an extension from the same registration request, even if the request is\n         submitted multiple times.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#RegisterTypeOutput": {
@@ -8973,6 +8100,9 @@
             "smithy.api#documentation": "<p>The identifier for this registration request.</p>\n         <p>Use this registration token when calling <code>\n               <a>DescribeTypeRegistration</a>\n            </code>, which returns information about the status and IDs of the extension\n         registration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#RegistrationStatus": {
@@ -9711,6 +8841,9 @@
             "smithy.api#documentation": "<p>A unique identifier for this <code>RollbackStack</code> request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#RollbackStackOutput": {
@@ -9722,6 +8855,9 @@
             "smithy.api#documentation": "<p>Unique identifier of the stack.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#RollbackTrigger": {
@@ -9819,7 +8955,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>SetStackPolicy</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>SetStackPolicy</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#SetTypeConfiguration": {
@@ -9876,6 +9013,9 @@
             "smithy.api#documentation": "<p>The type of extension.</p>\n         <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and\n            <code>TypeName</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#SetTypeConfigurationOutput": {
@@ -9887,6 +9027,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the configuration data, in this account and\n         region.</p>\n         <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and\n            <code>TypeName</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#SetTypeDefaultVersion": {
@@ -9937,11 +9080,17 @@
             "smithy.api#documentation": "<p>The ID of a specific version of the extension. The version ID is the value at the end of\n         the Amazon Resource Name (ARN) assigned to the extension version when it is\n         registered.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#SetTypeDefaultVersionOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#SignalResource": {
       "type": "operation",
@@ -9988,7 +9137,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for the <a>SignalResource</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for the <a>SignalResource</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#Stack": {
@@ -11252,6 +10402,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Describes whether StackSets performs non-conflicting operations concurrently and queues\n         conflicting operations.</p>"
           }
+        },
+        "Regions": {
+          "target": "com.amazonaws.cloudformation#RegionList"
         }
       },
       "traits": {
@@ -12198,11 +11351,17 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#StopStackSetOperationOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.cloudformation#SupportedMajorVersion": {
       "type": "integer",
@@ -12400,6 +11559,9 @@
             "smithy.api#documentation": "<p>The S3 bucket to which CloudFormation delivers the contract test execution\n         logs.</p>\n         <p>CloudFormation delivers the logs by the time contract testing has completed and\n         the extension has been assigned a test type status of <code>PASSED</code> or\n            <code>FAILED</code>.</p>\n         <p>The user calling <code>TestType</code> must be able to access items in the specified S3\n         bucket. Specifically, the user needs the following permissions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>GetObject</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PutObject</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html\">Actions, Resources, and\n            Condition Keys for Amazon S3</a> in the <i>Amazon Web Services\n            Identity and Access Management User Guide</i>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#TestTypeOutput": {
@@ -12411,6 +11573,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the extension.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#ThirdPartyType": {
@@ -13069,7 +12234,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for an <a>UpdateStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for an <a>UpdateStack</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateStackInstances": {
@@ -13158,6 +12324,9 @@
             "smithy.api#documentation": "<p>[Service-managed permissions] Specifies whether you are acting as an account\n         administrator in the organization's management account or as a delegated\n         administrator in a member account.</p>\n         <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with\n         self-managed permissions.</p>\n         <ul>\n            <li>\n               <p>If you are signed in to the management account, specify\n                  <code>SELF</code>.</p>\n            </li>\n            <li>\n               <p>If you are signed in to a delegated administrator account, specify\n                  <code>DELEGATED_ADMIN</code>.</p>\n               <p>Your Amazon Web Services account must be registered as a delegated administrator in\n               the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateStackInstancesOutput": {
@@ -13169,6 +12338,9 @@
             "smithy.api#documentation": "<p>The unique identifier for this stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateStackOutput": {
@@ -13182,7 +12354,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for an <a>UpdateStack</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for an <a>UpdateStack</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateStackSet": {
@@ -13336,6 +12509,9 @@
             "smithy.api#documentation": "<p>Describes whether StackSets performs non-conflicting operations concurrently and queues\n         conflicting operations.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateStackSetOutput": {
@@ -13347,6 +12523,9 @@
             "smithy.api#documentation": "<p>The unique ID for this stack set operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateTerminationProtection": {
@@ -13378,6 +12557,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#UpdateTerminationProtectionOutput": {
@@ -13389,6 +12571,9 @@
             "smithy.api#documentation": "<p>The unique ID of the stack.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#Url": {
@@ -13429,7 +12614,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input for <a>ValidateTemplate</a> action.</p>"
+        "smithy.api#documentation": "<p>The input for <a>ValidateTemplate</a> action.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.cloudformation#ValidateTemplateOutput": {
@@ -13467,7 +12653,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The output for <a>ValidateTemplate</a> action.</p>"
+        "smithy.api#documentation": "<p>The output for <a>ValidateTemplate</a> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudformation#Value": {

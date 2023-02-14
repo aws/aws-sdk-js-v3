@@ -29,7 +29,7 @@ export interface ListLogSourcesCommandInput extends ListLogSourcesRequest {}
 export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the log sources in the current region.</p>
+ * <p>Retrieves the log sources in the current Amazon Web Services Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

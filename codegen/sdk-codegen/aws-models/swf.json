@@ -369,26 +369,32 @@
       }
     },
     "com.amazonaws.swf#ActivityTaskTimeoutType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_TO_CLOSE",
-            "name": "START_TO_CLOSE"
-          },
-          {
-            "value": "SCHEDULE_TO_START",
-            "name": "SCHEDULE_TO_START"
-          },
-          {
-            "value": "SCHEDULE_TO_CLOSE",
-            "name": "SCHEDULE_TO_CLOSE"
-          },
-          {
-            "value": "HEARTBEAT",
-            "name": "HEARTBEAT"
+      "type": "enum",
+      "members": {
+        "START_TO_CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_TO_CLOSE"
           }
-        ]
+        },
+        "SCHEDULE_TO_START": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCHEDULE_TO_START"
+          }
+        },
+        "SCHEDULE_TO_CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCHEDULE_TO_CLOSE"
+          }
+        },
+        "HEARTBEAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HEARTBEAT"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ActivityType": {
@@ -572,18 +578,20 @@
       }
     },
     "com.amazonaws.swf#CancelTimerFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TIMER_ID_UNKNOWN",
-            "name": "TIMER_ID_UNKNOWN"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "TIMER_ID_UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMER_ID_UNKNOWN"
           }
-        ]
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#CancelTimerFailedEventAttributes": {
@@ -631,18 +639,20 @@
       }
     },
     "com.amazonaws.swf#CancelWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNHANDLED_DECISION",
-            "name": "UNHANDLED_DECISION"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNHANDLED_DECISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHANDLED_DECISION"
           }
-        ]
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#CancelWorkflowExecutionFailedEventAttributes": {
@@ -684,22 +694,26 @@
       }
     },
     "com.amazonaws.swf#ChildPolicy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TERMINATE",
-            "name": "TERMINATE"
-          },
-          {
-            "value": "REQUEST_CANCEL",
-            "name": "REQUEST_CANCEL"
-          },
-          {
-            "value": "ABANDON",
-            "name": "ABANDON"
+      "type": "enum",
+      "members": {
+        "TERMINATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATE"
           }
-        ]
+        },
+        "REQUEST_CANCEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUEST_CANCEL"
+          }
+        },
+        "ABANDON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ABANDON"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ChildWorkflowExecutionCanceledEventAttributes": {
@@ -954,34 +968,44 @@
       }
     },
     "com.amazonaws.swf#CloseStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "CONTINUED_AS_NEW",
-            "name": "CONTINUED_AS_NEW"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
+      "type": "enum",
+      "members": {
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        },
+        "CONTINUED_AS_NEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUED_AS_NEW"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        }
       }
     },
     "com.amazonaws.swf#CloseStatusFilter": {
@@ -1014,18 +1038,20 @@
       }
     },
     "com.amazonaws.swf#CompleteWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNHANDLED_DECISION",
-            "name": "UNHANDLED_DECISION"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNHANDLED_DECISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHANDLED_DECISION"
           }
-        ]
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#CompleteWorkflowExecutionFailedEventAttributes": {
@@ -1114,46 +1140,62 @@
       }
     },
     "com.amazonaws.swf#ContinueAsNewWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNHANDLED_DECISION",
-            "name": "UNHANDLED_DECISION"
-          },
-          {
-            "value": "WORKFLOW_TYPE_DEPRECATED",
-            "name": "WORKFLOW_TYPE_DEPRECATED"
-          },
-          {
-            "value": "WORKFLOW_TYPE_DOES_NOT_EXIST",
-            "name": "WORKFLOW_TYPE_DOES_NOT_EXIST"
-          },
-          {
-            "value": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_TASK_LIST_UNDEFINED",
-            "name": "DEFAULT_TASK_LIST_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_CHILD_POLICY_UNDEFINED",
-            "name": "DEFAULT_CHILD_POLICY_UNDEFINED"
-          },
-          {
-            "value": "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-            "name": "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNHANDLED_DECISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHANDLED_DECISION"
           }
-        ]
+        },
+        "WORKFLOW_TYPE_DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_TYPE_DEPRECATED"
+          }
+        },
+        "WORKFLOW_TYPE_DOES_NOT_EXIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_TYPE_DOES_NOT_EXIST"
+          }
+        },
+        "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_TASK_LIST_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_TASK_LIST_UNDEFINED"
+          }
+        },
+        "DEFAULT_CHILD_POLICY_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_CHILD_POLICY_UNDEFINED"
+          }
+        },
+        "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ContinueAsNewWorkflowExecutionFailedEventAttributes": {
@@ -1254,6 +1296,9 @@
             "smithy.api#documentation": "<p>If specified, only workflow executions that match this close status are counted. This\n      filter has an affect only if <code>executionStatus</code> is specified as\n      <code>CLOSED</code>.</p>\n         <note>\n            <p>\n               <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and\n          <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a\n        request.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#CountOpenWorkflowExecutions": {
@@ -1311,6 +1356,9 @@
             "smithy.api#documentation": "<p>If specified, only workflow executions matching the <code>WorkflowId</code> in the\n      filter are counted.</p>\n         <note>\n            <p>\n               <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are\n        mutually exclusive. You can specify at most one of these in a request.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#CountPendingActivityTasks": {
@@ -1350,6 +1398,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#CountPendingDecisionTasks": {
@@ -1389,6 +1440,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#Data": {
@@ -1667,73 +1721,97 @@
       }
     },
     "com.amazonaws.swf#DecisionTaskTimeoutType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_TO_CLOSE",
-            "name": "START_TO_CLOSE"
+      "type": "enum",
+      "members": {
+        "START_TO_CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_TO_CLOSE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#DecisionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ScheduleActivityTask",
-            "name": "ScheduleActivityTask"
-          },
-          {
-            "value": "RequestCancelActivityTask",
-            "name": "RequestCancelActivityTask"
-          },
-          {
-            "value": "CompleteWorkflowExecution",
-            "name": "CompleteWorkflowExecution"
-          },
-          {
-            "value": "FailWorkflowExecution",
-            "name": "FailWorkflowExecution"
-          },
-          {
-            "value": "CancelWorkflowExecution",
-            "name": "CancelWorkflowExecution"
-          },
-          {
-            "value": "ContinueAsNewWorkflowExecution",
-            "name": "ContinueAsNewWorkflowExecution"
-          },
-          {
-            "value": "RecordMarker",
-            "name": "RecordMarker"
-          },
-          {
-            "value": "StartTimer",
-            "name": "StartTimer"
-          },
-          {
-            "value": "CancelTimer",
-            "name": "CancelTimer"
-          },
-          {
-            "value": "SignalExternalWorkflowExecution",
-            "name": "SignalExternalWorkflowExecution"
-          },
-          {
-            "value": "RequestCancelExternalWorkflowExecution",
-            "name": "RequestCancelExternalWorkflowExecution"
-          },
-          {
-            "value": "StartChildWorkflowExecution",
-            "name": "StartChildWorkflowExecution"
-          },
-          {
-            "value": "ScheduleLambdaFunction",
-            "name": "ScheduleLambdaFunction"
+      "type": "enum",
+      "members": {
+        "ScheduleActivityTask": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ScheduleActivityTask"
           }
-        ]
+        },
+        "RequestCancelActivityTask": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestCancelActivityTask"
+          }
+        },
+        "CompleteWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CompleteWorkflowExecution"
+          }
+        },
+        "FailWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FailWorkflowExecution"
+          }
+        },
+        "CancelWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CancelWorkflowExecution"
+          }
+        },
+        "ContinueAsNewWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ContinueAsNewWorkflowExecution"
+          }
+        },
+        "RecordMarker": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecordMarker"
+          }
+        },
+        "StartTimer": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartTimer"
+          }
+        },
+        "CancelTimer": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CancelTimer"
+          }
+        },
+        "SignalExternalWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SignalExternalWorkflowExecution"
+          }
+        },
+        "RequestCancelExternalWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestCancelExternalWorkflowExecution"
+          }
+        },
+        "StartChildWorkflowExecution": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartChildWorkflowExecution"
+          }
+        },
+        "ScheduleLambdaFunction": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ScheduleLambdaFunction"
+          }
+        }
       }
     },
     "com.amazonaws.swf#DefaultUndefinedFault": {
@@ -1788,6 +1866,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DeprecateDomain": {
@@ -1823,6 +1904,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DeprecateWorkflowType": {
@@ -1865,6 +1949,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DescribeActivityType": {
@@ -1904,6 +1991,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DescribeDomain": {
@@ -1936,6 +2026,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DescribeWorkflowExecution": {
@@ -1975,6 +2068,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#DescribeWorkflowType": {
@@ -2014,6 +2110,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#Description": {
@@ -2199,241 +2298,349 @@
       }
     },
     "com.amazonaws.swf#EventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "WorkflowExecutionStarted",
-            "name": "WorkflowExecutionStarted"
-          },
-          {
-            "value": "WorkflowExecutionCancelRequested",
-            "name": "WorkflowExecutionCancelRequested"
-          },
-          {
-            "value": "WorkflowExecutionCompleted",
-            "name": "WorkflowExecutionCompleted"
-          },
-          {
-            "value": "CompleteWorkflowExecutionFailed",
-            "name": "CompleteWorkflowExecutionFailed"
-          },
-          {
-            "value": "WorkflowExecutionFailed",
-            "name": "WorkflowExecutionFailed"
-          },
-          {
-            "value": "FailWorkflowExecutionFailed",
-            "name": "FailWorkflowExecutionFailed"
-          },
-          {
-            "value": "WorkflowExecutionTimedOut",
-            "name": "WorkflowExecutionTimedOut"
-          },
-          {
-            "value": "WorkflowExecutionCanceled",
-            "name": "WorkflowExecutionCanceled"
-          },
-          {
-            "value": "CancelWorkflowExecutionFailed",
-            "name": "CancelWorkflowExecutionFailed"
-          },
-          {
-            "value": "WorkflowExecutionContinuedAsNew",
-            "name": "WorkflowExecutionContinuedAsNew"
-          },
-          {
-            "value": "ContinueAsNewWorkflowExecutionFailed",
-            "name": "ContinueAsNewWorkflowExecutionFailed"
-          },
-          {
-            "value": "WorkflowExecutionTerminated",
-            "name": "WorkflowExecutionTerminated"
-          },
-          {
-            "value": "DecisionTaskScheduled",
-            "name": "DecisionTaskScheduled"
-          },
-          {
-            "value": "DecisionTaskStarted",
-            "name": "DecisionTaskStarted"
-          },
-          {
-            "value": "DecisionTaskCompleted",
-            "name": "DecisionTaskCompleted"
-          },
-          {
-            "value": "DecisionTaskTimedOut",
-            "name": "DecisionTaskTimedOut"
-          },
-          {
-            "value": "ActivityTaskScheduled",
-            "name": "ActivityTaskScheduled"
-          },
-          {
-            "value": "ScheduleActivityTaskFailed",
-            "name": "ScheduleActivityTaskFailed"
-          },
-          {
-            "value": "ActivityTaskStarted",
-            "name": "ActivityTaskStarted"
-          },
-          {
-            "value": "ActivityTaskCompleted",
-            "name": "ActivityTaskCompleted"
-          },
-          {
-            "value": "ActivityTaskFailed",
-            "name": "ActivityTaskFailed"
-          },
-          {
-            "value": "ActivityTaskTimedOut",
-            "name": "ActivityTaskTimedOut"
-          },
-          {
-            "value": "ActivityTaskCanceled",
-            "name": "ActivityTaskCanceled"
-          },
-          {
-            "value": "ActivityTaskCancelRequested",
-            "name": "ActivityTaskCancelRequested"
-          },
-          {
-            "value": "RequestCancelActivityTaskFailed",
-            "name": "RequestCancelActivityTaskFailed"
-          },
-          {
-            "value": "WorkflowExecutionSignaled",
-            "name": "WorkflowExecutionSignaled"
-          },
-          {
-            "value": "MarkerRecorded",
-            "name": "MarkerRecorded"
-          },
-          {
-            "value": "RecordMarkerFailed",
-            "name": "RecordMarkerFailed"
-          },
-          {
-            "value": "TimerStarted",
-            "name": "TimerStarted"
-          },
-          {
-            "value": "StartTimerFailed",
-            "name": "StartTimerFailed"
-          },
-          {
-            "value": "TimerFired",
-            "name": "TimerFired"
-          },
-          {
-            "value": "TimerCanceled",
-            "name": "TimerCanceled"
-          },
-          {
-            "value": "CancelTimerFailed",
-            "name": "CancelTimerFailed"
-          },
-          {
-            "value": "StartChildWorkflowExecutionInitiated",
-            "name": "StartChildWorkflowExecutionInitiated"
-          },
-          {
-            "value": "StartChildWorkflowExecutionFailed",
-            "name": "StartChildWorkflowExecutionFailed"
-          },
-          {
-            "value": "ChildWorkflowExecutionStarted",
-            "name": "ChildWorkflowExecutionStarted"
-          },
-          {
-            "value": "ChildWorkflowExecutionCompleted",
-            "name": "ChildWorkflowExecutionCompleted"
-          },
-          {
-            "value": "ChildWorkflowExecutionFailed",
-            "name": "ChildWorkflowExecutionFailed"
-          },
-          {
-            "value": "ChildWorkflowExecutionTimedOut",
-            "name": "ChildWorkflowExecutionTimedOut"
-          },
-          {
-            "value": "ChildWorkflowExecutionCanceled",
-            "name": "ChildWorkflowExecutionCanceled"
-          },
-          {
-            "value": "ChildWorkflowExecutionTerminated",
-            "name": "ChildWorkflowExecutionTerminated"
-          },
-          {
-            "value": "SignalExternalWorkflowExecutionInitiated",
-            "name": "SignalExternalWorkflowExecutionInitiated"
-          },
-          {
-            "value": "SignalExternalWorkflowExecutionFailed",
-            "name": "SignalExternalWorkflowExecutionFailed"
-          },
-          {
-            "value": "ExternalWorkflowExecutionSignaled",
-            "name": "ExternalWorkflowExecutionSignaled"
-          },
-          {
-            "value": "RequestCancelExternalWorkflowExecutionInitiated",
-            "name": "RequestCancelExternalWorkflowExecutionInitiated"
-          },
-          {
-            "value": "RequestCancelExternalWorkflowExecutionFailed",
-            "name": "RequestCancelExternalWorkflowExecutionFailed"
-          },
-          {
-            "value": "ExternalWorkflowExecutionCancelRequested",
-            "name": "ExternalWorkflowExecutionCancelRequested"
-          },
-          {
-            "value": "LambdaFunctionScheduled",
-            "name": "LambdaFunctionScheduled"
-          },
-          {
-            "value": "LambdaFunctionStarted",
-            "name": "LambdaFunctionStarted"
-          },
-          {
-            "value": "LambdaFunctionCompleted",
-            "name": "LambdaFunctionCompleted"
-          },
-          {
-            "value": "LambdaFunctionFailed",
-            "name": "LambdaFunctionFailed"
-          },
-          {
-            "value": "LambdaFunctionTimedOut",
-            "name": "LambdaFunctionTimedOut"
-          },
-          {
-            "value": "ScheduleLambdaFunctionFailed",
-            "name": "ScheduleLambdaFunctionFailed"
-          },
-          {
-            "value": "StartLambdaFunctionFailed",
-            "name": "StartLambdaFunctionFailed"
+      "type": "enum",
+      "members": {
+        "WorkflowExecutionStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionStarted"
           }
-        ]
+        },
+        "WorkflowExecutionCancelRequested": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionCancelRequested"
+          }
+        },
+        "WorkflowExecutionCompleted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionCompleted"
+          }
+        },
+        "CompleteWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CompleteWorkflowExecutionFailed"
+          }
+        },
+        "WorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionFailed"
+          }
+        },
+        "FailWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FailWorkflowExecutionFailed"
+          }
+        },
+        "WorkflowExecutionTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionTimedOut"
+          }
+        },
+        "WorkflowExecutionCanceled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionCanceled"
+          }
+        },
+        "CancelWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CancelWorkflowExecutionFailed"
+          }
+        },
+        "WorkflowExecutionContinuedAsNew": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionContinuedAsNew"
+          }
+        },
+        "ContinueAsNewWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ContinueAsNewWorkflowExecutionFailed"
+          }
+        },
+        "WorkflowExecutionTerminated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionTerminated"
+          }
+        },
+        "DecisionTaskScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DecisionTaskScheduled"
+          }
+        },
+        "DecisionTaskStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DecisionTaskStarted"
+          }
+        },
+        "DecisionTaskCompleted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DecisionTaskCompleted"
+          }
+        },
+        "DecisionTaskTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DecisionTaskTimedOut"
+          }
+        },
+        "ActivityTaskScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskScheduled"
+          }
+        },
+        "ScheduleActivityTaskFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ScheduleActivityTaskFailed"
+          }
+        },
+        "ActivityTaskStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskStarted"
+          }
+        },
+        "ActivityTaskCompleted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskCompleted"
+          }
+        },
+        "ActivityTaskFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskFailed"
+          }
+        },
+        "ActivityTaskTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskTimedOut"
+          }
+        },
+        "ActivityTaskCanceled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskCanceled"
+          }
+        },
+        "ActivityTaskCancelRequested": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ActivityTaskCancelRequested"
+          }
+        },
+        "RequestCancelActivityTaskFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestCancelActivityTaskFailed"
+          }
+        },
+        "WorkflowExecutionSignaled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WorkflowExecutionSignaled"
+          }
+        },
+        "MarkerRecorded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MarkerRecorded"
+          }
+        },
+        "RecordMarkerFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecordMarkerFailed"
+          }
+        },
+        "TimerStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TimerStarted"
+          }
+        },
+        "StartTimerFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartTimerFailed"
+          }
+        },
+        "TimerFired": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TimerFired"
+          }
+        },
+        "TimerCanceled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TimerCanceled"
+          }
+        },
+        "CancelTimerFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CancelTimerFailed"
+          }
+        },
+        "StartChildWorkflowExecutionInitiated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartChildWorkflowExecutionInitiated"
+          }
+        },
+        "StartChildWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartChildWorkflowExecutionFailed"
+          }
+        },
+        "ChildWorkflowExecutionStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionStarted"
+          }
+        },
+        "ChildWorkflowExecutionCompleted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionCompleted"
+          }
+        },
+        "ChildWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionFailed"
+          }
+        },
+        "ChildWorkflowExecutionTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionTimedOut"
+          }
+        },
+        "ChildWorkflowExecutionCanceled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionCanceled"
+          }
+        },
+        "ChildWorkflowExecutionTerminated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChildWorkflowExecutionTerminated"
+          }
+        },
+        "SignalExternalWorkflowExecutionInitiated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SignalExternalWorkflowExecutionInitiated"
+          }
+        },
+        "SignalExternalWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SignalExternalWorkflowExecutionFailed"
+          }
+        },
+        "ExternalWorkflowExecutionSignaled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExternalWorkflowExecutionSignaled"
+          }
+        },
+        "RequestCancelExternalWorkflowExecutionInitiated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestCancelExternalWorkflowExecutionInitiated"
+          }
+        },
+        "RequestCancelExternalWorkflowExecutionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RequestCancelExternalWorkflowExecutionFailed"
+          }
+        },
+        "ExternalWorkflowExecutionCancelRequested": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExternalWorkflowExecutionCancelRequested"
+          }
+        },
+        "LambdaFunctionScheduled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionScheduled"
+          }
+        },
+        "LambdaFunctionStarted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionStarted"
+          }
+        },
+        "LambdaFunctionCompleted": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionCompleted"
+          }
+        },
+        "LambdaFunctionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionFailed"
+          }
+        },
+        "LambdaFunctionTimedOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunctionTimedOut"
+          }
+        },
+        "ScheduleLambdaFunctionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ScheduleLambdaFunctionFailed"
+          }
+        },
+        "StartLambdaFunctionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StartLambdaFunctionFailed"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OPEN",
-            "name": "OPEN"
-          },
-          {
-            "value": "CLOSED",
-            "name": "CLOSED"
+      "type": "enum",
+      "members": {
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
           }
-        ]
+        },
+        "CLOSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOSED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ExecutionTimeFilter": {
@@ -2524,18 +2731,20 @@
       }
     },
     "com.amazonaws.swf#FailWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNHANDLED_DECISION",
-            "name": "UNHANDLED_DECISION"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNHANDLED_DECISION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHANDLED_DECISION"
           }
-        ]
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#FailWorkflowExecutionFailedEventAttributes": {
@@ -2660,6 +2869,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the events in reverse order. By default the\n      results are returned in ascending order of the <code>eventTimeStamp</code> of the\n      events.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#History": {
@@ -3213,14 +3425,14 @@
       }
     },
     "com.amazonaws.swf#LambdaFunctionTimeoutType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_TO_CLOSE",
-            "name": "START_TO_CLOSE"
+      "type": "enum",
+      "members": {
+        "START_TO_CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_TO_CLOSE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#LimitExceededFault": {
@@ -3316,6 +3528,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default, the\n      results are returned in ascending alphabetical order by <code>name</code> of the activity\n      types.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ListClosedWorkflowExecutions": {
@@ -3410,6 +3625,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default the\n      results are returned in descending order of the start or the close time of the\n      executions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ListDomains": {
@@ -3465,6 +3683,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default, the\n      results are returned in ascending alphabetical order by <code>name</code> of the\n      domains.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ListOpenWorkflowExecutions": {
@@ -3548,6 +3769,9 @@
             "smithy.api#documentation": "<p>If specified, only workflow executions matching the workflow ID specified in the filter\n      are returned.</p>\n         <note>\n            <p>\n               <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are\n        mutually exclusive. You can specify at most one of these in a request.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ListTagsForResource": {
@@ -3583,6 +3807,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ListTagsForResourceOutput": {
@@ -3594,6 +3821,9 @@
             "smithy.api#documentation": "<p>An array of tags associated with the domain.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.swf#ListWorkflowTypes": {
@@ -3665,6 +3895,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default the\n      results are returned in ascending alphabetical order of the <code>name</code> of the workflow\n      types.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#MarkerName": {
@@ -3827,6 +4060,9 @@
             "smithy.api#documentation": "<p>Identity of the worker making the request, recorded in the\n        <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic\n      tracing when problems arise. The form of this identity is user defined.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#PollForDecisionTask": {
@@ -3901,6 +4137,9 @@
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the events in reverse order. By default the\n      results are returned in ascending order of the <code>eventTimestamp</code> of the\n      events.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RecordActivityTaskHeartbeat": {
@@ -3939,6 +4178,9 @@
             "smithy.api#documentation": "<p>If specified, contains details about the progress of the task.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RecordMarkerDecisionAttributes": {
@@ -3963,14 +4205,14 @@
       }
     },
     "com.amazonaws.swf#RecordMarkerFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#RecordMarkerFailedEventAttributes": {
@@ -4095,6 +4337,9 @@
             "smithy.api#documentation": "<p>If set, specifies the default maximum duration for a task of this activity type. This\n      default can be overridden when scheduling an activity task using the\n        <code>ScheduleActivityTask</code>\n            <a>Decision</a>.</p>\n         <p>The duration is specified in seconds, an integer greater than or equal to\n        <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RegisterDomain": {
@@ -4152,6 +4397,9 @@
             "smithy.api#documentation": "<p>Tags to be added when registering a domain.</p> \n         <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RegisterWorkflowType": {
@@ -4246,21 +4494,26 @@
             "smithy.api#documentation": "<p>The default IAM role attached to this workflow type.</p>\n         <note>\n            <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you\n        don't specify an IAM role when you start this workflow type, the default Lambda role is\n        attached to the execution. For more information, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html\">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the\n          <i>Amazon SWF Developer Guide</i>.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RegistrationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "REGISTERED",
-            "name": "REGISTERED"
-          },
-          {
-            "value": "DEPRECATED",
-            "name": "DEPRECATED"
+      "type": "enum",
+      "members": {
+        "REGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTERED"
           }
-        ]
+        },
+        "DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPRECATED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#RequestCancelActivityTaskDecisionAttributes": {
@@ -4279,18 +4532,20 @@
       }
     },
     "com.amazonaws.swf#RequestCancelActivityTaskFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVITY_ID_UNKNOWN",
-            "name": "ACTIVITY_ID_UNKNOWN"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "ACTIVITY_ID_UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVITY_ID_UNKNOWN"
           }
-        ]
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#RequestCancelActivityTaskFailedEventAttributes": {
@@ -4351,22 +4606,26 @@
       }
     },
     "com.amazonaws.swf#RequestCancelExternalWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
-            "name": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
-          },
-          {
-            "value": "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-            "name": "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
           }
-        ]
+        },
+        "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#RequestCancelExternalWorkflowExecutionFailedEventAttributes": {
@@ -4497,6 +4756,9 @@
             "smithy.api#documentation": "<p>The runId of the workflow execution to cancel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ResourceTag": {
@@ -4586,6 +4848,9 @@
             "smithy.api#documentation": "<p> Information about the cancellation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RespondActivityTaskCompleted": {
@@ -4624,6 +4889,9 @@
             "smithy.api#documentation": "<p>The result of the activity task. It is a free form string that is implementation\n      specific.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RespondActivityTaskFailed": {
@@ -4668,6 +4936,9 @@
             "smithy.api#documentation": "<p> Detailed information about the failure.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#RespondDecisionTaskCompleted": {
@@ -4714,7 +4985,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Input data for a TaskCompleted response to a decision task.</p>"
+        "smithy.api#documentation": "<p>Input data for a TaskCompleted response to a decision task.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#ReverseOrder": {
@@ -4808,54 +5080,74 @@
       }
     },
     "com.amazonaws.swf#ScheduleActivityTaskFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVITY_TYPE_DEPRECATED",
-            "name": "ACTIVITY_TYPE_DEPRECATED"
-          },
-          {
-            "value": "ACTIVITY_TYPE_DOES_NOT_EXIST",
-            "name": "ACTIVITY_TYPE_DOES_NOT_EXIST"
-          },
-          {
-            "value": "ACTIVITY_ID_ALREADY_IN_USE",
-            "name": "ACTIVITY_ID_ALREADY_IN_USE"
-          },
-          {
-            "value": "OPEN_ACTIVITIES_LIMIT_EXCEEDED",
-            "name": "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "ACTIVITY_CREATION_RATE_EXCEEDED",
-            "name": "ACTIVITY_CREATION_RATE_EXCEEDED"
-          },
-          {
-            "value": "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_TASK_LIST_UNDEFINED",
-            "name": "DEFAULT_TASK_LIST_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "ACTIVITY_TYPE_DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVITY_TYPE_DEPRECATED"
           }
-        ]
+        },
+        "ACTIVITY_TYPE_DOES_NOT_EXIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVITY_TYPE_DOES_NOT_EXIST"
+          }
+        },
+        "ACTIVITY_ID_ALREADY_IN_USE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVITY_ID_ALREADY_IN_USE"
+          }
+        },
+        "OPEN_ACTIVITIES_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+          }
+        },
+        "ACTIVITY_CREATION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVITY_CREATION_RATE_EXCEEDED"
+          }
+        },
+        "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_TASK_LIST_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_TASK_LIST_UNDEFINED"
+          }
+        },
+        "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ScheduleActivityTaskFailedEventAttributes": {
@@ -4936,26 +5228,32 @@
       }
     },
     "com.amazonaws.swf#ScheduleLambdaFunctionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ID_ALREADY_IN_USE",
-            "name": "ID_ALREADY_IN_USE"
-          },
-          {
-            "value": "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED",
-            "name": "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED",
-            "name": "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
-          },
-          {
-            "value": "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION",
-            "name": "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
+      "type": "enum",
+      "members": {
+        "ID_ALREADY_IN_USE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ID_ALREADY_IN_USE"
           }
-        ]
+        },
+        "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+          }
+        },
+        "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
+          }
+        },
+        "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
+          }
+        }
       }
     },
     "com.amazonaws.swf#ScheduleLambdaFunctionFailedEventAttributes": {
@@ -5036,22 +5334,26 @@
       }
     },
     "com.amazonaws.swf#SignalExternalWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
-            "name": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
-          },
-          {
-            "value": "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-            "name": "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
           }
-        ]
+        },
+        "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#SignalExternalWorkflowExecutionFailedEventAttributes": {
@@ -5217,6 +5519,9 @@
             "smithy.api#documentation": "<p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the target\n      workflow execution's history.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#SimpleWorkflowService": {
@@ -5357,7 +5662,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -5406,15 +5711,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -5528,12 +5824,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://swf-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://swf-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -5582,6 +5884,31 @@
                           "conditions": [],
                           "type": "tree",
                           "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://swf.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
                             {
                               "conditions": [],
                               "endpoint": {
@@ -5638,12 +5965,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://swf.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://swf.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -5656,12 +5989,56 @@
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://swf.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-east-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://swf.us-gov-east-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-west-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://swf.us-gov-west-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://swf.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
                 }
               ]
             }
@@ -5670,454 +6047,16 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf-fips.ap-south-2.api.aws"
+                  "url": "https://swf.us-iso-east-1.c2s.ic.gov"
                 }
               },
               "params": {
-                "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -6128,956 +6067,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -7088,176 +6080,22 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://swf.ap-northeast-3.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-4.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-4.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -7268,48 +6106,87 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf-fips.us-east-2.api.aws"
+                  "url": "https://swf-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf.us-east-2.api.aws"
+                  "url": "https://swf.eu-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -7320,96 +6197,334 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://swf-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf-fips.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://swf.sa-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://swf.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://swf-fips.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://swf.ap-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
+                "endpoint": {
+                  "url": "https://swf.eu-south-1.amazonaws.com"
+                }
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -7420,9 +6535,87 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -7433,9 +6626,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -7445,9 +6638,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -7457,9 +6650,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -7545,54 +6738,74 @@
       }
     },
     "com.amazonaws.swf#StartChildWorkflowExecutionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "WORKFLOW_TYPE_DOES_NOT_EXIST",
-            "name": "WORKFLOW_TYPE_DOES_NOT_EXIST"
-          },
-          {
-            "value": "WORKFLOW_TYPE_DEPRECATED",
-            "name": "WORKFLOW_TYPE_DEPRECATED"
-          },
-          {
-            "value": "OPEN_CHILDREN_LIMIT_EXCEEDED",
-            "name": "OPEN_CHILDREN_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "OPEN_WORKFLOWS_LIMIT_EXCEEDED",
-            "name": "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "CHILD_CREATION_RATE_EXCEEDED",
-            "name": "CHILD_CREATION_RATE_EXCEEDED"
-          },
-          {
-            "value": "WORKFLOW_ALREADY_RUNNING",
-            "name": "WORKFLOW_ALREADY_RUNNING"
-          },
-          {
-            "value": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_TASK_LIST_UNDEFINED",
-            "name": "DEFAULT_TASK_LIST_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-            "name": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-          },
-          {
-            "value": "DEFAULT_CHILD_POLICY_UNDEFINED",
-            "name": "DEFAULT_CHILD_POLICY_UNDEFINED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "WORKFLOW_TYPE_DOES_NOT_EXIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_TYPE_DOES_NOT_EXIST"
           }
-        ]
+        },
+        "WORKFLOW_TYPE_DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_TYPE_DEPRECATED"
+          }
+        },
+        "OPEN_CHILDREN_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN_CHILDREN_LIMIT_EXCEEDED"
+          }
+        },
+        "OPEN_WORKFLOWS_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+          }
+        },
+        "CHILD_CREATION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHILD_CREATION_RATE_EXCEEDED"
+          }
+        },
+        "WORKFLOW_ALREADY_RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_ALREADY_RUNNING"
+          }
+        },
+        "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_TASK_LIST_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_TASK_LIST_UNDEFINED"
+          }
+        },
+        "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+          }
+        },
+        "DEFAULT_CHILD_POLICY_UNDEFINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_CHILD_POLICY_UNDEFINED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#StartChildWorkflowExecutionFailedEventAttributes": {
@@ -7733,14 +6946,14 @@
       }
     },
     "com.amazonaws.swf#StartLambdaFunctionFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASSUME_ROLE_FAILED",
-            "name": "ASSUME_ROLE_FAILED"
+      "type": "enum",
+      "members": {
+        "ASSUME_ROLE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSUME_ROLE_FAILED"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#StartLambdaFunctionFailedEventAttributes": {
@@ -7799,26 +7012,32 @@
       }
     },
     "com.amazonaws.swf#StartTimerFailedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TIMER_ID_ALREADY_IN_USE",
-            "name": "TIMER_ID_ALREADY_IN_USE"
-          },
-          {
-            "value": "OPEN_TIMERS_LIMIT_EXCEEDED",
-            "name": "OPEN_TIMERS_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "TIMER_CREATION_RATE_EXCEEDED",
-            "name": "TIMER_CREATION_RATE_EXCEEDED"
-          },
-          {
-            "value": "OPERATION_NOT_PERMITTED",
-            "name": "OPERATION_NOT_PERMITTED"
+      "type": "enum",
+      "members": {
+        "TIMER_ID_ALREADY_IN_USE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMER_ID_ALREADY_IN_USE"
           }
-        ]
+        },
+        "OPEN_TIMERS_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN_TIMERS_LIMIT_EXCEEDED"
+          }
+        },
+        "TIMER_CREATION_RATE_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMER_CREATION_RATE_EXCEEDED"
+          }
+        },
+        "OPERATION_NOT_PERMITTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_NOT_PERMITTED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#StartTimerFailedEventAttributes": {
@@ -7955,6 +7174,9 @@
             "smithy.api#documentation": "<p>The IAM role to attach to this workflow execution.</p>\n         <note>\n            <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you\n        don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a\n          <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html\">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the\n          <i>Amazon SWF Developer Guide</i>.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#Tag": {
@@ -8036,6 +7258,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#TaskList": {
@@ -8135,6 +7360,9 @@
             "smithy.api#documentation": "<p>If set, specifies the policy to use for the child workflow executions of the workflow\n      execution being terminated. This policy overrides the child policy specified for the workflow\n      execution at registration time or when starting the execution.</p>\n         <p>The supported child policies are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>TERMINATE</code> – The child executions are terminated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child\n          execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its\n          history. It is up to the decider to take appropriate actions when it receives an execution\n          history with this event.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ABANDON</code> – No action is taken. The child executions continue to\n          run.</p>\n            </li>\n         </ul>\n         <note>\n            <p>A child policy for this workflow execution must be specified either as a default for\n        the workflow type or through this parameter. If neither this parameter is set nor a default\n        child policy was specified at registration time then a fault is returned.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#TimerCanceledEventAttributes": {
@@ -8328,6 +7556,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#UndeprecateDomain": {
@@ -8363,6 +7594,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#UndeprecateWorkflowType": {
@@ -8405,6 +7639,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#UnknownResourceFault": {
@@ -8462,6 +7699,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.swf#Version": {
@@ -8520,14 +7760,14 @@
       }
     },
     "com.amazonaws.swf#WorkflowExecutionCancelRequestedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CHILD_POLICY_APPLIED",
-            "name": "CHILD_POLICY_APPLIED"
+      "type": "enum",
+      "members": {
+        "CHILD_POLICY_APPLIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHILD_POLICY_APPLIED"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#WorkflowExecutionCancelRequestedEventAttributes": {
@@ -9096,22 +8336,26 @@
       }
     },
     "com.amazonaws.swf#WorkflowExecutionTerminatedCause": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CHILD_POLICY_APPLIED",
-            "name": "CHILD_POLICY_APPLIED"
-          },
-          {
-            "value": "EVENT_LIMIT_EXCEEDED",
-            "name": "EVENT_LIMIT_EXCEEDED"
-          },
-          {
-            "value": "OPERATOR_INITIATED",
-            "name": "OPERATOR_INITIATED"
+      "type": "enum",
+      "members": {
+        "CHILD_POLICY_APPLIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHILD_POLICY_APPLIED"
           }
-        ]
+        },
+        "EVENT_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EVENT_LIMIT_EXCEEDED"
+          }
+        },
+        "OPERATOR_INITIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATOR_INITIATED"
+          }
+        }
       }
     },
     "com.amazonaws.swf#WorkflowExecutionTerminatedEventAttributes": {
@@ -9170,14 +8414,14 @@
       }
     },
     "com.amazonaws.swf#WorkflowExecutionTimeoutType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_TO_CLOSE",
-            "name": "START_TO_CLOSE"
+      "type": "enum",
+      "members": {
+        "START_TO_CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_TO_CLOSE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.swf#WorkflowId": {

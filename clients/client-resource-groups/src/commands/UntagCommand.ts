@@ -27,13 +27,13 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes tags from a specified resource group.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:Untag</code>
  *                </p>
  *             </li>

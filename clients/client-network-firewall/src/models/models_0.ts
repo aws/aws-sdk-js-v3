@@ -52,7 +52,7 @@ export interface ActionDefinition {
  */
 export interface Address {
   /**
-   * <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>
+   * <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
    *          <p>Examples: </p>
    *          <ul>
    *             <li>
@@ -60,6 +60,12 @@ export interface Address {
    *             </li>
    *             <li>
    *                <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
@@ -259,6 +265,11 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+export enum IPAddressType {
+  DUALSTACK = "DUALSTACK",
+  IPV4 = "IPV4",
+}
+
 /**
  * <p>The ID for a subnet that you want to associate with the firewall. This is used with
  *             <a>CreateFirewall</a> and <a>AssociateSubnets</a>. Network Firewall
@@ -270,6 +281,11 @@ export interface SubnetMapping {
    * <p>The unique identifier for the subnet. </p>
    */
   SubnetId: string | undefined;
+
+  /**
+   * <p>The subnet's IP address type. You can't change the IP address type after you create the subnet.</p>
+   */
+  IPAddressType?: IPAddressType | string;
 }
 
 export interface AssociateSubnetsRequest {
@@ -1164,6 +1180,7 @@ export enum StatefulAction {
   ALERT = "ALERT",
   DROP = "DROP",
   PASS = "PASS",
+  REJECT = "REJECT",
 }
 
 export enum StatefulRuleDirection {
@@ -1207,7 +1224,7 @@ export interface Header {
   /**
    * <p>The source IP address or address range to inspect for, in CIDR notation.
    *           To match with any address, specify <code>ANY</code>. </p>
-   *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>
+   *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
    *          <p>Examples: </p>
    *          <ul>
    *             <li>
@@ -1215,6 +1232,12 @@ export interface Header {
    *             </li>
    *             <li>
    *                <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
@@ -1241,7 +1264,7 @@ export interface Header {
   /**
    * <p>The destination IP address or address range to inspect for, in CIDR notation.
    *           To match with any address, specify <code>ANY</code>. </p>
-   *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>
+   *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
    *          <p>Examples: </p>
    *          <ul>
    *             <li>
@@ -1249,6 +1272,12 @@ export interface Header {
    *             </li>
    *             <li>
    *                <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
@@ -1312,6 +1341,13 @@ export interface StatefulRule {
    *                <p>You can use this action to test a rule that you intend to use to drop traffic. You
    *                can enable the rule with <code>ALERT</code> action, verify in the logs that the rule
    *                is filtering as you want, then change the action to <code>DROP</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>REJECT</b> - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a <code>RST</code> bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the <a>Firewall</a>
+   *                   <a>LoggingConfiguration</a>.</p>
+   *                <p>
+   *                   <code>REJECT</code> isn't currently available for use with IMAP and FTP protocols.</p>
    *             </li>
    *          </ul>
    */

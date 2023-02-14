@@ -33,7 +33,6 @@ export interface GetContainerServiceMetricDataCommandOutput
 /**
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container
  *       service.</p>
- *
  *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
  *       regularly to maintain the reliability, availability, and performance of your resources.</p>
  * @example

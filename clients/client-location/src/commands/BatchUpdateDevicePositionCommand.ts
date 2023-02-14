@@ -33,7 +33,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
  *            days.</p>
  *          <note>
- *            <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
+ *             <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
  *                When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections,
  *                and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than
  *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p>

@@ -64,22 +64,17 @@
           "name": "lex"
         },
         "aws.protocols#restJson1": {
-          "http": [
-            "http/1.1",
-            "h2"
-          ],
-          "eventStreamHttp": [
-            "h2"
-          ]
+          "http": ["http/1.1", "h2"],
+          "eventStreamHttp": ["h2"]
         },
-        "smithy.api#documentation": "<p></p>",
+        "smithy.api#documentation": "<p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>",
         "smithy.api#title": "Amazon Lex Runtime V2",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -128,15 +123,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -399,9 +385,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -412,9 +398,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -425,9 +411,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -438,9 +424,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -451,9 +437,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -464,9 +450,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -477,9 +463,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -490,9 +476,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -503,9 +489,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -516,9 +502,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -529,9 +515,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -542,9 +528,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -555,9 +541,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -568,9 +554,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -581,9 +567,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -594,9 +580,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -607,9 +593,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -620,9 +606,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -633,9 +619,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -646,9 +632,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -659,9 +645,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -672,9 +658,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -685,9 +671,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -698,9 +684,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -711,9 +697,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -724,9 +710,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -737,9 +723,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -750,9 +736,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -763,9 +749,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -776,9 +762,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -789,9 +775,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -802,9 +788,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -815,9 +801,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -828,9 +814,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -841,9 +827,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -854,9 +840,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -867,9 +853,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -880,9 +866,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -893,9 +879,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -906,9 +892,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -919,9 +905,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -932,9 +918,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -945,9 +931,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -958,9 +944,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -971,9 +957,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -983,9 +969,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -995,9 +981,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -1368,22 +1354,26 @@
       }
     },
     "com.amazonaws.lexruntimev2#ConfirmationState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Confirmed",
-            "name": "CONFIRMED"
-          },
-          {
-            "value": "Denied",
-            "name": "DENIED"
-          },
-          {
-            "value": "None",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "CONFIRMED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Confirmed"
           }
-        ]
+        },
+        "DENIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Denied"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#ConflictException": {
@@ -1403,18 +1393,20 @@
       }
     },
     "com.amazonaws.lexruntimev2#ConversationMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AUDIO",
-            "name": "AUDIO"
-          },
-          {
-            "value": "TEXT",
-            "name": "TEXT"
+      "type": "enum",
+      "members": {
+        "AUDIO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUDIO"
           }
-        ]
+        },
+        "TEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEXT"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#DTMFInputEvent": {
@@ -1609,34 +1601,44 @@
       }
     },
     "com.amazonaws.lexruntimev2#DialogActionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Close",
-            "name": "CLOSE"
-          },
-          {
-            "value": "ConfirmIntent",
-            "name": "CONFIRM_INTENT"
-          },
-          {
-            "value": "Delegate",
-            "name": "DELEGATE"
-          },
-          {
-            "value": "ElicitIntent",
-            "name": "ELICIT_INTENT"
-          },
-          {
-            "value": "ElicitSlot",
-            "name": "ELICIT_SLOT"
-          },
-          {
-            "value": "None",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "CLOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Close"
           }
-        ]
+        },
+        "CONFIRM_INTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConfirmIntent"
+          }
+        },
+        "DELEGATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Delegate"
+          }
+        },
+        "ELICIT_INTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ElicitIntent"
+          }
+        },
+        "ELICIT_SLOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ElicitSlot"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#DisconnectionEvent": {
@@ -1851,22 +1853,26 @@
       }
     },
     "com.amazonaws.lexruntimev2#InputMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Text",
-            "name": "TEXT"
-          },
-          {
-            "value": "Speech",
-            "name": "SPEECH"
-          },
-          {
-            "value": "DTMF",
-            "name": "DTMF"
+      "type": "enum",
+      "members": {
+        "TEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Text"
           }
-        ]
+        },
+        "SPEECH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Speech"
+          }
+        },
+        "DTMF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DTMF"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#Intent": {
@@ -1914,7 +1920,7 @@
         "interpretations": {
           "target": "com.amazonaws.lexruntimev2#Interpretations",
           "traits": {
-            "smithy.api#documentation": "<p>A list of intents that Amazon Lex V2 determined might satisfy the user's\n         utterance.</p>\n\n         <p>Each interpretation includes the intent, a score that indicates how\n         confident Amazon Lex V2 is that the interpretation is the correct one, and an\n         optional sentiment response that indicates the sentiment expressed in\n         the utterance.</p>"
+            "smithy.api#documentation": "<p>A list of intents that Amazon Lex V2 determined might satisfy the user's\n         utterance.</p>\n         <p>Each interpretation includes the intent, a score that indicates how\n         confident Amazon Lex V2 is that the interpretation is the correct one, and an\n         optional sentiment response that indicates the sentiment expressed in\n         the utterance.</p>"
           }
         },
         "sessionState": {
@@ -1937,6 +1943,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in\n         the form <code>RESPONSE-N</code>, where N is a number starting with one\n         and incremented for each event sent by Amazon Lex V2 in the current\n         session.</p>"
           }
+        },
+        "recognizedBotMember": {
+          "target": "com.amazonaws.lexruntimev2#RecognizedBotMember",
+          "traits": {
+            "smithy.api#documentation": "<p>The bot member that is processing the intent.</p>"
+          }
         }
       },
       "traits": {
@@ -1944,34 +1956,44 @@
       }
     },
     "com.amazonaws.lexruntimev2#IntentState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Failed",
-            "name": "FAILED"
-          },
-          {
-            "value": "Fulfilled",
-            "name": "FULFILLED"
-          },
-          {
-            "value": "InProgress",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "ReadyForFulfillment",
-            "name": "READY_FOR_FULFILLMENT"
-          },
-          {
-            "value": "Waiting",
-            "name": "WAITING"
-          },
-          {
-            "value": "FulfillmentInProgress",
-            "name": "FULFILLMENT_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
           }
-        ]
+        },
+        "FULFILLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Fulfilled"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "READY_FOR_FULFILLMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ReadyForFulfillment"
+          }
+        },
+        "WAITING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Waiting"
+          }
+        },
+        "FULFILLMENT_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FulfillmentInProgress"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#InternalServerException": {
@@ -2061,26 +2083,32 @@
       }
     },
     "com.amazonaws.lexruntimev2#MessageContentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CustomPayload",
-            "name": "CUSTOM_PAYLOAD"
-          },
-          {
-            "value": "ImageResponseCard",
-            "name": "IMAGE_RESPONSE_CARD"
-          },
-          {
-            "value": "PlainText",
-            "name": "PLAIN_TEXT"
-          },
-          {
-            "value": "SSML",
-            "name": "SSML"
+      "type": "enum",
+      "members": {
+        "CUSTOM_PAYLOAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CustomPayload"
           }
-        ]
+        },
+        "IMAGE_RESPONSE_CARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ImageResponseCard"
+          }
+        },
+        "PLAIN_TEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PlainText"
+          }
+        },
+        "SSML": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SSML"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#Messages": {
@@ -2170,22 +2198,26 @@
       }
     },
     "com.amazonaws.lexruntimev2#PlaybackInterruptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DTMF_START_DETECTED",
-            "name": "DTMF_START_DETECTED"
-          },
-          {
-            "value": "TEXT_DETECTED",
-            "name": "TEXT_DETECTED"
-          },
-          {
-            "value": "VOICE_START_DETECTED",
-            "name": "VOICE_START_DETECTED"
+      "type": "enum",
+      "members": {
+        "DTMF_START_DETECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DTMF_START_DETECTED"
           }
-        ]
+        },
+        "TEXT_DETECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEXT_DETECTED"
+          }
+        },
+        "VOICE_START_DETECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VOICE_START_DETECTED"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#PutSession": {
@@ -2473,6 +2505,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the session in use.</p>"
           }
+        },
+        "recognizedBotMember": {
+          "target": "com.amazonaws.lexruntimev2#RecognizedBotMember",
+          "traits": {
+            "smithy.api#documentation": "<p>The bot member that recognized the text.</p>"
+          }
         }
       }
     },
@@ -2512,9 +2550,7 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": [
-          "aws.auth#sigv4"
-        ],
+        "smithy.api#auth": ["aws.auth#sigv4"],
         "smithy.api#documentation": "<p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use\n         this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2\n         interprets the user input using the machine learning model built for\n         the bot.</p>\n         <p>The following request fields must be compressed with gzip and then\n         base64 encoded before you send them to Amazon Lex V2. </p>\n         <ul>\n            <li>\n               <p>requestAttributes</p>\n            </li>\n            <li>\n               <p>sessionState</p>\n            </li>\n         </ul>\n         <p>The following response fields are compressed using gzip and then\n         base64 encoded by Amazon Lex V2. Before you can use these fields, you must\n         decode and decompress them. </p>\n         <ul>\n            <li>\n               <p>inputTranscript</p>\n            </li>\n            <li>\n               <p>interpretations</p>\n            </li>\n            <li>\n               <p>messages</p>\n            </li>\n            <li>\n               <p>requestAttributes</p>\n            </li>\n            <li>\n               <p>sessionState</p>\n            </li>\n         </ul>\n         <p>The example contains a Java application that compresses and encodes\n         a Java object to send to Amazon Lex V2, and a second that decodes and\n         decompresses a response from Amazon Lex V2.</p>\n         <p>If the optional post-fulfillment response is specified, the messages\n         are returned as follows. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html\">PostFulfillmentStatusSpecification</a>.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Success message</b> - Returned if\n               the Lambda function completes successfully and the intent state is\n               fulfilled or ready fulfillment if the message is present.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Failed message</b> - The failed\n               message is returned if the Lambda function throws an exception or\n               if the Lambda function returns a failed intent state without a\n               message.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Timeout message</b> - If you\n               don't configure a timeout message and a timeout, and the Lambda\n               function doesn't return within 30 seconds, the timeout message is\n               returned. If you configure a timeout, the timeout message is\n               returned when the period times out. </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html\">Completion message</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2583,7 +2619,7 @@
         "responseContentType": {
           "target": "com.amazonaws.lexruntimev2#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The message that Amazon Lex V2 returns in the response can be either text or\n         speech based on the <code>responseContentType</code> value.</p>\n         <ul>\n            <li>\n               <p>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2\n               returns text in the response.</p>\n            </li>\n            <li>\n               <p>If the value begins with <code>audio/</code>, Amazon Lex V2 returns\n               speech in the response. Amazon Lex V2 uses Amazon Polly to generate the speech\n               using the configuration that you specified in the\n                  <code>requestContentType</code> parameter. For example, if you\n               specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns\n               speech in the MPEG format.</p>\n            </li>\n            <li>\n               <p>If the value is <code>audio/pcm</code>, the speech returned is\n                  <code>audio/pcm</code> at 16 KHz in 16-bit, little-endian\n               format.</p>\n            </li>\n            <li>\n               <p>The following are the accepted values:</p>\n               <ul>\n                  <li>\n                     <p>audio/mpeg</p>\n                  </li>\n                  <li>\n                     <p>audio/ogg</p>\n                  </li>\n                  <li>\n                     <p>audio/pcm (16 KHz)</p>\n                  </li>\n                  <li>\n                     <p>audio/* (defaults to mpeg)</p>\n                  </li>\n                  <li>\n                     <p>text/plain; charset=utf-8</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The message that Amazon Lex V2 returns in the response can be either text or\n         speech based on the <code>responseContentType</code> value.</p>\n         <ul>\n            <li>\n               <p>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2\n               returns text in the response.</p>\n            </li>\n            <li>\n               <p>If the value begins with <code>audio/</code>, Amazon Lex V2 returns\n               speech in the response. Amazon Lex V2 uses Amazon Polly to generate the speech\n               using the configuration that you specified in the\n                  <code>responseContentType</code> parameter. For example, if you\n               specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns\n               speech in the MPEG format.</p>\n            </li>\n            <li>\n               <p>If the value is <code>audio/pcm</code>, the speech returned is\n                  <code>audio/pcm</code> at 16 KHz in 16-bit, little-endian\n               format.</p>\n            </li>\n            <li>\n               <p>The following are the accepted values:</p>\n               <ul>\n                  <li>\n                     <p>audio/mpeg</p>\n                  </li>\n                  <li>\n                     <p>audio/ogg</p>\n                  </li>\n                  <li>\n                     <p>audio/pcm (16 KHz)</p>\n                  </li>\n                  <li>\n                     <p>audio/* (defaults to mpeg)</p>\n                  </li>\n                  <li>\n                     <p>text/plain; charset=utf-8</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
             "smithy.api#httpHeader": "Response-Content-Type"
           }
         },
@@ -2663,7 +2699,35 @@
             "smithy.api#documentation": "<p>The prompt or statement to send to the user. This is based on the\n         bot configuration and context. For example, if Amazon Lex V2 did not understand\n         the user intent, it sends the <code>clarificationPrompt</code>\n         configured for the bot. If the intent requires confirmation before\n         taking the fulfillment action, it sends the\n            <code>confirmationPrompt</code>. Another example: Suppose that the\n         Lambda function successfully fulfilled the intent, and sent a message\n         to convey to the user. Then Amazon Lex V2 sends that message in the\n         response.</p>",
             "smithy.api#httpPayload": {}
           }
+        },
+        "recognizedBotMember": {
+          "target": "com.amazonaws.lexruntimev2#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The bot member that recognized the utterance.</p>",
+            "smithy.api#httpHeader": "x-amz-lex-recognized-bot-member"
+          }
         }
+      }
+    },
+    "com.amazonaws.lexruntimev2#RecognizedBotMember": {
+      "type": "structure",
+      "members": {
+        "botId": {
+          "target": "com.amazonaws.lexruntimev2#BotIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bot member that processes the request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "botName": {
+          "target": "com.amazonaws.lexruntimev2#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the bot member that processes the request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The bot member that processes the request.</p>"
       }
     },
     "com.amazonaws.lexruntimev2#ResourceNotFoundException": {
@@ -2812,26 +2876,32 @@
       }
     },
     "com.amazonaws.lexruntimev2#SentimentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MIXED",
-            "name": "MIXED"
-          },
-          {
-            "value": "NEGATIVE",
-            "name": "NEGATIVE"
-          },
-          {
-            "value": "NEUTRAL",
-            "name": "NEUTRAL"
-          },
-          {
-            "value": "POSITIVE",
-            "name": "POSITIVE"
+      "type": "enum",
+      "members": {
+        "MIXED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MIXED"
           }
-        ]
+        },
+        "NEGATIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEGATIVE"
+          }
+        },
+        "NEUTRAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEUTRAL"
+          }
+        },
+        "POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POSITIVE"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#SessionId": {
@@ -2889,22 +2959,26 @@
       }
     },
     "com.amazonaws.lexruntimev2#Shape": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Scalar",
-            "name": "SCALAR"
-          },
-          {
-            "value": "List",
-            "name": "LIST"
-          },
-          {
-            "value": "Composite",
-            "name": "COMPOSITE"
+      "type": "enum",
+      "members": {
+        "SCALAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Scalar"
           }
-        ]
+        },
+        "LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "List"
+          }
+        },
+        "COMPOSITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Composite"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#Slot": {
@@ -3197,22 +3271,26 @@
       }
     },
     "com.amazonaws.lexruntimev2#StyleType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Default",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "SpellByLetter",
-            "name": "SPELL_BY_LETTER"
-          },
-          {
-            "value": "SpellByWord",
-            "name": "SPELL_BY_WORD"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Default"
           }
-        ]
+        },
+        "SPELL_BY_LETTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SpellByLetter"
+          }
+        },
+        "SPELL_BY_WORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SpellByWord"
+          }
+        }
       }
     },
     "com.amazonaws.lexruntimev2#Text": {

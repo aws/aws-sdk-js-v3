@@ -24,7 +24,7 @@ export interface DeleteDocumentVersionCommandInput extends DeleteDocumentVersion
 export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a version of an Amazon WorkDocs document. Use the <code>DeletePriorVersions</code> parameter to delete prior versions.</p>
+ * <p>Deletes a specific version of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

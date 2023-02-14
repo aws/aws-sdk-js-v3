@@ -1001,6 +1001,80 @@ export interface GetBatchJobExecutionRequest {
   executionId: string | undefined;
 }
 
+/**
+ * <p>A batch job identifier in which the batch job to run is identified by the file name and
+ *          the relative path to the file name.</p>
+ */
+export interface FileBatchJobIdentifier {
+  /**
+   * <p>The file name for the batch job identifier.</p>
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The relative path to the file name for the batch job identifier.</p>
+   */
+  folderPath?: string;
+}
+
+/**
+ * <p>A batch job identifier in which the batch job to run is identified by the script
+ *          name.</p>
+ */
+export interface ScriptBatchJobIdentifier {
+  /**
+   * <p>The name of the script containing the batch job definition.</p>
+   */
+  scriptName: string | undefined;
+}
+
+/**
+ * <p>Identifies a specific batch job.</p>
+ */
+export type BatchJobIdentifier =
+  | BatchJobIdentifier.FileBatchJobIdentifierMember
+  | BatchJobIdentifier.ScriptBatchJobIdentifierMember
+  | BatchJobIdentifier.$UnknownMember;
+
+export namespace BatchJobIdentifier {
+  /**
+   * <p>Specifies a file associated with a specific batch job.</p>
+   */
+  export interface FileBatchJobIdentifierMember {
+    fileBatchJobIdentifier: FileBatchJobIdentifier;
+    scriptBatchJobIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A batch job identifier in which the batch job to run is identified by the script name.</p>
+   */
+  export interface ScriptBatchJobIdentifierMember {
+    fileBatchJobIdentifier?: never;
+    scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    fileBatchJobIdentifier?: never;
+    scriptBatchJobIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
+    scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: BatchJobIdentifier, visitor: Visitor<T>): T => {
+    if (value.fileBatchJobIdentifier !== undefined) return visitor.fileBatchJobIdentifier(value.fileBatchJobIdentifier);
+    if (value.scriptBatchJobIdentifier !== undefined)
+      return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
 export enum BatchJobType {
   JES2 = "JES2",
   JES3 = "JES3",
@@ -1069,6 +1143,16 @@ export interface GetBatchJobExecutionResponse {
    * <p>The reason for the reported status.</p>
    */
   statusReason?: string;
+
+  /**
+   * <p/>
+   */
+  returnCode?: string;
+
+  /**
+   * <p>Identifies a specific batch job.</p>
+   */
+  batchJobIdentifier?: BatchJobIdentifier;
 }
 
 export interface GetDataSetDetailsRequest {
@@ -1681,6 +1765,16 @@ export interface BatchJobExecutionSummary {
    * <p>The timestamp when this batch job execution ended.</p>
    */
   endTime?: Date;
+
+  /**
+   * <p/>
+   */
+  returnCode?: string;
+
+  /**
+   * <p>Identifies a specific batch job.</p>
+   */
+  batchJobIdentifier?: BatchJobIdentifier;
 }
 
 export interface ListBatchJobExecutionsResponse {
@@ -1904,80 +1998,6 @@ export interface StartApplicationRequest {
 }
 
 export interface StartApplicationResponse {}
-
-/**
- * <p>A batch job identifier in which the batch job to run is identified by the file name and
- *          the relative path to the file name.</p>
- */
-export interface FileBatchJobIdentifier {
-  /**
-   * <p>The file name for the batch job identifier.</p>
-   */
-  fileName: string | undefined;
-
-  /**
-   * <p>The relative path to the file name for the batch job identifier.</p>
-   */
-  folderPath?: string;
-}
-
-/**
- * <p>A batch job identifier in which the batch job to run is identified by the script
- *          name.</p>
- */
-export interface ScriptBatchJobIdentifier {
-  /**
-   * <p>The name of the script containing the batch job definition.</p>
-   */
-  scriptName: string | undefined;
-}
-
-/**
- * <p>Identifies a specific batch job.</p>
- */
-export type BatchJobIdentifier =
-  | BatchJobIdentifier.FileBatchJobIdentifierMember
-  | BatchJobIdentifier.ScriptBatchJobIdentifierMember
-  | BatchJobIdentifier.$UnknownMember;
-
-export namespace BatchJobIdentifier {
-  /**
-   * <p>Specifies a file associated with a specific batch job.</p>
-   */
-  export interface FileBatchJobIdentifierMember {
-    fileBatchJobIdentifier: FileBatchJobIdentifier;
-    scriptBatchJobIdentifier?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A batch job identifier in which the batch job to run is identified by the script name.</p>
-   */
-  export interface ScriptBatchJobIdentifierMember {
-    fileBatchJobIdentifier?: never;
-    scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    fileBatchJobIdentifier?: never;
-    scriptBatchJobIdentifier?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
-    scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: BatchJobIdentifier, visitor: Visitor<T>): T => {
-    if (value.fileBatchJobIdentifier !== undefined) return visitor.fileBatchJobIdentifier(value.fileBatchJobIdentifier);
-    if (value.scriptBatchJobIdentifier !== undefined)
-      return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
 
 export interface StartBatchJobRequest {
   /**
@@ -2851,8 +2871,34 @@ export const GetBatchJobExecutionRequestFilterSensitiveLog = (obj: GetBatchJobEx
 /**
  * @internal
  */
+export const FileBatchJobIdentifierFilterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptBatchJobIdentifierFilterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchJobIdentifierFilterSensitiveLog = (obj: BatchJobIdentifier): any => {
+  if (obj.fileBatchJobIdentifier !== undefined)
+    return { fileBatchJobIdentifier: FileBatchJobIdentifierFilterSensitiveLog(obj.fileBatchJobIdentifier) };
+  if (obj.scriptBatchJobIdentifier !== undefined)
+    return { scriptBatchJobIdentifier: ScriptBatchJobIdentifierFilterSensitiveLog(obj.scriptBatchJobIdentifier) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const GetBatchJobExecutionResponseFilterSensitiveLog = (obj: GetBatchJobExecutionResponse): any => ({
   ...obj,
+  ...(obj.batchJobIdentifier && { batchJobIdentifier: BatchJobIdentifierFilterSensitiveLog(obj.batchJobIdentifier) }),
 });
 
 /**
@@ -3017,6 +3063,7 @@ export const ListBatchJobExecutionsRequestFilterSensitiveLog = (obj: ListBatchJo
  */
 export const BatchJobExecutionSummaryFilterSensitiveLog = (obj: BatchJobExecutionSummary): any => ({
   ...obj,
+  ...(obj.batchJobIdentifier && { batchJobIdentifier: BatchJobIdentifierFilterSensitiveLog(obj.batchJobIdentifier) }),
 });
 
 /**
@@ -3024,6 +3071,9 @@ export const BatchJobExecutionSummaryFilterSensitiveLog = (obj: BatchJobExecutio
  */
 export const ListBatchJobExecutionsResponseFilterSensitiveLog = (obj: ListBatchJobExecutionsResponse): any => ({
   ...obj,
+  ...(obj.batchJobExecutions && {
+    batchJobExecutions: obj.batchJobExecutions.map((item) => BatchJobExecutionSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -3102,31 +3152,6 @@ export const StartApplicationRequestFilterSensitiveLog = (obj: StartApplicationR
 export const StartApplicationResponseFilterSensitiveLog = (obj: StartApplicationResponse): any => ({
   ...obj,
 });
-
-/**
- * @internal
- */
-export const FileBatchJobIdentifierFilterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptBatchJobIdentifierFilterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchJobIdentifierFilterSensitiveLog = (obj: BatchJobIdentifier): any => {
-  if (obj.fileBatchJobIdentifier !== undefined)
-    return { fileBatchJobIdentifier: FileBatchJobIdentifierFilterSensitiveLog(obj.fileBatchJobIdentifier) };
-  if (obj.scriptBatchJobIdentifier !== undefined)
-    return { scriptBatchJobIdentifier: ScriptBatchJobIdentifierFilterSensitiveLog(obj.scriptBatchJobIdentifier) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal

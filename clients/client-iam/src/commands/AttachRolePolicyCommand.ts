@@ -27,16 +27,16 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * <p>Attaches the specified managed policy to the specified IAM role. When you attach a
  *             managed policy to a role, the managed policy becomes part of the role's permission
  *             (access) policy.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot use a managed policy as the role's trust policy. The role's trust
  *                 policy is created at the same time as the role, using <a>CreateRole</a>.
  *                 You can update a role's trust policy using <a>UpdateAssumeRolePolicy</a>.</p>
- *         </note>
- *         <p>Use this operation to attach a <i>managed</i> policy to a role. To embed
+ *          </note>
+ *          <p>Use this operation to attach a <i>managed</i> policy to a role. To embed
  *             an inline policy in a role, use <a>PutRolePolicy</a>. For more information
  *             about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *         <p>As a best practice, you can validate your IAM policies.
+ *          <p>As a best practice, you can validate your IAM policies.
  *      To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating IAM policies</a>
  *             in the <i>IAM User Guide</i>.</p>
  * @example

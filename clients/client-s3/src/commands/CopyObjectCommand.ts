@@ -121,7 +121,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                false</p>
  *             </li>
  *          </ul>
- *
  *          <p>If both the <code>x-amz-copy-source-if-none-match</code> and
  *             <code>x-amz-copy-source-if-modified-since</code> headers are present in the request and
  *          evaluate as follows, Amazon S3 returns the <code>412 Precondition Failed</code> response
@@ -137,7 +136,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                true</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>All headers with the <code>x-amz-</code> prefix, including
  *                <code>x-amz-copy-source</code>, must be signed.</p>

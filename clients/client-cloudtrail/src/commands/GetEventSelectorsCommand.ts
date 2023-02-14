@@ -29,33 +29,32 @@ export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest 
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the event selectors that you configured for your trail.
- *          The information returned for your event selectors includes the following:</p>
+ * <p>Describes the settings for the event selectors that you configured for your trail. The
+ *          information returned for your event selectors includes the following:</p>
  *          <ul>
  *             <li>
- *                <p>If your event selector includes read-only events, write-only events, or
- *             all events. This applies to both management events and data events.</p>
+ *                <p>If your event selector includes read-only events, write-only events, or all
+ *                events. This applies to both management events and data events.</p>
  *             </li>
  *             <li>
  *                <p>If your event selector includes management events.</p>
  *             </li>
  *             <li>
- *                <p>If your event selector includes data events, the resources on which you are logging data
- *                events.</p>
+ *                <p>If your event selector includes data events, the resources on which you are
+ *                logging data events.</p>
  *             </li>
  *          </ul>
- *          <p>For more information about logging management and data events, see the following topics in the <i>CloudTrail User Guide</i>:</p>
+ *          <p>For more information about logging management and data events, see the following topics
+ *          in the <i>CloudTrail User Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails
- *             </a>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails
- *             </a>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails </a>
  *                </p>
  *             </li>
  *          </ul>

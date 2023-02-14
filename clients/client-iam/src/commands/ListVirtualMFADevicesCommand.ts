@@ -33,11 +33,11 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *             you do not specify an assignment status, the operation returns a list of all virtual MFA
  *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
  *                 <code>Any</code>.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see <a>ListMFADeviceTags</a>.</p>
- *         </note>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          </note>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

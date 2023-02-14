@@ -1,5 +1,6 @@
-import { AwsCredentialIdentity, HashConstructor, SourceData } from "@aws-sdk/types";
+import { AwsCredentialIdentity, ChecksumConstructor, HashConstructor, SourceData } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
 
@@ -29,7 +30,7 @@ export const createScope = (shortDate: string, region: string, service: string):
  *                          sent.
  */
 export const getSigningKey = async (
-  sha256Constructor: HashConstructor,
+  sha256Constructor: ChecksumConstructor | HashConstructor,
   credentials: AwsCredentialIdentity,
   shortDate: string,
   region: string,
@@ -63,8 +64,12 @@ export const clearCredentialCache = (): void => {
   });
 };
 
-const hmac = (ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> => {
+const hmac = (
+  ctor: ChecksumConstructor | HashConstructor,
+  secret: SourceData,
+  data: SourceData
+): Promise<Uint8Array> => {
   const hash = new ctor(secret);
-  hash.update(data);
+  hash.update(toUint8Array(data));
   return hash.digest();
 };

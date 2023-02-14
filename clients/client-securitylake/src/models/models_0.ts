@@ -31,7 +31,9 @@ export enum AccessType {
 }
 
 /**
- * <p>Amazon Security Lake can't find an Amazon Web Services account with the accountID that you specified, or the account whose credentials you used to make this request isn't a member of an organization.</p>
+ * <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
  */
 export class AccountNotFoundException extends __BaseException {
   readonly name: "AccountNotFoundException" = "AccountNotFoundException";
@@ -92,7 +94,7 @@ export enum SourceStatus {
 }
 
 /**
- * <p>Log status for the Security Lake account.</p>
+ * <p>Retrieves the Logs status for the Amazon Security Lake account.</p>
  */
 export interface LogsStatus {
   /**
@@ -102,27 +104,29 @@ export interface LogsStatus {
   pathToLogs: string | undefined;
 
   /**
-   * <p>Health status of services including error codes and patterns.</p>
+   * <p>The health status of services, including error codes and patterns.</p>
    */
   healthStatus: SourceStatus | string | undefined;
 }
 
 /**
- * <p>Security Lake can collect logs and events from supported Amazon Web Services services and custom sources. </p>
+ * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services and
+ *          custom sources. For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
 export interface AccountSources {
   /**
-   * <p>Account ID of the Security Lake account for which logs are collected.</p>
+   * <p>The ID of the Security Lake account for which logs are collected.</p>
    */
   account: string | undefined;
 
   /**
-   * <p>The supported Amazon Web Services services from which logs and events are collected. Amazon Security Lake supports logs and events collection for natively-supported Amazon Web Services services. For more information, see the Amazon Security Lake User Guide. </p>
+   * <p>The supported Amazon Web Services from which logs and events are collected.
+   *          Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. </p>
    */
   sourceType: string | undefined;
 
   /**
-   * <p>Log status for the Security Lake account.</p>
+   * <p>The log status for the Security Lake account.</p>
    */
   logsStatus?: LogsStatus[];
 
@@ -150,17 +154,17 @@ export enum AwsLogSourceType {
 }
 
 /**
- * <p>Automatically enable new organization accounts as member accounts from a Security Lake administrator
- *          account.</p>
+ * <p>Automatically enable new organization accounts as member accounts from an Amazon Security Lake
+ *          administrator account.</p>
  */
 export interface AutoEnableNewRegionConfiguration {
   /**
-   * <p>The Regions where Security Lake is auto enabled</p>
+   * <p>The Amazon Web Services Regions where Security Lake is automatically enabled.</p>
    */
   region: Region | string | undefined;
 
   /**
-   * <p>The Amazon Web Services sources which are auto enabled in Security Lake.</p>
+   * <p>The Amazon Web Services sources that are automatically enabled in Security Lake.</p>
    */
   sources: (AwsLogSourceType | string)[] | undefined;
 }
@@ -285,35 +289,40 @@ export enum Dimension {
 
 export interface CreateAwsLogSourceRequest {
   /**
-   * <p>Specifies the input order to enable dimensions in Security Lake, namely region, source
-   *          type, and member account.</p>
+   * <p>Specifies the input order to enable dimensions in Security Lake, namely Region, source type,
+   *          and member account.</p>
    */
   inputOrder: (Dimension | string)[] | undefined;
 
   /**
-   * <p>Enables specific sources in all Regions and source types.</p>
+   * <p>Enables data collection from specific Amazon Web Services sources in all specific
+   *          accounts and specific Regions.</p>
    */
   enableAllDimensions?: Record<string, Record<string, string[]>>;
 
   /**
-   * <p>Enables specific service sources in specific accounts or Regions.</p>
+   * <p>Enables data collection from specific Amazon Web Services sources in specific accounts or
+   *          Regions.</p>
    */
   enableTwoDimensions?: Record<string, string[]>;
 
   /**
-   * <p>Enables all sources in specific accounts or Regions.</p>
+   * <p>Enables data collection from all Amazon Web Services sources in specific accounts or
+   *          Regions.</p>
    */
   enableSingleDimension?: string[];
 }
 
 export interface CreateAwsLogSourceResponse {
   /**
-   * <p>List of all accounts which are in the process of enabling a natively-supported Amazon Web Services service as a Security Lake.</p>
+   * <p>Lists the accounts that are in the process of enabling a natively supported Amazon Web Service as a Security Lake source.</p>
    */
   processing?: string[];
 
   /**
-   * <p>List of all accounts in which enabling a natively-supported Amazon Web Services service as a Security Lake failed. The failure occurred as these accounts are not part of an organization.</p>
+   * <p>Lists all accounts in which enabling a natively supported Amazon Web Service as
+   *          a Security Lake source failed. The failure occurred as these accounts are not part of an
+   *          organization.</p>
    */
   failed?: string[];
 }
@@ -377,10 +386,10 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3
- *          while processing a request. In particular, this class provides access to Amazon S3's
- *          extended request ID. This ID is required debugging information in the case the user needs
- *          to contact Amazon about an issue where Amazon S3 is incorrectly handling a request.</p>
+ * <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3 while processing a request. In particular, this class provides access to the
+ *             Amazon S3 extended request ID. If Amazon S3 is incorrectly handling a
+ *          request and you need to contact Amazon, this extended request ID may provide useful
+ *          debugging information. </p>
  */
 export class S3Exception extends __BaseException {
   readonly name: "S3Exception" = "S3Exception";
@@ -399,7 +408,7 @@ export class S3Exception extends __BaseException {
 }
 
 /**
- * <p>The input fails to meet the constraints specified in Amazon Security Lake </p>
+ * <p>The input fails to meet the constraints specified in Amazon Security Lake. </p>
  */
 export interface ValidationExceptionField {
   /**
@@ -453,38 +462,42 @@ export class ValidationException extends __BaseException {
 
 export interface CreateCustomLogSourceRequest {
   /**
-   * <p>The custom source name for a third-party custom source. </p>
+   * <p>The name for a third-party custom source. This must be a Regionally unique value.</p>
    */
   customSourceName: string | undefined;
 
   /**
-   * <p>The Open Cybersecurity Schema Framework (OCSF) event class.</p>
+   * <p>The Open Cybersecurity Schema Framework (OCSF) event class which describes the type of
+   *          data that the custom source will send to Security Lake.</p>
    */
   eventClass: OcsfEventClass | string | undefined;
 
   /**
-   * <p>The IAM Role ARN to be used by the Glue Crawler. The recommended IAM policies are:</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
+   *          to be used by the Glue crawler. The recommended IAM policies
+   *          are:</p>
    *          <ul>
    *             <li>
    *                <p>The managed policy <code>AWSGlueServiceRole</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>A custom policy granting access to your S3 Data Lake</p>
+   *                <p>A custom policy granting access to your Amazon S3 Data Lake</p>
    *             </li>
    *          </ul>
    */
   glueInvocationRoleArn: string | undefined;
 
   /**
-   * <p>The Account ID that will assume the above Role to put logs into the Data Lake.</p>
+   * <p>The Amazon Web Services account ID of the custom source that will write logs and events
+   *          into the Amazon S3 Data Lake.</p>
    */
   logProviderAccountId: string | undefined;
 }
 
 export interface CreateCustomLogSourceResponse {
   /**
-   * <p>The location of the partition in the Security Lake S3 bucket.</p>
+   * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
    */
   customDataLocation: string | undefined;
 
@@ -505,10 +518,11 @@ export interface CreateCustomLogSourceResponse {
   glueDatabaseName: string | undefined;
 
   /**
-   * <p> IAM Role ARN to be used by the entity putting logs into your Custom Source partition.
-   *          Security Lake will apply the correct access policies to this Role, but this Role must have the
-   *          trust policy created manually. This Role's name must start with the text 'Security Lake'. It
-   *          must trust the <code>logProviderAccountId</code> to assume it.</p>
+   * <p>The ARN of the IAM role to be used by the entity putting logs into your
+   *          custom source partition. Security Lake will apply the correct access policies to this role, but
+   *          you must first manually create the trust policy for this role. The IAM role
+   *          name must start with the text 'Security Lake'. The IAM role must trust the
+   *             <code>logProviderAccountId</code> to assume the role.</p>
    */
   logProviderAccessRoleArn: string | undefined;
 }
@@ -524,7 +538,7 @@ export enum StorageClass {
 }
 
 /**
- * <p>Retention settings for the destination Amazon S3 buckets in Security Lake. </p>
+ * <p>Retention settings for the destination Amazon S3 buckets in Amazon Security Lake. </p>
  */
 export interface RetentionSetting {
   /**
@@ -535,17 +549,17 @@ export interface RetentionSetting {
 
   /**
    * <p>The retention period specifies a fixed period of time during which the Security Lake object
-   *          remains locked. You can specify the retention period for one or more source in days. </p>
+   *          remains locked. You can specify the retention period in days for one or more sources. </p>
    */
   retentionPeriod?: number;
 }
 
 /**
- * <p>Provides details of lake configuration object in Amazon Security Lake.</p>
+ * <p>Provides details of Amazon Security Lake configuration object.</p>
  */
 export interface LakeConfigurationRequest {
   /**
-   * <p>The type of encryption key used by Security Lake to encrypt the lake configuration
+   * <p>The type of encryption key used by Amazon Security Lake to encrypt the Security Lake configuration
    *          object.</p>
    */
   encryptionKey?: string;
@@ -562,42 +576,45 @@ export interface LakeConfigurationRequest {
   tagsMap?: Record<string, string>;
 
   /**
-   * <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets.
-   *          Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or
-   *          by different accounts. You can replicate objects to a single destination bucket or to
-   *          multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or
-   *          within the same Region as the source bucket.</p>
+   * <p>Replication enables automatic, asynchronous copying of objects across Amazon S3
+   *          buckets. Amazon S3 buckets that are configured for object replication can be owned
+   *          by the same Amazon Web Services account or by different accounts. You can replicate objects
+   *          to a single destination bucket or to multiple destination buckets. The destination buckets
+   *          can be in different Amazon Web Services Regions or within the same Region as the source
+   *          bucket.</p>
    *          <p>Set up one or more rollup Regions by providing the Region or Regions that should
    *          contribute to the central rollup Region. </p>
    */
   replicationDestinationRegions?: (Region | string)[];
 
   /**
-   * <p>Replication settings for the Amazon S3 buckets. This parameter uses the IAM role
-   *          created by you that is managed by Security Lake, to ensure the replication setting is correct. </p>
+   * <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to
+   *          ensure the replication setting is correct. </p>
    */
   replicationRoleArn?: string;
 }
 
 export interface CreateDatalakeRequest {
   /**
-   * <p>Enable Security Lake in the specified Regions to begin ingesting security data. To enable Security Lake in specific Amazon Web Services Regions, such as us-east-1 or ap-northeast-3, provide the Region codes. For a list of Region codes, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints">Region codes</a> in the Amazon Web Services General Reference.</p>
+   * <p>Enable Security Lake in the specified Regions. To enable Security Lake in specific Amazon Web Services Regions, such as us-east-1 or ap-northeast-3, provide the Region codes. For a
+   *          list of Region codes, see <a href="https://docs.aws.amazon.com/general/latest/gr/securitylake.html">Amazon Security Lake endpoints</a> in the
+   *             Amazon Web Services General Reference.</p>
    */
   regions?: (Region | string)[];
 
   /**
-   * <p>Enable Security Lake with the specified configurations settings to begin ingesting security
-   *          data. </p>
+   * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
    */
   configurations?: Record<string, LakeConfigurationRequest>;
 
   /**
-   * <p>Enable Security Lake in all Regions to begin ingesting security data.</p>
+   * <p>Enable Security Lake in all Regions.</p>
    */
   enableAll?: boolean;
 
   /**
-   * <p>The Role ARN used to create and update the Glue table with partitions generated by ingestion and normalization of Amazon Web Services log sources and custom sources.</p>
+   * <p>The Amazon Resource Name (ARN) used to create and update the Glue table.
+   *          This table contains partitions generated by the ingestion and normalization of Amazon Web Services log sources and custom sources.</p>
    */
   metaStoreManagerRoleArn?: string;
 }
@@ -690,8 +707,8 @@ export class ThrottlingException extends __BaseException {
 
 export interface CreateDatalakeAutoEnableRequest {
   /**
-   * <p>Enable Amazon Security Lake with the specified configurations settings to begin ingesting security
-   *          data for new accounts in Security Lake. </p>
+   * <p>Enable Security Lake with the specified configuration settings to begin collecting security
+   *          data for new accounts in your organization. </p>
    */
   configurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
@@ -700,7 +717,7 @@ export interface CreateDatalakeAutoEnableResponse {}
 
 export interface CreateDatalakeDelegatedAdminRequest {
   /**
-   * <p>Account ID of the Security Lake delegated administrator.</p>
+   * <p>The Amazon Web Services account ID of the Security Lake delegated administrator.</p>
    */
   account: string | undefined;
 }
@@ -721,12 +738,12 @@ export enum SubscriptionProtocolType {
 
 export interface CreateDatalakeExceptionsSubscriptionRequest {
   /**
-   * <p>The subscription protocol to which exception messages are posted. </p>
+   * <p>The subscription protocol to which exception notifications are posted. </p>
    */
   subscriptionProtocol: SubscriptionProtocolType | string | undefined;
 
   /**
-   * <p>The account in which the exception notifications subscription is created.</p>
+   * <p>The Amazon Web Services account where you want to receive exception notifications.</p>
    */
   notificationEndpoint: string | undefined;
 }
@@ -734,13 +751,14 @@ export interface CreateDatalakeExceptionsSubscriptionRequest {
 export interface CreateDatalakeExceptionsSubscriptionResponse {}
 
 /**
- * <p>The supported source types from which logs and events are collected in Amazon Security Lake. </p>
+ * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
+ *          For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
 export type SourceType = SourceType.AwsSourceTypeMember | SourceType.CustomSourceTypeMember | SourceType.$UnknownMember;
 
 export namespace SourceType {
   /**
-   * <p>Amazon Security Lake supports logs and events collection for natively-supported Amazon Web Services services. For more information, see the Amazon Security Lake User Guide.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. </p>
    */
   export interface AwsSourceTypeMember {
     awsSourceType: AwsLogSourceType | string;
@@ -749,7 +767,8 @@ export namespace SourceType {
   }
 
   /**
-   * <p>Amazon Security Lake supports custom source types. For the detailed list, see the Amazon Security Lake User Guide.</p>
+   * <p>Amazon Security Lake supports custom source types. For a detailed list, see the Amazon Security Lake
+   *          User Guide.</p>
    */
   export interface CustomSourceTypeMember {
     awsSourceType?: never;
@@ -778,21 +797,20 @@ export namespace SourceType {
 
 export interface CreateSubscriberRequest {
   /**
-   * <p>The supported Amazon Web Services services from which logs and events are collected. Amazon Security Lake
-   *          supports logs and events collection for natively-supported Amazon Web Services
-   *          services.</p>
+   * <p>The supported Amazon Web Services from which logs and events are collected.
+   *          Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
    */
   sourceTypes: SourceType[] | undefined;
 
   /**
-   * <p>The third party Amazon Web Services account ID used to access your data.</p>
+   * <p>The Amazon Web Services account ID used to access your data.</p>
    */
   accountId: string | undefined;
 
   /**
-   * <p>The external ID of the subscriber. External ID allows the user that is assuming the role
-   *          to assert the circumstances in which they are operating. It also provides a way for the
-   *          account owner to permit the role to be assumed only under specific circumstances.</p>
+   * <p>The external ID of the subscriber. This lets the user that is assuming the role assert
+   *          the circumstances in which they are operating. It also provides a way for the account owner
+   *          to permit the role to be assumed only under specific circumstances.</p>
    */
   externalId: string | undefined;
 
@@ -802,43 +820,44 @@ export interface CreateSubscriberRequest {
   accessTypes?: (AccessType | string)[];
 
   /**
-   * <p>The name of your Amazon Security Lake subscriber account.</p>
+   * <p>The name of your Security Lake subscriber account.</p>
    */
   subscriberName: string | undefined;
 
   /**
-   * <p>The subscriber descriptions for the subscriber account in Amazon Security Lake. </p>
+   * <p>The description for your subscriber account in Security Lake. </p>
    */
   subscriberDescription?: string;
 }
 
 export interface CreateSubscriberResponse {
   /**
-   * <p>The <code>subscriptionId</code> that was created by the <code>CreateSubscriber</code> API call.</p>
+   * <p>The <code>subscriptionId</code> created by the <code>CreateSubscriber</code> API
+   *          call.</p>
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) created by the user to provide to the subscriber. For
-   *          more information about ARNs and how to use them in policies, see IAM identifiers in the IAM
-   *          User Guide.</p>
+   * <p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more
+   *          information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM identifiers in
+   *             the Identity and Access Management (IAM) User Guide</a>. .</p>
    */
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon Simple Notification Service.</p>
+   * <p>The ARN for the Amazon Simple Notification Service.</p>
    */
   snsArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon S3 bucket. </p>
+   * <p>The ARN for the Amazon S3 bucket. </p>
    */
   s3BucketArn?: string;
 }
 
 /**
- * <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter. </p>
+ * <p>The request was rejected because a value that's not valid or is out of range was
+ *          supplied for an input parameter. </p>
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
@@ -863,57 +882,61 @@ export enum HttpsMethod {
 
 export interface CreateSubscriptionNotificationConfigurationRequest {
   /**
-   * <p>The subscription ID for which the subscription notification is specified. </p>
+   * <p>The subscription ID for the notification subscription/</p>
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p>The subscription endpoint in Security Lake.</p>
+   * <p>The subscription endpoint in Security Lake. If you prefer notification with an HTTPs
+   *          endpoint, populate this field.</p>
    */
   subscriptionEndpoint?: string;
 
   /**
-   * <p>The key name for the subscription notification.</p>
+   * <p>The key name for the notification subscription.</p>
    */
   httpsApiKeyName?: string;
 
   /**
-   * <p>The key value for the subscription notification.</p>
+   * <p>The key value for the notification subscription.</p>
    */
   httpsApiKeyValue?: string;
 
   /**
-   * <p>The HTTPS method used for the subscription notification. </p>
+   * <p>The HTTPS method used for the notification subscription. </p>
    */
   httpsMethod?: HttpsMethod | string;
 
   /**
-   * <p>Create a new subscription notification for the specified subscription ID in Security Lake.</p>
+   * <p>Create an Amazon Simple Queue Service queue.</p>
    */
   createSqs?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) specifying the role of the subscriber.</p>
+   * <p>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
+   *          created.</p>
    */
   roleArn?: string;
 }
 
 export interface CreateSubscriptionNotificationConfigurationResponse {
   /**
-   * <p>Returns the Amazon resource name (ARN) of the queue.</p>
+   * <p>Returns the Amazon Resource Name (ARN) of the queue.</p>
    */
   queueArn?: string;
 }
 
 export interface DeleteAwsLogSourceRequest {
   /**
-   * <p>This is a mandatory input. Specifies the input order to disable dimensions in Security Lake,
-   *          namely Region, source type, and member. </p>
+   * <p>This is a mandatory input. Specify the input order to disable dimensions in Security Lake,
+   *          namely Region (Amazon Web Services Region code, source type, and member (account ID of a
+   *          specific Amazon Web Services account). </p>
    */
   inputOrder: (Dimension | string)[] | undefined;
 
   /**
-   * <p>Removes the specific Amazon Web Services sources from all Regions and source types.</p>
+   * <p>Removes the specific Amazon Web Services sources from specific accounts and specific
+   *          Regions.</p>
    */
   disableAllDimensions?: Record<string, Record<string, string[]>>;
 
@@ -930,7 +953,7 @@ export interface DeleteAwsLogSourceRequest {
 
 export interface DeleteAwsLogSourceResponse {
   /**
-   * <p>Deletion of the Amazon Web Services sources is in-progress.</p>
+   * <p>Deletion of the Amazon Web Services sources is in progress.</p>
    */
   processing?: string[];
 
@@ -942,14 +965,14 @@ export interface DeleteAwsLogSourceResponse {
 
 export interface DeleteCustomLogSourceRequest {
   /**
-   * <p>The custom source name for the custome log source.</p>
+   * <p>The custom source name for the custom log source.</p>
    */
   customSourceName: string | undefined;
 }
 
 export interface DeleteCustomLogSourceResponse {
   /**
-   * <p>The location of the partition in the Security Lake S3 bucket.</p>
+   * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
    */
   customDataLocation: string | undefined;
 }
@@ -960,7 +983,8 @@ export interface DeleteDatalakeResponse {}
 
 export interface DeleteDatalakeAutoEnableRequest {
   /**
-   * <p>Delete Amazon Security Lake with the specified configurations settings to stop ingesting security data for new accounts in Security Lake. </p>
+   * <p>Delete Amazon Security Lake with the specified configuration settings to stop ingesting
+   *          security data for new accounts in Security Lake. </p>
    */
   removeFromConfigurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
@@ -969,7 +993,7 @@ export interface DeleteDatalakeAutoEnableResponse {}
 
 export interface DeleteDatalakeDelegatedAdminRequest {
   /**
-   * <p>Account ID the Security Lake delegated administrator.</p>
+   * <p>The account ID the Security Lake delegated administrator.</p>
    */
   account: string | undefined;
 }
@@ -996,7 +1020,7 @@ export interface DeleteSubscriberResponse {}
 
 export interface DeleteSubscriptionNotificationConfigurationRequest {
   /**
-   * <p>The subscription ID of the Amazon Security Lake subscriber account.</p>
+   * <p>The ID of the Security Lake subscriber account.</p>
    */
   subscriptionId: string | undefined;
 }
@@ -1048,11 +1072,12 @@ export interface Failures {
 }
 
 /**
- * <p>Response element for actions which make changes namely create, update, or delete actions. </p>
+ * <p>Response element for actions that make changes, namely create, update, or delete
+ *          actions. </p>
  */
 export interface FailuresResponse {
   /**
-   * <p>List of Regions where the failure occurred. </p>
+   * <p>List of Amazon Web Services Regions where the failure occurred. </p>
    */
   region?: string;
 
@@ -1072,11 +1097,11 @@ export enum SettingsStatus {
 }
 
 /**
- * <p>Provides details of lake configuration object in Amazon Security Lake.</p>
+ * <p>Provides details of Amazon Security Lake lake configuration object.</p>
  */
 export interface LakeConfigurationResponse {
   /**
-   * <p>The type of encryption key used by Security Lake to encrypt the lake configuration</p>
+   * <p>The type of encryption key used by secure the Security Lake configuration object.</p>
    */
   encryptionKey?: string;
 
@@ -1092,26 +1117,26 @@ export interface LakeConfigurationResponse {
   tagsMap?: Record<string, string>;
 
   /**
-   * <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets.
-   *          Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or
-   *          by different accounts. You can replicate objects to a single destination bucket or to
-   *          multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or
-   *          within the same Region as the source bucket.</p>
+   * <p>Replication enables automatic, asynchronous copying of objects across Amazon S3
+   *          buckets. Amazon S3 buckets that are configured for object replication can be owned
+   *          by the same Amazon Web Services account or by different accounts. You can replicate objects
+   *          to a single destination bucket or to multiple destination buckets. The destination buckets
+   *          can be in different Amazon Web Services Regions or within the same Region as the source
+   *          bucket.</p>
    *          <p>Set up one or more rollup Regions by providing the Region or Regions that should
    *          contribute to the central rollup Region. </p>
    */
   replicationDestinationRegions?: (Region | string)[];
 
   /**
-   * <p>Replication settings for the Amazon S3 buckets. This parameter uses the IAM role
-   *          created by you that is managed by Security Lake, to ensure the replication setting is correct. </p>
+   * <p>Replication settings for the Amazon S3 buckets. This parameter uses the IAM role you created that is managed by Security Lake, to ensure the replication
+   *          setting is correct. </p>
    */
   replicationRoleArn?: string;
 
   /**
-   * <p>Amazon Resource Names (ARNs) uniquely identify Amazon Web Services resources. Security Lake requires an ARN
-   *          when you need to specify a resource unambiguously across all of Amazon Web Services, such as in IAM
-   *          policies, Amazon Relational Database Service (Amazon RDS) tags, and API calls. </p>
+   * <p>Amazon Resource Names (ARNs) uniquely identify Amazon Web Services resources. Security Lake
+   *          requires an ARN when you need to specify a resource unambiguously across all of Amazon Web Services, such as in IAM policies, Amazon Relational Database Service (Amazon RDS) tags, and API calls. </p>
    */
   s3BucketArn?: string;
 
@@ -1149,7 +1174,8 @@ export interface GetDatalakeExceptionsExpiryResponse {
 export interface GetDatalakeExceptionsSubscriptionRequest {}
 
 /**
- * <p>Notifications in Security Lake which dictates how notifications are posted at the endpoint. </p>
+ * <p>Protocol used in Amazon Security Lake that dictates how notifications are posted at the
+ *          endpoint. </p>
  */
 export interface ProtocolAndNotificationEndpoint {
   /**
@@ -1158,7 +1184,7 @@ export interface ProtocolAndNotificationEndpoint {
   protocol?: string;
 
   /**
-   * <p>The account which is subscribed to receive exception notifications. </p>
+   * <p>The account that is subscribed to receive exception notifications. </p>
    */
   endpoint?: string;
 }
@@ -1172,18 +1198,22 @@ export interface GetDatalakeExceptionsSubscriptionResponse {
 
 export interface GetDatalakeStatusRequest {
   /**
-   * <p>The account IDs for which a static snapshot of the current Region, including enabled
-   *          accounts and log sources is retrieved.</p>
+   * <p>The Amazon Web Services account ID for which a static snapshot of the current Amazon Web Services Region, including enabled accounts and log sources, is retrieved.</p>
    */
   accountSet?: string[];
 
   /**
-   * <p>The maximum limit of accounts for which the static snapshot of the current Region including enabled accounts and log sources is retrieved.</p>
+   * <p>The maximum limit of accounts for which the static snapshot of the current Region,
+   *          including enabled accounts and log sources, is retrieved.</p>
    */
   maxAccountResults?: number;
 
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
+   *          token for each page. Repeat the call using the returned token to retrieve the next page.
+   *          Keep all other arguments unchanged. </p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
+   *          return an HTTP 400 InvalidToken error.</p>
    */
   nextToken?: string;
 }
@@ -1195,14 +1225,19 @@ export interface GetDatalakeStatusResponse {
   accountSourcesList: AccountSources[] | undefined;
 
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
+   *          token for each page. Repeat the call using the returned token to retrieve the next page.
+   *          Keep all other arguments unchanged. </p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
+   *          return an HTTP 400 InvalidToken error.</p>
    */
   nextToken?: string;
 }
 
 export interface GetSubscriberRequest {
   /**
-   * <p>A value created by Security Lake that uniquely identifies your <code>GetSubscriber</code> API request.</p>
+   * <p>A value created by Amazon Security Lake that uniquely identifies your
+   *             <code>GetSubscriber</code> API request.</p>
    */
   id: string | undefined;
 }
@@ -1215,8 +1250,9 @@ export enum SubscriptionStatus {
 }
 
 /**
- * <p>Provides details of the Amazon Security Lake account subscription. Subscribers are notified
- *          of new objects for a source as the data is written to your Amazon Security Lake S3 bucket. </p>
+ * <p>Provides details about the Amazon Security Lake account subscription. Subscribers are notified
+ *          of new objects for a source as the data is written to your Amazon S3 bucket for
+ *          Security Lake. </p>
  */
 export interface SubscriberResource {
   /**
@@ -1225,12 +1261,12 @@ export interface SubscriberResource {
   subscriptionId: string | undefined;
 
   /**
-   * <p>Amazon Security Lake supports logs and events collection for the natively-supported Amazon Web Services services. For more information, see the Amazon Security Lake  User Guide.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the Amazon Security Lake User Guide.</p>
    */
   sourceTypes: SourceType[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the account that you are using to create your Amazon Security Lake
+   * <p>The Amazon Web Services account ID you are using to create your Amazon Security Lake
    *          account.</p>
    */
   accountId: string | undefined;
@@ -1248,7 +1284,7 @@ export interface SubscriberResource {
   subscriberDescription?: string;
 
   /**
-   * <p>Subscription status of the Amazon Security Lake subscriber account.</p>
+   * <p>The subscription status of the Amazon Security Lake subscriber account.</p>
    */
   subscriptionStatus?: SubscriptionStatus | string;
 
@@ -1258,20 +1294,22 @@ export interface SubscriberResource {
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon Simple Notification Service.</p>
+   * <p>The ARN for the Amazon Simple Notification Service.</p>
    */
   snsArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon S3 bucket. </p>
+   * <p>The ARN for the Amazon S3 bucket. </p>
    */
   s3BucketArn?: string;
 
   /**
-   * <p>You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber. </p>
+   * <p>You can choose to notify subscribers of new objects with an Amazon Simple Queue Service
+   *             (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the
+   *          subscriber. </p>
    *          <p> Subscribers can consume data by directly querying Lake Formation tables in your
-   *          S3 bucket via services like Amazon Athena. This subscription type is defined as
-   *          <code>LAKEFORMATION</code>. </p>
+   *             Amazon S3 bucket through services like Amazon Athena. This subscription
+   *          type is defined as <code>LAKEFORMATION</code>. </p>
    */
   accessTypes?: (AccessType | string)[];
 
@@ -1286,8 +1324,8 @@ export interface SubscriberResource {
   subscriptionProtocol?: EndpointProtocol | string;
 
   /**
-   * <p>The external ID of the subscriber. External ID allows the user that is assuming the role
-   *          to assert the circumstances in which they are operating. It also provides a way for the
+   * <p>The external ID of the subscriber. The external ID lets the user that is assuming the
+   *          role assert the circumstances in which they are operating. It also provides a way for the
    *          account owner to permit the role to be assumed only under specific circumstances.</p>
    */
   externalId?: string;
@@ -1305,14 +1343,14 @@ export interface SubscriberResource {
 
 export interface GetSubscriberResponse {
   /**
-   * <p>Subscription information for the specified subscription ID</p>
+   * <p>The subscription information for the specified subscription ID.</p>
    */
   subscriber?: SubscriberResource;
 }
 
 export interface ListDatalakeExceptionsRequest {
   /**
-   * <p>List the regions from which exceptions are retrieved.</p>
+   * <p>List the Amazon Web Services Regions from which exceptions are retrieved.</p>
    */
   regionSet?: (Region | string)[];
 
@@ -1322,21 +1360,27 @@ export interface ListDatalakeExceptionsRequest {
   maxFailures?: number;
 
   /**
-   * <p>List if there are more results available. if nextToken is returned, You can make the call again
-   *          using the returned token to retrieve the next page</p>
+   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   *          token for each page. Repeat the call using the returned token to retrieve the next page.
+   *          Keep all other arguments unchanged. </p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
+   *          return an HTTP 400 InvalidToken error.</p>
    */
   nextToken?: string;
 }
 
 export interface ListDatalakeExceptionsResponse {
   /**
-   * <p>Lists the non-retryable failures in the current region.</p>
+   * <p>Lists the failures that cannot be retried in the current Region.</p>
    */
   nonRetryableFailures: FailuresResponse[] | undefined;
 
   /**
-   * <p>List if there are more results available. if nextToken is returned, You can make the call again
-   *          using the returned token to retrieve the next page</p>
+   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   *          token for each page. Repeat the call using the returned token to retrieve the next page.
+   *          Keep all other arguments unchanged. </p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
+   *          return an HTTP 400 InvalidToken error.</p>
    */
   nextToken?: string;
 }
@@ -1349,28 +1393,28 @@ export interface ListLogSourcesRequest {
   inputOrder?: (Dimension | string)[];
 
   /**
-   * <p>List the view of log sources for enabled Security Lake accounts in all Regions and source types.</p>
+   * <p>List the view of log sources for enabled Amazon Security Lake accounts for specific Amazon Web Services sources from specific accounts and specific Regions.</p>
    */
   listAllDimensions?: Record<string, Record<string, string[]>>;
 
   /**
-   * <p>Lists the log sources for the specified source types in enabled Security Lake
-   *          accounts for the entire Region, for selected member accounts.</p>
+   * <p>Lists the view of log sources for enabled Security Lake accounts for specific Amazon Web Services sources from specific accounts or specific Regions.</p>
    */
   listTwoDimensions?: Record<string, string[]>;
 
   /**
-   * <p>List the view of log sources for enabled Security Lake accounts for the entire region.</p>
+   * <p>List the view of log sources for enabled Security Lake accounts for all Amazon Web Services
+   *          sources from specific accounts or specific Regions.</p>
    */
   listSingleDimension?: string[];
 
   /**
-   * <p>The maximum number of accounts for which the configuration is displayed.</p>
+   * <p>The maximum number of accounts for which the log sources are displayed.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>If nextToken is returned, there are more results available. You can make the call again
+   * <p>If nextToken is returned, there are more results available. You can repeat the call
    *          using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
@@ -1378,20 +1422,20 @@ export interface ListLogSourcesRequest {
 
 export interface ListLogSourcesResponse {
   /**
-   * <p>Lists the log sources in the Regions for enabled Security Lake accounts.</p>
+   * <p>Lists the log sources by Regions for enabled Security Lake accounts.</p>
    */
   regionSourceTypesAccountsList: Record<string, Record<string, string[]>>[] | undefined;
 
   /**
-   * <p>If nextToken is returned, there are more results available. You can make the call again
-   *          using the returned token to retrieve the next page.</p>
+   * <p>If nextToken is returned, there are more results available. You can repeat the call
+   *       using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
 }
 
 export interface ListSubscribersRequest {
   /**
-   * <p>If nextToken is returned, there are more results available. You can make the call again
+   * <p>If nextToken is returned, there are more results available. You can repeat the call
    *          using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
@@ -1404,12 +1448,12 @@ export interface ListSubscribersRequest {
 
 export interface ListSubscribersResponse {
   /**
-   * <p>The subscribers available in the specified Security Lake account ID.</p>
+   * <p>The subscribers available for the specified Security Lake account ID.</p>
    */
   subscribers: SubscriberResource[] | undefined;
 
   /**
-   * <p>If nextToken is returned, there are more results available. You can make the call again
+   * <p>If nextToken is returned, there are more results available. You can repeat the call
    *          using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
@@ -1417,7 +1461,7 @@ export interface ListSubscribersResponse {
 
 export interface UpdateDatalakeRequest {
   /**
-   * <p>The configuration object</p>
+   * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
    */
   configurations: Record<string, LakeConfigurationRequest> | undefined;
 }
@@ -1440,7 +1484,7 @@ export interface UpdateDatalakeExceptionsSubscriptionRequest {
   subscriptionProtocol: SubscriptionProtocolType | string | undefined;
 
   /**
-   * <p>The account which is subscribed to receive exception notifications.</p>
+   * <p>The account that is subscribed to receive exception notifications.</p>
    */
   notificationEndpoint: string | undefined;
 }
@@ -1449,36 +1493,35 @@ export interface UpdateDatalakeExceptionsSubscriptionResponse {}
 
 export interface UpdateSubscriberRequest {
   /**
-   * <p>A value created by Security Lake that uniquely identifies your <code>UpdateSubscriber</code> API request. </p>
+   * <p>A value created by Security Lake that uniquely identifies your subscription. </p>
    */
   id: string | undefined;
 
   /**
-   * <p>The supported Amazon Web Services services from which logs and events are collected. Amazon Security Lake
-   *          supports logs and events collection for the following natively-supported Amazon Web Services
-   *          services. For more information, see the Amazon Security Lake User Guide.</p>
+   * <p>The supported Amazon Web Services from which logs and events are collected. For
+   *          the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    */
-  sourceTypes?: SourceType[];
+  sourceTypes: SourceType[] | undefined;
 
   /**
-   * <p>External ID of the Security Lake account.</p>
+   * <p>The external ID of the Security Lake account.</p>
    */
   externalId?: string;
 
   /**
-   * <p>Name of the Security Lake account subscriber. </p>
+   * <p>The name of the Security Lake account subscriber. </p>
    */
   subscriberName?: string;
 
   /**
-   * <p>Description of the Security Lake account subscriber.</p>
+   * <p>The description of the Security Lake account subscriber.</p>
    */
   subscriberDescription?: string;
 }
 
 export interface UpdateSubscriberResponse {
   /**
-   * <p>The account subscriber in Amazon Security Lake.</p>
+   * <p>The account of the subscriber.</p>
    */
   subscriber?: SubscriberResource;
 }
@@ -1510,7 +1553,8 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
   httpsMethod?: HttpsMethod | string;
 
   /**
-   * <p>Create a new subscription notification for the specified subscription ID in Security Lake.</p>
+   * <p>Create a new subscription notification for the specified subscription ID in
+   *          Amazon Security Lake.</p>
    */
   createSqs?: boolean;
 
@@ -1522,7 +1566,7 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
 
 export interface UpdateSubscriptionNotificationConfigurationResponse {
   /**
-   * <p>Returns the Amazon resource name (ARN) of the queue.</p>
+   * <p>Returns the ARN of the queue.</p>
    */
   queueArn?: string;
 }

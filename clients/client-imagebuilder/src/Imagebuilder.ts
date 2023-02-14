@@ -277,14 +277,14 @@ export class Imagebuilder extends ImagebuilderClient {
    * <p>Creates a new component that can be used to build, validate, test, and assess your
    * 			image. The component is based on a YAML document that you specify using exactly one
    * 			of the following methods:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>Inline, using the <code>data</code> property in the request body.</p>
-   * 			         </li>
+   *                <p>Inline, using the <code>data</code> property in the request body.</p>
+   *             </li>
    *             <li>
-   * 				           <p>A URL that points to a YAML document file stored in Amazon S3, using the
+   *                <p>A URL that points to a YAML document file stored in Amazon S3, using the
    * 					<code>uri</code> property in the request body.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   public createComponent(
@@ -608,23 +608,23 @@ export class Imagebuilder extends ImagebuilderClient {
    * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
    * 			that are created during the image build process. You must clean those up separately,
    * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
+   *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
    * 						your Linux AMI</a> in the <i>
    *                      <i>Amazon EC2 User Guide</i>
    *                   </i>.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
+   *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
    * 						your Windows AMI</a> in the <i>
    *                      <i>Amazon EC2 Windows Guide</i>
    *                   </i>.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
+   *                <p>To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
    * 						an image</a> in the <i>Amazon ECR User Guide</i>.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   public deleteImage(args: DeleteImageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteImageCommandOutput>;
@@ -1128,8 +1128,8 @@ export class Imagebuilder extends ImagebuilderClient {
    * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
    * 			action uses those files to import your VM and create an AMI. To import using the
    * 			CLI command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
-   * 		       </p>
-   * 		       <p>You can reference the task ID from the VM import to pull in the AMI that
+   *          </p>
+   *          <p>You can reference the task ID from the VM import to pull in the AMI that
    * 			the import created as the base image for your Image Builder recipe.</p>
    */
   public importVmImage(
@@ -1163,15 +1163,15 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Returns the list of component build versions for the specified semantic version.</p>
-   * 		       <note>
-   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   *          <note>
+   *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
-   * 			         <p>
+   *             <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
    * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
-   * 		       </note>
+   *          </note>
    */
   public listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
@@ -1203,16 +1203,18 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Returns the list of component build versions for the specified semantic version.</p>
-   * 		       <note>
-   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * <p>Returns the list of components that can be filtered by name, or by using
+   * 			the listed <code>filters</code> to streamline results. Newly created components
+   * 			can take up to two minutes to appear in the ListComponents API Results.</p>
+   *          <note>
+   *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
-   * 			         <p>
+   *             <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
    * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
-   * 		       </note>
+   *          </note>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -1372,7 +1374,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of images created by the specified pipeline.</p>
+   * <p>Returns a list of images created by the specified pipeline.</p>
    */
   public listImagePipelineImages(
     args: ListImagePipelineImagesCommandInput,
@@ -1468,7 +1470,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of images that you have access to.</p>
+   * <p>Returns the list of images that you have access to. Newly created images
+   * 			can take up to two minutes to appear in the ListImages API Results.</p>
    */
   public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
@@ -1817,7 +1820,7 @@ export class Imagebuilder extends ImagebuilderClient {
   /**
    * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
    * 			distribution of images.</p>
-   * 		       <note>
+   *          <note>
    *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
    * 			You must specify all of the required properties in the update request, not just
    * 			the properties that have changed.</p>

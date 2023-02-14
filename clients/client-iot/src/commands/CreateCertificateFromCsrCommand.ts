@@ -40,16 +40,13 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *             <b>Note:</b> Reusing the same certificate signing request (CSR)
  *          results in a distinct certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p>
- *
  *          <p>You can create multiple certificates in a batch by creating a directory, copying
  *          multiple .csr files into that directory, and then specifying that directory on the command
  *          line. The following commands show how to create a batch of certificates given a batch of
  *          CSRs.</p>
  *          <p>Assuming a set of CSRs are located inside of the directory
  *          my-csr-directory:</p>
- *
  *          <p>On Linux and OS X, the command is:</p>
- *
  *          <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
  *          --certificate-signing-request file://my-csr-directory/{}</p>
  *          <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name

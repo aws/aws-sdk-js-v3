@@ -29,12 +29,14 @@ export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefresh
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
- *             replacements that have already been completed, but it prevents new replacements from
- *             being started. </p>
+ * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
+ *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
+ *             occurs.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
+ *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
+ *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -266,7 +266,6 @@ export enum JobState {
  *       with a specific job. The <code>Notification</code> object is returned as a part of the
  *       response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data
  *       type.</p>
- *
  *          <p>When the notification settings are defined during job creation, you can choose to
  *       notify based on a specific set of job states using the <code>JobStatesToNotify</code> array of
  *       strings, or you can specify that you want to have Amazon SNS notifications sent out for all
@@ -277,7 +276,6 @@ export interface Notification {
    * <p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
    *       create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a> Amazon SNS API
    *       action.</p>
-   *
    *          <p>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a> Amazon Simple Notification
    *       Service (Amazon SNS) API action.</p>
    */
@@ -292,6 +290,21 @@ export interface Notification {
    * <p>Any change in job state will trigger a notification for this job.</p>
    */
   NotifyAll?: boolean;
+}
+
+/**
+ * <p>An object representing the metadata and configuration settings of EKS Anywhere on the Snow Family device.</p>
+ */
+export interface EKSOnDeviceServiceConfiguration {
+  /**
+   * <p>The Kubernetes version for EKS Anywhere on the Snow Family device.</p>
+   */
+  KubernetesVersion?: string;
+
+  /**
+   * <p>The version of EKS Anywhere on the Snow Family device.</p>
+   */
+  EKSAnywhereVersion?: string;
 }
 
 export enum StorageUnit {
@@ -346,6 +359,11 @@ export interface OnDeviceServiceConfiguration {
    * <p>Represents the Storage Gateway service Tape Gateway type on a Snow Family device.</p>
    */
   TGWOnDeviceService?: TGWOnDeviceServiceConfiguration;
+
+  /**
+   * <p>The configuration of EKS Anywhere on the Snow Family device.</p>
+   */
+  EKSOnDeviceService?: EKSOnDeviceServiceConfiguration;
 }
 
 export enum RemoteManagement {
@@ -540,7 +558,6 @@ export interface CreateClusterRequest {
   /**
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -592,7 +609,6 @@ export interface CreateClusterRequest {
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
    *           <code>EDGE</code> device type.</p>
    *          </note>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -624,7 +640,6 @@ export interface CreateClusterRequest {
    *           two-day shipping.</p>
    *             </li>
    *          </ul>
-   *
    *          <ul>
    *             <li>
    *                <p>In Australia, you have access to express shipping. Typically, devices shipped
@@ -797,10 +812,8 @@ export interface CreateJobRequest {
 
   /**
    * <p>Defines the Amazon S3 buckets associated with this job.</p>
-   *
    *          <p>With <code>IMPORT</code> jobs, you specify the bucket or buckets that your transferred
    *       data will be imported into.</p>
-   *
    *          <p>With <code>EXPORT</code> jobs, you specify the bucket or buckets that your transferred
    *       data will be exported from. Optionally, you can also specify a <code>KeyRange</code> value. If
    *       you choose to export a range, you define the length of the range by providing either an
@@ -845,7 +858,6 @@ export interface CreateJobRequest {
    * <p>If your job is being created in one of the US regions, you have the option of
    *       specifying what size Snow device you'd like for this job. In all other regions, Snowballs come
    *       with 80 TB in storage capacity.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -858,7 +870,6 @@ export interface CreateJobRequest {
    * <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
    *       Snow device, rather it represents how quickly the Snow device moves to its destination while
    *       in transit. Regional shipping speeds are as follows:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>In Australia, you have access to express shipping. Typically, Snow devices shipped
@@ -904,7 +915,6 @@ export interface CreateJobRequest {
    *       supported device type for cluster jobs is <code>EDGE</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball Edge Device
    *         Options</a> in the Snowball Edge Developer Guide.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -926,7 +936,6 @@ export interface CreateJobRequest {
 
   /**
    * <p>Defines the device configuration for an Snowcone job.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -970,8 +979,7 @@ export interface CreateLongTermPricingRequest {
   LongTermPricingType: LongTermPricingType | string | undefined;
 
   /**
-   * <p>snowballty</p>
-   *          <p>Specifies whether the current long-term pricing type for the device should be
+   * <p>Specifies whether the current long-term pricing type for the device should be
    *       renewed.</p>
    */
   IsLongTermPricingAutoRenew?: boolean;
@@ -1216,7 +1224,6 @@ export interface ClusterMetadata {
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
    *       you'll get each device, rather it represents how quickly each device moves to its destination
    *       while in transit. Regional shipping speeds are as follows:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>In Australia, you have access to express shipping. Typically, devices shipped
@@ -1315,14 +1322,11 @@ export interface DataTransfer {
  *         <code>JobMetadata</code> data type. The job logs can be accessed for up to 60 minutes after
  *       this request has been made. To access any of the job logs after 60 minutes have passed, you'll
  *       have to make another call to the <code>DescribeJob</code> action.</p>
- *
  *          <p>For import jobs, the PDF job report becomes available at the end of the import process.
  *       For export jobs, your job report typically becomes available while the Snow device for your
  *       job part is being delivered to you.</p>
- *
  *          <p>The job report provides you insight into the state of your Amazon S3 data transfer. The
  *       report includes details about your job or job part for your records.</p>
- *
  *          <p>For deeper visibility into the status of your transferred objects, you can look at the
  *       two associated logs: a success log and a failure log. The logs are saved in comma-separated
  *       value (CSV) format, and the name of each log includes the ID of the job or job part that the
@@ -1374,7 +1378,6 @@ export interface ShippingDetails {
    * <p>The shipping speed for a particular job. This speed doesn't dictate how soon you'll get
    *       the Snow device from the job's creation date. This speed represents how quickly it moves to
    *       its destination while in transit. Regional shipping speeds are as follows:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>In Australia, you have access to express shipping. Typically, Snow devices shipped
@@ -1481,7 +1484,6 @@ export interface JobMetadata {
    * <p>The Snow device capacity preference for this job, specified at job creation. In US
    *       regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB
    *       capacity Snowballs.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -1959,6 +1961,82 @@ export interface ListLongTermPricingResult {
   NextToken?: string;
 }
 
+export enum ServiceName {
+  EKS_ANYWHERE = "EKS_ANYWHERE",
+  KUBERNETES = "KUBERNETES",
+}
+
+/**
+ * <p>The version of the requested service.</p>
+ */
+export interface ServiceVersion {
+  /**
+   * <p>The version number of the requested service.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * <p>The name and version of the service dependant on the requested service.</p>
+ */
+export interface DependentService {
+  /**
+   * <p>The name of the dependent service.</p>
+   */
+  ServiceName?: ServiceName | string;
+
+  /**
+   * <p>The version of the dependent service.</p>
+   */
+  ServiceVersion?: ServiceVersion;
+}
+
+export interface ListServiceVersionsRequest {
+  /**
+   * <p>The name of the service for which you're requesting supported versions.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+
+  /**
+   * <p>A list of names and versions of dependant services of the requested service.</p>
+   */
+  DependentServices?: DependentService[];
+
+  /**
+   * <p>The maximum number of <code>ListServiceVersions</code> objects to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Because HTTP requests are stateless, this is the starting point for the next list of returned
+   *       <code>ListServiceVersionsRequest</code> versions.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListServiceVersionsResult {
+  /**
+   * <p>A list of supported versions.</p>
+   */
+  ServiceVersions: ServiceVersion[] | undefined;
+
+  /**
+   * <p>The name of the service for which the system provided supported versions.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+
+  /**
+   * <p>A list of names and versions of dependant services of the service for which the system provided supported versions.</p>
+   */
+  DependentServices?: DependentService[];
+
+  /**
+   * <p>Because HTTP requests are stateless, this is the starting point of the next list of returned
+   *       <code>ListServiceVersionsResult</code> results.</p>
+   */
+  NextToken?: string;
+}
+
 export interface UpdateClusterRequest {
   /**
    * <p>The cluster ID of the cluster that you want to update, for example
@@ -2065,7 +2143,6 @@ export interface UpdateJobRequest {
   /**
    * <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US
    *       regions.</p>
-   *
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -2179,6 +2256,13 @@ export const CreateAddressResultFilterSensitiveLog = (obj: CreateAddressResult):
  * @internal
  */
 export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EKSOnDeviceServiceConfigurationFilterSensitiveLog = (obj: EKSOnDeviceServiceConfiguration): any => ({
   ...obj,
 });
 
@@ -2606,6 +2690,34 @@ export const LongTermPricingListEntryFilterSensitiveLog = (obj: LongTermPricingL
  * @internal
  */
 export const ListLongTermPricingResultFilterSensitiveLog = (obj: ListLongTermPricingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceVersionFilterSensitiveLog = (obj: ServiceVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DependentServiceFilterSensitiveLog = (obj: DependentService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceVersionsRequestFilterSensitiveLog = (obj: ListServiceVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceVersionsResultFilterSensitiveLog = (obj: ListServiceVersionsResult): any => ({
   ...obj,
 });
 

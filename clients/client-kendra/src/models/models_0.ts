@@ -1120,11 +1120,18 @@ export interface Principal {
 }
 
 export enum ContentType {
+  CSV = "CSV",
   HTML = "HTML",
+  JSON = "JSON",
+  MD = "MD",
+  MS_EXCEL = "MS_EXCEL",
   MS_WORD = "MS_WORD",
   PDF = "PDF",
   PLAIN_TEXT = "PLAIN_TEXT",
   PPT = "PPT",
+  RTF = "RTF",
+  XML = "XML",
+  XSLT = "XSLT",
 }
 
 /**
@@ -1637,7 +1644,7 @@ export enum ConfluencePageFieldName {
 }
 
 /**
- * <p>>Maps attributes or field names of Confluence pages to Amazon Kendra index field
+ * <p>Maps attributes or field names of Confluence pages to Amazon Kendra index field
  *             names. To create custom fields, use the <code>UpdateIndex</code> API before you map to
  *             Confluence fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>. The
  *             Confluence data source field names must exist in your Confluence custom metadata.</p>
@@ -1717,7 +1724,7 @@ export enum ConfluenceSpaceFieldName {
 }
 
 /**
- * <p>>Maps attributes or field names of Confluence spaces to Amazon Kendra index field
+ * <p>Maps attributes or field names of Confluence spaces to Amazon Kendra index field
  *             names. To create custom fields, use the <code>UpdateIndex</code> API before you map to
  *             Confluence fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>. The
  *             Confluence data source field names must exist in your Confluence custom metadata.</p>
@@ -2487,9 +2494,7 @@ export enum IssueSubEntity {
  */
 export interface JiraConfiguration {
   /**
-   * <p>The URL of the Jira account. For example, <i>company.atlassian.net</i>
-   *             or <i>https://jira.company.com</i>. You can find your Jira account URL in
-   *             the URL of your profile page for Jira desktop.</p>
+   * <p>The URL of the Jira account. For example, <i>company.atlassian.net</i>.</p>
    */
   JiraAccountUrl: string | undefined;
 
@@ -2499,11 +2504,10 @@ export interface JiraConfiguration {
    *             JSON structure with the following keys:</p>
    *          <ul>
    *             <li>
-   *                <p>jiraId—The Jira username.</p>
+   *                <p>jiraId—The Jira user name or email.</p>
    *             </li>
    *             <li>
-   *                <p>jiraCredentials—The Jira API token. For more information on creating an
-   *                     API token in Jira, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html"> Using a Jira data
+   *                <p>jiraCredentials—The Jira API token. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html">Using a Jira data
    *                         source</a>.</p>
    *             </li>
    *          </ul>
@@ -2513,8 +2517,8 @@ export interface JiraConfiguration {
   /**
    * <p>
    *             <code>TRUE</code> to use the Jira change log to determine which documents require
-   *             updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra
-   *             to use the change log than to scan all of your documents in Jira.</p>
+   *             updating in the index. Depending on the change log's size, it may take longer for
+   *             Amazon Kendra to use the change log than to scan all of your documents in Jira.</p>
    */
   UseChangeLog?: boolean;
 
@@ -2543,45 +2547,46 @@ export interface JiraConfiguration {
   IssueSubEntityFilter?: (IssueSubEntity | string)[];
 
   /**
-   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes or field names of
-   *             Jira attachments to Amazon Kendra index field names. To create custom fields, use the
-   *             UpdateIndex API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or
+   *             field names of Jira attachments to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Jira fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
    *                 fields</a>. The Jira data source field names must exist in your Jira custom
    *             metadata.</p>
    */
   AttachmentFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes or field names of
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of
    *             Jira comments to Amazon Kendra index field names. To create custom fields, use the
-   *             UpdateIndex API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
+   *             <code>UpdateIndex</code> API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
    *                 fields</a>. The Jira data source field names must exist in your Jira custom
    *             metadata.</p>
    */
   CommentFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes or field names of
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of
    *             Jira issues to Amazon Kendra index field names. To create custom fields, use the
-   *             UpdateIndex API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
+   *             <code>UpdateIndex</code> API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
    *                 fields</a>. The Jira data source field names must exist in your Jira custom
    *             metadata.</p>
    */
   IssueFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes or field names of
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of
    *             Jira projects to Amazon Kendra index field names. To create custom fields, use the
-   *             UpdateIndex API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
+   *             <code>UpdateIndex</code> API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
    *                 fields</a>. The Jira data source field names must exist in your Jira custom
    *             metadata.</p>
    */
   ProjectFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes or field names of
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of
    *             Jira work logs to Amazon Kendra index field names. To create custom fields, use the
-   *             UpdateIndex API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
+   *             <code>UpdateIndex</code> API before you map to Jira fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html"> Mapping data source
    *                 fields</a>. The Jira data source field names must exist in your Jira custom
    *             metadata.</p>
    */
@@ -2606,8 +2611,8 @@ export interface JiraConfiguration {
   ExclusionPatterns?: string[];
 
   /**
-   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your Jira. Your
-   *             Jira account must reside inside your VPC.</p>
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your Jira. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
    */
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
@@ -2643,7 +2648,7 @@ export interface OneDriveConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Secrets Managersecret that contains the
-   *             user name and password to connect to OneDrive. The user namd should be the application
+   *             user name and password to connect to OneDrive. The user name should be the application
    *             ID for the OneDrive application, and the password is the application key for the
    *             OneDrive application.</p>
    */

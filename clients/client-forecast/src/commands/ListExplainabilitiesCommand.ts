@@ -32,7 +32,7 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
  *             each Explainability. You can filter the list using an array of <a>Filter</a>
  *             objects.</p>
- *         <p>To retrieve the complete set of properties for a particular Explainability resource,
+ *          <p>To retrieve the complete set of properties for a particular Explainability resource,
  *             use the ARN with the <a>DescribeExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

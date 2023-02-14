@@ -35,8 +35,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
 /**
  * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  *       Gateway Load Balancer.</p>
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -58,7 +56,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
  * @example

@@ -29,13 +29,13 @@ export interface StopLoggingCommandInput extends StopLoggingRequest {}
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
- * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the specified trail.
- *          Under most circumstances, there is no need to use this action. You can update a trail
- *          without stopping it first. This action is the only way to stop recording. For a trail
- *          enabled in all regions, this operation must be called from the region in which the trail
- *          was created, or an <code>InvalidHomeRegionException</code> will occur. This operation
- *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
- *          enabled in all regions.</p>
+ * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
+ *          specified trail. Under most circumstances, there is no need to use this action. You can
+ *          update a trail without stopping it first. This action is the only way to stop recording.
+ *          For a trail enabled in all regions, this operation must be called from the region in which
+ *          the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This
+ *          operation cannot be called on the shadow trails (replicated trails in other regions) of a
+ *          trail enabled in all regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,8 @@ export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
 export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
+ * <p>Retrieves settings for one or more trails associated with the current region for your
+ *          account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

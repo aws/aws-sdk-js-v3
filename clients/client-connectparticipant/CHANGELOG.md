@@ -3,6 +3,125 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-connectparticipant:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([bdb884f](https://github.com/aws/aws-sdk-js-v3/commit/bdb884f1474cb0eb880bcd7b9563ea82ad46ff82))
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-connectparticipant:** This release updates Amazon Connect Participant's GetTranscript api to provide transcripts of past chats on a persistent chat session. ([b2b008d](https://github.com/aws/aws-sdk-js-v3/commit/b2b008d29e9e9279939156bdcde9bb668335d1cf))
+
+
+
+
+
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
+# [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
 # [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
 
 

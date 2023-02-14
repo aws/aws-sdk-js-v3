@@ -1932,6 +1932,36 @@ export interface BatchGetJobsRequest {
 }
 
 /**
+ * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
+ */
+export interface CatalogHudiSource {
+  /**
+   * <p>The name of the Hudi data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the database to read from.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The name of the table in the database to read from.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalHudiOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies the data schema for the Hudi source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
  * <p>Specifies options related to data preview for viewing a sample of your data.</p>
  */
 export interface StreamingDataPreviewOptions {
@@ -2024,6 +2054,23 @@ export interface KafkaStreamingSourceOptions {
    * <p>The desired minimum number of partitions to read from Kafka. The default value is null, which means that the number of spark partitions is equal to the number of Kafka partitions.</p>
    */
   MinPartitions?: number;
+
+  /**
+   * <p>Whether to include the Kafka headers. When the option is set to "true", the data output will contain an additional column named "glue_streaming_kafka_headers"
+   *           with type <code>Array[Struct(key: String, value: String)]</code>. The default value is "false".
+   *       This option is available in Glue version 3.0 or later only.</p>
+   */
+  IncludeHeaders?: boolean;
+
+  /**
+   * <p>When this option is set to 'true', the data output will contain an additional column named "__src_timestamp" that indicates the time when the corresponding record received by the topic. The default value is 'false'. This option is supported in Glue  version 4.0 or later.</p>
+   */
+  AddRecordTimestamp?: string;
+
+  /**
+   * <p>When this option is set to 'true', for each batch, it will emit the metrics for the duration between the oldest record received by the topic and the time it arrives in Glue to CloudWatch. The metric's name is "glue.driver.streaming.maxConsumerLagInMs". The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>
+   */
+  EmitConsumerLagMetrics?: string;
 }
 
 /**
@@ -2165,6 +2212,16 @@ export interface KinesisStreamingSourceOptions {
    * <p>An identifier for the session assuming the role using AWS STS. You must use this parameter when accessing a data stream in a different account. Used in conjunction with <code>"awsSTSRoleARN"</code>.</p>
    */
   RoleSessionName?: string;
+
+  /**
+   * <p>When this option is set to 'true', the data output will contain an additional column named "__src_timestamp" that indicates the time when the corresponding record received by the stream. The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>
+   */
+  AddRecordTimestamp?: string;
+
+  /**
+   * <p>When this option is set to 'true', for each batch, it will emit the metrics for the duration between the oldest record received by the stream and the time it arrives in Glue  to CloudWatch. The metric's name is "glue.driver.streaming.maxConsumerLagInMs". The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>
+   */
+  EmitConsumerLagMetrics?: string;
 }
 
 /**
@@ -3494,6 +3551,36 @@ export interface RenameField {
 }
 
 /**
+ * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
+ */
+export interface S3CatalogHudiSource {
+  /**
+   * <p>The name of the Hudi data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the database to read from.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The name of the table in the database to read from.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalHudiOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies the data schema for the Hudi source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
  * <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
  */
 export interface S3CatalogSource {
@@ -3706,6 +3793,7 @@ export interface S3CsvSource {
 export enum TargetFormat {
   AVRO = "avro",
   CSV = "csv",
+  HUDI = "hudi",
   JSON = "json",
   ORC = "orc",
   PARQUET = "parquet",
@@ -3817,6 +3905,128 @@ export interface S3GlueParquetTarget {
    * <p>A policy that specifies update behavior for the crawler.</p>
    */
   SchemaChangePolicy?: DirectSchemaChangePolicy;
+}
+
+/**
+ * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
+ */
+export interface S3HudiCatalogTarget {
+  /**
+   * <p>The name of the data target.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Specifies native partitioning using a sequence of keys.</p>
+   */
+  PartitionKeys?: string[][];
+
+  /**
+   * <p>The name of the table in the database to write to.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>The name of the database to write to.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options for the connector.</p>
+   */
+  AdditionalOptions: Record<string, string> | undefined;
+
+  /**
+   * <p>A policy that specifies update behavior for the crawler.</p>
+   */
+  SchemaChangePolicy?: CatalogSchemaChangePolicy;
+}
+
+export enum HudiTargetCompressionType {
+  GZIP = "gzip",
+  LZO = "lzo",
+  SNAPPY = "snappy",
+  UNCOMPRESSED = "uncompressed",
+}
+
+/**
+ * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
+ */
+export interface S3HudiDirectTarget {
+  /**
+   * <p>The name of the data target.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>The Amazon S3 path of your Hudi data source to write to.</p>
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
+   */
+  Compression: HudiTargetCompressionType | string | undefined;
+
+  /**
+   * <p>Specifies native partitioning using a sequence of keys.</p>
+   */
+  PartitionKeys?: string[][];
+
+  /**
+   * <p>Specifies the data output format for the target.</p>
+   */
+  Format: TargetFormat | string | undefined;
+
+  /**
+   * <p>Specifies additional connection options for the connector.</p>
+   */
+  AdditionalOptions: Record<string, string> | undefined;
+
+  /**
+   * <p>A policy that specifies update behavior for the crawler.</p>
+   */
+  SchemaChangePolicy?: DirectSchemaChangePolicy;
+}
+
+/**
+ * <p>Specifies a Hudi data source stored in Amazon S3.</p>
+ */
+export interface S3HudiSource {
+  /**
+   * <p>The name of the Hudi source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the Amazon S3 paths to read from.</p>
+   */
+  Paths: string[] | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalHudiOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies additional options for the connector.</p>
+   */
+  AdditionalOptions?: S3DirectSourceAdditionalOptions;
+
+  /**
+   * <p>Specifies the data schema for the Hudi source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
 }
 
 /**
@@ -6934,64 +7144,6 @@ export interface CreateScriptRequest {
   Language?: Language | string;
 }
 
-export interface CreateScriptResponse {
-  /**
-   * <p>The Python script generated from the DAG.</p>
-   */
-  PythonScript?: string;
-
-  /**
-   * <p>The Scala code generated from the DAG.</p>
-   */
-  ScalaCode?: string;
-}
-
-export enum CloudWatchEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
-
-/**
- * <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
- */
-export interface CloudWatchEncryption {
-  /**
-   * <p>The encryption mode to use for CloudWatch data.</p>
-   */
-  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-   */
-  KmsKeyArn?: string;
-}
-
-export enum JobBookmarksEncryptionMode {
-  CSEKMS = "CSE-KMS",
-  DISABLED = "DISABLED",
-}
-
-/**
- * <p>Specifies how job bookmark data should be encrypted.</p>
- */
-export interface JobBookmarksEncryption {
-  /**
-   * <p>The encryption mode to use for job bookmarks data.</p>
-   */
-  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-   */
-  KmsKeyArn?: string;
-}
-
-export enum S3EncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
-
 /**
  * @internal
  */
@@ -7443,6 +7595,13 @@ export const BatchGetJobsRequestFilterSensitiveLog = (obj: BatchGetJobsRequest):
 /**
  * @internal
  */
+export const CatalogHudiSourceFilterSensitiveLog = (obj: CatalogHudiSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StreamingDataPreviewOptionsFilterSensitiveLog = (obj: StreamingDataPreviewOptions): any => ({
   ...obj,
 });
@@ -7793,6 +7952,13 @@ export const RenameFieldFilterSensitiveLog = (obj: RenameField): any => ({
 /**
  * @internal
  */
+export const S3CatalogHudiSourceFilterSensitiveLog = (obj: S3CatalogHudiSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const S3CatalogSourceFilterSensitiveLog = (obj: S3CatalogSource): any => ({
   ...obj,
 });
@@ -7836,6 +8002,27 @@ export const S3DirectTargetFilterSensitiveLog = (obj: S3DirectTarget): any => ({
  * @internal
  */
 export const S3GlueParquetTargetFilterSensitiveLog = (obj: S3GlueParquetTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3HudiCatalogTargetFilterSensitiveLog = (obj: S3HudiCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3HudiDirectTargetFilterSensitiveLog = (obj: S3HudiDirectTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3HudiSourceFilterSensitiveLog = (obj: S3HudiSource): any => ({
   ...obj,
 });
 
@@ -8588,26 +8775,5 @@ export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
  * @internal
  */
 export const CreateScriptRequestFilterSensitiveLog = (obj: CreateScriptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptResponseFilterSensitiveLog = (obj: CreateScriptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchEncryptionFilterSensitiveLog = (obj: CloudWatchEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobBookmarksEncryptionFilterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
   ...obj,
 });

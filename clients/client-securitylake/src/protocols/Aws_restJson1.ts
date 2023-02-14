@@ -10,7 +10,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
@@ -3134,7 +3134,8 @@ const deserializeAws_restJson1Failures = (output: any, context: __SerdeContext):
   return {
     exceptionMessage: __expectString(output.exceptionMessage),
     remediation: __expectString(output.remediation),
-    timestamp: output.timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.timestamp)) : undefined,
+    timestamp:
+      output.timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.timestamp)) : undefined,
   } as any;
 };
 
@@ -3320,7 +3321,8 @@ const deserializeAws_restJson1SubscriberResource = (output: any, context: __Serd
     accessTypes:
       output.accessTypes != null ? deserializeAws_restJson1AccessTypeList(output.accessTypes, context) : undefined,
     accountId: __expectString(output.accountId),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     externalId: __expectString(output.externalId),
     roleArn: __expectString(output.roleArn),
     s3BucketArn: __expectString(output.s3BucketArn),
@@ -3333,7 +3335,8 @@ const deserializeAws_restJson1SubscriberResource = (output: any, context: __Serd
     subscriptionId: __expectString(output.subscriptionId),
     subscriptionProtocol: __expectString(output.subscriptionProtocol),
     subscriptionStatus: __expectString(output.subscriptionStatus),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 

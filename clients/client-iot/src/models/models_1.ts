@@ -259,7 +259,7 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>The ARN of the role that grants permission to IoT to access information
    *             about your devices, policies, certificates, and other items as required when
    *             performing an audit.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required.</p>
    */
   roleArn?: string;
@@ -1515,11 +1515,11 @@ export interface Job {
    *             when a change is detected in a target. For example, a job will run on a device when the thing representing
    *             the device is added to a target group, even after the job was completed by all things originally in the
    *             group. </p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -1600,12 +1600,12 @@ export interface Job {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -1625,12 +1625,12 @@ export interface Job {
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
    *             template job document schema. You can use the description of each key as a guidance
    *             to specify the inputs during runtime when creating a job.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: Record<string, string>;
 
@@ -1859,12 +1859,12 @@ export interface DescribeManagedJobTemplateRequest {
  * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
  *             template job document schema. You can use the description of each key as a guidance to specify
  *             the inputs during runtime when creating a job.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
  *                 managed templates. This parameter can't be used with custom job templates or to
  *                 create jobs from them.</p>
- *         </note>
+ *          </note>
  */
 export interface DocumentParameter {
   /**
@@ -1927,12 +1927,12 @@ export interface DescribeManagedJobTemplateResponse {
   /**
    * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
    *             a job from a managed template.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: DocumentParameter[];
 
@@ -2384,7 +2384,7 @@ export interface DescribeThingResponse {
    * <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID.
    * 			Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or
    * 			shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p>
-   * 		       <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
+   *          <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
    */
   defaultClientId?: string;
 
@@ -2415,11 +2415,11 @@ export interface DescribeThingResponse {
 
   /**
    * <p>The current version of the thing record in the registry.</p>
-   * 		       <note>
-   * 			         <p>To avoid unintentional changes to the information in the registry, you can pass
+   *          <note>
+   *             <p>To avoid unintentional changes to the information in the registry, you can pass
    * 				the version information in the <code>expectedVersion</code> parameter of the
    * 					<code>UpdateThing</code> and <code>DeleteThing</code> calls.</p>
-   * 		       </note>
+   *          </note>
    */
   version?: number;
 
@@ -3136,7 +3136,7 @@ export interface ThingIndexingConfiguration {
    *                <p>OFF - Device Defender indexing is disabled.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
+   *          <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
    *          </p>
    */
   deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | string;
@@ -4792,12 +4792,12 @@ export interface ListJobExecutionsForThingRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -4858,11 +4858,11 @@ export interface ListJobsRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group. </p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -4888,12 +4888,12 @@ export interface ListJobsRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -4924,11 +4924,11 @@ export interface JobSummary {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 

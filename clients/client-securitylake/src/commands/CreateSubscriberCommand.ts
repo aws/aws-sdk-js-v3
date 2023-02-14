@@ -29,7 +29,8 @@ export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subscription permission for accounts that are already enabled in Security Lake.</p>
+ * <p>Creates a subscription permission for accounts that are already enabled in
+ *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

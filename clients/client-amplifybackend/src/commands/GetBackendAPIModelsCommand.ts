@@ -29,7 +29,7 @@ export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequ
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a model schema for existing backend API resource.</p>
+ * <p>Gets a model introspection schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

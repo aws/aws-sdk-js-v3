@@ -19,7 +19,7 @@ import {
   DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
   DeleteTransitGatewayPrefixListReferenceResult,
   DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
   serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,

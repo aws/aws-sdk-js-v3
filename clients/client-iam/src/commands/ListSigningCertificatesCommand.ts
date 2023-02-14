@@ -31,10 +31,10 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
 /**
  * <p>Returns information about the signing certificates associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
- *         <p>Although each user is limited to a small number of signing certificates, you can still
+ *          <p>Although each user is limited to a small number of signing certificates, you can still
  *             paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
- *         <p>If the <code>UserName</code> field is not specified, the user name is determined
+ *          <p>If the <code>UserName</code> field is not specified, the user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
  *             This operation works for access keys under the Amazon Web Services account. Consequently, you can use
  *             this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account

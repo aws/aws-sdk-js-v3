@@ -33,7 +33,10 @@ export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
 export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a transcript of the session, including details about any attachments. </p>
+ * <p>Retrieves a transcript of the session, including details about any attachments. For
+ *             information about accessing past chat contact transcripts for a persistent chat, see
+ *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.
+ *         </p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of

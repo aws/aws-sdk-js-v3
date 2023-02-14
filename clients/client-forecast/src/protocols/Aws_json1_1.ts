@@ -4329,6 +4329,7 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.DatasetImportJobName != null && { DatasetImportJobName: input.DatasetImportJobName }),
     ...(input.Format != null && { Format: input.Format }),
     ...(input.GeolocationFormat != null && { GeolocationFormat: input.GeolocationFormat }),
+    ...(input.ImportMode != null && { ImportMode: input.ImportMode }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TimeZone != null && { TimeZone: input.TimeZone }),
     ...(input.TimestampFormat != null && { TimestampFormat: input.TimestampFormat }),
@@ -5669,6 +5670,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
     DataSource: output.DataSource != null ? deserializeAws_json1_1DataSource(output.DataSource, context) : undefined,
     DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
     DatasetImportJobName: __expectString(output.DatasetImportJobName),
+    ImportMode: __expectString(output.ImportMode),
     LastModificationTime:
       output.LastModificationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -5808,6 +5810,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
         : undefined,
     Format: __expectString(output.Format),
     GeolocationFormat: __expectString(output.GeolocationFormat),
+    ImportMode: __expectString(output.ImportMode),
     LastModificationTime:
       output.LastModificationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))

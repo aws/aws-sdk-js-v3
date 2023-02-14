@@ -29,7 +29,7 @@ export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
- * <p>Lists all custom and Amazon Web Services-authored AppConfig extensions in the
+ * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
  *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
  *          <i>AppConfig User Guide</i>.</p>

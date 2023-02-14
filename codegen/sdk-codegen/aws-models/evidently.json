@@ -62,9 +62,7 @@
           "uri": "/projects/{project}/evaluations",
           "code": 200
         },
-        "smithy.api#tags": [
-          "dataplane"
-        ]
+        "smithy.api#tags": ["dataplane"]
       }
     },
     "com.amazonaws.evidently#BatchEvaluateFeatureRequest": {
@@ -267,7 +265,7 @@
         "tags": {
           "target": "com.amazonaws.evidently#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the experiment.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n     \n         <p>You can associate as many as 50 tags with an experiment.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
+            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the experiment.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n         <p>You can associate as many as 50 tags with an experiment.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
           }
         }
       }
@@ -364,7 +362,7 @@
         "tags": {
           "target": "com.amazonaws.evidently#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the feature.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n     \n         <p>You can associate as many as 50 tags with a feature.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
+            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the feature.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n         <p>You can associate as many as 50 tags with a feature.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
           }
         },
         "entityOverrides": {
@@ -472,7 +470,7 @@
         "tags": {
           "target": "com.amazonaws.evidently#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the launch.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n     \n         <p>You can associate as many as 50 tags with a launch.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
+            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the launch.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n         <p>You can associate as many as 50 tags with a launch.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
           }
         }
       }
@@ -551,7 +549,7 @@
         "tags": {
           "target": "com.amazonaws.evidently#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the project.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n     \n         <p>You can associate as many as 50 tags with a project.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
+            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the project.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n       permissions by granting a user\n       permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n         <p>You can associate as many as 50 tags with a project.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
           }
         }
       }
@@ -591,7 +589,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Use this operation to define a <i>segment</i> of your audience. A segment\n      is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, \n      users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,\n      such as age.</p>\n         <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment \n      criteria. Using one or more segments in a launch allows you to define different traffic splits for the different\n      audience segments.</p>\n    \n         <p>For more information about segment pattern syntax, see \n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html\">\n        Segment rule pattern syntax</a>.</p>\n    \n         <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which\n      is passed into Evidently in the <a href=\"https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html\">EvaluateFeature</a> operation,\n      when Evidently assigns a feature variation to a user.</p>",
+        "smithy.api#documentation": "<p>Use this operation to define a <i>segment</i> of your audience. A segment\n      is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, \n      users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,\n      such as age.</p>\n         <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment \n      criteria. Using one or more segments in a launch allows you to define different traffic splits for the different\n      audience segments.</p>\n         <p>For more information about segment pattern syntax, see \n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html\">\n        Segment rule pattern syntax</a>.</p>\n         <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which\n      is passed into Evidently in the <a href=\"https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html\">EvaluateFeature</a> operation,\n      when Evidently assigns a feature variation to a user.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/segments",
@@ -625,7 +623,7 @@
         "tags": {
           "target": "com.amazonaws.evidently#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the segment.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions by granting a user\n      permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n    \n         <p>You can associate as many as 50 tags with a segment.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
+            "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the segment.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions by granting a user\n      permission to access or change only resources with certain tag values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n         <p>You can associate as many as 50 tags with a segment.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"
           }
         }
       }
@@ -991,7 +989,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 20
+          "max": 2500
         }
       }
     },
@@ -1038,7 +1036,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This operation assigns a feature variation to one given user session. You pass in an\n        <code>entityID</code> that represents the user. Evidently then checks the evaluation rules\n      and assigns the variation.</p>\n         <p>The first rules that are evaluated are the override rules. If the user's\n        <code>entityID</code> matches an override rule, the user is served the variation specified\n      by that rule.</p>\n    \n         <p>If there is a current launch with this feature that uses segment overrides, and \n      if the user session's <code>evaluationContext</code> matches a segment rule defined in a\n      segment override, the configuration in the segment overrides is used. For more information\n      about segments, see <a href=\"https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html\">CreateSegment</a> \n      and \n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html\">Use segments to focus your \n        audience</a>.</p>\n         <p>If there is a launch with no segment overrides, the user might be assigned to a variation in\n      the launch. The chance of this depends on the percentage of users that are allocated to that\n      launch. If the user is enrolled in the launch, the variation they are served depends on the\n      allocation of the various feature variations used for the launch.</p>\n         <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might \n      be assigned to a variation in the experiment. The chance of this\n      depends on the percentage of users that are allocated to that experiment.</p>\n         <p>If the experiment uses a segment, then only \n      user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p>\n         <p>If the user is enrolled in the experiment, \n      the variation they are served depends on the allocation of the various feature variations used for the experiment. </p>\n         <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>",
+        "smithy.api#documentation": "<p>This operation assigns a feature variation to one given user session. You pass in an\n        <code>entityID</code> that represents the user. Evidently then checks the evaluation rules\n      and assigns the variation.</p>\n         <p>The first rules that are evaluated are the override rules. If the user's\n        <code>entityID</code> matches an override rule, the user is served the variation specified\n      by that rule.</p>\n         <p>If there is a current launch with this feature that uses segment overrides, and \n      if the user session's <code>evaluationContext</code> matches a segment rule defined in a\n      segment override, the configuration in the segment overrides is used. For more information\n      about segments, see <a href=\"https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html\">CreateSegment</a> \n      and \n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html\">Use segments to focus your \n        audience</a>.</p>\n         <p>If there is a launch with no segment overrides, the user might be assigned to a variation in\n      the launch. The chance of this depends on the percentage of users that are allocated to that\n      launch. If the user is enrolled in the launch, the variation they are served depends on the\n      allocation of the various feature variations used for the launch.</p>\n         <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might \n      be assigned to a variation in the experiment. The chance of this\n      depends on the percentage of users that are allocated to that experiment.</p>\n         <p>If the experiment uses a segment, then only \n      user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p>\n         <p>If the user is enrolled in the experiment, \n      the variation they are served depends on the allocation of the various feature variations used for the experiment. </p>\n         <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "dataplane."
         },
@@ -1047,9 +1045,7 @@
           "uri": "/projects/{project}/evaluations/{feature}",
           "code": 200
         },
-        "smithy.api#tags": [
-          "dataplane"
-        ]
+        "smithy.api#tags": ["dataplane"]
       }
     },
     "com.amazonaws.evidently#EvaluateFeatureRequest": {
@@ -1081,7 +1077,7 @@
         "evaluationContext": {
           "target": "com.amazonaws.evidently#JsonValue",
           "traits": {
-            "smithy.api#documentation": "<p>A JSON object of attributes that you can optionally pass in as part of the evaluation event\n      sent to Evidently from the user session. Evidently can use \n      this value to match user sessions with defined audience segments. For more information, see\n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html\">Use segments to focus your \n        audience</a>.</p>\n    \n         <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>"
+            "smithy.api#documentation": "<p>A JSON object of attributes that you can optionally pass in as part of the evaluation event\n      sent to Evidently from the user session. Evidently can use \n      this value to match user sessions with defined audience segments. For more information, see\n      <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html\">Use segments to focus your \n        audience</a>.</p>\n         <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>"
           }
         }
       }
@@ -1347,7 +1343,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1396,15 +1392,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -1518,12 +1505,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://evidently-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://evidently-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -1628,12 +1621,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://evidently.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://evidently.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -1646,12 +1645,18 @@
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://evidently.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://evidently.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
                 }
               ]
             }
@@ -1659,253 +1664,6 @@
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
             {
               "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -1916,45 +1674,6 @@
               "params": {
                 "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
                 "UseFIPS": false
               }
             },
@@ -1972,45 +1691,6 @@
               }
             },
             {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
               "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -2019,6 +1699,84 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -2063,66 +1821,157 @@
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://evidently.us-east-1.amazonaws.com"
+                  "url": "https://evidently-fips.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://evidently-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": true,
                 "UseFIPS": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://evidently-fips.us-east-2.amazonaws.com"
+                  "url": "https://evidently-fips.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": false,
                 "UseFIPS": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://evidently.us-east-2.api.aws"
+                  "url": "https://evidently.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": true,
                 "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://evidently.us-east-2.amazonaws.com"
+                  "url": "https://evidently.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://evidently.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -5002,9 +4851,7 @@
           "uri": "/events/projects/{project}",
           "code": 200
         },
-        "smithy.api#tags": [
-          "dataplane"
-        ]
+        "smithy.api#tags": ["dataplane"]
       }
     },
     "com.amazonaws.evidently#PutProjectEventsRequest": {
@@ -5297,7 +5144,7 @@
         "groupWeights": {
           "target": "com.amazonaws.evidently#GroupToWeightMap",
           "traits": {
-            "smithy.api#documentation": "<p>The traffic allocation percentages among the feature variations during one step of a\n      launch. This is a set of key-value pairs. The keys are variation names. The values represent\n      the percentage of traffic to allocate to that variation during this step.</p>\n    \n         <p>The values is expressed in thousandths of a percent,\n       so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>\n         <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, \n       then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves\n       on to the next segment override or the default traffic split.</p>",
+            "smithy.api#documentation": "<p>The traffic allocation percentages among the feature variations during one step of a\n      launch. This is a set of key-value pairs. The keys are variation names. The values represent\n      the percentage of traffic to allocate to that variation during this step.</p>\n         <p>The values is expressed in thousandths of a percent,\n       so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>\n         <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, \n       then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves\n       on to the next segment override or the default traffic split.</p>",
             "smithy.api#required": {}
           }
         },

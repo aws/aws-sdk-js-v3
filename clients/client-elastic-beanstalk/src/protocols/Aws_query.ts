@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -4794,10 +4794,10 @@ const deserializeAws_queryApplicationDescription = (output: any, context: __Serd
     contents.Description = __expectString(output["Description"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output.Versions === "") {
     contents.Versions = [];
@@ -4972,10 +4972,10 @@ const deserializeAws_queryApplicationVersionDescription = (
     contents.SourceBundle = deserializeAws_queryS3Location(output["SourceBundle"], context);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -5336,10 +5336,10 @@ const deserializeAws_queryConfigurationSettingsDescription = (
     contents.DeploymentStatus = __expectString(output["DeploymentStatus"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output.OptionSettings === "") {
     contents.OptionSettings = [];
@@ -5527,7 +5527,7 @@ const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): D
     contents.Status = __expectString(output["Status"]);
   }
   if (output["DeploymentTime"] !== undefined) {
-    contents.DeploymentTime = __expectNonNull(__parseRfc3339DateTime(output["DeploymentTime"]));
+    contents.DeploymentTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeploymentTime"]));
   }
   return contents;
 };
@@ -5583,7 +5583,7 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
     contents.InstancesHealth = deserializeAws_queryInstanceHealthSummary(output["InstancesHealth"], context);
   }
   if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTime(output["RefreshedAt"]));
+    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
   }
   return contents;
 };
@@ -5649,7 +5649,7 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
     );
   }
   if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTime(output["RefreshedAt"]));
+    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -5738,10 +5738,10 @@ const deserializeAws_queryEnvironmentDescription = (output: any, context: __Serd
     contents.CNAME = __expectString(output["CNAME"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -5828,7 +5828,7 @@ const deserializeAws_queryEnvironmentInfoDescription = (
     contents.Ec2InstanceId = __expectString(output["Ec2InstanceId"]);
   }
   if (output["SampleTimestamp"] !== undefined) {
-    contents.SampleTimestamp = __expectNonNull(__parseRfc3339DateTime(output["SampleTimestamp"]));
+    contents.SampleTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SampleTimestamp"]));
   }
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -5999,7 +5999,7 @@ const deserializeAws_queryEventDescription = (output: any, context: __SerdeConte
     Severity: undefined,
   };
   if (output["EventDate"] !== undefined) {
-    contents.EventDate = __expectNonNull(__parseRfc3339DateTime(output["EventDate"]));
+    contents.EventDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EventDate"]));
   }
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -6385,7 +6385,7 @@ const deserializeAws_queryManagedAction = (output: any, context: __SerdeContext)
     contents.Status = __expectString(output["Status"]);
   }
   if (output["WindowStartTime"] !== undefined) {
-    contents.WindowStartTime = __expectNonNull(__parseRfc3339DateTime(output["WindowStartTime"]));
+    contents.WindowStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["WindowStartTime"]));
   }
   return contents;
 };
@@ -6423,10 +6423,10 @@ const deserializeAws_queryManagedActionHistoryItem = (
     contents.FailureDescription = __expectString(output["FailureDescription"]);
   }
   if (output["ExecutedTime"] !== undefined) {
-    contents.ExecutedTime = __expectNonNull(__parseRfc3339DateTime(output["ExecutedTime"]));
+    contents.ExecutedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ExecutedTime"]));
   }
   if (output["FinishedTime"] !== undefined) {
-    contents.FinishedTime = __expectNonNull(__parseRfc3339DateTime(output["FinishedTime"]));
+    contents.FinishedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["FinishedTime"]));
   }
   return contents;
 };
@@ -6611,10 +6611,10 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
     contents.PlatformStatus = __expectString(output["PlatformStatus"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["PlatformCategory"] !== undefined) {
     contents.PlatformCategory = __expectString(output["PlatformCategory"]);
@@ -7013,7 +7013,7 @@ const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeC
     contents.Causes = deserializeAws_queryCauses(__getArrayIfSingleItem(output["Causes"]["member"]), context);
   }
   if (output["LaunchedAt"] !== undefined) {
-    contents.LaunchedAt = __expectNonNull(__parseRfc3339DateTime(output["LaunchedAt"]));
+    contents.LaunchedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LaunchedAt"]));
   }
   if (output["ApplicationMetrics"] !== undefined) {
     contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
@@ -7400,7 +7400,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -496,6 +496,7 @@ import {
   CancelMLTaskRunResponse,
   CancelStatementRequest,
   CancelStatementResponse,
+  CatalogHudiSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSchemaChangePolicy,
@@ -503,7 +504,6 @@ import {
   CatalogTarget,
   CheckSchemaVersionValidityInput,
   CheckSchemaVersionValidityResponse,
-  CloudWatchEncryption,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
@@ -548,7 +548,6 @@ import {
   CreateSchemaInput,
   CreateSchemaResponse,
   CreateScriptRequest,
-  CreateScriptResponse,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -602,7 +601,6 @@ import {
   JDBCDataType,
   JdbcMetadataEntry,
   JdbcTarget,
-  JobBookmarksEncryption,
   JobCommand,
   JobNodeDetails,
   JobRun,
@@ -650,12 +648,16 @@ import {
   RenameField,
   ResourceNotReadyException,
   ResourceNumberLimitExceededException,
+  S3CatalogHudiSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
   S3DirectSourceAdditionalOptions,
   S3DirectTarget,
   S3GlueParquetTarget,
+  S3HudiCatalogTarget,
+  S3HudiDirectTarget,
+  S3HudiSource,
   S3JsonSource,
   S3ParquetSource,
   S3SourceAdditionalOptions,
@@ -701,6 +703,7 @@ import {
   CatalogEntry,
   CatalogImportStatus,
   Classifier,
+  CloudWatchEncryption,
   ColumnError,
   ColumnImportance,
   ColumnRowFilter,
@@ -711,10 +714,10 @@ import {
   ConfusionMatrix,
   Connection,
   ConnectionPasswordEncryption,
-  CrawlerHistory,
   CrawlerMetrics,
   CrawlerRunningException,
   CrawlsFilter,
+  CreateScriptResponse,
   CreateSecurityConfigurationRequest,
   CreateSecurityConfigurationResponse,
   CreateSessionRequest,
@@ -731,7 +734,6 @@ import {
   Database,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
-  DataQualityResultFilterCriteria,
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
   DecimalNumber,
@@ -928,6 +930,7 @@ import {
   ImportCatalogToGlueResponse,
   ImportLabelsTaskRunProperties,
   JobBookmarkEntry,
+  JobBookmarksEncryption,
   JsonClassifier,
   KeySchemaElement,
   LabelingSetGenerationTaskRunProperties,
@@ -936,9 +939,6 @@ import {
   ListCrawlersRequest,
   ListCrawlersResponse,
   ListCrawlsRequest,
-  ListCrawlsResponse,
-  ListCustomEntityTypesRequest,
-  ListCustomEntityTypesResponse,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
@@ -981,10 +981,12 @@ import {
   CodeGenConfigurationNode,
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
+  CrawlerHistory,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   CreateJobRequest,
   DataQualityResultDescription,
+  DataQualityResultFilterCriteria,
   DataQualityRuleRecommendationRunDescription,
   DataQualityRuleRecommendationRunFilter,
   DataQualityRulesetEvaluationRunDescription,
@@ -998,6 +1000,9 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListCrawlsResponse,
+  ListCustomEntityTypesRequest,
+  ListCustomEntityTypesResponse,
   ListDataQualityResultsRequest,
   ListDataQualityResultsResponse,
   ListDataQualityRuleRecommendationRunsRequest,
@@ -15000,6 +15005,20 @@ const serializeAws_json1_1CatalogEntry = (input: CatalogEntry, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1CatalogHudiSource = (input: CatalogHudiSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalHudiOptions != null && {
+      AdditionalHudiOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalHudiOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1CatalogKafkaSource = (input: CatalogKafkaSource, context: __SerdeContext): any => {
   return {
     ...(input.DataPreviewOptions != null && {
@@ -15111,6 +15130,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
     ...(input.AthenaConnectorSource != null && {
       AthenaConnectorSource: serializeAws_json1_1AthenaConnectorSource(input.AthenaConnectorSource, context),
     }),
+    ...(input.CatalogHudiSource != null && {
+      CatalogHudiSource: serializeAws_json1_1CatalogHudiSource(input.CatalogHudiSource, context),
+    }),
     ...(input.CatalogKafkaSource != null && {
       CatalogKafkaSource: serializeAws_json1_1CatalogKafkaSource(input.CatalogKafkaSource, context),
     }),
@@ -15205,6 +15227,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
       RelationalCatalogSource: serializeAws_json1_1RelationalCatalogSource(input.RelationalCatalogSource, context),
     }),
     ...(input.RenameField != null && { RenameField: serializeAws_json1_1RenameField(input.RenameField, context) }),
+    ...(input.S3CatalogHudiSource != null && {
+      S3CatalogHudiSource: serializeAws_json1_1S3CatalogHudiSource(input.S3CatalogHudiSource, context),
+    }),
     ...(input.S3CatalogSource != null && {
       S3CatalogSource: serializeAws_json1_1S3CatalogSource(input.S3CatalogSource, context),
     }),
@@ -15218,6 +15243,13 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
     ...(input.S3GlueParquetTarget != null && {
       S3GlueParquetTarget: serializeAws_json1_1S3GlueParquetTarget(input.S3GlueParquetTarget, context),
     }),
+    ...(input.S3HudiCatalogTarget != null && {
+      S3HudiCatalogTarget: serializeAws_json1_1S3HudiCatalogTarget(input.S3HudiCatalogTarget, context),
+    }),
+    ...(input.S3HudiDirectTarget != null && {
+      S3HudiDirectTarget: serializeAws_json1_1S3HudiDirectTarget(input.S3HudiDirectTarget, context),
+    }),
+    ...(input.S3HudiSource != null && { S3HudiSource: serializeAws_json1_1S3HudiSource(input.S3HudiSource, context) }),
     ...(input.S3JsonSource != null && { S3JsonSource: serializeAws_json1_1S3JsonSource(input.S3JsonSource, context) }),
     ...(input.S3ParquetSource != null && {
       S3ParquetSource: serializeAws_json1_1S3ParquetSource(input.S3ParquetSource, context),
@@ -17557,12 +17589,15 @@ const serializeAws_json1_1KafkaStreamingSourceOptions = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AddRecordTimestamp != null && { AddRecordTimestamp: input.AddRecordTimestamp }),
     ...(input.Assign != null && { Assign: input.Assign }),
     ...(input.BootstrapServers != null && { BootstrapServers: input.BootstrapServers }),
     ...(input.Classification != null && { Classification: input.Classification }),
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
+    ...(input.EmitConsumerLagMetrics != null && { EmitConsumerLagMetrics: input.EmitConsumerLagMetrics }),
     ...(input.EndingOffsets != null && { EndingOffsets: input.EndingOffsets }),
+    ...(input.IncludeHeaders != null && { IncludeHeaders: input.IncludeHeaders }),
     ...(input.MaxOffsetsPerTrigger != null && { MaxOffsetsPerTrigger: input.MaxOffsetsPerTrigger }),
     ...(input.MinPartitions != null && { MinPartitions: input.MinPartitions }),
     ...(input.NumRetries != null && { NumRetries: input.NumRetries }),
@@ -17589,10 +17624,12 @@ const serializeAws_json1_1KinesisStreamingSourceOptions = (
 ): any => {
   return {
     ...(input.AddIdleTimeBetweenReads != null && { AddIdleTimeBetweenReads: input.AddIdleTimeBetweenReads }),
+    ...(input.AddRecordTimestamp != null && { AddRecordTimestamp: input.AddRecordTimestamp }),
     ...(input.AvoidEmptyBatches != null && { AvoidEmptyBatches: input.AvoidEmptyBatches }),
     ...(input.Classification != null && { Classification: input.Classification }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
     ...(input.DescribeShardInterval != null && { DescribeShardInterval: input.DescribeShardInterval }),
+    ...(input.EmitConsumerLagMetrics != null && { EmitConsumerLagMetrics: input.EmitConsumerLagMetrics }),
     ...(input.EndpointUrl != null && { EndpointUrl: input.EndpointUrl }),
     ...(input.IdleTimeBetweenReadsInMs != null && { IdleTimeBetweenReadsInMs: input.IdleTimeBetweenReadsInMs }),
     ...(input.MaxFetchRecordsPerShard != null && { MaxFetchRecordsPerShard: input.MaxFetchRecordsPerShard }),
@@ -18471,6 +18508,20 @@ const serializeAws_json1_1RunStatementRequest = (input: RunStatementRequest, con
   };
 };
 
+const serializeAws_json1_1S3CatalogHudiSource = (input: S3CatalogHudiSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalHudiOptions != null && {
+      AdditionalHudiOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalHudiOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1S3CatalogSource = (input: S3CatalogSource, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalOptions != null && {
@@ -18583,6 +18634,59 @@ const serializeAws_json1_1S3GlueParquetTarget = (input: S3GlueParquetTarget, con
     ...(input.SchemaChangePolicy != null && {
       SchemaChangePolicy: serializeAws_json1_1DirectSchemaChangePolicy(input.SchemaChangePolicy, context),
     }),
+  };
+};
+
+const serializeAws_json1_1S3HudiCatalogTarget = (input: S3HudiCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Inputs != null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PartitionKeys != null && {
+      PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+    }),
+    ...(input.SchemaChangePolicy != null && {
+      SchemaChangePolicy: serializeAws_json1_1CatalogSchemaChangePolicy(input.SchemaChangePolicy, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1S3HudiDirectTarget = (input: S3HudiDirectTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Compression != null && { Compression: input.Compression }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.Inputs != null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PartitionKeys != null && {
+      PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+    }),
+    ...(input.Path != null && { Path: input.Path }),
+    ...(input.SchemaChangePolicy != null && {
+      SchemaChangePolicy: serializeAws_json1_1DirectSchemaChangePolicy(input.SchemaChangePolicy, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1S3HudiSource = (input: S3HudiSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalHudiOptions != null && {
+      AdditionalHudiOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalHudiOptions, context),
+    }),
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1S3DirectSourceAdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Paths != null && { Paths: serializeAws_json1_1EnclosedInStringProperties(input.Paths, context) }),
   };
 };
 
@@ -20274,6 +20378,20 @@ const deserializeAws_json1_1CancelStatementResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1CatalogHudiSource = (output: any, context: __SerdeContext): CatalogHudiSource => {
+  return {
+    AdditionalHudiOptions:
+      output.AdditionalHudiOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalHudiOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1CatalogImportStatus = (output: any, context: __SerdeContext): CatalogImportStatus => {
   return {
     ImportCompleted: __expectBoolean(output.ImportCompleted),
@@ -20437,6 +20555,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
       output.AthenaConnectorSource != null
         ? deserializeAws_json1_1AthenaConnectorSource(output.AthenaConnectorSource, context)
         : undefined,
+    CatalogHudiSource:
+      output.CatalogHudiSource != null
+        ? deserializeAws_json1_1CatalogHudiSource(output.CatalogHudiSource, context)
+        : undefined,
     CatalogKafkaSource:
       output.CatalogKafkaSource != null
         ? deserializeAws_json1_1CatalogKafkaSource(output.CatalogKafkaSource, context)
@@ -20544,6 +20666,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
         : undefined,
     RenameField:
       output.RenameField != null ? deserializeAws_json1_1RenameField(output.RenameField, context) : undefined,
+    S3CatalogHudiSource:
+      output.S3CatalogHudiSource != null
+        ? deserializeAws_json1_1S3CatalogHudiSource(output.S3CatalogHudiSource, context)
+        : undefined,
     S3CatalogSource:
       output.S3CatalogSource != null
         ? deserializeAws_json1_1S3CatalogSource(output.S3CatalogSource, context)
@@ -20560,6 +20686,16 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
       output.S3GlueParquetTarget != null
         ? deserializeAws_json1_1S3GlueParquetTarget(output.S3GlueParquetTarget, context)
         : undefined,
+    S3HudiCatalogTarget:
+      output.S3HudiCatalogTarget != null
+        ? deserializeAws_json1_1S3HudiCatalogTarget(output.S3HudiCatalogTarget, context)
+        : undefined,
+    S3HudiDirectTarget:
+      output.S3HudiDirectTarget != null
+        ? deserializeAws_json1_1S3HudiDirectTarget(output.S3HudiDirectTarget, context)
+        : undefined,
+    S3HudiSource:
+      output.S3HudiSource != null ? deserializeAws_json1_1S3HudiSource(output.S3HudiSource, context) : undefined,
     S3JsonSource:
       output.S3JsonSource != null ? deserializeAws_json1_1S3JsonSource(output.S3JsonSource, context) : undefined,
     S3ParquetSource:
@@ -23781,12 +23917,15 @@ const deserializeAws_json1_1KafkaStreamingSourceOptions = (
   context: __SerdeContext
 ): KafkaStreamingSourceOptions => {
   return {
+    AddRecordTimestamp: __expectString(output.AddRecordTimestamp),
     Assign: __expectString(output.Assign),
     BootstrapServers: __expectString(output.BootstrapServers),
     Classification: __expectString(output.Classification),
     ConnectionName: __expectString(output.ConnectionName),
     Delimiter: __expectString(output.Delimiter),
+    EmitConsumerLagMetrics: __expectString(output.EmitConsumerLagMetrics),
     EndingOffsets: __expectString(output.EndingOffsets),
+    IncludeHeaders: __expectBoolean(output.IncludeHeaders),
     MaxOffsetsPerTrigger: __expectLong(output.MaxOffsetsPerTrigger),
     MinPartitions: __expectInt32(output.MinPartitions),
     NumRetries: __expectInt32(output.NumRetries),
@@ -23824,10 +23963,12 @@ const deserializeAws_json1_1KinesisStreamingSourceOptions = (
 ): KinesisStreamingSourceOptions => {
   return {
     AddIdleTimeBetweenReads: __expectBoolean(output.AddIdleTimeBetweenReads),
+    AddRecordTimestamp: __expectString(output.AddRecordTimestamp),
     AvoidEmptyBatches: __expectBoolean(output.AvoidEmptyBatches),
     Classification: __expectString(output.Classification),
     Delimiter: __expectString(output.Delimiter),
     DescribeShardInterval: __expectLong(output.DescribeShardInterval),
+    EmitConsumerLagMetrics: __expectString(output.EmitConsumerLagMetrics),
     EndpointUrl: __expectString(output.EndpointUrl),
     IdleTimeBetweenReadsInMs: __expectLong(output.IdleTimeBetweenReadsInMs),
     MaxFetchRecordsPerShard: __expectLong(output.MaxFetchRecordsPerShard),
@@ -25038,6 +25179,20 @@ const deserializeAws_json1_1RunStatementResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1S3CatalogHudiSource = (output: any, context: __SerdeContext): S3CatalogHudiSource => {
+  return {
+    AdditionalHudiOptions:
+      output.AdditionalHudiOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalHudiOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1S3CatalogSource = (output: any, context: __SerdeContext): S3CatalogSource => {
   return {
     AdditionalOptions:
@@ -25162,6 +25317,66 @@ const deserializeAws_json1_1S3GlueParquetTarget = (output: any, context: __Serde
       output.SchemaChangePolicy != null
         ? deserializeAws_json1_1DirectSchemaChangePolicy(output.SchemaChangePolicy, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3HudiCatalogTarget = (output: any, context: __SerdeContext): S3HudiCatalogTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Inputs: output.Inputs != null ? deserializeAws_json1_1OneInput(output.Inputs, context) : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys != null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    SchemaChangePolicy:
+      output.SchemaChangePolicy != null
+        ? deserializeAws_json1_1CatalogSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1S3HudiDirectTarget = (output: any, context: __SerdeContext): S3HudiDirectTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Compression: __expectString(output.Compression),
+    Format: __expectString(output.Format),
+    Inputs: output.Inputs != null ? deserializeAws_json1_1OneInput(output.Inputs, context) : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys != null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    Path: __expectString(output.Path),
+    SchemaChangePolicy:
+      output.SchemaChangePolicy != null
+        ? deserializeAws_json1_1DirectSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3HudiSource = (output: any, context: __SerdeContext): S3HudiSource => {
+  return {
+    AdditionalHudiOptions:
+      output.AdditionalHudiOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalHudiOptions, context)
+        : undefined,
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1S3DirectSourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Paths: output.Paths != null ? deserializeAws_json1_1EnclosedInStringProperties(output.Paths, context) : undefined,
   } as any;
 };
 

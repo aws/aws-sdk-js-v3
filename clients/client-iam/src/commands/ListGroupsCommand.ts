@@ -27,7 +27,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
 
 /**
  * <p>Lists the IAM groups that have the specified path prefix.</p>
- *         <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

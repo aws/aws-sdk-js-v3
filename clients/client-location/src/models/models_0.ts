@@ -226,7 +226,7 @@ export interface BatchDeleteDevicePositionHistoryRequest {
    *                <p>For example, for two devices:
    *                    <code>“DeviceIds” : [DeviceId1,DeviceId2]</code>
    *                </p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   DeviceIds: string[] | undefined;
@@ -354,7 +354,7 @@ export interface DevicePositionUpdate {
    * <p>Associates one of more properties with the position update. A property is a key-value
    *             pair stored with the position update and added to any geofence event the update may
    *             trigger.</p>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
    */
   PositionProperties?: Record<string, string>;
@@ -418,7 +418,7 @@ export interface BatchGetDevicePositionRequest {
    *                <p>For example, for two devices:
    *                    <code>device-ids=DeviceId1&amp;device-ids=DeviceId2</code>
    *                </p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   DeviceIds: string[] | undefined;
@@ -509,28 +509,28 @@ export interface Circle {
 
 /**
  * <p>Contains the geofence geometry details.</p>
- *         <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
+ *          <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
  *             polygon or a circle. Including both will return a validation error.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons
  *                 that are wound clockwise, or that cross the antimeridian. </p>
- *         </note>
+ *          </note>
  */
 export interface GeofenceGeometry {
   /**
    * <p>A polygon is a list of linear rings which are each made up of a list of
    *             vertices.</p>
-   *         <p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
+   *          <p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
    *             This is represented as an array of doubles of length 2 (so <code>[double,
    *             double]</code>).</p>
-   *         <p>An array of 4 or more vertices, where the first and last vertex are the same (to form
+   *          <p>An array of 4 or more vertices, where the first and last vertex are the same (to form
    *             a closed boundary), is called a linear ring. The linear ring vertices must be listed in
    *             counter-clockwise order around the ring’s interior. The linear ring is represented as an
    *             array of vertices, or an array of arrays of doubles (<code>[[double, double], ...]</code>).</p>
-   *         <p>A geofence consists of a single linear ring. To allow for future expansion, the
+   *          <p>A geofence consists of a single linear ring. To allow for future expansion, the
    *             Polygon parameter takes an array of linear rings, which is represented as an array of
    *             arrays of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</p>
-   *         <p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
+   *          <p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
    */
   Polygon?: number[][][];
 
@@ -552,10 +552,10 @@ export interface BatchPutGeofenceRequestEntry {
   /**
    * <p>Contains the details of the position of the geofence. Can be either a
    *             polygon or a circle. Including both will return a validation error.</p>
-   *         <note>
+   *          <note>
    *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
    *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
-   *         </note>
+   *          </note>
    */
   Geometry: GeofenceGeometry | undefined;
 }
@@ -674,18 +674,18 @@ export interface BatchUpdateDevicePositionResponse {
 export interface CalculateRouteCarModeOptions {
   /**
    * <p>Avoids ferries when calculating routes.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   AvoidFerries?: boolean;
 
   /**
    * <p>Avoids tolls when calculating routes.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   AvoidTolls?: boolean;
@@ -693,7 +693,7 @@ export interface CalculateRouteCarModeOptions {
 
 export type DistanceUnit = "Kilometers" | "Miles";
 
-export type TravelMode = "Car" | "Truck" | "Walking";
+export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
 
 export type DimensionUnit = "Feet" | "Meters";
 
@@ -705,52 +705,52 @@ export type DimensionUnit = "Feet" | "Meters";
 export interface TruckDimensions {
   /**
    * <p>The length of the truck.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>15.5</code>.</p>
+   *                <p>For example, <code>15.5</code>.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>
    *                 For routes calculated with a HERE resource, this value must be between 0 and 300 meters.
    *             </p>
-   *         </note>
+   *          </note>
    */
   Length?: number;
 
   /**
    * <p>The height of the truck.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>4.5</code>.</p>
+   *                <p>For example, <code>4.5</code>.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>
    *                 For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
    *             </p>
-   *         </note>
+   *          </note>
    */
   Height?: number;
 
   /**
    * <p>The width of the truck.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>4.5</code>.</p>
+   *                <p>For example, <code>4.5</code>.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>
    *                 For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
    *             </p>
-   *         </note>
+   *          </note>
    */
   Width?: number;
 
   /**
    * <p> Specifies the unit of measurement for the truck dimensions.</p>
-   *         <p>Default Value: <code>Meters</code>
+   *          <p>Default Value: <code>Meters</code>
    *          </p>
    */
   Unit?: DimensionUnit | string;
@@ -766,9 +766,9 @@ export type VehicleWeightUnit = "Kilograms" | "Pounds";
 export interface TruckWeight {
   /**
    * <p>The total weight of the truck. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>3500</code>.</p>
+   *                <p>For example, <code>3500</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -776,7 +776,7 @@ export interface TruckWeight {
 
   /**
    * <p>The unit of measurement to use for the truck weight.</p>
-   *         <p>Default Value: <code>Kilograms</code>
+   *          <p>Default Value: <code>Kilograms</code>
    *          </p>
    */
   Unit?: VehicleWeightUnit | string;
@@ -789,18 +789,18 @@ export interface TruckWeight {
 export interface CalculateRouteTruckModeOptions {
   /**
    * <p>Avoids ferries when calculating routes.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   AvoidFerries?: boolean;
 
   /**
    * <p>Avoids tolls when calculating routes.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   AvoidTolls?: boolean;
@@ -830,19 +830,19 @@ export interface CalculateRouteRequest {
    * <p>The start position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
    *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>[-123.115, 49.285]</code>
+   *                <p>For example, <code>[-123.115, 49.285]</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. If Esri is the provider for your route calculator,
    *                 specifying a route that is longer than 400 km returns a <code>400
    *                     RoutesValidationException</code> error.</p>
-   *         </note>
-   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </note>
+   *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
    */
   DeparturePosition: number[] | undefined;
@@ -851,17 +851,17 @@ export interface CalculateRouteRequest {
    * <p>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
    *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> For example, <code>[-122.339, 47.615]</code>
+   *                <p> For example, <code>[-122.339, 47.615]</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. </p>
-   *         </note>
-   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </note>
+   *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
    */
   DestinationPosition: number[] | undefined;
@@ -869,15 +869,15 @@ export interface CalculateRouteRequest {
   /**
    * <p>Specifies an ordered list of up to 23 intermediate positions to include along a route
    *             between the departure position and destination position. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, from the <code>DeparturePosition</code>
-   *                     <code>[-123.115, 49.285]</code>, the route follows the order that the waypoint
+   *                <p>For example, from the <code>DeparturePosition</code>
+   *                   <code>[-123.115, 49.285]</code>, the route follows the order that the waypoint
    *                     positions are given <code>[[-122.757, 49.0021],[-122.349, 47.620]]</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. </p>
    *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
@@ -885,8 +885,8 @@ export interface CalculateRouteRequest {
    *             <p>If Esri is the provider for your route calculator, specifying a route that is
    *                 longer than 400 km returns a <code>400 RoutesValidationException</code>
    *                 error.</p>
-   *         </note>
-   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </note>
+   *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
    */
   WaypointPositions?: number[][];
@@ -894,20 +894,30 @@ export interface CalculateRouteRequest {
   /**
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
    *             of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>,
-   *             or <code>Walking</code> as options for the <code>TravelMode</code>.</p>
-   *         <p>The <code>TravelMode</code> you specify also determines how you specify route
+   *             <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for
+   *             the <code>TravelMode</code>.</p>
+   *          <note>
+   *             <p>
+   *                <code>Bicycle</code> and <code>Motorcycle</code> are only valid when using Grab as
+   *                 a data provider, and only within Southeast Asia.</p>
+   *             <p>
+   *                <code>Truck</code> is not available for Grab.</p>
+   *             <p>For more details on the using Grab for routing, including areas of coverage, see
+   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *          </note>
+   *          <p>The <code>TravelMode</code> you specify also determines how you specify route
    *             preferences: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
+   *                <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
    *                     parameter.</p>
    *             </li>
    *             <li>
-   *                 <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
+   *                <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
    *                     parameter.</p>
    *             </li>
    *          </ul>
-   *         <p>Default Value: <code>Car</code>
+   *          <p>Default Value: <code>Car</code>
    *          </p>
    */
   TravelMode?: TravelMode | string;
@@ -916,13 +926,13 @@ export interface CalculateRouteRequest {
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
    *             Otherwise, the best time of day to travel with the best traffic conditions is used to
    *             calculate the route.</p>
-   *         <note>
+   *          <note>
    *             <p>Setting a departure time in the past returns a <code>400
    *                     ValidationException</code> error.</p>
-   *         </note>
-   *         <ul>
+   *          </note>
+   *          <ul>
    *             <li>
-   *                 <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
    *                         8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example,
    *                         <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
@@ -935,16 +945,16 @@ export interface CalculateRouteRequest {
    * <p>Sets the time of departure as the current time. Uses the current time to calculate a
    *             route. Otherwise, the best time of day to travel with the best traffic conditions is
    *             used to calculate the route.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   DepartNow?: boolean;
 
   /**
    * <p>Set the unit system to specify the distance.</p>
-   *         <p>Default Value: <code>Kilometers</code>
+   *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
   DistanceUnit?: DistanceUnit | string;
@@ -952,9 +962,9 @@ export interface CalculateRouteRequest {
   /**
    * <p>Set to include the geometry details in the result for each path between a pair of
    *             positions.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   IncludeLegGeometry?: boolean;
@@ -962,7 +972,7 @@ export interface CalculateRouteRequest {
   /**
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
    *             routes that use ferries or tolls.</p>
-   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
+   *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
    */
   CarModeOptions?: CalculateRouteCarModeOptions;
 
@@ -970,7 +980,7 @@ export interface CalculateRouteRequest {
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
    *             routes that use ferries or tolls, and truck specifications to consider when choosing an
    *             optimal road.</p>
-   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
+   *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
@@ -982,11 +992,11 @@ export interface CalculateRouteRequest {
 export interface LegGeometry {
   /**
    * <p>An ordered list of positions used to plot a route on a map. </p>
-   *         <p>The first position is closest to the start position for the leg, and the last position
+   *          <p>The first position is closest to the start position for the leg, and the last position
    *             is the closest to the end position for the leg.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>[[-123.117, 49.284],[-123.115, 49.285],[-123.115,
+   *                <p>For example, <code>[[-123.117, 49.284],[-123.115, 49.285],[-123.115,
    *                         49.285]]</code>
    *                </p>
    *             </li>
@@ -1029,7 +1039,7 @@ export interface Step {
    * <p>Represents the start position, or index, in a sequence of steps within the leg's line
    *             string geometry. For example, the index of the first step in a leg geometry is
    *                 <code>0</code>. </p>
-   *         <p>Included in the response for queries that set <code>IncludeLegGeometry</code> to
+   *          <p>Included in the response for queries that set <code>IncludeLegGeometry</code> to
    *                 <code>True</code>. </p>
    */
   GeometryOffset?: number;
@@ -1039,26 +1049,26 @@ export interface Step {
  * <p>Contains the calculated route's details for each path between a pair of positions. The
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
- *         <p>For example, a route with a departure position and destination position returns one
+ *          <p>For example, a route with a departure position and destination position returns one
  *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
  *                 road</a>:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The <code>StartPosition</code> is the departure position.</p>
+ *                <p>The <code>StartPosition</code> is the departure position.</p>
  *             </li>
  *             <li>
- *                 <p>The <code>EndPosition</code> is the destination position.</p>
+ *                <p>The <code>EndPosition</code> is the destination position.</p>
  *             </li>
  *          </ul>
- *         <p>A route with a waypoint between the departure and destination position returns two
+ *          <p>A route with a waypoint between the departure and destination position returns two
  *             legs with the positions snapped to a nearby road:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
+ *                <p>Leg 1: The <code>StartPosition</code> is the departure position . The
  *                         <code>EndPosition</code> is the waypoint positon.</p>
  *             </li>
  *             <li>
- *                 <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
+ *                <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
  *                         <code>EndPosition</code> is the destination position.</p>
  *             </li>
  *          </ul>
@@ -1067,29 +1077,29 @@ export interface Leg {
   /**
    * <p>The starting position of the leg. Follows the format
    *             <code>[longitude,latitude]</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a
    *                     nearby road</a>. </p>
-   *         </note>
+   *          </note>
    */
   StartPosition: number[] | undefined;
 
   /**
    * <p>The terminating position of the leg. Follows the format
    *                 <code>[longitude,latitude]</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby
    *                     road</a>. </p>
-   *         </note>
+   *          </note>
    */
   EndPosition: number[] | undefined;
 
   /**
    * <p>The distance between the leg's <code>StartPosition</code> and <code>EndPosition</code>
    *             along a calculated route. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The default measurement is <code>Kilometers</code> unless the request
+   *                <p>The default measurement is <code>Kilometers</code> unless the request
    *                     specifies a <code>DistanceUnit</code> of <code>Miles</code>.</p>
    *             </li>
    *          </ul>
@@ -1123,25 +1133,25 @@ export interface CalculateRouteSummary {
   /**
    * <p>Specifies a geographical box surrounding a route. Used to zoom into a route when
    *             displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p>
-   *         <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p>
-   *         <ul>
+   *          <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p>
+   *          <ul>
    *             <li>
-   *                 <p>The first <code>bbox</code> position is the X coordinate or longitude of the
+   *                <p>The first <code>bbox</code> position is the X coordinate or longitude of the
    *                     lower southwest corner. </p>
    *             </li>
    *             <li>
-   *                 <p>The second <code>bbox</code> position is the Y coordinate or latitude of the
+   *                <p>The second <code>bbox</code> position is the Y coordinate or latitude of the
    *                     lower southwest corner. </p>
    *             </li>
    *          </ul>
-   *         <p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p>
-   *         <ul>
+   *          <p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p>
+   *          <ul>
    *             <li>
-   *                 <p>The third <code>bbox</code> position is the X coordinate, or longitude of the
+   *                <p>The third <code>bbox</code> position is the X coordinate, or longitude of the
    *                     upper northeast corner. </p>
    *             </li>
    *             <li>
-   *                 <p>The fourth <code>bbox</code> position is the Y coordinate, or latitude of the
+   *                <p>The fourth <code>bbox</code> position is the Y coordinate, or latitude of the
    *                     upper northeast corner. </p>
    *             </li>
    *          </ul>
@@ -1151,30 +1161,35 @@ export interface CalculateRouteSummary {
   /**
    * <p>The data provider of traffic and road network data used to calculate the route.
    *             Indicates one of the available providers:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
    * <p>The total distance covered by the route. The sum of the distance travelled between
    *             every stop on the route.</p>
-   *         <note>
+   *          <note>
    *             <p>If Esri is the data source for the route calculator, the route distance can’t be
    *                 greater than 400 km. If the route exceeds 400 km, the response is a <code>400
    *                     RoutesValidationException</code> error.</p>
-   *         </note>
+   *          </note>
    */
   Distance: number | undefined;
 
@@ -1202,26 +1217,26 @@ export interface CalculateRouteResponse {
    *                 <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The
    *             number of legs returned corresponds to one fewer than the total number of positions in
    *             the request. </p>
-   *         <p>For example, a route with a departure position and destination position returns one
+   *          <p>For example, a route with a departure position and destination position returns one
    *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
    *                 road</a>:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The <code>StartPosition</code> is the departure position.</p>
+   *                <p>The <code>StartPosition</code> is the departure position.</p>
    *             </li>
    *             <li>
-   *                 <p>The <code>EndPosition</code> is the destination position.</p>
+   *                <p>The <code>EndPosition</code> is the destination position.</p>
    *             </li>
    *          </ul>
-   *         <p>A route with a waypoint between the departure and destination position returns two
+   *          <p>A route with a waypoint between the departure and destination position returns two
    *             legs with the positions snapped to a nearby road:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
+   *                <p>Leg 1: The <code>StartPosition</code> is the departure position . The
    *                         <code>EndPosition</code> is the waypoint positon.</p>
    *             </li>
    *             <li>
-   *                 <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
+   *                <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
    *                         <code>EndPosition</code> is the destination position.</p>
    *             </li>
    *          </ul>
@@ -1248,18 +1263,18 @@ export interface CalculateRouteMatrixRequest {
    *             each of which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
    *                 <code>[longitude, latitude]</code>. For example, <code>[-123.115,
    *             49.285]</code>.</p>
-   *         <important>
+   *          <important>
    *             <p>Depending on the data provider selected in the route calculator resource there may
    *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
    *                     Guide</i>.</p>
-   *         </important>
-   *         <note>
+   *          </important>
+   *          <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
    *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
    *                     position to the nearest road</a>. The snapped value is available in the
    *                 result in <code>SnappedDeparturePositions</code>.</p>
-   *         </note>
-   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </note>
+   *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
    */
   DeparturePositions: number[][] | undefined;
@@ -1270,18 +1285,18 @@ export interface CalculateRouteMatrixRequest {
    *                 <code>[longitude, latitude]</code>. For example, <code>[-122.339,
    *             47.615]</code>
    *          </p>
-   *         <important>
+   *          <important>
    *             <p>Depending on the data provider selected in the route calculator resource there may
    *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
    *                     Guide</i>.</p>
-   *         </important>
-   *         <note>
+   *          </important>
+   *          <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
    *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
    *                     position to the nearest road</a>. The snapped value is available in the
    *                 result in <code>SnappedDestinationPositions</code>.</p>
-   *         </note>
-   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </note>
+   *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
    */
   DestinationPositions: number[][] | undefined;
@@ -1289,19 +1304,27 @@ export interface CalculateRouteMatrixRequest {
   /**
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
    *             of travel and road compatibility.</p>
-   *         <p>The <code>TravelMode</code> you specify also determines how you specify route
+   *          <p>The <code>TravelMode</code> you specify also determines how you specify route
    *             preferences: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
+   *                <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
    *                     parameter.</p>
    *             </li>
    *             <li>
-   *                 <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
+   *                <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
    *                     parameter.</p>
    *             </li>
    *          </ul>
-   *         <p>Default Value: <code>Car</code>
+   *          <note>
+   *             <p>
+   *                <code>Bicycle</code> or <code>Motorcycle</code> are only valid when using
+   *                     <code>Grab</code> as a data provider, and only within Southeast Asia.</p>
+   *             <p>
+   *                <code>Truck</code> is not available for Grab.</p>
+   *             <p>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *          </note>
+   *          <p>Default Value: <code>Car</code>
    *          </p>
    */
   TravelMode?: TravelMode | string;
@@ -1311,13 +1334,13 @@ export interface CalculateRouteMatrixRequest {
    *             matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>. If
    *             neither is set, the best time of day to travel with the best traffic conditions is used
    *             to calculate the route matrix.</p>
-   *         <note>
+   *          <note>
    *             <p>Setting a departure time in the past returns a <code>400
    *                     ValidationException</code> error.</p>
-   *         </note>
-   *         <ul>
+   *          </note>
+   *          <ul>
    *             <li>
-   *                 <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
    *                         8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example,
    *                         <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
@@ -1331,16 +1354,16 @@ export interface CalculateRouteMatrixRequest {
    *             route matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>.
    *             If neither is set, the best time of day to travel with the best traffic conditions is
    *             used to calculate the route matrix.</p>
-   *         <p>Default Value: <code>false</code>
+   *          <p>Default Value: <code>false</code>
    *          </p>
-   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          <p>Valid Values: <code>false</code> | <code>true</code>
    *          </p>
    */
   DepartNow?: boolean;
 
   /**
    * <p>Set the unit system to specify the distance.</p>
-   *         <p>Default Value: <code>Kilometers</code>
+   *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
   DistanceUnit?: DistanceUnit | string;
@@ -1348,7 +1371,7 @@ export interface CalculateRouteMatrixRequest {
   /**
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
    *             routes that use ferries or tolls.</p>
-   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
+   *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
    */
   CarModeOptions?: CalculateRouteCarModeOptions;
 
@@ -1356,7 +1379,7 @@ export interface CalculateRouteMatrixRequest {
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
    *             routes that use ferries or tolls, and truck specifications to consider when choosing an
    *             optimal road.</p>
-   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
+   *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
@@ -1372,45 +1395,45 @@ export type RouteMatrixErrorCode =
 /**
  * <p>An error corresponding to the calculation of a route between the
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
- *         <p>The error code can be one of the following:</p>
- *         <ul>
+ *          <p>The error code can be one of the following:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>RouteNotFound</code> - Unable to find a valid route with the given
  *                     parameters.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>RouteTooLong</code> - Route calculation went beyond the maximum size of
  *                     a route and was terminated before completion.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>PositionsNotFound</code> - One or more of the input positions were not
  *                     found on the route network.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>DestinationPositionNotFound</code> - The destination position was not
  *                     found on the route network.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>DeparturePositionNotFound</code> - The departure position was not found
  *                     on the route network.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>OtherValidationError</code> - The given inputs were not valid or a route
  *                     was not found. More information is given in the error
  *                     <code>Message</code>
@@ -1459,19 +1482,24 @@ export interface CalculateRouteMatrixSummary {
   /**
    * <p>The data provider of traffic and road network data used to calculate the routes.
    *             Indicates one of the available providers:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data
    *                 providers</a>.</p>
    */
   DataSource: string | undefined;
@@ -1535,17 +1563,17 @@ export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "Req
 export interface CreateGeofenceCollectionRequest {
   /**
    * <p>A custom name for the geofence collection.</p>
-   *         <p>Requirements:</p>
-   *         <ul>
+   *          <p>Requirements:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
    *                     (.), and underscores (_). </p>
    *             </li>
    *             <li>
-   *                 <p>Must be a unique geofence collection name.</p>
+   *                <p>Must be a unique geofence collection name.</p>
    *             </li>
    *             <li>
-   *                 <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p>
+   *                <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1574,28 +1602,28 @@ export interface CreateGeofenceCollectionRequest {
   /**
    * <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
    *             manage, identify, search, and filter your resources by labelling them.</p>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *         <p>Restrictions:</p>
-   *         <ul>
+   *          <p>Restrictions:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum 50 tags per resource</p>
+   *                <p>Maximum 50 tags per resource</p>
    *             </li>
    *             <li>
-   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
    *                     + - = . _ : / @. </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -1617,9 +1645,9 @@ export interface CreateGeofenceCollectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all AWS. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
    *                </p>
    *             </li>
@@ -1641,55 +1669,55 @@ export interface CreateGeofenceCollectionResponse {
 export interface MapConfiguration {
   /**
    * <p>Specifies the map style selected from an available data provider.</p>
-   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p>
-   *         <ul>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
    *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
    *                     and features that's designed to draw attention to your thematic content. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap
    *                     that provides one meter or better satellite and aerial imagery in many parts of
    *                     the world and lower resolution satellite imagery worldwide. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style,
    *                     which provides a detailed vector basemap with a light gray, neutral background
    *                     style with minimal colors, labels, and features that's designed to draw
    *                     attention to your thematic content. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorEsriTopographic</code> – The Esri Light map style, which provides
    *                     a detailed vector basemap with a classic Esri map style.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorEsriStreets</code> – The Esri World Streets map style, which
    *                     provides a detailed vector basemap for the world symbolized with a classic Esri
    *                     street map style. The vector tile layer is similar in content and style to the
    *                     World Street Map raster map.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorEsriNavigation</code> – The Esri World Navigation map style, which
    *                     provides a detailed basemap for the world symbolized with a custom navigation
    *                     map style that's designed for use during the day in mobile devices.</p>
    *             </li>
    *          </ul>
-   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
    *                 Technologies map styles</a>:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
    *                     high contrast
    *                     detailed base map of the world that blends 3D and 2D rendering.</p>
-   *                 <note>
+   *                <note>
    *                   <p>The <code>VectorHereContrast</code> style has been renamed from
    *                     <code>VectorHereBerlin</code>.
    *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
@@ -1697,30 +1725,30 @@ export interface MapConfiguration {
    *                </note>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorHereExplore</code> – A default HERE map style containing a
    *                     neutral, global map and its features including roads, buildings, landmarks,
    *                     and water features. It also now includes a fully designed map of Japan.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VectorHereExploreTruck</code> – A global map containing truck
    *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
    *                     highlighted segments and icons on top of HERE Explore to support use cases
    *                     within transport and logistics.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RasterHereExploreSatellite</code> – A global map containing high
    *                     resolution satellite imagery.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>HybridHereExploreSatellite</code> – A global map displaying the road
    *                     network, street names, and city labels over satellite imagery. This style
    *                     will automatically retrieve both raster and vector tiles, and your charges
    *                     will be based on total tiles retrieved.</p>
-   *                 <note>
+   *                <note>
    *                   <p>Hybrid styles use both vector and raster tiles when rendering the
    *                     map that you see. This means that more tiles are retrieved than when using
    *                     either vector or raster tiles alone. Your charges will include all tiles
@@ -1728,16 +1756,37 @@ export interface MapConfiguration {
    *                </note>
    *             </li>
    *          </ul>
-   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
-   *         <ul>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps map styles</a>:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>VectorGrabStandardLight</code> – The Grab Standard Light
+   *                     map style provides a basemap with detailed land use coloring,
+   *                     area names, roads, landmarks, and points of interest covering
+   *                     Southeast Asia.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorGrabStandardDark</code> – The Grab Standard Dark
+   *                     map style provides a dark variation of the standard basemap
+   *                     covering Southeast Asia.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Grab provides maps only for countries in Southeast Asia, and is only available
+   *                 in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).
+   *                 For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
+   *          </note>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
    *                   <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light
    *                     (preview) map style provides a detailed basemap for the world suitable for
    *                     website and mobile application use. The map includes highways major roads,
    *                     minor roads, railways, water features, cities, parks, landmarks, building
    *                     footprints, and administrative boundaries.</p>
-   *                 <important>
+   *                <important>
    *                   <p>Open Data maps is in preview. We may add, change, or remove
    *                     features before announcing general availability. For more information, see
    *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p>
@@ -1751,8 +1800,8 @@ export interface MapConfiguration {
 export interface CreateMapRequest {
   /**
    * <p>The name for the map resource.</p>
-   *         <p>Requirements:</p>
-   *         <ul>
+   *          <p>Requirements:</p>
+   *          <ul>
    *             <li>
    *                <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p>
    *             </li>
@@ -1760,7 +1809,7 @@ export interface CreateMapRequest {
    *                <p>Must be a unique map resource name. </p>
    *             </li>
    *             <li>
-   *                 <p>No spaces allowed. For example, <code>ExampleMap</code>.</p>
+   *                <p>No spaces allowed. For example, <code>ExampleMap</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1826,9 +1875,9 @@ export interface CreateMapResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
    *             all AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                     <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
    *             </li>
@@ -1847,40 +1896,40 @@ export type IntendedUse = "SingleUse" | "Storage";
 
 /**
  * <p>Specifies the data storage option chosen for requesting Places.</p>
- *         <important>
+ *          <important>
  *             <p>When using Amazon Location Places:</p>
  *             <ul>
  *                <li>
- *                     <p>If using HERE Technologies as a data provider, you can't store results for
+ *                   <p>If using HERE Technologies as a data provider, you can't store results for
  *                         locations in Japan by setting <code>IntendedUse</code> to
  *                             <code>Storage</code>. parameter.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>Under the <code>MobileAssetTracking</code> or
+ *                   <p>Under the <code>MobileAssetTracking</code> or
  *                             <code>MobilAssetManagement</code> pricing plan, you can't store results
  *                         from your place index resources by setting <code>IntendedUse</code> to
  *                             <code>Storage</code>. This returns a validation exception error.</p>
- *                 </li>
+ *                </li>
  *             </ul>
  *             <p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p>
- *         </important>
+ *          </important>
  */
 export interface DataSourceConfiguration {
   /**
    * <p>Specifies how the results of an operation will be stored by the caller. </p>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SingleUse</code> specifies that the results won't be stored. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Storage</code> specifies that the result can be cached or stored in a
    *                     database.</p>
    *             </li>
    *          </ul>
-   *         <p>Default value: <code>SingleUse</code>
+   *          <p>Default value: <code>SingleUse</code>
    *          </p>
    */
   IntendedUse?: IntendedUse | string;
@@ -1889,17 +1938,17 @@ export interface DataSourceConfiguration {
 export interface CreatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource. </p>
-   *         <p>Requirements:</p>
-   *         <ul>
+   *          <p>Requirements:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
    *                     (.), and underscores (_).</p>
    *             </li>
    *             <li>
-   *                 <p>Must be a unique place index resource name.</p>
+   *                <p>Must be a unique place index resource name.</p>
    *             </li>
    *             <li>
-   *                 <p>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</p>
+   *                <p>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1907,29 +1956,34 @@ export interface CreatePlaceIndexRequest {
 
   /**
    * <p>Specifies the geospatial data provider for the new place index.</p>
-   *         <note>
+   *          <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
    *                 entering <code>HERE</code> returns an error.</p>
-   *         </note>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   *          </note>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code> – Grab provides place index functionality for Southeast
+   *                     Asia. For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and areas covered</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
    *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
-   *                 <important>
-   *                     <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
+   *                <important>
+   *                   <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
    *                         you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see
    *                         the <a href="https://aws.amazon.com/service-terms/">AWS Service
    *                             Terms</a> for Amazon Location Service.</p>
-   *                 </important>
+   *                </important>
    *             </li>
    *          </ul>
-   *         <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
    *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
    */
   DataSource: string | undefined;
@@ -1955,28 +2009,28 @@ export interface CreatePlaceIndexRequest {
   /**
    * <p>Applies one or more tags to the place index resource. A tag is a key-value pair that
    *             helps you manage, identify, search, and filter your resources.</p>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *         <p>Restrictions:</p>
-   *         <ul>
+   *          <p>Restrictions:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum 50 tags per resource.</p>
+   *                <p>Maximum 50 tags per resource.</p>
    *             </li>
    *             <li>
-   *                 <p>Each tag key must be unique and must have exactly one associated value.</p>
+   *                <p>Each tag key must be unique and must have exactly one associated value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
    *                     + - = . _ : / @</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -1992,9 +2046,9 @@ export interface CreatePlaceIndexResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
    *             resource across AWS. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
@@ -2012,17 +2066,17 @@ export interface CreatePlaceIndexResponse {
 export interface CreateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource. </p>
-   *         <p>Requirements:</p>
-   *         <ul>
+   *          <p>Requirements:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.),
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.),
    *                     and underscores (_).</p>
    *             </li>
    *             <li>
-   *                 <p>Must be a unique Route calculator resource name.</p>
+   *                <p>Must be a unique Route calculator resource name.</p>
    *             </li>
    *             <li>
-   *                 <p>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</p>
+   *                <p>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2030,24 +2084,32 @@ export interface CreateRouteCalculatorRequest {
 
   /**
    * <p>Specifies the data provider of traffic and road network data.</p>
-   *         <note>
+   *          <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
-   *                 entering <code>HERE</code> returns an error. Route calculators that use Esri as a
-   *                 data source only calculate routes that are shorter than 400 km.</p>
-   *         </note>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   *                 entering <code>HERE</code> returns an error.</p>
+   *          </note>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p>
+   *                <p>Route calculators that use Esri as a
+   *                     data source only calculate routes that are shorter than 400 km.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code> – Grab provides routing functionality for Southeast Asia.
+   *                     For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage,
+   *                     see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
+   *                         countries and areas covered</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
    *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p>
    *             </li>
    *          </ul>
-   *         <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
    *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
    */
   DataSource: string | undefined;
@@ -2068,34 +2130,34 @@ export interface CreateRouteCalculatorRequest {
   /**
    * <p>Applies one or more tags to the route calculator resource. A tag is a key-value pair
    *             helps manage, identify, search, and filter your resources by labelling them.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" :
+   *                <p>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" :
    *                     "value2"</code>}</p>
    *             </li>
    *          </ul>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *         <p>Restrictions:</p>
-   *         <ul>
+   *          <p>Restrictions:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum 50 tags per resource</p>
+   *                <p>Maximum 50 tags per resource</p>
    *             </li>
    *             <li>
-   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
    *                     + - = . _ : / @. </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -2105,9 +2167,9 @@ export interface CreateRouteCalculatorRequest {
 export interface CreateRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>ExampleRouteCalculator</code>.</p>
+   *                <p>For example, <code>ExampleRouteCalculator</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2116,9 +2178,9 @@ export interface CreateRouteCalculatorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you
    *             specify a resource across all AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:route-calculator/ExampleCalculator</code>
    *                </p>
    *             </li>
@@ -2129,9 +2191,9 @@ export interface CreateRouteCalculatorResponse {
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2153,7 +2215,7 @@ export interface CreateTrackerRequest {
    *                <p>Must be a unique tracker resource name.</p>
    *             </li>
    *             <li>
-   *                 <p>No spaces allowed. For example, <code>ExampleTracker</code>.</p>
+   *                <p>No spaces allowed. For example, <code>ExampleTracker</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2187,28 +2249,28 @@ export interface CreateTrackerRequest {
   /**
    * <p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
    *             manage, identify, search, and filter your resources by labelling them.</p>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *         <p>Restrictions:</p>
-   *         <ul>
+   *          <p>Restrictions:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum 50 tags per resource</p>
+   *                <p>Maximum 50 tags per resource</p>
    *             </li>
    *             <li>
-   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
    *                     + - = . _ : / @. </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -2216,26 +2278,26 @@ export interface CreateTrackerRequest {
 
   /**
    * <p>Specifies the position filtering for the tracker resource.</p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+   *                <p>
+   *                   <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
    *                     but not every location update is stored. If your update frequency is more often than 30 seconds,
    *                     only one update per 30 seconds is stored for each unique device ID.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
+   *                <p>
+   *                   <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
    *                     ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored.
    *                     This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through.
    *                     Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+   *                <p>
+   *                   <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
    *                     location updates are ignored. For example, if two consecutive updates from a device
    *                     have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
    *                     has moved less than 15 m. Ignored location updates are neither evaluated against
@@ -2245,7 +2307,7 @@ export interface CreateTrackerRequest {
    *                 </p>
    *             </li>
    *          </ul>
-   *         <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
+   *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    */
   PositionFiltering?: PositionFiltering | string;
 }
@@ -2259,9 +2321,9 @@ export interface CreateTrackerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
    *                </p>
    *             </li>
@@ -2337,9 +2399,9 @@ export interface DescribeGeofenceCollectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all AWS. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
    *                </p>
    *             </li>
@@ -2407,9 +2469,9 @@ export interface DescribeMapResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
    *             all AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                     <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
    *             </li>
@@ -2473,9 +2535,9 @@ export interface DescribePlaceIndexResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
    *             resource across AWS. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
@@ -2509,19 +2571,24 @@ export interface DescribePlaceIndexResponse {
 
   /**
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -2552,9 +2619,9 @@ export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you
    *             specify a resource across AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:route-calculator/ExampleCalculator</code>
    *                </p>
    *             </li>
@@ -2577,9 +2644,9 @@ export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2589,9 +2656,9 @@ export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2601,19 +2668,24 @@ export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The data provider of traffic and road network data. Indicates one of the available
    *             providers:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -2639,9 +2711,9 @@ export interface DescribeTrackerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
    *                </p>
    *             </li>
@@ -2705,9 +2777,9 @@ export interface DisassociateTrackerConsumerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
    *             the tracker resource. Used when you need to specify a resource across all AWS. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
    *                </p>
    *             </li>
@@ -2721,7 +2793,7 @@ export interface DisassociateTrackerConsumerResponse {}
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
@@ -2734,7 +2806,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
    *                </p>
@@ -2747,7 +2819,7 @@ export interface ListTagsForResourceResponse {
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
@@ -2759,28 +2831,28 @@ export interface TagResourceRequest {
   /**
    * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you
    *             manage, identify, search, and filter your resources.</p>
-   *         <p>Format: <code>"key" : "value"</code>
+   *          <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *         <p>Restrictions:</p>
-   *         <ul>
+   *          <p>Restrictions:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum 50 tags per resource.</p>
+   *                <p>Maximum 50 tags per resource.</p>
    *             </li>
    *             <li>
-   *                 <p>Each tag key must be unique and must have exactly one associated value.</p>
+   *                <p>Each tag key must be unique and must have exactly one associated value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
    *                     = . _ : / @</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -2792,7 +2864,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
@@ -2835,26 +2907,26 @@ export interface GetGeofenceResponse {
   /**
    * <p>Identifies the state of the geofence. A geofence will hold one of the following
    *             states:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> — The geofence has been indexed by the system. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> — The geofence is being processed by the system.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> — The geofence failed to be indexed by the system.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETED</code> — The geofence has been deleted from the system
    *                     index.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> — The geofence is being deleted from the system
    *                     index.</p>
    *             </li>
@@ -2880,7 +2952,7 @@ export interface GetGeofenceResponse {
 export interface ListGeofenceCollectionsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -2888,7 +2960,7 @@ export interface ListGeofenceCollectionsRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
-   *         <p>Default value: <code>null</code>
+   *          <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -2959,14 +3031,14 @@ export interface ListGeofencesRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
-   *         <p>Default value: <code>null</code>
+   *          <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional limit for the number of geofences returned in a single call. </p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -2989,26 +3061,26 @@ export interface ListGeofenceResponseEntry {
   /**
    * <p>Identifies the state of the geofence. A geofence will hold one of the following
    *             states:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> — The geofence has been indexed by the system. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> — The geofence is being processed by the system.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> — The geofence failed to be indexed by the system.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETED</code> — The geofence has been deleted from the system
    *                     index.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> — The geofence is being deleted from the system
    *                     index.</p>
    *             </li>
@@ -3058,10 +3130,10 @@ export interface PutGeofenceRequest {
   /**
    * <p>Contains the details to specify the position of the geofence. Can be either a
    *             polygon or a circle. Including both will return a validation error.</p>
-   *         <note>
+   *          <note>
    *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
    *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
-   *         </note>
+   *          </note>
    */
   Geometry: GeofenceGeometry | undefined;
 }
@@ -3123,9 +3195,9 @@ export interface UpdateGeofenceCollectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a
    *             resource across AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example:
+   *                <p>Format example:
    *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
    *                </p>
    *             </li>
@@ -3210,12 +3282,12 @@ export interface GetDevicePositionHistoryRequest {
    * <p>Specify the start time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value will be 24 hours
    *             prior to the time that the request is made.</p>
-   *         <p>Requirement:</p>
+   *          <p>Requirement:</p>
    *          <ul>
    *             <li>
    *                <p>The time specified for <code>StartTimeInclusive</code> must be before
    *                         <code>EndTimeExclusive</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   StartTimeInclusive?: Date;
@@ -3224,19 +3296,19 @@ export interface GetDevicePositionHistoryRequest {
    * <p>Specify the end time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value will be the time
    *             that the request is made.</p>
-   *         <p>Requirement:</p>
+   *          <p>Requirement:</p>
    *          <ul>
    *             <li>
    *                <p>The time specified for <code>EndTimeExclusive</code> must be after the time for
    *                         <code>StartTimeInclusive</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   EndTimeExclusive?: Date;
 
   /**
    * <p>An optional limit for the number of device positions returned in a single call.</p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3264,45 +3336,45 @@ export interface GetMapGlyphsRequest {
   /**
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
-   *         <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
-   *         <ul>
+   *          <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *          <ul>
    *             <li>
-   *                 <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
+   *                <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
    *                         Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> |
    *                         <code>Ubuntu Bold</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu
+   *                <p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu
    *                         Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans
+   *                <p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans
    *                         Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif
    *                         Regular</code> | <code>Roboto Condensed Light Italic</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> |
+   *                <p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> |
    *                         <code>Arial Bold</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>
+   *                <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>
    *                     | <code>Arial Bold</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p>
-   *         <ul>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p>
+   *          <ul>
    *             <li>
-   *                 <p>VectorHereContrast – <code>Fira
+   *                <p>VectorHereContrast – <code>Fira
    *                     GO Regular</code> | <code>Fira GO Bold</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite –
+   *                <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite –
    *                     <code>Fira GO Italic</code> | <code>Fira GO Map</code> |
    *                     <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> |
    *                     <code>Noto Sans CJK JP Light</code> |
@@ -3310,10 +3382,20 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
-   *         <ul>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> styles:</p>
+   *          <ul>
    *             <li>
-   *                 <p>VectorOpenDataStandardLight –
+   *                <p>VectorGrabStandardLight, VectorGrabStandardDark –
+   *                     <code>Noto Sans Regular</code> |
+   *                     <code>Noto Sans Medium</code> |
+   *                     <code>Noto Sans Bold</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
+   *          <ul>
+   *             <li>
+   *                <p>VectorOpenDataStandardLight –
    *                     <code>Amazon Ember Regular,Noto Sans Regular</code> |
    *                     <code>Amazon Ember Bold,Noto Sans Bold</code> |
    *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
@@ -3323,11 +3405,11 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts
    *                 that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code>
    *                 for glyphs unsupported by <code>Amazon Ember</code>.</p>
-   *         </note>
+   *          </note>
    */
   FontStack: string | undefined;
 
@@ -3359,7 +3441,7 @@ export interface GetMapSpritesRequest {
 
   /**
    * <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>sprites.png</code>
@@ -3370,8 +3452,8 @@ export interface GetMapSpritesRequest {
    *                   <code>sprites@2x.png</code> for high pixel density displays</p>
    *             </li>
    *          </ul>
-   *         <p>For the JSON document containing image offsets. Use the following ﬁle names:</p>
-   *         <ul>
+   *          <p>For the JSON document containing image offsets. Use the following ﬁle names:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>sprites.json</code>
@@ -3469,17 +3551,17 @@ export interface GetPlaceRequest {
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
-   *         <p>This setting affects the languages used in the results, but not the results
+   *          <p>This setting affects the languages used in the results, but not the results
    *             themselves. If no language is specified, or not supported for a particular result, the
    *             partner automatically chooses a language for the result.</p>
-   *         <p>For an example, we'll use the Greek language. You search for a location around Athens,
+   *          <p>For an example, we'll use the Greek language. You search for a location around Athens,
    *             Greece, with the <code>language</code> parameter set to <code>en</code>. The
    *                 <code>city</code> in the results will most likely be returned as
    *             <code>Athens</code>.</p>
-   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *          <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
    *                 <code>city</code> in the results will more likely be returned as
    *             <code>Αθήνα</code>.</p>
-   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *          <p>If the data provider does not have a value for Greek, the result will be in a language
    *             that the provider does support.</p>
    */
   Language?: string;
@@ -3492,13 +3574,13 @@ export interface PlaceGeometry {
   /**
    * <p>A single point geometry specifies a location for a Place using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
    *             coordinates:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <i>x</i> — Specifies the x coordinate or longitude. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <i>y</i> — Specifies the y coordinate or latitude. </p>
    *             </li>
    *          </ul>
@@ -3527,7 +3609,7 @@ export interface TimeZone {
 /**
  * <p>Contains details about addresses or points of interest that match the search
  *             criteria.</p>
- *         <p>Not all details are included with all responses. Some details may only be returned by
+ *          <p>Not all details are included with all responses. Some details may only be returned by
  *             specific data partners.</p>
  */
 export interface Place {
@@ -3565,7 +3647,7 @@ export interface Place {
   Municipality?: string;
 
   /**
-   * <p>A country, or an area that's part of a larger region. For example, <code>Metro
+   * <p>A county, or an area that's part of a larger region. For example, <code>Metro
    *                 Vancouver</code>.</p>
    */
   SubRegion?: string;
@@ -3591,10 +3673,10 @@ export interface Place {
   /**
    * <p>
    *             <code>True</code> if the result is interpolated from other known places.</p>
-   *         <p>
+   *          <p>
    *             <code>False</code> if the Place is a known place.</p>
-   *         <p>Not returned when the partner does not provide the information.</p>
-   *         <p>For example, returns <code>False</code> for an address location that is found in the
+   *          <p>Not returned when the partner does not provide the information.</p>
+   *          <p>For example, returns <code>False</code> for an address location that is found in the
    *             partner data, but returns <code>True</code> if an address does not exist in the partner
    *             data and its location is calculated by interpolating between other known addresses.
    *         </p>
@@ -3616,10 +3698,10 @@ export interface Place {
   /**
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
    *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>Returned only for a place index that uses Esri as a data provider. Is not returned
    *                 for <code>SearchPlaceIndexForPosition</code>.</p>
-   *         </note>
+   *          </note>
    */
   UnitNumber?: string;
 }
@@ -3639,7 +3721,7 @@ export interface ListDevicePositionsRequest {
 
   /**
    * <p>An optional limit for the number of entries returned in a single call.</p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3701,7 +3783,7 @@ export interface ListDevicePositionsResponse {
 export interface ListMapsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3709,7 +3791,7 @@ export interface ListMapsRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
-   *         <p>Default value: <code>null</code>
+   *          <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -3769,7 +3851,7 @@ export interface ListMapsResponse {
 export interface ListPlaceIndexesRequest {
   /**
    * <p>An optional limit for the maximum number of results returned in a single call.</p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3777,7 +3859,7 @@ export interface ListPlaceIndexesRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
-   *         <p>Default value: <code>null</code>
+   *          <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -3799,19 +3881,24 @@ export interface ListPlaceIndexesResponseEntry {
 
   /**
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -3851,7 +3938,7 @@ export interface ListPlaceIndexesResponse {
 export interface ListRouteCalculatorsRequest {
   /**
    * <p>An optional maximum number of results returned in a single call.</p>
-   *         <p>Default Value: <code>100</code>
+   *          <p>Default Value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3859,7 +3946,7 @@ export interface ListRouteCalculatorsRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
-   *         <p>Default Value: <code>null</code>
+   *          <p>Default Value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -3882,19 +3969,24 @@ export interface ListRouteCalculatorsResponseEntry {
   /**
    * <p>The data provider of traffic and road network data. Indicates one of the available
    *             providers:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>Grab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -3908,9 +4000,9 @@ export interface ListRouteCalculatorsResponseEntry {
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3920,9 +4012,9 @@ export interface ListRouteCalculatorsResponseEntry {
   /**
    * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3951,7 +4043,7 @@ export interface ListTrackerConsumersRequest {
 
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3981,7 +4073,7 @@ export interface ListTrackerConsumersResponse {
 export interface ListTrackersRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
-   *         <p>Default value: <code>100</code>
+   *          <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
@@ -3989,7 +4081,7 @@ export interface ListTrackersRequest {
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
-   *         <p>Default value: <code>null</code>
+   *          <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -4079,7 +4171,7 @@ export interface UpdateMapResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource
    *             across AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
@@ -4103,17 +4195,17 @@ export interface SearchPlaceIndexForPositionRequest {
 
   /**
    * <p>Specifies the longitude and latitude of the position to query.</p>
-   *         <p> This parameter must contain a pair of numbers. The first number represents the X
+   *          <p> This parameter must contain a pair of numbers. The first number represents the X
    *             coordinate, or longitude; the second number represents the Y coordinate, or
    *             latitude.</p>
-   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   Position: number[] | undefined;
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request.</p>
-   *         <p>Default value: <code>50</code>
+   *          <p>Default value: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
@@ -4121,17 +4213,17 @@ export interface SearchPlaceIndexForPositionRequest {
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
-   *         <p>This setting affects the languages used in the results, but not the results
+   *          <p>This setting affects the languages used in the results, but not the results
    *             themselves. If no language is specified, or not supported for a particular result, the
    *             partner automatically chooses a language for the result.</p>
-   *         <p>For an example, we'll use the Greek language. You search for a location around Athens,
+   *          <p>For an example, we'll use the Greek language. You search for a location around Athens,
    *             Greece, with the <code>language</code> parameter set to <code>en</code>. The
    *                 <code>city</code> in the results will most likely be returned as
    *             <code>Athens</code>.</p>
-   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *          <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
    *                 <code>city</code> in the results will more likely be returned as
    *             <code>Αθήνα</code>.</p>
-   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *          <p>If the data provider does not have a value for Greek, the result will be in a language
    *             that the provider does support.</p>
    */
   Language?: string;
@@ -4150,20 +4242,20 @@ export interface SearchForPositionResult {
   /**
    * <p>The distance in meters of a great-circle arc between the query position and the
    *             result.</p>
-   *         <note>
+   *          <note>
    *             <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This
    *                 returns the shortest distance between two locations.</p>
-   *         </note>
+   *          </note>
    */
   Distance: number | undefined;
 
   /**
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later.</p>
-   *         <note>
+   *          <note>
    *             <p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code>
-   *                 is returned only by place indexes that use HERE as a data provider.</p>
-   *         </note>
+   *                 is returned only by place indexes that use HERE or Grab as a data provider.</p>
+   *          </note>
    */
   PlaceId?: string;
 }
@@ -4180,7 +4272,7 @@ export interface SearchPlaceIndexForPositionSummary {
 
   /**
    * <p>Contains the optional result count limit that is specified in the request.</p>
-   *         <p>Default value: <code>50</code>
+   *          <p>Default value: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
@@ -4188,15 +4280,18 @@ export interface SearchPlaceIndexForPositionSummary {
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Esri</p>
+   *                <p>Esri</p>
    *             </li>
    *             <li>
-   *                 <p>Here</p>
+   *                <p>Grab</p>
+   *             </li>
+   *             <li>
+   *                <p>Here</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -4238,45 +4333,45 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   /**
    * <p>An optional parameter that indicates a preference for place suggestions that are
    *             closer to a specified position.</p>
-   *         <p> If provided, this parameter must contain a pair of numbers. The first number
+   *          <p> If provided, this parameter must contain a pair of numbers. The first number
    *             represents the X coordinate, or longitude; the second number represents the Y
    *             coordinate, or latitude.</p>
-   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive.
    *                 Specifying both options results in an error. </p>
-   *         </note>
+   *          </note>
    */
   BiasPosition?: number[];
 
   /**
    * <p>An optional parameter that limits the search results by returning only suggestions
    *             within a specified bounding box.</p>
-   *         <p> If provided, this parameter must contain a total of four consecutive numbers in two
+   *          <p> If provided, this parameter must contain a total of four consecutive numbers in two
    *             pairs. The first pair of numbers represents the X and Y coordinates (longitude and
    *             latitude, respectively) of the southwest corner of the bounding box; the second pair of
    *             numbers represents the X and Y coordinates (longitude and latitude, respectively) of the
    *             northeast corner of the bounding box.</p>
-   *         <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
+   *          <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
    *             bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude
    *                 <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code>
    *             and latitude <code>-36.9542</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive.
    *                 Specifying both options results in an error. </p>
-   *         </note>
+   *          </note>
    */
   FilterBBox?: number[];
 
   /**
    * <p>An optional parameter that limits the search results by returning only suggestions
    *             within the provided list of countries.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
+   *                <p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
    *                         3166</a> 3-digit country code. For example, Australia uses three
    *                     upper-case characters: <code>AUS</code>.</p>
    *             </li>
@@ -4286,7 +4381,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
-   *         <p>The default: <code>5</code>
+   *          <p>The default: <code>5</code>
    *          </p>
    */
   MaxResults?: number;
@@ -4294,15 +4389,15 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
-   *         <p>This setting affects the languages used in the results. If no language is specified,
+   *          <p>This setting affects the languages used in the results. If no language is specified,
    *             or not supported for a particular result, the partner automatically chooses a language
    *             for the result.</p>
-   *         <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code>
+   *          <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code>
    *             to get suggestions with the <code>language</code> parameter set to <code>en</code>. The
    *             results found will most likely be returned as <code>Athens, Greece</code>.</p>
-   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *          <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
    *             result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p>
-   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *          <p>If the data provider does not have a value for Greek, the result will be in a language
    *             that the provider does support.</p>
    */
   Language?: string;
@@ -4321,11 +4416,11 @@ export interface SearchForSuggestionsResult {
   /**
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later.</p>
-   *         <note>
+   *          <note>
    *             <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the
-   *                     <code>PlaceId</code> is returned by place indexes that use HERE or Esri as data
-   *                 providers.</p>
-   *         </note>
+   *                     <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE
+   *                 as data providers.</p>
+   *          </note>
    */
   PlaceId?: string;
 }
@@ -4343,10 +4438,10 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   /**
    * <p>Contains the coordinates for the optional bias position specified in the
    *             request.</p>
-   *         <p>This parameter contains a pair of numbers. The first number represents the X
+   *          <p>This parameter contains a pair of numbers. The first number represents the X
    *             coordinate, or longitude; the second number represents the Y coordinate, or
    *             latitude.</p>
-   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   BiasPosition?: number[];
@@ -4370,15 +4465,18 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Esri</p>
+   *                <p>Esri</p>
    *             </li>
    *             <li>
-   *                 <p>Here</p>
+   *                <p>Grab</p>
+   *             </li>
+   *             <li>
+   *                <p>Here</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -4420,45 +4518,45 @@ export interface SearchPlaceIndexForTextRequest {
   /**
    * <p>An optional parameter that indicates a preference for places that are closer to a
    *             specified position.</p>
-   *         <p> If provided, this parameter must contain a pair of numbers. The first number
+   *          <p> If provided, this parameter must contain a pair of numbers. The first number
    *             represents the X coordinate, or longitude; the second number represents the Y
    *             coordinate, or latitude.</p>
-   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive.
    *                 Specifying both options results in an error. </p>
-   *         </note>
+   *          </note>
    */
   BiasPosition?: number[];
 
   /**
    * <p>An optional parameter that limits the search results by returning only places that are
    *             within the provided bounding box.</p>
-   *         <p> If provided, this parameter must contain a total of four consecutive numbers in two
+   *          <p> If provided, this parameter must contain a total of four consecutive numbers in two
    *             pairs. The first pair of numbers represents the X and Y coordinates (longitude and
    *             latitude, respectively) of the southwest corner of the bounding box; the second pair of
    *             numbers represents the X and Y coordinates (longitude and latitude, respectively) of the
    *             northeast corner of the bounding box.</p>
-   *         <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
+   *          <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
    *             bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude
    *                 <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code>
    *             and latitude <code>-36.9542</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive.
    *                 Specifying both options results in an error. </p>
-   *         </note>
+   *          </note>
    */
   FilterBBox?: number[];
 
   /**
    * <p>An optional parameter that limits the search results by returning only places that are
    *             in a specified list of countries.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a>
+   *                <p>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a>
    *                     3-digit country codes. For example, Australia uses three upper-case characters:
    *                         <code>AUS</code>.</p>
    *             </li>
@@ -4468,7 +4566,7 @@ export interface SearchPlaceIndexForTextRequest {
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
-   *         <p>The default: <code>50</code>
+   *          <p>The default: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
@@ -4476,15 +4574,15 @@ export interface SearchPlaceIndexForTextRequest {
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
-   *         <p>This setting affects the languages used in the results, but not the results
+   *          <p>This setting affects the languages used in the results, but not the results
    *             themselves. If no language is specified, or not supported for a particular result, the
    *             partner automatically chooses a language for the result.</p>
-   *         <p>For an example, we'll use the Greek language. You search for <code>Athens,
+   *          <p>For an example, we'll use the Greek language. You search for <code>Athens,
    *                 Greece</code>, with the <code>language</code> parameter set to <code>en</code>. The
    *             result found will most likely be returned as <code>Athens</code>.</p>
-   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *          <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
    *             result found will more likely be returned as <code>Αθήνα</code>.</p>
-   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *          <p>If the data provider does not have a value for Greek, the result will be in a language
    *             that the provider does support.</p>
    */
   Language?: string;
@@ -4504,10 +4602,10 @@ export interface SearchForTextResult {
    * <p>The distance in meters of a great-circle arc between the bias position specified and
    *             the result. <code>Distance</code> will be returned only if a bias position was specified
    *             in the query.</p>
-   *         <note>
+   *          <note>
    *             <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This
    *                 returns the shortest distance between two locations.</p>
-   *         </note>
+   *          </note>
    */
   Distance?: number;
 
@@ -4515,17 +4613,17 @@ export interface SearchForTextResult {
    * <p>The relative confidence in the match for a result among the results returned. For
    *             example, if more fields for an address match (including house number, street, city,
    *             country/region, and postal code), the relevance score is closer to 1.</p>
-   *         <p>Returned only when the partner selected is Esri.</p>
+   *          <p>Returned only when the partner selected is Esri or Grab.</p>
    */
   Relevance?: number;
 
   /**
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later.</p>
-   *         <note>
+   *          <note>
    *             <p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is
-   *                 returned only by place indexes that use HERE as a data provider.</p>
-   *         </note>
+   *                 returned only by place indexes that use HERE or Grab as a data provider.</p>
+   *          </note>
    */
   PlaceId?: string;
 }
@@ -4542,10 +4640,10 @@ export interface SearchPlaceIndexForTextSummary {
   /**
    * <p>Contains the coordinates for the optional bias position specified in the
    *             request.</p>
-   *         <p>This parameter contains a pair of numbers. The first number represents the X
+   *          <p>This parameter contains a pair of numbers. The first number represents the X
    *             coordinate, or longitude; the second number represents the Y coordinate, or
    *             latitude.</p>
-   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
    *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   BiasPosition?: number[];
@@ -4568,25 +4666,28 @@ export interface SearchPlaceIndexForTextSummary {
 
   /**
    * <p>The bounding box that fully contains all search results.</p>
-   *         <note>
+   *          <note>
    *             <p>If you specified the optional <code>FilterBBox</code> parameter in the request,
    *                     <code>ResultBBox</code> is contained within <code>FilterBBox</code>.</p>
-   *         </note>
+   *          </note>
    */
   ResultBBox?: number[];
 
   /**
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Esri</p>
+   *                <p>Esri</p>
    *             </li>
    *             <li>
-   *                 <p>Here</p>
+   *                <p>Grab</p>
+   *             </li>
+   *             <li>
+   *                <p>Here</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -4611,7 +4712,7 @@ export interface SearchPlaceIndexForTextResponse {
   /**
    * <p>A list of Places matching the input text. Each result contains additional information
    *             about the specific point of interest. </p>
-   *         <p>Not all response properties are included with all responses. Some properties may only
+   *          <p>Not all response properties are included with all responses. Some properties may only
    *             be returned by specific data partners.</p>
    */
   Results: SearchForTextResult[] | undefined;
@@ -4651,9 +4752,9 @@ export interface UpdatePlaceIndexResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
    *             resource across AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example: <code>arn:aws:geo:region:account-id:place-
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:place-
    *                         index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
@@ -4697,9 +4798,9 @@ export interface UpdateRouteCalculatorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to
    *             specify a resource across AWS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Format example: <code>arn:aws:geo:region:account-id:route-
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:route-
    *                         calculator/ExampleCalculator</code>
    *                </p>
    *             </li>
@@ -4742,26 +4843,26 @@ export interface UpdateTrackerRequest {
 
   /**
    * <p>Updates the position filtering for the tracker resource.</p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+   *                <p>
+   *                   <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
    *                     but not every location update is stored. If your update frequency is more often than 30 seconds,
    *                     only one update per 30 seconds is stored for each unique device ID.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
+   *                <p>
+   *                   <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
    *                     ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored.
    *                     This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through.
    *                     Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+   *                <p>
+   *                   <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
    *                     location updates are ignored. For example, if two consecutive updates from a device
    *                     have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
    *                     has moved less than 15 m. Ignored location updates are neither evaluated against
@@ -4784,7 +4885,7 @@ export interface UpdateTrackerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated tracker resource. Used to specify a resource across
    *             AWS.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
    *                </p>

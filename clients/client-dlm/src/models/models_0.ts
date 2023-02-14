@@ -52,11 +52,10 @@ export interface CrossRegionCopyRetainRule {
 /**
  * <p>
  *             <b>[Event-based policies only]</b> Specifies a cross-Region copy action for event-based policies.</p>
- *
- * 		       <note>
- * 			         <p>To specify a cross-Region copy rule for snapshot and AMI policies, use
+ *          <note>
+ *             <p>To specify a cross-Region copy rule for snapshot and AMI policies, use
  * 				<a>CrossRegionCopyRule</a>.</p>
- * 		       </note>
+ *          </note>
  */
 export interface CrossRegionCopyAction {
   /**
@@ -97,15 +96,14 @@ export interface Action {
  * <p>
  *             <b>[Snapshot policies only]</b> Describes the retention rule for archived snapshots. Once the archive
  * 			retention threshold is met, the snapshots are permanently deleted from the archive tier.</p>
- * 		       <note>
- * 			         <p>The archive retention rule must retain snapshots in the archive tier for a minimum
+ *          <note>
+ *             <p>The archive retention rule must retain snapshots in the archive tier for a minimum
  * 				of 90 days.</p>
- * 		       </note>
- *
- * 		       <p>For <b>count-based schedules</b>, you must specify <b>Count</b>. For <b>age-based
+ *          </note>
+ *          <p>For <b>count-based schedules</b>, you must specify <b>Count</b>. For <b>age-based
  * 				schedules</b>, you must specify <b>Interval</b> and
  * 				<b> IntervalUnit</b>.</p>
- * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+ *          <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
  * 			snapshot lifecycle policies</a>.</p>
  */
 export interface RetentionArchiveTier {
@@ -179,7 +177,7 @@ export interface EventParameters {
    * <p>The snapshot description that can trigger the policy. The description pattern is specified using
    * 			a regular expression. The policy runs only if a snapshot with a description that matches the
    * 			specified pattern is shared with your account.</p>
-   * 		       <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
+   *          <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
    * 			configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code>
    * 			are shared with your account.</p>
    */
@@ -226,7 +224,7 @@ export interface Tag {
  *             <b>[Snapshot and AMI policies only]</b> Specifies optional parameters for snapshot and AMI policies. The
  * 			set of valid parameters depends on the combination of policy type and target resource
  * 			type.</p>
- * 		       <p>If you choose to exclude boot volumes and you specify tags that consequently exclude
+ *          <p>If you choose to exclude boot volumes and you specify tags that consequently exclude
  * 			all of the additional data volumes attached to an instance, then Amazon Data Lifecycle Manager will not create
  * 			any snapshots for the affected instance, and it will emit a <code>SnapshotsCreateFailed</code>
  * 			Amazon CloudWatch metric. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-dlm-cw-metrics.html">Monitor your policies
@@ -255,7 +253,7 @@ export interface _Parameters {
    * <p>
    *             <b>[Snapshot policies that target instances only]</b> The tags used to identify data (non-root) volumes to exclude from
    * 			multi-volume snapshot sets.</p>
-   * 		       <p>If you create a snapshot lifecycle policy that targets instances and you specify tags for
+   *          <p>If you create a snapshot lifecycle policy that targets instances and you specify tags for
    * 			this parameter, then data volumes with the specified tags that are attached to targeted
    * 			instances will be excluded from the multi-volume snapshot sets created by the policy.</p>
    */
@@ -290,19 +288,19 @@ export enum LocationValues {
 /**
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies when the policy should create snapshots or AMIs.</p>
- * 		       <note>
- * 			         <ul>
+ *          <note>
+ *             <ul>
  *                <li>
- * 					             <p>You must specify either <b>CronExpression</b>, or
+ *                   <p>You must specify either <b>CronExpression</b>, or
  * 						<b>Interval</b>, <b>IntervalUnit</b>,
  * 						and <b>Times</b>.</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
+ *                   <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
  * 						specify a creation frequency of at least 28 days.</p>
- * 				           </li>
+ *                </li>
  *             </ul>
- * 		       </note>
+ *          </note>
  */
 export interface CreateRule {
   /**
@@ -311,7 +309,7 @@ export interface CreateRule {
    * 			snapshots in the same Region as the source resource, specify <code>CLOUD</code>. To create
    * 			snapshots on the same Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>.
    * 			If you omit this parameter, <code>CLOUD</code> is used by default.</p>
-   * 		       <p>If the policy targets resources in an Amazon Web Services Region, then you must create
+   *          <p>If the policy targets resources in an Amazon Web Services Region, then you must create
    * 			snapshots in the same Region as the source resource. If the policy targets resources on an
    * 			Outpost, then you can create snapshots on the same Outpost as the source resource, or in
    * 			the Region of that Outpost.</p>
@@ -330,7 +328,7 @@ export interface CreateRule {
 
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
-   * 		       <p>The operation occurs within a one-hour window following the specified time. If you do
+   *          <p>The operation occurs within a one-hour window following the specified time. If you do
    * 			not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.</p>
    */
   Times?: string[];
@@ -366,27 +364,27 @@ export interface CrossRegionCopyDeprecateRule {
 /**
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a cross-Region copy rule for snapshot and AMI policies.</p>
- * 		       <note>
- * 			         <p>To specify a cross-Region copy action for event-based polices, use
+ *          <note>
+ *             <p>To specify a cross-Region copy action for event-based polices, use
  * 				<a>CrossRegionCopyAction</a>.</p>
- * 		       </note>
+ *          </note>
  */
 export interface CrossRegionCopyRule {
   /**
    * <note>
-   * 			         <p>Avoid using this parameter when creating new policies. Instead, use
+   *             <p>Avoid using this parameter when creating new policies. Instead, use
    * 				<b>Target</b> to specify a target Region or a target
    * 				Outpost for snapshot copies.</p>
-   * 			         <p>For policies created before the <b>Target</b> parameter
+   *             <p>For policies created before the <b>Target</b> parameter
    * 				was introduced, this parameter indicates the target Region for snapshot copies.</p>
-   * 		       </note>
+   *          </note>
    */
   TargetRegion?: string;
 
   /**
    * <p>The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
    * 			snapshot copies.</p>
-   * 		       <p>Use this parameter instead of <b>TargetRegion</b>. Do not
+   *          <p>Use this parameter instead of <b>TargetRegion</b>. Do not
    * 			specify both.</p>
    */
   Target?: string;
@@ -426,7 +424,7 @@ export interface CrossRegionCopyRule {
 /**
  * <p>
  *             <b>[AMI policies only]</b> Specifies an AMI deprecation rule for AMIs created by an AMI lifecycle policy.</p>
- * 		       <p>For age-based schedules, you must specify <b>Interval</b> and
+ *          <p>For age-based schedules, you must specify <b>Interval</b> and
  * 			<b>IntervalUnit</b>. For count-based schedules, you must specify
  * 			<b>Count</b>.</p>
  */
@@ -485,38 +483,36 @@ export interface FastRestoreRule {
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies, or for AMIs
  * 			created by AMI policies.</p>
- *
- * 		       <note>
- * 			         <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
+ *          <note>
+ *             <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
  * 				applies to standard tier retention. When the retention threshold is met, snapshots
  * 				are moved from the standard to the archive tier.</p>
- * 			         <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
+ *             <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
  * 				are permanently deleted when this retention threshold is met.</p>
- * 		       </note>
- *
- * 		       <p>You can retain snapshots based on either a count or a time interval.</p>
- * 		       <ul>
+ *          </note>
+ *          <p>You can retain snapshots based on either a count or a time interval.</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <b>Count-based retention</b>
  *                </p>
- * 				           <p>You must specify <b>Count</b>.
+ *                <p>You must specify <b>Count</b>.
  * 					If you specify an <a>ArchiveRule</a> for the schedule, then you can specify a retention count of
  * 					<code>0</code> to archive snapshots immediately after creation. If you specify a <a>FastRestoreRule</a>,
  * 					<a>ShareRule</a>, or a <a>CrossRegionCopyRule</a>, then you must specify a retention count
  * 					of <code>1</code> or more.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <b>Age-based retention</b>
  *                </p>
- * 				           <p>You must specify <b>Interval</b>
+ *                <p>You must specify <b>Interval</b>
  * 					and <b>IntervalUnit</b>. If you specify an <a>ArchiveRule</a> for the
  * 					schedule, then you can specify a retention interval of <code>0</code> days to archive snapshots immediately
  * 					after creation. If you specify a <a>FastRestoreRule</a>, <a>ShareRule</a>, or a
  * 					<a>CrossRegionCopyRule</a>, then you must specify a retention interval of <code>1</code> day or
  * 					more.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export interface RetainRule {
@@ -614,8 +610,7 @@ export interface Schedule {
 
   /**
    * <p>Specifies a rule for copying snapshots or AMIs across regions.</p>
-   *
-   * 		       <note>
+   *          <note>
    *             <p>You can't specify cross-Region copy rules for policies that create snapshots on an Outpost.
    * 			If the policy creates snapshots in a Region, then snapshots can be copied to up to three
    * 			Regions or Outposts.</p>
@@ -641,7 +636,7 @@ export interface Schedule {
    * 			rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's
    * 			retention threshold is met. Snapshots are then retained in the archive tier for the archive retention
    * 			period that you specify. </p>
-   * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+   *          <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
    * 				snapshot lifecycle policies</a>.</p>
    */
   ArchiveRule?: ArchiveRule;
@@ -658,7 +653,7 @@ export interface PolicyDetails {
    * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code>
    * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
-   * 		       <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
+   *          <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
   PolicyType?: PolicyTypeValues | string;
 
@@ -675,7 +670,7 @@ export interface PolicyDetails {
    *             <b>[Snapshot and AMI policies only]</b> The location of the resources to backup. If the source resources are located in an
    * 			Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are located on an Outpost
    * 			in your account, specify <code>OUTPOST</code>.</p>
-   * 			      <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+   *          <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
    */
   ResourceLocations?: (ResourceLocationValues | string)[];
@@ -696,13 +691,12 @@ export interface PolicyDetails {
   /**
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> A set of optional parameters for snapshot and AMI lifecycle policies. </p>
-   *
-   * 		       <note>
-   * 			         <p>If you are modifying a policy that was created or previously modified using the Amazon
+   *          <note>
+   *             <p>If you are modifying a policy that was created or previously modified using the Amazon
    * 				Data Lifecycle Manager console, then you must include this parameter and specify either
    * 				the default values or the new values that you require. You can't omit this parameter or
    * 				set its values to null.</p>
-   * 		       </note>
+   *          </note>
    */
   Parameters?: _Parameters;
 
@@ -914,14 +908,14 @@ export interface GetLifecyclePoliciesRequest {
 
   /**
    * <p>The target tag for a policy.</p>
-   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
+   *          <p>Tags are strings in the format <code>key=value</code>.</p>
    */
   TargetTags?: string[];
 
   /**
    * <p>The tags to add to objects created by the policy.</p>
-   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
-   * 		       <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
+   *          <p>Tags are strings in the format <code>key=value</code>.</p>
+   *          <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
    */
   TagsToAdd?: string[];
 }

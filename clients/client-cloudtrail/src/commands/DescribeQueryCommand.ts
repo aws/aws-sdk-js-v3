@@ -29,8 +29,9 @@ export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about a query, including query run time in milliseconds, number of events scanned and matched, and query
- *          status. You must specify an ARN for <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
+ * <p>Returns metadata about a query, including query run time in milliseconds, number of
+ *          events scanned and matched, and query status. You must specify an ARN for
+ *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

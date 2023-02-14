@@ -276,6 +276,11 @@ import {
   ResumeProcessesCommandOutput,
 } from "./commands/ResumeProcessesCommand";
 import {
+  RollbackInstanceRefreshCommand,
+  RollbackInstanceRefreshCommandInput,
+  RollbackInstanceRefreshCommandOutput,
+} from "./commands/RollbackInstanceRefreshCommand";
+import {
   SetDesiredCapacityCommand,
   SetDesiredCapacityCommandInput,
   SetDesiredCapacityCommandOutput,
@@ -560,12 +565,14 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
-   *             replacements that have already been completed, but it prevents new replacements from
-   *             being started. </p>
+   * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
+   *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
+   *             occurs.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
    *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
    *             after you make configuration changes.</p>
+   *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
+   *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
    */
   public cancelInstanceRefresh(
     args: CancelInstanceRefreshCommandInput,
@@ -1261,41 +1268,12 @@ export class AutoScaling extends AutoScalingClient {
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
    *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
    *             after you make configuration changes.</p>
-   *          <p>To help you determine the status of an instance refresh, this operation returns
-   *             information about the instance refreshes you previously initiated, including their
-   *             status, end time, the percentage of the instance refresh that is complete, and the
-   *             number of instances remaining to update before the instance refresh is complete.</p>
-   *          <p>The following are the possible statuses: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Pending</code> - The request was created, but the operation has not
-   *                     started.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>InProgress</code> - The operation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Successful</code> - The operation completed successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The operation failed to complete. You can troubleshoot
-   *                     using the status reason and the scaling activities. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Cancelling</code> - An ongoing operation is being cancelled.
-   *                     Cancellation does not roll back any replacements that have already been
-   *                     completed, but it prevents new replacements from being started. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Cancelled</code> - The operation is cancelled. </p>
-   *             </li>
-   *          </ul>
+   *          <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information
+   *             about the instance refreshes you previously initiated, including their status, start
+   *             time, end time, the percentage of the instance refresh that is complete, and the number
+   *             of instances remaining to update before the instance refresh is complete. If a rollback
+   *             is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information
+   *             about the rollback of the instance refresh.</p>
    */
   public describeInstanceRefreshes(
     args: DescribeInstanceRefreshesCommandInput,
@@ -2590,6 +2568,60 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * <p>Cancels an instance refresh that is in progress and rolls back any changes that it
+   *             made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
+   *             This restores your Auto Scaling group to the configuration that it was using before the start of
+   *             the instance refresh. </p>
+   *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
+   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
+   *             after you make configuration changes.</p>
+   *          <p>A rollback is not supported in the following situations: </p>
+   *          <ul>
+   *             <li>
+   *                <p>There is no desired configuration specified for the instance refresh.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager
+   *                     parameter instead of an AMI ID for the <code>ImageId</code> property.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or
+   *                         <code>$Default</code> version.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately
+   *             begins replacing instances. You can check the status of this operation through the <a>DescribeInstanceRefreshes</a> API operation. </p>
+   */
+  public rollbackInstanceRefresh(
+    args: RollbackInstanceRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackInstanceRefreshCommandOutput>;
+  public rollbackInstanceRefresh(
+    args: RollbackInstanceRefreshCommandInput,
+    cb: (err: any, data?: RollbackInstanceRefreshCommandOutput) => void
+  ): void;
+  public rollbackInstanceRefresh(
+    args: RollbackInstanceRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackInstanceRefreshCommandOutput) => void
+  ): void;
+  public rollbackInstanceRefresh(
+    args: RollbackInstanceRefreshCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RollbackInstanceRefreshCommandOutput) => void),
+    cb?: (err: any, data?: RollbackInstanceRefreshCommandOutput) => void
+  ): Promise<RollbackInstanceRefreshCommandOutput> | void {
+    const command = new RollbackInstanceRefreshCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sets the size of the specified Auto Scaling group.</p>
    *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
    *             that is lower than the current size of the group, the Auto Scaling group uses its termination
@@ -2700,21 +2732,30 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Starts a new instance refresh operation. An instance refresh performs a rolling
-   *             replacement of all or some instances in an Auto Scaling group. Each instance is terminated first
-   *             and then replaced, which temporarily reduces the capacity available within your Auto Scaling
-   *             group.</p>
+   * <p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling
+   *             update of instances in an Auto Scaling group. Instances are terminated first and then replaced,
+   *             which temporarily reduces the capacity available within your Auto Scaling group.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
    *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group.
    *             This feature is helpful, for example, when you have a new AMI or a new user data script.
    *             You just need to create a new launch template that specifies the new AMI or user data
    *             script. Then start an instance refresh to immediately begin the process of updating
    *             instances in the group. </p>
-   *          <p>If the call succeeds, it creates a new instance refresh request with a unique ID that
-   *             you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
+   *          <p>If successful, the request's response contains a unique ID that you can use to track
+   *             the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
    *             have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an
-   *             instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
+   *             instance refresh that is in progress, use the <a>CancelInstanceRefresh</a>
    *             API. </p>
+   *          <p>An instance refresh might fail for several reasons, such as EC2 launch failures,
+   *             misconfigured health checks, or not ignoring or allowing the termination of instances
+   *             that are in <code>Standby</code> state or protected from scale in. You can monitor for
+   *             failed EC2 launches using the scaling activities. To find the scaling activities, call
+   *             the <a>DescribeScalingActivities</a> API.</p>
+   *          <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when
+   *             the instance refresh fails. You can enable this feature before starting an instance
+   *             refresh by specifying the <code>AutoRollback</code> property in the instance refresh
+   *             preferences. Otherwise, to roll back an instance refresh before it finishes, use the
+   *                 <a>RollbackInstanceRefresh</a> API. </p>
    */
   public startInstanceRefresh(
     args: StartInstanceRefreshCommandInput,

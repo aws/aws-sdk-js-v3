@@ -50,18 +50,18 @@ export interface Action {
 
 /**
  * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
- *         <p>
+ *          <p>
  *             <b>Weather Index</b>
- *         </p>
- *         <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
+ *          </p>
+ *          <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
  *             projected weather information into your model. The Weather Index supplements your
  *             datasets with over two years of historical weather data and up to 14 days of projected
  *             weather data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast
  *                 Weather Index</a>.</p>
- *         <p>
+ *          <p>
  *             <b>Holidays</b>
- *         </p>
- *         <p>Holidays is a built-in dataset that incorporates national holiday information into
+ *          </p>
+ *          <p>Holidays is a built-in dataset that incorporates national holiday information into
  *             your model. It provides native support for the holiday calendars of 66 countries. To
  *             view the holiday calendars, refer to the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> library. For more
  *             information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html">Holidays
@@ -77,216 +77,215 @@ export interface AdditionalDataset {
   /**
    * <p>
    *             <b>Weather Index</b>
-   *         </p>
-   *         <p>To enable the Weather Index, do not specify a value for
+   *          </p>
+   *          <p>To enable the Weather Index, do not specify a value for
    *             <code>Configuration</code>.</p>
-   *         <p>
+   *          <p>
    *             <b>Holidays</b>
    *          </p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Holidays</b>
-   *         </p>
-   *         <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter
+   *          </p>
+   *          <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter
    *             country codes:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>"AL" - ALBANIA</p>
+   *                <p>"AL" - ALBANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"AR" - ARGENTINA</p>
+   *                <p>"AR" - ARGENTINA</p>
    *             </li>
    *             <li>
-   *                 <p>"AT" - AUSTRIA</p>
+   *                <p>"AT" - AUSTRIA</p>
    *             </li>
    *             <li>
-   *                 <p>"AU" - AUSTRALIA</p>
+   *                <p>"AU" - AUSTRALIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BA" - BOSNIA HERZEGOVINA</p>
+   *                <p>"BA" - BOSNIA HERZEGOVINA</p>
    *             </li>
    *             <li>
-   *                 <p>"BE" - BELGIUM</p>
+   *                <p>"BE" - BELGIUM</p>
    *             </li>
    *             <li>
-   *                 <p>"BG" - BULGARIA</p>
+   *                <p>"BG" - BULGARIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BO" - BOLIVIA</p>
+   *                <p>"BO" - BOLIVIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BR" - BRAZIL</p>
+   *                <p>"BR" - BRAZIL</p>
    *             </li>
    *             <li>
-   *                 <p>"BY" - BELARUS</p>
+   *                <p>"BY" - BELARUS</p>
    *             </li>
    *             <li>
-   *                 <p>"CA" - CANADA</p>
+   *                <p>"CA" - CANADA</p>
    *             </li>
    *             <li>
-   *                 <p>"CL" - CHILE</p>
+   *                <p>"CL" - CHILE</p>
    *             </li>
    *             <li>
-   *                 <p>"CO" - COLOMBIA</p>
+   *                <p>"CO" - COLOMBIA</p>
    *             </li>
    *             <li>
-   *                 <p>"CR" - COSTA RICA</p>
+   *                <p>"CR" - COSTA RICA</p>
    *             </li>
    *             <li>
-   *                 <p>"HR" - CROATIA</p>
+   *                <p>"HR" - CROATIA</p>
    *             </li>
    *             <li>
-   *                 <p>"CZ" - CZECH REPUBLIC</p>
+   *                <p>"CZ" - CZECH REPUBLIC</p>
    *             </li>
    *             <li>
-   *                 <p>"DK" - DENMARK</p>
+   *                <p>"DK" - DENMARK</p>
    *             </li>
    *             <li>
-   *                 <p>"EC" - ECUADOR</p>
+   *                <p>"EC" - ECUADOR</p>
    *             </li>
    *             <li>
-   *                 <p>"EE" - ESTONIA</p>
+   *                <p>"EE" - ESTONIA</p>
    *             </li>
    *             <li>
-   *                 <p>"ET" - ETHIOPIA</p>
+   *                <p>"ET" - ETHIOPIA</p>
    *             </li>
    *             <li>
-   *                 <p>"FI" - FINLAND</p>
+   *                <p>"FI" - FINLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"FR" - FRANCE</p>
+   *                <p>"FR" - FRANCE</p>
    *             </li>
    *             <li>
-   *                 <p>"DE" - GERMANY</p>
+   *                <p>"DE" - GERMANY</p>
    *             </li>
    *             <li>
-   *                 <p>"GR" - GREECE</p>
+   *                <p>"GR" - GREECE</p>
    *             </li>
    *             <li>
-   *                 <p>"HU" - HUNGARY</p>
+   *                <p>"HU" - HUNGARY</p>
    *             </li>
    *             <li>
-   *                 <p>"IS" - ICELAND</p>
+   *                <p>"IS" - ICELAND</p>
    *             </li>
    *             <li>
-   *                 <p>"IN" - INDIA</p>
+   *                <p>"IN" - INDIA</p>
    *             </li>
    *             <li>
-   *                 <p>"IE" - IRELAND</p>
+   *                <p>"IE" - IRELAND</p>
    *             </li>
    *             <li>
-   *                 <p>"IT" - ITALY</p>
+   *                <p>"IT" - ITALY</p>
    *             </li>
    *             <li>
-   *                 <p>"JP" - JAPAN</p>
+   *                <p>"JP" - JAPAN</p>
    *             </li>
    *             <li>
-   *                 <p>"KZ" - KAZAKHSTAN</p>
+   *                <p>"KZ" - KAZAKHSTAN</p>
    *             </li>
    *             <li>
-   *                 <p>"KR" - KOREA</p>
+   *                <p>"KR" - KOREA</p>
    *             </li>
    *             <li>
-   *                 <p>"LV" - LATVIA</p>
+   *                <p>"LV" - LATVIA</p>
    *             </li>
    *             <li>
-   *                 <p>"LI" - LIECHTENSTEIN</p>
+   *                <p>"LI" - LIECHTENSTEIN</p>
    *             </li>
    *             <li>
-   *                 <p>"LT" - LITHUANIA</p>
+   *                <p>"LT" - LITHUANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"LU" - LUXEMBOURG</p>
+   *                <p>"LU" - LUXEMBOURG</p>
    *             </li>
    *             <li>
-   *                 <p>"MK" - MACEDONIA</p>
+   *                <p>"MK" - MACEDONIA</p>
    *             </li>
    *             <li>
-   *                 <p>"MT" - MALTA</p>
+   *                <p>"MT" - MALTA</p>
    *             </li>
    *             <li>
-   *                 <p>"MX" - MEXICO</p>
+   *                <p>"MX" - MEXICO</p>
    *             </li>
    *             <li>
-   *                 <p>"MD" - MOLDOVA</p>
+   *                <p>"MD" - MOLDOVA</p>
    *             </li>
    *             <li>
-   *                 <p>"ME" - MONTENEGRO</p>
+   *                <p>"ME" - MONTENEGRO</p>
    *             </li>
    *             <li>
-   *                 <p>"NL" - NETHERLANDS</p>
+   *                <p>"NL" - NETHERLANDS</p>
    *             </li>
    *             <li>
-   *                 <p>"NZ" - NEW ZEALAND</p>
+   *                <p>"NZ" - NEW ZEALAND</p>
    *             </li>
    *             <li>
-   *                 <p>"NI" - NICARAGUA</p>
+   *                <p>"NI" - NICARAGUA</p>
    *             </li>
    *             <li>
-   *                 <p>"NG" - NIGERIA</p>
+   *                <p>"NG" - NIGERIA</p>
    *             </li>
    *             <li>
-   *                 <p>"NO" - NORWAY</p>
+   *                <p>"NO" - NORWAY</p>
    *             </li>
    *             <li>
-   *                 <p>"PA" - PANAMA</p>
+   *                <p>"PA" - PANAMA</p>
    *             </li>
    *             <li>
-   *                 <p>"PY" - PARAGUAY</p>
+   *                <p>"PY" - PARAGUAY</p>
    *             </li>
    *             <li>
-   *                 <p>"PE" - PERU</p>
+   *                <p>"PE" - PERU</p>
    *             </li>
    *             <li>
-   *                 <p>"PL" - POLAND</p>
+   *                <p>"PL" - POLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"PT" - PORTUGAL</p>
+   *                <p>"PT" - PORTUGAL</p>
    *             </li>
    *             <li>
-   *                 <p>"RO" - ROMANIA</p>
+   *                <p>"RO" - ROMANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"RU" - RUSSIA</p>
+   *                <p>"RU" - RUSSIA</p>
    *             </li>
    *             <li>
-   *                 <p>"RS" - SERBIA</p>
+   *                <p>"RS" - SERBIA</p>
    *             </li>
    *             <li>
-   *                 <p>"SK" - SLOVAKIA</p>
+   *                <p>"SK" - SLOVAKIA</p>
    *             </li>
    *             <li>
-   *                 <p>"SI" - SLOVENIA</p>
+   *                <p>"SI" - SLOVENIA</p>
    *             </li>
    *             <li>
-   *                 <p>"ZA" - SOUTH AFRICA</p>
+   *                <p>"ZA" - SOUTH AFRICA</p>
    *             </li>
    *             <li>
-   *                 <p>"ES" - SPAIN</p>
+   *                <p>"ES" - SPAIN</p>
    *             </li>
    *             <li>
-   *                 <p>"SE" - SWEDEN</p>
+   *                <p>"SE" - SWEDEN</p>
    *             </li>
    *             <li>
-   *                 <p>"CH" - SWITZERLAND</p>
+   *                <p>"CH" - SWITZERLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"UA" - UKRAINE</p>
+   *                <p>"UA" - UKRAINE</p>
    *             </li>
    *             <li>
-   *                 <p>"AE" - UNITED ARAB EMIRATES</p>
+   *                <p>"AE" - UNITED ARAB EMIRATES</p>
    *             </li>
    *             <li>
-   *                 <p>"US" - UNITED STATES</p>
+   *                <p>"US" - UNITED STATES</p>
    *             </li>
    *             <li>
-   *                 <p>"UK" - UNITED KINGDOM</p>
+   *                <p>"UK" - UNITED KINGDOM</p>
    *             </li>
    *             <li>
-   *                 <p>"UY" - URUGUAY</p>
+   *                <p>"UY" - URUGUAY</p>
    *             </li>
    *             <li>
-   *                 <p>"VE" - VENEZUELA</p>
+   *                <p>"VE" - VENEZUELA</p>
    *             </li>
    *          </ul>
    */
@@ -295,20 +294,20 @@ export interface AdditionalDataset {
 
 /**
  * <p>Provides information about the method used to transform attributes.</p>
- *         <p>The following is an example using the RETAIL domain:</p>
- *         <p>
+ *          <p>The following is an example using the RETAIL domain:</p>
+ *          <p>
  *             <code>{</code>
- *         </p>
- *         <p>
+ *          </p>
+ *          <p>
  *             <code>"AttributeName": "demand",</code>
- *         </p>
- *         <p>
+ *          </p>
+ *          <p>
  *             <code>"Transformations": {"aggregation": "sum", "middlefill": "zero", "backfill":
  *                 "zero"}</code>
- *         </p>
- *         <p>
+ *          </p>
+ *          <p>
  *             <code>}</code>
- *         </p>
+ *          </p>
  */
 export interface AttributeConfig {
   /**
@@ -322,64 +321,63 @@ export interface AttributeConfig {
    * <p>The method parameters (key-value pairs), which are a map of override parameters.
    *             Specify these parameters to override the default values. Related Time Series attributes
    *             do not accept aggregation parameters.</p>
-   *         <p>The following list shows the parameters and their valid values for the "filling"
+   *          <p>The following list shows the parameters and their valid values for the "filling"
    *             featurization method for a <b>Target Time Series</b> dataset.
    *             Default values are bolded.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>aggregation</code>: <b>sum</b>,
    *                         <code>avg</code>, <code>first</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>frontfill</code>: <b>none</b>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>middlefill</code>: <b>zero</b>,
    *                         <code>nan</code> (not a number), <code>value</code>, <code>median</code>,
    *                         <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>backfill</code>: <b>zero</b>,
    *                     <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>,
    *                         <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no
+   *          <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no
    *             defaults):</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>backfill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>To set a filling method to a specific value, set the fill parameter to
+   *          <p>To set a filling method to a specific value, set the fill parameter to
    *                 <code>value</code> and define the value in a corresponding <code>_value</code>
    *             parameter. For example, to set backfilling to a value of 2, include the following:
    *                 <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>. </p>
@@ -408,14 +406,14 @@ export interface DataConfig {
 }
 
 /**
- * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+ * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
  *       access the key. You can specify this optional object in the
  *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
  */
 export interface EncryptionConfig {
   /**
-   * <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
+   * <p>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</p>
+   *          <p>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
@@ -473,7 +471,7 @@ export enum OptimizationMetric {
  *             </li>
  *             <li>
  *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
- *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+ *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
  *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
  *           its prefix but the key does not, then Forecast considers it to be a user tag and will
  *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -524,8 +522,7 @@ export enum Month {
  * <p>The time boundary Forecast uses to align and aggregate your data to match your forecast frequency. Provide the unit of time and the time boundary as a key value pair. If you
  *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.
  *         </p>
- *
- *         <p>For more information about aggregation,
+ *          <p>For more information about aggregation,
  *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html">Data Aggregation for Different Forecast Frequencies</a>.
  *             For more information setting a custom time boundary,
  *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#specifying-time-boundary">Specifying a Time Boundary</a>.
@@ -563,11 +560,11 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>The number of time-steps that the model predicts. The forecast horizon is also called
    *             the prediction length.</p>
-   *         <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
+   *          <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
    *             TARGET_TIME_SERIES dataset length. If you are retraining an existing AutoPredictor, then
    *             the maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the
    *             TARGET_TIME_SERIES dataset length.</p>
-   *         <p>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
+   *          <p>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
    *             cannot update the forecast horizon parameter. You can meet this requirement by providing
    *             longer time-series in the dataset.</p>
    */
@@ -583,7 +580,7 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>An array of dimension (field) names that specify how to group the generated
    *             forecast.</p>
-   *         <p>For example, if you are generating forecasts for item sales across all your stores,
+   *          <p>For example, if you are generating forecasts for item sales across all your stores,
    *             and your dataset contains a <code>store_id</code> field, you would specify
    *                 <code>store_id</code> as a dimension to group sales forecasts for each store.</p>
    */
@@ -591,12 +588,32 @@ export interface CreateAutoPredictorRequest {
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
-   *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
-   *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
-   *         <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *         "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
+   *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
    *             frequency.</p>
-   *         <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
+   *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
    *             RELATED_TIME_SERIES dataset frequency.</p>
    */
   ForecastFrequency?: string;
@@ -607,7 +624,7 @@ export interface CreateAutoPredictorRequest {
   DataConfig?: DataConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
    *       access the key. You can specify this optional object in the
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    */
@@ -617,7 +634,7 @@ export interface CreateAutoPredictorRequest {
    * <p>The ARN of the predictor to retrain or upgrade. This parameter is only used when
    *             retraining or upgrading a predictor. When creating a new predictor, do not specify a
    *             value for this parameter.</p>
-   *         <p>When upgrading or retraining a predictor, only specify values for the
+   *          <p>When upgrading or retraining a predictor, only specify values for the
    *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. The value for
    *                 <code>PredictorName</code> must be a unique predictor name.</p>
    */
@@ -637,28 +654,28 @@ export interface CreateAutoPredictorRequest {
    * <p>Optional metadata to help you categorize and organize your predictors. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -877,9 +894,29 @@ export interface CreateDatasetRequest {
   /**
    * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
    *       datasets.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *       "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
    */
   DataFrequency?: string;
 
@@ -893,7 +930,7 @@ export interface CreateDatasetRequest {
   Schema: Schema | undefined;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -927,7 +964,7 @@ export interface CreateDatasetRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1000,7 +1037,7 @@ export interface CreateDatasetGroupRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1019,8 +1056,8 @@ export interface CreateDatasetGroupResponse {
 }
 
 /**
- * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
- *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+ * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an Identity and Access Management (IAM) role that
+ *       Amazon Forecast can assume to access the file(s). Optionally, includes an Key Management Service (KMS) key. This
  *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
  */
 export interface S3Config {
@@ -1030,23 +1067,23 @@ export interface S3Config {
   Path: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   * <p>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
    *       bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must
    *       allow access to the key.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
+   *          <p>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
+   * <p>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</p>
    */
   KMSKeyArn?: string;
 }
 
 /**
- * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
- *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+ * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+ *       access the data and, optionally, an Key Management Service (KMS) key.</p>
  */
 export interface DataSource {
   /**
@@ -1054,6 +1091,11 @@ export interface DataSource {
    *       credentials to access the data.</p>
    */
   S3Config: S3Config | undefined;
+}
+
+export enum ImportMode {
+  FULL = "FULL",
+  INCREMENTAL = "INCREMENTAL",
 }
 
 export interface CreateDatasetImportJobRequest {
@@ -1071,9 +1113,9 @@ export interface CreateDatasetImportJobRequest {
   DatasetArn: string | undefined;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
-   *          <p>If encryption is used, <code>DataSource</code> must include an AWS Key Management Service (KMS) key and the
+   *          <p>If encryption is used, <code>DataSource</code> must include an Key Management Service (KMS) key and the
    *       IAM role must allow Amazon Forecast permission to access the key. The KMS key and IAM role must
    *       match those specified in the <code>EncryptionConfig</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
    *       operation.</p>
@@ -1104,7 +1146,7 @@ export interface CreateDatasetImportJobRequest {
    * <p>A single time zone for every item in your dataset. This option is ideal for datasets
    *             with all timestamps within a single time zone, or if all timestamps are normalized to a
    *             single time zone. </p>
-   *         <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time
+   *          <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time
    *                 API</a> for a complete list of valid time zone names.</p>
    */
   TimeZone?: string;
@@ -1119,13 +1161,13 @@ export interface CreateDatasetImportJobRequest {
   /**
    * <p>The format of the geolocation attribute. The geolocation attribute can be formatted in
    *             one of two ways:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LAT_LONG</code> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CC_POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US_98121).</p>
    *             </li>
    *          </ul>
@@ -1162,7 +1204,7 @@ export interface CreateDatasetImportJobRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1176,6 +1218,11 @@ export interface CreateDatasetImportJobRequest {
    * <p>The format of the imported data, CSV or PARQUET. The default value is CSV.</p>
    */
   Format?: string;
+
+  /**
+   * <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
 export interface CreateDatasetImportJobResponse {
@@ -1198,11 +1245,11 @@ export enum TimeSeriesGranularity {
 /**
  * <p>The ExplainabilityConfig data type defines the number of time series and time points
  *             included in <a>CreateExplainability</a>.</p>
- *         <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
+ *          <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
  *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to “ALL”.
  *             When creating Predictor Explainability, Amazon Forecast considers all time series and
  *             time points.</p>
- *         <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set
+ *          <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set
  *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to either
  *             “ALL” or “Specific”.</p>
  */
@@ -1211,7 +1258,7 @@ export interface ExplainabilityConfig {
    * <p>To create an Explainability for all time series in your datasets, use
    *             <code>ALL</code>. To create an Explainability for specific time series in your datasets,
    *             use <code>SPECIFIC</code>.</p>
-   *         <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
+   *          <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
    *             within the <a>DataDestination</a> data type.</p>
    */
   TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
@@ -1220,7 +1267,7 @@ export interface ExplainabilityConfig {
    * <p>To create an Explainability for all time points in your forecast horizon, use
    *                 <code>ALL</code>. To create an Explainability for specific time points in your
    *             forecast horizon, use <code>SPECIFIC</code>.</p>
-   *         <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
+   *          <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
    *             parameters within the <a>CreateExplainability</a> operation.</p>
    */
   TimePointGranularity: TimePointGranularity | string | undefined;
@@ -1245,8 +1292,8 @@ export interface CreateExplainabilityRequest {
   ExplainabilityConfig: ExplainabilityConfig | undefined;
 
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -1256,14 +1303,14 @@ export interface CreateExplainabilityRequest {
   Schema?: Schema;
 
   /**
-   * <p>Create an Explainability visualization that is viewable within the AWS console.</p>
+   * <p>Create an Explainability visualization that is viewable within the Amazon Web Services console.</p>
    */
   EnableVisualization?: boolean;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
    *             point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *          <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
    *             2015-01-01T20:00:00)</p>
    */
   StartDateTime?: string;
@@ -1271,7 +1318,7 @@ export interface CreateExplainabilityRequest {
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
    *             time point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *          <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
    *             2015-01-01T20:00:00)</p>
    */
   EndDateTime?: string;
@@ -1280,28 +1327,28 @@ export interface CreateExplainabilityRequest {
    * <p>Optional metadata to help you categorize and organize your resources. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -1321,8 +1368,8 @@ export interface CreateExplainabilityResponse {
 }
 
 /**
- * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
- *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+ * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+ *       to access the location, and an Key Management Service (KMS) key (optional). </p>
  */
 export interface DataDestination {
   /**
@@ -1344,8 +1391,8 @@ export interface CreateExplainabilityExportRequest {
   ExplainabilityArn: string | undefined;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination: DataDestination | undefined;
 
@@ -1353,28 +1400,28 @@ export interface CreateExplainabilityExportRequest {
    * <p>Optional metadata to help you categorize and organize your resources. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -1403,8 +1450,8 @@ export interface CreateExplainabilityExportResponse {
  */
 export interface TimeSeriesIdentifiers {
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -1500,7 +1547,7 @@ export interface CreateForecastRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1553,10 +1600,10 @@ export interface CreateForecastExportJobRequest {
   ForecastArn: string | undefined;
 
   /**
-   * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
+   * <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
    *       bucket.</p>
-   *          <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The
+   *          <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The
    *       IAM role must allow Amazon Forecast permission to access the key.</p>
    */
   Destination: DataDestination | undefined;
@@ -1591,7 +1638,7 @@ export interface CreateForecastExportJobRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1731,7 +1778,6 @@ export interface FeaturizationMethod {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no defaults):</p>
    *          <ul>
    *             <li>
@@ -1778,7 +1824,6 @@ export interface FeaturizationMethod {
  *          <p>
  *             <code>FeaturizationPipeline [ {</code>
  *          </p>
- *
  *          <p>
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
@@ -1831,13 +1876,33 @@ export interface Featurization {
 export interface FeaturizationConfig {
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "Y" indicates every year and "5min" indicates every five minutes.</p>
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *       "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
    *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
    *       frequency.</p>
    *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
-   *       RELATED_TIME_SERIES dataset frequency.</p>
+   *       TARGET_TIME_SERIES dataset frequency.</p>
    */
   ForecastFrequency: string | undefined;
 
@@ -2379,13 +2444,13 @@ export interface CreatePredictorRequest {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
+   *          </note>
+   *          <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
    *             To apply an AutoML strategy that minimizes training time, use
    *                 <code>LatencyOptimized</code>.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -2446,7 +2511,7 @@ export interface CreatePredictorRequest {
   FeaturizationConfig: FeaturizationConfig | undefined;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -2480,7 +2545,7 @@ export interface CreatePredictorRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -2515,8 +2580,8 @@ export interface CreatePredictorBacktestExportJobRequest {
   PredictorArn: string | undefined;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination: DataDestination | undefined;
 
@@ -2524,28 +2589,28 @@ export interface CreatePredictorBacktestExportJobRequest {
    * <p>Optional metadata to help you categorize and organize your backtests. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -2619,12 +2684,16 @@ export interface CreateWhatIfAnalysisResponse {
 }
 
 /**
- * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is merged with the baseline related time series to create a transformed dataset that is used for the what-if forecast.</p>
+ * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values
+ *       that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and
+ *       item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is
+ *       merged with the baseline related time series to create a transformed dataset that is used for the what-if
+ *       forecast.</p>
  */
 export interface TimeSeriesReplacementsDataSource {
   /**
-   * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
-   *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+   * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an Identity and Access Management (IAM) role that
+   *       Amazon Forecast can assume to access the file(s). Optionally, includes an Key Management Service (KMS) key. This
    *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
    */
   S3Config: S3Config | undefined;
@@ -2706,9 +2775,11 @@ export interface CreateWhatIfForecastRequest {
   TimeSeriesTransformations?: TimeSeriesTransformation[];
 
   /**
-   * <p>The replacement time series dataset, which contains the rows that you want to change in the related time series dataset. A replacement time
-   *       series does not need to contain all rows that are in the baseline related time series. Include only the rows
-   *       (measure-dimension combinations) that you want to include in the what-if forecast. This dataset is merged with the
+   * <p>The replacement time series dataset, which contains the rows that you want to change in the related time
+   *       series dataset. A replacement time series does not need to contain all rows that are in the baseline related time
+   *       series. Include only the rows (measure-dimension combinations) that you want to include in the what-if
+   *       forecast.</p>
+   *          <p>This dataset is merged with the
    *       original time series to create a transformed dataset that is used for the what-if analysis.</p>
    *          <p>This dataset should contain the items to modify (such as item_id or workforce_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series.</p>
    *          <p>Timestamps and item_ids not included in this dataset are not included in the what-if analysis. </p>
@@ -2740,10 +2811,10 @@ export interface CreateWhatIfForecastExportRequest {
   WhatIfForecastArns: string[] | undefined;
 
   /**
-   * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
+   * <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
    *       bucket.</p>
-   *          <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The
+   *          <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The
    *       IAM role must allow Amazon Forecast permission to access the key.</p>
    */
   Destination: DataDestination | undefined;
@@ -2883,25 +2954,25 @@ export interface ExplainabilityInfo {
 
   /**
    * <p>The status of the Explainability. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -2999,7 +3070,7 @@ export interface DescribeAutoPredictorResponse {
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
    *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
    *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
    */
@@ -3023,7 +3094,7 @@ export interface DescribeAutoPredictorResponse {
   DataConfig?: DataConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
    *       access the key. You can specify this optional object in the
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    */
@@ -3043,25 +3114,25 @@ export interface DescribeAutoPredictorResponse {
 
   /**
    * <p>The status of the predictor. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3083,25 +3154,25 @@ export interface DescribeAutoPredictorResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -3173,7 +3244,7 @@ export interface DescribeDatasetResponse {
   Schema?: Schema;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>The Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -3444,9 +3515,9 @@ export interface DescribeDatasetImportJobResponse {
   GeolocationFormat?: string;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -3537,6 +3608,11 @@ export interface DescribeDatasetImportJobResponse {
    * <p>The format of the imported data, CSV or PARQUET.</p>
    */
   Format?: string;
+
+  /**
+   * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
 export interface DescribeExplainabilityRequest {
@@ -3575,8 +3651,8 @@ export interface DescribeExplainabilityResponse {
   EnableVisualization?: boolean;
 
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -3610,25 +3686,25 @@ export interface DescribeExplainabilityResponse {
 
   /**
    * <p>The status of the Explainability resource. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3645,25 +3721,25 @@ export interface DescribeExplainabilityResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -3696,8 +3772,8 @@ export interface DescribeExplainabilityExportResponse {
   ExplainabilityArn?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -3708,25 +3784,25 @@ export interface DescribeExplainabilityExportResponse {
 
   /**
    * <p>The status of the Explainability export. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3743,25 +3819,25 @@ export interface DescribeExplainabilityExportResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -4219,12 +4295,12 @@ export interface DescribePredictorResponse {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *          </note>
+   *          <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -4263,7 +4339,7 @@ export interface DescribePredictorResponse {
   FeaturizationConfig?: FeaturizationConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -4392,8 +4468,8 @@ export interface DescribePredictorBacktestExportJobResponse {
   PredictorArn?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -4404,25 +4480,25 @@ export interface DescribePredictorBacktestExportJobResponse {
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -4439,25 +4515,25 @@ export interface DescribePredictorBacktestExportJobResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -4704,7 +4780,9 @@ export interface DescribeWhatIfForecastResponse {
   TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
 
   /**
-   * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to 5 quantiles per what-if forecast in the <a>CreateWhatIfForecast</a> operation. If you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>. </p>
+   * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to five quantiles per what-if
+   *       forecast in the <a>CreateWhatIfForecast</a> operation. If you didn't specify quantiles, the default
+   *       values are <code>["0.1", "0.5", "0.9"]</code>. </p>
    */
   ForecastTypes?: string[];
 }
@@ -4734,8 +4812,8 @@ export interface DescribeWhatIfForecastExportResponse {
   WhatIfForecastArns?: string[];
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -4987,12 +5065,12 @@ export interface GetAccuracyMetricsResponse {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *          </note>
+   *          <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -5173,9 +5251,9 @@ export interface DatasetImportJobSummary {
   DatasetImportJobName?: string;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -5246,6 +5324,11 @@ export interface DatasetImportJobSummary {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
 export interface ListDatasetImportJobsResponse {
@@ -5347,22 +5430,22 @@ export interface ListExplainabilitiesRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude the resources that match the statement from the list. The match
    *             statement consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -5400,25 +5483,25 @@ export interface ExplainabilitySummary {
 
   /**
    * <p>The status of the Explainability. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -5441,25 +5524,25 @@ export interface ExplainabilitySummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -5500,22 +5583,22 @@ export interface ListExplainabilityExportsRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude resources that match the statement from the list. The match statement
    *             consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -5540,32 +5623,32 @@ export interface ExplainabilityExportSummary {
   ExplainabilityExportName?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
   /**
    * <p>The status of the Explainability export. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -5588,25 +5671,25 @@ export interface ExplainabilityExportSummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -6284,24 +6367,24 @@ export interface ListPredictorBacktestExportJobsRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude the predictor backtest export jobs that match the statement from the
    *             list. The match statement consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>. To include the predictor backtest
    *                     export jobs that match the statement, specify <code>IS</code>. To exclude
    *                     matching predictor backtest export jobs, specify <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>PredictorArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -6326,32 +6409,32 @@ export interface PredictorBacktestExportJobSummary {
   PredictorBacktestExportJobName?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -6373,25 +6456,25 @@ export interface PredictorBacktestExportJobSummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -7102,7 +7185,7 @@ export interface TagResourceRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do

@@ -18,7 +18,7 @@ import {
   CreateExperimentRequestFilterSensitiveLog,
   CreateExperimentResponse,
   CreateExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateExperimentCommand,
   serializeAws_json1_1CreateExperimentCommand,

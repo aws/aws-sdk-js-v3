@@ -37,6 +37,7 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  *          from the previous six weeks.</p>
  *          <p>You can filter the results using <code>ResourceId</code> and
  *             <code>ScalableDimension</code>.</p>
+ *          <p>For information about viewing scaling activities using the Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

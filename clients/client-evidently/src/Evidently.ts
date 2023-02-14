@@ -379,11 +379,9 @@ export class Evidently extends EvidentlyClient {
    *          <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment
    *       criteria. Using one or more segments in a launch allows you to define different traffic splits for the different
    *       audience segments.</p>
-   *
    *          <p>For more information about segment pattern syntax, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
    *         Segment rule pattern syntax</a>.</p>
-   *
    *          <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which
    *       is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation,
    *       when Evidently assigns a feature variation to a user.</p>
@@ -585,7 +583,6 @@ export class Evidently extends EvidentlyClient {
    *          <p>The first rules that are evaluated are the override rules. If the user's
    *         <code>entityID</code> matches an override rule, the user is served the variation specified
    *       by that rule.</p>
-   *
    *          <p>If there is a current launch with this feature that uses segment overrides, and
    *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
    *       segment override, the configuration in the segment overrides is used. For more information

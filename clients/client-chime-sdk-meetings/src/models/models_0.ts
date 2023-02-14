@@ -12,24 +12,23 @@ export enum MediaCapabilities {
 
 /**
  * <p>The media capabilities of an attendee: audio, video, or content. </p>
- *         <note>
+ *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
  *          </note>
- *
- *         <p>When using capabilities, be aware of these corner cases:</p>
- *         <ul>
+ *          <p>When using capabilities, be aware of these corner cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+ *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
  *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
  *                     to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
- *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
  *             </li>
  *             <li>
- *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
@@ -61,7 +60,6 @@ export interface AttendeeCapabilities {
  *            <a>DeleteAttendee</a>
  *            is called. After that, the attendee is unable to join the meeting.
  *        </p>
- *
  *          <p>We recommend securely transferring each <code>JoinToken</code> from your server application
  *            to the client so that no other client has access to the token except for the one
  *            authorized to represent the attendee.</p>
@@ -69,6 +67,10 @@ export interface AttendeeCapabilities {
 export interface Attendee {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId?: string;
 
@@ -84,24 +86,23 @@ export interface Attendee {
 
   /**
    * <p>The capabilities assigned to an attendee: audio, video, or content.</p>
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *         <p>When using capabilities, be aware of these corner cases:</p>
-   *         <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
    *             </li>
    *          </ul>
@@ -168,6 +169,10 @@ export class BadRequestException extends __BaseException {
 export interface CreateAttendeeRequestItem {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId: string | undefined;
 
@@ -195,6 +200,10 @@ export interface BatchCreateAttendeeRequest {
 export interface CreateAttendeeError {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId?: string;
 
@@ -504,33 +513,35 @@ export interface CreateAttendeeRequest {
 
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that
+   *             uses this prefix.</p>
    */
   ExternalUserId: string | undefined;
 
   /**
    * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on
    *             all media channels by default.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *             <p>When using capabilities, be aware of these corner cases:</p>
-   *             <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                     <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                    and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
    */
   Capabilities?: AttendeeCapabilities;
@@ -544,11 +555,11 @@ export interface CreateAttendeeResponse {
 }
 
 /**
- * <p>The configuration settings of the features available to a meeting.></p>
+ * <p>The configuration settings of the features available to a meeting.</p>
  */
 export interface MeetingFeaturesConfiguration {
   /**
-   * <p>The configuration settings for the audio features available to a meeting. </p>
+   * <p>The configuration settings for the audio features available to a meeting.</p>
    */
   Audio?: AudioFeatures;
 }
@@ -596,7 +607,6 @@ export interface CreateMeetingRequest {
 
   /**
    * <p>The Region in which to create the meeting.</p>
-   *
    *          <p>
    *            Available values:
    *            <code>af-south-1</code>,
@@ -629,6 +639,10 @@ export interface CreateMeetingRequest {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *            Case insensitive.</p>
    */
   ExternalMeetingId: string | undefined;
 
@@ -672,26 +686,22 @@ export interface CreateMeetingRequest {
    *         documentation for each service.</p>
    *             </li>
    *          </ul>
-   *             <important>
+   *          <important>
    *             <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be
    *             used for private or sensitive data.</p>
    *          </important>
-   *             <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
-   *
-   *                <p> In addition to the <code>tag:TagResources </code>permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
-   *                    to tag a <code>ChimeSDKMeetings</code> instance  using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
-   *
-   *                 <p>
+   *          <p>In addition to the <code>tag:TagResources</code> permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
+   *                    to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
+   *          <p>
    *             <code>tag:TagResources</code>
    *          </p>
-   *
-   *                 <p>
+   *          <p>
    *             <code>ChimeSDKMeetings:CreateTags</code>
    *          </p>
-   *
-   *                 <note>
+   *          <note>
    *             <p>Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code> permission.
    *                 If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.</p>
    *          </note>
@@ -760,6 +770,10 @@ export interface Meeting {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalMeetingId?: string;
 
@@ -770,7 +784,7 @@ export interface Meeting {
    *             <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
    *             <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
    *             <code>us-west-1</code>, <code>us-west-2</code>.</p>
-   *         <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion?: string;
 
@@ -780,7 +794,7 @@ export interface Meeting {
   MediaPlacement?: MediaPlacement;
 
   /**
-   * <p>The features available to a meeting, such as Amazon Voice Focus.</p>
+   * <p>The features available to a meeting, such as echo reduction.</p>
    */
   MeetingFeatures?: MeetingFeaturesConfiguration;
 
@@ -816,7 +830,6 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The Region in which to create the meeting.</p>
-   *
    *          <p>
    *            Available values:
    *            <code>af-south-1</code>,
@@ -849,6 +862,10 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *            Case insensitive.</p>
    */
   ExternalMeetingId: string | undefined;
 
@@ -1194,20 +1211,17 @@ export interface EngineTranscribeSettings {
 
   /**
    * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
-   *
-   *             <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
    */
   ContentRedactionType?: TranscribeContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <code>PIIEntityTypes</code> must be comma-separated. The available values are:
    *             <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
    *             <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;

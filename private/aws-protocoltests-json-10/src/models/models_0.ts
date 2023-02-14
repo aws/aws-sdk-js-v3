@@ -22,6 +22,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -157,6 +163,7 @@ export type MyUnion =
   | MyUnion.BlobValueMember
   | MyUnion.BooleanValueMember
   | MyUnion.EnumValueMember
+  | MyUnion.IntEnumValueMember
   | MyUnion.ListValueMember
   | MyUnion.MapValueMember
   | MyUnion.NumberValueMember
@@ -173,6 +180,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -186,6 +194,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -199,6 +208,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -212,6 +222,7 @@ export namespace MyUnion {
     blobValue: Uint8Array;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -225,6 +236,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue: Date;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -238,6 +250,21 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue: FooEnum | string;
+    intEnumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface IntEnumValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    intEnumValue: IntegerEnum | number;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -251,6 +278,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue: string[];
     mapValue?: never;
     structureValue?: never;
@@ -264,6 +292,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue: Record<string, string>;
     structureValue?: never;
@@ -277,6 +306,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue: GreetingStruct;
@@ -290,6 +320,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -303,6 +334,7 @@ export namespace MyUnion {
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
+    intEnumValue: (value: IntegerEnum | number) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
@@ -316,6 +348,7 @@ export namespace MyUnion {
     if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
     if (value.timestampValue !== undefined) return visitor.timestampValue(value.timestampValue);
     if (value.enumValue !== undefined) return visitor.enumValue(value.enumValue);
+    if (value.intEnumValue !== undefined) return visitor.intEnumValue(value.intEnumValue);
     if (value.listValue !== undefined) return visitor.listValue(value.listValue);
     if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
@@ -332,6 +365,7 @@ export const MyUnionFilterSensitiveLog = (obj: MyUnion): any => {
   if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
   if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
   if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
+  if (obj.intEnumValue !== undefined) return { intEnumValue: obj.intEnumValue };
   if (obj.listValue !== undefined) return { listValue: obj.listValue };
   if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
   if (obj.structureValue !== undefined) return { structureValue: GreetingStructFilterSensitiveLog(obj.structureValue) };

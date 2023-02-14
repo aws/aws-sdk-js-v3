@@ -30,7 +30,6 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
 
 /**
  * <p>Creates an Amazon Lightsail container service.</p>
- *
  *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
  *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
  *         Guide</i>.</p>

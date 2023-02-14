@@ -14,14 +14,19 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowNameRequest, UpdateContactFlowNameRequestFilterSensitiveLog } from "../models/models_1";
+import {
+  UpdateContactFlowNameRequest,
+  UpdateContactFlowNameRequestFilterSensitiveLog,
+  UpdateContactFlowNameResponse,
+  UpdateContactFlowNameResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactFlowNameCommand,
   serializeAws_restJson1UpdateContactFlowNameCommand,
 } from "../protocols/Aws_restJson1";
 
 export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
-export interface UpdateContactFlowNameCommandOutput extends __MetadataBearer {}
+export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNameResponse, __MetadataBearer {}
 
 /**
  * <p>The name of the flow.</p>
@@ -88,7 +93,7 @@ export class UpdateContactFlowNameCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactFlowNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: UpdateContactFlowNameResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

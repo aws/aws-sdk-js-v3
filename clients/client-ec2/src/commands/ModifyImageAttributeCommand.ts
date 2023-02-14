@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyImageAttributeRequest, ModifyImageAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyImageAttributeRequest, ModifyImageAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyImageAttributeCommand,
   serializeAws_ec2ModifyImageAttributeCommand,

@@ -36,7 +36,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
  *             node offerings. You can call this API by providing a specific reserved node offering and
  *             the number of nodes you want to reserve. </p>
- *         <p>
+ *          <p>
  * For more information about reserved node offerings, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>

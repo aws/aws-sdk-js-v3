@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFolderMembersRequest, ListFolderMembersRequestFilterSensitiveLog } from "../models/models_2";
-import { ListFolderMembersResponse, ListFolderMembersResponseFilterSensitiveLog } from "../models/models_3";
+import {
+  ListFolderMembersRequest,
+  ListFolderMembersRequestFilterSensitiveLog,
+  ListFolderMembersResponse,
+  ListFolderMembersResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListFolderMembersCommand,
   serializeAws_restJson1ListFolderMembersCommand,

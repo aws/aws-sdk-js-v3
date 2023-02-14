@@ -2071,7 +2071,7 @@ export interface CreateTargetGroupInput {
   /**
    * <p>The number of consecutive health check successes required before considering a target healthy. The range is
    *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups
-   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       with a protocol of GENEVE, the default is 5. If the target type
    *       is <code>lambda</code>, the default is 5.</p>
    */
   HealthyThresholdCount?: number;
@@ -2079,7 +2079,7 @@ export interface CreateTargetGroupInput {
   /**
    * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
    *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups
-   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       with a protocol of GENEVE, the default is 2. If the target type
    *       is <code>lambda</code>, the default is 5.</p>
    */
   UnhealthyThresholdCount?: number;
@@ -2331,22 +2331,17 @@ export interface TargetDescription {
    * <p>An Availability Zone or <code>all</code>. This determines whether the target receives
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
-   *
    *          <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable
    *       when cross-zone load balancing is off. Otherwise the parameter is ignored and treated
    *       as <code>all</code>.</p>
-   *
    *          <p>This parameter is not supported if the target type of the target group is
    *       <code>instance</code> or <code>alb</code>.</p>
-   *
    *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
    *       the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside
    *       the VPC, this parameter is required.</p>
-   *
    *          <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type
    *       is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an
    *       Availability Zone inside the VPC for the target group.</p>
-   *
    *          <p>If the target type is <code>lambda</code>, this parameter is optional and the only
    *       supported value is <code>all</code>.</p>
    */
@@ -2568,7 +2563,6 @@ export interface DescribeLoadBalancerAttributesInput {
 export interface LoadBalancerAttribute {
   /**
    * <p>The name of the attribute.</p>
-   *
    *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
@@ -2585,7 +2579,6 @@ export interface LoadBalancerAttribute {
    *           The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by both Application Load Balancers and Network Load
    *       Balancers:</p>
    *          <ul>
@@ -2615,7 +2608,6 @@ export interface LoadBalancerAttribute {
    *           internal load balancer through an internet gateway.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by only Application Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -2895,7 +2887,6 @@ export interface DescribeTargetGroupAttributesInput {
 export interface TargetGroupAttribute {
   /**
    * <p>The name of the attribute.</p>
-   *
    *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
@@ -2931,7 +2922,6 @@ export interface TargetGroupAttribute {
    *                </ul>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by Application Load Balancers and
    *       Network Load Balancers:</p>
    *          <ul>
@@ -2975,7 +2965,6 @@ export interface TargetGroupAttribute {
    *           The default is <code>off</code>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only if the load balancer is an Application Load
    *       Balancer and the target is an instance or an IP address:</p>
    *          <ul>
@@ -3015,7 +3004,6 @@ export interface TargetGroupAttribute {
    *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attribute is supported only if the load balancer is an Application Load
    *       Balancer and the target is a Lambda function:</p>
    *          <ul>
@@ -3029,7 +3017,6 @@ export interface TargetGroupAttribute {
    *           last value sent by the client.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only by Network Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3054,7 +3041,6 @@ export interface TargetGroupAttribute {
    *             <code>false</code>. </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3182,9 +3168,7 @@ export interface TargetHealth {
 
   /**
    * <p>The reason code.</p>
-   *
    *          <p>If the target state is <code>healthy</code>, a reason code is not provided.</p>
-   *
    *          <p>If the target state is <code>initial</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3199,7 +3183,6 @@ export interface TargetHealth {
    *           minimum number of health checks required to determine its health status.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3225,7 +3208,6 @@ export interface TargetHealth {
    *           Applies only to Application Load Balancers.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unused</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3250,7 +3232,6 @@ export interface TargetHealth {
    *           balancer.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>draining</code>, the reason code can be the following
    *       value:</p>
    *          <ul>
@@ -3260,7 +3241,6 @@ export interface TargetHealth {
    *           deregistered and the deregistration delay period has not expired.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unavailable</code>, the reason code can be the following
    *       value:</p>
    *          <ul>

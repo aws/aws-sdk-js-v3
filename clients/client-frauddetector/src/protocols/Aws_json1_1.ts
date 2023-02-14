@@ -337,6 +337,7 @@ import {
   TrainingMetricsV2,
   TrainingResult,
   TrainingResultV2,
+  UncertaintyRange,
   UntagResourceRequest,
   UntagResourceResult,
   UpdateDetectorVersionMetadataRequest,
@@ -7382,6 +7383,10 @@ const deserializeAws_json1_1OFIMetricDataPointsList = (output: any, context: __S
 const deserializeAws_json1_1OFIModelPerformance = (output: any, context: __SerdeContext): OFIModelPerformance => {
   return {
     auc: __limitedParseFloat32(output.auc),
+    uncertaintyRange:
+      output.uncertaintyRange != null
+        ? deserializeAws_json1_1UncertaintyRange(output.uncertaintyRange, context)
+        : undefined,
   } as any;
 };
 
@@ -7594,6 +7599,10 @@ const deserializeAws_json1_1TFIMetricDataPointsList = (output: any, context: __S
 const deserializeAws_json1_1TFIModelPerformance = (output: any, context: __SerdeContext): TFIModelPerformance => {
   return {
     auc: __limitedParseFloat32(output.auc),
+    uncertaintyRange:
+      output.uncertaintyRange != null
+        ? deserializeAws_json1_1UncertaintyRange(output.uncertaintyRange, context)
+        : undefined,
   } as any;
 };
 
@@ -7684,6 +7693,13 @@ const deserializeAws_json1_1TrainingResultV2 = (output: any, context: __SerdeCon
       output.variableImportanceMetrics != null
         ? deserializeAws_json1_1VariableImportanceMetrics(output.variableImportanceMetrics, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UncertaintyRange = (output: any, context: __SerdeContext): UncertaintyRange => {
+  return {
+    lowerBoundValue: __limitedParseFloat32(output.lowerBoundValue),
+    upperBoundValue: __limitedParseFloat32(output.upperBoundValue),
   } as any;
 };
 

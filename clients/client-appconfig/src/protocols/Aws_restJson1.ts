@@ -11,7 +11,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
@@ -1265,6 +1265,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
     ...(input.ConfigurationVersion != null && { ConfigurationVersion: input.ConfigurationVersion }),
     ...(input.DeploymentStrategyId != null && { DeploymentStrategyId: input.DeploymentStrategyId }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.KmsKeyIdentifier != null && { KmsKeyIdentifier: input.KmsKeyIdentifier }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -2589,7 +2590,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.AppliedExtensions = deserializeAws_restJson1AppliedExtensions(data.AppliedExtensions, context);
   }
   if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri != null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -2630,11 +2631,17 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
+  }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -3435,7 +3442,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.AppliedExtensions = deserializeAws_restJson1AppliedExtensions(data.AppliedExtensions, context);
   }
   if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri != null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -3476,11 +3483,17 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
+  }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -3539,7 +3552,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.AppliedExtensions = deserializeAws_restJson1AppliedExtensions(data.AppliedExtensions, context);
   }
   if (data.CompletedAt != null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri != null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -3580,11 +3593,17 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
   if (data.GrowthType != null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
+  if (data.KmsKeyArn != null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
+  }
+  if (data.KmsKeyIdentifier != null) {
+    contents.KmsKeyIdentifier = __expectString(data.KmsKeyIdentifier);
+  }
   if (data.PercentageComplete != null) {
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -4493,7 +4512,8 @@ const deserializeAws_restJson1DeploymentEvent = (output: any, context: __SerdeCo
         : undefined,
     Description: __expectString(output.Description),
     EventType: __expectString(output.EventType),
-    OccurredAt: output.OccurredAt != null ? __expectNonNull(__parseRfc3339DateTime(output.OccurredAt)) : undefined,
+    OccurredAt:
+      output.OccurredAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.OccurredAt)) : undefined,
     TriggeredBy: __expectString(output.TriggeredBy),
   } as any;
 };
@@ -4549,7 +4569,8 @@ const deserializeAws_restJson1DeploymentStrategyList = (output: any, context: __
 
 const deserializeAws_restJson1DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
   return {
-    CompletedAt: output.CompletedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CompletedAt)) : undefined,
+    CompletedAt:
+      output.CompletedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CompletedAt)) : undefined,
     ConfigurationName: __expectString(output.ConfigurationName),
     ConfigurationVersion: __expectString(output.ConfigurationVersion),
     DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
@@ -4558,7 +4579,8 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
     GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
     PercentageComplete: __limitedParseFloat32(output.PercentageComplete),
-    StartedAt: output.StartedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.StartedAt)) : undefined,
+    StartedAt:
+      output.StartedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartedAt)) : undefined,
     State: __expectString(output.State),
   } as any;
 };

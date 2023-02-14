@@ -31,7 +31,6 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
 /**
  * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
  *       services.</p>
- *
  *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
  *       container service.</p>
  * @example

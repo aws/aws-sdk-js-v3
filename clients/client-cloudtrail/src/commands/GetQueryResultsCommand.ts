@@ -29,8 +29,9 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value returned by the <code>StartQuery</code>
- *          operation, and an ARN for <code>EventDataStore</code>.</p>
+ * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
+ *          returned by the <code>StartQuery</code> operation, and an ARN for
+ *             <code>EventDataStore</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

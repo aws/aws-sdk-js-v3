@@ -31,14 +31,12 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
 /**
  * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
  *     If filter is not specified, the most recent prediction is returned.</p>
- *
  *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
  *     <code>{
  *         "eventType":{
  *         "value": "xyz" }”
  *         }  </code>
  *          </p>
- *
  *          <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page.
  *   If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide
  *   the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning.

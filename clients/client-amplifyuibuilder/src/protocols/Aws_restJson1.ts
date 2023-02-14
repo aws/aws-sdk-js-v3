@@ -11,7 +11,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -2674,11 +2674,13 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
         ? deserializeAws_restJson1ComponentCollectionProperties(output.collectionProperties, context)
         : undefined,
     componentType: __expectString(output.componentType),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     environmentName: __expectString(output.environmentName),
     events: output.events != null ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
     id: __expectString(output.id),
-    modifiedAt: output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
+    modifiedAt:
+      output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
     overrides:
       output.overrides != null ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
@@ -3337,10 +3339,12 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
 const deserializeAws_restJson1Theme = (output: any, context: __SerdeContext): Theme => {
   return {
     appId: __expectString(output.appId),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
-    modifiedAt: output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
+    modifiedAt:
+      output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
     overrides:
       output.overrides != null ? deserializeAws_restJson1ThemeValuesList(output.overrides, context) : undefined,

@@ -821,12 +821,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://glue-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://glue-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -931,12 +937,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://glue.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://glue.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -949,12 +961,18 @@
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://glue.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://glue.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
                 }
               ]
             }
@@ -963,513 +981,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1477,516 +988,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-east-1",
-                "UseDualStack": true
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -1997,152 +1001,61 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.cn-north-1.api.amazonwebservices.com.cn"
+                  "url": "https://glue.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.cn-north-1.amazonaws.com.cn"
+                  "url": "https://glue.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.cn-north-1.api.amazonwebservices.com.cn"
+                  "url": "https://glue.ap-northeast-3.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.cn-north-1.amazonaws.com.cn"
+                  "url": "https://glue.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2153,48 +1066,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2205,148 +1079,126 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://glue.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://glue.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-3.api.aws"
+                  "url": "https://glue.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.ap-southeast-3.amazonaws.com"
+                  "url": "https://glue.eu-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.ap-southeast-3.api.aws"
+                  "url": "https://glue.eu-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.ap-southeast-3.amazonaws.com"
+                  "url": "https://glue.eu-west-2.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.us-east-1.api.aws"
+                  "url": "https://glue.eu-west-3.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.us-east-1.amazonaws.com"
+                  "url": "https://glue.me-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.us-east-1.api.aws"
+                  "url": "https://glue.sa-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2357,48 +1209,22 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.us-east-2.api.aws"
+                  "url": "https://glue-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://glue.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": true
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -2409,48 +1235,113 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://glue-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue-fips.cn-northwest-1.amazonaws.com.cn"
+                  "url": "https://glue.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://glue.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://glue-fips.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2461,20 +1352,152 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+                "endpoint": {
+                  "url": "https://glue-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://glue.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2485,20 +1508,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -2509,9 +1521,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -2522,9 +1534,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2534,9 +1546,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
+                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2546,9 +1558,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3138,6 +2150,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchCreatePartitionResponse": {
@@ -3149,6 +2164,9 @@
             "smithy.api#documentation": "<p>The errors encountered when trying to create the requested partitions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchDeleteConnection": {
@@ -3187,6 +2205,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchDeleteConnectionResponse": {
@@ -3204,6 +2225,9 @@
             "smithy.api#documentation": "<p>A map of the names of connections that were not successfully\n       deleted to error details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchDeletePartition": {
@@ -3262,6 +2286,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchDeletePartitionResponse": {
@@ -3273,6 +2300,9 @@
             "smithy.api#documentation": "<p>The errors encountered when trying to delete the requested partitions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchDeletePartitionValueList": {
@@ -3360,6 +2390,9 @@
             "smithy.api#documentation": "<p>The transaction ID at which to delete the table contents.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchDeleteTableResponse": {
@@ -3371,6 +2404,9 @@
             "smithy.api#documentation": "<p>A list of errors encountered in attempting to delete the specified tables.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchDeleteTableVersion": {
@@ -3441,6 +2477,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchDeleteTableVersionResponse": {
@@ -3452,6 +2491,9 @@
             "smithy.api#documentation": "<p>A list of errors encountered while trying to delete\n      the specified table versions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetBlueprintNames": {
@@ -3511,6 +2553,9 @@
             "smithy.api#documentation": "<p>Specifies whether or not to include the parameters, as a JSON string, for the blueprint in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetBlueprintsResponse": {
@@ -3528,6 +2573,9 @@
             "smithy.api#documentation": "<p>Returns a list of <code>BlueprintNames</code> that were not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetCrawlers": {
@@ -3560,6 +2608,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetCrawlersResponse": {
@@ -3577,6 +2628,9 @@
             "smithy.api#documentation": "<p>A list of names of crawlers that were not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetCustomEntityTypes": {
@@ -3612,6 +2666,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetCustomEntityTypesResponse": {
@@ -3629,6 +2686,9 @@
             "smithy.api#documentation": "<p>A list of the names of custom patterns that were not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetDataQualityResult": {
@@ -3664,6 +2724,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetDataQualityResultResponse": {
@@ -3682,6 +2745,9 @@
             "smithy.api#documentation": "<p>A list of result IDs for which results were not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetDevEndpoints": {
@@ -3720,6 +2786,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetDevEndpointsResponse": {
@@ -3737,6 +2806,9 @@
             "smithy.api#documentation": "<p>A list of <code>DevEndpoints</code> not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetJobs": {
@@ -3772,6 +2844,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetJobsResponse": {
@@ -3789,6 +2864,9 @@
             "smithy.api#documentation": "<p>A list of names of jobs not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetPartition": {
@@ -3853,6 +2931,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetPartitionResponse": {
@@ -3870,6 +2951,9 @@
             "smithy.api#documentation": "<p>A list of the partition values in the request for which partitions were not\n      returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetPartitionValueList": {
@@ -3917,6 +3001,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetTriggersResponse": {
@@ -3934,6 +3021,9 @@
             "smithy.api#documentation": "<p>A list of names of triggers not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchGetWorkflows": {
@@ -3975,6 +3065,9 @@
             "smithy.api#documentation": "<p>Specifies whether to include a graph when returning the workflow resource metadata.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchGetWorkflowsResponse": {
@@ -3992,6 +3085,9 @@
             "smithy.api#documentation": "<p>A list of names of workflows not found.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchSize": {
@@ -4088,6 +3184,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchStopJobRunResponse": {
@@ -4105,6 +3204,9 @@
             "smithy.api#documentation": "<p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,\n      including the <code>JobRunId</code> for which each error was encountered and details about the\n      error.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchStopJobRunSuccessfulSubmission": {
@@ -4218,6 +3320,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#BatchUpdatePartitionRequestEntry": {
@@ -4263,6 +3368,9 @@
             "smithy.api#documentation": "<p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#BatchWindow": {
@@ -4693,11 +3801,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CancelDataQualityRuleRecommendationRunResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CancelDataQualityRulesetEvaluationRun": {
       "type": "operation",
@@ -4735,11 +3849,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CancelDataQualityRulesetEvaluationRunResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CancelMLTaskRun": {
       "type": "operation",
@@ -4784,6 +3904,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CancelMLTaskRunResponse": {
@@ -4807,6 +3930,9 @@
             "smithy.api#documentation": "<p>The status for this run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CancelStatement": {
@@ -4865,11 +3991,17 @@
             "smithy.api#documentation": "<p>The origin of the request to cancel the statement.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CancelStatementResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CatalogEncryptionMode": {
       "type": "enum",
@@ -4923,6 +4055,47 @@
           "min": 1,
           "max": 100
         }
+      }
+    },
+    "com.amazonaws.glue#CatalogHudiSource": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.glue#NodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Hudi data source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Database": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database to read from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table in the database to read from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalHudiOptions": {
+          "target": "com.amazonaws.glue#AdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional connection options.</p>"
+          }
+        },
+        "OutputSchemas": {
+          "target": "com.amazonaws.glue#GlueSchemas",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the data schema for the Hudi source.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>"
       }
     },
     "com.amazonaws.glue#CatalogIdString": {
@@ -5214,6 +4387,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CheckSchemaVersionValidityResponse": {
@@ -5232,6 +4408,9 @@
             "smithy.api#documentation": "<p>A validation failure error message.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#Classification": {
@@ -5382,10 +4561,16 @@
           }
         },
         "RelationalCatalogSource": {
-          "target": "com.amazonaws.glue#RelationalCatalogSource"
+          "target": "com.amazonaws.glue#RelationalCatalogSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a relational catalog data store in the Glue Data Catalog.</p>"
+          }
         },
         "DynamoDBCatalogSource": {
-          "target": "com.amazonaws.glue#DynamoDBCatalogSource"
+          "target": "com.amazonaws.glue#DynamoDBCatalogSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>"
+          }
         },
         "JDBCConnectorTarget": {
           "target": "com.amazonaws.glue#JDBCConnectorTarget",
@@ -5631,6 +4816,36 @@
           "target": "com.amazonaws.glue#EvaluateDataQuality",
           "traits": {
             "smithy.api#documentation": "<p>Specifies your data quality evaluation criteria.</p>"
+          }
+        },
+        "S3CatalogHudiSource": {
+          "target": "com.amazonaws.glue#S3CatalogHudiSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>"
+          }
+        },
+        "CatalogHudiSource": {
+          "target": "com.amazonaws.glue#CatalogHudiSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>"
+          }
+        },
+        "S3HudiSource": {
+          "target": "com.amazonaws.glue#S3HudiSource",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a Hudi data source stored in Amazon S3.</p>"
+          }
+        },
+        "S3HudiCatalogTarget": {
+          "target": "com.amazonaws.glue#S3HudiCatalogTarget",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>"
+          }
+        },
+        "S3HudiDirectTarget": {
+          "target": "com.amazonaws.glue#S3HudiDirectTarget",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>"
           }
         }
       },
@@ -7417,6 +6632,9 @@
             "smithy.api#documentation": "<p>The tags to be applied to this blueprint.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateBlueprintResponse": {
@@ -7428,6 +6646,9 @@
             "smithy.api#documentation": "<p>Returns the name of the blueprint that was registered.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateClassifier": {
@@ -7480,11 +6701,17 @@
             "smithy.api#documentation": "<p>A <code>CsvClassifier</code> object specifying the classifier\n      to create.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateClassifierResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateConnection": {
       "type": "operation",
@@ -7537,11 +6764,17 @@
             "smithy.api#documentation": "<p>The tags you assign to the connection.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateConnectionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateCrawler": {
       "type": "operation",
@@ -7665,11 +6898,17 @@
             "smithy.api#documentation": "<p>The tags to use with this crawler request. You may use tags to limit access to the\n            crawler. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer\n            guide.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateCrawlerResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateCsvClassifierRequest": {
       "type": "structure",
@@ -7792,6 +7031,9 @@
             "smithy.api#documentation": "<p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>\n         <p>If no context words are passed only a regular expression is checked.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateCustomEntityTypeResponse": {
@@ -7803,6 +7045,9 @@
             "smithy.api#documentation": "<p>The name of the custom pattern you created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateDataQualityRuleset": {
@@ -7876,6 +7121,9 @@
             "smithy.api#documentation": "<p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateDataQualityRulesetResponse": {
@@ -7887,6 +7135,9 @@
             "smithy.api#documentation": "<p>A unique name for the data quality ruleset.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateDatabase": {
@@ -7946,11 +7197,17 @@
             "smithy.api#documentation": "<p>The tags you assign to the database.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateDatabaseResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateDevEndpoint": {
       "type": "operation",
@@ -8086,6 +7343,9 @@
             "smithy.api#documentation": "<p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateDevEndpointResponse": {
@@ -8207,6 +7467,9 @@
             "smithy.api#documentation": "<p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>\n         <p>Valid arguments are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>\"--enable-glue-datacatalog\": \"\"</code>\n               </p>\n            </li>\n         </ul>\n         <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateGrokClassifierRequest": {
@@ -8422,6 +7685,9 @@
             "smithy.api#documentation": "<p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateJobResponse": {
@@ -8433,6 +7699,9 @@
             "smithy.api#documentation": "<p>The unique name that was provided for this job definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateJsonClassifierRequest": {
@@ -8577,6 +7846,9 @@
             "smithy.api#documentation": "<p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateMLTransformResponse": {
@@ -8588,6 +7860,9 @@
             "smithy.api#documentation": "<p>A unique identifier that is generated for the transform.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreatePartition": {
@@ -8690,11 +7965,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreatePartitionIndexResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreatePartitionRequest": {
       "type": "structure",
@@ -8726,11 +8007,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreatePartitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateRegistry": {
       "type": "operation",
@@ -8786,6 +8073,9 @@
             "smithy.api#documentation": "<p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateRegistryResponse": {
@@ -8815,6 +8105,9 @@
             "smithy.api#documentation": "<p>The tags for the registry.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateSchema": {
@@ -8899,6 +8192,9 @@
             "smithy.api#documentation": "<p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateSchemaResponse": {
@@ -8991,6 +8287,9 @@
             "smithy.api#documentation": "<p>The status of the first schema version created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateScript": {
@@ -9037,6 +8336,9 @@
             "smithy.api#documentation": "<p>The programming language of the resulting code from the DAG.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateScriptResponse": {
@@ -9054,6 +8356,9 @@
             "smithy.api#documentation": "<p>The Scala code generated from the DAG.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateSecurityConfiguration": {
@@ -9102,6 +8407,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateSecurityConfigurationResponse": {
@@ -9119,6 +8427,9 @@
             "smithy.api#documentation": "<p>The time at which the new security configuration was created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateSession": {
@@ -9257,7 +8568,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Request to create a new session.</p>"
+        "smithy.api#documentation": "<p>Request to create a new session.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateSessionResponse": {
@@ -9269,6 +8581,9 @@
             "smithy.api#documentation": "<p>Returns the session object in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateTable": {
@@ -9347,11 +8662,17 @@
             "smithy.api#documentation": "<p>The ID of the transaction.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateTableResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateTrigger": {
       "type": "operation",
@@ -9458,6 +8779,9 @@
             "smithy.api#documentation": "<p>Batch condition that must be met (specified number of events received or batch time window expired)\n      before EventBridge event trigger fires.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateTriggerResponse": {
@@ -9469,6 +8793,9 @@
             "smithy.api#documentation": "<p>The name of the trigger.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateUserDefinedFunction": {
@@ -9529,11 +8856,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateUserDefinedFunctionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#CreateWorkflow": {
       "type": "operation",
@@ -9601,6 +8934,9 @@
             "smithy.api#documentation": "<p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#CreateWorkflowResponse": {
@@ -9612,6 +8948,9 @@
             "smithy.api#documentation": "<p>The name of the workflow which was provided as part of the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#CreateXMLClassifierRequest": {
@@ -10910,6 +10249,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteBlueprintResponse": {
@@ -10921,6 +10263,9 @@
             "smithy.api#documentation": "<p>Returns the name of the blueprint that was deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteClassifier": {
@@ -10953,11 +10298,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteClassifierResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteColumnStatisticsForPartition": {
       "type": "operation",
@@ -11025,11 +10376,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteColumnStatisticsForPartitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteColumnStatisticsForTable": {
       "type": "operation",
@@ -11090,11 +10447,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteColumnStatisticsForTableResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteConnection": {
       "type": "operation",
@@ -11144,11 +10507,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteConnectionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteCrawler": {
       "type": "operation",
@@ -11186,11 +10555,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteCrawlerResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteCustomEntityType": {
       "type": "operation",
@@ -11231,6 +10606,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteCustomEntityTypeResponse": {
@@ -11242,6 +10620,9 @@
             "smithy.api#documentation": "<p>The name of the custom pattern you deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteDataQualityRuleset": {
@@ -11280,11 +10661,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteDataQualityRulesetResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteDatabase": {
       "type": "operation",
@@ -11331,11 +10718,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteDatabaseResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteDevEndpoint": {
       "type": "operation",
@@ -11373,11 +10766,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteDevEndpointResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteJob": {
       "type": "operation",
@@ -11412,6 +10811,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteJobResponse": {
@@ -11423,6 +10825,9 @@
             "smithy.api#documentation": "<p>The name of the job definition that was deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteMLTransform": {
@@ -11461,6 +10866,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteMLTransformResponse": {
@@ -11472,6 +10880,9 @@
             "smithy.api#documentation": "<p>The unique identifier of the transform that was deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeletePartition": {
@@ -11562,11 +10973,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeletePartitionIndexResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeletePartitionRequest": {
       "type": "structure",
@@ -11598,11 +11015,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeletePartitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteRegistry": {
       "type": "operation",
@@ -11640,6 +11063,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteRegistryResponse": {
@@ -11663,6 +11089,9 @@
             "smithy.api#documentation": "<p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteResourcePolicy": {
@@ -11709,11 +11138,17 @@
             "smithy.api#documentation": "<p>The ARN of the Glue resource for the resource policy to be deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteResourcePolicyResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteSchema": {
       "type": "operation",
@@ -11751,6 +11186,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteSchemaResponse": {
@@ -11774,6 +11212,9 @@
             "smithy.api#documentation": "<p>The status of the schema.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteSchemaVersions": {
@@ -11819,6 +11260,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteSchemaVersionsResponse": {
@@ -11830,6 +11274,9 @@
             "smithy.api#documentation": "<p>A list of <code>SchemaVersionErrorItem</code> objects, each containing an error and schema version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteSecurityConfiguration": {
@@ -11868,11 +11315,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteSecurityConfigurationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteSession": {
       "type": "operation",
@@ -11922,6 +11375,9 @@
             "smithy.api#documentation": "<p>The name of the origin of the delete session request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteSessionResponse": {
@@ -11933,6 +11389,9 @@
             "smithy.api#documentation": "<p>Returns the ID of the deleted session.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteTable": {
@@ -11996,11 +11455,17 @@
             "smithy.api#documentation": "<p>The transaction ID at which to delete the table contents.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteTableResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteTableVersion": {
       "type": "operation",
@@ -12058,11 +11523,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteTableVersionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteTrigger": {
       "type": "operation",
@@ -12100,6 +11571,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteTriggerResponse": {
@@ -12111,6 +11585,9 @@
             "smithy.api#documentation": "<p>The name of the trigger that was deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeleteUserDefinedFunction": {
@@ -12162,11 +11639,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteUserDefinedFunctionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#DeleteWorkflow": {
       "type": "operation",
@@ -12204,6 +11687,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#DeleteWorkflowResponse": {
@@ -12215,6 +11701,9 @@
             "smithy.api#documentation": "<p>Name of the workflow specified in input.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#DeltaTarget": {
@@ -13718,6 +13207,9 @@
             "smithy.api#documentation": "<p>Specifies whether or not to include the parameter specification.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetBlueprintResponse": {
@@ -13729,6 +13221,9 @@
             "smithy.api#documentation": "<p>Returns a <code>Blueprint</code> object.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetBlueprintRun": {
@@ -13771,6 +13266,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetBlueprintRunResponse": {
@@ -13782,6 +13280,9 @@
             "smithy.api#documentation": "<p>Returns a <code>BlueprintRun</code> object.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetBlueprintRuns": {
@@ -13837,6 +13338,9 @@
             "smithy.api#documentation": "<p>The maximum size of a list to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetBlueprintRunsResponse": {
@@ -13854,6 +13358,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all blueprint runs have been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetCatalogImportStatus": {
@@ -13885,6 +13392,9 @@
             "smithy.api#documentation": "<p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetCatalogImportStatusResponse": {
@@ -13896,6 +13406,9 @@
             "smithy.api#documentation": "<p>The status of the specified catalog migration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetClassifier": {
@@ -13928,6 +13441,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetClassifierResponse": {
@@ -13939,6 +13455,9 @@
             "smithy.api#documentation": "<p>The requested classifier.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetClassifiers": {
@@ -13978,6 +13497,9 @@
             "smithy.api#documentation": "<p>An optional continuation token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetClassifiersResponse": {
@@ -13995,6 +13517,9 @@
             "smithy.api#documentation": "<p>A continuation token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetColumnNamesList": {
@@ -14075,6 +13600,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetColumnStatisticsForPartitionResponse": {
@@ -14092,6 +13620,9 @@
             "smithy.api#documentation": "<p>Error occurred during retrieving column statistics data.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetColumnStatisticsForTable": {
@@ -14153,6 +13684,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetColumnStatisticsForTableResponse": {
@@ -14170,6 +13704,9 @@
             "smithy.api#documentation": "<p>List of ColumnStatistics that failed to be retrieved.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetConnection": {
@@ -14221,6 +13758,9 @@
             "smithy.api#documentation": "<p>Allows you to retrieve the connection metadata without returning the password. For\n      instance, the Glue console uses this flag to retrieve the connection, and does not display\n      the password. Set this parameter when the caller might not have permission to use the KMS\n      key to decrypt the password, but it does have permission to access the rest of the connection\n      properties.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetConnectionResponse": {
@@ -14232,6 +13772,9 @@
             "smithy.api#documentation": "<p>The requested connection definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetConnections": {
@@ -14319,6 +13862,9 @@
             "smithy.api#documentation": "<p>The maximum number of connections to return in one response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetConnectionsResponse": {
@@ -14336,6 +13882,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the list of connections returned does not\n      include the last of the filtered connections.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetCrawler": {
@@ -14401,6 +13950,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetCrawlerMetricsResponse": {
@@ -14418,6 +13970,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetCrawlerRequest": {
@@ -14430,6 +13985,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetCrawlerResponse": {
@@ -14441,6 +13999,9 @@
             "smithy.api#documentation": "<p>The metadata for the specified crawler.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetCrawlers": {
@@ -14480,6 +14041,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetCrawlersResponse": {
@@ -14497,6 +14061,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list has not reached the end\n      of those defined in this customer account.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetCustomEntityType": {
@@ -14538,6 +14105,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetCustomEntityTypeResponse": {
@@ -14561,6 +14131,9 @@
             "smithy.api#documentation": "<p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataCatalogEncryptionSettings": {
@@ -14595,6 +14168,9 @@
             "smithy.api#documentation": "<p>The ID of the Data Catalog to retrieve the security configuration for. If none is\n      provided, the Amazon Web Services account ID is used by default.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataCatalogEncryptionSettingsResponse": {
@@ -14606,6 +14182,9 @@
             "smithy.api#documentation": "<p>The requested security configuration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityResult": {
@@ -14644,6 +14223,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityResultResponse": {
@@ -14715,6 +14297,9 @@
             "smithy.api#documentation": "<p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRuleRecommendationRun": {
@@ -14753,6 +14338,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRuleRecommendationRunResponse": {
@@ -14837,6 +14425,9 @@
             "smithy.api#documentation": "<p>The name of the ruleset that was created by the run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRuleset": {
@@ -14901,6 +14492,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRulesetEvaluationRunResponse": {
@@ -14991,6 +14585,9 @@
             "smithy.api#documentation": "<p>A list of result IDs for the data quality results for the run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRulesetRequest": {
@@ -15003,6 +14600,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataQualityRulesetResponse": {
@@ -15050,6 +14650,9 @@
             "smithy.api#documentation": "<p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDatabase": {
@@ -15097,6 +14700,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDatabaseResponse": {
@@ -15108,6 +14714,9 @@
             "smithy.api#documentation": "<p>The definition of the specified database in the Data Catalog.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDatabases": {
@@ -15168,6 +14777,9 @@
             "smithy.api#documentation": "<p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>\n         <ul>\n            <li>\n               <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>\n            </li>\n            <li>\n               <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDatabasesResponse": {
@@ -15186,6 +14798,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens,\n      returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDataflowGraph": {
@@ -15220,6 +14835,9 @@
             "smithy.api#documentation": "<p>The Python script to transform.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDataflowGraphResponse": {
@@ -15237,6 +14855,9 @@
             "smithy.api#documentation": "<p>A list of the edges in the resulting DAG.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDevEndpoint": {
@@ -15275,6 +14896,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDevEndpointResponse": {
@@ -15286,6 +14910,9 @@
             "smithy.api#documentation": "<p>A <code>DevEndpoint</code> definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetDevEndpoints": {
@@ -15334,6 +14961,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetDevEndpointsResponse": {
@@ -15351,6 +14981,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been\n      returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetJob": {
@@ -15424,6 +15057,9 @@
             "smithy.api#documentation": "<p>The unique run identifier associated with this job run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetJobBookmarkResponse": {
@@ -15435,6 +15071,9 @@
             "smithy.api#documentation": "<p>A structure that defines a point that a job can resume processing.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetJobRequest": {
@@ -15447,6 +15086,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetJobResponse": {
@@ -15458,6 +15100,9 @@
             "smithy.api#documentation": "<p>The requested job definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetJobRun": {
@@ -15510,6 +15155,9 @@
             "smithy.api#documentation": "<p>True if a list of predecessor runs should be returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetJobRunResponse": {
@@ -15521,6 +15169,9 @@
             "smithy.api#documentation": "<p>The requested job-run metadata.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetJobRuns": {
@@ -15576,6 +15227,9 @@
             "smithy.api#documentation": "<p>The maximum size of the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetJobRunsResponse": {
@@ -15593,6 +15247,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all requested job runs have been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetJobs": {
@@ -15641,6 +15298,9 @@
             "smithy.api#documentation": "<p>The maximum size of the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetJobsResponse": {
@@ -15658,6 +15318,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all job definitions have yet been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetMLTaskRun": {
@@ -15703,6 +15366,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetMLTaskRunResponse": {
@@ -15769,6 +15435,9 @@
             "smithy.api#documentation": "<p>The amount of time (in seconds) that the task run consumed resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetMLTaskRuns": {
@@ -15836,6 +15505,9 @@
             "smithy.api#documentation": "<p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetMLTaskRunsResponse": {
@@ -15853,6 +15525,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetMLTransform": {
@@ -15891,6 +15566,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetMLTransformResponse": {
@@ -16011,6 +15689,9 @@
             "smithy.api#documentation": "<p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetMLTransforms": {
@@ -16071,6 +15752,9 @@
             "smithy.api#documentation": "<p>The sorting criteria.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetMLTransformsResponse": {
@@ -16089,6 +15773,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetMapping": {
@@ -16139,6 +15826,9 @@
             "smithy.api#documentation": "<p>Parameters for the mapping.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetMappingResponse": {
@@ -16151,6 +15841,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetPartition": {
@@ -16245,6 +15938,9 @@
             "smithy.api#documentation": "<p>A continuation token, included if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetPartitionIndexesResponse": {
@@ -16262,6 +15958,9 @@
             "smithy.api#documentation": "<p>A continuation token, present if the current list segment is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetPartitionRequest": {
@@ -16294,6 +15993,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetPartitionResponse": {
@@ -16305,6 +16007,9 @@
             "smithy.api#documentation": "<p>The requested information, in the form of a <code>Partition</code>\n      object.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetPartitions": {
@@ -16412,6 +16117,9 @@
             "smithy.api#documentation": "<p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetPartitionsResponse": {
@@ -16429,6 +16137,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list of partitions does not include the last\n      one.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetPlan": {
@@ -16495,6 +16206,9 @@
             "smithy.api#documentation": "<p>A map to hold additional optional key-value parameters.</p>\n         <p>Currently, these key-value pairs are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>inferSchema</code>  —  Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p>\n               <p>\n                  <code>--additional-plan-options-map '{\"inferSchema\":\"true\"}'</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetPlanResponse": {
@@ -16512,6 +16226,9 @@
             "smithy.api#documentation": "<p>The Scala code to perform the mapping.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetRegistry": {
@@ -16550,6 +16267,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetRegistryResponse": {
@@ -16591,6 +16311,9 @@
             "smithy.api#documentation": "<p>The date and time the registry was updated.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetResourcePolicies": {
@@ -16640,6 +16363,9 @@
             "smithy.api#documentation": "<p>The maximum size of a list to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetResourcePoliciesResponse": {
@@ -16657,6 +16383,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the last resource policy available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetResourcePoliciesResponseList": {
@@ -16700,6 +16429,9 @@
             "smithy.api#documentation": "<p>The ARN of the Glue resource for which to retrieve the resource policy. If not\n      supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>\n      to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying Glue Resource ARNs</a>.\n    </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetResourcePolicyResponse": {
@@ -16729,6 +16461,9 @@
             "smithy.api#documentation": "<p>The date and time at which the policy was last updated.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSchema": {
@@ -16800,6 +16535,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSchemaByDefinitionResponse": {
@@ -16835,6 +16573,9 @@
             "smithy.api#documentation": "<p>The date and time the schema was created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSchemaInput": {
@@ -16847,6 +16588,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSchemaResponse": {
@@ -16933,6 +16677,9 @@
             "smithy.api#documentation": "<p>The date and time the schema was updated.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSchemaVersion": {
@@ -16982,6 +16729,9 @@
             "smithy.api#documentation": "<p>The version number of the schema.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSchemaVersionResponse": {
@@ -17030,6 +16780,9 @@
             "smithy.api#documentation": "<p>The date and time the schema version was created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSchemaVersionsDiff": {
@@ -17089,6 +16842,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSchemaVersionsDiffResponse": {
@@ -17100,6 +16856,9 @@
             "smithy.api#documentation": "<p>The difference between schemas as a string in JsonPatch format.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSecurityConfiguration": {
@@ -17138,6 +16897,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSecurityConfigurationResponse": {
@@ -17149,6 +16911,9 @@
             "smithy.api#documentation": "<p>The requested security configuration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSecurityConfigurations": {
@@ -17198,6 +16963,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSecurityConfigurationsResponse": {
@@ -17215,6 +16983,9 @@
             "smithy.api#documentation": "<p>A continuation token, if there are more security\n      configurations to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetSession": {
@@ -17262,6 +17033,9 @@
             "smithy.api#documentation": "<p>The origin of the request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetSessionResponse": {
@@ -17273,6 +17047,9 @@
             "smithy.api#documentation": "<p>The session object is returned in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetStatement": {
@@ -17331,6 +17108,9 @@
             "smithy.api#documentation": "<p>The origin of the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetStatementResponse": {
@@ -17342,6 +17122,9 @@
             "smithy.api#documentation": "<p>Returns the statement.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTable": {
@@ -17411,6 +17194,9 @@
             "smithy.api#documentation": "<p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTableResponse": {
@@ -17422,6 +17208,9 @@
             "smithy.api#documentation": "<p>The <code>Table</code> object that defines the specified table.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTableVersion": {
@@ -17482,6 +17271,9 @@
             "smithy.api#documentation": "<p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTableVersionResponse": {
@@ -17493,6 +17285,9 @@
             "smithy.api#documentation": "<p>The requested table version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTableVersions": {
@@ -17570,6 +17365,9 @@
             "smithy.api#documentation": "<p>The maximum number of table versions to return in one response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTableVersionsResponse": {
@@ -17587,6 +17385,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the list of available versions does\n      not include the last one.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTables": {
@@ -17669,6 +17470,9 @@
             "smithy.api#documentation": "<p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTablesResponse": {
@@ -17686,6 +17490,9 @@
             "smithy.api#documentation": "<p>A continuation token, present if the current list segment is\n      not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTags": {
@@ -17724,6 +17531,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTagsResponse": {
@@ -17735,6 +17545,9 @@
             "smithy.api#documentation": "<p>The requested tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTrigger": {
@@ -17773,6 +17586,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTriggerResponse": {
@@ -17784,6 +17600,9 @@
             "smithy.api#documentation": "<p>The requested trigger definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetTriggers": {
@@ -17838,6 +17657,9 @@
             "smithy.api#documentation": "<p>The maximum size of the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetTriggersResponse": {
@@ -17855,6 +17677,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all the requested triggers\n      have yet been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredPartitionMetadata": {
@@ -17922,6 +17747,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredPartitionMetadataResponse": {
@@ -17939,6 +17767,9 @@
             "smithy.api#default": false
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredPartitionsMetadata": {
@@ -18019,6 +17850,9 @@
         "MaxResults": {
           "target": "com.amazonaws.glue#PageSize"
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredPartitionsMetadataResponse": {
@@ -18030,6 +17864,9 @@
         "NextToken": {
           "target": "com.amazonaws.glue#Token"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredTableMetadata": {
@@ -18091,6 +17928,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetUnfilteredTableMetadataResponse": {
@@ -18111,6 +17951,9 @@
         "CellFilters": {
           "target": "com.amazonaws.glue#ColumnRowFilterList"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetUserDefinedFunction": {
@@ -18165,6 +18008,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetUserDefinedFunctionResponse": {
@@ -18176,6 +18022,9 @@
             "smithy.api#documentation": "<p>The requested function definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetUserDefinedFunctions": {
@@ -18246,6 +18095,9 @@
             "smithy.api#documentation": "<p>The maximum number of functions to return in one response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetUserDefinedFunctionsResponse": {
@@ -18263,6 +18115,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the list of functions returned does\n      not include the last requested function.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetWorkflow": {
@@ -18307,6 +18162,9 @@
             "smithy.api#documentation": "<p>Specifies whether to include a graph when returning the workflow resource metadata.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowResponse": {
@@ -18318,6 +18176,9 @@
             "smithy.api#documentation": "<p>The resource metadata for the workflow.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRun": {
@@ -18389,6 +18250,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRunPropertiesResponse": {
@@ -18400,6 +18264,9 @@
             "smithy.api#documentation": "<p>The workflow run properties which were set during the specified run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRunRequest": {
@@ -18425,6 +18292,9 @@
             "smithy.api#documentation": "<p>Specifies whether to include the workflow graph in response or not.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRunResponse": {
@@ -18436,6 +18306,9 @@
             "smithy.api#documentation": "<p>The requested workflow run metadata.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRuns": {
@@ -18497,6 +18370,9 @@
             "smithy.api#documentation": "<p>The maximum number of workflow runs to be included in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#GetWorkflowRunsResponse": {
@@ -18514,6 +18390,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all requested workflow runs have been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#GlueEncryptionException": {
@@ -18941,6 +18820,35 @@
         "smithy.api#pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$"
       }
     },
+    "com.amazonaws.glue#HudiTargetCompressionType": {
+      "type": "enum",
+      "members": {
+        "GZIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "gzip"
+          }
+        },
+        "LZO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "lzo"
+          }
+        },
+        "UNCOMPRESSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "uncompressed"
+          }
+        },
+        "SNAPPY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "snappy"
+          }
+        }
+      }
+    },
     "com.amazonaws.glue#IdString": {
       "type": "string",
       "traits": {
@@ -19040,11 +18948,17 @@
             "smithy.api#documentation": "<p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ImportCatalogToGlueResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#ImportLabelsTaskRunProperties": {
       "type": "structure",
@@ -20523,6 +20437,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The desired minimum number of partitions to read from Kafka. The default value is null, which means that the number of spark partitions is equal to the number of Kafka partitions.</p>"
           }
+        },
+        "IncludeHeaders": {
+          "target": "com.amazonaws.glue#BoxedBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to include the Kafka headers. When the option is set to \"true\", the data output will contain an additional column named \"glue_streaming_kafka_headers\" \n          with type <code>Array[Struct(key: String, value: String)]</code>. The default value is \"false\". \n      This option is available in Glue version 3.0 or later only.</p>"
+          }
+        },
+        "AddRecordTimestamp": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>When this option is set to 'true', the data output will contain an additional column named \"__src_timestamp\" that indicates the time when the corresponding record received by the topic. The default value is 'false'. This option is supported in Glue  version 4.0 or later.</p>"
+          }
+        },
+        "EmitConsumerLagMetrics": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>When this option is set to 'true', for each batch, it will emit the metrics for the duration between the oldest record received by the topic and the time it arrives in Glue to CloudWatch. The metric's name is \"glue.driver.streaming.maxConsumerLagInMs\". The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>"
+          }
         }
       },
       "traits": {
@@ -20692,6 +20624,18 @@
           "target": "com.amazonaws.glue#EnclosedInStringProperty",
           "traits": {
             "smithy.api#documentation": "<p>An identifier for the session assuming the role using AWS STS. You must use this parameter when accessing a data stream in a different account. Used in conjunction with <code>\"awsSTSRoleARN\"</code>.</p>"
+          }
+        },
+        "AddRecordTimestamp": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>When this option is set to 'true', the data output will contain an additional column named \"__src_timestamp\" that indicates the time when the corresponding record received by the stream. The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>"
+          }
+        },
+        "EmitConsumerLagMetrics": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>When this option is set to 'true', for each batch, it will emit the metrics for the duration between the oldest record received by the stream and the time it arrives in Glue  to CloudWatch. The metric's name is \"glue.driver.streaming.maxConsumerLagInMs\". The default value is 'false'. This option is supported in Glue version 4.0 or later.</p>"
           }
         }
       },
@@ -20948,6 +20892,9 @@
             "smithy.api#documentation": "<p>Filters the list by an Amazon Web Services resource tag.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListBlueprintsResponse": {
@@ -20965,6 +20912,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all blueprint names have been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListCrawlers": {
@@ -21010,6 +20960,9 @@
             "smithy.api#documentation": "<p>Specifies to return only these tagged resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListCrawlersResponse": {
@@ -21027,6 +20980,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListCrawls": {
@@ -21080,6 +21036,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListCrawlsResponse": {
@@ -21097,6 +21056,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListCustomEntityTypes": {
@@ -21142,6 +21104,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListCustomEntityTypesResponse": {
@@ -21159,6 +21124,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityResults": {
@@ -21210,6 +21178,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityResultsResponse": {
@@ -21228,6 +21199,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRuleRecommendationRuns": {
@@ -21279,6 +21253,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRuleRecommendationRunsResponse": {
@@ -21296,6 +21273,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRulesetEvaluationRuns": {
@@ -21347,6 +21327,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRulesetEvaluationRunsResponse": {
@@ -21364,6 +21347,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRulesets": {
@@ -21424,6 +21410,9 @@
             "smithy.api#documentation": "<p>A list of key-value pair tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListDataQualityRulesetsResponse": {
@@ -21441,6 +21430,9 @@
             "smithy.api#documentation": "<p>A pagination token, if more results are available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListDevEndpoints": {
@@ -21495,6 +21487,9 @@
             "smithy.api#documentation": "<p>Specifies to return only these tagged resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListDevEndpointsResponse": {
@@ -21512,6 +21507,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListJobs": {
@@ -21566,6 +21564,9 @@
             "smithy.api#documentation": "<p>Specifies to return only these tagged resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListJobsResponse": {
@@ -21583,6 +21584,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListMLTransforms": {
@@ -21649,6 +21653,9 @@
             "smithy.api#documentation": "<p>Specifies to return only these tagged resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListMLTransformsResponse": {
@@ -21667,6 +21674,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListRegistries": {
@@ -21713,6 +21723,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListRegistriesResponse": {
@@ -21730,6 +21743,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListSchemaVersions": {
@@ -21786,6 +21802,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListSchemaVersionsResponse": {
@@ -21803,6 +21822,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListSchemas": {
@@ -21858,6 +21880,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListSchemasResponse": {
@@ -21875,6 +21900,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListSessions": {
@@ -21935,6 +21963,9 @@
             "smithy.api#documentation": "<p>The origin of the request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListSessionsResponse": {
@@ -21958,6 +21989,9 @@
             "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no more result. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListStatements": {
@@ -22014,6 +22048,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListStatementsResponse": {
@@ -22031,6 +22068,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all statements have yet been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListTriggers": {
@@ -22091,6 +22131,9 @@
             "smithy.api#documentation": "<p>Specifies to return only these tagged resources.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListTriggersResponse": {
@@ -22108,6 +22151,9 @@
             "smithy.api#documentation": "<p>A continuation token, if the returned list does not contain the\n      last metric available.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ListWorkflows": {
@@ -22153,6 +22199,9 @@
             "smithy.api#documentation": "<p>The maximum size of a list to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ListWorkflowsResponse": {
@@ -22170,6 +22219,9 @@
             "smithy.api#documentation": "<p>A continuation token, if not all workflow names have been returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#Location": {
@@ -24333,11 +24385,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#PutDataCatalogEncryptionSettingsResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#PutResourcePolicy": {
       "type": "operation",
@@ -24402,6 +24460,9 @@
             "smithy.api#documentation": "<p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account\n      access to Data Catalog resources:</p>\n         <ul>\n            <li>\n               <p>By directly updating the resource policy with <code>PutResourePolicy</code>\n               </p>\n            </li>\n            <li>\n               <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>\n            </li>\n         </ul>\n         <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to\n      grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#PutResourcePolicyResponse": {
@@ -24413,6 +24474,9 @@
             "smithy.api#documentation": "<p>A hash of the policy that has just been set. This must\n      be included in a subsequent call that overwrites or updates\n      this policy.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#PutSchemaVersionMetadata": {
@@ -24472,6 +24536,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#PutSchemaVersionMetadataResponse": {
@@ -24527,6 +24594,9 @@
             "smithy.api#documentation": "<p>The value of the metadata key.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#PutWorkflowRunProperties": {
@@ -24588,11 +24658,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#PutWorkflowRunPropertiesResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#PythonScript": {
       "type": "string"
@@ -24666,6 +24742,9 @@
             "smithy.api#documentation": "<p>A continuation token, if this is a continuation call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#QuerySchemaVersionMetadataMaxResults": {
@@ -24699,6 +24778,9 @@
             "smithy.api#documentation": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#QuoteChar": {
@@ -24914,6 +24996,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#RegisterSchemaVersionResponse": {
@@ -24938,6 +25023,9 @@
             "smithy.api#documentation": "<p>The status of the schema version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#RegistryId": {
@@ -25107,6 +25195,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#RemoveSchemaVersionMetadataResponse": {
@@ -25162,6 +25253,9 @@
             "smithy.api#documentation": "<p>The value of the metadata key.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#RenameField": {
@@ -25248,6 +25342,9 @@
             "smithy.api#documentation": "<p>The unique run identifier associated with this job run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ResetJobBookmarkResponse": {
@@ -25259,6 +25356,9 @@
             "smithy.api#documentation": "<p>The reset bookmark entry.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#ResourceNotReadyException": {
@@ -25419,6 +25519,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#ResumeWorkflowRunResponse": {
@@ -25436,6 +25539,9 @@
             "smithy.api#documentation": "<p>A list of the node IDs for the nodes that were actually restarted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#Role": {
@@ -25529,6 +25635,9 @@
             "smithy.api#documentation": "<p>The origin of the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#RunStatementResponse": {
@@ -25541,6 +25650,50 @@
             "smithy.api#documentation": "<p>Returns the Id of the statement that was run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.glue#S3CatalogHudiSource": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.glue#NodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Hudi data source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Database": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database to read from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table in the database to read from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalHudiOptions": {
+          "target": "com.amazonaws.glue#AdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional connection options.</p>"
+          }
+        },
+        "OutputSchemas": {
+          "target": "com.amazonaws.glue#GlueSchemas",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the data schema for the Hudi source.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>"
       }
     },
     "com.amazonaws.glue#S3CatalogSource": {
@@ -25939,6 +26092,163 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>"
+      }
+    },
+    "com.amazonaws.glue#S3HudiCatalogTarget": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.glue#NodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Inputs": {
+          "target": "com.amazonaws.glue#OneInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The nodes that are inputs to the data target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PartitionKeys": {
+          "target": "com.amazonaws.glue#GlueStudioPathList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies native partitioning using a sequence of keys.</p>"
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table in the database to write to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Database": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database to write to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalOptions": {
+          "target": "com.amazonaws.glue#AdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional connection options for the connector.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SchemaChangePolicy": {
+          "target": "com.amazonaws.glue#CatalogSchemaChangePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>A policy that specifies update behavior for the crawler.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>"
+      }
+    },
+    "com.amazonaws.glue#S3HudiDirectTarget": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.glue#NodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Inputs": {
+          "target": "com.amazonaws.glue#OneInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The nodes that are inputs to the data target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Path": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 path of your Hudi data source to write to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Compression": {
+          "target": "com.amazonaws.glue#HudiTargetCompressionType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PartitionKeys": {
+          "target": "com.amazonaws.glue#GlueStudioPathList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies native partitioning using a sequence of keys.</p>"
+          }
+        },
+        "Format": {
+          "target": "com.amazonaws.glue#TargetFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the data output format for the target.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalOptions": {
+          "target": "com.amazonaws.glue#AdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional connection options for the connector.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SchemaChangePolicy": {
+          "target": "com.amazonaws.glue#DirectSchemaChangePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>A policy that specifies update behavior for the crawler.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.glue#S3HudiSource": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.glue#NodeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Hudi source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Paths": {
+          "target": "com.amazonaws.glue#EnclosedInStringProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the Amazon S3 paths to read from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalHudiOptions": {
+          "target": "com.amazonaws.glue#AdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional connection options.</p>"
+          }
+        },
+        "AdditionalOptions": {
+          "target": "com.amazonaws.glue#S3DirectSourceAdditionalOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional options for the connector.</p>"
+          }
+        },
+        "OutputSchemas": {
+          "target": "com.amazonaws.glue#GlueSchemas",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the data schema for the Hudi source.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a Hudi data source stored in Amazon S3.</p>"
       }
     },
     "com.amazonaws.glue#S3JsonSource": {
@@ -26725,6 +27035,9 @@
             "smithy.api#documentation": "<p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>\n         <ul>\n            <li>\n               <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>\n            </li>\n            <li>\n               <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#SearchTablesResponse": {
@@ -26742,6 +27055,9 @@
             "smithy.api#documentation": "<p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#SecurityConfiguration": {
@@ -27578,6 +27894,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartBlueprintRunResponse": {
@@ -27589,6 +27908,9 @@
             "smithy.api#documentation": "<p>The run ID for this blueprint run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartCrawler": {
@@ -27624,11 +27946,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartCrawlerResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#StartCrawlerSchedule": {
       "type": "operation",
@@ -27669,11 +27997,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartCrawlerScheduleResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#StartDataQualityRuleRecommendationRun": {
       "type": "operation",
@@ -27743,6 +28077,9 @@
             "smithy.api#documentation": "<p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartDataQualityRuleRecommendationRunResponse": {
@@ -27754,6 +28091,9 @@
             "smithy.api#documentation": "<p>The unique run identifier associated with this run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartDataQualityRulesetEvaluationRun": {
@@ -27834,6 +28174,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartDataQualityRulesetEvaluationRunResponse": {
@@ -27845,6 +28188,9 @@
             "smithy.api#documentation": "<p>The unique run identifier associated with this run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartExportLabelsTaskRun": {
@@ -27890,6 +28236,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartExportLabelsTaskRunResponse": {
@@ -27901,6 +28250,9 @@
             "smithy.api#documentation": "<p>The unique identifier for the task run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartImportLabelsTaskRun": {
@@ -27956,6 +28308,9 @@
             "smithy.api#documentation": "<p>Indicates whether to overwrite your existing labels.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartImportLabelsTaskRunResponse": {
@@ -27967,6 +28322,9 @@
             "smithy.api#documentation": "<p>The unique identifier for the task run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartJobRun": {
@@ -28075,6 +28433,9 @@
             "smithy.api#documentation": "<p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>\n         <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>\n         <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartJobRunResponse": {
@@ -28086,6 +28447,9 @@
             "smithy.api#documentation": "<p>The ID assigned to this job run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartMLEvaluationTaskRun": {
@@ -28130,6 +28494,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartMLEvaluationTaskRunResponse": {
@@ -28141,6 +28508,9 @@
             "smithy.api#documentation": "<p>The unique identifier associated with this run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartMLLabelingSetGenerationTaskRun": {
@@ -28189,6 +28559,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartMLLabelingSetGenerationTaskRunResponse": {
@@ -28200,6 +28573,9 @@
             "smithy.api#documentation": "<p>The unique run identifier that is associated with this task run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartTrigger": {
@@ -28244,6 +28620,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartTriggerResponse": {
@@ -28255,6 +28634,9 @@
             "smithy.api#documentation": "<p>The name of the trigger that was started.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartWorkflowRun": {
@@ -28305,6 +28687,9 @@
             "smithy.api#documentation": "<p>The workflow run properties for the new workflow run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StartWorkflowRunResponse": {
@@ -28316,6 +28701,9 @@
             "smithy.api#documentation": "<p>An Id for the new run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StartingEventBatchCondition": {
@@ -28557,11 +28945,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StopCrawlerResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#StopCrawlerSchedule": {
       "type": "operation",
@@ -28599,11 +28993,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StopCrawlerScheduleResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#StopSession": {
       "type": "operation",
@@ -28653,6 +29053,9 @@
             "smithy.api#documentation": "<p>The origin of the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StopSessionResponse": {
@@ -28664,6 +29067,9 @@
             "smithy.api#documentation": "<p>Returns the Id of the stopped session.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StopTrigger": {
@@ -28705,6 +29111,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StopTriggerResponse": {
@@ -28716,6 +29125,9 @@
             "smithy.api#documentation": "<p>The name of the trigger that was stopped.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#StopWorkflowRun": {
@@ -28764,11 +29176,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#StopWorkflowRunResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#StorageDescriptor": {
       "type": "structure",
@@ -29345,11 +29763,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#TagValue": {
       "type": "string",
@@ -29406,6 +29830,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "parquet"
+          }
+        },
+        "HUDI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "hudi"
           }
         }
       }
@@ -30368,11 +30798,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateBehavior": {
       "type": "enum",
@@ -30446,6 +30882,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateBlueprintResponse": {
@@ -30457,6 +30896,9 @@
             "smithy.api#documentation": "<p>Returns the name of the blueprint that was updated.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateCatalogBehavior": {
@@ -30529,11 +30971,17 @@
             "smithy.api#documentation": "<p>A <code>CsvClassifier</code> object with updated fields.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateClassifierResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateColumnStatisticsForPartition": {
       "type": "operation",
@@ -30601,6 +31049,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateColumnStatisticsForPartitionResponse": {
@@ -30612,6 +31063,9 @@
             "smithy.api#documentation": "<p>Error occurred during updating column statistics data.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateColumnStatisticsForTable": {
@@ -30673,6 +31127,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateColumnStatisticsForTableResponse": {
@@ -30684,6 +31141,9 @@
             "smithy.api#documentation": "<p>List of ColumnStatisticsErrors.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateColumnStatisticsList": {
@@ -30747,11 +31207,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateConnectionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateCrawler": {
       "type": "operation",
@@ -30870,11 +31336,17 @@
             "smithy.api#documentation": "<p>The name of the <code>SecurityConfiguration</code> structure to be used by this\n      crawler.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateCrawlerResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateCrawlerSchedule": {
       "type": "operation",
@@ -30921,11 +31393,17 @@
             "smithy.api#documentation": "<p>The updated <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run\n      something every day at 12:15 UTC, you would specify:\n      <code>cron(15 12 * * ? *)</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateCrawlerScheduleResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateCsvClassifierRequest": {
       "type": "structure",
@@ -31053,6 +31531,9 @@
             "smithy.api#documentation": "<p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateDataQualityRulesetResponse": {
@@ -31076,6 +31557,9 @@
             "smithy.api#documentation": "<p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateDatabase": {
@@ -31133,11 +31617,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateDatabaseResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateDevEndpoint": {
       "type": "operation",
@@ -31221,11 +31711,17 @@
             "smithy.api#documentation": "<p>The map of arguments to add the map of arguments used to configure the\n        <code>DevEndpoint</code>.</p>\n         <p>Valid arguments are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>\"--enable-glue-datacatalog\": \"\"</code>\n               </p>\n            </li>\n         </ul>\n         <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateDevEndpointResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateGrokClassifierRequest": {
       "type": "structure",
@@ -31381,6 +31877,9 @@
             "smithy.api#documentation": "<p>The value of the authorization token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateJobFromSourceControlResponse": {
@@ -31392,6 +31891,9 @@
             "smithy.api#documentation": "<p>The name of the Glue job.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateJobRequest": {
@@ -31411,6 +31913,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateJobResponse": {
@@ -31422,6 +31927,9 @@
             "smithy.api#documentation": "<p>Returns the name of the updated job definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateJsonClassifierRequest": {
@@ -31544,6 +32052,9 @@
             "smithy.api#documentation": "<p>The maximum number of times to retry a task for this transform after a task run fails.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateMLTransformResponse": {
@@ -31555,6 +32066,9 @@
             "smithy.api#documentation": "<p>The unique identifier for the transform that was updated.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdatePartition": {
@@ -31623,11 +32137,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdatePartitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateRegistry": {
       "type": "operation",
@@ -31675,6 +32195,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateRegistryResponse": {
@@ -31692,6 +32215,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource name (ARN) of the updated registry.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateSchema": {
@@ -31751,6 +32277,9 @@
             "smithy.api#documentation": "<p>The new description for the schema.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateSchemaResponse": {
@@ -31774,6 +32303,9 @@
             "smithy.api#documentation": "<p>The name of the registry that contains the schema.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateSourceControlFromJob": {
@@ -31868,6 +32400,9 @@
             "smithy.api#documentation": "<p>The value of the authorization token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateSourceControlFromJobResponse": {
@@ -31879,6 +32414,9 @@
             "smithy.api#documentation": "<p>The name of the Glue job.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateTable": {
@@ -31960,11 +32498,17 @@
             "smithy.api#documentation": "<p>The version ID at which to update the table contents. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateTableResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateTrigger": {
       "type": "operation",
@@ -32012,6 +32556,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateTriggerResponse": {
@@ -32023,6 +32570,9 @@
             "smithy.api#documentation": "<p>The resulting trigger definition.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateUserDefinedFunction": {
@@ -32084,11 +32634,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateUserDefinedFunctionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.glue#UpdateWorkflow": {
       "type": "operation",
@@ -32147,6 +32703,9 @@
             "smithy.api#documentation": "<p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.glue#UpdateWorkflowResponse": {
@@ -32158,6 +32717,9 @@
             "smithy.api#documentation": "<p>The name of the workflow which was specified in input.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.glue#UpdateXMLClassifierRequest": {

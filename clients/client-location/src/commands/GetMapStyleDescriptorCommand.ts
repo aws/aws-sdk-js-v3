@@ -30,7 +30,7 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
 
 /**
  * <p>Retrieves the map style descriptor from a map resource. </p>
- *         <p>The style descriptor contains speciﬁcations on how features render on a map. For
+ *          <p>The style descriptor contains speciﬁcations on how features render on a map. For
  *             example, what data to display, what order to display the data in, and the style for the
  *             data. Style descriptors follow the Mapbox Style Specification.</p>
  * @example

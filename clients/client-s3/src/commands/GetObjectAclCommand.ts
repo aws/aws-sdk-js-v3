@@ -35,7 +35,7 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *             User Guide</i>
  *          </p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *             <p>
+ *          <p>
  *             <b>Versioning</b>
  *          </p>
  *          <p>By default, GET returns ACL information about the current version of an object. To

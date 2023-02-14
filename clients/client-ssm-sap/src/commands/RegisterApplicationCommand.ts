@@ -35,8 +35,8 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *          on Amazon EC2.</p>
  *          <p>AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the required
  *          IAM permissions.</p>
- *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets
- *          Manager to manage SAP applications and components.</p>
+ *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets Manager to
+ *          manage SAP applications and components.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

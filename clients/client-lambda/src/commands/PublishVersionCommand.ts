@@ -32,11 +32,9 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the
  *       current code and configuration of a function. Use versions to create a snapshot of your function code and
  *       configuration that doesn't change.</p>
- *
  *          <p>Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
  *       version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the
  *       function before publishing a version.</p>
- *
  *          <p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -29,12 +29,10 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *          subresource. To configure a bucket as a website, you can add this subresource on the bucket
  *          with website configuration information such as the file name of the index document and any
  *          redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>.</p>
- *
  *          <p>This PUT action requires the <code>S3:PutBucketWebsite</code> permission. By default,
  *          only the bucket owner can configure the website attached to a bucket; however, bucket
  *          owners can allow other users to set the website configuration by writing a bucket policy
  *          that grants them the <code>S3:PutBucketWebsite</code> permission.</p>
- *
  *          <p>To redirect all website requests sent to the bucket's website endpoint, you add a
  *          website configuration with the following elements. Because all requests are sent to another
  *          website, you don't need to provide index document name for the bucket.</p>
@@ -60,7 +58,6 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>If you want granular control over redirects, you can use the following elements to add
  *          routing rules that describe conditions for redirecting requests and information about the
  *          redirect destination. In this case, the website configuration must provide an index
@@ -147,7 +144,6 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more
  *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an
  *             Object Redirect</a> in the <i>Amazon S3 User Guide</i>.</p>

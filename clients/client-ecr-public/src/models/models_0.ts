@@ -9,7 +9,7 @@ import { ECRPUBLICServiceException as __BaseException } from "./ECRPUBLICService
 export interface AuthorizationData {
   /**
    * <p>A base64-encoded string that contains authorization data for a public Amazon ECR registry.
-   *          When the string is decoded, it is presented in the format <code>user:password</code> for
+   *          When the string is decoded, it's presented in the format <code>user:password</code> for
    *          public registry authentication using <code>docker login</code>.</p>
    */
   authorizationToken?: string;
@@ -23,13 +23,13 @@ export interface AuthorizationData {
 
 export interface BatchCheckLayerAvailabilityRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the image layers to
-   *          check. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, associated with the public registry that
+   *          contains the image layers to check. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository that is associated with the image layers to check.</p>
+   * <p>The name of the repository that's associated with the image layers to check.</p>
    */
   repositoryName: string | undefined;
 
@@ -45,16 +45,16 @@ export enum LayerFailureCode {
 }
 
 /**
- * <p>An object representing an Amazon ECR image layer failure.</p>
+ * <p>An object that represents an Amazon ECR image layer failure.</p>
  */
 export interface LayerFailure {
   /**
-   * <p>The layer digest associated with the failure.</p>
+   * <p>The layer digest that's associated with the failure.</p>
    */
   layerDigest?: string;
 
   /**
-   * <p>The failure code associated with the failure.</p>
+   * <p>The failure code that's associated with the failure.</p>
    */
   failureCode?: LayerFailureCode | string;
 
@@ -70,7 +70,7 @@ export enum LayerAvailability {
 }
 
 /**
- * <p>An object representing an Amazon ECR image layer.</p>
+ * <p>An object that represents an Amazon ECR image layer.</p>
  */
 export interface Layer {
   /**
@@ -98,7 +98,7 @@ export interface Layer {
 
 export interface BatchCheckLayerAvailabilityResponse {
   /**
-   * <p>A list of image layer objects corresponding to the image layer references in the
+   * <p>A list of image layer objects that correspond to the image layer references in the
    *          request.</p>
    */
   layers?: Layer[];
@@ -130,7 +130,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The registry does not exist.</p>
+ * <p>The registry doesn't exist.</p>
  */
 export class RegistryNotFoundException extends __BaseException {
   readonly name: "RegistryNotFoundException" = "RegistryNotFoundException";
@@ -149,8 +149,8 @@ export class RegistryNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified repository could not be found. Check the spelling of the specified
- *          repository and ensure that you are performing operations on the correct registry.</p>
+ * <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
  */
 export class RepositoryNotFoundException extends __BaseException {
   readonly name: "RepositoryNotFoundException" = "RepositoryNotFoundException";
@@ -188,6 +188,25 @@ export class ServerException extends __BaseException {
 }
 
 /**
+ * <p>The action isn't supported in this Region.</p>
+ */
+export class UnsupportedCommandException extends __BaseException {
+  readonly name: "UnsupportedCommandException" = "UnsupportedCommandException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedCommandException, __BaseException>) {
+    super({
+      name: "UnsupportedCommandException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedCommandException.prototype);
+  }
+}
+
+/**
  * <p>An object with identifying information for an Amazon ECR image.</p>
  */
 export interface ImageIdentifier {
@@ -197,15 +216,15 @@ export interface ImageIdentifier {
   imageDigest?: string;
 
   /**
-   * <p>The tag used for the image.</p>
+   * <p>The tag that's used for the image.</p>
    */
   imageTag?: string;
 }
 
 export interface BatchDeleteImageRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the image to delete.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the registry that contains the image to
+   *          delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -233,16 +252,16 @@ export enum ImageFailureCode {
 }
 
 /**
- * <p>An object representing an Amazon ECR image failure.</p>
+ * <p>An object that represents an Amazon ECR image failure.</p>
  */
 export interface ImageFailure {
   /**
-   * <p>The image ID associated with the failure.</p>
+   * <p>The image ID that's associated with the failure.</p>
    */
   imageId?: ImageIdentifier;
 
   /**
-   * <p>The code associated with the failure.</p>
+   * <p>The code that's associated with the failure.</p>
    */
   failureCode?: ImageFailureCode | string;
 
@@ -266,8 +285,8 @@ export interface BatchDeleteImageResponse {
 
 export interface CompleteLayerUploadRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which to upload layers.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, associated with the registry where layers are
+   *          uploaded. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -291,17 +310,17 @@ export interface CompleteLayerUploadRequest {
 
 export interface CompleteLayerUploadResponse {
   /**
-   * <p>The public registry ID associated with the request.</p>
+   * <p>The public registry ID that's associated with the request.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The repository name associated with the request.</p>
+   * <p>The repository name that's associated with the request.</p>
    */
   repositoryName?: string;
 
   /**
-   * <p>The upload ID associated with the layer.</p>
+   * <p>The upload ID that's associated with the layer.</p>
    */
   uploadId?: string;
 
@@ -312,7 +331,7 @@ export interface CompleteLayerUploadResponse {
 }
 
 /**
- * <p>The specified layer upload does not contain any layer parts.</p>
+ * <p>The specified layer upload doesn't contain any layer parts.</p>
  */
 export class EmptyUploadException extends __BaseException {
   readonly name: "EmptyUploadException" = "EmptyUploadException";
@@ -331,8 +350,8 @@ export class EmptyUploadException extends __BaseException {
 }
 
 /**
- * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not
- *          match the digest specified.</p>
+ * <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
+ *          digest specified.</p>
  */
 export class InvalidLayerException extends __BaseException {
   readonly name: "InvalidLayerException" = "InvalidLayerException";
@@ -389,26 +408,7 @@ export class LayerPartTooSmallException extends __BaseException {
 }
 
 /**
- * <p>The action is not supported in this Region.</p>
- */
-export class UnsupportedCommandException extends __BaseException {
-  readonly name: "UnsupportedCommandException" = "UnsupportedCommandException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedCommandException, __BaseException>) {
-    super({
-      name: "UnsupportedCommandException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedCommandException.prototype);
-  }
-}
-
-/**
- * <p>The upload could not be found, or the specified upload ID is not valid for this
+ * <p>The upload can't be found, or the specified upload ID isn't valid for this
  *          repository.</p>
  */
 export class UploadNotFoundException extends __BaseException {
@@ -428,8 +428,8 @@ export class UploadNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An object containing the catalog data for a repository. This data is publicly visible in
- *          the Amazon ECR Public Gallery.</p>
+ * <p>An object that contains the catalog data for a repository. This data is publicly visible
+ *          in the Amazon ECR Public Gallery.</p>
  */
 export interface RepositoryCatalogDataInput {
   /**
@@ -440,32 +440,13 @@ export interface RepositoryCatalogDataInput {
 
   /**
    * <p>The system architecture that the images in the repository are compatible with. On the
-   *          Amazon ECR Public Gallery, the following supported architectures will appear as badges on the
+   *          Amazon ECR Public Gallery, the following supported architectures appear as badges on the
    *          repository and are used as search filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Linux</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Windows</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    *          <note>
-   *             <p>If an unsupported tag is added to your repository catalog data, it will be associated
-   *             with the repository and can be retrieved using the API but will not be discoverable in
-   *             the Amazon ECR Public Gallery.</p>
+   *             <p>If an unsupported tag is added to your repository catalog data, it's associated with
+   *             the repository and can be retrieved using the API but isn't discoverable in the
+   *             Amazon ECR Public Gallery.</p>
    *          </note>
-   */
-  architectures?: string[];
-
-  /**
-   * <p>The operating systems that the images in the repository are compatible with. On the
-   *          Amazon ECR Public Gallery, the following supported operating systems will appear as badges on
-   *          the repository and are used as search filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -488,11 +469,30 @@ export interface RepositoryCatalogDataInput {
    *                </p>
    *             </li>
    *          </ul>
+   */
+  architectures?: string[];
+
+  /**
+   * <p>The operating systems that the images in the repository are compatible with. On the
+   *          Amazon ECR Public Gallery, the following supported operating systems appear as badges on the
+   *          repository and are used as search filters.</p>
    *          <note>
-   *             <p>If an unsupported tag is added to your repository catalog data, it will be associated
-   *             with the repository and can be retrieved using the API but will not be discoverable in
-   *             the Amazon ECR Public Gallery.</p>
+   *             <p>If an unsupported tag is added to your repository catalog data, it's associated with
+   *             the repository and can be retrieved using the API but isn't discoverable in the
+   *             Amazon ECR Public Gallery.</p>
    *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Linux</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Windows</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   operatingSystems?: string[];
 
@@ -506,13 +506,13 @@ export interface RepositoryCatalogDataInput {
   logoImageBlob?: Uint8Array;
 
   /**
-   * <p>A detailed description of the contents of the repository. It is publicly visible in the
+   * <p>A detailed description of the contents of the repository. It's publicly visible in the
    *          Amazon ECR Public Gallery. The text must be in markdown format.</p>
    */
   aboutText?: string;
 
   /**
-   * <p>Detailed information on how to use the contents of the repository. It is publicly
+   * <p>Detailed information about how to use the contents of the repository. It's publicly
    *          visible in the Amazon ECR Public Gallery. The usage text provides context, support information,
    *          and additional usage details for users of the repository. The text must be in markdown
    *          format.</p>
@@ -522,7 +522,7 @@ export interface RepositoryCatalogDataInput {
 
 /**
  * <p>The metadata that you apply to a resource to help you categorize and organize them. Each
- *          tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ *          tag consists of a key and an optional value. You define both. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
  */
 export interface Tag {
   /**
@@ -541,8 +541,8 @@ export interface Tag {
 export interface CreateRepositoryRequest {
   /**
    * <p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery.
-   *          The repository name may be specified on its own (such as <code>nginx-web-app</code>) or it
-   *          can be prepended with a namespace to group the repository into a category (such as
+   *          The repository name can be specified on its own (for example <code>nginx-web-app</code>) or
+   *          prepended with a namespace to group the repository into a category (for example
    *             <code>project-a/nginx-web-app</code>).</p>
    */
   repositoryName: string | undefined;
@@ -554,8 +554,8 @@ export interface CreateRepositoryRequest {
   catalogData?: RepositoryCatalogDataInput;
 
   /**
-   * <p>The metadata that you apply to the repository to help you categorize and organize them.
-   *          Each tag consists of a key and an optional value, both of which you define.
+   * <p>The metadata that you apply to each repository to help categorize and organize your
+   *          repositories. Each tag consists of a key and an optional value. You define both of them.
    *          Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
    */
   tags?: Tag[];
@@ -590,7 +590,7 @@ export interface RepositoryCatalogData {
   operatingSystems?: string[];
 
   /**
-   * <p>The URL containing the logo associated with the repository.</p>
+   * <p>The URL that contains the logo that's associated with the repository.</p>
    */
   logoUrl?: string;
 
@@ -607,7 +607,7 @@ export interface RepositoryCatalogData {
   usageText?: string;
 
   /**
-   * <p>Whether or not the repository is certified by AWS Marketplace.</p>
+   * <p>Indicates whether the repository is certified by Amazon Web Services Marketplace.</p>
    */
   marketplaceCertified?: boolean;
 }
@@ -617,12 +617,12 @@ export interface RepositoryCatalogData {
  */
 export interface Repository {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
    */
   repositoryArn?: string;
 
   /**
-   * <p>The AWS account ID associated with the public registry that contains the
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
    *          repository.</p>
    */
   registryId?: string;
@@ -677,7 +677,7 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
- * <p>The operation did not succeed because it would have exceeded a service limit for your
+ * <p>The operation didn't succeed because it would have exceeded a service limit for your
  *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
  *          Amazon Elastic Container Registry User Guide.</p>
  */
@@ -738,8 +738,8 @@ export class TooManyTagsException extends __BaseException {
 
 export interface DeleteRepositoryRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository to
-   *          delete. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
+   *          repository to delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -749,7 +749,8 @@ export interface DeleteRepositoryRequest {
   repositoryName: string | undefined;
 
   /**
-   * <p> If a repository contains images, forces the deletion.</p>
+   * <p> The force option can be used to delete a repository that contains images. If the force
+   *          option is not used, the repository must be empty prior to deletion.</p>
    */
   force?: boolean;
 }
@@ -783,13 +784,13 @@ export class RepositoryNotEmptyException extends __BaseException {
 
 export interface DeleteRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository
-   *          policy to delete. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
+   *          repository policy to delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository that is associated with the repository policy to
+   * <p>The name of the repository that's associated with the repository policy to
    *          delete.</p>
    */
   repositoryName: string | undefined;
@@ -797,12 +798,12 @@ export interface DeleteRepositoryPolicyRequest {
 
 export interface DeleteRepositoryPolicyResponse {
   /**
-   * <p>The registry ID associated with the request.</p>
+   * <p>The registry ID that's associated with the request.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The repository name associated with the request.</p>
+   * <p>The repository name that's associated with the request.</p>
    */
   repositoryName?: string;
 
@@ -813,7 +814,7 @@ export interface DeleteRepositoryPolicyResponse {
 }
 
 /**
- * <p>The specified repository and registry combination does not have an associated repository
+ * <p>The specified repository and registry combination doesn't have an associated repository
  *          policy.</p>
  */
 export class RepositoryPolicyNotFoundException extends __BaseException {
@@ -834,8 +835,8 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
 
 export interface DescribeImagesRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
+   *          repository where images are described. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -850,42 +851,42 @@ export interface DescribeImagesRequest {
   imageIds?: ImageIdentifier[];
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated
    *             <code>DescribeImages</code> request where <code>maxResults</code> was used and the
    *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return. This option cannot be used
-   *          when you specify images with <code>imageIds</code>.</p>
+   *          previous results that returned the <code>nextToken</code> value. If there are no more
+   *          results to return, this value is <code>null</code>. If you specify images with
+   *             <code>imageIds</code>, you can't use this option.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeImages</code> in
-   *          paginated output. When this parameter is used, <code>DescribeImages</code> only returns
+   * <p>The maximum number of repository results that's returned by <code>DescribeImages</code>
+   *          in paginated output. When this parameter is used, <code>DescribeImages</code> only returns
    *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *          response element. The remaining results of the initial request can be seen by sending
+   *          response element. You can see the remaining results of the initial request by sending
    *          another <code>DescribeImages</code> request with the returned <code>nextToken</code> value.
-   *          This value can be between 1 and 1000. If this parameter is not
+   *          This value can be between 1 and 1000. If this parameter isn't
    *          used, then <code>DescribeImages</code> returns up to 100 results and a
-   *             <code>nextToken</code> value, if applicable. This option cannot be used when you specify
-   *          images with <code>imageIds</code>.</p>
+   *             <code>nextToken</code> value, if applicable. If you specify images with
+   *             <code>imageIds</code>, you can't use this option.</p>
    */
   maxResults?: number;
 }
 
 /**
- * <p>An object that describes an image returned by a <a>DescribeImages</a>
+ * <p>An object that describes an image that's returned by a <a>DescribeImages</a>
  *          operation.</p>
  */
 export interface ImageDetail {
   /**
-   * <p>The AWS account ID associated with the public registry to which this image
+   * <p>The Amazon Web Services account ID that's associated with the public registry where this image
    *          belongs.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository to which this image belongs.</p>
+   * <p>The name of the repository where this image belongs.</p>
    */
   repositoryName?: string;
 
@@ -895,26 +896,26 @@ export interface ImageDetail {
   imageDigest?: string;
 
   /**
-   * <p>The list of tags associated with this image.</p>
+   * <p>The list of tags that's associated with this image.</p>
    */
   imageTags?: string[];
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
-   *          <p>If the image is a manifest list, this will be the max size of all manifests in the
+   *          <p>If the image is a manifest list, this is the max size of all manifests in the
    *          list.</p>
    *          <note>
    *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers before
    *             pushing them to a V2 Docker registry. The output of the <code>docker images</code>
-   *             command shows the uncompressed image size, so it may return a larger image size than the
-   *             image sizes returned by <a>DescribeImages</a>.</p>
+   *             command shows the uncompressed image size, so it might return a larger image size than
+   *             the image sizes that are returned by <a>DescribeImages</a>.</p>
    *          </note>
    */
   imageSizeInBytes?: number;
 
   /**
-   * <p>The date and time, expressed in standard JavaScript date format, at which the current
-   *          image was pushed to the repository. </p>
+   * <p>The date and time, expressed in standard JavaScript date format, that the current image
+   *          was pushed to the repository at. </p>
    */
   imagePushedAt?: Date;
 
@@ -939,14 +940,14 @@ export interface DescribeImagesResponse {
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeImages</code>
    *          request. When the results of a <code>DescribeImages</code> request exceed
-   *             <code>maxResults</code>, this value can be used to retrieve the next page of results.
-   *          This value is <code>null</code> when there are no more results to return.</p>
+   *             <code>maxResults</code>, you can use this value to retrieve the next page of results. If
+   *          there are no more results to return, this value is <code>null</code>.</p>
    */
   nextToken?: string;
 }
 
 /**
- * <p>The image requested does not exist in the specified repository.</p>
+ * <p>The image requested doesn't exist in the specified repository.</p>
  */
 export class ImageNotFoundException extends __BaseException {
   readonly name: "ImageNotFoundException" = "ImageNotFoundException";
@@ -966,8 +967,8 @@ export class ImageNotFoundException extends __BaseException {
 
 export interface DescribeImageTagsRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
+   *          repository where images are described. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -977,31 +978,32 @@ export interface DescribeImageTagsRequest {
   repositoryName: string | undefined;
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated
    *             <code>DescribeImageTags</code> request where <code>maxResults</code> was used and the
    *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return. This option cannot be used
-   *          when you specify images with <code>imageIds</code>.</p>
+   *          previous results that returned the <code>nextToken</code> value. If there are no more
+   *          results to return, this value is <code>null</code>. If you specify images with
+   *             <code>imageIds</code>, you can't use this option.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeImageTags</code> in
-   *          paginated output. When this parameter is used, <code>DescribeImageTags</code> only returns
-   *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *          response element. The remaining results of the initial request can be seen by sending
-   *          another <code>DescribeImageTags</code> request with the returned <code>nextToken</code>
-   *          value. This value can be between 1 and 1000. If this parameter
-   *          is not used, then <code>DescribeImageTags</code> returns up to 100
-   *          results and a <code>nextToken</code> value, if applicable. This option cannot be used when
-   *          you specify images with <code>imageIds</code>.</p>
+   * <p>The maximum number of repository results that's returned by
+   *             <code>DescribeImageTags</code> in paginated output. When this parameter is used,
+   *             <code>DescribeImageTags</code> only returns <code>maxResults</code> results in a single
+   *          page along with a <code>nextToken</code> response element. You can see the remaining
+   *          results of the initial request by sending another <code>DescribeImageTags</code> request
+   *          with the returned <code>nextToken</code> value. This value can be between 1
+   *          and 1000. If this parameter isn't used, then <code>DescribeImageTags</code>
+   *          returns up to 100 results and a <code>nextToken</code> value, if
+   *          applicable. If you specify images with <code>imageIds</code>, you can't use this
+   *          option.</p>
    */
   maxResults?: number;
 }
 
 /**
- * <p>An object that describes the image tag details returned by a <a>DescribeImageTags</a> action.</p>
+ * <p>An object that describes the image tag details that are returned by a <a>DescribeImageTags</a> action.</p>
  */
 export interface ReferencedImageDetail {
   /**
@@ -1011,20 +1013,20 @@ export interface ReferencedImageDetail {
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
-   *          <p>If the image is a manifest list, this will be the max size of all manifests in the
+   *          <p>If the image is a manifest list, this is the max size of all manifests in the
    *          list.</p>
    *          <note>
    *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers before
    *             pushing them to a V2 Docker registry. The output of the <code>docker images</code>
-   *             command shows the uncompressed image size, so it may return a larger image size than the
-   *             image sizes returned by <a>DescribeImages</a>.</p>
+   *             command shows the uncompressed image size, so it might return a larger image size than
+   *             the image sizes that are returned by <a>DescribeImages</a>.</p>
    *          </note>
    */
   imageSizeInBytes?: number;
 
   /**
-   * <p>The date and time, expressed in standard JavaScript date format, at which the current
-   *          image tag was pushed to the repository.</p>
+   * <p>The date and time, expressed in standard JavaScript date format, which the current image
+   *          tag was pushed to the repository at.</p>
    */
   imagePushedAt?: Date;
 
@@ -1040,16 +1042,16 @@ export interface ReferencedImageDetail {
 }
 
 /**
- * <p>An object representing the image tag details for an image.</p>
+ * <p>An object that represents the image tag details for an image.</p>
  */
 export interface ImageTagDetail {
   /**
-   * <p>The tag associated with the image.</p>
+   * <p>The tag that's associated with the image.</p>
    */
   imageTag?: string;
 
   /**
-   * <p>The time stamp indicating when the image tag was created.</p>
+   * <p>The time stamp that indicates when the image tag was created.</p>
    */
   createdAt?: Date;
 
@@ -1068,19 +1070,19 @@ export interface DescribeImageTagsResponse {
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeImageTags</code>
    *          request. When the results of a <code>DescribeImageTags</code> request exceed
-   *             <code>maxResults</code>, this value can be used to retrieve the next page of results.
-   *          This value is <code>null</code> when there are no more results to return.</p>
+   *             <code>maxResults</code>, you can use this value to retrieve the next page of results. If
+   *          there are no more results to return, this value is <code>null</code>.</p>
    */
   nextToken?: string;
 }
 
 export interface DescribeRegistriesRequest {
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated
    *             <code>DescribeRegistries</code> request where <code>maxResults</code> was used and the
    *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return.</p>
+   *          previous results that returned the <code>nextToken</code> value. If there are no more
+   *          results to return, this value is <code>null</code>.</p>
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
    *          </note>
@@ -1088,14 +1090,15 @@ export interface DescribeRegistriesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeRegistries</code> in
-   *          paginated output. When this parameter is used, <code>DescribeRegistries</code> only returns
-   *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *          response element. The remaining results of the initial request can be seen by sending
-   *          another <code>DescribeRegistries</code> request with the returned <code>nextToken</code>
-   *          value. This value can be between 1 and 1000. If this parameter
-   *          is not used, then <code>DescribeRegistries</code> returns up to 100
-   *          results and a <code>nextToken</code> value, if applicable.</p>
+   * <p>The maximum number of repository results that's returned by
+   *             <code>DescribeRegistries</code> in paginated output. When this parameter is used,
+   *             <code>DescribeRegistries</code> only returns <code>maxResults</code> results in a single
+   *          page along with a <code>nextToken</code> response element. The remaining results of the
+   *          initial request can be seen by sending another <code>DescribeRegistries</code> request with
+   *          the returned <code>nextToken</code> value. This value can be between 1 and
+   *          1000. If this parameter isn't used, then <code>DescribeRegistries</code>
+   *          returns up to 100 results and a <code>nextToken</code> value, if
+   *          applicable.</p>
    */
   maxResults?: number;
 }
@@ -1108,8 +1111,8 @@ export enum RegistryAliasStatus {
 
 /**
  * <p>An object representing the aliases for a public registry. A public registry is given an
- *          alias upon creation but a custom alias can be set using the Amazon ECR console. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html">Registries</a> in the
+ *          alias when it's created. However, a custom alias can be set using the Amazon ECR console. For
+ *          more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html">Registries</a> in the
  *             <i>Amazon Elastic Container Registry User Guide</i>.</p>
  */
 export interface RegistryAlias {
@@ -1124,19 +1127,19 @@ export interface RegistryAlias {
   status: RegistryAliasStatus | string | undefined;
 
   /**
-   * <p>Whether or not the registry alias is the primary alias for the registry. If true, the
+   * <p>Indicates whether the registry alias is the primary alias for the registry. If true, the
    *          alias is the primary registry alias and is displayed in both the repository URL and the
    *          image URI used in the <code>docker pull</code> commands on the Amazon ECR Public Gallery.</p>
    *          <note>
-   *             <p>A registry alias that is not the primary registry alias can be used in the repository
+   *             <p>A registry alias that isn't the primary registry alias can be used in the repository
    *             URI in a <code>docker pull</code> command.</p>
    *          </note>
    */
   primaryRegistryAlias: boolean | undefined;
 
   /**
-   * <p>Whether or not the registry alias is the default alias for the registry. When the first
-   *          public repository is created, your public registry is assigned a default registry
+   * <p>Indicates whether the registry alias is the default alias for the registry. When the
+   *          first public repository is created, your public registry is assigned a default registry
    *          alias.</p>
    */
   defaultRegistryAlias: boolean | undefined;
@@ -1147,7 +1150,8 @@ export interface RegistryAlias {
  */
 export interface Registry {
   /**
-   * <p>The AWS account ID associated with the registry. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the registry.
+   *          If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId: string | undefined;
 
@@ -1163,38 +1167,38 @@ export interface Registry {
   registryUri: string | undefined;
 
   /**
-   * <p>Whether the account is verified. This indicates whether the account is an AWS
-   *          Marketplace vendor. If an account is verified, each public repository will received a
-   *          verified account badge on the Amazon ECR Public Gallery.</p>
+   * <p>Indicates whether the account is a verified Amazon Web Services Marketplace vendor. If an account is verified,
+   *          each public repository receives a verified account badge on the
+   *          Amazon ECR Public Gallery.</p>
    */
   verified: boolean | undefined;
 
   /**
-   * <p>An array of objects representing the aliases for a public registry.</p>
+   * <p>An array of objects that represents the aliases for a public registry.</p>
    */
   aliases: RegistryAlias[] | undefined;
 }
 
 export interface DescribeRegistriesResponse {
   /**
-   * <p>An object containing the details for a public registry.</p>
+   * <p>An object that contains the details for a public registry.</p>
    */
   registries: Registry[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
-   *             <code>DescribeRepositories</code> request. When the results of a
-   *             <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can
-   *          be used to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
+   *             <code>DescribeRepositories</code> request. If the results of a
+   *             <code>DescribeRepositories</code> request exceed <code>maxResults</code>, you can use
+   *          this value to retrieve the next page of results. If there are no more results, this value
+   *          is <code>null</code>.</p>
    */
   nextToken?: string;
 }
 
 export interface DescribeRepositoriesRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repositories to be
-   *          described. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the registry that contains the repositories
+   *          to be described. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1205,12 +1209,12 @@ export interface DescribeRepositoriesRequest {
   repositoryNames?: string[];
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated
    *             <code>DescribeRepositories</code> request where <code>maxResults</code> was used and the
    *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return. This option cannot be used
-   *          when you specify repositories with <code>repositoryNames</code>.</p>
+   *          previous results that returned the <code>nextToken</code> value. If there are no more
+   *          results to return, this value is <code>null</code>. If you specify repositories with
+   *             <code>repositoryNames</code>, you can't use this option.</p>
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
    *          </note>
@@ -1218,16 +1222,16 @@ export interface DescribeRepositoriesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeRepositories</code>
-   *          in paginated output. When this parameter is used, <code>DescribeRepositories</code> only
-   *          returns <code>maxResults</code> results in a single page along with a
-   *             <code>nextToken</code> response element. The remaining results of the initial request
-   *          can be seen by sending another <code>DescribeRepositories</code> request with the returned
-   *             <code>nextToken</code> value. This value can be between 1 and
-   *          1000. If this parameter is not used, then <code>DescribeRepositories</code>
+   * <p>The maximum number of repository results that's returned by
+   *             <code>DescribeRepositories</code> in paginated output. When this parameter is used,
+   *             <code>DescribeRepositories</code> only returns <code>maxResults</code> results in a
+   *          single page along with a <code>nextToken</code> response element. You can see the remaining
+   *          results of the initial request by sending another <code>DescribeRepositories</code> request
+   *          with the returned <code>nextToken</code> value. This value can be between 1
+   *          and 1000. If this parameter isn't used, then <code>DescribeRepositories</code>
    *          returns up to 100 results and a <code>nextToken</code> value, if
-   *          applicable. This option cannot be used when you specify repositories with
-   *             <code>repositoryNames</code>.</p>
+   *          applicable. If you specify repositories with <code>repositoryNames</code>, you can't use
+   *          this option.</p>
    */
   maxResults?: number;
 }
@@ -1242,8 +1246,8 @@ export interface DescribeRepositoriesResponse {
    * <p>The <code>nextToken</code> value to include in a future
    *             <code>DescribeRepositories</code> request. When the results of a
    *             <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can
-   *          be used to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
+   *          be used to retrieve the next page of results. If there are no more results to return, this
+   *          value is <code>null</code>.</p>
    */
   nextToken?: string;
 }
@@ -1282,8 +1286,8 @@ export interface GetRegistryCatalogDataResponse {
 
 export interface GetRepositoryCatalogDataRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repositories to be
-   *          described. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the registry that contains the repositories
+   *          to be described. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1300,10 +1304,29 @@ export interface GetRepositoryCatalogDataResponse {
   catalogData?: RepositoryCatalogData;
 }
 
+/**
+ * <p>The repository catalog data doesn't exist.</p>
+ */
+export class RepositoryCatalogDataNotFoundException extends __BaseException {
+  readonly name: "RepositoryCatalogDataNotFoundException" = "RepositoryCatalogDataNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RepositoryCatalogDataNotFoundException, __BaseException>) {
+    super({
+      name: "RepositoryCatalogDataNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryCatalogDataNotFoundException.prototype);
+  }
+}
+
 export interface GetRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
+   *          repository. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1315,43 +1338,43 @@ export interface GetRepositoryPolicyRequest {
 
 export interface GetRepositoryPolicyResponse {
   /**
-   * <p>The registry ID associated with the request.</p>
+   * <p>The registry ID that's associated with the request.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The repository name associated with the request.</p>
+   * <p>The repository name that's associated with the request.</p>
    */
   repositoryName?: string;
 
   /**
-   * <p>The repository policy text associated with the repository. The policy text will be in
-   *          JSON format.</p>
+   * <p>The repository policy text that's associated with the repository. The policy text will
+   *          be in JSON format.</p>
    */
   policyText?: string;
 }
 
 /**
- * <p>An object representing an Amazon ECR image.</p>
+ * <p>An object that represents an Amazon ECR image.</p>
  */
 export interface Image {
   /**
-   * <p>The AWS account ID associated with the registry containing the image.</p>
+   * <p>The Amazon Web Services account ID that's associated with the registry containing the image.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository associated with the image.</p>
+   * <p>The name of the repository that's associated with the image.</p>
    */
   repositoryName?: string;
 
   /**
-   * <p>An object containing the image tag and image digest associated with an image.</p>
+   * <p>An object that contains the image tag and image digest associated with an image.</p>
    */
   imageId?: ImageIdentifier;
 
   /**
-   * <p>The image manifest associated with the image.</p>
+   * <p>The image manifest that's associated with the image.</p>
    */
   imageManifest?: string;
 
@@ -1382,7 +1405,7 @@ export class ImageAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified image digest does not match the digest that Amazon ECR calculated for the
+ * <p>The specified image digest doesn't match the digest that Amazon ECR calculated for the
  *          image.</p>
  */
 export class ImageDigestDoesNotMatchException extends __BaseException {
@@ -1423,13 +1446,13 @@ export class ImageTagAlreadyExistsException extends __BaseException {
 
 export interface InitiateLayerUploadRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which you intend to upload layers.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry to which
+   *          you intend to upload layers. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository to which you intend to upload layers.</p>
+   * <p>The name of the repository that you want to upload layers to.</p>
    */
   repositoryName: string | undefined;
 }
@@ -1447,14 +1470,14 @@ export interface InitiateLayerUploadResponse {
 }
 
 /**
- * <p>The layer part size is not valid, or the first byte specified is not consecutive to the
+ * <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
  *          last byte of a previous layer part upload.</p>
  */
 export class InvalidLayerPartException extends __BaseException {
   readonly name: "InvalidLayerPartException" = "InvalidLayerPartException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The AWS account ID associated with the layer part.</p>
+   * <p>The Amazon Web Services account ID that's associated with the layer part.</p>
    */
   registryId?: string;
 
@@ -1464,7 +1487,7 @@ export class InvalidLayerPartException extends __BaseException {
   repositoryName?: string;
 
   /**
-   * <p>The upload ID associated with the layer part.</p>
+   * <p>The upload ID that's associated with the layer part.</p>
    */
   uploadId?: string;
 
@@ -1491,7 +1514,7 @@ export class InvalidLayerPartException extends __BaseException {
 }
 
 /**
- * <p>The specified layers could not be found, or the specified layer is not valid for this
+ * <p>The specified layers can't be found, or the specified layer isn't valid for this
  *          repository.</p>
  */
 export class LayersNotFoundException extends __BaseException {
@@ -1512,7 +1535,7 @@ export class LayersNotFoundException extends __BaseException {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the
    *          supported resource is an Amazon ECR Public repository.</p>
    */
   resourceArn: string | undefined;
@@ -1527,25 +1550,25 @@ export interface ListTagsForResourceResponse {
 
 export interface PutImageRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to put the image. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, that's associated with the public registry that
+   *          contains the repository where the image is put. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository in which to put the image.</p>
+   * <p>The name of the repository where the image is put.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   * <p>The image manifest corresponding to the image to be uploaded.</p>
+   * <p>The image manifest that corresponds to the image to be uploaded.</p>
    */
   imageManifest: string | undefined;
 
   /**
-   * <p>The media type of the image manifest. If you push an image manifest that does not
-   *          contain the <code>mediaType</code> field, you must specify the
-   *             <code>imageManifestMediaType</code> in the request.</p>
+   * <p>The media type of the image manifest. If you push an image manifest that doesn't contain
+   *          the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code>
+   *          in the request.</p>
    */
   imageManifestMediaType?: string;
 
@@ -1556,7 +1579,7 @@ export interface PutImageRequest {
   imageTag?: string;
 
   /**
-   * <p>The image digest of the image manifest corresponding to the image.</p>
+   * <p>The image digest of the image manifest that corresponds to the image.</p>
    */
   imageDigest?: string;
 }
@@ -1569,7 +1592,7 @@ export interface PutImageResponse {
 }
 
 /**
- * <p>The manifest list is referencing an image that does not exist.</p>
+ * <p>The manifest list is referencing an image that doesn't exist.</p>
  */
 export class ReferencedImagesNotFoundException extends __BaseException {
   readonly name: "ReferencedImagesNotFoundException" = "ReferencedImagesNotFoundException";
@@ -1608,7 +1631,7 @@ export interface PutRegistryCatalogDataResponse {
 
 export interface PutRepositoryCatalogDataRequest {
   /**
-   * <p>The AWS account ID associated with the public registry the repository is in.
+   * <p>The Amazon Web Services account ID that's associated with the public registry the repository is in.
    *          If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
@@ -1634,7 +1657,7 @@ export interface PutRepositoryCatalogDataResponse {
 
 export interface SetRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID that's associated with the registry that contains the repository.
    *          If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
@@ -1652,34 +1675,34 @@ export interface SetRepositoryPolicyRequest {
   policyText: string | undefined;
 
   /**
-   * <p>If the policy you are attempting to set on a repository policy would prevent you from
-   *          setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This is intended to prevent accidental
-   *          repository lock outs.</p>
+   * <p>If the policy that you want to set on a repository policy would prevent you from setting
+   *          another policy in the future, you must force the <a>SetRepositoryPolicy</a>
+   *          operation. This prevents accidental repository lockouts.</p>
    */
   force?: boolean;
 }
 
 export interface SetRepositoryPolicyResponse {
   /**
-   * <p>The registry ID associated with the request.</p>
+   * <p>The registry ID that's associated with the request.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The repository name associated with the request.</p>
+   * <p>The repository name that's associated with the request.</p>
    */
   repositoryName?: string;
 
   /**
-   * <p>The JSON repository policy text applied to the repository.</p>
+   * <p>The JSON repository policy text that's applied to the repository.</p>
    */
   policyText?: string;
 }
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
-   *          supported resource is an Amazon ECR Public repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported
+   *          resource is an Amazon ECR Public repository.</p>
    */
   resourceArn: string | undefined;
 
@@ -1694,8 +1717,8 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported
-   *          resource is an Amazon ECR Public repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the supported resource is
+   *          an Amazon ECR Public repository.</p>
    */
   resourceArn: string | undefined;
 
@@ -1709,13 +1732,13 @@ export interface UntagResourceResponse {}
 
 export interface UploadLayerPartRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which you are uploading layer parts.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry that you're
+   *          uploading layer parts to. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The name of the repository to which you are uploading layer parts.</p>
+   * <p>The name of the repository that you're uploading layer parts to.</p>
    */
   repositoryName: string | undefined;
 
@@ -1743,22 +1766,22 @@ export interface UploadLayerPartRequest {
 
 export interface UploadLayerPartResponse {
   /**
-   * <p>The registry ID associated with the request.</p>
+   * <p>The registry ID that's associated with the request.</p>
    */
   registryId?: string;
 
   /**
-   * <p>The repository name associated with the request.</p>
+   * <p>The repository name that's associated with the request.</p>
    */
   repositoryName?: string;
 
   /**
-   * <p>The upload ID associated with the request.</p>
+   * <p>The upload ID that's associated with the request.</p>
    */
   uploadId?: string;
 
   /**
-   * <p>The integer value of the last byte received in the request.</p>
+   * <p>The integer value of the last byte that's received in the request.</p>
    */
   lastByteReceived?: number;
 }

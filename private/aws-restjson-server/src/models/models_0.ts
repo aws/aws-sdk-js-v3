@@ -10,6 +10,7 @@ import {
   CompositeStructureValidator as __CompositeStructureValidator,
   CompositeValidator as __CompositeValidator,
   EnumValidator as __EnumValidator,
+  IntegerEnumValidator as __IntegerEnumValidator,
   MultiConstraintValidator as __MultiConstraintValidator,
   NoOpValidator as __NoOpValidator,
   RequiredValidator as __RequiredValidator,
@@ -62,6 +63,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface AllQueryStringTypesInput {
   queryString?: string;
   queryStringList?: string[];
@@ -81,6 +88,8 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnum?: IntegerEnum | number;
+  queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
@@ -110,6 +119,8 @@ export namespace AllQueryStringTypesInput {
     queryTimestampList?: __MultiConstraintValidator<Iterable<Date>>;
     queryEnum?: __MultiConstraintValidator<string>;
     queryEnumList?: __MultiConstraintValidator<Iterable<string>>;
+    queryIntegerEnum?: __MultiConstraintValidator<number>;
+    queryIntegerEnumList?: __MultiConstraintValidator<Iterable<number>>;
     queryParamsMapOfStringList?: __MultiConstraintValidator<Record<string, string[]>>;
   } = {};
   /**
@@ -219,6 +230,19 @@ export namespace AllQueryStringTypesInput {
             );
             break;
           }
+          case "queryIntegerEnum": {
+            memberValidators["queryIntegerEnum"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "queryIntegerEnumList": {
+            memberValidators["queryIntegerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
           case "queryParamsMapOfStringList": {
             memberValidators["queryParamsMapOfStringList"] = new __CompositeMapValidator<string[]>(
               new __NoOpValidator(),
@@ -250,6 +274,8 @@ export namespace AllQueryStringTypesInput {
       ...getMemberValidator("queryTimestampList").validate(obj.queryTimestampList, `${path}/queryTimestampList`),
       ...getMemberValidator("queryEnum").validate(obj.queryEnum, `${path}/queryEnum`),
       ...getMemberValidator("queryEnumList").validate(obj.queryEnumList, `${path}/queryEnumList`),
+      ...getMemberValidator("queryIntegerEnum").validate(obj.queryIntegerEnum, `${path}/queryIntegerEnum`),
+      ...getMemberValidator("queryIntegerEnumList").validate(obj.queryIntegerEnumList, `${path}/queryIntegerEnumList`),
       ...getMemberValidator("queryParamsMapOfStringList").validate(
         obj.queryParamsMapOfStringList,
         `${path}/queryParamsMapOfStringList`
@@ -393,6 +419,41 @@ export namespace ConstantQueryStringInput {
       return memberValidators[member]!;
     }
     return [...getMemberValidator("hello").validate(obj.hello, `${path}/hello`)];
+  };
+}
+
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+export namespace DatetimeOffsetsOutput {
+  const memberValidators: {
+    datetime?: __MultiConstraintValidator<Date>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DatetimeOffsetsOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<typeof memberValidators[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "datetime": {
+            memberValidators["datetime"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`)];
   };
 }
 
@@ -1465,6 +1526,8 @@ export interface InputAndOutputWithHeadersIO {
   headerTimestampList?: Date[];
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerIntegerEnum?: IntegerEnum | number;
+  headerIntegerEnumList?: (IntegerEnum | number)[];
 }
 
 /**
@@ -1491,6 +1554,8 @@ export namespace InputAndOutputWithHeadersIO {
     headerTimestampList?: __MultiConstraintValidator<Iterable<Date>>;
     headerEnum?: __MultiConstraintValidator<string>;
     headerEnumList?: __MultiConstraintValidator<Iterable<string>>;
+    headerIntegerEnum?: __MultiConstraintValidator<number>;
+    headerIntegerEnumList?: __MultiConstraintValidator<Iterable<number>>;
   } = {};
   /**
    * @internal
@@ -1585,6 +1650,19 @@ export namespace InputAndOutputWithHeadersIO {
             );
             break;
           }
+          case "headerIntegerEnum": {
+            memberValidators["headerIntegerEnum"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "headerIntegerEnumList": {
+            memberValidators["headerIntegerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
         }
       }
       return memberValidators[member]!;
@@ -1606,6 +1684,11 @@ export namespace InputAndOutputWithHeadersIO {
       ...getMemberValidator("headerTimestampList").validate(obj.headerTimestampList, `${path}/headerTimestampList`),
       ...getMemberValidator("headerEnum").validate(obj.headerEnum, `${path}/headerEnum`),
       ...getMemberValidator("headerEnumList").validate(obj.headerEnumList, `${path}/headerEnumList`),
+      ...getMemberValidator("headerIntegerEnum").validate(obj.headerIntegerEnum, `${path}/headerIntegerEnum`),
+      ...getMemberValidator("headerIntegerEnumList").validate(
+        obj.headerIntegerEnumList,
+        `${path}/headerIntegerEnumList`
+      ),
     ];
   };
 }
@@ -1733,6 +1816,94 @@ export namespace JsonEnumsInputOutput {
   };
 }
 
+export interface JsonIntEnumsInputOutput {
+  integerEnum1?: IntegerEnum | number;
+  integerEnum2?: IntegerEnum | number;
+  integerEnum3?: IntegerEnum | number;
+  integerEnumList?: (IntegerEnum | number)[];
+  integerEnumSet?: (IntegerEnum | number)[];
+  integerEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const JsonIntEnumsInputOutputFilterSensitiveLog = (obj: JsonIntEnumsInputOutput): any => ({
+  ...obj,
+});
+export namespace JsonIntEnumsInputOutput {
+  const memberValidators: {
+    integerEnum1?: __MultiConstraintValidator<number>;
+    integerEnum2?: __MultiConstraintValidator<number>;
+    integerEnum3?: __MultiConstraintValidator<number>;
+    integerEnumList?: __MultiConstraintValidator<Iterable<number>>;
+    integerEnumSet?: __MultiConstraintValidator<Iterable<number>>;
+    integerEnumMap?: __MultiConstraintValidator<Record<string, IntegerEnum | number>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: JsonIntEnumsInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<typeof memberValidators[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "integerEnum1": {
+            memberValidators["integerEnum1"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnum2": {
+            memberValidators["integerEnum2"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnum3": {
+            memberValidators["integerEnum3"] = new __CompositeValidator<number>([
+              new __IntegerEnumValidator([1, 2, 3]),
+            ]);
+            break;
+          }
+          case "integerEnumList": {
+            memberValidators["integerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+          case "integerEnumSet": {
+            memberValidators["integerEnumSet"] = new __CompositeCollectionValidator<number>(
+              new __CompositeValidator<(IntegerEnum | number)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+          case "integerEnumMap": {
+            memberValidators["integerEnumMap"] = new __CompositeMapValidator<IntegerEnum | number>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("integerEnum1").validate(obj.integerEnum1, `${path}/integerEnum1`),
+      ...getMemberValidator("integerEnum2").validate(obj.integerEnum2, `${path}/integerEnum2`),
+      ...getMemberValidator("integerEnum3").validate(obj.integerEnum3, `${path}/integerEnum3`),
+      ...getMemberValidator("integerEnumList").validate(obj.integerEnumList, `${path}/integerEnumList`),
+      ...getMemberValidator("integerEnumSet").validate(obj.integerEnumSet, `${path}/integerEnumSet`),
+      ...getMemberValidator("integerEnumMap").validate(obj.integerEnumMap, `${path}/integerEnumMap`),
+    ];
+  };
+}
+
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -1785,6 +1956,7 @@ export interface JsonListsInputOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -1808,6 +1980,7 @@ export namespace JsonListsInputOutput {
     booleanList?: __MultiConstraintValidator<Iterable<boolean>>;
     timestampList?: __MultiConstraintValidator<Iterable<Date>>;
     enumList?: __MultiConstraintValidator<Iterable<string>>;
+    intEnumList?: __MultiConstraintValidator<Iterable<number>>;
     nestedStringList?: __MultiConstraintValidator<Iterable<string[]>>;
     structureList?: __MultiConstraintValidator<Iterable<StructureListMember>>;
   } = {};
@@ -1869,6 +2042,13 @@ export namespace JsonListsInputOutput {
             );
             break;
           }
+          case "intEnumList": {
+            memberValidators["intEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
           case "nestedStringList": {
             memberValidators["nestedStringList"] = new __CompositeCollectionValidator<string[]>(
               new __NoOpValidator(),
@@ -1898,6 +2078,7 @@ export namespace JsonListsInputOutput {
       ...getMemberValidator("booleanList").validate(obj.booleanList, `${path}/booleanList`),
       ...getMemberValidator("timestampList").validate(obj.timestampList, `${path}/timestampList`),
       ...getMemberValidator("enumList").validate(obj.enumList, `${path}/enumList`),
+      ...getMemberValidator("intEnumList").validate(obj.intEnumList, `${path}/intEnumList`),
       ...getMemberValidator("nestedStringList").validate(obj.nestedStringList, `${path}/nestedStringList`),
       ...getMemberValidator("structureList").validate(obj.structureList, `${path}/structureList`),
     ];
@@ -2053,8 +2234,11 @@ export namespace JsonMapsInputOutput {
 export interface JsonTimestampsInputOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**
@@ -2067,8 +2251,11 @@ export namespace JsonTimestampsInputOutput {
   const memberValidators: {
     normal?: __MultiConstraintValidator<Date>;
     dateTime?: __MultiConstraintValidator<Date>;
+    dateTimeOnTarget?: __MultiConstraintValidator<Date>;
     epochSeconds?: __MultiConstraintValidator<Date>;
+    epochSecondsOnTarget?: __MultiConstraintValidator<Date>;
     httpDate?: __MultiConstraintValidator<Date>;
+    httpDateOnTarget?: __MultiConstraintValidator<Date>;
   } = {};
   /**
    * @internal
@@ -2087,12 +2274,24 @@ export namespace JsonTimestampsInputOutput {
             memberValidators["dateTime"] = new __NoOpValidator();
             break;
           }
+          case "dateTimeOnTarget": {
+            memberValidators["dateTimeOnTarget"] = new __NoOpValidator();
+            break;
+          }
           case "epochSeconds": {
             memberValidators["epochSeconds"] = new __NoOpValidator();
             break;
           }
+          case "epochSecondsOnTarget": {
+            memberValidators["epochSecondsOnTarget"] = new __NoOpValidator();
+            break;
+          }
           case "httpDate": {
             memberValidators["httpDate"] = new __NoOpValidator();
+            break;
+          }
+          case "httpDateOnTarget": {
+            memberValidators["httpDateOnTarget"] = new __NoOpValidator();
             break;
           }
         }
@@ -2102,8 +2301,11 @@ export namespace JsonTimestampsInputOutput {
     return [
       ...getMemberValidator("normal").validate(obj.normal, `${path}/normal`),
       ...getMemberValidator("dateTime").validate(obj.dateTime, `${path}/dateTime`),
+      ...getMemberValidator("dateTimeOnTarget").validate(obj.dateTimeOnTarget, `${path}/dateTimeOnTarget`),
       ...getMemberValidator("epochSeconds").validate(obj.epochSeconds, `${path}/epochSeconds`),
+      ...getMemberValidator("epochSecondsOnTarget").validate(obj.epochSecondsOnTarget, `${path}/epochSecondsOnTarget`),
       ...getMemberValidator("httpDate").validate(obj.httpDate, `${path}/httpDate`),
+      ...getMemberValidator("httpDateOnTarget").validate(obj.httpDateOnTarget, `${path}/httpDateOnTarget`),
     ];
   };
 }

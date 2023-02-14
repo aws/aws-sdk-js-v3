@@ -29,7 +29,7 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from a trail or event data store.</p>
+ * <p>Removes the specified tags from a trail, event data store, or channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

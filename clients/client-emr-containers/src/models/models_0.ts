@@ -176,7 +176,7 @@ export enum TemplateParameterDataType {
  */
 export interface TemplateParameterConfiguration {
   /**
-   * <p>The type of the job template parameter. Allowed values are: ‘String’, ‘Number’.</p>
+   * <p>The type of the job template parameter. Allowed values are: ‘STRING’, ‘NUMBER’.</p>
    */
   type?: TemplateParameterDataType | string;
 
@@ -302,11 +302,11 @@ export interface CreateManagedEndpointResponse {
 }
 
 /**
- * <p>The information about the EKS cluster.</p>
+ * <p>The information about the Amazon EKS cluster.</p>
  */
 export interface EksInfo {
   /**
-   * <p>The namespaces of the EKS cluster.</p>
+   * <p>The namespaces of the Amazon EKS cluster.</p>
    */
   namespace?: string;
 }
@@ -318,7 +318,7 @@ export type ContainerInfo = ContainerInfo.EksInfoMember | ContainerInfo.$Unknown
 
 export namespace ContainerInfo {
   /**
-   * <p>The information about the EKS cluster.</p>
+   * <p>The information about the Amazon EKS cluster.</p>
    */
   export interface EksInfoMember {
     eksInfo: EksInfo;
@@ -350,7 +350,7 @@ export enum ContainerProviderType {
  */
 export interface ContainerProvider {
   /**
-   * <p>The type of the container provider. EKS is the only supported type as of now.</p>
+   * <p>The type of the container provider. Amazon EKS is the only supported type as of now.</p>
    */
   type: ContainerProviderType | string | undefined;
 
@@ -475,6 +475,26 @@ export enum FailureReason {
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
+/**
+ * <p>The configuration of the retry policy that the job runs on.</p>
+ */
+export interface RetryPolicyConfiguration {
+  /**
+   * <p>The maximum number of attempts on the job's driver.</p>
+   */
+  maxAttempts: number | undefined;
+}
+
+/**
+ * <p>The current status of the retry policy executed on the job.</p>
+ */
+export interface RetryPolicyExecution {
+  /**
+   * <p>The current number of attempts made on the driver of the job.</p>
+   */
+  currentAttemptCount: number | undefined;
+}
+
 export enum JobRunState {
   CANCELLED = "CANCELLED",
   CANCEL_PENDING = "CANCEL_PENDING",
@@ -545,7 +565,7 @@ export enum VirtualClusterState {
  * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
  *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host
  *          endpoints. Multiple virtual clusters can be backed by the same physical cluster. However,
- *          each virtual cluster maps to one namespace on an EKS cluster. Virtual clusters do not
+ *          each virtual cluster maps to one namespace on an Amazon EKS cluster. Virtual clusters do not
  *          create any active resources that contribute to your bill or that require lifecycle
  *          management outside the service.</p>
  */
@@ -710,7 +730,7 @@ export interface ListVirtualClustersRequest {
   containerProviderId?: string;
 
   /**
-   * <p>The container provider type of the virtual cluster. EKS is the only supported type as of
+   * <p>The container provider type of the virtual cluster. Amazon EKS is the only supported type as of
    *          now.</p>
    */
   containerProviderType?: ContainerProviderType | string;
@@ -887,8 +907,8 @@ export interface CreateManagedEndpointRequest {
   /**
    * @deprecated
    *
-   * <p>The certificate ARN provided by users for the managed endpoint. This field
-   *          is under deprecation and will be removed in future releases.</p>
+   * <p>The certificate ARN provided by users for the managed endpoint. This field is under
+   *          deprecation and will be removed in future releases.</p>
    */
   certificateArn?: string;
 
@@ -903,8 +923,7 @@ export interface CreateManagedEndpointRequest {
   clientToken?: string;
 
   /**
-   * <p>The tags of the managed endpoint.
-   *       </p>
+   * <p>The tags of the managed endpoint. </p>
    */
   tags?: Record<string, string>;
 }
@@ -1093,6 +1112,16 @@ export interface JobRun {
    * <p>The assigned tags of the job run.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration of the retry policy that the job runs on.</p>
+   */
+  retryPolicyConfiguration?: RetryPolicyConfiguration;
+
+  /**
+   * <p>The current status of the retry policy executed on the job.</p>
+   */
+  retryPolicyExecution?: RetryPolicyExecution;
 }
 
 /**
@@ -1182,6 +1211,11 @@ export interface StartJobRunRequest {
    * <p>The values of job template parameters to start a job run.</p>
    */
   jobTemplateParameters?: Record<string, string>;
+
+  /**
+   * <p>The retry policy configuration for the job run.</p>
+   */
+  retryPolicyConfiguration?: RetryPolicyConfiguration;
 }
 
 export interface CreateJobTemplateRequest {
@@ -1516,6 +1550,20 @@ export const DeleteVirtualClusterResponseFilterSensitiveLog = (obj: DeleteVirtua
  * @internal
  */
 export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryPolicyConfigurationFilterSensitiveLog = (obj: RetryPolicyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryPolicyExecutionFilterSensitiveLog = (obj: RetryPolicyExecution): any => ({
   ...obj,
 });
 

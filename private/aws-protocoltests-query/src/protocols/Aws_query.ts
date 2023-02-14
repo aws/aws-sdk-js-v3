@@ -13,7 +13,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
@@ -32,6 +32,7 @@ import {
 import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -80,6 +81,7 @@ import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "../comman
 import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "../commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
@@ -89,6 +91,7 @@ import {
   ComplexError,
   ComplexNestedErrorData,
   CustomCodeError,
+  DatetimeOffsetsOutput,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FlattenedXmlMapOutput,
@@ -99,6 +102,7 @@ import {
   GreetingWithErrorsOutput,
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
+  IntegerEnum,
   InvalidGreeting,
   NestedStructuresInput,
   NestedStructWithList,
@@ -118,6 +122,7 @@ import {
   StructureListMember,
   XmlBlobsOutput,
   XmlEnumsOutput,
+  XmlIntEnumsOutput,
   XmlListsOutput,
   XmlMapsOutput,
   XmlMapsXmlNameOutput,
@@ -126,6 +131,20 @@ import {
   XmlTimestampsOutput,
 } from "../models/models_0";
 import { QueryProtocolServiceException as __BaseException } from "../models/QueryProtocolServiceException";
+
+export const serializeAws_queryDatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "DatetimeOffsets",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
@@ -499,6 +518,20 @@ export const serializeAws_queryXmlEnumsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryXmlIntEnumsCommand = async (
+  input: XmlIntEnumsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "XmlIntEnums",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryXmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
@@ -567,6 +600,41 @@ export const serializeAws_queryXmlTimestampsCommand = async (
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_queryDatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDatetimeOffsetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDatetimeOffsetsOutput(data.DatetimeOffsetsResult, context);
+  const response: DatetimeOffsetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_queryEmptyInputAndEmptyOutputCommand = async (
@@ -1394,6 +1462,41 @@ const deserializeAws_queryXmlEnumsCommandError = async (
   });
 };
 
+export const deserializeAws_queryXmlIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryXmlIntEnumsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryXmlIntEnumsOutput(data.XmlIntEnumsResult, context);
+  const response: XmlIntEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryXmlIntEnumsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_queryXmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1903,6 +2006,9 @@ const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput,
   if (input.FooEnum != null) {
     entries["FooEnum"] = input.FooEnum;
   }
+  if (input.IntegerEnum != null) {
+    entries["IntegerEnum"] = input.IntegerEnum;
+  }
   return entries;
 };
 
@@ -2004,6 +2110,16 @@ const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContex
   };
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+  const contents: any = {
+    datetime: undefined,
+  };
+  if (output["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
   }
   return contents;
 };
@@ -2328,6 +2444,51 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
   return contents;
 };
 
+const deserializeAws_queryXmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnumsOutput => {
+  const contents: any = {
+    intEnum1: undefined,
+    intEnum2: undefined,
+    intEnum3: undefined,
+    intEnumList: undefined,
+    intEnumSet: undefined,
+    intEnumMap: undefined,
+  };
+  if (output["intEnum1"] !== undefined) {
+    contents.intEnum1 = __strictParseInt32(output["intEnum1"]) as number;
+  }
+  if (output["intEnum2"] !== undefined) {
+    contents.intEnum2 = __strictParseInt32(output["intEnum2"]) as number;
+  }
+  if (output["intEnum3"] !== undefined) {
+    contents.intEnum3 = __strictParseInt32(output["intEnum3"]) as number;
+  }
+  if (output.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_queryIntegerEnumList(
+      __getArrayIfSingleItem(output["intEnumList"]["member"]),
+      context
+    );
+  }
+  if (output.intEnumSet === "") {
+    contents.intEnumSet = [];
+  } else if (output["intEnumSet"] !== undefined && output["intEnumSet"]["member"] !== undefined) {
+    contents.intEnumSet = deserializeAws_queryIntegerEnumSet(
+      __getArrayIfSingleItem(output["intEnumSet"]["member"]),
+      context
+    );
+  }
+  if (output.intEnumMap === "") {
+    contents.intEnumMap = {};
+  } else if (output["intEnumMap"] !== undefined && output["intEnumMap"]["entry"] !== undefined) {
+    contents.intEnumMap = deserializeAws_queryIntegerEnumMap(
+      __getArrayIfSingleItem(output["intEnumMap"]["entry"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   const contents: any = {
     stringList: undefined,
@@ -2336,6 +2497,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
     booleanList: undefined,
     timestampList: undefined,
     enumList: undefined,
+    intEnumList: undefined,
     nestedStringList: undefined,
     renamedListMembers: undefined,
     flattenedList: undefined,
@@ -2385,6 +2547,14 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
     contents.enumList = [];
   } else if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_queryFooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
+  }
+  if (output.intEnumList === "") {
+    contents.intEnumList = [];
+  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
+    contents.intEnumList = deserializeAws_queryIntegerEnumList(
+      __getArrayIfSingleItem(output["intEnumList"]["member"]),
+      context
+    );
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
@@ -2536,20 +2706,32 @@ const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeCo
   const contents: any = {
     normal: undefined,
     dateTime: undefined,
+    dateTimeOnTarget: undefined,
     epochSeconds: undefined,
+    epochSecondsOnTarget: undefined,
     httpDate: undefined,
+    httpDateOnTarget: undefined,
   };
   if (output["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTime(output["normal"]));
+    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["normal"]));
   }
   if (output["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(output["dateTime"]));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTime"]));
+  }
+  if (output["dateTimeOnTarget"] !== undefined) {
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTimeOnTarget"]));
   }
   if (output["epochSeconds"] !== undefined) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(output["epochSeconds"]));
   }
+  if (output["epochSecondsOnTarget"] !== undefined) {
+    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(output["epochSecondsOnTarget"]));
+  }
   if (output["httpDate"] !== undefined) {
     contents.httpDate = __expectNonNull(__parseRfc7231DateTime(output["httpDate"]));
+  }
+  if (output["httpDateOnTarget"] !== undefined) {
+    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(output["httpDateOnTarget"]));
   }
   return contents;
 };
@@ -2598,6 +2780,35 @@ const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext
   return contents;
 };
 
+const deserializeAws_queryIntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
+    });
+};
+
+const deserializeAws_queryIntegerEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IntegerEnum | number> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_queryIntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
+    });
+};
+
 const deserializeAws_queryIntegerList = (output: any, context: __SerdeContext): number[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2634,7 +2845,7 @@ const deserializeAws_queryTimestampList = (output: any, context: __SerdeContext)
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return __expectNonNull(__parseRfc3339DateTime(entry));
+      return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
 };
 
@@ -2724,7 +2935,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

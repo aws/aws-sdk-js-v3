@@ -605,6 +605,21 @@ export interface PutSessionResponse {
   audioStream?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * <p>The bot member that processes the request.</p>
+ */
+export interface RecognizedBotMember {
+  /**
+   * <p>The identifier of the bot member that processes the request.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The name of the bot member that processes the request.</p>
+   */
+  botName?: string;
+}
+
 export interface RecognizeUtteranceRequest {
   /**
    * <p>The identifier of the bot that should receive the request.</p>
@@ -700,7 +715,7 @@ export interface RecognizeUtteranceRequest {
    *                <p>If the value begins with <code>audio/</code>, Amazon Lex V2 returns
    *                speech in the response. Amazon Lex V2 uses Amazon Polly to generate the speech
    *                using the configuration that you specified in the
-   *                   <code>requestContentType</code> parameter. For example, if you
+   *                   <code>responseContentType</code> parameter. For example, if you
    *                specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns
    *                speech in the MPEG format.</p>
    *             </li>
@@ -831,6 +846,11 @@ export interface RecognizeUtteranceResponse {
    *          response.</p>
    */
   audioStream?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The bot member that recognized the utterance.</p>
+   */
+  recognizedBotMember?: string;
 }
 
 export enum ConversationMode {
@@ -1712,7 +1732,6 @@ export interface IntentResultEvent {
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance.</p>
-   *
    *          <p>Each interpretation includes the intent, a score that indicates how
    *          confident Amazon Lex V2 is that the interpretation is the correct one, and an
    *          optional sentiment response that indicates the sentiment expressed in
@@ -1742,6 +1761,11 @@ export interface IntentResultEvent {
    *          session.</p>
    */
   eventId?: string;
+
+  /**
+   * <p>The bot member that is processing the intent.</p>
+   */
+  recognizedBotMember?: RecognizedBotMember;
 }
 
 export interface RecognizeTextResponse {
@@ -1779,6 +1803,11 @@ export interface RecognizeTextResponse {
    * <p>The identifier of the session in use.</p>
    */
   sessionId?: string;
+
+  /**
+   * <p>The bot member that recognized the text.</p>
+   */
+  recognizedBotMember?: RecognizedBotMember;
 }
 
 /**
@@ -2294,6 +2323,13 @@ export const RuntimeHintValueFilterSensitiveLog = (obj: RuntimeHintValue): any =
  * @internal
  */
 export const PutSessionResponseFilterSensitiveLog = (obj: PutSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizedBotMemberFilterSensitiveLog = (obj: RecognizedBotMember): any => ({
   ...obj,
 });
 

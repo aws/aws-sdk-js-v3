@@ -30,11 +30,30 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
 
 /**
  * <p>Creates a configuration profile, which is information that enables AppConfig
- *          to access the configuration source. Valid configuration sources include the AppConfig hosted configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store
- *          parameters, Amazon S3 objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
- *             action</a> supported by CodePipeline. A configuration profile includes the following
- *          information:</p>
- *
+ *          to access the configuration source. Valid configuration sources include the
+ *          following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p>
+ *             </li>
+ *             <li>
+ *                <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
+ *                bucket</p>
+ *             </li>
+ *             <li>
+ *                <p>Pipelines stored in CodePipeline</p>
+ *             </li>
+ *             <li>
+ *                <p>Secrets stored in Secrets Manager</p>
+ *             </li>
+ *             <li>
+ *                <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p>
+ *             </li>
+ *             <li>
+ *                <p>Configuration data in SSM documents stored in the Systems Manager document store</p>
+ *             </li>
+ *          </ul>
+ *          <p>A configuration profile includes the following information:</p>
  *          <ul>
  *             <li>
  *                <p>The URI location of the configuration data.</p>

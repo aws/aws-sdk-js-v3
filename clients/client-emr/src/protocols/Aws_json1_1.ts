@@ -8,6 +8,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -67,6 +68,10 @@ import {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "../commands/GetBlockPublicAccessConfigurationCommand";
+import {
+  GetClusterSessionCredentialsCommandInput,
+  GetClusterSessionCredentialsCommandOutput,
+} from "../commands/GetClusterSessionCredentialsCommand";
 import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
@@ -197,6 +202,7 @@ import {
   CreateStudioInput,
   CreateStudioOutput,
   CreateStudioSessionMappingInput,
+  Credentials,
   DeleteSecurityConfigurationInput,
   DeleteSecurityConfigurationOutput,
   DeleteStudioInput,
@@ -226,6 +232,8 @@ import {
   GetAutoTerminationPolicyOutput,
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
+  GetClusterSessionCredentialsInput,
+  GetClusterSessionCredentialsOutput,
   GetManagedScalingPolicyInput,
   GetManagedScalingPolicyOutput,
   GetStudioSessionMappingInput,
@@ -353,6 +361,7 @@ import {
   TerminateJobFlowsInput,
   UpdateStudioInput,
   UpdateStudioSessionMappingInput,
+  UsernamePassword,
   VolumeSpecification,
 } from "../models/models_0";
 
@@ -613,6 +622,19 @@ export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = asyn
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetClusterSessionCredentialsCommand = async (
+  input: GetClusterSessionCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.GetClusterSessionCredentials",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetClusterSessionCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1871,6 +1893,50 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
     case "InternalServerException":
     case "com.amazonaws.emr#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetClusterSessionCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterSessionCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetClusterSessionCredentialsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetClusterSessionCredentialsOutput(data, context);
+  const response: GetClusterSessionCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetClusterSessionCredentialsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterSessionCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -3597,6 +3663,16 @@ const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
   return {};
 };
 
+const serializeAws_json1_1GetClusterSessionCredentialsInput = (
+  input: GetClusterSessionCredentialsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+  };
+};
+
 const serializeAws_json1_1GetManagedScalingPolicyInput = (
   input: GetManagedScalingPolicyInput,
   context: __SerdeContext
@@ -4948,6 +5024,15 @@ const deserializeAws_json1_1CreateStudioOutput = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1Credentials = (output: any, context: __SerdeContext): Credentials => {
+  if (output.UsernamePassword != null) {
+    return {
+      UsernamePassword: deserializeAws_json1_1UsernamePassword(output.UsernamePassword, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -5148,6 +5233,20 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
             context
           )
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetClusterSessionCredentialsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetClusterSessionCredentialsOutput => {
+  return {
+    Credentials:
+      output.Credentials != null
+        ? deserializeAws_json1_1Credentials(__expectUnion(output.Credentials), context)
+        : undefined,
+    ExpiresAt:
+      output.ExpiresAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiresAt))) : undefined,
   } as any;
 };
 
@@ -6493,6 +6592,13 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       return deserializeAws_json1_1Tag(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1UsernamePassword = (output: any, context: __SerdeContext): UsernamePassword => {
+  return {
+    Password: __expectString(output.Password),
+    Username: __expectString(output.Username),
+  } as any;
 };
 
 const deserializeAws_json1_1VolumeSpecification = (output: any, context: __SerdeContext): VolumeSpecification => {

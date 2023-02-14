@@ -3,6 +3,155 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.269.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.268.0...v3.269.0) (2023-02-10)
+
+
+### Features
+
+* **client-connect:** This update provides the Wisdom session ARN for contacts enabled for Wisdom in the chat channel. ([672092d](https://github.com/aws/aws-sdk-js-v3/commit/672092dbf10850029bcf6619224ae7781a9fde9e))
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+
+### Features
+
+* **client-connect:** Enabled FIPS endpoints for GovCloud (US) regions in SDK. ([c678efa](https://github.com/aws/aws-sdk-js-v3/commit/c678efa9e2b9d0a2b1be011a97b045e8cf7d06af))
+
+
+
+
+
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* **clients:** revert timestamp format serialization ([#4348](https://github.com/aws/aws-sdk-js-v3/issues/4348)) ([0633164](https://github.com/aws/aws-sdk-js-v3/commit/063316423432fa21ace28678ea215cef27aff179))
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-connect:** Amazon Connect Chat introduces Persistent Chat, allowing customers to resume previous conversations with context and transcripts carried over from previous chats, eliminating the need to repeat themselves and allowing agents to provide personalized service with access to entire conversation history. ([360932e](https://github.com/aws/aws-sdk-js-v3/commit/360932ebb721c6756c8ca4bf603b3c52bc923377))
+
+
+
+
+
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.251.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.250.0...v3.251.0) (2023-01-13)
+
+
+### Features
+
+* **client-connect:** This release updates the responses of UpdateContactFlowContent, UpdateContactFlowMetadata, UpdateContactFlowName and DeleteContactFlow API with empty responses. ([0ad2c42](https://github.com/aws/aws-sdk-js-v3/commit/0ad2c423339869c4db2b8d1183b1caba9c847d09))
+
+
+
+
+
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+
+### Features
+
+* **client-connect:** Documentation update for a new Initiation Method value in DescribeContact API ([62552ab](https://github.com/aws/aws-sdk-js-v3/commit/62552ab372456b3960fb87de4d2c5d34d2a8ac60))
+
+
+
+
+
+# [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
 # [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
 
 

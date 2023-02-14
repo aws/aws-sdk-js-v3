@@ -30,8 +30,8 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
 
 /**
  * <p>Deletes an entity type.</p>
- * 	        <p>You cannot delete an entity type that is included in an event type.</p>
- * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>You cannot delete an entity type that is included in an event type.</p>
+ *          <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

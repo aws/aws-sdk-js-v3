@@ -24,8 +24,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * <p>The log odds metric details.</p>
- *
- *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -48,8 +47,7 @@ export interface AggregatedLogOddsMetric {
 /**
  * <p>
  *             The details of the impact of aggregated variables on the prediction score. </p>
- *
- *         <p>Account Takeover Insights (ATI) model  uses the login data you
+ *          <p>Account Takeover Insights (ATI) model  uses the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, the model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -71,7 +69,7 @@ export interface AggregatedVariablesImpactExplanation {
   /**
    * <p>
    *             The raw, uninterpreted value represented as log-odds of the fraud.  These values are usually between -10 to +10, but range from -infinity to +infinity.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>A positive value indicates that the variables drove the risk score up.</p>
    *             </li>
@@ -85,8 +83,7 @@ export interface AggregatedVariablesImpactExplanation {
 
 /**
  * <p>The details of the relative importance of the aggregated variables.</p>
- *
- *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -643,9 +640,9 @@ export interface CreateDetectorVersionRequest {
 
   /**
    * <p>The rule execution mode for the rules included in the detector version.</p>
-   * 	        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
-   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
+   *          <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   *          <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -749,6 +746,7 @@ export interface IngestedEventsDetail {
 }
 
 export enum UnlabeledEventsTreatment {
+  AUTO = "AUTO",
   FRAUD = "FRAUD",
   IGNORE = "IGNORE",
   LEGIT = "LEGIT",
@@ -766,6 +764,21 @@ export interface LabelSchema {
 
   /**
    * <p>The action to take for unlabeled events.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>IGNORE</code> if you want the unlabeled events to be ignored. This is recommended when the majority of the events in the dataset are labeled.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>FRAUD</code>  if you want to categorize all unlabeled events as “Fraud”.  This is recommended when most of the events in your dataset are fraudulent.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>LEGIT</code> f you want to categorize all unlabeled events as “Legit”. This is recommended when most of the events in your dataset are legitimate.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>AUTO</code> if you want Amazon Fraud Detector to decide how to use the unlabeled data.  This is recommended when there is significant unlabeled events in the dataset.</p>
+   *             </li>
+   *          </ul>
+   *          <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>
    */
   unlabeledEventsTreatment?: UnlabeledEventsTreatment | string;
 }
@@ -1416,6 +1429,26 @@ export interface OFIMetricDataPoint {
 
 /**
  * <p>
+ *             Range of area under curve (auc) expected from the model. A range greater than 0.1 indicates higher model uncertainity. A range is the difference between upper and lower bound of auc.
+ *         </p>
+ */
+export interface UncertaintyRange {
+  /**
+   * <p>
+   *             The lower bound value of the area under curve (auc).
+   *         </p>
+   */
+  lowerBoundValue: number | undefined;
+
+  /**
+   * <p>
+   *             The lower bound value of the area under curve (auc).        </p>
+   */
+  upperBoundValue: number | undefined;
+}
+
+/**
+ * <p>
  *             The Online Fraud Insights (OFI) model performance score.
  *         </p>
  */
@@ -1426,6 +1459,13 @@ export interface OFIModelPerformance {
    *         </p>
    */
   auc?: number;
+
+  /**
+   * <p>
+   *             Indicates the range of area under curve (auc) expected from the OFI model. A range greater than 0.1 indicates higher model uncertainity.
+   *         </p>
+   */
+  uncertaintyRange?: UncertaintyRange;
 }
 
 /**
@@ -1497,6 +1537,13 @@ export interface TFIModelPerformance {
    *         </p>
    */
   auc?: number;
+
+  /**
+   * <p>
+   *             Indicates the range of area under curve (auc) expected from the TFI model. A range greater than 0.1 indicates higher model uncertainity.
+   *         </p>
+   */
+  uncertaintyRange?: UncertaintyRange;
 }
 
 /**
@@ -1575,7 +1622,7 @@ export interface TrainingResultV2 {
    * <p>
    *             The variable importance metrics of the aggregated variables.
    *         </p>
-   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
    *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    */
@@ -2018,9 +2065,9 @@ export interface GetDetectorVersionResult {
 
   /**
    * <p>The execution mode of the rule in the dectector</p>
-   * 	        <p>
+   *          <p>
    *             <code>FIRST_MATCHED</code> indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>
+   *          <p>
    *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -2216,15 +2263,12 @@ export interface GetEventPredictionRequest {
    *          <important>
    *             <p>You must provide at least one eventVariable</p>
    *          </important>
-   *
    *          <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>
-   *
    *          <p>
    *             <b>For Amazon Fraud Detector trained models:</b>
    *          </p>
    *          <p>If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map)
    *          with calculated default mean/medians for numeric variables and with special values for categorical variables.</p>
-   *
    *          <p>
    *             <b>For imported SageMaker models:</b>
    *          </p>
@@ -2465,8 +2509,7 @@ export interface PredictionExplanations {
    * <p>
    *             The details of the aggregated variables impact on the prediction score.
    *         </p>
-   *
-   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
    *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    */
@@ -3202,8 +3245,8 @@ export interface GetModelVersionResult {
 
   /**
    * <p>The model version status.</p>
-   * 	        <p>Possible values are:</p>
-   * 	        <ul>
+   *          <p>Possible values are:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>TRAINING_IN_PROGRESS</code>
@@ -3890,8 +3933,8 @@ export interface UpdateDetectorVersionRequest {
 
   /**
    * <p>The rule execution mode to add to the detector.</p>
-   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   *          <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -4726,6 +4769,13 @@ export const TrainingResultFilterSensitiveLog = (obj: TrainingResult): any => ({
  * @internal
  */
 export const OFIMetricDataPointFilterSensitiveLog = (obj: OFIMetricDataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UncertaintyRangeFilterSensitiveLog = (obj: UncertaintyRange): any => ({
   ...obj,
 });
 

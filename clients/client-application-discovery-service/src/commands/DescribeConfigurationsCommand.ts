@@ -34,7 +34,6 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
 
 /**
  * <p>Retrieves attributes for a list of configuration item IDs.</p>
- *
  *          <note>
  *             <p>All of the supplied IDs must be for the same asset type from one of the
  *         following:</p>
@@ -52,7 +51,6 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *                   <p>connection</p>
  *                </li>
  *             </ul>
- *
  *             <p>Output fields are specific to the asset type specified. For example, the output for a
  *           <i>server</i> configuration item includes a list of attributes about the
  *         server, such as host name, operating system, number of network cards, etc.</p>

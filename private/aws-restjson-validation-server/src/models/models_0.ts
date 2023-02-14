@@ -740,6 +740,15 @@ export interface MalformedRangeInput {
   byte?: number;
   minByte?: number;
   maxByte?: number;
+  short?: number;
+  minShort?: number;
+  maxShort?: number;
+  integer?: number;
+  minInteger?: number;
+  maxInteger?: number;
+  long?: number;
+  minLong?: number;
+  maxLong?: number;
   float?: number;
   minFloat?: number;
   maxFloat?: number;
@@ -756,6 +765,15 @@ export namespace MalformedRangeInput {
     byte?: __MultiConstraintValidator<number>;
     minByte?: __MultiConstraintValidator<number>;
     maxByte?: __MultiConstraintValidator<number>;
+    short?: __MultiConstraintValidator<number>;
+    minShort?: __MultiConstraintValidator<number>;
+    maxShort?: __MultiConstraintValidator<number>;
+    integer?: __MultiConstraintValidator<number>;
+    minInteger?: __MultiConstraintValidator<number>;
+    maxInteger?: __MultiConstraintValidator<number>;
+    long?: __MultiConstraintValidator<number>;
+    minLong?: __MultiConstraintValidator<number>;
+    maxLong?: __MultiConstraintValidator<number>;
     float?: __MultiConstraintValidator<number>;
     minFloat?: __MultiConstraintValidator<number>;
     maxFloat?: __MultiConstraintValidator<number>;
@@ -781,6 +799,42 @@ export namespace MalformedRangeInput {
             memberValidators["maxByte"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
             break;
           }
+          case "short": {
+            memberValidators["short"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minShort": {
+            memberValidators["minShort"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxShort": {
+            memberValidators["maxShort"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
+          case "integer": {
+            memberValidators["integer"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minInteger": {
+            memberValidators["minInteger"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxInteger": {
+            memberValidators["maxInteger"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
+          case "long": {
+            memberValidators["long"] = new __CompositeValidator<number>([new __RangeValidator(2, 8)]);
+            break;
+          }
+          case "minLong": {
+            memberValidators["minLong"] = new __CompositeValidator<number>([new __RangeValidator(2, undefined)]);
+            break;
+          }
+          case "maxLong": {
+            memberValidators["maxLong"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 8)]);
+            break;
+          }
           case "float": {
             memberValidators["float"] = new __CompositeValidator<number>([new __RangeValidator(2.2, 8.8)]);
             break;
@@ -801,6 +855,15 @@ export namespace MalformedRangeInput {
       ...getMemberValidator("byte").validate(obj.byte, `${path}/byte`),
       ...getMemberValidator("minByte").validate(obj.minByte, `${path}/minByte`),
       ...getMemberValidator("maxByte").validate(obj.maxByte, `${path}/maxByte`),
+      ...getMemberValidator("short").validate(obj.short, `${path}/short`),
+      ...getMemberValidator("minShort").validate(obj.minShort, `${path}/minShort`),
+      ...getMemberValidator("maxShort").validate(obj.maxShort, `${path}/maxShort`),
+      ...getMemberValidator("integer").validate(obj.integer, `${path}/integer`),
+      ...getMemberValidator("minInteger").validate(obj.minInteger, `${path}/minInteger`),
+      ...getMemberValidator("maxInteger").validate(obj.maxInteger, `${path}/maxInteger`),
+      ...getMemberValidator("long").validate(obj.long, `${path}/long`),
+      ...getMemberValidator("minLong").validate(obj.minLong, `${path}/minLong`),
+      ...getMemberValidator("maxLong").validate(obj.maxLong, `${path}/maxLong`),
       ...getMemberValidator("float").validate(obj.float, `${path}/float`),
       ...getMemberValidator("minFloat").validate(obj.minFloat, `${path}/minFloat`),
       ...getMemberValidator("maxFloat").validate(obj.maxFloat, `${path}/maxFloat`),
@@ -812,6 +875,15 @@ export interface MalformedRangeOverrideInput {
   byte?: number;
   minByte?: number;
   maxByte?: number;
+  short?: number;
+  minShort?: number;
+  maxShort?: number;
+  integer?: number;
+  minInteger?: number;
+  maxInteger?: number;
+  long?: number;
+  minLong?: number;
+  maxLong?: number;
   float?: number;
   minFloat?: number;
   maxFloat?: number;
@@ -828,6 +900,15 @@ export namespace MalformedRangeOverrideInput {
     byte?: __MultiConstraintValidator<number>;
     minByte?: __MultiConstraintValidator<number>;
     maxByte?: __MultiConstraintValidator<number>;
+    short?: __MultiConstraintValidator<number>;
+    minShort?: __MultiConstraintValidator<number>;
+    maxShort?: __MultiConstraintValidator<number>;
+    integer?: __MultiConstraintValidator<number>;
+    minInteger?: __MultiConstraintValidator<number>;
+    maxInteger?: __MultiConstraintValidator<number>;
+    long?: __MultiConstraintValidator<number>;
+    minLong?: __MultiConstraintValidator<number>;
+    maxLong?: __MultiConstraintValidator<number>;
     float?: __MultiConstraintValidator<number>;
     minFloat?: __MultiConstraintValidator<number>;
     maxFloat?: __MultiConstraintValidator<number>;
@@ -853,6 +934,42 @@ export namespace MalformedRangeOverrideInput {
             memberValidators["maxByte"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
             break;
           }
+          case "short": {
+            memberValidators["short"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minShort": {
+            memberValidators["minShort"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxShort": {
+            memberValidators["maxShort"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
+          case "integer": {
+            memberValidators["integer"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minInteger": {
+            memberValidators["minInteger"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxInteger": {
+            memberValidators["maxInteger"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
+          case "long": {
+            memberValidators["long"] = new __CompositeValidator<number>([new __RangeValidator(4, 6)]);
+            break;
+          }
+          case "minLong": {
+            memberValidators["minLong"] = new __CompositeValidator<number>([new __RangeValidator(4, undefined)]);
+            break;
+          }
+          case "maxLong": {
+            memberValidators["maxLong"] = new __CompositeValidator<number>([new __RangeValidator(undefined, 6)]);
+            break;
+          }
           case "float": {
             memberValidators["float"] = new __CompositeValidator<number>([new __RangeValidator(4.4, 6.6)]);
             break;
@@ -873,6 +990,15 @@ export namespace MalformedRangeOverrideInput {
       ...getMemberValidator("byte").validate(obj.byte, `${path}/byte`),
       ...getMemberValidator("minByte").validate(obj.minByte, `${path}/minByte`),
       ...getMemberValidator("maxByte").validate(obj.maxByte, `${path}/maxByte`),
+      ...getMemberValidator("short").validate(obj.short, `${path}/short`),
+      ...getMemberValidator("minShort").validate(obj.minShort, `${path}/minShort`),
+      ...getMemberValidator("maxShort").validate(obj.maxShort, `${path}/maxShort`),
+      ...getMemberValidator("integer").validate(obj.integer, `${path}/integer`),
+      ...getMemberValidator("minInteger").validate(obj.minInteger, `${path}/minInteger`),
+      ...getMemberValidator("maxInteger").validate(obj.maxInteger, `${path}/maxInteger`),
+      ...getMemberValidator("long").validate(obj.long, `${path}/long`),
+      ...getMemberValidator("minLong").validate(obj.minLong, `${path}/minLong`),
+      ...getMemberValidator("maxLong").validate(obj.maxLong, `${path}/maxLong`),
       ...getMemberValidator("float").validate(obj.float, `${path}/float`),
       ...getMemberValidator("minFloat").validate(obj.minFloat, `${path}/minFloat`),
       ...getMemberValidator("maxFloat").validate(obj.maxFloat, `${path}/maxFloat`),

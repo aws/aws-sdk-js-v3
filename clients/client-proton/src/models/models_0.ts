@@ -293,29 +293,30 @@ export interface RepositoryBranchInput {
 
 export interface UpdateAccountSettingsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
-   *       customer-owned automation for self-managed provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton
+   *    for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
    *          <p>To remove a previously configured ARN, specify an empty string.</p>
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include
-   *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
-   *          <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set
-   *       <code>pipelineProvisioningRepository</code>.</p>
+   * <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed
+   *    provisioning with services that include pipelines. A linked repository is a repository that has been registered with
+   *    Proton. For more information, see <a>CreateRepository</a>.</p>
+   *          <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to
+   *     <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranchInput;
 
   /**
-   * <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured
-   *       pipeline repository.</p>
+   * <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this
+   *    field if you are updating the configured pipeline repository.</p>
    */
   deletePipelineProvisioningRepository?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based
-   *       provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes
+   *    this role for CodeBuild-based provisioning.</p>
    */
   pipelineCodebuildRoleArn?: string;
 }
@@ -2417,6 +2418,91 @@ export interface GetRepositorySyncStatusOutput {
   latestSync?: RepositorySyncAttempt;
 }
 
+export interface GetResourcesSummaryInput {}
+
+/**
+ * <p>Summary counts of each Proton resource types.</p>
+ */
+export interface ResourceCountsSummary {
+  /**
+   * <p>The total number of resources of this type in the Amazon Web Services account.</p>
+   */
+  total: number | undefined;
+
+  /**
+   * <p>The number of resources of this type in the Amazon Web Services account that failed to deploy.</p>
+   */
+  failed?: number;
+
+  /**
+   * <p>The number of resources of this type in the Amazon Web Services account that are up-to-date with their template.</p>
+   */
+  upToDate?: number;
+
+  /**
+   * <p>The number of resources of this type in the Amazon Web Services account that need a major template version update.</p>
+   */
+  behindMajor?: number;
+
+  /**
+   * <p>The number of resources of this type in the Amazon Web Services account that need a minor template version update.</p>
+   */
+  behindMinor?: number;
+}
+
+/**
+ * <p>Summary counts of each Proton resource type.</p>
+ */
+export interface CountsSummary {
+  /**
+   * <p>The total number of components in the Amazon Web Services account.</p>
+   *          <p>The semantics of the <code>components</code> field are different from the semantics of results for other
+   *    infrastructure-provisioning resources. That's because at this time components don't have associated templates,
+   *    therefore they don't have the concept of staleness. The <code>components</code> object will only contain
+   *     <code>total</code> and <code>failed</code> members.</p>
+   */
+  components?: ResourceCountsSummary;
+
+  /**
+   * <p>The staleness counts for Proton environments in the Amazon Web Services account. The <code>environments</code> object will only
+   *    contain <code>total</code> members.</p>
+   */
+  environments?: ResourceCountsSummary;
+
+  /**
+   * <p>The total number of environment templates in the Amazon Web Services account.</p>
+   */
+  environmentTemplates?: ResourceCountsSummary;
+
+  /**
+   * <p>The staleness counts for Proton service instances in the Amazon Web Services account.</p>
+   */
+  serviceInstances?: ResourceCountsSummary;
+
+  /**
+   * <p>The staleness counts for Proton services in the Amazon Web Services account.</p>
+   */
+  services?: ResourceCountsSummary;
+
+  /**
+   * <p>The total number of service templates in the Amazon Web Services account. The <code>serviceTemplates</code> object will only
+   *    contain <code>total</code> members.</p>
+   */
+  serviceTemplates?: ResourceCountsSummary;
+
+  /**
+   * <p>The staleness counts for Proton pipelines in the Amazon Web Services account.</p>
+   */
+  pipelines?: ResourceCountsSummary;
+}
+
+export interface GetResourcesSummaryOutput {
+  /**
+   * <p>Summary counts of each Proton resource type.</p>
+   */
+  counts: CountsSummary | undefined;
+}
+
 export enum TemplateType {
   ENVIRONMENT = "ENVIRONMENT",
   SERVICE = "SERVICE",
@@ -2637,8 +2723,8 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 
   /**
-   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the list of resource tags that was previously
-   *       requested.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the list of
+   *    resource tags that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -2655,7 +2741,8 @@ export interface ListTagsForResourceOutput {
   tags: Tag[] | undefined;
 
   /**
-   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current requested list of resource tags.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current
+   *    requested list of resource tags.</p>
    */
   nextToken?: string;
 }
@@ -2986,7 +3073,8 @@ export interface ListServiceInstancesInput {
   maxResults?: number;
 
   /**
-   * <p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>
+   * <p>An array of filtering criteria that scope down the result list. By default, all service instances in the
+   *    Amazon Web Services account are returned.</p>
    */
   filters?: ListServiceInstancesFilter[];
 
@@ -4172,8 +4260,8 @@ export interface CreateTemplateSyncConfigInput {
   branch: string | undefined;
 
   /**
-   * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this repository
-   *       directory.</p>
+   * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template
+   *    bundle search to this repository directory.</p>
    */
   subdirectory?: string;
 }
@@ -4285,7 +4373,8 @@ export interface UpdateTemplateSyncConfigInput {
   branch: string | undefined;
 
   /**
-   * <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this repository directory.</p>
+   * <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this
+   *    repository directory.</p>
    */
   subdirectory?: string;
 }
@@ -5150,6 +5239,34 @@ export const RepositorySyncAttemptFilterSensitiveLog = (obj: RepositorySyncAttem
  * @internal
  */
 export const GetRepositorySyncStatusOutputFilterSensitiveLog = (obj: GetRepositorySyncStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesSummaryInputFilterSensitiveLog = (obj: GetResourcesSummaryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCountsSummaryFilterSensitiveLog = (obj: ResourceCountsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountsSummaryFilterSensitiveLog = (obj: CountsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesSummaryOutputFilterSensitiveLog = (obj: GetResourcesSummaryOutput): any => ({
   ...obj,
 });
 

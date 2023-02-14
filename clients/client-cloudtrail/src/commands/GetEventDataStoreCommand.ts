@@ -29,7 +29,8 @@ export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest 
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
+ * <p>Returns information about an event data store specified as either an ARN or the ID
+ *          portion of the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

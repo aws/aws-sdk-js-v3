@@ -86,7 +86,6 @@ export interface AssumeRoleRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -94,7 +93,6 @@ export interface AssumeRoleRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -121,7 +119,6 @@ export interface AssumeRoleRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -169,7 +166,6 @@ export interface AssumeRoleRequest {
    *          tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
    *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -177,7 +173,6 @@ export interface AssumeRoleRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is already attached to the
    *          role. When you do, session tags override a role tag with the same key. </p>
    *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -299,7 +294,6 @@ export interface AssumeRoleResponse {
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
-   *
    *          <note>
    *             <p>The size of the security token that STS API operations return is not fixed. We
    *         strongly recommend that you make no assumptions about the maximum size.</p>
@@ -388,7 +382,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  *             separate limit. The error message indicates by percentage how close the policies and
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
- *         <p>You could receive this error even though you meet other defined session policy and
+ *          <p>You could receive this error even though you meet other defined session policy and
  *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
  *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
  */
@@ -457,7 +451,6 @@ export interface AssumeRoleWithSAMLRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -465,7 +458,6 @@ export interface AssumeRoleWithSAMLRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -492,7 +484,6 @@ export interface AssumeRoleWithSAMLRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -537,7 +528,6 @@ export interface AssumeRoleWithSAMLResponse {
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
-   *
    *          <note>
    *             <p>The size of the security token that STS API operations return is not fixed. We
    *         strongly recommend that you make no assumptions about the maximum size.</p>
@@ -632,7 +622,7 @@ export interface AssumeRoleWithSAMLResponse {
 /**
  * <p>The identity provider (IdP) reported that authentication failed. This might be because
  *             the claim is invalid.</p>
- *         <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
+ *          <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
  *             can also mean that the claim has expired or has been explicitly revoked. </p>
  */
 export class IDPRejectedClaimException extends __BaseException {
@@ -714,7 +704,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -722,7 +711,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -749,7 +737,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -791,7 +778,6 @@ export interface AssumeRoleWithWebIdentityResponse {
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security token.</p>
-   *
    *          <note>
    *             <p>The size of the security token that STS API operations return is not fixed. We
    *         strongly recommend that you make no assumptions about the maximum size.</p>
@@ -1002,7 +988,6 @@ export interface GetFederationTokenRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -1037,7 +1022,6 @@ export interface GetFederationTokenRequest {
    *             <code>Principal</code> element of the policy, the session has the permissions allowed by
    *          the policy. These permissions are granted in addition to the permissions that are granted
    *          by the session policies.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -1066,7 +1050,6 @@ export interface GetFederationTokenRequest {
    *          tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these
    *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -1074,7 +1057,6 @@ export interface GetFederationTokenRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is already attached to the
    *          user you are federating. When you do, session tags override a user tag with the same key. </p>
    *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -1113,7 +1095,6 @@ export interface GetFederationTokenResponse {
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
-   *
    *          <note>
    *             <p>The size of the security token that STS API operations return is not fixed. We
    *         strongly recommend that you make no assumptions about the maximum size.</p>
@@ -1181,7 +1162,6 @@ export interface GetSessionTokenResponse {
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
-   *
    *          <note>
    *             <p>The size of the security token that STS API operations return is not fixed. We
    *         strongly recommend that you make no assumptions about the maximum size.</p>

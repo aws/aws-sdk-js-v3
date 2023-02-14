@@ -206,8 +206,8 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version. Valid values:
-   *             <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.
-   *             To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
+   *             <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, and <code>2.4.3</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
    */
   AirflowVersion?: string;
 
@@ -238,12 +238,12 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>The number of Apache Airflow schedulers to run in your environment. Valid values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>v2 - Accepts between 2 to 5. Defaults to 2.</p>
+   *                <p>v2 - Accepts between 2 to 5. Defaults to 2.</p>
    *             </li>
    *             <li>
-   *                 <p>v1 - Accepts 1.</p>
+   *                <p>v1 - Accepts 1.</p>
    *             </li>
    *          </ul>
    */
@@ -448,41 +448,41 @@ export interface Environment {
 
   /**
    * <p>The status of the Amazon MWAA environment. Valid values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATING</code> - Indicates the request to create the environment is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_FAILED</code> - Indicates the request to create the environment failed, and the environment could not be created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AVAILABLE</code> - Indicates the request was successful and the environment is ready to use.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UPDATING</code> - Indicates the request to update the environment is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - Indicates the request to delete the environment is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETED</code> - Indicates the request to delete the environment is complete, and the environment has been deleted.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNAVAILABLE</code> - Indicates the request failed, but the environment was unable to rollback and is not in a stable state.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UPDATE_FAILED</code> - Indicates the request to update the environment failed, and the environment has rolled back successfully and is ready to use.</p>
    *             </li>
    *          </ul>
-   *         <p>We recommend reviewing our troubleshooting guide for a list of common errors and their solutions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon MWAA troubleshooting</a>.</p>
+   *          <p>We recommend reviewing our troubleshooting guide for a list of common errors and their solutions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon MWAA troubleshooting</a>.</p>
    */
   Status?: EnvironmentStatus | string;
 
@@ -517,7 +517,7 @@ export interface Environment {
   KmsKey?: string;
 
   /**
-   * <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
+   * <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, and <code>2.4.3</code>.</p>
    */
   AirflowVersion?: string;
 
@@ -839,7 +839,7 @@ export interface UpdateEnvironmentInput {
 
   /**
    * <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version.
-   *             Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
+   *             Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>, and <code>2.4.3</code>.</p>
    */
   AirflowVersion?: string;
 

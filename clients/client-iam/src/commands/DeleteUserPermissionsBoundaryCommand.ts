@@ -28,11 +28,11 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
 
 /**
  * <p>Deletes the permissions boundary for the specified IAM user.</p>
- *         <important>
+ *          <important>
  *             <p>Deleting the permissions boundary for a user might increase its permissions by
  *                 allowing the user to perform all the actions granted in its permissions policies.
  *             </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

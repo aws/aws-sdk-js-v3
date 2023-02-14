@@ -33,7 +33,6 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
 /**
  * <p>Modifies the target of an existing maintenance window. You
  *    can change the following:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Name</p>

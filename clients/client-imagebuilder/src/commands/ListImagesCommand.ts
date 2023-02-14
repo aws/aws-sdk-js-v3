@@ -29,7 +29,8 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns the list of images that you have access to.</p>
+ * <p>Returns the list of images that you have access to. Newly created images
+ * 			can take up to two minutes to appear in the ListImages API Results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

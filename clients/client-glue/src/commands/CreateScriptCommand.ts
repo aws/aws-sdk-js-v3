@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateScriptRequest,
-  CreateScriptRequestFilterSensitiveLog,
-  CreateScriptResponse,
-  CreateScriptResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateScriptRequest, CreateScriptRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateScriptResponse, CreateScriptResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateScriptCommand,
   serializeAws_json1_1CreateScriptCommand,

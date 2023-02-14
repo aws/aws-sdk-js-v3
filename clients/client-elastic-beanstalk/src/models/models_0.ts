@@ -40,11 +40,24 @@ export class InsufficientPrivilegesException extends __BaseException {
   }
 }
 
-export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
+export enum ActionHistoryStatus {
+  Completed = "Completed",
+  Failed = "Failed",
+  Unknown = "Unknown",
+}
 
-export type ActionStatus = "Pending" | "Running" | "Scheduled" | "Unknown";
+export enum ActionStatus {
+  Pending = "Pending",
+  Running = "Running",
+  Scheduled = "Scheduled",
+  Unknown = "Unknown",
+}
 
-export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
+export enum ActionType {
+  InstanceRefresh = "InstanceRefresh",
+  PlatformUpdate = "PlatformUpdate",
+  Unknown = "Unknown",
+}
 
 /**
  * <p>A lifecycle rule that deletes application versions after the specified number of
@@ -332,9 +345,15 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 }
 
-export type SourceRepository = "CodeCommit" | "S3";
+export enum SourceRepository {
+  CodeCommit = "CodeCommit",
+  S3 = "S3",
+}
 
-export type SourceType = "Git" | "Zip";
+export enum SourceType {
+  Git = "Git",
+  Zip = "Zip",
+}
 
 /**
  * <p>Location of the source code for an application version.</p>
@@ -344,12 +363,12 @@ export interface SourceBuildInformation {
    * <p>The type of repository.</p>
    *          <ul>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>Git</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>Zip</code>
    *                </p>
    *             </li>
@@ -361,12 +380,12 @@ export interface SourceBuildInformation {
    * <p>Location where the repository is stored.</p>
    *          <ul>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>CodeCommit</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>S3</code>
    *                </p>
    *             </li>
@@ -377,15 +396,15 @@ export interface SourceBuildInformation {
   /**
    * <p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code>
    *          </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   * 	              <p>For <code>CodeCommit</code>,
+   *                <p>For <code>CodeCommit</code>,
    * 	the format is the repository name and commit ID, separated by a forward slash.
    * 	For example,
    * 	<code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</p>
    *             </li>
    *             <li>
-   * 	              <p>For <code>S3</code>,
+   *                <p>For <code>S3</code>,
    * 	the format is the S3 bucket name and object key, separated by a forward slash.
    * 	For example,
    * 	<code>my-s3-bucket/Folders/my-source-file</code>.</p>
@@ -410,7 +429,13 @@ export interface S3Location {
   S3Key?: string;
 }
 
-export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Processing" | "Unprocessed";
+export enum ApplicationVersionStatus {
+  Building = "Building",
+  Failed = "Failed",
+  Processed = "Processed",
+  Processing = "Processing",
+  Unprocessed = "Unprocessed",
+}
 
 /**
  * <p>Describes the properties of an application version.</p>
@@ -729,18 +754,24 @@ export interface EnvironmentLink {
   EnvironmentName?: string;
 }
 
-export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
+export enum EnvironmentHealth {
+  Green = "Green",
+  Grey = "Grey",
+  Red = "Red",
+  Yellow = "Yellow",
+}
 
-export type EnvironmentHealthStatus =
-  | "Degraded"
-  | "Info"
-  | "NoData"
-  | "Ok"
-  | "Pending"
-  | "Severe"
-  | "Suspended"
-  | "Unknown"
-  | "Warning";
+export enum EnvironmentHealthStatus {
+  Degraded = "Degraded",
+  Info = "Info",
+  NoData = "NoData",
+  Ok = "Ok",
+  Pending = "Pending",
+  Severe = "Severe",
+  Suspended = "Suspended",
+  Unknown = "Unknown",
+  Warning = "Warning",
+}
 
 /**
  * <p>Describes the properties of a Listener for the LoadBalancer.</p>
@@ -788,15 +819,16 @@ export interface EnvironmentResourcesDescription {
   LoadBalancer?: LoadBalancerDescription;
 }
 
-export type EnvironmentStatus =
-  | "Aborting"
-  | "Launching"
-  | "LinkingFrom"
-  | "LinkingTo"
-  | "Ready"
-  | "Terminated"
-  | "Terminating"
-  | "Updating";
+export enum EnvironmentStatus {
+  Aborting = "Aborting",
+  Launching = "Launching",
+  LinkingFrom = "LinkingFrom",
+  LinkingTo = "LinkingTo",
+  Ready = "Ready",
+  Terminated = "Terminated",
+  Terminating = "Terminating",
+  Updating = "Updating",
+}
 
 /**
  * <p>Describes the properties of an environment tier</p>
@@ -913,7 +945,6 @@ export interface EnvironmentDescription {
 
   /**
    * <p>The current operational status of the environment:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1165,12 +1196,12 @@ export interface BuildConfiguration {
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code>
    *                </p>
    *             </li>
@@ -1273,14 +1304,14 @@ export interface CreateApplicationVersionMessage {
  *       running. The following regions are supported:</p>
  *          <ul>
  *             <li>
- * 	              <p>IAD/us-east-1</p>
- * 	           </li>
+ *                <p>IAD/us-east-1</p>
+ *             </li>
  *             <li>
- * 	              <p>PDX/us-west-2</p>
- * 	           </li>
+ *                <p>PDX/us-west-2</p>
+ *             </li>
  *             <li>
- * 	              <p>DUB/eu-west-1</p>
- * 	           </li>
+ *                <p>DUB/eu-west-1</p>
+ *             </li>
  *          </ul>
  */
 export class S3LocationNotInServiceRegionException extends __BaseException {
@@ -1318,7 +1349,11 @@ export class TooManyApplicationVersionsException extends __BaseException {
   }
 }
 
-export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
+export enum ConfigurationDeploymentStatus {
+  deployed = "deployed",
+  failed = "failed",
+  pending = "pending",
+}
 
 /**
  * <p>A specification identifying an individual configuration option along with its current
@@ -1481,7 +1516,6 @@ export interface CreateConfigurationTemplateMessage {
    * <p>The Amazon Resource Name (ARN) of the custom platform. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html"> Custom
    *         Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    *          <note>
-   *
    *             <p>If you specify <code>PlatformArn</code>, then don't specify
    *           <code>SolutionStackName</code>.</p>
    *          </note>
@@ -1671,7 +1705,6 @@ export interface CreateEnvironmentMessage {
    *       more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">Custom Platforms</a> in the
    *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    *          <note>
-   *
    *             <p>If you specify <code>PlatformArn</code>, don't specify
    *         <code>SolutionStackName</code>.</p>
    *          </note>
@@ -1749,7 +1782,13 @@ export interface Builder {
   ARN?: string;
 }
 
-export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "Ready";
+export enum PlatformStatus {
+  Creating = "Creating",
+  Deleted = "Deleted",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  Ready = "Ready",
+}
 
 /**
  * <p>Summary information about a platform version.</p>
@@ -2133,7 +2172,10 @@ export interface OptionRestrictionRegex {
   Label?: string;
 }
 
-export type ConfigurationOptionValueType = "List" | "Scalar";
+export enum ConfigurationOptionValueType {
+  List = "List",
+  Scalar = "Scalar",
+}
 
 /**
  * <p>Describes the possible values for a configuration option.</p>
@@ -2548,14 +2590,15 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
   MaxItems?: number;
 }
 
-export type FailureType =
-  | "CancellationFailed"
-  | "InternalFailure"
-  | "InvalidEnvironmentState"
-  | "PermissionsError"
-  | "RollbackFailed"
-  | "RollbackSuccessful"
-  | "UpdateCancelled";
+export enum FailureType {
+  CancellationFailed = "CancellationFailed",
+  InternalFailure = "InternalFailure",
+  InvalidEnvironmentState = "InvalidEnvironmentState",
+  PermissionsError = "PermissionsError",
+  RollbackFailed = "RollbackFailed",
+  RollbackSuccessful = "RollbackSuccessful",
+  UpdateCancelled = "UpdateCancelled",
+}
 
 /**
  * <p>The record of a completed or failed managed action.</p>
@@ -2881,7 +2924,14 @@ export interface DescribeEnvironmentsMessage {
   NextToken?: string;
 }
 
-export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WARN";
+export enum EventSeverity {
+  DEBUG = "DEBUG",
+  ERROR = "ERROR",
+  FATAL = "FATAL",
+  INFO = "INFO",
+  TRACE = "TRACE",
+  WARN = "WARN",
+}
 
 /**
  * <p>Request to retrieve a list of events for an environment.</p>
@@ -3819,7 +3869,10 @@ export interface RebuildEnvironmentMessage {
   EnvironmentName?: string;
 }
 
-export type EnvironmentInfoType = "bundle" | "tail";
+export enum EnvironmentInfoType {
+  bundle = "bundle",
+  tail = "tail",
+}
 
 /**
  * <p>Request to retrieve logs from an environment and store them in your Elastic Beanstalk
@@ -4258,7 +4311,10 @@ export interface UpdateTagsForResourceMessage {
   TagsToRemove?: string[];
 }
 
-export type ValidationSeverity = "error" | "warning";
+export enum ValidationSeverity {
+  error = "error",
+  warning = "warning",
+}
 
 /**
  * <p>An error or warning for a desired configuration option value.</p>

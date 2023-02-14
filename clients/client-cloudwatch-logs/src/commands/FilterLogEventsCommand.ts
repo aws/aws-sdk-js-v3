@@ -32,7 +32,9 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * <p>Lists log events from the specified log group. You can list all the log events or filter the results
  *       using a filter pattern, a time range, and the name of the log stream.</p>
  *          <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p>
- *
+ *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>.
+ *       You must include one of these two parameters, but you can't include both.
+ *     </p>
  *          <p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000
  *       log events) or all the events found within the specified time range. If the results include a
  *       token, that means there are more log events available. You can get additional results by

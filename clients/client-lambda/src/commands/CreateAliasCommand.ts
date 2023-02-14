@@ -29,7 +29,7 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a> for a
+ * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a
  *       Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a
  *       different version.</p>
  *          <p>You can also map an alias to split invocation requests between two versions. Use the

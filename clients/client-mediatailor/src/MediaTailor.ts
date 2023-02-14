@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  ConfigureLogsForChannelCommand,
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "./commands/ConfigureLogsForChannelCommand";
+import {
   ConfigureLogsForPlaybackConfigurationCommand,
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
@@ -190,6 +195,11 @@ import {
   UpdateLiveSourceCommandOutput,
 } from "./commands/UpdateLiveSourceCommand";
 import {
+  UpdateProgramCommand,
+  UpdateProgramCommandInput,
+  UpdateProgramCommandOutput,
+} from "./commands/UpdateProgramCommand";
+import {
   UpdateSourceLocationCommand,
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -206,6 +216,38 @@ import { MediaTailorClient } from "./MediaTailorClient";
  *          <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
  */
 export class MediaTailor extends MediaTailorClient {
+  /**
+   * <p>Configures Amazon CloudWatch log settings for a channel.</p>
+   */
+  public configureLogsForChannel(
+    args: ConfigureLogsForChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConfigureLogsForChannelCommandOutput>;
+  public configureLogsForChannel(
+    args: ConfigureLogsForChannelCommandInput,
+    cb: (err: any, data?: ConfigureLogsForChannelCommandOutput) => void
+  ): void;
+  public configureLogsForChannel(
+    args: ConfigureLogsForChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConfigureLogsForChannelCommandOutput) => void
+  ): void;
+  public configureLogsForChannel(
+    args: ConfigureLogsForChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfigureLogsForChannelCommandOutput) => void),
+    cb?: (err: any, data?: ConfigureLogsForChannelCommandOutput) => void
+  ): Promise<ConfigureLogsForChannelCommandOutput> | void {
+    const command = new ConfigureLogsForChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Amazon CloudWatch log settings for a playback configuration.</p>
    */
@@ -1454,6 +1496,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: UpdateLiveSourceCommandOutput) => void
   ): Promise<UpdateLiveSourceCommandOutput> | void {
     const command = new UpdateLiveSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a program within a channel.</p>
+   */
+  public updateProgram(
+    args: UpdateProgramCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProgramCommandOutput>;
+  public updateProgram(
+    args: UpdateProgramCommandInput,
+    cb: (err: any, data?: UpdateProgramCommandOutput) => void
+  ): void;
+  public updateProgram(
+    args: UpdateProgramCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProgramCommandOutput) => void
+  ): void;
+  public updateProgram(
+    args: UpdateProgramCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProgramCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProgramCommandOutput) => void
+  ): Promise<UpdateProgramCommandOutput> | void {
+    const command = new UpdateProgramCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

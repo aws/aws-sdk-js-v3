@@ -34,9 +34,6 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
 
 /**
  * <p>Creates a target group.</p>
- *
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -58,7 +55,6 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
  * @example

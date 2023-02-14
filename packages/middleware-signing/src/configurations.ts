@@ -3,6 +3,7 @@ import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/si
 import {
   AuthScheme,
   AwsCredentialIdentity,
+  ChecksumConstructor,
   HashConstructor,
   Logger,
   MemoizedProvider,
@@ -84,7 +85,7 @@ interface PreviouslyResolved {
   signingName?: string;
   defaultSigningName?: string;
   serviceId: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
@@ -93,7 +94,7 @@ interface SigV4PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   signingName: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   logger?: Logger;
 }
 

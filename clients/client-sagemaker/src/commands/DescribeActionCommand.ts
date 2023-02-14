@@ -18,7 +18,7 @@ import {
   DescribeActionRequestFilterSensitiveLog,
   DescribeActionResponse,
   DescribeActionResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeActionCommand,
   serializeAws_json1_1DescribeActionCommand,

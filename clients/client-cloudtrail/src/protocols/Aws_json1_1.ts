@@ -20,15 +20,21 @@ import {
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "../commands/CancelQueryCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import {
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "../commands/CreateEventDataStoreCommand";
 import { CreateTrailCommandInput, CreateTrailCommandOutput } from "../commands/CreateTrailCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
 import {
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
 } from "../commands/DeleteEventDataStoreCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "../commands/DeleteTrailCommand";
 import {
   DeregisterOrganizationDelegatedAdminCommandInput,
@@ -45,6 +51,7 @@ import {
   GetInsightSelectorsCommandOutput,
 } from "../commands/GetInsightSelectorsCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetTrailCommandInput, GetTrailCommandOutput } from "../commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "../commands/GetTrailStatusCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
@@ -64,6 +71,7 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "../commands/PutInsightSelectorsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   RegisterOrganizationDelegatedAdminCommandInput,
   RegisterOrganizationDelegatedAdminCommandOutput,
@@ -78,6 +86,7 @@ import { StartLoggingCommandInput, StartLoggingCommandOutput } from "../commands
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
 import { StopImportCommandInput, StopImportCommandOutput } from "../commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "../commands/StopLoggingCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import {
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
@@ -97,21 +106,30 @@ import {
   CancelQueryResponse,
   CannotDelegateManagementAccountException,
   Channel,
+  ChannelAlreadyExistsException,
   ChannelARNInvalidException,
+  ChannelExistsForEDSException,
+  ChannelMaxLimitExceededException,
   ChannelNotFoundException,
   CloudTrailAccessNotEnabledException,
   CloudTrailARNInvalidException,
   CloudTrailInvalidClientTokenIdException,
   CloudWatchLogsDeliveryUnavailableException,
   ConflictException,
+  CreateChannelRequest,
+  CreateChannelResponse,
   CreateEventDataStoreRequest,
   CreateEventDataStoreResponse,
   CreateTrailRequest,
   CreateTrailResponse,
   DataResource,
   DelegatedAdminAccountLimitExceededException,
+  DeleteChannelRequest,
+  DeleteChannelResponse,
   DeleteEventDataStoreRequest,
   DeleteEventDataStoreResponse,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResponse,
   DeleteTrailRequest,
   DeleteTrailResponse,
   DeregisterOrganizationDelegatedAdminRequest,
@@ -142,6 +160,8 @@ import {
   GetInsightSelectorsResponse,
   GetQueryResultsRequest,
   GetQueryResultsResponse,
+  GetResourcePolicyRequest,
+  GetResourcePolicyResponse,
   GetTrailRequest,
   GetTrailResponse,
   GetTrailStatusRequest,
@@ -153,6 +173,7 @@ import {
   ImportStatistics,
   InactiveEventDataStoreException,
   InactiveQueryException,
+  IngestionStatus,
   InsightNotEnabledException,
   InsightSelector,
   InsufficientDependencyServiceAccessPermissionException,
@@ -180,6 +201,7 @@ import {
   InvalidS3BucketNameException,
   InvalidS3PrefixException,
   InvalidSnsTopicNameException,
+  InvalidSourceException,
   InvalidTagParameterException,
   InvalidTimeRangeException,
   InvalidTokenException,
@@ -219,6 +241,8 @@ import {
   PutEventSelectorsResponse,
   PutInsightSelectorsRequest,
   PutInsightSelectorsResponse,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResponse,
   Query,
   QueryIdNotFoundException,
   QueryStatistics,
@@ -228,7 +252,10 @@ import {
   RemoveTagsRequest,
   RemoveTagsResponse,
   Resource,
+  ResourceARNNotValidException,
   ResourceNotFoundException,
+  ResourcePolicyNotFoundException,
+  ResourcePolicyNotValidException,
   ResourceTag,
   ResourceTypeNotSupportedException,
   RestoreEventDataStoreRequest,
@@ -254,6 +281,8 @@ import {
   TrailNotFoundException,
   TrailNotProvidedException,
   UnsupportedOperationException,
+  UpdateChannelRequest,
+  UpdateChannelResponse,
   UpdateEventDataStoreRequest,
   UpdateEventDataStoreResponse,
   UpdateTrailRequest,
@@ -286,6 +315,19 @@ export const serializeAws_json1_1CancelQueryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateChannelCommand = async (
+  input: CreateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.CreateChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateEventDataStoreCommand = async (
   input: CreateEventDataStoreCommandInput,
   context: __SerdeContext
@@ -312,6 +354,19 @@ export const serializeAws_json1_1CreateTrailCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteChannelCommand = async (
+  input: DeleteChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeleteChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEventDataStoreCommand = async (
   input: DeleteEventDataStoreCommandInput,
   context: __SerdeContext
@@ -322,6 +377,19 @@ export const serializeAws_json1_1DeleteEventDataStoreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventDataStoreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeleteResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -452,6 +520,19 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetQueryResultsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.GetResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,6 +705,19 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.PutResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
   input: RegisterOrganizationDelegatedAdminCommandInput,
   context: __SerdeContext
@@ -728,6 +822,19 @@ export const serializeAws_json1_1StopLoggingCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateChannelCommand = async (
+  input: UpdateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.UpdateChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateEventDataStoreCommand = async (
   input: UpdateEventDataStoreCommandInput,
   context: __SerdeContext
@@ -781,6 +888,9 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
@@ -885,6 +995,80 @@ const deserializeAws_json1_1CancelQueryCommandError = async (
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
       throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateChannelResponse(data, context);
+  const response: CreateChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
+      throw await deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ChannelMaxLimitExceededException":
+    case "com.amazonaws.cloudtrail#ChannelMaxLimitExceededException":
+      throw await deserializeAws_json1_1ChannelMaxLimitExceededExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.cloudtrail#InvalidSourceException":
+      throw await deserializeAws_json1_1InvalidSourceExceptionResponse(parsedOutput, context);
+    case "InvalidTagParameterException":
+    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1128,6 +1312,56 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteChannelResponse(data, context);
+  const response: DeleteChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await deserializeAws_json1_1ChannelARNInvalidExceptionResponse(parsedOutput, context);
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteEventDataStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1155,6 +1389,9 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelExistsForEDSException":
+    case "com.amazonaws.cloudtrail#ChannelExistsForEDSException":
+      throw await deserializeAws_json1_1ChannelExistsForEDSExceptionResponse(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
@@ -1188,6 +1425,62 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1309,6 +1602,9 @@ const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError = a
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -1784,6 +2080,62 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
       throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -2544,6 +2896,62 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotValidException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotValidException":
+      throw await deserializeAws_json1_1ResourcePolicyNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2583,6 +2991,9 @@ const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError = asy
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "DelegatedAdminAccountLimitExceededException":
     case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
       throw await deserializeAws_json1_1DelegatedAdminAccountLimitExceededExceptionResponse(parsedOutput, context);
@@ -2648,6 +3059,9 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
@@ -2873,6 +3287,9 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -3071,6 +3488,9 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -3095,6 +3515,74 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateChannelResponse(data, context);
+  const response: UpdateChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await deserializeAws_json1_1ChannelARNInvalidExceptionResponse(parsedOutput, context);
+    case "ChannelAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
+      throw await deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -3243,6 +3731,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       throw await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -3403,6 +3894,19 @@ const deserializeAws_json1_1CannotDelegateManagementAccountExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelAlreadyExistsException(body, context);
+  const exception = new ChannelAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1ChannelARNInvalidExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3410,6 +3914,32 @@ const deserializeAws_json1_1ChannelARNInvalidExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ChannelARNInvalidException(body, context);
   const exception = new ChannelARNInvalidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelExistsForEDSExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelExistsForEDSException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelExistsForEDSException(body, context);
+  const exception = new ChannelExistsForEDSException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelMaxLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelMaxLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelMaxLimitExceededException(body, context);
+  const exception = new ChannelMaxLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3962,6 +4492,19 @@ const deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidSourceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidSourceException(body, context);
+  const exception = new InvalidSourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4170,6 +4713,19 @@ const deserializeAws_json1_1QueryIdNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1ResourceARNNotValidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceARNNotValidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceARNNotValidException(body, context);
+  const exception = new ResourceARNNotValidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4177,6 +4733,32 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotFoundException(body, context);
+  const exception = new ResourcePolicyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyNotValidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotValidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotValidException(body, context);
+  const exception = new ResourcePolicyNotValidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4325,6 +4907,15 @@ const serializeAws_json1_1CancelQueryRequest = (input: CancelQueryRequest, conte
   };
 };
 
+const serializeAws_json1_1CreateChannelRequest = (input: CreateChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destinations != null && { Destinations: serializeAws_json1_1Destinations(input.Destinations, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Source != null && { Source: input.Source }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateEventDataStoreRequest = (
   input: CreateEventDataStoreRequest,
   context: __SerdeContext
@@ -4385,12 +4976,27 @@ const serializeAws_json1_1DataResourceValues = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_json1_1DeleteChannelRequest = (input: DeleteChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel != null && { Channel: input.Channel }),
+  };
+};
+
 const serializeAws_json1_1DeleteEventDataStoreRequest = (
   input: DeleteEventDataStoreRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+  };
+};
+
+const serializeAws_json1_1DeleteResourcePolicyRequest = (
+  input: DeleteResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -4423,6 +5029,21 @@ const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest,
       trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
     }),
   };
+};
+
+const serializeAws_json1_1Destination = (input: Destination, context: __SerdeContext): any => {
+  return {
+    ...(input.Location != null && { Location: input.Location }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1Destinations = (input: Destination[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1Destination(entry, context);
+    });
 };
 
 const serializeAws_json1_1EventSelector = (input: EventSelector, context: __SerdeContext): any => {
@@ -4502,6 +5123,15 @@ const serializeAws_json1_1GetQueryResultsRequest = (input: GetQueryResultsReques
     ...(input.MaxQueryResults != null && { MaxQueryResults: input.MaxQueryResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.QueryId != null && { QueryId: input.QueryId }),
+  };
+};
+
+const serializeAws_json1_1GetResourcePolicyRequest = (
+  input: GetResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -4679,6 +5309,16 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   };
 };
 
+const serializeAws_json1_1PutResourcePolicyRequest = (
+  input: PutResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
+  };
+};
+
 const serializeAws_json1_1RegisterOrganizationDelegatedAdminRequest = (
   input: RegisterOrganizationDelegatedAdminRequest,
   context: __SerdeContext
@@ -4778,6 +5418,14 @@ const serializeAws_json1_1TrailNameList = (input: string[], context: __SerdeCont
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1UpdateChannelRequest = (input: UpdateChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel != null && { Channel: input.Channel }),
+    ...(input.Destinations != null && { Destinations: serializeAws_json1_1Destinations(input.Destinations, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
 };
 
 const serializeAws_json1_1UpdateEventDataStoreRequest = (
@@ -4932,10 +5580,37 @@ const deserializeAws_json1_1Channel = (output: any, context: __SerdeContext): Ch
   } as any;
 };
 
+const deserializeAws_json1_1ChannelAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ChannelAlreadyExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1ChannelARNInvalidException = (
   output: any,
   context: __SerdeContext
 ): ChannelARNInvalidException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelExistsForEDSException = (
+  output: any,
+  context: __SerdeContext
+): ChannelExistsForEDSException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelMaxLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ChannelMaxLimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -5001,6 +5676,17 @@ const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableException = (
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateChannelResponse = (output: any, context: __SerdeContext): CreateChannelResponse => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    Name: __expectString(output.Name),
+    Source: __expectString(output.Source),
+    Tags: output.Tags != null ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -5091,10 +5777,21 @@ const deserializeAws_json1_1DelegatedAdminAccountLimitExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteChannelResponse = (output: any, context: __SerdeContext): DeleteChannelResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteEventDataStoreResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcePolicyResponse => {
   return {} as any;
 };
 
@@ -5308,6 +6005,10 @@ const deserializeAws_json1_1GetChannelResponse = (output: any, context: __SerdeC
     ChannelArn: __expectString(output.ChannelArn),
     Destinations:
       output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    IngestionStatus:
+      output.IngestionStatus != null
+        ? deserializeAws_json1_1IngestionStatus(output.IngestionStatus, context)
+        : undefined,
     Name: __expectString(output.Name),
     Source: __expectString(output.Source),
     SourceConfig:
@@ -5418,6 +6119,16 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
         ? deserializeAws_json1_1QueryStatistics(output.QueryStatistics, context)
         : undefined,
     QueryStatus: __expectString(output.QueryStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePolicyResponse => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
   } as any;
 };
 
@@ -5570,6 +6281,22 @@ const deserializeAws_json1_1InactiveEventDataStoreException = (
 const deserializeAws_json1_1InactiveQueryException = (output: any, context: __SerdeContext): InactiveQueryException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1IngestionStatus = (output: any, context: __SerdeContext): IngestionStatus => {
+  return {
+    LatestIngestionAttemptEventID: __expectString(output.LatestIngestionAttemptEventID),
+    LatestIngestionAttemptTime:
+      output.LatestIngestionAttemptTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestIngestionAttemptTime)))
+        : undefined,
+    LatestIngestionErrorCode: __expectString(output.LatestIngestionErrorCode),
+    LatestIngestionSuccessEventID: __expectString(output.LatestIngestionSuccessEventID),
+    LatestIngestionSuccessTime:
+      output.LatestIngestionSuccessTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestIngestionSuccessTime)))
+        : undefined,
   } as any;
 };
 
@@ -5820,6 +6547,12 @@ const deserializeAws_json1_1InvalidSnsTopicNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidSnsTopicNameException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidSourceException = (output: any, context: __SerdeContext): InvalidSourceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -6097,6 +6830,16 @@ const deserializeAws_json1_1PutInsightSelectorsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1PutResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyResponse => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
+  } as any;
+};
+
 const deserializeAws_json1_1Queries = (output: any, context: __SerdeContext): Query[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6205,6 +6948,15 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
   } as any;
 };
 
+const deserializeAws_json1_1ResourceARNNotValidException = (
+  output: any,
+  context: __SerdeContext
+): ResourceARNNotValidException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6221,6 +6973,24 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyNotValidException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyNotValidException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -6492,6 +7262,16 @@ const deserializeAws_json1_1UnsupportedOperationException = (
 ): UnsupportedOperationException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateChannelResponse = (output: any, context: __SerdeContext): UpdateChannelResponse => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    Name: __expectString(output.Name),
+    Source: __expectString(output.Source),
   } as any;
 };
 

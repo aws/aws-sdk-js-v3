@@ -36,7 +36,6 @@ see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.h
 <p>
 <b>CA certificates</b>
 </p>
-
 <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers
 can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your
 computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate

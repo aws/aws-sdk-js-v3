@@ -26,14 +26,11 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified rule.</p>
  *          <p>Before you can delete the rule, you must remove all targets, using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html">RemoveTargets</a>.</p>
- *
  *          <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow
  *       a short period of time for changes to take effect.</p>
- *
  *          <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you
  *       call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is
  *       returned.</p>
- *
  *          <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These
  *       rules are created by those other Amazon Web Services services to support functionality in those services. You
  *       can delete these rules using the <code>Force</code> option, but you should do so only if you

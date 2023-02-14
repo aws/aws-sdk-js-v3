@@ -30,7 +30,6 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
 
 /**
  * <p>Deletes a Amazon Lightsail bucket.</p>
- *
  *          <note>
  *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
  *         bucket in your account or another Amazon Web Services account.</p>

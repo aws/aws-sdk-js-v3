@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
@@ -22,7 +22,7 @@ export enum InstanceFleetType {
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp2, io1, and standard.</p>
+   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.</p>
    */
   VolumeType: string | undefined;
 
@@ -38,7 +38,8 @@ export interface VolumeSpecification {
   SizeInGB: number | undefined;
 
   /**
-   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.</p>
+   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number
+   *            from 125 - 1000 and is valid only for gp3 volumes.</p>
    */
   Throughput?: number;
 }
@@ -162,7 +163,10 @@ export enum SpotProvisioningAllocationStrategy {
   CAPACITY_OPTIMIZED = "capacity-optimized",
 }
 
-export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_CLUSTER";
+export enum SpotProvisioningTimeoutAction {
+  SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND",
+  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
+}
 
 /**
  * <p>The launch specification for Spot Instances in the instance fleet, which determines the
@@ -599,7 +603,11 @@ export interface AutoScalingPolicy {
   Rules: ScalingRule[] | undefined;
 }
 
-export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
+export enum InstanceRoleType {
+  CORE = "CORE",
+  MASTER = "MASTER",
+  TASK = "TASK",
+}
 
 /**
  * <p>Output from an AddInstanceGroups call.</p>
@@ -1021,7 +1029,10 @@ export interface BootstrapActionDetail {
   BootstrapActionConfig?: BootstrapActionConfig;
 }
 
-export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
+export enum StepCancellationOption {
+  SEND_INTERRUPT = "SEND_INTERRUPT",
+  TERMINATE_PROCESS = "TERMINATE_PROCESS",
+}
 
 /**
  * <p>The input argument to the <a>CancelSteps</a> operation.</p>
@@ -1472,7 +1483,7 @@ export interface CreateStudioInput {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode: AuthMode | string | undefined;
 
@@ -1498,7 +1509,7 @@ export interface CreateStudioInput {
 
   /**
    * <p>The IAM user role that users and groups assume when logged in to an Amazon EMR
-   *          Studio. Only specify a <code>UserRole</code> when you use Amazon Web Services SSO
+   *          Studio. Only specify a <code>UserRole</code> when you use IAM Identity Center
    *          authentication. The permissions attached to the <code>UserRole</code> can be scoped down
    *          for each user or group using session policies.</p>
    */
@@ -1574,15 +1585,15 @@ export interface CreateStudioSessionMappingInput {
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO
-   *          Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
+   *          Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified, but not both.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified, but not both.</p>
    */
@@ -1601,6 +1612,51 @@ export interface CreateStudioSessionMappingInput {
    *             Role with Session Policies</a>.</p>
    */
   SessionPolicyArn: string | undefined;
+}
+
+/**
+ * <p>The username and password that you use to connect to cluster endpoints.</p>
+ */
+export interface UsernamePassword {
+  /**
+   * <p>The username associated with the temporary credentials that you use to connect to cluster endpoints.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The password associated with the temporary credentials that you use to connect to cluster endpoints.</p>
+   */
+  Password?: string;
+}
+
+/**
+ * <p>The credentials that you can use to connect to cluster endpoints. Credentials consist of a username and a password.</p>
+ */
+export type Credentials = Credentials.UsernamePasswordMember | Credentials.$UnknownMember;
+
+export namespace Credentials {
+  /**
+   * <p>The username and password that you use to connect to cluster endpoints.</p>
+   */
+  export interface UsernamePasswordMember {
+    UsernamePassword: UsernamePassword;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    UsernamePassword?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    UsernamePassword: (value: UsernamePassword) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Credentials, visitor: Visitor<T>): T => {
+    if (value.UsernamePassword !== undefined) return visitor.UsernamePassword(value.UsernamePassword);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 export interface DeleteSecurityConfigurationInput {
@@ -1626,7 +1682,7 @@ export interface DeleteStudioSessionMappingInput {
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -1634,7 +1690,7 @@ export interface DeleteStudioSessionMappingInput {
 
   /**
    * <p>The name of the user name or group to remove from the Amazon EMR Studio. For
-   *          more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Store API Reference</i>.
+   *          more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -1930,14 +1986,15 @@ export interface JobFlowInstancesDetail {
   HadoopVersion?: string;
 }
 
-export type StepExecutionState =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "CONTINUE"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "PENDING"
-  | "RUNNING";
+export enum StepExecutionState {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  CONTINUE = "CONTINUE",
+  FAILED = "FAILED",
+  INTERRUPTED = "INTERRUPTED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+}
 
 /**
  * <p>The execution state of a step.</p>
@@ -2460,7 +2517,9 @@ export enum StepState {
   RUNNING = "RUNNING",
 }
 
-export type StepStateChangeReasonCode = "NONE";
+export enum StepStateChangeReasonCode {
+  NONE = "NONE",
+}
 
 /**
  * <p>The details of the step state change reason.</p>
@@ -2621,7 +2680,7 @@ export interface Studio {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode?: AuthMode | string;
 
@@ -2751,6 +2810,32 @@ export interface GetAutoTerminationPolicyOutput {
 
 export interface GetBlockPublicAccessConfigurationInput {}
 
+export interface GetClusterSessionCredentialsInput {
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission on the cluster.
+   *          The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name,
+   *          and role type using the following format: <code>arn:partition:service:region:account:resource</code>.</p>
+   */
+  ExecutionRoleArn: string | undefined;
+}
+
+export interface GetClusterSessionCredentialsOutput {
+  /**
+   * <p>The credentials that you can use to connect to cluster endpoints that support username-based and password-based authentication.</p>
+   */
+  Credentials?: Credentials;
+
+  /**
+   * <p>The time when the credentials that are returned by the <code>GetClusterSessionCredentials</code> API expire.</p>
+   */
+  ExpiresAt?: Date;
+}
+
 export interface GetManagedScalingPolicyInput {
   /**
    * <p>Specifies the ID of the cluster for which the managed scaling policy will be fetched.
@@ -2790,14 +2875,14 @@ export interface GetStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -2825,7 +2910,7 @@ export interface SessionMappingDetail {
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>.</p>
    */
   IdentityName?: string;
@@ -3775,7 +3860,7 @@ export interface StudioSummary {
   Url?: string;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode?: AuthMode | string;
 
@@ -3826,13 +3911,13 @@ export interface SessionMappingSummary {
   StudioId?: string;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO
+   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
    *          Identity Store.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>.</p>
    */
   IdentityName?: string;
@@ -4247,14 +4332,14 @@ export interface UpdateStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -5471,7 +5556,7 @@ export interface RunJobFlowInput {
 
   /**
    * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services
-   *          resources on your behalf.</p>
+   *          resources on your behalf. If you've created a custom service role path, you must specify it for the service role when you launch your cluster.</p>
    */
   ServiceRole?: string;
 
@@ -5945,6 +6030,21 @@ export const CreateStudioSessionMappingInputFilterSensitiveLog = (obj: CreateStu
 /**
  * @internal
  */
+export const UsernamePasswordFilterSensitiveLog = (obj: UsernamePassword): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => {
+  if (obj.UsernamePassword !== undefined) return { UsernamePassword: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const DeleteSecurityConfigurationInputFilterSensitiveLog = (obj: DeleteSecurityConfigurationInput): any => ({
   ...obj,
 });
@@ -6224,6 +6324,21 @@ export const GetBlockPublicAccessConfigurationInputFilterSensitiveLog = (
   obj: GetBlockPublicAccessConfigurationInput
 ): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterSessionCredentialsInputFilterSensitiveLog = (obj: GetClusterSessionCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterSessionCredentialsOutputFilterSensitiveLog = (obj: GetClusterSessionCredentialsOutput): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
 });
 
 /**

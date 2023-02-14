@@ -33,9 +33,7 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
  *          </note>
- *          <p>
- *       Starts the connection required for Outpost server installation.
- *     </p>
+ *          <p> Starts the connection required for Outpost server installation. </p>
  *          <p>
  *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">

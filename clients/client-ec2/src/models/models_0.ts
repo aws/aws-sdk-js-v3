@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 /**
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
@@ -121,6 +123,8 @@ export enum ResourceType {
   internet_gateway = "internet-gateway",
   ipam = "ipam",
   ipam_pool = "ipam-pool",
+  ipam_resource_discovery = "ipam-resource-discovery",
+  ipam_resource_discovery_association = "ipam-resource-discovery-association",
   ipam_scope = "ipam-scope",
   ipv4pool_ec2 = "ipv4pool-ec2",
   ipv6pool_ec2 = "ipv6pool-ec2",
@@ -201,7 +205,8 @@ export interface Tag {
 }
 
 /**
- * <p>The tags to apply to a resource when the resource is being created.</p>
+ * <p>The tags to apply to a resource when the resource is being created. When you specify a tag, you must
+ *        specify the resource type to tag, otherwise the request will fail.</p>
  *          <note>
  *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
  *             However, the action you're using might not support tagging all of these resource types.
@@ -704,7 +709,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The IDs of one or more interface VPC endpoints.</p>
+   * <p>The IDs of the interface VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
@@ -759,7 +764,7 @@ export interface AcceptVpcPeeringConnectionRequest {
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId: string | undefined;
 }
 
 /**
@@ -1932,8 +1937,7 @@ export interface AddedPrincipal {
 }
 
 /**
- * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
- *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
@@ -2414,7 +2418,7 @@ export enum IpamPoolAllocationResourceType {
 }
 
 /**
- * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 export interface IpamPoolAllocation {
   /**
@@ -2688,6 +2692,96 @@ export interface AssignPrivateIpAddressesResult {
   AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
 
+export interface AssignPrivateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
+   */
+  PrivateIpAddressCount?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum NatGatewayAddressStatus {
+  ASSIGNING = "assigning",
+  ASSOCIATING = "associating",
+  DISASSOCIATING = "disassociating",
+  FAILED = "failed",
+  SUCCEEDED = "succeeded",
+  UNASSIGNING = "unassigning",
+}
+
+/**
+ * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
+ */
+export interface NatGatewayAddress {
+  /**
+   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The ID of the network interface associated with the NAT gateway.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The private IP address associated with the NAT gateway.</p>
+   */
+  PrivateIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The association ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>Defines if the IP address is the primary address.</p>
+   */
+  IsPrimary?: boolean;
+
+  /**
+   * <p>The address failure message.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The address status.</p>
+   */
+  Status?: NatGatewayAddressStatus | string;
+}
+
+export interface AssignPrivateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>NAT gateway IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
 export interface AssociateAddressRequest {
   /**
    * <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
@@ -2820,13 +2914,13 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
    */
-  CertificateArn?: string;
+  CertificateArn: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM
    * 			certificate.</p>
    */
-  RoleArn?: string;
+  RoleArn: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3092,6 +3186,205 @@ export interface AssociateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
+export interface AssociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM ID.</p>
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>Tag specifications.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A client token.</p>
+   */
+  ClientToken?: string;
+}
+
+export enum IpamAssociatedResourceDiscoveryStatus {
+  ACTIVE = "active",
+  NOT_FOUND = "not-found",
+}
+
+export enum IpamResourceDiscoveryAssociationState {
+  ASSOCIATE_COMPLETE = "associate-complete",
+  ASSOCIATE_FAILED = "associate-failed",
+  ASSOCIATE_IN_PROGRESS = "associate-in-progress",
+  DISASSOCIATE_COMPLETE = "disassociate-complete",
+  DISASSOCIATE_FAILED = "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress",
+  ISOLATE_COMPLETE = "isolate-complete",
+  ISOLATE_IN_PROGRESS = "isolate-in-progress",
+  RESTORE_IN_PROGRESS = "restore-in-progress",
+}
+
+/**
+ * <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
+ */
+export interface IpamResourceDiscoveryAssociation {
+  /**
+   * <p>The Amazon Web Services account ID of the resource discovery owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The resource discovery association ID.</p>
+   */
+  IpamResourceDiscoveryAssociationId?: string;
+
+  /**
+   * <p>The resource discovery association Amazon Resource Name (ARN).</p>
+   */
+  IpamResourceDiscoveryAssociationArn?: string;
+
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The IPAM ID.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * <p>The IPAM ARN.</p>
+   */
+  IpamArn?: string;
+
+  /**
+   * <p>The IPAM home Region.</p>
+   */
+  IpamRegion?: string;
+
+  /**
+   * <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The resource discovery status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - Connection or permissions required to read the
+   *                results of the resource discovery are intact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-found</code> - Connection or permissions required to read the
+   *                results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+
+  /**
+   * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associate-in-progress</code> - Resource discovery is being associated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-complete</code> - Resource discovery association is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-failed</code> - Resource discovery association has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-complete</code> - Resource discovery disassociation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-failed </code> - Resource discovery disassociation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete..</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>restore-in-progress</code> - Resource discovery is being restored.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: IpamResourceDiscoveryAssociationState | string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AssociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
+}
+
+export interface AssociateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The allocation IDs of EIPs that you want to associate with your NAT gateway.</p>
+   */
+  AllocationIds: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 addresses that you want to assign to the NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface AssociateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
 export interface AssociateRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3225,17 +3518,17 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId: string | undefined;
 
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    */
-  SubnetIds?: string[];
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4290,9 +4583,9 @@ export interface UserIdGroupPair {
  */
 export interface IpPermission {
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
-   *         A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all
-   * 		ICMP/ICMPv6 types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *         If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *         If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
@@ -4324,9 +4617,9 @@ export interface IpPermission {
   PrefixListIds?: PrefixListId[];
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
-   * 		of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types,
-   *         you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *           If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4456,14 +4749,16 @@ export interface SecurityGroupRule {
   IpProtocol?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value
-   *             of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must
-   *             specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4519,9 +4814,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   CidrIp?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number.
-   * 			For the ICMP type number, use <code>-1</code> to specify all types. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   FromPort?: number;
@@ -4574,9 +4869,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   SourceSecurityGroupOwnerId?: string;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number.
-   * 			For the ICMP code number, use <code>-1</code> to specify all codes. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *            If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   ToPort?: number;
@@ -4612,8 +4907,9 @@ export interface AuthorizeSecurityGroupIngressResult {
 export interface S3Storage {
   /**
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
-   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing
-   *         Amazon Web Services access keys</a>.</p>
+   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
+   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
+   *            Guide</i>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -6086,6 +6382,15 @@ export enum _InstanceType {
   c6id_large = "c6id.large",
   c6id_metal = "c6id.metal",
   c6id_xlarge = "c6id.xlarge",
+  c6in_12xlarge = "c6in.12xlarge",
+  c6in_16xlarge = "c6in.16xlarge",
+  c6in_24xlarge = "c6in.24xlarge",
+  c6in_2xlarge = "c6in.2xlarge",
+  c6in_32xlarge = "c6in.32xlarge",
+  c6in_4xlarge = "c6in.4xlarge",
+  c6in_8xlarge = "c6in.8xlarge",
+  c6in_large = "c6in.large",
+  c6in_xlarge = "c6in.xlarge",
   c7g_12xlarge = "c7g.12xlarge",
   c7g_16xlarge = "c7g.16xlarge",
   c7g_2xlarge = "c7g.2xlarge",
@@ -6324,6 +6629,24 @@ export enum _InstanceType {
   m6id_large = "m6id.large",
   m6id_metal = "m6id.metal",
   m6id_xlarge = "m6id.xlarge",
+  m6idn_12xlarge = "m6idn.12xlarge",
+  m6idn_16xlarge = "m6idn.16xlarge",
+  m6idn_24xlarge = "m6idn.24xlarge",
+  m6idn_2xlarge = "m6idn.2xlarge",
+  m6idn_32xlarge = "m6idn.32xlarge",
+  m6idn_4xlarge = "m6idn.4xlarge",
+  m6idn_8xlarge = "m6idn.8xlarge",
+  m6idn_large = "m6idn.large",
+  m6idn_xlarge = "m6idn.xlarge",
+  m6in_12xlarge = "m6in.12xlarge",
+  m6in_16xlarge = "m6in.16xlarge",
+  m6in_24xlarge = "m6in.24xlarge",
+  m6in_2xlarge = "m6in.2xlarge",
+  m6in_32xlarge = "m6in.32xlarge",
+  m6in_4xlarge = "m6in.4xlarge",
+  m6in_8xlarge = "m6in.8xlarge",
+  m6in_large = "m6in.large",
+  m6in_xlarge = "m6in.xlarge",
   mac1_metal = "mac1.metal",
   mac2_metal = "mac2.metal",
   p2_16xlarge = "p2.16xlarge",
@@ -6456,6 +6779,24 @@ export enum _InstanceType {
   r6id_large = "r6id.large",
   r6id_metal = "r6id.metal",
   r6id_xlarge = "r6id.xlarge",
+  r6idn_12xlarge = "r6idn.12xlarge",
+  r6idn_16xlarge = "r6idn.16xlarge",
+  r6idn_24xlarge = "r6idn.24xlarge",
+  r6idn_2xlarge = "r6idn.2xlarge",
+  r6idn_32xlarge = "r6idn.32xlarge",
+  r6idn_4xlarge = "r6idn.4xlarge",
+  r6idn_8xlarge = "r6idn.8xlarge",
+  r6idn_large = "r6idn.large",
+  r6idn_xlarge = "r6idn.xlarge",
+  r6in_12xlarge = "r6in.12xlarge",
+  r6in_16xlarge = "r6in.16xlarge",
+  r6in_24xlarge = "r6in.24xlarge",
+  r6in_2xlarge = "r6in.2xlarge",
+  r6in_32xlarge = "r6in.32xlarge",
+  r6in_4xlarge = "r6in.4xlarge",
+  r6in_8xlarge = "r6in.8xlarge",
+  r6in_large = "r6in.large",
+  r6in_xlarge = "r6in.xlarge",
   t1_micro = "t1.micro",
   t2_2xlarge = "t2.2xlarge",
   t2_large = "t2.large",
@@ -7009,327 +7350,6 @@ export interface ConnectionLogOptions {
 export enum SelfServicePortal {
   disabled = "disabled",
   enabled = "enabled",
-}
-
-export enum TransportProtocol {
-  tcp = "tcp",
-  udp = "udp",
-}
-
-export interface CreateClientVpnEndpointRequest {
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.</p>
-   */
-  ClientCidrBlock: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate. For more information, see
-   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
-   */
-  ServerCertificateArn: string | undefined;
-
-  /**
-   * <p>Information about the authentication method to be used to authenticate clients.</p>
-   */
-  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   *          <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   */
-  ConnectionLogOptions: ConnectionLogOptions | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
-   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * <p>The transport protocol to be used by the VPN session.</p>
-   *          <p>Default value: <code>udp</code>
-   *          </p>
-   */
-  TransportProtocol?: TransportProtocol | string;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   *          <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   *          <p>Default Value: <code>443</code>
-   *          </p>
-   */
-  VpnPort?: number;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   * 			<i>Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *          <p>Default Value: <code>enabled</code>
-   *          </p>
-   */
-  SelfServicePortal?: SelfServicePortal | string;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   */
-  ClientConnectOptions?: ClientConnectOptions;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   */
-  SessionTimeoutHours?: number;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions;
-}
-
-export enum ClientVpnEndpointStatusCode {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending_associate = "pending-associate",
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint.</p>
- */
-export interface ClientVpnEndpointStatus {
-  /**
-   * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
-   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
-   * 					associated. The Client VPN endpoint can accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *          </ul>
-   */
-  Code?: ClientVpnEndpointStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnEndpointResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   */
-  Status?: ClientVpnEndpointStatus;
-
-  /**
-   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
-   */
-  DnsName?: string;
-}
-
-export interface CreateClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for the local network, enter the client CIDR range</p>
-   *             </li>
-   *          </ul>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
-   * 			an existing target network of the Client VPN endpoint.</p>
-   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
-   */
-  TargetVpcSubnetId: string | undefined;
-
-  /**
-   * <p>A brief description of the route.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export enum ClientVpnRouteStatusCode {
-  active = "active",
-  creating = "creating",
-  deleting = "deleting",
-  failed = "failed",
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint route.</p>
- */
-export interface ClientVpnRouteStatus {
-  /**
-   * <p>The state of the Client VPN endpoint route.</p>
-   */
-  Code?: ClientVpnRouteStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-}
-
-export interface CreateCoipCidrRequest {
-  /**
-   * <p>
-   *       A customer-owned IP address range to create.
-   *       </p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>
- *       Information about a customer-owned IP address range.
- *       </p>
- */
-export interface CoipCidr {
-  /**
-   * <p>
-   *       An address range in a customer-owned IP address space.
-   *       </p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId?: string;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   */
-  LocalGatewayRouteTableId?: string;
 }
 
 /**
@@ -7993,6 +8013,31 @@ export const AssignPrivateIpAddressesResultFilterSensitiveLog = (obj: AssignPriv
 /**
  * @internal
  */
+export const AssignPrivateNatGatewayAddressRequestFilterSensitiveLog = (
+  obj: AssignPrivateNatGatewayAddressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NatGatewayAddressFilterSensitiveLog = (obj: NatGatewayAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignPrivateNatGatewayAddressResultFilterSensitiveLog = (
+  obj: AssignPrivateNatGatewayAddressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AssociateAddressRequestFilterSensitiveLog = (obj: AssociateAddressRequest): any => ({
   ...obj,
 });
@@ -8134,6 +8179,45 @@ export const InstanceEventWindowFilterSensitiveLog = (obj: InstanceEventWindow):
  * @internal
  */
 export const AssociateInstanceEventWindowResultFilterSensitiveLog = (obj: AssociateInstanceEventWindowResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryRequestFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamResourceDiscoveryAssociationFilterSensitiveLog = (obj: IpamResourceDiscoveryAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryResultFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateNatGatewayAddressRequestFilterSensitiveLog = (obj: AssociateNatGatewayAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateNatGatewayAddressResultFilterSensitiveLog = (obj: AssociateNatGatewayAddressResult): any => ({
   ...obj,
 });
 
@@ -8854,6 +8938,7 @@ export const CopyImageResultFilterSensitiveLog = (obj: CopyImageResult): any => 
  */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
   ...obj,
+  ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -8994,61 +9079,5 @@ export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBanne
  * @internal
  */
 export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
   ...obj,
 });

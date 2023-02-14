@@ -19,7 +19,7 @@ import {
   CreateSecurityGroupRequestFilterSensitiveLog,
   CreateSecurityGroupResult,
   CreateSecurityGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSecurityGroupCommand,
   serializeAws_ec2CreateSecurityGroupCommand,

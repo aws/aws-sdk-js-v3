@@ -2,6 +2,8 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  ActionSource,
+  ActionStatus,
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
@@ -11,17 +13,12 @@ import {
   AlgorithmStatusDetails,
   AlgorithmSummary,
   AlgorithmValidationSpecification,
-  AppDetails,
-  AppImageConfigDetails,
-  AppImageConfigSortKey,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
-  AppSortKey,
   AppSpecification,
   AppStatus,
   AppType,
   ArtifactSource,
-  ArtifactSummary,
   AssociationEdgeType,
   AsyncInferenceConfig,
   AuthMode,
@@ -49,14 +46,14 @@ import {
   DataQualityJobInput,
   DefaultSpaceSettings,
   DeploymentConfig,
+  DeviceSelectionConfig,
   DomainSettings,
+  EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
   ExplainerConfig,
-  FeatureDefinition,
-  FeatureType,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -99,12 +96,12 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
-  DeployedImage,
-  DeploymentStageStatusSummary,
   DirectInternetAccess,
   DriftCheckBaselines,
   EndpointInfo,
   ExperimentConfig,
+  FeatureDefinition,
+  FeatureType,
   FlowDefinitionOutputConfig,
   HubContentType,
   HubS3StorageConfig,
@@ -179,6 +176,201 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+export interface DeleteWorkteamResponse {
+  /**
+   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
+   *             returns <code>false</code>.</p>
+   */
+  Success: boolean | undefined;
+}
+
+/**
+ * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
+ *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
+ *             of the primary container when you created the model hosted in this
+ *                 <code>ProductionVariant</code>, the path resolves to a path of the form
+ *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
+ *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+ */
+export interface DeployedImage {
+  /**
+   * <p>The image path you specified when you created the model.</p>
+   */
+  SpecifiedImage?: string;
+
+  /**
+   * <p>The specific digest path of the image hosted in this
+   *             <code>ProductionVariant</code>.</p>
+   */
+  ResolvedImage?: string;
+
+  /**
+   * <p>The date and time when the image path for the model resolved to the
+   *                 <code>ResolvedImage</code>
+   *          </p>
+   */
+  ResolutionTime?: Date;
+}
+
+export enum StageStatus {
+  Creating = "CREATING",
+  Deployed = "DEPLOYED",
+  Failed = "FAILED",
+  InProgress = "INPROGRESS",
+  ReadyToDeploy = "READYTODEPLOY",
+  Starting = "STARTING",
+  Stopped = "STOPPED",
+  Stopping = "STOPPING",
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface EdgeDeploymentStatus {
+  /**
+   * <p>The general status of the current stage.</p>
+   */
+  StageStatus: StageStatus | string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment in the current stage.</p>
+   */
+  EdgeDeploymentSuccessInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
+   */
+  EdgeDeploymentPendingInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices that failed the deployment in current stage.</p>
+   */
+  EdgeDeploymentFailedInStage: number | undefined;
+
+  /**
+   * <p>A detailed message about deployment status in current stage.</p>
+   */
+  EdgeDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The time when the deployment API started.</p>
+   */
+  EdgeDeploymentStageStartTime?: Date;
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface DeploymentStageStatusSummary {
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>Configuration of the devices in the stage.</p>
+   */
+  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+
+  /**
+   * <p>Configuration of the deployment details.</p>
+   */
+  DeploymentConfig: EdgeDeploymentConfig | undefined;
+
+  /**
+   * <p>General status of the current state.</p>
+   */
+  DeploymentStatus: EdgeDeploymentStatus | undefined;
+}
+
+export interface DeregisterDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The unique IDs of the devices.</p>
+   */
+  DeviceNames: string[] | undefined;
+}
+
+export interface DescribeActionRequest {
+  /**
+   * <p>The name of the action to describe.</p>
+   */
+  ActionName: string | undefined;
+}
+
+export interface DescribeActionResponse {
+  /**
+   * <p>The name of the action.</p>
+   */
+  ActionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+
+  /**
+   * <p>The source of the action.</p>
+   */
+  Source?: ActionSource;
+
+  /**
+   * <p>The type of the action.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>The description of the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>A list of the action's properties.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>When the action was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the action was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+}
 
 export interface DescribeAlgorithmInput {
   /**
@@ -488,7 +680,7 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobArn: string | undefined;
 
   /**
-   * <p>Returns the input data configuration for the AutoML job..</p>
+   * <p>Returns the input data configuration for the AutoML job.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -574,7 +766,7 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobArtifacts?: AutoMLJobArtifacts;
 
   /**
-   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
+   * <p>Contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
    *             <code>CompletionCriteria</code>. If you do not provide these values, they are
    *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
    */
@@ -1555,8 +1747,8 @@ export interface PendingDeploymentSummary {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint for the in-progress deployment.</p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint for the in-progress deployment.</p>
    */
   ProductionVariants?: PendingProductionVariantSummary[];
 
@@ -1566,9 +1758,10 @@ export interface PendingDeploymentSummary {
   StartTime?: Date;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint in shadow mode with production traffic replicated from the
-   *             model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint in shadow mode with production traffic replicated from
+   *             the model specified on <code>ProductionVariants</code> for the in-progress
+   *             deployment.</p>
    */
   ShadowProductionVariants?: PendingProductionVariantSummary[];
 }
@@ -1751,8 +1944,8 @@ export interface DescribeEndpointOutput {
 
   /**
    * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
-   *             that you want to host at this endpoint in shadow mode with production traffic
-   *             replicated from the model specified on <code>ProductionVariants</code>.</p>
+   *             that you want to host at this endpoint in shadow mode with production traffic replicated
+   *             from the model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
@@ -2374,7 +2567,7 @@ export interface DescribeHubContentResponse {
   HubContentDescription?: string;
 
   /**
-   * <p>Markdown files associated with the hub content to import.</p>
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
    */
   HubContentMarkdown?: string;
 
@@ -2612,6 +2805,16 @@ export interface HyperParameterTrainingJobSummary {
   ObjectiveStatus?: ObjectiveStatus | string;
 }
 
+/**
+ * <p>The total resources consumed by your hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobConsumedResources {
+  /**
+   * <p>The wall clock runtime in seconds used by your hyperparameter tuning job.</p>
+   */
+  RuntimeInSeconds?: number;
+}
+
 export enum HyperParameterTuningJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -2686,6 +2889,21 @@ export interface TrainingJobStatusCounters {
   Stopped?: number;
 }
 
+/**
+ * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
+ */
+export interface HyperParameterTuningJobCompletionDetails {
+  /**
+   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
+   */
+  NumberOfTrainingJobsObjectiveNotImproving?: number;
+
+  /**
+   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
+   */
+  ConvergenceDetectedTime?: Date;
+}
+
 export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p>The name of the tuning job.</p>
@@ -2693,8 +2911,7 @@ export interface DescribeHyperParameterTuningJobResponse {
   HyperParameterTuningJobName: string | undefined;
 
   /**
-   * <p>The
-   *             Amazon Resource Name (ARN) of the tuning job.</p>
+   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
    */
   HyperParameterTuningJobArn: string | undefined;
 
@@ -2777,6 +2994,16 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>If the tuning job failed, the reason it failed.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total resources consumed by your hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export interface DescribeImageRequest {
@@ -3336,6 +3563,20 @@ export interface RecommendationMetrics {
    * <p>The expected model latency at maximum invocation per minute for the instance.</p>
    */
   ModelLatency: number | undefined;
+
+  /**
+   * <p>The expected CPU utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  CpuUtilization?: number;
+
+  /**
+   * <p>The expected memory utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  MemoryUtilization?: number;
 }
 
 /**
@@ -3371,6 +3612,11 @@ export interface ModelConfiguration {
    * <p>Defines the environment parameters that includes key, value types, and values.</p>
    */
   EnvironmentParameters?: EnvironmentParameter[];
+
+  /**
+   * <p>The name of the compilation job used to create the recommended model artifacts.</p>
+   */
+  CompilationJobName?: string;
 }
 
 /**
@@ -3391,6 +3637,11 @@ export interface InferenceRecommendation {
    * <p>Defines the model configuration.</p>
    */
   ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
+   */
+  RecommendationId?: string;
 }
 
 export enum RecommendationJobStatus {
@@ -7559,7 +7810,7 @@ export interface Endpoint {
 
   /**
    * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
-   *              in shadow mode with production traffic replicated from the proudction variant.</p>
+   *             in shadow mode with production traffic replicated from the production variant.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
@@ -8653,6 +8904,16 @@ export interface HyperParameterTuningJobSearchEntity {
    * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Information about either a current or completed hyperparameter tuning job.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export enum HyperParameterTuningJobSortByOptions {
@@ -8875,7 +9136,7 @@ export interface ImportHubContentRequest {
   HubContentDescription?: string;
 
   /**
-   * <p>Markdown files associated with the hub content to import.</p>
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
    */
   HubContentMarkdown?: string;
 
@@ -9415,254 +9676,54 @@ export interface ListAliasesRequest {
   NextToken?: string;
 }
 
-export interface ListAliasesResponse {
-  /**
-   * <p>A list of SageMaker image version aliases.</p>
-   */
-  SageMakerImageVersionAliases?: string[];
+/**
+ * @internal
+ */
+export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
+  ...obj,
+});
 
-export interface ListAppImageConfigsRequest {
-  /**
-   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
-   *         10. </p>
-   */
-  MaxResults?: number;
+/**
+ * @internal
+ */
+export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
-   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
-   */
-  NameContains?: string;
+/**
+ * @internal
+ */
+export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
+/**
+ * @internal
+ */
+export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
-   */
-  ModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
-   */
-  ModifiedTimeAfter?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: AppImageConfigSortKey | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListAppImageConfigsResponse {
-  /**
-   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of AppImageConfigs and their properties.</p>
-   */
-  AppImageConfigs?: AppImageConfigDetails[];
-}
-
-export interface ListAppsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns a list up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   */
-  SortBy?: AppSortKey | string;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   */
-  DomainIdEquals?: string;
-
-  /**
-   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
-   */
-  UserProfileNameEquals?: string;
-
-  /**
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
-   */
-  SpaceNameEquals?: string;
-}
-
-export interface ListAppsResponse {
-  /**
-   * <p>The list of apps.</p>
-   */
-  Apps?: AppDetails[];
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortArtifactsBy {
-  CREATION_TIME = "CreationTime",
-}
-
-export interface ListArtifactsRequest {
-  /**
-   * <p>A filter that returns only artifacts with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only artifacts of the specified type.</p>
-   */
-  ArtifactType?: string;
-
-  /**
-   * <p>A filter that returns only artifacts created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only artifacts created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortArtifactsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
-   *         the call returns a token for getting the next set of artifacts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListArtifactsResponse {
-  /**
-   * <p>A list of artifacts and their properties.</p>
-   */
-  ArtifactSummaries?: ArtifactSummary[];
-
-  /**
-   * <p>A token for getting the next set of artifacts, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortAssociationsBy {
-  CREATION_TIME = "CreationTime",
-  DESTINATION_ARN = "DestinationArn",
-  DESTINATION_TYPE = "DestinationType",
-  SOURCE_ARN = "SourceArn",
-  SOURCE_TYPE = "SourceType",
-}
-
-export interface ListAssociationsRequest {
-  /**
-   * <p>A filter that returns only associations with the specified source ARN.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
-   */
-  DestinationArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified source type.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination type.</p>
-   */
-  DestinationType?: string;
-
-  /**
-   * <p>A filter that returns only associations of the specified type.</p>
-   */
-  AssociationType?: AssociationEdgeType | string;
-
-  /**
-   * <p>A filter that returns only associations created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only associations created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortAssociationsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
-   *         the call returns a token for getting the next set of associations.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10130,6 +10191,15 @@ export const HyperParameterTrainingJobSummaryFilterSensitiveLog = (obj: HyperPar
 /**
  * @internal
  */
+export const HyperParameterTuningJobConsumedResourcesFilterSensitiveLog = (
+  obj: HyperParameterTuningJobConsumedResources
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
   ...obj,
 });
@@ -10138,6 +10208,15 @@ export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCo
  * @internal
  */
 export const TrainingJobStatusCountersFilterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobCompletionDetailsFilterSensitiveLog = (
+  obj: HyperParameterTuningJobCompletionDetails
+): any => ({
   ...obj,
 });
 
@@ -11347,61 +11426,5 @@ export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput
  * @internal
  */
 export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppImageConfigsResponseFilterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
   ...obj,
 });

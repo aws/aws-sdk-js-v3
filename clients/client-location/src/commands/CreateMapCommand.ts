@@ -31,12 +31,12 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
 /**
  * <p>Creates a map resource in your AWS account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
- *         <note>
+ *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
- *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+ *                 as delivery vehicles or employees, you must not use Esri as your geolocation
  *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
  *                     service terms</a> for more details.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -236,10 +236,10 @@ export class Location extends LocationClient {
    * <p>Creates an association between a geofence collection and a tracker resource. This
    *             allows the tracker resource to communicate location data to the linked geofence
    *             collection. </p>
-   *         <p>You can associate up to five geofence collections to each tracker resource.</p>
-   *         <note>
+   *          <p>You can associate up to five geofence collections to each tracker resource.</p>
+   *          <note>
    *             <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>
-   *         </note>
+   *          </note>
    */
   public associateTrackerConsumer(
     args: AssociateTrackerConsumerCommandInput,
@@ -304,9 +304,9 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a batch of geofences from a geofence collection.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation deletes the resource permanently.</p>
-   *         </note>
+   *          </note>
    */
   public batchDeleteGeofence(
     args: BatchDeleteGeofenceCommandInput,
@@ -340,33 +340,33 @@ export class Location extends LocationClient {
   /**
    * <p>Evaluates device positions against the geofence geometries from a given geofence
    *             collection.</p>
-   *         <p>This operation always returns an empty response because geofences are asynchronously
+   *          <p>This operation always returns an empty response because geofences are asynchronously
    *             evaluated. The evaluation determines if the device has entered or exited a geofenced
    *             area, and then publishes one of the following events to Amazon EventBridge:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENTER</code> if Amazon Location determines that the tracked device has entered
    *                     a geofenced area.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EXIT</code> if Amazon Location determines that the tracked device has exited a
    *                     geofenced area.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>The last geofence that a device was observed within is tracked for 30 days after
    *                 the most recent device position update.</p>
-   *         </note>
-   *         <note>
+   *          </note>
+   *          <note>
    *             <p>Geofence evaluation uses the given device position. It does not account for the
    *                 optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>
-   *         </note>
-   *         <note>
+   *          </note>
+   *          <note>
    *             <p>The <code>DeviceID</code> is used as a string to represent the device. You do not
    *                 need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.</p>
-   *         </note>
+   *          </note>
    */
   public batchEvaluateGeofences(
     args: BatchEvaluateGeofencesCommandInput,
@@ -467,7 +467,7 @@ export class Location extends LocationClient {
    *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
    *            days.</p>
    *          <note>
-   *            <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
+   *             <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
    *                When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections,
    *                and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than
    *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p>
@@ -518,30 +518,30 @@ export class Location extends LocationClient {
    *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
    *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
    *                 route calculator resource</a>.</p>
-   *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+   *          <p>By default, a request that doesn't specify a departure time uses the best time of day
    *             to travel with the best traffic conditions when calculating the route.</p>
-   *         <p>Additional options include:</p>
-   *         <ul>
+   *          <p>Additional options include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a
    *                         departure time</a> using either <code>DepartureTime</code> or
    *                         <code>DepartNow</code>. This calculates a route based on predictive traffic
    *                     data at the given time. </p>
-   *                 <note>
-   *                     <p>You can't specify both <code>DepartureTime</code> and
+   *                <note>
+   *                   <p>You can't specify both <code>DepartureTime</code> and
    *                             <code>DepartNow</code> in a single request. Specifying both parameters
    *                         returns a validation error.</p>
-   *                 </note>
+   *                </note>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
    *                         mode</a> using TravelMode sets the transportation mode used to calculate
    *                     the routes. This also lets you specify additional route preferences in
    *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
    *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
-   *                 <note>
+   *                <note>
    *                   <p>If you specify <code>walking</code> for the travel mode and your data
    *                     provider is Esri, the start and destination must be within 40km.</p>
    *                </note>
@@ -589,30 +589,30 @@ export class Location extends LocationClient {
    *             X, A to Y, B to X, and B to Y (in that order). The number of results returned (and
    *             routes calculated) will be the number of <code>DeparturePositions</code> times the
    *             number of <code>DestinationPositions</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>Your account is charged for each route calculated, not the number of
    *                 requests.</p>
-   *         </note>
-   *         <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
+   *          </note>
+   *          <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
    *                 route calculator resource</a>.</p>
-   *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+   *          <p>By default, a request that doesn't specify a departure time uses the best time of day
    *             to travel with the best traffic conditions when calculating routes.</p>
-   *         <p>Additional options include:</p>
-   *         <ul>
+   *          <p>Additional options include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a
    *                         departure time</a> using either <code>DepartureTime</code> or
    *                         <code>DepartNow</code>. This calculates routes based on predictive traffic
    *                     data at the given time. </p>
-   *                 <note>
-   *                     <p>You can't specify both <code>DepartureTime</code> and
+   *                <note>
+   *                   <p>You can't specify both <code>DepartureTime</code> and
    *                             <code>DepartNow</code> in a single request. Specifying both parameters
    *                         returns a validation error.</p>
-   *                 </note>
+   *                </note>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
    *                         mode</a> using TravelMode sets the transportation mode used to calculate
    *                     the routes. This also lets you specify additional route preferences in
@@ -685,12 +685,12 @@ export class Location extends LocationClient {
   /**
    * <p>Creates a map resource in your AWS account, which provides map tiles of different
    *             styles sourced from global location data providers.</p>
-   *         <note>
+   *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
-   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 as delivery vehicles or employees, you must not use Esri as your geolocation
    *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
    *                     service terms</a> for more details.</p>
-   *         </note>
+   *          </note>
    */
   public createMap(args: CreateMapCommandInput, options?: __HttpHandlerOptions): Promise<CreateMapCommandOutput>;
   public createMap(args: CreateMapCommandInput, cb: (err: any, data?: CreateMapCommandOutput) => void): void;
@@ -721,12 +721,12 @@ export class Location extends LocationClient {
    *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
    *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
    *             by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
-   *         <note>
+   *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
-   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 as delivery vehicles or employees, you must not use Esri as your geolocation
    *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
    *                     service terms</a> for more details.</p>
-   *         </note>
+   *          </note>
    */
   public createPlaceIndex(
     args: CreatePlaceIndexCommandInput,
@@ -759,15 +759,15 @@ export class Location extends LocationClient {
 
   /**
    * <p>Creates a route calculator resource in your AWS account.</p>
-   *         <p>You can send requests to a route calculator resource to estimate travel time,
+   *          <p>You can send requests to a route calculator resource to estimate travel time,
    *             distance, and get directions. A route calculator sources traffic and road network data
    *             from your chosen data provider.</p>
-   *         <note>
+   *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
-   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 as delivery vehicles or employees, you must not use Esri as your geolocation
    *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
    *                     service terms</a> for more details.</p>
-   *         </note>
+   *          </note>
    */
   public createRouteCalculator(
     args: CreateRouteCalculatorCommandInput,
@@ -833,10 +833,10 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a geofence collection from your AWS account.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation deletes the resource permanently. If the geofence collection is the
    *                 target of a tracker resource, the devices will no longer be monitored.</p>
-   *         </note>
+   *          </note>
    */
   public deleteGeofenceCollection(
     args: DeleteGeofenceCollectionCommandInput,
@@ -869,7 +869,7 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a map resource from your AWS account.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation deletes the resource permanently. If the map is being used in an application,
    *                 the map may not render.</p>
    *          </note>
@@ -899,9 +899,9 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a place index resource from your AWS account.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation deletes the resource permanently.</p>
-   *         </note>
+   *          </note>
    */
   public deletePlaceIndex(
     args: DeletePlaceIndexCommandInput,
@@ -934,9 +934,9 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a route calculator resource from your AWS account.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation deletes the resource permanently.</p>
-   *         </note>
+   *          </note>
    */
   public deleteRouteCalculator(
     args: DeleteRouteCalculatorCommandInput,
@@ -1160,10 +1160,10 @@ export class Location extends LocationClient {
 
   /**
    * <p>Removes the association between a tracker resource and a geofence collection.</p>
-   *         <note>
+   *          <note>
    *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
    *                 positions will no longer be automatically evaluated against geofences.</p>
-   *         </note>
+   *          </note>
    */
   public disassociateTrackerConsumer(
     args: DisassociateTrackerConsumerCommandInput,
@@ -1233,7 +1233,7 @@ export class Location extends LocationClient {
    * <p>Retrieves the device position history from a tracker resource within a specified range
    *             of time.</p>
    *          <note>
-   *            <p>Device positions are deleted after 30 days.</p>
+   *             <p>Device positions are deleted after 30 days.</p>
    *          </note>
    */
   public getDevicePositionHistory(
@@ -1356,7 +1356,7 @@ export class Location extends LocationClient {
 
   /**
    * <p>Retrieves the map style descriptor from a map resource. </p>
-   *         <p>The style descriptor contains speciﬁcations on how features render on a map. For
+   *          <p>The style descriptor contains speciﬁcations on how features render on a map. For
    *             example, what data to display, what order to display the data in, and the style for the
    *             data. Style descriptors follow the Mapbox Style Specification.</p>
    */
@@ -1393,7 +1393,7 @@ export class Location extends LocationClient {
    * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
    *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
    *             coordinate, and Z (zoom) level. </p>
-   *         <p>The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles
+   *          <p>The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles
    *             both the X and Y dimensions, so a tile containing data for the entire world at (0/0/0)
    *             will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).</p>
    */
@@ -1423,21 +1423,21 @@ export class Location extends LocationClient {
   /**
    * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
    *             operations.</p>
-   *         <note>
+   *          <note>
    *             <p>A PlaceId is valid only if all of the following are the same in the original
    *                 search request and the call to <code>GetPlace</code>.</p>
    *             <ul>
    *                <li>
-   *                     <p>Customer AWS account</p>
-   *                 </li>
+   *                   <p>Customer AWS account</p>
+   *                </li>
    *                <li>
-   *                     <p>AWS Region</p>
-   *                 </li>
+   *                   <p>AWS Region</p>
+   *                </li>
    *                <li>
-   *                     <p>Data provider specified in the place index resource</p>
-   *                 </li>
+   *                   <p>Data provider specified in the place index resource</p>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public getPlace(args: GetPlaceCommandInput, options?: __HttpHandlerOptions): Promise<GetPlaceCommandOutput>;
   public getPlace(args: GetPlaceCommandInput, cb: (err: any, data?: GetPlaceCommandOutput) => void): void;
@@ -1805,15 +1805,15 @@ export class Location extends LocationClient {
    * <p>Generates suggestions for addresses and points of interest based on partial or
    *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
    *             fuzzy matching.</p>
-   *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+   *          <p>Optional parameters let you narrow your search results by bounding box or country, or
    *             bias your search toward a specific position on the globe.</p>
-   *         <note>
+   *          <note>
    *             <p>You can search for suggested place names near a specified position by using
    *                     <code>BiasPosition</code>, or filter results within a bounding box by using
    *                     <code>FilterBBox</code>. These parameters are mutually exclusive; using both
    *                     <code>BiasPosition</code> and <code>FilterBBox</code> in the same command
    *                 returns an error.</p>
-   *         </note>
+   *          </note>
    */
   public searchPlaceIndexForSuggestions(
     args: SearchPlaceIndexForSuggestionsCommandInput,
@@ -1847,14 +1847,14 @@ export class Location extends LocationClient {
   /**
    * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
    *             search for Places or points of interest. </p>
-   *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+   *          <p>Optional parameters let you narrow your search results by bounding box or country, or
    *             bias your search toward a specific position on the globe.</p>
-   *         <note>
+   *          <note>
    *             <p>You can search for places near a given position using <code>BiasPosition</code>,
    *                 or filter results within a bounding box using <code>FilterBBox</code>. Providing
    *                 both parameters simultaneously returns an error.</p>
-   *         </note>
-   *         <p>Search results are returned in order of highest to lowest relevance.</p>
+   *          </note>
+   *          <p>Search results are returned in order of highest to lowest relevance.</p>
    */
   public searchPlaceIndexForText(
     args: SearchPlaceIndexForTextCommandInput,
@@ -1888,18 +1888,15 @@ export class Location extends LocationClient {
   /**
    * <p>Assigns one or more tags (key-value pairs) to the specified Amazon
    *             Location Service resource.</p>
-   *
-   *         <p>Tags can help you organize and categorize your resources.
+   *          <p>Tags can help you organize and categorize your resources.
    *             You can also use them to scope user permissions, by granting a user
    *             permission to access or change only resources with certain tag values.</p>
-   *
-   *         <p>You can use the <code>TagResource</code> operation with an Amazon Location Service
+   *          <p>You can use the <code>TagResource</code> operation with an Amazon Location Service
    *             resource that already has tags. If you specify a new tag key for the resource, this tag
    *             is appended to the tags already associated with the resource. If you specify a tag key
    *             that's already associated with the resource, the new tag value that you specify replaces
    *             the previous value for that tag. </p>
-   *
-   *         <p>You can associate up to 50 tags with a resource.</p>
+   *          <p>You can associate up to 50 tags with a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

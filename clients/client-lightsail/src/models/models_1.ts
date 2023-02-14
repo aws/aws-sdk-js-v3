@@ -229,7 +229,6 @@ export interface GetDistributionMetricDataResult {
 export interface GetDistributionsRequest {
   /**
    * <p>The name of the distribution for which to return information.</p>
-   *
    *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
    *       Region where the request is made.</p>
    */
@@ -395,18 +394,14 @@ export interface InstanceMetadataOptions {
 
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
-   *
    *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
    *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
    *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
    *       credentials by using a valid signed token, the version 2.0 role credentials are
    *       returned.</p>
-   *
    *          <p>If the state is <code>required</code>, you must send a signed token header with all
    *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
    *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
-   *
-   *
    *          <important>
    *             <p>Not all instance blueprints in Lightsail support version 2.0 credentials.
    *         Use the <code>MetadataNoToken</code> instance metric to track the number of calls to the
@@ -419,7 +414,6 @@ export interface InstanceMetadataOptions {
   /**
    * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
    *       disabled.</p>
-   *
    *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
    */
   httpEndpoint?: HttpEndpoint | string;
@@ -716,7 +710,6 @@ export interface Instance {
 
   /**
    * <p>The IP address type of the instance.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -1103,7 +1096,6 @@ export interface GetInstanceMetricDataRequest {
    *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
-   *
    *                <p>
    *                   <b>
    *                      <code>MetadataNoToken</code>
@@ -1882,7 +1874,6 @@ export interface LoadBalancer {
 
   /**
    * <p>The IP address type of the load balancer.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -2217,7 +2208,6 @@ export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
 export interface LoadBalancerTlsCertificateDnsRecordCreationState {
   /**
    * <p>The status code for the automated DNS record creation.</p>
-   *
    *          <p>Following are the possible values:</p>
    *          <ul>
    *             <li>
@@ -2579,7 +2569,6 @@ export interface LoadBalancerTlsCertificate {
 
   /**
    * <p>The validation failure reason, if any, of the certificate.</p>
-   *
    *          <p>The following failure reasons are possible:</p>
    *          <ul>
    *             <li>
@@ -2722,7 +2711,6 @@ export interface GetLoadBalancerTlsCertificatesResult {
 export interface GetLoadBalancerTlsPoliciesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request.
    *       If your results are paginated, the response will return a next page token that you can specify
    *       as the page token in a subsequent request.</p>
@@ -2733,7 +2721,6 @@ export interface GetLoadBalancerTlsPoliciesRequest {
 /**
  * <p>Describes the TLS security policies that are available for Lightsail load
  *       balancers.</p>
- *
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
  *         balancers</a> in the <i>Amazon Lightsail Developer
  *       Guide</i>.</p>
@@ -2774,9 +2761,7 @@ export interface GetLoadBalancerTlsPoliciesResult {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>A next page token is not returned if there are no more results to display.</p>
-   *
    *          <p>To get the next page of results, perform another <code>GetLoadBalancerTlsPolicies</code>
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
@@ -3419,7 +3404,6 @@ export interface GetRelationalDatabaseLogEventsRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the end time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3645,7 +3629,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the start time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3662,7 +3645,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the end time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -4343,10 +4325,8 @@ export interface RegisterContainerImageRequest {
 
   /**
    * <p>The label for the container image when it's registered to the container service.</p>
-   *
    *          <p>Use a descriptive label that you can use to track the different versions of your
    *       registered container images.</p>
-   *
    *          <p>Use the <code>GetContainerImages</code> action to return the container images registered
    *       to a Lightsail container service. The label is the <code><imagelabel></code> portion
    *       of the following image name example:</p>
@@ -4357,11 +4337,9 @@ export interface RegisterContainerImageRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the name of your container service is <code>mycontainerservice</code>, and the label
    *       that you specify is <code>mystaticwebsite</code>, then the name of the registered container
    *       image will be <code>:mycontainerservice.mystaticwebsite.1</code>.</p>
-   *
    *          <p>The number at the end of these image name examples represents the version of the
    *       registered container image. If you push and register another container image to the same
    *       Lightsail container service, with the same label, then the version number for the new
@@ -4463,7 +4441,6 @@ export interface SetIpAddressTypeRequest {
 
   /**
    * <p>The IP address type to set for the specified resource.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -4497,9 +4474,7 @@ export interface SetResourceAccessForBucketRequest {
 
   /**
    * <p>The access setting.</p>
-   *
    *          <p>The following access settings are available:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -4709,7 +4684,6 @@ export interface UpdateBucketRequest {
 
   /**
    * <p>Specifies whether to enable or suspend versioning of objects in the bucket.</p>
-   *
    *          <p>The following options can be specified:</p>
    *          <ul>
    *             <li>
@@ -4728,7 +4702,6 @@ export interface UpdateBucketRequest {
   /**
    * <p>An array of strings to specify the Amazon Web Services account IDs that can access the
    *       bucket.</p>
-   *
    *          <p>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</p>
    */
   readonlyAccessAccounts?: string[];
@@ -4760,7 +4733,6 @@ export interface UpdateBucketBundleRequest {
 
   /**
    * <p>The ID of the new bundle to apply to the bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a> action to get a list of
    *       bundle IDs that you can specify.</p>
    */
@@ -4783,13 +4755,11 @@ export interface UpdateContainerServiceRequest {
 
   /**
    * <p>The power for the container service.</p>
-   *
    *          <p>The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the
    *       container service. The <code>power</code> and <code>scale</code> of a container service makes
    *       up its configured capacity. To determine the monthly price of your container service, multiply
    *       the base price of the <code>power</code> with the <code>scale</code> (the number of nodes) of
    *       the service.</p>
-   *
    *          <p>Use the <code>GetContainerServicePowers</code> action to view the specifications of each
    *       power option.</p>
    */
@@ -4797,7 +4767,6 @@ export interface UpdateContainerServiceRequest {
 
   /**
    * <p>The scale for the container service.</p>
-   *
    *          <p>The scale specifies the allocated compute nodes of the container service. The
    *         <code>power</code> and <code>scale</code> of a container service makes up its configured
    *       capacity. To determine the monthly price of your container service, multiply the base price of
@@ -4814,20 +4783,16 @@ export interface UpdateContainerServiceRequest {
   /**
    * <p>The public domain names to use with the container service, such as
    *         <code>example.com</code> and <code>www.example.com</code>.</p>
-   *
    *          <p>You can specify up to four public domain names for a container service. The domain names
    *       that you specify are used when you create a deployment with a container configured as the
    *       public endpoint of your container service.</p>
-   *
    *          <p>If you don't specify public domain names, then you can use the default domain of the
    *       container service.</p>
-   *
    *          <important>
    *             <p>You must create and validate an SSL/TLS certificate before you can use public domain
    *         names with your container service. Use the <code>CreateCertificate</code> action to create a
    *         certificate for the public domain names you want to use with your container service.</p>
    *          </important>
-   *
    *          <p>You can specify public domain names using a string to array map as shown in the example
    *       later on this page.</p>
    */
@@ -4837,7 +4802,6 @@ export interface UpdateContainerServiceRequest {
    * <p>An object to describe the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *
    *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   privateRegistryAccess?: PrivateRegistryAccessRequest;
@@ -4952,13 +4916,11 @@ export interface UpdateInstanceMetadataOptionsRequest {
   /**
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *       specified in the request, the default state is <code>optional</code>.</p>
-   *
    *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
    *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
    *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
    *       credentials by using a valid signed token, the version 2.0 role credentials are
    *       returned.</p>
-   *
    *          <p>If the state is <code>required</code>, you must send a signed token header with all
    *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
    *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
@@ -4968,7 +4930,6 @@ export interface UpdateInstanceMetadataOptionsRequest {
   /**
    * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is not
    *       specified, the existing state is maintained.</p>
-   *
    *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
    *       metadata.</p>
    */
@@ -4984,7 +4945,6 @@ export interface UpdateInstanceMetadataOptionsRequest {
   /**
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
    *       applies only when the HTTP metadata endpoint is enabled.</p>
-   *
    *          <note>
    *             <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p>
    *          </note>
@@ -4994,7 +4954,8 @@ export interface UpdateInstanceMetadataOptionsRequest {
 
 export interface UpdateInstanceMetadataOptionsResult {
   /**
-   * <p>Describes the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }

@@ -7,6 +7,7 @@ import {
   Aggregate,
   AthenaConnectorSource,
   BasicCatalogTarget,
+  CatalogHudiSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
@@ -16,6 +17,7 @@ import {
   CrawlerTargets,
   CsvHeaderOption,
   CustomCode,
+  CustomEntityType,
   DatabaseInput,
   DataQualityTargetTable,
   DataSource,
@@ -60,11 +62,15 @@ import {
   RegistryId,
   RelationalCatalogSource,
   RenameField,
+  S3CatalogHudiSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
   S3DirectTarget,
   S3GlueParquetTarget,
+  S3HudiCatalogTarget,
+  S3HudiDirectTarget,
+  S3HudiSource,
   S3JsonSource,
   S3ParquetSource,
   SchemaChangePolicy,
@@ -91,7 +97,6 @@ import {
   ColumnStatistics,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
-  DataQualityResultFilterCriteria,
   JobBookmarkEntry,
   RegistryStatus,
   ResourceShareType,
@@ -104,6 +109,134 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+export enum CrawlerHistoryState {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+}
+
+/**
+ * <p>Contains the information for a run of a crawler.</p>
+ */
+export interface CrawlerHistory {
+  /**
+   * <p>A UUID identifier for each crawl.</p>
+   */
+  CrawlId?: string;
+
+  /**
+   * <p>The state of the crawl.</p>
+   */
+  State?: CrawlerHistoryState | string;
+
+  /**
+   * <p>The date and time on which the crawl started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time on which the crawl ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A run summary for the specific crawl in JSON. Contains the catalog tables and partitions that were added, updated, or deleted.</p>
+   */
+  Summary?: string;
+
+  /**
+   * <p>If an error occurred, the error message associated with the crawl.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The log group associated with the crawl.</p>
+   */
+  LogGroup?: string;
+
+  /**
+   * <p>The log stream associated with the crawl.</p>
+   */
+  LogStream?: string;
+
+  /**
+   * <p>The prefix for a CloudWatch message about this crawl.</p>
+   */
+  MessagePrefix?: string;
+
+  /**
+   * <p>The number of data processing units (DPU) used in hours for the crawl.</p>
+   */
+  DPUHour?: number;
+}
+
+export interface ListCrawlsResponse {
+  /**
+   * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
+   */
+  Crawls?: CrawlerHistory[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCustomEntityTypesRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListCustomEntityTypesResponse {
+  /**
+   * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
+   */
+  CustomEntityTypes?: CustomEntityType[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Criteria used to return data quality results.</p>
+ */
+export interface DataQualityResultFilterCriteria {
+  /**
+   * <p>Filter results by the specified data source. For example, retrieving all results for an Glue table.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Filter results by the specified job name.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>Filter results by the specified job run ID.</p>
+   */
+  JobRunId?: string;
+
+  /**
+   * <p>Filter results by runs that started after this time.</p>
+   */
+  StartedAfter?: Date;
+
+  /**
+   * <p>Filter results by runs that started before this time.</p>
+   */
+  StartedBefore?: Date;
+}
 
 export interface ListDataQualityResultsRequest {
   /**
@@ -3176,12 +3309,12 @@ export interface CodeGenConfigurationNode {
   S3ParquetSource?: S3ParquetSource;
 
   /**
-   * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
+   * <p>Specifies a relational catalog data store in the Glue Data Catalog.</p>
    */
   RelationalCatalogSource?: RelationalCatalogSource;
 
   /**
-   * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
+   * <p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>
    */
   DynamoDBCatalogSource?: DynamoDBCatalogSource;
 
@@ -3390,6 +3523,31 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies your data quality evaluation criteria.</p>
    */
   EvaluateDataQuality?: EvaluateDataQuality;
+
+  /**
+   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
+   */
+  S3CatalogHudiSource?: S3CatalogHudiSource;
+
+  /**
+   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
+   */
+  CatalogHudiSource?: CatalogHudiSource;
+
+  /**
+   * <p>Specifies a Hudi data source stored in Amazon S3.</p>
+   */
+  S3HudiSource?: S3HudiSource;
+
+  /**
+   * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
+   */
+  S3HudiCatalogTarget?: S3HudiCatalogTarget;
+
+  /**
+   * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
+   */
+  S3HudiDirectTarget?: S3HudiDirectTarget;
 }
 
 export interface CreateJobRequest {
@@ -3929,6 +4087,41 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const CrawlerHistoryFilterSensitiveLog = (obj: CrawlerHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlsResponseFilterSensitiveLog = (obj: ListCrawlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomEntityTypesRequestFilterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomEntityTypesResponseFilterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityResultFilterCriteriaFilterSensitiveLog = (obj: DataQualityResultFilterCriteria): any => ({
+  ...obj,
+});
 
 /**
  * @internal

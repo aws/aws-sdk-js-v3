@@ -45,7 +45,7 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *             </li>
  *          </ul>
  *          <p>You can specify that the query return only one type of result using the
- *             <code>QueryResultTypeConfig</code> parameter.</p>
+ *             <code>QueryResultTypeFilter</code> parameter.</p>
  *          <p>Each query returns the 100 most relevant results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -33,15 +33,15 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
  *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
  *                 device</a> in the <i>IAM User Guide</i>.</p>
- *         <p>For information about the maximum number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
+ *          <p>For information about the maximum number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
  *                 quotas</a> in the <i>IAM User Guide</i>.</p>
- *         <important>
+ *          <important>
  *             <p>The seed information contained in the QR code and the Base32 string should be
  *                 treated like any other secret access information. In other words, protect the seed
  *                 information as you would your Amazon Web Services access keys or your passwords. After you
  *                 provision your virtual device, you should ensure that the information is destroyed
  *                 following secure procedures.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

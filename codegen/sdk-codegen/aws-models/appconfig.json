@@ -58,7 +58,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An action defines the tasks the extension performs during the AppConfig\n         workflow. Each action includes an action point such as\n            <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or\n            <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management\n         assume role. You specify the name, URI, and ARN for each <i>action point</i>\n         defined in the extension. You can specify the following actions for an extension:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PRE_CREATE_HOSTED_CONFIGURATION_VERSION</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PRE_START_DEPLOYMENT</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_START</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_STEP</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_BAKING</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_ROLLED_BACK</code>\n               </p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>An action defines the tasks that the extension performs during the AppConfig\n         workflow. Each action includes an action point such as\n            <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or\n            <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management\n         assume role. You specify the name, URI, and ARN for each <i>action point</i>\n         defined in the extension. You can specify the following actions for an extension:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PRE_CREATE_HOSTED_CONFIGURATION_VERSION</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PRE_START_DEPLOYMENT</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_START</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_STEP</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_BAKING</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_ROLLED_BACK</code>\n               </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.appconfig#ActionInvocation": {
@@ -130,38 +130,50 @@
       }
     },
     "com.amazonaws.appconfig#ActionPoint": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
-            "name": "PRE_CREATE_HOSTED_CONFIGURATION_VERSION"
-          },
-          {
-            "value": "PRE_START_DEPLOYMENT",
-            "name": "PRE_START_DEPLOYMENT"
-          },
-          {
-            "value": "ON_DEPLOYMENT_START",
-            "name": "ON_DEPLOYMENT_START"
-          },
-          {
-            "value": "ON_DEPLOYMENT_STEP",
-            "name": "ON_DEPLOYMENT_STEP"
-          },
-          {
-            "value": "ON_DEPLOYMENT_BAKING",
-            "name": "ON_DEPLOYMENT_BAKING"
-          },
-          {
-            "value": "ON_DEPLOYMENT_COMPLETE",
-            "name": "ON_DEPLOYMENT_COMPLETE"
-          },
-          {
-            "value": "ON_DEPLOYMENT_ROLLED_BACK",
-            "name": "ON_DEPLOYMENT_ROLLED_BACK"
+      "type": "enum",
+      "members": {
+        "PRE_CREATE_HOSTED_CONFIGURATION_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRE_CREATE_HOSTED_CONFIGURATION_VERSION"
           }
-        ]
+        },
+        "PRE_START_DEPLOYMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRE_START_DEPLOYMENT"
+          }
+        },
+        "ON_DEPLOYMENT_START": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEPLOYMENT_START"
+          }
+        },
+        "ON_DEPLOYMENT_STEP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEPLOYMENT_STEP"
+          }
+        },
+        "ON_DEPLOYMENT_BAKING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEPLOYMENT_BAKING"
+          }
+        },
+        "ON_DEPLOYMENT_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEPLOYMENT_COMPLETE"
+          }
+        },
+        "ON_DEPLOYMENT_ROLLED_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEPLOYMENT_ROLLED_BACK"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#ActionsMap": {
@@ -332,7 +344,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -381,15 +393,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -565,12 +568,12 @@
                                     {
                                       "ref": "Region"
                                     },
-                                    "us-gov-west-1"
+                                    "us-gov-east-1"
                                   ]
                                 }
                               ],
                               "endpoint": {
-                                "url": "https://appconfig.us-gov-west-1.amazonaws.com",
+                                "url": "https://appconfig.us-gov-east-1.amazonaws.com",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -584,12 +587,12 @@
                                     {
                                       "ref": "Region"
                                     },
-                                    "us-gov-east-1"
+                                    "us-gov-west-1"
                                   ]
                                 }
                               ],
                               "endpoint": {
-                                "url": "https://appconfig.us-gov-east-1.amazonaws.com",
+                                "url": "https://appconfig.us-gov-west-1.amazonaws.com",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -690,9 +693,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -703,9 +706,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -716,9 +719,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -729,9 +732,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -742,9 +745,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -755,9 +758,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -768,9 +771,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -781,9 +784,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -794,9 +797,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -807,9 +810,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -820,9 +823,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -833,9 +836,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -846,9 +849,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -859,9 +862,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -872,9 +875,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -885,9 +888,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -898,9 +901,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -911,9 +914,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -924,9 +927,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -937,9 +940,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -950,9 +953,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -963,9 +966,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -976,9 +979,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -989,9 +992,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -1002,9 +1005,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1015,9 +1018,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1028,9 +1031,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1041,9 +1044,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1054,9 +1057,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1067,9 +1070,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1080,9 +1083,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1093,9 +1096,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1104,9 +1107,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1117,9 +1120,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1128,9 +1131,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1141,9 +1144,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1154,9 +1157,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1167,9 +1170,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1180,9 +1183,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1193,9 +1196,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1206,9 +1209,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1219,9 +1222,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1232,9 +1235,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1245,9 +1248,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1258,9 +1261,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1271,9 +1274,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1284,9 +1287,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1297,9 +1300,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1310,9 +1313,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1323,9 +1326,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1336,9 +1339,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1349,9 +1352,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1362,9 +1365,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1375,9 +1378,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1388,9 +1391,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1401,9 +1404,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1414,9 +1417,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1427,9 +1430,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1440,9 +1443,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1453,9 +1456,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1466,9 +1469,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1479,9 +1482,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1492,9 +1495,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1505,9 +1508,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1518,9 +1521,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1531,9 +1534,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1544,9 +1547,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1557,9 +1560,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1570,9 +1573,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1583,9 +1586,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1596,9 +1599,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1609,9 +1612,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1622,9 +1625,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1635,9 +1638,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1648,9 +1651,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1661,9 +1664,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1674,9 +1677,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1687,9 +1690,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1700,9 +1703,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1713,9 +1716,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1726,9 +1729,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1739,9 +1742,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1752,9 +1755,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1765,9 +1768,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1778,9 +1781,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1791,9 +1794,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1804,9 +1807,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1817,9 +1820,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1830,9 +1833,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1843,9 +1846,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1856,9 +1859,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1869,9 +1872,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1882,9 +1885,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1895,9 +1898,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1908,9 +1911,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1921,9 +1924,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1934,9 +1937,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1947,9 +1950,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1960,9 +1963,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1973,9 +1976,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1986,9 +1989,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1999,9 +2002,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2012,9 +2015,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2025,9 +2028,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2038,9 +2041,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2051,9 +2054,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2064,9 +2067,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2077,9 +2080,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2088,9 +2091,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2101,9 +2104,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2112,9 +2115,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2125,9 +2128,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2138,9 +2141,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2151,9 +2154,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2164,9 +2167,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2177,9 +2180,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2190,9 +2193,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2203,9 +2206,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2216,9 +2219,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2229,9 +2232,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2242,9 +2245,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2255,9 +2258,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2268,9 +2271,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2281,9 +2284,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2294,9 +2297,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2307,9 +2310,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2320,9 +2323,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2333,9 +2336,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2346,9 +2349,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2359,9 +2362,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2372,9 +2375,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2385,9 +2388,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2396,9 +2399,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2409,9 +2412,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2420,9 +2423,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2433,9 +2436,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2446,9 +2449,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2458,9 +2461,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2470,9 +2473,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2610,14 +2613,14 @@
       }
     },
     "com.amazonaws.appconfig#BadRequestReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InvalidConfiguration",
-            "name": "INVALID_CONFIGURATION"
+      "type": "enum",
+      "members": {
+        "INVALID_CONFIGURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InvalidConfiguration"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.appconfig#Blob": {
@@ -2633,14 +2636,14 @@
       }
     },
     "com.amazonaws.appconfig#BytesMeasure": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "KILOBYTES",
-            "name": "KILOBYTES"
+      "type": "enum",
+      "members": {
+        "KILOBYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KILOBYTES"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.appconfig#Configuration": {
@@ -2877,7 +2880,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a configuration profile, which is information that enables AppConfig\n         to access the configuration source. Valid configuration sources include the AppConfig hosted configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store\n         parameters, Amazon S3 objects, or any <a href=\"http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source\">integration source\n            action</a> supported by CodePipeline. A configuration profile includes the following\n         information:</p>\n      \n         <ul>\n            <li>\n               <p>The URI location of the configuration data.</p>\n            </li>\n            <li>\n               <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>\n            </li>\n            <li>\n               <p>A validator for the configuration data. Available validators include either a JSON\n               Schema or an Amazon Web Services Lambda function.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html\">Create a\n            Configuration and a Configuration Profile</a> in the <i>AppConfig\n            User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Creates a configuration profile, which is information that enables AppConfig\n         to access the configuration source. Valid configuration sources include the\n         following:</p>\n         <ul>\n            <li>\n               <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p>\n            </li>\n            <li>\n               <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)\n               bucket</p>\n            </li>\n            <li>\n               <p>Pipelines stored in CodePipeline</p>\n            </li>\n            <li>\n               <p>Secrets stored in Secrets Manager</p>\n            </li>\n            <li>\n               <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p>\n            </li>\n            <li>\n               <p>Configuration data in SSM documents stored in the Systems Manager document store</p>\n            </li>\n         </ul>\n         <p>A configuration profile includes the following information:</p>\n         <ul>\n            <li>\n               <p>The URI location of the configuration data.</p>\n            </li>\n            <li>\n               <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>\n            </li>\n            <li>\n               <p>A validator for the configuration data. Available validators include either a JSON\n               Schema or an Amazon Web Services Lambda function.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html\">Create a\n            Configuration and a Configuration Profile</a> in the <i>AppConfig\n            User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{ApplicationId}/configurationprofiles",
@@ -2912,7 +2915,7 @@
         "LocationUri": {
           "target": "com.amazonaws.appconfig#Uri",
           "traits": {
-            "smithy.api#documentation": "<p>A URI to locate the configuration. You can specify the AppConfig hosted\n         configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3\n         object. For the hosted configuration store and for feature flags, specify\n            <code>hosted</code>. For an SSM document, specify either the document name in the format\n            <code>ssm-document://<Document_name></code> or the Amazon Resource Name (ARN). For\n         a parameter, specify either the parameter name in the format\n            <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,\n         specify the URI in the following format: <code>s3://<bucket>/<objectKey>\n         </code>. Here is an example:\n         <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>\n         </p>",
+            "smithy.api#documentation": "<p>A URI to locate the configuration. You can specify the following:</p>\n         <ul>\n            <li>\n               <p>For the AppConfig hosted configuration store and for feature flags,\n               specify <code>hosted</code>.</p>\n            </li>\n            <li>\n               <p>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in\n               the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>\n            </li>\n            <li>\n               <p>For an Secrets Manager secret, specify the URI in the following format:\n                  <code>secrets-manager</code>://<secret name>.</p>\n            </li>\n            <li>\n               <p>For an Amazon S3 object, specify the URI in the following format:\n                  <code>s3://<bucket>/<objectKey> </code>. Here is an example:\n                  <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>\n               </p>\n            </li>\n            <li>\n               <p>For an SSM document, specify either the document name in the format\n                  <code>ssm-document://<document name></code> or the Amazon Resource Name\n               (ARN).</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -3009,7 +3012,7 @@
         "GrowthType": {
           "target": "com.amazonaws.appconfig#GrowthType",
           "traits": {
-            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time. AppConfig\n         supports the following growth types:</p>\n         <p>\n            <b>Linear</b>: For this type, AppConfig processes\n         the deployment by dividing the total number of targets by the value specified for\n            <code>Step percentage</code>. For example, a linear deployment that uses a <code>Step\n            percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After\n         those deployments are complete, the system deploys the configuration to the next 10\n         percent. This continues until 100% of the targets have successfully received the\n         configuration.</p>\n\n         <p>\n            <b>Exponential</b>: For this type, AppConfig\n         processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.\n         In this formula, <code>G</code> is the growth factor specified by the user and\n            <code>N</code> is the number of steps until the configuration is deployed to all\n         targets. For example, if you specify a growth factor of 2, then the system rolls out the\n         configuration as follows:</p>\n         <p>\n            <code>2*(2^0)</code>\n         </p>\n         <p>\n            <code>2*(2^1)</code>\n         </p>\n         <p>\n            <code>2*(2^2)</code>\n         </p>\n         <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the\n         targets, 8% of the targets, and continues until the configuration has been deployed to all\n         targets.</p>"
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time. AppConfig\n         supports the following growth types:</p>\n         <p>\n            <b>Linear</b>: For this type, AppConfig processes\n         the deployment by dividing the total number of targets by the value specified for\n            <code>Step percentage</code>. For example, a linear deployment that uses a <code>Step\n            percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After\n         those deployments are complete, the system deploys the configuration to the next 10\n         percent. This continues until 100% of the targets have successfully received the\n         configuration.</p>\n         <p>\n            <b>Exponential</b>: For this type, AppConfig\n         processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.\n         In this formula, <code>G</code> is the growth factor specified by the user and\n            <code>N</code> is the number of steps until the configuration is deployed to all\n         targets. For example, if you specify a growth factor of 2, then the system rolls out the\n         configuration as follows:</p>\n         <p>\n            <code>2*(2^0)</code>\n         </p>\n         <p>\n            <code>2*(2^1)</code>\n         </p>\n         <p>\n            <code>2*(2^2)</code>\n         </p>\n         <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the\n         targets, 8% of the targets, and continues until the configuration has been deployed to all\n         targets.</p>"
           }
         },
         "ReplicateTo": {
@@ -3115,7 +3118,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an AppConfig extension. An extension augments your ability to inject\n         logic or behavior at different points during the AppConfig workflow of creating\n         or deploying a configuration.</p>\n         <p>You can create your own extensions or use the Amazon Web Services-authored extensions provided by\n            AppConfig. For most use-cases, to create your own extension, you must create\n         an Lambda function to perform any computation and processing defined in the\n         extension. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Creates an AppConfig extension. An extension augments your ability to inject\n         logic or behavior at different points during the AppConfig workflow of creating\n         or deploying a configuration.</p>\n         <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by\n            AppConfig. For most use cases, to create your own extension, you must create\n         an Lambda function to perform any computation and processing defined in the\n         extension. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/extensions",
@@ -3146,7 +3149,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>When you create an extension or configure an Amazon Web Services-authored extension, you\n         associate the extension with an AppConfig application, environment, or\n         configuration profile. For example, you can choose to run the <code>AppConfig\n            deployment events to Amazon SNS</code>\n         Amazon Web Services-authored extension and receive notifications on an Amazon SNS\n         topic anytime a configuration deployment is started for a specific application. Defining\n         which extension to associate with an AppConfig resource is called an\n            <i>extension association</i>. An extension association is a specified\n         relationship between an extension and an AppConfig resource, such as an\n         application or a configuration profile. For more information about extensions and\n         associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>When you create an extension or configure an Amazon Web Services authored extension, you\n         associate the extension with an AppConfig application, environment, or\n         configuration profile. For example, you can choose to run the <code>AppConfig\n            deployment events to Amazon SNS</code>\n         Amazon Web Services authored extension and receive notifications on an Amazon SNS\n         topic anytime a configuration deployment is started for a specific application. Defining\n         which extension to associate with an AppConfig resource is called an\n            <i>extension association</i>. An extension association is a specified\n         relationship between an extension and an AppConfig resource, such as an\n         application or a configuration profile. For more information about extensions and\n         associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/extensionassociations",
@@ -3781,6 +3784,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of extensions that were processed as part of the deployment. The extensions that\n         were previously associated to the configuration profile, environment, or the application\n         when <code>StartDeployment</code> was called.</p>"
           }
+        },
+        "KmsKeyArn": {
+          "target": "com.amazonaws.appconfig#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name of the Key Management Service key used to encrypt configuration\n         data. You can encrypt secrets stored in Secrets Manager, Amazon Simple Storage Service\n         (Amazon S3) objects encrypted with SSE-KMS, or secure string parameters stored in Amazon Web Services Systems Manager\n         Parameter Store. </p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.appconfig#Identifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>"
+          }
         }
       }
     },
@@ -3823,34 +3838,44 @@
       }
     },
     "com.amazonaws.appconfig#DeploymentEventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PERCENTAGE_UPDATED",
-            "name": "PERCENTAGE_UPDATED"
-          },
-          {
-            "value": "ROLLBACK_STARTED",
-            "name": "ROLLBACK_STARTED"
-          },
-          {
-            "value": "ROLLBACK_COMPLETED",
-            "name": "ROLLBACK_COMPLETED"
-          },
-          {
-            "value": "BAKE_TIME_STARTED",
-            "name": "BAKE_TIME_STARTED"
-          },
-          {
-            "value": "DEPLOYMENT_STARTED",
-            "name": "DEPLOYMENT_STARTED"
-          },
-          {
-            "value": "DEPLOYMENT_COMPLETED",
-            "name": "DEPLOYMENT_COMPLETED"
+      "type": "enum",
+      "members": {
+        "PERCENTAGE_UPDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENTAGE_UPDATED"
           }
-        ]
+        },
+        "ROLLBACK_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_STARTED"
+          }
+        },
+        "ROLLBACK_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_COMPLETED"
+          }
+        },
+        "BAKE_TIME_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BAKE_TIME_STARTED"
+          }
+        },
+        "DEPLOYMENT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPLOYMENT_STARTED"
+          }
+        },
+        "DEPLOYMENT_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPLOYMENT_COMPLETED"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#DeploymentEvents": {
@@ -3866,34 +3891,44 @@
       }
     },
     "com.amazonaws.appconfig#DeploymentState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BAKING",
-            "name": "BAKING"
-          },
-          {
-            "value": "VALIDATING",
-            "name": "VALIDATING"
-          },
-          {
-            "value": "DEPLOYING",
-            "name": "DEPLOYING"
-          },
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "ROLLING_BACK",
-            "name": "ROLLING_BACK"
-          },
-          {
-            "value": "ROLLED_BACK",
-            "name": "ROLLED_BACK"
+      "type": "enum",
+      "members": {
+        "BAKING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BAKING"
           }
-        ]
+        },
+        "VALIDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALIDATING"
+          }
+        },
+        "DEPLOYING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPLOYING"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        },
+        "ROLLING_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLING_BACK"
+          }
+        },
+        "ROLLED_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLED_BACK"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#DeploymentStrategies": {
@@ -4134,26 +4169,32 @@
       }
     },
     "com.amazonaws.appconfig#EnvironmentState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "READY_FOR_DEPLOYMENT",
-            "name": "READY_FOR_DEPLOYMENT"
-          },
-          {
-            "value": "DEPLOYING",
-            "name": "DEPLOYING"
-          },
-          {
-            "value": "ROLLING_BACK",
-            "name": "ROLLING_BACK"
-          },
-          {
-            "value": "ROLLED_BACK",
-            "name": "ROLLED_BACK"
+      "type": "enum",
+      "members": {
+        "READY_FOR_DEPLOYMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY_FOR_DEPLOYMENT"
           }
-        ]
+        },
+        "DEPLOYING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPLOYING"
+          }
+        },
+        "ROLLING_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLING_BACK"
+          }
+        },
+        "ROLLED_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLED_BACK"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#Environments": {
@@ -4363,7 +4404,7 @@
         "Items": {
           "target": "com.amazonaws.appconfig#ExtensionSummaries",
           "traits": {
-            "smithy.api#documentation": "<p>The list of available extensions. The list includes Amazon Web Services-authored and\n         user-created extensions.</p>"
+            "smithy.api#documentation": "<p>The list of available extensions. The list includes Amazon Web Services authored and\n         user-created extensions.</p>"
           }
         },
         "NextToken": {
@@ -4444,7 +4485,7 @@
         "smithy.api#deprecated": {
           "message": "This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession."
         },
-        "smithy.api#documentation": "<p>Retrieves the latest deployed configuration.</p>\n\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>This API action has been deprecated. Calls to receive configuration data should\n                  use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>GetConfiguration</code> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n               <li>\n                  <p>AppConfig uses the value of the\n                     <code>ClientConfigurationVersion</code> parameter to identify the configuration\n                  version on your clients. If you don’t send <code>ClientConfigurationVersion</code>\n                  with each call to <code>GetConfiguration</code>, your clients receive the current\n                  configuration. You are charged each time your clients receive a\n                  configuration.</p>\n                  <p>To avoid excess charges, we recommend you use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs, which track the client configuration\n                  version on your behalf. If you choose to continue using\n                     <code>GetConfiguration</code>, we recommend that you include the\n                     <code>ClientConfigurationVersion</code> value with every call to\n                     <code>GetConfiguration</code>. The value to use for\n                     <code>ClientConfigurationVersion</code> comes from the\n                     <code>ConfigurationVersion</code> attribute returned by\n                     <code>GetConfiguration</code> when there is new or updated data, and should be\n                  saved for subsequent calls to <code>GetConfiguration</code>.</p>\n               </li>\n            </ul>\n         </important>",
+        "smithy.api#documentation": "<p>(Deprecated) Retrieves the latest deployed configuration.</p>\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>This API action is deprecated. Calls to receive configuration data should use\n                  the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>GetConfiguration</code> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n            </ul>\n         </important>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{Application}/environments/{Environment}/configurations/{Configuration}",
@@ -4539,7 +4580,7 @@
         "ClientConfigurationVersion": {
           "target": "com.amazonaws.appconfig#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration version returned in the most recent <code>GetConfiguration</code>\n         response.</p>\n         <important>\n            <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>\n            parameter to identify the configuration version on your clients. If you don’t send\n               <code>ClientConfigurationVersion</code> with each call to\n               <code>GetConfiguration</code>, your clients receive the current configuration. You\n            are charged each time your clients receive a configuration.</p>\n            <p>To avoid excess charges, we recommend that you include the\n               <code>ClientConfigurationVersion</code> value with every call to\n               <code>GetConfiguration</code>. This value must be saved on your client. Subsequent\n            calls to <code>GetConfiguration</code> must pass this value by using the\n               <code>ClientConfigurationVersion</code> parameter. </p>\n         </important>\n         <p>For more information about working with configurations, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html\">Retrieving the\n            Configuration</a> in the <i>AppConfig User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The configuration version returned in the most recent <code>GetConfiguration</code>\n         response.</p>\n         <important>\n            <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>\n            parameter to identify the configuration version on your clients. If you don’t send\n               <code>ClientConfigurationVersion</code> with each call to\n               <code>GetConfiguration</code>, your clients receive the current configuration. You\n            are charged each time your clients receive a configuration.</p>\n            <p>To avoid excess charges, we recommend you use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs, which track the client configuration version on\n            your behalf. If you choose to continue using <code>GetConfiguration</code>, we recommend\n            that you include the <code>ClientConfigurationVersion</code> value with every call to\n               <code>GetConfiguration</code>. The value to use for\n               <code>ClientConfigurationVersion</code> comes from the\n               <code>ConfigurationVersion</code> attribute returned by <code>GetConfiguration</code>\n            when there is new or updated data, and should be saved for subsequent calls to\n               <code>GetConfiguration</code>.</p>\n         </important>\n         <p>For more information about working with configurations, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html\">Retrieving the\n            Configuration</a> in the <i>AppConfig User Guide</i>.</p>",
             "smithy.api#httpQuery": "client_configuration_version"
           }
         }
@@ -4846,24 +4887,26 @@
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
-          "min": 1,
-          "max": 100
+          "min": 1.0,
+          "max": 100.0
         }
       }
     },
     "com.amazonaws.appconfig#GrowthType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LINEAR",
-            "name": "LINEAR"
-          },
-          {
-            "value": "EXPONENTIAL",
-            "name": "EXPONENTIAL"
+      "type": "enum",
+      "members": {
+        "LINEAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINEAR"
           }
-        ]
+        },
+        "EXPONENTIAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPONENTIAL"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#HostedConfigurationVersion": {
@@ -5447,7 +5490,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all custom and Amazon Web Services-authored AppConfig extensions in the\n         account. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Lists all custom and Amazon Web Services authored AppConfig extensions in the\n         account. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Working with\n               AppConfig extensions</a> in the\n         <i>AppConfig User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/extensions",
@@ -5761,8 +5804,8 @@
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
-          "min": 1,
-          "max": 100
+          "min": 1.0,
+          "max": 100.0
         }
       }
     },
@@ -5776,18 +5819,20 @@
       }
     },
     "com.amazonaws.appconfig#ReplicateTo": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
-            "value": "SSM_DOCUMENT",
-            "name": "SSM_DOCUMENT"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
-        ]
+        },
+        "SSM_DOCUMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SSM_DOCUMENT"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#ResourceNotFoundException": {
@@ -5921,6 +5966,12 @@
           "target": "com.amazonaws.appconfig#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which\n         you define.</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.appconfig#Identifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>"
           }
         }
       }
@@ -6117,26 +6168,32 @@
       }
     },
     "com.amazonaws.appconfig#TriggeredBy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "USER",
-            "name": "USER"
-          },
-          {
-            "value": "APPCONFIG",
-            "name": "APPCONFIG"
-          },
-          {
-            "value": "CLOUDWATCH_ALARM",
-            "name": "CLOUDWATCH_ALARM"
-          },
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
+      "type": "enum",
+      "members": {
+        "USER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER"
           }
-        ]
+        },
+        "APPCONFIG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPCONFIG"
+          }
+        },
+        "CLOUDWATCH_ALARM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOUDWATCH_ALARM"
+          }
+        },
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#UntagResource": {
@@ -6383,7 +6440,7 @@
         "GrowthType": {
           "target": "com.amazonaws.appconfig#GrowthType",
           "traits": {
-            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time. AppConfig\n         supports the following growth types:</p>\n         <p>\n            <b>Linear</b>: For this type, AppConfig processes\n         the deployment by increments of the growth factor evenly distributed over the deployment\n         time. For example, a linear deployment that uses a growth factor of 20 initially makes the\n         configuration available to 20 percent of the targets. After 1/5th of the deployment time\n         has passed, the system updates the percentage to 40 percent. This continues until 100% of\n         the targets are set to receive the deployed configuration.</p>\n\n         <p>\n            <b>Exponential</b>: For this type, AppConfig\n         processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.\n         In this formula, <code>G</code> is the growth factor specified by the user and\n            <code>N</code> is the number of steps until the configuration is deployed to all\n         targets. For example, if you specify a growth factor of 2, then the system rolls out the\n         configuration as follows:</p>\n         <p>\n            <code>2*(2^0)</code>\n         </p>\n         <p>\n            <code>2*(2^1)</code>\n         </p>\n         <p>\n            <code>2*(2^2)</code>\n         </p>\n         <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the\n         targets, 8% of the targets, and continues until the configuration has been deployed to all\n         targets.</p>"
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time. AppConfig\n         supports the following growth types:</p>\n         <p>\n            <b>Linear</b>: For this type, AppConfig processes\n         the deployment by increments of the growth factor evenly distributed over the deployment\n         time. For example, a linear deployment that uses a growth factor of 20 initially makes the\n         configuration available to 20 percent of the targets. After 1/5th of the deployment time\n         has passed, the system updates the percentage to 40 percent. This continues until 100% of\n         the targets are set to receive the deployed configuration.</p>\n         <p>\n            <b>Exponential</b>: For this type, AppConfig\n         processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.\n         In this formula, <code>G</code> is the growth factor specified by the user and\n            <code>N</code> is the number of steps until the configuration is deployed to all\n         targets. For example, if you specify a growth factor of 2, then the system rolls out the\n         configuration as follows:</p>\n         <p>\n            <code>2*(2^0)</code>\n         </p>\n         <p>\n            <code>2*(2^1)</code>\n         </p>\n         <p>\n            <code>2*(2^2)</code>\n         </p>\n         <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the\n         targets, 8% of the targets, and continues until the configuration has been deployed to all\n         targets.</p>"
           }
         }
       }
@@ -6672,18 +6729,20 @@
       }
     },
     "com.amazonaws.appconfig#ValidatorType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "JSON_SCHEMA",
-            "name": "JSON_SCHEMA"
-          },
-          {
-            "value": "LAMBDA",
-            "name": "LAMBDA"
+      "type": "enum",
+      "members": {
+        "JSON_SCHEMA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSON_SCHEMA"
           }
-        ]
+        },
+        "LAMBDA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAMBDA"
+          }
+        }
       }
     },
     "com.amazonaws.appconfig#ValidatorTypeList": {

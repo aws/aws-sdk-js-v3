@@ -2,7 +2,7 @@
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 import {
   httpbinding,
   InternalFailureException as __InternalFailureException,
@@ -38,6 +38,7 @@ import {
   ConstantQueryStringSerializer,
   ConstantQueryStringServerInput,
 } from "./operations/ConstantQueryString";
+import { DatetimeOffsets, DatetimeOffsetsSerializer, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
 import { DocumentType, DocumentTypeSerializer, DocumentTypeServerInput } from "./operations/DocumentType";
 import {
   DocumentTypeAsPayload,
@@ -147,6 +148,7 @@ import {
 } from "./operations/InputAndOutputWithHeaders";
 import { JsonBlobs, JsonBlobsSerializer, JsonBlobsServerInput } from "./operations/JsonBlobs";
 import { JsonEnums, JsonEnumsSerializer, JsonEnumsServerInput } from "./operations/JsonEnums";
+import { JsonIntEnums, JsonIntEnumsSerializer, JsonIntEnumsServerInput } from "./operations/JsonIntEnums";
 import { JsonLists, JsonListsSerializer, JsonListsServerInput } from "./operations/JsonLists";
 import { JsonMaps, JsonMapsSerializer, JsonMapsServerInput } from "./operations/JsonMaps";
 import { JsonTimestamps, JsonTimestampsSerializer, JsonTimestampsServerInput } from "./operations/JsonTimestamps";
@@ -362,6 +364,7 @@ export type RestJsonServiceOperations =
   | "AllQueryStringTypes"
   | "ConstantAndVariableQueryString"
   | "ConstantQueryString"
+  | "DatetimeOffsets"
   | "DocumentType"
   | "DocumentTypeAsPayload"
   | "EmptyInputAndEmptyOutput"
@@ -387,6 +390,7 @@ export type RestJsonServiceOperations =
   | "InputAndOutputWithHeaders"
   | "JsonBlobs"
   | "JsonEnums"
+  | "JsonIntEnums"
   | "JsonLists"
   | "JsonMaps"
   | "JsonTimestamps"
@@ -449,6 +453,7 @@ export interface RestJsonService<Context> {
   AllQueryStringTypes: AllQueryStringTypes<Context>;
   ConstantAndVariableQueryString: ConstantAndVariableQueryString<Context>;
   ConstantQueryString: ConstantQueryString<Context>;
+  DatetimeOffsets: DatetimeOffsets<Context>;
   DocumentType: DocumentType<Context>;
   DocumentTypeAsPayload: DocumentTypeAsPayload<Context>;
   EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
@@ -474,6 +479,7 @@ export interface RestJsonService<Context> {
   InputAndOutputWithHeaders: InputAndOutputWithHeaders<Context>;
   JsonBlobs: JsonBlobs<Context>;
   JsonEnums: JsonEnums<Context>;
+  JsonIntEnums: JsonIntEnums<Context>;
   JsonLists: JsonLists<Context>;
   JsonMaps: JsonMaps<Context>;
   JsonTimestamps: JsonTimestamps<Context>;
@@ -656,6 +662,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.ConstantQueryString,
           this.serializeFrameworkException,
           ConstantQueryStringServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "DatetimeOffsets": {
+        return handle(
+          request,
+          context,
+          "DatetimeOffsets",
+          this.serializerFactory("DatetimeOffsets"),
+          this.service.DatetimeOffsets,
+          this.serializeFrameworkException,
+          DatetimeOffsetsServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -956,6 +974,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.JsonEnums,
           this.serializeFrameworkException,
           JsonEnumsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "JsonIntEnums": {
+        return handle(
+          request,
+          context,
+          "JsonIntEnums",
+          this.serializerFactory("JsonIntEnums"),
+          this.service.JsonIntEnums,
+          this.serializeFrameworkException,
+          JsonIntEnumsServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1685,6 +1715,12 @@ export const getRestJsonServiceHandler = <Context>(
       ],
       { service: "RestJson", operation: "ConstantQueryString" }
     ),
+    new httpbinding.UriSpec<"RestJson", "DatetimeOffsets">(
+      "POST",
+      [{ type: "path_literal", value: "DatetimeOffsets" }],
+      [],
+      { service: "RestJson", operation: "DatetimeOffsets" }
+    ),
     new httpbinding.UriSpec<"RestJson", "DocumentType">("PUT", [{ type: "path_literal", value: "DocumentType" }], [], {
       service: "RestJson",
       operation: "DocumentType",
@@ -1853,6 +1889,10 @@ export const getRestJsonServiceHandler = <Context>(
     new httpbinding.UriSpec<"RestJson", "JsonEnums">("PUT", [{ type: "path_literal", value: "JsonEnums" }], [], {
       service: "RestJson",
       operation: "JsonEnums",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">("PUT", [{ type: "path_literal", value: "JsonIntEnums" }], [], {
+      service: "RestJson",
+      operation: "JsonIntEnums",
     }),
     new httpbinding.UriSpec<"RestJson", "JsonLists">("PUT", [{ type: "path_literal", value: "JsonLists" }], [], {
       service: "RestJson",
@@ -2201,6 +2241,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new ConstantAndVariableQueryStringSerializer();
       case "ConstantQueryString":
         return new ConstantQueryStringSerializer();
+      case "DatetimeOffsets":
+        return new DatetimeOffsetsSerializer();
       case "DocumentType":
         return new DocumentTypeSerializer();
       case "DocumentTypeAsPayload":
@@ -2251,6 +2293,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new JsonBlobsSerializer();
       case "JsonEnums":
         return new JsonEnumsSerializer();
+      case "JsonIntEnums":
+        return new JsonIntEnumsSerializer();
       case "JsonLists":
         return new JsonListsSerializer();
       case "JsonMaps":

@@ -37,9 +37,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *             <p>Availability of device types differ by Amazon Web Services Region. For more information
  *         about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">Amazon Web Services Regional Services</a>.</p>
  *          </note>
- *
  *          <p></p>
- *
  *          <p class="title">
  *             <b>Snow Family devices and their capacities.</b>
  *          </p>
@@ -55,7 +53,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowcone </p>
  *                   </li>
  *                </ul>
- *
  *                <p></p>
  *             </li>
  *             <li>
@@ -82,8 +79,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowball Edge Storage Optimized for data transfer only </p>
  *                   </li>
  *                </ul>
- *
- *
  *                <p></p>
  *             </li>
  *             <li>
@@ -121,19 +116,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                   </li>
  *                   <li>
  *                      <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>V3_5C</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T32</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
  *                   </li>
  *                </ul>
  *                <p></p>

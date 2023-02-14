@@ -30,7 +30,6 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
 
 /**
  * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
- *
  *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
  *       monitor the number of objects stored in a bucket (including object versions) and the storage
  *       space used by those objects.</p>

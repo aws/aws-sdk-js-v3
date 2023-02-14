@@ -29,13 +29,16 @@ export interface DeleteEventDataStoreCommandInput extends DeleteEventDataStoreRe
 export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
- *          After you run <code>DeleteEventDataStore</code>, the event data store enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait period of
- *          seven days. <code>TerminationProtectionEnabled</code> must be set to <code>False</code> on the event data store; this
- *          operation cannot work if <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
- *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run <code>ListQueries</code>,
- *          <code>DescribeQuery</code>, or <code>GetQueryResults</code> on queries that are using an event data store in a
- *          <code>PENDING_DELETION</code> state. An event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
+ * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
+ *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
+ *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
+ *          period of seven days. <code>TerminationProtectionEnabled</code> must be set to
+ *             <code>False</code> on the event data store; this operation cannot work if
+ *             <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
+ *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run
+ *             <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on
+ *          queries that are using an event data store in a <code>PENDING_DELETION</code> state. An
+ *          event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

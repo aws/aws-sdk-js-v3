@@ -83,7 +83,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
   return merged;
 };
 
-const copyToClients = async (sourceDir, destinationDir) => {
+const copyToClients = async (sourceDir, destinationDir, solo) => {
   for (const modelName of readdirSync(sourceDir)) {
     if (modelName === "source") continue;
 
@@ -97,6 +97,10 @@ const copyToClients = async (sourceDir, destinationDir) => {
     const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
     const packageName = packageManifest.name;
     const clientName = packageName.replace("@aws-sdk/", "");
+
+    if (solo && clientName !== `client-${solo}`) {
+      continue;
+    }
 
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, clientName);
@@ -148,7 +152,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
         if (existsSync(modelFile)) {
           mergedManifest.scripts[
             "generate:client"
-          ] = `(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/${serviceName}.json --keepFiles)`;
+          ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
         }
 
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));

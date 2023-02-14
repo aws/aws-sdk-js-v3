@@ -34,7 +34,7 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *          <p>To use a built-in intent as a the base for your own intent, include
  *          the built-in intent signature in the <code>parentIntentSignature</code>
  *          parameter when you call the <code>CreateIntent</code> operation. For
- *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">CreateIntent</a>.</p>
+ *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html">CreateIntent</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -5,8 +5,10 @@ import {
   BotAliasLocaleSettings,
   BotAliasStatus,
   BotLocaleStatus,
+  BotMember,
   BotRecommendationStatus,
   BotStatus,
+  BotType,
   CompositeSlotTypeSetting,
   Condition,
   ConversationLogSettings,
@@ -43,10 +45,28 @@ import {
   WaitAndContinueSpecification,
 } from "./models_0";
 
+export interface TagResourceResponse {}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to remove the tags
+   *          from.</p>
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the resource. If a tag key does
+   *          not exist on the resource, it is ignored.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
+
 export interface UpdateBotRequest {
   /**
    * <p>The unique identifier of the bot to update. This identifier is
-   *          returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation.</p>
+   *          returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation.</p>
    */
   botId: string | undefined;
 
@@ -83,6 +103,17 @@ export interface UpdateBotRequest {
    *          seconds.</p>
    */
   idleSessionTTLInSeconds: number | undefined;
+
+  /**
+   * <p>The type of the bot to be updated.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The list of bot members in the network associated
+   *          with the update action.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 export interface UpdateBotResponse {
@@ -136,6 +167,16 @@ export interface UpdateBotResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The type of the bot that was updated.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * <p>The list of bot members in the network that was updated.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 export interface UpdateBotAliasRequest {
@@ -2184,6 +2225,27 @@ export interface UpdateIntentResponse {
    */
   initialResponseSetting?: InitialResponseSetting;
 }
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

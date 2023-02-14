@@ -29,7 +29,7 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dashboard from a template. To first create a template, see the
+ * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
  *         <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
  *             </code>

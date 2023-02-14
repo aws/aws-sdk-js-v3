@@ -28,10 +28,10 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
- *         <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
+ *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
  *             provider as a principal in their trust policies. Any attempt to assume a role that
  *             references a deleted provider fails.</p>
- *         <p>This operation is idempotent; it does not fail or return an error if you call the
+ *          <p>This operation is idempotent; it does not fail or return an error if you call the
  *             operation for a provider that does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

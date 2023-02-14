@@ -29,7 +29,7 @@ export interface AllocateIpamPoolCidrCommandInput extends AllocateIpamPoolCidrRe
 export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrResult, __MetadataBearer {}
 
 /**
- * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

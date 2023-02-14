@@ -6187,6 +6187,7 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
 }
 
 export enum OriginAccessControlOriginTypes {
+  mediastore = "mediastore",
   s3 = "s3",
 }
 
@@ -6255,8 +6256,7 @@ export interface OriginAccessControlConfig {
   SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
-   * <p>The type of origin that this origin access control is for. The only valid value is
-   * 				<code>s3</code>.</p>
+   * <p>The type of origin that this origin access control is for.</p>
    */
   OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
 }
@@ -7213,6 +7213,33 @@ export interface ResponseHeadersPolicyCustomHeadersConfig {
 }
 
 /**
+ * <p>The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ */
+export interface ResponseHeadersPolicyRemoveHeader {
+  /**
+   * <p>The HTTP header name.</p>
+   */
+  Header: string | undefined;
+}
+
+/**
+ * <p>A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ */
+export interface ResponseHeadersPolicyRemoveHeadersConfig {
+  /**
+   * <p>The number of HTTP header names in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP header names.</p>
+   */
+  Items?: ResponseHeadersPolicyRemoveHeader[];
+}
+
+/**
  * <p>The policy directives and their values that CloudFront includes as values for the
  * 				<code>Content-Security-Policy</code> HTTP response header.</p>
  *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
@@ -7514,10 +7541,8 @@ export interface ResponseHeadersPolicyServerTimingHeadersConfig {
 
 /**
  * <p>A response headers policy configuration.</p>
- *          <p>A response headers policy configuration contains metadata about the response headers
- * 			policy, and configurations for sets of HTTP response headers and their values. CloudFront adds
- * 			the headers in the policy to HTTP responses that it sends for requests that match a
- * 			cache behavior associated with the policy.</p>
+ *          <p>A response headers policy configuration contains metadata about the response headers policy,
+ * 			and configurations for sets of HTTP response headers.</p>
  */
 export interface ResponseHeadersPolicyConfig {
   /**
@@ -7553,26 +7578,31 @@ export interface ResponseHeadersPolicyConfig {
    * <p>A configuration for a set of custom HTTP response headers.</p>
    */
   CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
+
+  /**
+   * <p>A configuration for a set of HTTP headers to remove from the HTTP response.</p>
+   */
+  RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig;
 }
 
 export interface CreateResponseHeadersPolicyRequest {
   /**
    * <p>Contains metadata about the response headers policy, and a set of configurations that
-   * 			specify the response headers.</p>
+   * 			specify the HTTP headers.</p>
    */
   ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
 }
 
 /**
  * <p>A response headers policy.</p>
- *          <p>A response headers policy contains information about a set of HTTP response headers
- * 			and their values.</p>
- *          <p>After you create a response headers policy, you can use its ID to attach it to one or
- * 			more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior,
- * 			CloudFront adds the headers in the policy to HTTP responses that it sends for requests that
- * 			match the cache behavior.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html">Adding HTTP headers to CloudFront responses</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *          <p>A response headers policy contains information about a set of HTTP response headers.</p>
+ *          <p>After you create a response headers policy, you can use its ID to attach it to one or more
+ * 			cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the
+ * 			response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to
+ * 			requests that match the cache behavior. CloudFront adds or removes response headers according
+ * 			to the configuration of the response headers policy.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Adding or removing HTTP headers in CloudFront responses</a> in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface ResponseHeadersPolicy {
   /**
@@ -7587,51 +7617,8 @@ export interface ResponseHeadersPolicy {
 
   /**
    * <p>A response headers policy configuration.</p>
-   *          <p>A response headers policy contains information about a set of HTTP response headers
-   * 			and their values. CloudFront adds the headers in the policy to HTTP responses that it sends
-   * 			for requests that match a cache behavior that's associated with the policy.</p>
    */
   ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
-}
-
-export interface CreateResponseHeadersPolicyResult {
-  /**
-   * <p>Contains a response headers policy.</p>
-   */
-  ResponseHeadersPolicy?: ResponseHeadersPolicy;
-
-  /**
-   * <p>The URL of the response headers policy.</p>
-   */
-  Location?: string;
-
-  /**
-   * <p>The version identifier for the current version of the response headers policy.</p>
-   */
-  ETag?: string;
-}
-
-/**
- * <p>A response headers policy with this name already exists. You must provide a unique
- * 			name. To modify an existing response headers policy, use
- * 				<code>UpdateResponseHeadersPolicy</code>.</p>
- */
-export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
-  readonly name: "ResponseHeadersPolicyAlreadyExists" = "ResponseHeadersPolicyAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResponseHeadersPolicyAlreadyExists, __BaseException>) {
-    super({
-      name: "ResponseHeadersPolicyAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResponseHeadersPolicyAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -8676,6 +8663,22 @@ export const ResponseHeadersPolicyCustomHeadersConfigFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ResponseHeadersPolicyRemoveHeaderFilterSensitiveLog = (obj: ResponseHeadersPolicyRemoveHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyRemoveHeadersConfigFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyRemoveHeadersConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ResponseHeadersPolicyContentSecurityPolicyFilterSensitiveLog = (
   obj: ResponseHeadersPolicyContentSecurityPolicy
 ): any => ({
@@ -8759,12 +8762,5 @@ export const CreateResponseHeadersPolicyRequestFilterSensitiveLog = (obj: Create
  * @internal
  */
 export const ResponseHeadersPolicyFilterSensitiveLog = (obj: ResponseHeadersPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResponseHeadersPolicyResultFilterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
   ...obj,
 });

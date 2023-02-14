@@ -22187,6 +22187,7 @@ const serializeAws_restJson1CloudwatchAlarmAction = (input: CloudwatchAlarmActio
 
 const serializeAws_restJson1CloudwatchLogsAction = (input: CloudwatchLogsAction, context: __SerdeContext): any => {
   return {
+    ...(input.batchMode != null && { batchMode: input.batchMode }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
   };
@@ -24356,6 +24357,7 @@ const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __S
 
 const deserializeAws_restJson1CloudwatchLogsAction = (output: any, context: __SerdeContext): CloudwatchLogsAction => {
   return {
+    batchMode: __expectBoolean(output.batchMode),
     logGroupName: __expectString(output.logGroupName),
     roleArn: __expectString(output.roleArn),
   } as any;

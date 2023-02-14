@@ -530,8 +530,7 @@ export interface UserStackAssociation {
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
    *          </note>
    */
@@ -968,8 +967,8 @@ export interface EntitlementAttribute {
    * <p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the
    *             associated value when a user identity federates into an Amazon AppStream 2.0 SAML
    *             application.</p>
-   *         <p>The following are valid values:</p>
-   *         <ul>
+   *          <p>The following are valid values:</p>
+   *          <ul>
    *             <li>
    *                <p>roles</p>
    *             </li>
@@ -992,7 +991,7 @@ export interface EntitlementAttribute {
    *                <p>userType</p>
    *             </li>
    *          </ul>
-   *         <p> </p>
+   *          <p> </p>
    */
   Name: string | undefined;
 
@@ -1165,7 +1164,7 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -1272,8 +1271,8 @@ export interface CreateFleetRequest {
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *          </ul>
-   *         <p>The following instance types are available for Elastic fleets:</p>
-   *         <ul>
+   *          <p>The following instance types are available for Elastic fleets:</p>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -1295,18 +1294,18 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The fleet type.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>ALWAYS_ON</dt>
    *             <dd>
-   *                     <p>Provides users with instant-on access to their apps.
+   *                <p>Provides users with instant-on access to their apps.
    *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>ON_DEMAND</dt>
    *             <dd>
-   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
+   *                <p>Provide users with access to applications after they connect, which takes one to two minutes.
    *                         You are charged for instance streaming when users are connected and a
    *                         small hourly fee for instances that are not streaming apps.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   FleetType?: FleetType | string;
@@ -1323,13 +1322,13 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *         <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
@@ -1355,13 +1354,10 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1376,8 +1372,8 @@ export interface CreateFleetRequest {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected.</p>
-   *         <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
-   *         <note>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
    */
@@ -1385,15 +1381,13 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *
-   *         <p>The default value is <code>APP</code>.</p>
+   *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 
@@ -1511,7 +1505,7 @@ export interface Fleet {
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -1617,18 +1611,18 @@ export interface Fleet {
 
   /**
    * <p>The fleet type.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>ALWAYS_ON</dt>
    *             <dd>
-   *                     <p>Provides users with instant-on access to their apps.
+   *                <p>Provides users with instant-on access to their apps.
    *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>ON_DEMAND</dt>
    *             <dd>
-   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
+   *                <p>Provide users with access to applications after they connect, which takes one to two minutes.
    *                         You are charged for instance streaming when users are connected and a
    *                         small hourly fee for instances that are not streaming apps.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   FleetType?: FleetType | string;
@@ -1640,13 +1634,13 @@ export interface Fleet {
 
   /**
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
-   *         <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
@@ -1691,9 +1685,8 @@ export interface Fleet {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected.</p>
-   *         <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
-   *
-   *         <note>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
    */
@@ -1701,15 +1694,13 @@ export interface Fleet {
 
   /**
    * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *
-   *         <p>The default value is <code>APP</code>.</p>
+   *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 
@@ -1783,7 +1774,7 @@ export interface CreateImageBuilderRequest {
 
   /**
    * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -1904,8 +1895,7 @@ export interface CreateImageBuilderRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
@@ -1926,13 +1916,10 @@ export interface CreateImageBuilderRequest {
 
   /**
    * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
-   *
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -2047,7 +2034,7 @@ export interface ImageBuilder {
 
   /**
    * <p>The instance type for the image builder. The following instance types are available:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -2158,8 +2145,7 @@ export interface ImageBuilder {
 
   /**
    * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
@@ -2345,13 +2331,10 @@ export interface CreateStackRequest {
 
   /**
    * <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
-   *
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -2542,10 +2525,10 @@ export interface CreateUpdatedImageRequest {
 
   /**
    * <p>The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   newImageTags?: Record<string, string>;
 
@@ -2720,8 +2703,7 @@ export enum UsageReportSchedule {
 export interface CreateUsageReportSubscriptionResult {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
-   *
-   *             <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
+   *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
    *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
    *             unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0
    *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
@@ -2743,8 +2725,7 @@ export enum MessageAction {
 export interface CreateUserRequest {
   /**
    * <p>The email address of the user.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.</p>
    *          </note>
    */
@@ -2752,8 +2733,7 @@ export interface CreateUserRequest {
 
   /**
    * <p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p>
-   *
-   *         <note>
+   *          <note>
    *             <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p>
    *          </note>
    */
@@ -2909,8 +2889,7 @@ export interface DeleteUsageReportSubscriptionResult {}
 export interface DeleteUserRequest {
   /**
    * <p>The email address of the user.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
    *          </note>
    */
@@ -3408,8 +3387,7 @@ export interface LastReportGenerationExecutionError {
 export interface UsageReportSubscription {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
-   *
-   *         <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
+   *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
    *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
    *             unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0
    *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
@@ -3473,8 +3451,7 @@ export interface User {
 
   /**
    * <p>The email address of the user.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
    *          </note>
    */
@@ -3487,7 +3464,7 @@ export interface User {
 
   /**
    * <p>The status of the user in the user pool. The status can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>UNCONFIRMED – The user is created but not confirmed.</p>
    *             </li>
@@ -3548,8 +3525,7 @@ export interface DescribeUserStackAssociationsRequest {
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
    *          </note>
    */
@@ -3586,8 +3562,7 @@ export interface DescribeUserStackAssociationsResult {
 export interface DisableUserRequest {
   /**
    * <p>The email address of the user.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
    *          </note>
    */
@@ -3651,8 +3626,7 @@ export interface DisassociateFleetResult {}
 export interface EnableUserRequest {
   /**
    * <p>The email address of the user.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays. </p>
    *          </note>
    */
@@ -3849,11 +3823,9 @@ export interface TagResourceRequest {
 
   /**
    * <p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -4015,7 +3987,7 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -4122,8 +4094,8 @@ export interface UpdateFleetRequest {
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *          </ul>
-   *         <p>The following instance types are available for Elastic fleets:</p>
-   *         <ul>
+   *          <p>The following instance types are available for Elastic fleets:</p>
+   *          <ul>
    *             <li>
    *                <p>stream.standard.small</p>
    *             </li>
@@ -4155,13 +4127,13 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *         <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
@@ -4203,9 +4175,8 @@ export interface UpdateFleetRequest {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected. </p>
-   *         <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
-   *
-   *         <note>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
    */
@@ -4218,15 +4189,13 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *
-   *         <p>The default value is <code>APP</code>.</p>
+   *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 

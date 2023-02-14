@@ -29,7 +29,8 @@ export interface ListDatalakeExceptionsCommandInput extends ListDatalakeExceptio
 export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExceptionsResponse, __MetadataBearer {}
 
 /**
- * <p>List the Amazon Security Lake exceptions that you can use to find the source of problems and fix them.</p>
+ * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
+ *          fix them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

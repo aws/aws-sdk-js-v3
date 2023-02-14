@@ -10,7 +10,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -621,7 +621,7 @@ export const deserializeAws_restJson1CreateWorkerConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.latestRevision != null) {
     contents.latestRevision = deserializeAws_restJson1WorkerConfigurationRevisionSummary(data.latestRevision, context);
@@ -837,7 +837,7 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     contents.connectorState = __expectString(data.connectorState);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.currentVersion != null) {
     contents.currentVersion = __expectString(data.currentVersion);
@@ -935,7 +935,7 @@ export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.customPluginArn != null) {
     contents.customPluginArn = __expectString(data.customPluginArn);
@@ -1012,7 +1012,7 @@ export const deserializeAws_restJson1DescribeWorkerConfigurationCommand = async 
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1836,7 +1836,7 @@ const deserializeAws_restJson1ConnectorSummary = (output: any, context: __SerdeC
     connectorName: __expectString(output.connectorName),
     connectorState: __expectString(output.connectorState),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     currentVersion: __expectString(output.currentVersion),
     kafkaCluster:
       output.kafkaCluster != null
@@ -1908,7 +1908,7 @@ const deserializeAws_restJson1CustomPluginRevisionSummary = (
   return {
     contentType: __expectString(output.contentType),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     fileDescription:
       output.fileDescription != null
@@ -1925,7 +1925,7 @@ const deserializeAws_restJson1CustomPluginRevisionSummary = (
 const deserializeAws_restJson1CustomPluginSummary = (output: any, context: __SerdeContext): CustomPluginSummary => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     customPluginArn: __expectString(output.customPluginArn),
     customPluginState: __expectString(output.customPluginState),
     description: __expectString(output.description),
@@ -2078,7 +2078,7 @@ const deserializeAws_restJson1WorkerConfigurationRevisionDescription = (
 ): WorkerConfigurationRevisionDescription => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     propertiesFileContent: __expectString(output.propertiesFileContent),
     revision: __expectLong(output.revision),
@@ -2091,7 +2091,7 @@ const deserializeAws_restJson1WorkerConfigurationRevisionSummary = (
 ): WorkerConfigurationRevisionSummary => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     revision: __expectLong(output.revision),
   } as any;
@@ -2103,7 +2103,7 @@ const deserializeAws_restJson1WorkerConfigurationSummary = (
 ): WorkerConfigurationSummary => {
   return {
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     latestRevision:
       output.latestRevision != null

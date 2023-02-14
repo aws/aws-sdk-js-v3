@@ -5,14 +5,10 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   ActionSummary,
   AgentStatusState,
-  AttachmentReference,
-  AttachmentReferenceFilterSensitiveLog,
   Attribute,
   Channel,
   ContactFlowModuleState,
   ContactFlowState,
-  DateReference,
-  DateReferenceFilterSensitiveLog,
   DirectoryType,
   EventSourceName,
   HierarchyGroupSummary,
@@ -33,6 +29,7 @@ import {
   QuickConnectConfig,
   QuickConnectType,
   Reference,
+  ReferenceStatus,
   RoutingProfile,
   RoutingProfileQueueConfig,
   RuleAction,
@@ -50,6 +47,43 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is
+ *    <code>ATTACHMENT</code>. Otherwise, null.</p>
+ */
+export interface AttachmentReference {
+  /**
+   * <p>Identifier of the attachment reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The location path of the attachment reference.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Status of the attachment reference type.</p>
+   */
+  Status?: ReferenceStatus | string;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+ *    Otherwise, null.</p>
+ */
+export interface DateReference {
+  /**
+   * <p>Identifier of the date reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid date.</p>
+   */
+  Value?: string;
+}
 
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
@@ -643,8 +677,8 @@ export interface ListLexBotsRequest {
 
 export interface ListLexBotsResponse {
   /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the specified
-   *    instance.</p>
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the
+   *    specified instance.</p>
    */
   LexBots?: LexBot[];
 
@@ -2362,7 +2396,8 @@ export interface SearchVocabulariesResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
+   * <p>The type of the content. Supported types are <code>text/plain</code>,
+   *     <code>text/markdown</code>, and <code>application/json</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -2390,6 +2425,45 @@ export interface ParticipantDetails {
    * <p>Display name of the participant.</p>
    */
   DisplayName: string | undefined;
+}
+
+export enum RehydrationType {
+  ENTIRE_PAST_SESSION = "ENTIRE_PAST_SESSION",
+  FROM_SEGMENT = "FROM_SEGMENT",
+}
+
+/**
+ * <p>Enable persistent chats. For more information about enabling persistent chat, and for
+ *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+export interface PersistentChat {
+  /**
+   * <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType
+   *    is required for persistent chat. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past
+   *      chat contact of the specified past ended chat session. To use this type, provide the
+   *       <code>initialContactId</code> of the past ended chat session in the
+   *       <code>sourceContactId</code> field. In this type, Amazon Connect determines the most
+   *      recent chat contact on the specified chat session that has ended, and uses it to start a
+   *      persistent chat. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified
+   *      in the <code>sourceContactId</code> field. </p>
+   *             </li>
+   *          </ul>
+   *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
+   */
+  RehydrationType?: RehydrationType | string;
+
+  /**
+   * <p>The contactId from which a persistent chat session must be started.</p>
+   */
+  SourceContactId?: string;
 }
 
 export interface StartChatContactRequest {
@@ -2444,12 +2518,19 @@ export interface StartChatContactRequest {
   ChatDurationInMinutes?: number;
 
   /**
-   * <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You
-   *    can then put any other supported type in the list. For example, all the following lists are valid
-   *    because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown,
-   *    text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
+   * <p>The supported chat message content types. Content types must always contain
+   *     <code>text/plain</code>. You can then put any other supported type in the list. For example, all
+   *    the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain,
+   *     text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>,
+   *     <code>[text/plain, application/json]</code>.</p>
    */
   SupportedMessagingContentTypes?: string[];
+
+  /**
+   * <p>Enable persistent chats. For more information about enabling persistent chat, and for
+   *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+   */
+  PersistentChat?: PersistentChat;
 }
 
 export interface StartChatContactResponse {
@@ -2469,6 +2550,12 @@ export interface StartChatContactResponse {
    *    participant.</p>
    */
   ParticipantToken?: string;
+
+  /**
+   * <p>The contactId from which a persistent chat session is started. This field is populated only
+   *    for persistent chats.</p>
+   */
+  ContinuedFromContactId?: string;
 }
 
 export enum VoiceRecordingTrack {
@@ -3051,11 +3138,13 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact
-   *     flow in Amazon Connect Flow language</a>. </p>
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     contact flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
+
+export interface UpdateContactFlowContentResponse {}
 
 export interface UpdateContactFlowMetadataRequest {
   /**
@@ -3083,6 +3172,8 @@ export interface UpdateContactFlowMetadataRequest {
    */
   ContactFlowState?: ContactFlowState | string;
 }
+
+export interface UpdateContactFlowMetadataResponse {}
 
 export interface UpdateContactFlowModuleContentRequest {
   /**
@@ -3153,6 +3244,8 @@ export interface UpdateContactFlowNameRequest {
    */
   Description?: string;
 }
+
+export interface UpdateContactFlowNameResponse {}
 
 export interface UpdateContactScheduleRequest {
   /**
@@ -3275,7 +3368,8 @@ export type ParticipantTimerValue =
 
 export namespace ParticipantTimerValue {
   /**
-   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
+   *    timer.</p>
    */
   export interface ParticipantTimerActionMember {
     ParticipantTimerAction: ParticipantTimerAction | string;
@@ -3326,9 +3420,9 @@ export interface ParticipantTimerConfiguration {
   ParticipantRole: TimerEligibleParticipantRoles | string | undefined;
 
   /**
-   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle.
-   *    <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to
-   *    idleness.</p>
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
+   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
+   *    automatically disconnecting a chat participant due to idleness.</p>
    */
   TimerType: ParticipantTimerType | string | undefined;
 
@@ -4253,6 +4347,20 @@ export interface SearchUsersRequest {
 /**
  * @internal
  */
+export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const EmailReferenceFilterSensitiveLog = (obj: EmailReference): any => ({
   ...obj,
 });
@@ -5035,6 +5143,13 @@ export const ParticipantDetailsFilterSensitiveLog = (obj: ParticipantDetails): a
 /**
  * @internal
  */
+export const PersistentChatFilterSensitiveLog = (obj: PersistentChat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartChatContactRequestFilterSensitiveLog = (obj: StartChatContactRequest): any => ({
   ...obj,
 });
@@ -5252,7 +5367,21 @@ export const UpdateContactFlowContentRequestFilterSensitiveLog = (obj: UpdateCon
 /**
  * @internal
  */
+export const UpdateContactFlowContentResponseFilterSensitiveLog = (obj: UpdateContactFlowContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateContactFlowMetadataRequestFilterSensitiveLog = (obj: UpdateContactFlowMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactFlowMetadataResponseFilterSensitiveLog = (obj: UpdateContactFlowMetadataResponse): any => ({
   ...obj,
 });
 
@@ -5296,6 +5425,13 @@ export const UpdateContactFlowModuleMetadataResponseFilterSensitiveLog = (
  * @internal
  */
 export const UpdateContactFlowNameRequestFilterSensitiveLog = (obj: UpdateContactFlowNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactFlowNameResponseFilterSensitiveLog = (obj: UpdateContactFlowNameResponse): any => ({
   ...obj,
 });
 

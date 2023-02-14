@@ -808,6 +808,8 @@ import {
   AsyncInferenceNotificationConfig,
   AsyncInferenceOutputConfig,
   AthenaDatasetDefinition,
+  AutoMLAlgorithm,
+  AutoMLAlgorithmConfig,
   AutoMLCandidate,
   AutoMLCandidateGenerationConfig,
   AutoMLCandidateStep,
@@ -832,6 +834,7 @@ import {
   BatchDescribeModelPackageOutput,
   BatchDescribeModelPackageSummary,
   BatchTransformInput,
+  BestObjectiveNotImproving,
   Bias,
   BlueGreenUpdatePolicy,
   CacheHitResult,
@@ -870,6 +873,7 @@ import {
   ContextSummary,
   ContinuousParameterRange,
   ContinuousParameterRangeSpecification,
+  ConvergenceDetected,
   CreateActionRequest,
   CreateActionResponse,
   CreateAlgorithmInput,
@@ -897,15 +901,10 @@ import {
   CreateEdgeDeploymentPlanResponse,
   CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
-  CreateEndpointConfigInput,
-  CreateEndpointConfigOutput,
   CreateEndpointInput,
   CreateEndpointOutput,
-  CreateExperimentRequest,
-  CreateExperimentResponse,
   CustomImage,
   DataCaptureConfig,
-  DataCatalogConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -920,7 +919,6 @@ import {
   EdgeOutputConfig,
   EndpointInput,
   ExplainerConfig,
-  FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
@@ -976,7 +974,6 @@ import {
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3DataSource,
-  S3StorageConfig,
   SharingSettings,
   ShuffleConfig,
   StoppingCondition,
@@ -985,9 +982,11 @@ import {
   TensorBoardAppSettings,
   TimeSeriesForecastingSettings,
   TrafficRoutingConfig,
+  TrainingImageConfig,
   TrainingInputMode,
   TrainingInstanceType,
   TrainingJobDefinition,
+  TrainingRepositoryAuthConfig,
   TrainingSpecification,
   TransformDataSource,
   TransformInput,
@@ -1001,6 +1000,10 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateEndpointConfigInput,
+  CreateEndpointConfigOutput,
+  CreateExperimentRequest,
+  CreateExperimentResponse,
   CreateFeatureGroupRequest,
   CreateFeatureGroupResponse,
   CreateFlowDefinitionRequest,
@@ -1072,6 +1075,7 @@ import {
   CreateWorkteamRequest,
   CreateWorkteamResponse,
   DataCaptureConfigSummary,
+  DataCatalogConfig,
   DataProcessing,
   DatasetDefinition,
   DebugHookConfig,
@@ -1137,23 +1141,17 @@ import {
   DeleteWorkforceRequest,
   DeleteWorkforceResponse,
   DeleteWorkteamRequest,
-  DeleteWorkteamResponse,
-  DeployedImage,
-  DeploymentStageStatusSummary,
-  DeregisterDevicesRequest,
-  DescribeActionRequest,
-  DescribeActionResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
   DriftCheckModelDataQuality,
   DriftCheckModelQuality,
-  EdgeDeploymentStatus,
   EndpointInfo,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
   ExperimentConfig,
   Explainability,
+  FeatureDefinition,
   FileSource,
   FlowDefinitionOutputConfig,
   HubS3StorageConfig,
@@ -1251,6 +1249,7 @@ import {
   ResourceLimits,
   RetentionPolicy,
   RetryStrategy,
+  S3StorageConfig,
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
@@ -1271,6 +1270,12 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteWorkteamResponse,
+  DeployedImage,
+  DeploymentStageStatusSummary,
+  DeregisterDevicesRequest,
+  DescribeActionRequest,
+  DescribeActionResponse,
   DescribeAlgorithmInput,
   DescribeAlgorithmOutput,
   DescribeAppImageConfigRequest,
@@ -1397,6 +1402,7 @@ import {
   DomainSettingsForUpdate,
   Edge,
   EdgeDeploymentPlanSummary,
+  EdgeDeploymentStatus,
   EdgeModel,
   EdgeModelStat,
   EdgeModelSummary,
@@ -1439,6 +1445,8 @@ import {
   HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobCompletionDetails,
+  HyperParameterTuningJobConsumedResources,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
   Image,
@@ -1464,14 +1472,6 @@ import {
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
   ListAliasesRequest,
-  ListAliasesResponse,
-  ListAppImageConfigsRequest,
-  ListAppImageConfigsResponse,
-  ListAppsRequest,
-  ListAppsResponse,
-  ListArtifactsRequest,
-  ListArtifactsResponse,
-  ListAssociationsRequest,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1513,6 +1513,14 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListAliasesResponse,
+  ListAppImageConfigsRequest,
+  ListAppImageConfigsResponse,
+  ListAppsRequest,
+  ListAppsResponse,
+  ListArtifactsRequest,
+  ListArtifactsResponse,
+  ListAssociationsRequest,
   ListAssociationsResponse,
   ListAutoMLJobsRequest,
   ListAutoMLJobsResponse,
@@ -1756,6 +1764,13 @@ import {
   UpdateDeviceFleetRequest,
   UpdateDevicesRequest,
   UpdateDomainRequest,
+  UserProfileDetails,
+  Vertex,
+} from "../models/models_3";
+import {
+  SearchExpression,
+  SearchRequest,
+  ServiceCatalogProvisioningUpdateDetails,
   UpdateDomainResponse,
   UpdateEndpointInput,
   UpdateEndpointOutput,
@@ -1764,14 +1779,6 @@ import {
   UpdateExperimentRequest,
   UpdateExperimentResponse,
   UpdateFeatureGroupRequest,
-  UserProfileDetails,
-  VariantProperty,
-  Vertex,
-} from "../models/models_3";
-import {
-  SearchExpression,
-  SearchRequest,
-  ServiceCatalogProvisioningUpdateDetails,
   UpdateFeatureGroupResponse,
   UpdateFeatureMetadataRequest,
   UpdateHubRequest,
@@ -1814,6 +1821,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
+  VariantProperty,
 } from "../models/models_4";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
@@ -13687,13 +13695,19 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError = a
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  throwDefaultError({
-    output,
-    parsedBody,
-    exceptionCtor: __BaseException,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListLabelingJobsCommand = async (
@@ -17668,6 +17682,9 @@ const serializeAws_json1_1AlgorithmSpecification = (input: AlgorithmSpecificatio
       MetricDefinitions: serializeAws_json1_1MetricDefinitionList(input.MetricDefinitions, context),
     }),
     ...(input.TrainingImage != null && { TrainingImage: input.TrainingImage }),
+    ...(input.TrainingImageConfig != null && {
+      TrainingImageConfig: serializeAws_json1_1TrainingImageConfig(input.TrainingImageConfig, context),
+    }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
   };
 };
@@ -17833,11 +17850,38 @@ const serializeAws_json1_1AttributeNames = (input: string[], context: __SerdeCon
     });
 };
 
+const serializeAws_json1_1AutoMLAlgorithmConfig = (input: AutoMLAlgorithmConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoMLAlgorithms != null && {
+      AutoMLAlgorithms: serializeAws_json1_1AutoMLAlgorithms(input.AutoMLAlgorithms, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AutoMLAlgorithms = (input: (AutoMLAlgorithm | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1AutoMLAlgorithmsConfig = (input: AutoMLAlgorithmConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1AutoMLCandidateGenerationConfig = (
   input: AutoMLCandidateGenerationConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlgorithmsConfig != null && {
+      AlgorithmsConfig: serializeAws_json1_1AutoMLAlgorithmsConfig(input.AlgorithmsConfig, context),
+    }),
     ...(input.FeatureSpecificationS3Uri != null && { FeatureSpecificationS3Uri: input.FeatureSpecificationS3Uri }),
   };
 };
@@ -17984,6 +18028,17 @@ const serializeAws_json1_1BatchTransformInput = (input: BatchTransformInput, con
     ...(input.S3DataDistributionType != null && { S3DataDistributionType: input.S3DataDistributionType }),
     ...(input.S3InputMode != null && { S3InputMode: input.S3InputMode }),
     ...(input.StartTimeOffset != null && { StartTimeOffset: input.StartTimeOffset }),
+  };
+};
+
+const serializeAws_json1_1BestObjectiveNotImproving = (
+  input: BestObjectiveNotImproving,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxNumberOfTrainingJobsNotImproving != null && {
+      MaxNumberOfTrainingJobsNotImproving: input.MaxNumberOfTrainingJobsNotImproving,
+    }),
   };
 };
 
@@ -18417,6 +18472,12 @@ const serializeAws_json1_1ContinuousParameterRangeSpecification = (
   return {
     ...(input.MaxValue != null && { MaxValue: input.MaxValue }),
     ...(input.MinValue != null && { MinValue: input.MinValue }),
+  };
+};
+
+const serializeAws_json1_1ConvergenceDetected = (input: ConvergenceDetected, context: __SerdeContext): any => {
+  return {
+    ...(input.CompleteOnConvergence != null && { CompleteOnConvergence: input.CompleteOnConvergence }),
   };
 };
 
@@ -21324,6 +21385,9 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinition = (
     }),
     ...(input.EnableManagedSpotTraining != null && { EnableManagedSpotTraining: input.EnableManagedSpotTraining }),
     ...(input.EnableNetworkIsolation != null && { EnableNetworkIsolation: input.EnableNetworkIsolation }),
+    ...(input.Environment != null && {
+      Environment: serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(input.Environment, context),
+    }),
     ...(input.HyperParameterRanges != null && {
       HyperParameterRanges: serializeAws_json1_1ParameterRanges(input.HyperParameterRanges, context),
     }),
@@ -21368,6 +21432,19 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinitions = (
     .map((entry) => {
       return serializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
     });
+};
+
+const serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1HyperParameterTuningInstanceConfig = (
@@ -24411,6 +24488,7 @@ const serializeAws_json1_1RecommendationJobContainerConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataInputConfig != null && { DataInputConfig: input.DataInputConfig }),
     ...(input.Domain != null && { Domain: input.Domain }),
     ...(input.Framework != null && { Framework: input.Framework }),
     ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
@@ -24441,6 +24519,7 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
     }),
     ...(input.Endpoints != null && { Endpoints: serializeAws_json1_1Endpoints(input.Endpoints, context) }),
     ...(input.JobDurationInSeconds != null && { JobDurationInSeconds: input.JobDurationInSeconds }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ModelPackageVersionArn != null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
     ...(input.ResourceLimit != null && {
       ResourceLimit: serializeAws_json1_1RecommendationJobResourceLimit(input.ResourceLimit, context),
@@ -24622,6 +24701,7 @@ const serializeAws_json1_1ResourceLimits = (input: ResourceLimits, context: __Se
   return {
     ...(input.MaxNumberOfTrainingJobs != null && { MaxNumberOfTrainingJobs: input.MaxNumberOfTrainingJobs }),
     ...(input.MaxParallelTrainingJobs != null && { MaxParallelTrainingJobs: input.MaxParallelTrainingJobs }),
+    ...(input.MaxRuntimeInSeconds != null && { MaxRuntimeInSeconds: input.MaxRuntimeInSeconds }),
   };
 };
 
@@ -25255,6 +25335,20 @@ const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string
   }, {});
 };
 
+const serializeAws_json1_1TrainingImageConfig = (input: TrainingImageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.TrainingRepositoryAccessMode != null && {
+      TrainingRepositoryAccessMode: input.TrainingRepositoryAccessMode,
+    }),
+    ...(input.TrainingRepositoryAuthConfig != null && {
+      TrainingRepositoryAuthConfig: serializeAws_json1_1TrainingRepositoryAuthConfig(
+        input.TrainingRepositoryAuthConfig,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1TrainingInstanceTypes = (
   input: (TrainingInstanceType | string)[],
   context: __SerdeContext
@@ -25284,6 +25378,17 @@ const serializeAws_json1_1TrainingJobDefinition = (input: TrainingJobDefinition,
       StoppingCondition: serializeAws_json1_1StoppingCondition(input.StoppingCondition, context),
     }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
+  };
+};
+
+const serializeAws_json1_1TrainingRepositoryAuthConfig = (
+  input: TrainingRepositoryAuthConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TrainingRepositoryCredentialsProviderArn != null && {
+      TrainingRepositoryCredentialsProviderArn: input.TrainingRepositoryCredentialsProviderArn,
+    }),
   };
 };
 
@@ -25459,6 +25564,15 @@ const serializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BestObjectiveNotImproving != null && {
+      BestObjectiveNotImproving: serializeAws_json1_1BestObjectiveNotImproving(
+        input.BestObjectiveNotImproving,
+        context
+      ),
+    }),
+    ...(input.ConvergenceDetected != null && {
+      ConvergenceDetected: serializeAws_json1_1ConvergenceDetected(input.ConvergenceDetected, context),
+    }),
     ...(input.TargetObjectiveMetricValue != null && {
       TargetObjectiveMetricValue: __serializeFloat(input.TargetObjectiveMetricValue),
     }),
@@ -26254,6 +26368,10 @@ const deserializeAws_json1_1AlgorithmSpecification = (output: any, context: __Se
         ? deserializeAws_json1_1MetricDefinitionList(output.MetricDefinitions, context)
         : undefined,
     TrainingImage: __expectString(output.TrainingImage),
+    TrainingImageConfig:
+      output.TrainingImageConfig != null
+        ? deserializeAws_json1_1TrainingImageConfig(output.TrainingImageConfig, context)
+        : undefined,
     TrainingInputMode: __expectString(output.TrainingInputMode),
   } as any;
 };
@@ -26611,6 +26729,42 @@ const deserializeAws_json1_1AttributeNames = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1AutoMLAlgorithmConfig = (output: any, context: __SerdeContext): AutoMLAlgorithmConfig => {
+  return {
+    AutoMLAlgorithms:
+      output.AutoMLAlgorithms != null
+        ? deserializeAws_json1_1AutoMLAlgorithms(output.AutoMLAlgorithms, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithms = (output: any, context: __SerdeContext): (AutoMLAlgorithm | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithmsConfig = (
+  output: any,
+  context: __SerdeContext
+): AutoMLAlgorithmConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1AutoMLCandidate = (output: any, context: __SerdeContext): AutoMLCandidate => {
   return {
     CandidateName: __expectString(output.CandidateName),
@@ -26649,6 +26803,10 @@ const deserializeAws_json1_1AutoMLCandidateGenerationConfig = (
   context: __SerdeContext
 ): AutoMLCandidateGenerationConfig => {
   return {
+    AlgorithmsConfig:
+      output.AlgorithmsConfig != null
+        ? deserializeAws_json1_1AutoMLAlgorithmsConfig(output.AlgorithmsConfig, context)
+        : undefined,
     FeatureSpecificationS3Uri: __expectString(output.FeatureSpecificationS3Uri),
   } as any;
 };
@@ -26964,6 +27122,15 @@ const deserializeAws_json1_1BatchTransformInput = (output: any, context: __Serde
     S3DataDistributionType: __expectString(output.S3DataDistributionType),
     S3InputMode: __expectString(output.S3InputMode),
     StartTimeOffset: __expectString(output.StartTimeOffset),
+  } as any;
+};
+
+const deserializeAws_json1_1BestObjectiveNotImproving = (
+  output: any,
+  context: __SerdeContext
+): BestObjectiveNotImproving => {
+  return {
+    MaxNumberOfTrainingJobsNotImproving: __expectInt32(output.MaxNumberOfTrainingJobsNotImproving),
   } as any;
 };
 
@@ -27669,6 +27836,12 @@ const deserializeAws_json1_1ContinuousParameterRangeSpecification = (
   return {
     MaxValue: __expectString(output.MaxValue),
     MinValue: __expectString(output.MinValue),
+  } as any;
+};
+
+const deserializeAws_json1_1ConvergenceDetected = (output: any, context: __SerdeContext): ConvergenceDetected => {
+  return {
+    CompleteOnConvergence: __expectString(output.CompleteOnConvergence),
   } as any;
 };
 
@@ -29292,6 +29465,10 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobResponse = (
       output.BestTrainingJob != null
         ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.BestTrainingJob, context)
         : undefined,
+    ConsumedResources:
+      output.ConsumedResources != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConsumedResources(output.ConsumedResources, context)
+        : undefined,
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -29331,6 +29508,10 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobResponse = (
     TrainingJobStatusCounters:
       output.TrainingJobStatusCounters != null
         ? deserializeAws_json1_1TrainingJobStatusCounters(output.TrainingJobStatusCounters, context)
+        : undefined,
+    TuningJobCompletionDetails:
+      output.TuningJobCompletionDetails != null
+        ? deserializeAws_json1_1HyperParameterTuningJobCompletionDetails(output.TuningJobCompletionDetails, context)
         : undefined,
     WarmStartConfig:
       output.WarmStartConfig != null
@@ -31451,6 +31632,7 @@ const deserializeAws_json1_1FinalAutoMLJobObjectiveMetric = (
 ): FinalAutoMLJobObjectiveMetric => {
   return {
     MetricName: __expectString(output.MetricName),
+    StandardMetricName: __expectString(output.StandardMetricName),
     Type: __expectString(output.Type),
     Value: __limitedParseFloat32(output.Value),
   } as any;
@@ -31920,6 +32102,10 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinition = (
     EnableInterContainerTrafficEncryption: __expectBoolean(output.EnableInterContainerTrafficEncryption),
     EnableManagedSpotTraining: __expectBoolean(output.EnableManagedSpotTraining),
     EnableNetworkIsolation: __expectBoolean(output.EnableNetworkIsolation),
+    Environment:
+      output.Environment != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(output.Environment, context)
+        : undefined,
     HyperParameterRanges:
       output.HyperParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.HyperParameterRanges, context)
@@ -31970,6 +32156,19 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinitions = (
       return deserializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1HyperParameterTrainingJobSummaries = (
@@ -32051,6 +32250,19 @@ const deserializeAws_json1_1HyperParameterTuningInstanceConfigs = (
   return retVal;
 };
 
+const deserializeAws_json1_1HyperParameterTuningJobCompletionDetails = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobCompletionDetails => {
+  return {
+    ConvergenceDetectedTime:
+      output.ConvergenceDetectedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConvergenceDetectedTime)))
+        : undefined,
+    NumberOfTrainingJobsObjectiveNotImproving: __expectInt32(output.NumberOfTrainingJobsObjectiveNotImproving),
+  } as any;
+};
+
 const deserializeAws_json1_1HyperParameterTuningJobConfig = (
   output: any,
   context: __SerdeContext
@@ -32077,6 +32289,15 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
       output.TuningJobCompletionCriteria != null
         ? deserializeAws_json1_1TuningJobCompletionCriteria(output.TuningJobCompletionCriteria, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobConsumedResources = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobConsumedResources => {
+  return {
+    RuntimeInSeconds: __expectInt32(output.RuntimeInSeconds),
   } as any;
 };
 
@@ -32113,6 +32334,10 @@ const deserializeAws_json1_1HyperParameterTuningJobSearchEntity = (
     BestTrainingJob:
       output.BestTrainingJob != null
         ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.BestTrainingJob, context)
+        : undefined,
+    ConsumedResources:
+      output.ConsumedResources != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConsumedResources(output.ConsumedResources, context)
         : undefined,
     CreationTime:
       output.CreationTime != null
@@ -32154,6 +32379,10 @@ const deserializeAws_json1_1HyperParameterTuningJobSearchEntity = (
     TrainingJobStatusCounters:
       output.TrainingJobStatusCounters != null
         ? deserializeAws_json1_1TrainingJobStatusCounters(output.TrainingJobStatusCounters, context)
+        : undefined,
+    TuningJobCompletionDetails:
+      output.TuningJobCompletionDetails != null
+        ? deserializeAws_json1_1HyperParameterTuningJobCompletionDetails(output.TuningJobCompletionDetails, context)
         : undefined,
     WarmStartConfig:
       output.WarmStartConfig != null
@@ -32433,6 +32662,7 @@ const deserializeAws_json1_1InferenceRecommendation = (
       output.ModelConfiguration != null
         ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
         : undefined,
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -34163,6 +34393,7 @@ const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ModelConfiguration = (output: any, context: __SerdeContext): ModelConfiguration => {
   return {
+    CompilationJobName: __expectString(output.CompilationJobName),
     EnvironmentParameters:
       output.EnvironmentParameters != null
         ? deserializeAws_json1_1EnvironmentParameters(output.EnvironmentParameters, context)
@@ -36670,6 +36901,7 @@ const deserializeAws_json1_1RecommendationJobContainerConfig = (
   context: __SerdeContext
 ): RecommendationJobContainerConfig => {
   return {
+    DataInputConfig: __expectString(output.DataInputConfig),
     Domain: __expectString(output.Domain),
     Framework: __expectString(output.Framework),
     FrameworkVersion: __expectString(output.FrameworkVersion),
@@ -36719,6 +36951,7 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
         : undefined,
     Endpoints: output.Endpoints != null ? deserializeAws_json1_1Endpoints(output.Endpoints, context) : undefined,
     JobDurationInSeconds: __expectInt32(output.JobDurationInSeconds),
+    ModelName: __expectString(output.ModelName),
     ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
     ResourceLimit:
       output.ResourceLimit != null
@@ -36842,7 +37075,9 @@ const deserializeAws_json1_1RecommendationMetrics = (output: any, context: __Ser
   return {
     CostPerHour: __limitedParseFloat32(output.CostPerHour),
     CostPerInference: __limitedParseFloat32(output.CostPerInference),
+    CpuUtilization: __limitedParseFloat32(output.CpuUtilization),
     MaxInvocations: __expectInt32(output.MaxInvocations),
+    MemoryUtilization: __limitedParseFloat32(output.MemoryUtilization),
     ModelLatency: __expectInt32(output.ModelLatency),
   } as any;
 };
@@ -36950,6 +37185,7 @@ const deserializeAws_json1_1ResourceLimits = (output: any, context: __SerdeConte
   return {
     MaxNumberOfTrainingJobs: __expectInt32(output.MaxNumberOfTrainingJobs),
     MaxParallelTrainingJobs: __expectInt32(output.MaxParallelTrainingJobs),
+    MaxRuntimeInSeconds: __expectInt32(output.MaxRuntimeInSeconds),
   } as any;
 };
 
@@ -37577,6 +37813,16 @@ const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __Se
   }, {});
 };
 
+const deserializeAws_json1_1TrainingImageConfig = (output: any, context: __SerdeContext): TrainingImageConfig => {
+  return {
+    TrainingRepositoryAccessMode: __expectString(output.TrainingRepositoryAccessMode),
+    TrainingRepositoryAuthConfig:
+      output.TrainingRepositoryAuthConfig != null
+        ? deserializeAws_json1_1TrainingRepositoryAuthConfig(output.TrainingRepositoryAuthConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TrainingInstanceTypes = (
   output: any,
   context: __SerdeContext
@@ -37768,6 +38014,15 @@ const deserializeAws_json1_1TrainingJobSummary = (output: any, context: __SerdeC
     TrainingJobStatus: __expectString(output.TrainingJobStatus),
     WarmPoolStatus:
       output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TrainingRepositoryAuthConfig = (
+  output: any,
+  context: __SerdeContext
+): TrainingRepositoryAuthConfig => {
+  return {
+    TrainingRepositoryCredentialsProviderArn: __expectString(output.TrainingRepositoryCredentialsProviderArn),
   } as any;
 };
 
@@ -38309,6 +38564,14 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): TuningJobCompletionCriteria => {
   return {
+    BestObjectiveNotImproving:
+      output.BestObjectiveNotImproving != null
+        ? deserializeAws_json1_1BestObjectiveNotImproving(output.BestObjectiveNotImproving, context)
+        : undefined,
+    ConvergenceDetected:
+      output.ConvergenceDetected != null
+        ? deserializeAws_json1_1ConvergenceDetected(output.ConvergenceDetected, context)
+        : undefined,
     TargetObjectiveMetricValue: __limitedParseFloat32(output.TargetObjectiveMetricValue),
   } as any;
 };

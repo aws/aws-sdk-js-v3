@@ -14,12 +14,12 @@ import {
 } from "./commands/StartConfigurationSessionCommand";
 
 /**
- * <p>AppConfig Data provides the data plane APIs your application uses to retrieve configuration data.
- *          Here's how it works:</p>
+ * <p>AppConfig Data provides the data plane APIs your application uses to retrieve
+ *          configuration data. Here's how it works:</p>
  *          <p>Your application retrieves configuration data by first establishing a configuration
- *          session using the AppConfig Data <a>StartConfigurationSession</a> API action. Your session's
- *          client then makes periodic calls to <a>GetLatestConfiguration</a> to check for
- *          and retrieve the latest data available.</p>
+ *          session using the AppConfig Data <a>StartConfigurationSession</a> API action.
+ *          Your session's client then makes periodic calls to <a>GetLatestConfiguration</a>
+ *          to check for and retrieve the latest data available.</p>
  *          <p>When calling <code>StartConfigurationSession</code>, your code sends the following
  *          information:</p>
  *          <ul>
@@ -35,6 +35,13 @@ import {
  *          <p>In response, AppConfig provides an <code>InitialConfigurationToken</code> to be given to
  *          the session's client and used the first time it calls <code>GetLatestConfiguration</code>
  *          for that session.</p>
+ *          <important>
+ *             <p>This token should only be used once in your first call to
+ *                <code>GetLatestConfiguration</code>. You <i>must</i> use the new token
+ *             in the <code>GetLatestConfiguration</code> response
+ *                (<code>NextPollConfigurationToken</code>) in each subsequent call to
+ *                <code>GetLatestConfiguration</code>.</p>
+ *          </important>
  *          <p>When calling <code>GetLatestConfiguration</code>, your client code sends the most recent
  *             <code>ConfigurationToken</code> value it has and receives in response:</p>
  *          <ul>
@@ -55,25 +62,33 @@ import {
  *                the client already has the latest version of the configuration.</p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>The <code>InitialConfigurationToken</code> and
+ *             <code>NextPollConfigurationToken</code> should only be used once. To support long poll
+ *             use cases, the tokens are valid for up to 24 hours. If a
+ *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+ *             <code>BadRequestException</code>.</p>
+ *          </important>
  *          <p>For more information and to view example CLI commands that show how to retrieve a
  *          configuration using the AppConfig Data <code>StartConfigurationSession</code> and
- *             <code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+ *             <code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
  *             configuration</a> in the <i>AppConfig User Guide</i>.</p>
  */
 export class AppConfigData extends AppConfigDataClient {
   /**
    * <p>Retrieves the latest deployed configuration. This API may return empty configuration
    *          data if the client already has the latest version. For more information about this API
-   *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+   *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
    *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
    *          <important>
    *             <p>Note the following important information.</p>
    *             <ul>
    *                <li>
-   *                   <p>Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.
-   *                   The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code> that
-   *                   should always replace the token used for the just-completed call in preparation
-   *                   for the next one. </p>
+   *                   <p>Each configuration token is only valid for one call to
+   *                      <code>GetLatestConfiguration</code>. The <code>GetLatestConfiguration</code>
+   *                   response includes a <code>NextPollConfigurationToken</code> that should always
+   *                   replace the token used for the just-completed call in preparation for the next
+   *                   one. </p>
    *                </li>
    *                <li>
    *                   <p>
@@ -115,7 +130,7 @@ export class AppConfigData extends AppConfigDataClient {
   /**
    * <p>Starts a configuration session used to retrieve a deployed configuration. For more
    *          information about this API action and to view example CLI commands that show how to use
-   *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+   *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
    *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
    */
   public startConfigurationSession(

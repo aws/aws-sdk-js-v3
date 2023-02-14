@@ -33,7 +33,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *          <p>The password is not required. If you don't supply a password, Amazon Lex
  *          generates a zip file that is not protected by a password. This is the
  *          archive that is available at the pre-signed S3 URL provided by the
- *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a> operation.</p>
+ *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

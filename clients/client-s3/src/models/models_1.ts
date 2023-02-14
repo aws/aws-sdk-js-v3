@@ -79,7 +79,7 @@ export interface PutObjectRetentionRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -130,7 +130,7 @@ export interface PutObjectTaggingRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -175,7 +175,7 @@ export interface PutPublicAccessBlockRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -663,7 +663,7 @@ export interface RestoreObjectRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -1116,9 +1116,9 @@ export interface UploadPartRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
-   *         <p>This checksum algorithm must be the same for all parts and it match the checksum
+   *          <p>This checksum algorithm must be the same for all parts and it match the checksum
    *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -1466,80 +1466,80 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code>
    *          request.</p>
-   *              <p class="title">
+   *          <p class="title">
    *             <b>Status Codes</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>200 - OK</code>
    *                </p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>206 - Partial Content</code>
    *                </p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>304 - Not Modified</code>
    *                </p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>400 - Bad Request</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>401 - Unauthorized</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>403 - Forbidden</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>404 - Not Found</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>405 - Method Not Allowed</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>409 - Conflict</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>411 - Length Required</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>412 - Precondition Failed</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>416 - Range Not Satisfiable</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>500 - Internal Server Error</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *             <li>
-   *                    <p>
+   *                <p>
    *                   <code>503 - Service Unavailable</code>
-   *                    </p>
-   *                 </li>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   StatusCode?: number;
@@ -1611,9 +1611,9 @@ export interface WriteGetObjectResponseRequest {
    *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
    *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple
    *             checksum headers, this request will fail.</p>
-   *         <p></p>
+   *          <p></p>
    */
   ChecksumCRC32?: string;
 
@@ -1625,7 +1625,7 @@ export interface WriteGetObjectResponseRequest {
    *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
    *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple
    *             checksum headers, this request will fail.</p>
    */
   ChecksumCRC32C?: string;
@@ -1638,7 +1638,7 @@ export interface WriteGetObjectResponseRequest {
    *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
    *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple
    *             checksum headers, this request will fail.</p>
    */
   ChecksumSHA1?: string;
@@ -1651,7 +1651,7 @@ export interface WriteGetObjectResponseRequest {
    *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
    *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple
    *             checksum headers, this request will fail.</p>
    */
   ChecksumSHA256?: string;
@@ -1764,8 +1764,7 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
    *             objects except for S3 Standard storage class objects.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
   StorageClass?: StorageClass | string;

@@ -2350,6 +2350,12 @@ export interface GetMetricStreamOutput {
    * 				CloudWatch statistics definitions</a>. </p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+
+  /**
+   * <p>If this is <code>true</code> and this metric stream is in a monitoring account, then the stream includes
+   * 			metrics from source accounts that the monitoring account is linked to.</p>
+   */
+  IncludeLinkedAccountsMetrics?: boolean;
 }
 
 export interface GetMetricWidgetImageInput {
@@ -3652,6 +3658,12 @@ export interface PutMetricStreamInput {
    * 			p99.9, and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+
+  /**
+   * <p>If you are creating a metric stream in a monitoring account,
+   * 			specify <code>true</code> to include metrics from source accounts in the metric stream.</p>
+   */
+  IncludeLinkedAccountsMetrics?: boolean;
 }
 
 export interface PutMetricStreamOutput {

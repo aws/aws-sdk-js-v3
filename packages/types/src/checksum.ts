@@ -1,3 +1,5 @@
+import { SourceData } from "./crypto";
+
 /**
  * An object that provides a checksum of data provided in chunks to `update`.
  * The checksum may be performed incrementally as chunks are received or all
@@ -52,4 +54,13 @@ export interface Checksum {
    * @param {Uint8Array} chunk - The buffer to update checksum with.
    */
   update(chunk: Uint8Array): void;
+}
+
+/**
+ * A constructor for a Checksum that may be used to calculate an HMAC. Implementing
+ * classes should not directly hold the provided key in memory beyond the
+ * lexical scope of the constructor.
+ */
+export interface ChecksumConstructor {
+  new (secret?: SourceData): Checksum;
 }

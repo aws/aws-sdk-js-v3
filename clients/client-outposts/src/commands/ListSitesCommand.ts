@@ -29,7 +29,8 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results.</p>
+ * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
+ *       results.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
  *  items that match any of the values that you specify for the filter.</p>

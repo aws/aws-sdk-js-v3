@@ -177,6 +177,7 @@ import {
   AvcIntraSettings,
   AvcIntraUhdSettings,
   BadRequestException,
+  ClipLimits,
   ColorCorrector,
   ConflictException,
   ContainerSettings,
@@ -217,7 +218,6 @@ import {
   OutputGroup,
   OutputSettings,
   PartnerWatermarking,
-  Policy,
   Preset,
   PresetSettings,
   ProresSettings,
@@ -242,7 +242,7 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
-import { ResourceTags } from "../models/models_2";
+import { Policy, ResourceTags } from "../models/models_2";
 
 export const serializeAws_restJson1AssociateCertificateCommand = async (
   input: AssociateCertificateCommandInput,
@@ -3097,6 +3097,9 @@ const serializeAws_restJson1AudioNormalizationSettings = (
     ...(input.LoudnessLogging != null && { loudnessLogging: input.LoudnessLogging }),
     ...(input.PeakCalculation != null && { peakCalculation: input.PeakCalculation }),
     ...(input.TargetLkfs != null && { targetLkfs: __serializeFloat(input.TargetLkfs) }),
+    ...(input.TruePeakLimiterThreshold != null && {
+      truePeakLimiterThreshold: __serializeFloat(input.TruePeakLimiterThreshold),
+    }),
   };
 };
 
@@ -3399,6 +3402,15 @@ const serializeAws_restJson1ChannelMapping = (input: ChannelMapping, context: __
   };
 };
 
+const serializeAws_restJson1ClipLimits = (input: ClipLimits, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumRGBTolerance != null && { maximumRGBTolerance: input.MaximumRGBTolerance }),
+    ...(input.MaximumYUV != null && { maximumYUV: input.MaximumYUV }),
+    ...(input.MinimumRGBTolerance != null && { minimumRGBTolerance: input.MinimumRGBTolerance }),
+    ...(input.MinimumYUV != null && { minimumYUV: input.MinimumYUV }),
+  };
+};
+
 const serializeAws_restJson1CmafAdditionalManifest = (input: CmafAdditionalManifest, context: __SerdeContext): any => {
   return {
     ...(input.ManifestNameModifier != null && { manifestNameModifier: input.ManifestNameModifier }),
@@ -3435,6 +3447,7 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
     ...(input.BaseUrl != null && { baseUrl: input.BaseUrl }),
     ...(input.ClientCache != null && { clientCache: input.ClientCache }),
     ...(input.CodecSpecification != null && { codecSpecification: input.CodecSpecification }),
+    ...(input.DashManifestStyle != null && { dashManifestStyle: input.DashManifestStyle }),
     ...(input.Destination != null && { destination: input.Destination }),
     ...(input.DestinationSettings != null && {
       destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
@@ -3515,6 +3528,7 @@ const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __Serd
 const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any => {
   return {
     ...(input.Brightness != null && { brightness: input.Brightness }),
+    ...(input.ClipLimits != null && { clipLimits: serializeAws_restJson1ClipLimits(input.ClipLimits, context) }),
     ...(input.ColorSpaceConversion != null && { colorSpaceConversion: input.ColorSpaceConversion }),
     ...(input.Contrast != null && { contrast: input.Contrast }),
     ...(input.Hdr10Metadata != null && {
@@ -3579,6 +3593,7 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
       audioChannelConfigSchemeIdUri: input.AudioChannelConfigSchemeIdUri,
     }),
     ...(input.BaseUrl != null && { baseUrl: input.BaseUrl }),
+    ...(input.DashManifestStyle != null && { dashManifestStyle: input.DashManifestStyle }),
     ...(input.Destination != null && { destination: input.Destination }),
     ...(input.DestinationSettings != null && {
       destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
@@ -6161,6 +6176,7 @@ const deserializeAws_restJson1AudioNormalizationSettings = (
     LoudnessLogging: __expectString(output.loudnessLogging),
     PeakCalculation: __expectString(output.peakCalculation),
     TargetLkfs: __limitedParseDouble(output.targetLkfs),
+    TruePeakLimiterThreshold: __limitedParseDouble(output.truePeakLimiterThreshold),
   } as any;
 };
 
@@ -6465,6 +6481,15 @@ const deserializeAws_restJson1ChannelMapping = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1ClipLimits = (output: any, context: __SerdeContext): ClipLimits => {
+  return {
+    MaximumRGBTolerance: __expectInt32(output.maximumRGBTolerance),
+    MaximumYUV: __expectInt32(output.maximumYUV),
+    MinimumRGBTolerance: __expectInt32(output.minimumRGBTolerance),
+    MinimumYUV: __expectInt32(output.minimumYUV),
+  } as any;
+};
+
 const deserializeAws_restJson1CmafAdditionalManifest = (
   output: any,
   context: __SerdeContext
@@ -6507,6 +6532,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     BaseUrl: __expectString(output.baseUrl),
     ClientCache: __expectString(output.clientCache),
     CodecSpecification: __expectString(output.codecSpecification),
+    DashManifestStyle: __expectString(output.dashManifestStyle),
     Destination: __expectString(output.destination),
     DestinationSettings:
       output.destinationSettings != null
@@ -6577,6 +6603,7 @@ const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeConte
 const deserializeAws_restJson1ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector => {
   return {
     Brightness: __expectInt32(output.brightness),
+    ClipLimits: output.clipLimits != null ? deserializeAws_restJson1ClipLimits(output.clipLimits, context) : undefined,
     ColorSpaceConversion: __expectString(output.colorSpaceConversion),
     Contrast: __expectInt32(output.contrast),
     Hdr10Metadata:
@@ -6644,6 +6671,7 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
         : undefined,
     AudioChannelConfigSchemeIdUri: __expectString(output.audioChannelConfigSchemeIdUri),
     BaseUrl: __expectString(output.baseUrl),
+    DashManifestStyle: __expectString(output.dashManifestStyle),
     Destination: __expectString(output.destination),
     DestinationSettings:
       output.destinationSettings != null

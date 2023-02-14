@@ -30,8 +30,8 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
 
 /**
  * <p>Deletes an event type.</p>
- * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
- * 	        <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>You cannot delete an event type that is used in a detector or a model.</p>
+ *          <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

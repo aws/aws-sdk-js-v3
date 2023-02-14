@@ -31,7 +31,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
 /**
  * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
  *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
- *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.
+ *     policy, and Amazon Virtual Private Cloud (VPC) configurations.
  *     Users within a domain can share notebook files and other artifacts with each other.</p>
  *          <p>
  *             <b>EFS storage</b>

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-ec2",
   "description": "@aws-sdk/aws-protocoltests-ec2 client",
-  "version": "3.235.0",
+  "version": "3.267.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -17,8 +17,8 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-crypto/sha256-browser": "2.0.0",
-    "@aws-crypto/sha256-js": "2.0.0",
+    "@aws-crypto/sha256-browser": "3.0.0",
+    "@aws-crypto/sha256-js": "3.0.0",
     "@aws-sdk/config-resolver": "*",
     "@aws-sdk/fetch-http-handler": "*",
     "@aws-sdk/hash-node": "*",
@@ -45,8 +45,7 @@
     "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-utf8": "*",
     "fast-xml-parser": "4.0.11",
     "tslib": "^2.3.1",
     "uuid": "^8.3.2"

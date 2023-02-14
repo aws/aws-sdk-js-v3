@@ -1134,7 +1134,6 @@ export interface CreateMultipartUploadOutput {
    *          request, the response includes this header. The header indicates when the initiated
    *          multipart upload becomes eligible for an abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
    *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
-   *
    *          <p>The response also includes the <code>x-amz-abort-rule-id</code> header that provides the
    *          ID of the lifecycle configuration rule that defines this action.</p>
    */
@@ -3697,9 +3696,9 @@ export interface DeleteObjectsRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
-   *         <p>This checksum algorithm must be the same for all parts and it match the checksum
+   *          <p>This checksum algorithm must be the same for all parts and it match the checksum
    *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -6836,8 +6835,7 @@ export interface GetObjectAttributesOutput {
   /**
    * <p>Provides the storage class information of the object. Amazon S3 returns this header for all
    *          objects except for S3 Standard storage class objects.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
   StorageClass?: StorageClass | string;
@@ -6859,8 +6857,8 @@ export enum ObjectAttributes {
 export interface GetObjectAttributesRequest {
   /**
    * <p>The name of the bucket that contains the object.</p>
-   *         <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
    *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
@@ -7364,18 +7362,14 @@ export interface HeadObjectOutput {
   /**
    * <p>If the object is an archived object (an object whose storage class is GLACIER), the
    *          response includes this header if either the archive restoration is in progress (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> or an archive copy is already restored.</p>
-   *
    *          <p> If an archive copy is already restored, the header value indicates when Amazon S3 is
    *          scheduled to delete the object copy. For example:</p>
-   *
    *          <p>
    *             <code>x-amz-restore: ongoing-request="false", expiry-date="Fri, 21 Dec 2012 00:00:00
    *             GMT"</code>
    *          </p>
-   *
    *          <p>If the object restoration is in progress, the header returns the value
    *             <code>ongoing-request="true"</code>.</p>
-   *
    *          <p>For more information about archiving objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning Objects: General Considerations</a>.</p>
    */
   Restore?: string;
@@ -7525,7 +7519,6 @@ export interface HeadObjectOutput {
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
    *          objects except for S3 Standard storage class objects.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
@@ -7540,7 +7533,6 @@ export interface HeadObjectOutput {
   /**
    * <p>Amazon S3 can return this header if your request involves a bucket that is either a source or
    *          a destination in a replication rule.</p>
-   *
    *          <p>In replication, you have a source bucket on which you configure replication and
    *          destination bucket or buckets where Amazon S3 stores object replicas. When you request an object
    *             (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
@@ -7577,7 +7569,6 @@ export interface HeadObjectOutput {
    *                header will return FAILED. </p>
    *             </li>
    *          </ul>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
    */
   ReplicationStatus?: ReplicationStatus | string;
@@ -8073,7 +8064,6 @@ export interface ListMultipartUploadsOutput {
    *          <p>If you specify <code>encoding-type</code> request parameter, Amazon S3 includes this element
    *          in the response, and returns encoded key name values in the following response
    *          elements:</p>
-   *
    *          <p>
    *             <code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>,
    *             <code>NextKeyMarker</code>, <code>Key</code>.</p>
@@ -8117,7 +8107,6 @@ export interface ListMultipartUploadsRequest {
    *          which listing should begin.</p>
    *          <p>If <code>upload-id-marker</code> is not specified, only the keys lexicographically
    *          greater than the specified <code>key-marker</code> will be included in the list.</p>
-   *
    *          <p>If <code>upload-id-marker</code> is specified, any multipart uploads for a key equal to
    *          the <code>key-marker</code> might also be included, provided those multipart uploads have
    *          upload IDs lexicographically greater than the specified
@@ -8282,15 +8271,11 @@ export interface ListObjectsOutput {
   /**
    * <p>All of the keys (up to 1,000) rolled up in a common prefix count as a single return when calculating
    *          the number of returns. </p>
-   *
    *          <p>A response can contain CommonPrefixes only if you specify a delimiter.</p>
-   *
    *          <p>CommonPrefixes contains all (if there are any) keys between Prefix and the next
    *          occurrence of the string specified by the delimiter.</p>
-   *
    *          <p> CommonPrefixes lists keys that act like subdirectories in the directory specified by
    *          Prefix.</p>
-   *
    *          <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in
    *          notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a
    *          common prefix count as a single return when calculating the number of returns.</p>
@@ -8421,19 +8406,15 @@ export interface ListObjectsV2Output {
   /**
    * <p>All of the keys (up to 1,000) rolled up into a common prefix count as a single return when calculating
    *          the number of returns.</p>
-   *
    *          <p>A response can contain <code>CommonPrefixes</code> only if you specify a
    *          delimiter.</p>
-   *
    *          <p>
    *             <code>CommonPrefixes</code> contains all (if there are any) keys between
    *             <code>Prefix</code> and the next occurrence of the string specified by a
    *          delimiter.</p>
-   *
    *          <p>
    *             <code>CommonPrefixes</code> lists keys that act like subdirectories in the directory
    *          specified by <code>Prefix</code>.</p>
-   *
    *          <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash
    *             (<code>/</code>) as in <code>notes/summer/july</code>, the common prefix is
    *             <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a
@@ -8443,10 +8424,8 @@ export interface ListObjectsV2Output {
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *
    *          <p>If you specify the encoding-type request parameter, Amazon S3 includes this element in the
    *          response, and returns encoded key name values in the following response elements:</p>
-   *
    *          <p>
    *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
    */
@@ -8706,10 +8685,8 @@ export interface ListObjectVersionsOutput {
 
   /**
    * <p> Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *
    *          <p>If you specify encoding-type request parameter, Amazon S3 includes this element in the
    *          response, and returns encoded key name values in the following response elements:</p>
-   *
    *          <p>
    *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
    */
@@ -8841,7 +8818,6 @@ export interface ListPartsOutput {
    *          request, then the response includes this header indicating when the initiated multipart
    *          upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting
    *             Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
-   *
    *          <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will
    *          provide the ID of the lifecycle configuration rule that defines this action.</p>
    */
@@ -9028,7 +9004,7 @@ export interface PutBucketAccelerateConfigurationRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9068,7 +9044,7 @@ export interface PutBucketAclRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9174,7 +9150,7 @@ export interface PutBucketCorsRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9208,7 +9184,7 @@ export interface PutBucketEncryptionRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9293,7 +9269,7 @@ export interface PutBucketLifecycleConfigurationRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9346,7 +9322,7 @@ export interface PutBucketLoggingRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9452,7 +9428,7 @@ export interface PutBucketPolicyRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9496,7 +9472,7 @@ export interface PutBucketReplicationRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9551,7 +9527,7 @@ export interface PutBucketRequestPaymentRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9599,7 +9575,7 @@ export interface PutBucketTaggingRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9661,7 +9637,7 @@ export interface PutBucketVersioningRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9733,7 +9709,7 @@ export interface PutBucketWebsiteRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -9921,7 +9897,7 @@ export interface PutObjectRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -10020,21 +9996,16 @@ export interface PutObjectRequest {
    * <p>If the bucket is configured as a website, redirects requests for this object to another
    *          object in the same bucket or to an external URL. Amazon S3 stores the value of this header in
    *          the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a>.</p>
-   *
    *          <p>In the following example, the request header sets the redirect to an object
    *          (anotherPage.html) in the same bucket:</p>
-   *
    *          <p>
    *             <code>x-amz-website-redirect-location: /anotherPage.html</code>
    *          </p>
-   *
    *          <p>In the following example, the request header sets the object redirect to another
    *          website:</p>
-   *
    *          <p>
    *             <code>x-amz-website-redirect-location: http://www.example.com/</code>
    *          </p>
-   *
    *          <p>For more information about website hosting in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">How to Configure Website Page
    *             Redirects</a>. </p>
    */
@@ -10167,7 +10138,7 @@ export interface PutObjectAclRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -10285,7 +10256,7 @@ export interface PutObjectLegalHoldRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
@@ -10342,7 +10313,7 @@ export interface PutObjectLockConfigurationRequest {
    *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
    *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
-   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;

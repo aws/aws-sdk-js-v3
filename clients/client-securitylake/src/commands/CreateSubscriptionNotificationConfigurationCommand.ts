@@ -32,8 +32,8 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates the specified notification subscription in Security Lake. Creates the specified
- *          subscription notifications from the specified organization. </p>
+ * <p>Notifies the subscriber when new data is written to the data lake for the sources that
+ *          the subscriber consumes in Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

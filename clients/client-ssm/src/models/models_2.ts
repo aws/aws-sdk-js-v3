@@ -194,7 +194,6 @@ export interface UpdateAssociationRequest {
    *    updated and then according to the schedule you specified. Specify this option if you don't want
    *    an association to run immediately after you update it. This parameter isn't supported for rate
    *    expressions.</p>
-   *
    *          <p>If you chose this option when you created an association and later you edit that association
    *    or you make changes to the SSM document on which that association is based (by using the
    *    Documents page in the console), State Manager applies the association at the next specified cron

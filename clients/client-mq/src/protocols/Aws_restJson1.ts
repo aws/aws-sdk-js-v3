@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -787,7 +787,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.id != null) {
     contents.Id = __expectString(data.id);
@@ -1114,7 +1114,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     contents.Configurations = deserializeAws_restJson1Configurations(data.configurations, context);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.deploymentMode != null) {
     contents.DeploymentMode = __expectString(data.deploymentMode);
@@ -1342,7 +1342,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -1416,7 +1416,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.ConfigurationId = __expectString(data.configurationId);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.data != null) {
     contents.Data = __expectString(data.data);
@@ -1938,7 +1938,7 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.id != null) {
     contents.Id = __expectString(data.id);
@@ -2487,7 +2487,7 @@ const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeCont
     BrokerId: __expectString(output.brokerId),
     BrokerName: __expectString(output.brokerName),
     BrokerState: __expectString(output.brokerState),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     DeploymentMode: __expectString(output.deploymentMode),
     EngineType: __expectString(output.engineType),
     HostInstanceType: __expectString(output.hostInstanceType),
@@ -2498,7 +2498,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     AuthenticationStrategy: __expectString(output.authenticationStrategy),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     Description: __expectString(output.description),
     EngineType: __expectString(output.engineType),
     EngineVersion: __expectString(output.engineVersion),
@@ -2521,7 +2521,7 @@ const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     Description: __expectString(output.description),
     Revision: __expectInt32(output.revision),
   } as any;

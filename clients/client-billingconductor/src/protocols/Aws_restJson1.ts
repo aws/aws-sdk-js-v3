@@ -383,11 +383,13 @@ export const serializeAws_restJson1CreatePricingRuleCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operation != null && { Operation: input.Operation }),
     ...(input.Scope != null && { Scope: input.Scope }),
     ...(input.Service != null && { Service: input.Service }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Tiering != null && { Tiering: serializeAws_restJson1CreateTieringInput(input.Tiering, context) }),
     ...(input.Type != null && { Type: input.Type }),
+    ...(input.UsageType != null && { UsageType: input.UsageType }),
   });
   return new __HttpRequest({
     protocol,
@@ -2815,6 +2817,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
   }
+  if (data.Operation != null) {
+    contents.Operation = __expectString(data.Operation);
+  }
   if (data.Scope != null) {
     contents.Scope = __expectString(data.Scope);
   }
@@ -2826,6 +2831,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   }
   if (data.Type != null) {
     contents.Type = __expectString(data.Type);
+  }
+  if (data.UsageType != null) {
+    contents.UsageType = __expectString(data.UsageType);
   }
   return contents;
 };

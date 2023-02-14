@@ -32,9 +32,9 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * <p>Lists the SAML provider resource objects defined in IAM in the account.
  *             IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.</p>
- *         <important>
+ *          <important>
  *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

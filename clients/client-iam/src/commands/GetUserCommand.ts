@@ -28,7 +28,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 /**
  * <p>Retrieves information about the specified IAM user, including the user's creation
  *             date, path, unique ID, and ARN.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID used to sign the request to this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

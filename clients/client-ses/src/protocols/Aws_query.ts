@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseLong as __strictParseLong,
   throwDefaultError,
@@ -8486,7 +8486,7 @@ const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __Serd
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
   }
   return contents;
 };
@@ -8536,7 +8536,7 @@ const deserializeAws_queryReputationOptions = (output: any, context: __SerdeCont
     contents.ReputationMetricsEnabled = __parseBoolean(output["ReputationMetricsEnabled"]);
   }
   if (output["LastFreshStart"] !== undefined) {
-    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTime(output["LastFreshStart"]));
+    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastFreshStart"]));
   }
   return contents;
 };
@@ -8647,7 +8647,7 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
     Rejects: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   if (output["DeliveryAttempts"] !== undefined) {
     contents.DeliveryAttempts = __strictParseLong(output["DeliveryAttempts"]) as number;
@@ -8847,7 +8847,7 @@ const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeConte
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
   }
   return contents;
 };
@@ -9106,7 +9106,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

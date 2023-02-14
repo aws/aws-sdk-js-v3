@@ -45,7 +45,6 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *          <p>You can export logs from multiple log groups or multiple time ranges to the same S3
  *       bucket. To separate log data for each export task, specify a prefix to be used as the Amazon
  *       S3 key prefix for all exported objects.</p>
- *
  *          <note>
  *             <p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can
  *         sort the exported log field data by using Linux utilities.</p>

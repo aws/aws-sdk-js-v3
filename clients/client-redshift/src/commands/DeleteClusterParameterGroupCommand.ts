@@ -28,10 +28,10 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes a specified Amazon Redshift parameter group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a parameter group if it is associated with a
  *                 cluster.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

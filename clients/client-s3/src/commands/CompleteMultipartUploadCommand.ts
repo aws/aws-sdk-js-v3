@@ -56,8 +56,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *             Upload</a>.</p>
  *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
- *
- *
  *          <p>
  *             <code>CompleteMultipartUpload</code> has the following special errors:</p>
  *          <ul>
@@ -116,7 +114,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
  *          <ul>
  *             <li>

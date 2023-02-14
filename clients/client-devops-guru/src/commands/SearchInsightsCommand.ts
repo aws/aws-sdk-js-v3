@@ -33,7 +33,7 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
  * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
  * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
- * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+ *          <p> Use the <code>Filters</code> parameter to specify status and severity search
  * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
  * 				<code>PROACTIVE</code> in your search. </p>
  * @example

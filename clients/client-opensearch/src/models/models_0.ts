@@ -13,6 +13,11 @@ export interface AcceptInboundConnectionRequest {
   ConnectionId: string | undefined;
 }
 
+export enum ConnectionMode {
+  DIRECT = "DIRECT",
+  VPC_ENDPOINT = "VPC_ENDPOINT",
+}
+
 export enum InboundConnectionStatusCode {
   ACTIVE = "ACTIVE",
   APPROVED = "APPROVED",
@@ -135,6 +140,11 @@ export interface InboundConnection {
    * <p>The current status of the connection.</p>
    */
   ConnectionStatus?: InboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
 }
 
 /**
@@ -148,8 +158,7 @@ export interface AcceptInboundConnectionResponse {
 }
 
 /**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of
- *    409.</p>
+ * <p>An error occured because the client wanted to access an unsupported operation.</p>
  */
 export class DisabledOperationException extends __BaseException {
   readonly name: "DisabledOperationException" = "DisabledOperationException";
@@ -168,8 +177,7 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of
- *    409.</p>
+ * <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -188,7 +196,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -207,8 +215,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code
- *    403.</p>
+ * <p>An error occurred because you don't have permissions to access the resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -362,8 +369,7 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to
- *    the service) . Gives http status code of 500.</p>
+ * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  */
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
@@ -382,7 +388,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ * <p>An exception for missing or invalid input fields.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -745,8 +751,7 @@ export interface AssociatePackageResponse {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status
- *    code 409.</p>
+ * <p>An error occurred because the client attempts to remove a resource that's currently in use.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1706,8 +1711,7 @@ export interface CreateDomainResponse {
 }
 
 /**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http
- *    status code of 409.</p>
+ * <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
  */
 export class InvalidTypeException extends __BaseException {
   readonly name: "InvalidTypeException" = "InvalidTypeException";
@@ -1726,7 +1730,7 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ * <p>An exception for creating a resource that already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -1762,6 +1766,21 @@ export interface CreateOutboundConnectionRequest {
    * <p>Name of the connection.</p>
    */
   ConnectionAlias: string | undefined;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+}
+
+/**
+ * <p>The connection properties of an outbound connection.</p>
+ */
+export interface ConnectionProperties {
+  /**
+   * <p>The endpoint of the remote domain.</p>
+   */
+  Endpoint?: string;
 }
 
 export enum OutboundConnectionStatusCode {
@@ -1871,6 +1890,16 @@ export interface CreateOutboundConnectionResponse {
    *    operations on the connection.</p>
    */
   ConnectionId?: string;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>The <code>ConnectionProperties</code> for the newly created connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
@@ -1986,7 +2015,7 @@ export interface CreatePackageResponse {
 
 export interface CreateVpcEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain to grant access to.</p>
+   * <p>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</p>
    */
   DomainArn: string | undefined;
 
@@ -2135,6 +2164,16 @@ export interface OutboundConnection {
    * <p>Status of the connection.</p>
    */
   ConnectionStatus?: OutboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>Properties for the outbound connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
@@ -2794,6 +2833,124 @@ export interface DescribeDomainsResponse {
   DomainStatusList: DomainStatus[] | undefined;
 }
 
+export interface DescribeDryRunProgressRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId?: string;
+
+  /**
+   * <p>Whether to include the configuration of the dry run in the response. The configuration
+   *    specifies the updates that you're planning to make on the domain.</p>
+   */
+  LoadDryRunConfig?: boolean;
+}
+
+/**
+ * <p>A validation failure that occurred as the result of a pre-update validation check (verbose
+ *    dry run) on a domain.</p>
+ */
+export interface ValidationFailure {
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A message corresponding to the failure.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Information about the progress of a pre-upgrade dry run analysis.</p>
+ */
+export interface DryRunProgressStatus {
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId: string | undefined;
+
+  /**
+   * <p>The current status of the dry run.</p>
+   */
+  DryRunStatus: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was initiated.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was last updated.</p>
+   */
+  UpdateDate: string | undefined;
+
+  /**
+   * <p>Any validation failures that occurred as a result of the dry run.</p>
+   */
+  ValidationFailures?: ValidationFailure[];
+}
+
+/**
+ * <p>Results of a dry run performed in an update domain request.</p>
+ */
+export interface DryRunResults {
+  /**
+   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
+   *    are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Blue/Green</b> - The update requires a blue/green
+   *      deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Undetermined</b> - The domain is in the middle of an update
+   *      and can't predict the deployment type. Try again after the update is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>None</b> - The request doesn't include any configuration
+   *      changes.</p>
+   *             </li>
+   *          </ul>
+   */
+  DeploymentType?: string;
+
+  /**
+   * <p>A message corresponding to the deployment type.</p>
+   */
+  Message?: string;
+}
+
+export interface DescribeDryRunProgressResponse {
+  /**
+   * <p>The current status of the dry run, including any validation errors.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
+
+  /**
+   * <p>Details about the changes you're planning to make on the domain.</p>
+   */
+  DryRunConfig?: DomainStatus;
+
+  /**
+   * <p>The results of the dry run. </p>
+   */
+  DryRunResults?: DryRunResults;
+}
+
 /**
  * <p>A filter used to limit results when describing inbound or outbound cross-cluster
  *    connections. You can specify multiple values per filter. A cross-cluster connection must match at
@@ -2853,8 +3010,7 @@ export interface DescribeInboundConnectionsResponse {
 }
 
 /**
- * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP
- *    status code of 400. </p>
+ * <p>The request processing has failed because you provided an invalid pagination token.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
   readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
@@ -4158,6 +4314,11 @@ export interface StartServiceSoftwareUpdateResponse {
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
 
+export enum DryRunMode {
+  Basic = "Basic",
+  Verbose = "Verbose",
+}
+
 /**
  * <p>Container for the request parameters to the <code>UpdateDomain</code> operation.</p>
  */
@@ -4271,46 +4432,27 @@ export interface UpdateDomainConfigRequest {
 
   /**
    * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should
-   *    return the results of validation check without actually applying the change.</p>
+   *    return the results of a dry run analysis without actually applying the change. A dry run
+   *    determines what type of deployment the update will cause.</p>
    */
   DryRun?: boolean;
-}
 
-/**
- * <p>Results of a dry run performed in an update domain request.</p>
- */
-export interface DryRunResults {
   /**
-   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
-   *    are:</p>
+   * <p>The type of dry run to perform.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Blue/Green</b> - The update requires a blue/green
-   *      deployment.</p>
+   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update
+   *      will cause.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Undetermined</b> - The domain is in the middle of an update
-   *      and can't predict the deployment type. Try again after the update is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>None</b> - The request doesn't include any configuration
-   *      changes.</p>
+   *                   <code>Verbose</code> runs an additional check to validate the changes you're making. For
+   *      more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
    *             </li>
    *          </ul>
    */
-  DeploymentType?: string;
-
-  /**
-   * <p>A message corresponding to the deployment type.</p>
-   */
-  Message?: string;
+  DryRunMode?: DryRunMode | string;
 }
 
 /**
@@ -4324,9 +4466,14 @@ export interface UpdateDomainConfigResponse {
   DomainConfig: DomainConfig | undefined;
 
   /**
-   * <p>Results of a dry run performed in an update domain request.</p>
+   * <p>Results of the dry run performed in the update domain request.</p>
    */
   DryRunResults?: DryRunResults;
+
+  /**
+   * <p>The status of the dry run being performed on the domain, if any.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
 }
 
 /**
@@ -4812,6 +4959,13 @@ export const CreateOutboundConnectionRequestFilterSensitiveLog = (obj: CreateOut
 /**
  * @internal
  */
+export const ConnectionPropertiesFilterSensitiveLog = (obj: ConnectionProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const OutboundConnectionStatusFilterSensitiveLog = (obj: OutboundConnectionStatus): any => ({
   ...obj,
 });
@@ -5160,6 +5314,41 @@ export const DescribeDomainsRequestFilterSensitiveLog = (obj: DescribeDomainsReq
  * @internal
  */
 export const DescribeDomainsResponseFilterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDryRunProgressRequestFilterSensitiveLog = (obj: DescribeDryRunProgressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationFailureFilterSensitiveLog = (obj: ValidationFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DryRunProgressStatusFilterSensitiveLog = (obj: DryRunProgressStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDryRunProgressResponseFilterSensitiveLog = (obj: DescribeDryRunProgressResponse): any => ({
   ...obj,
 });
 
@@ -5657,13 +5846,6 @@ export const UpdateDomainConfigRequestFilterSensitiveLog = (obj: UpdateDomainCon
   ...(obj.AdvancedSecurityOptions && {
     AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
   }),
-});
-
-/**
- * @internal
- */
-export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
-  ...obj,
 });
 
 /**

@@ -45,7 +45,6 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  *          <p>A GET <code>accelerate</code> request does not return a state value for a bucket that
  *          has no transfer acceleration state. A bucket has no Transfer Acceleration state if a state
  *          has never been set on the bucket. </p>
- *
  *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a> in the
  *          Amazon S3 User Guide.</p>
  *          <p class="title">

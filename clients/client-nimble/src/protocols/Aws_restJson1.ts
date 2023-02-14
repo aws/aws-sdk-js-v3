@@ -8,7 +8,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -5180,16 +5180,19 @@ const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eula => {
   return {
     content: __expectString(output.content),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     eulaId: __expectString(output.eulaId),
     name: __expectString(output.name),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
   return {
-    acceptedAt: output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.acceptedAt)) : undefined,
+    acceptedAt:
+      output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.acceptedAt)) : undefined,
     acceptedBy: __expectString(output.acceptedBy),
     accepteeId: __expectString(output.accepteeId),
     eulaAcceptanceId: __expectString(output.eulaAcceptanceId),
@@ -5246,7 +5249,8 @@ const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeC
 const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SubnetIds:
@@ -5269,7 +5273,8 @@ const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1LaunchProfileStudioComponentIdList(output.studioComponentIds, context)
         : undefined,
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
     validationResults:
       output.validationResults != null
@@ -5589,7 +5594,8 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     arn: __expectString(output.arn),
     automaticTerminationMode: __expectString(output.automaticTerminationMode),
     backupMode: __expectString(output.backupMode),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     ec2InstanceType: __expectString(output.ec2InstanceType),
     launchProfileId: __expectString(output.launchProfileId),
@@ -5597,19 +5603,23 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
     sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
-    startedAt: output.startedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
+    startedAt:
+      output.startedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startedAt)) : undefined,
     startedBy: __expectString(output.startedBy),
     startedFromBackupId: __expectString(output.startedFromBackupId),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
-    stopAt: output.stopAt != null ? __expectNonNull(__parseRfc3339DateTime(output.stopAt)) : undefined,
-    stoppedAt: output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.stoppedAt)) : undefined,
+    stopAt: output.stopAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopAt)) : undefined,
+    stoppedAt:
+      output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stoppedAt)) : undefined,
     stoppedBy: __expectString(output.stoppedBy),
     streamingImageId: __expectString(output.streamingImageId),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    terminateAt: output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTime(output.terminateAt)) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    terminateAt:
+      output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.terminateAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
     volumeConfiguration:
       output.volumeConfiguration != null
@@ -5626,7 +5636,8 @@ const deserializeAws_restJson1StreamingSessionBackup = (
   return {
     arn: __expectString(output.arn),
     backupId: __expectString(output.backupId),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     launchProfileId: __expectString(output.launchProfileId),
     ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
@@ -5694,9 +5705,11 @@ const deserializeAws_restJson1StreamingSessionStream = (
   context: __SerdeContext
 ): StreamingSessionStream => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
-    expiresAt: output.expiresAt != null ? __expectNonNull(__parseRfc3339DateTime(output.expiresAt)) : undefined,
+    expiresAt:
+      output.expiresAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.expiresAt)) : undefined,
     ownedBy: __expectString(output.ownedBy),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
@@ -5709,7 +5722,8 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
   return {
     adminRoleArn: __expectString(output.adminRoleArn),
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     displayName: __expectString(output.displayName),
     homeRegion: __expectString(output.homeRegion),
     ssoClientId: __expectString(output.ssoClientId),
@@ -5724,7 +5738,8 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
     studioName: __expectString(output.studioName),
     studioUrl: __expectString(output.studioUrl),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     userRoleArn: __expectString(output.userRoleArn),
   } as any;
 };
@@ -5736,7 +5751,8 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
       output.configuration != null
         ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SecurityGroupIds:
@@ -5761,7 +5777,8 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
     subtype: __expectString(output.subtype),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -5861,14 +5878,16 @@ const deserializeAws_restJson1StudioComponentSummary = (
   context: __SerdeContext
 ): StudioComponentSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     name: __expectString(output.name),
     studioComponentId: __expectString(output.studioComponentId),
     subtype: __expectString(output.subtype),
     type: __expectString(output.type),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };

@@ -34,45 +34,45 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *             apps may register. You must specify <code>PlatformPrincipal</code> and
  *                 <code>PlatformCredential</code> attributes when using the
  *                 <code>CreatePlatformApplication</code> action.</p>
- *         <p>
+ *          <p>
  *             <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from
  *             the notification service.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code>
+ *                <p>For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code>
  *                     and <code>PlatformCredential</code> is <code>client secret</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code>
+ *                <p>For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code>
  *                     and <code>PlatformCredential</code> is <code>secret key</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate
+ *                <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate
  *                     credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
  *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials,
+ *                <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials,
  *                         <code>PlatformPrincipal</code> is <code>signing key ID</code> and
  *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>GCM</code> (Firebase Cloud Messaging), there is no
+ *                <p>For <code>GCM</code> (Firebase Cloud Messaging), there is no
  *                         <code>PlatformPrincipal</code> and the <code>PlatformCredential</code> is
  *                         <code>API key</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS
+ *                <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS
  *                         certificate</code> and <code>PlatformCredential</code> is <code>private
  *                         key</code>.</p>
  *             </li>
  *             <li>
- *                 <p>For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security
+ *                <p>For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security
  *                         Identifier</code> and <code>PlatformCredential</code> is <code>secret
  *                         key</code>.</p>
  *             </li>
  *          </ul>
- *         <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the
+ *          <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the
  *                 <code>CreatePlatformEndpoint</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

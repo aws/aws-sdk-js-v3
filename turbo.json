@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "remoteCache": {},
+  "pipeline": {
+    "build": {
+      "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
+      "dependsOn": ["^build"]
+    },
+    "build:cjs": {
+      "outputs": ["dist-cjs/**"],
+      "dependsOn": ["build:types", "^build:types"]
+    },
+    "build:docs": {
+      "outputs": ["dist-cjs/**"],
+      "dependsOn": ["build:types", "^build:types"]
+    },
+    "build:es": {
+      "outputs": ["dist-es/**"],
+      "dependsOn": ["build:types", "^build:types"]
+    },
+    "build:include:deps": {
+      "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
+      "dependsOn": ["^build", "build"]
+    },
+    "build:types": {
+      "outputs": ["dist-types/**"],
+      "dependsOn": ["^build:types"]
+    },
+    "build:types:downlevel": {
+      "outputs": ["dist-types/ts3.4/**"],
+      "dependsOn": ["^build:types:downlevel"]
+    },
+    "clean": {},
+    "generate:client": {
+      "outputs": ["src/**", "package.json", "README.md"],
+      "inputs": []
+    },
+    "test": {
+      "dependsOn": ["^build:cjs"]
+    }
+  }
+}

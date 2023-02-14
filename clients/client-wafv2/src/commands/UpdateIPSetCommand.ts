@@ -31,7 +31,20 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
 /**
  * <p>Updates the specified <a>IPSet</a>. </p>
  *          <note>
- *             <p>This operation completely replaces the mutable specifications that you already have for the IP set with the ones that you provide to this call. To modify the IP set, retrieve it by calling <a>GetIPSet</a>, update the settings as needed, and then provide the complete IP set specification to this call.</p>
+ *             <p>This operation completely replaces the mutable specifications that you already have for the IP set with the ones that you provide to this call. </p>
+ *             <p>To modify an IP set, do the following: </p>
+ *             <ol>
+ *                <li>
+ *                   <p>Retrieve it by calling <a>GetIPSet</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Update its settings as needed</p>
+ *                </li>
+ *                <li>
+ *                   <p>Provide the complete IP set specification to this call</p>
+ *                </li>
+ *             </ol>
  *          </note>
  *          <p>When you make changes to web ACLs or web ACL components, like rules and rule groups, WAF propagates the changes everywhere that the web ACL and its components are stored and used. Your changes are applied within seconds, but there might be a brief period of inconsistency when the changes have arrived in some places and not in others. So, for example, if you change a rule action setting, the action might be the old action in one area and the new action in another area. Or if you add an IP address to an IP set used in a blocking rule, the new address might briefly be blocked in one area while still allowed in another. This temporary inconsistency can occur when you first associate a web ACL with an Amazon Web Services resource and when you change a web ACL that is already associated with a resource. Generally, any inconsistencies of this type last only a few seconds.</p>
  * @example

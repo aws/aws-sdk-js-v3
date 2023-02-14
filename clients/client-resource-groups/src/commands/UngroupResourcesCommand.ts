@@ -29,14 +29,17 @@ export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
 export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified resources from the specified group.</p>
- *         <p>
+ * <p>Removes the specified resources from the specified group. This operation works only
+ *             with static groups that you populated using the <a>GroupResources</a>
+ *             operation. It doesn't work with any resource groups that are automatically populated by
+ *             tag-based or CloudFormation stack-based queries.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:UngroupResources</code>
  *                </p>
  *             </li>

@@ -30,7 +30,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
 
 /**
  * <p>Creates a new cluster with the specified parameters.</p>
- *         <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
+ *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
  *             Amazon Redshift uses when creating the cluster.
  * For more information about managing clusters, go to

@@ -1864,6 +1864,7 @@ export enum DocumentType {
   Policy = "Policy",
   ProblemAnalysis = "ProblemAnalysis",
   ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
+  QuickSetup = "QuickSetup",
   Session = "Session",
 }
 
@@ -1880,6 +1881,16 @@ export interface DocumentRequires {
    * <p>The document version required by the current document.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The document type of the required SSM document.</p>
+   */
+  RequireType?: string;
+
+  /**
+   * <p>An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.</p>
+   */
+  VersionName?: string;
 }
 
 export interface CreateDocumentRequest {
@@ -5299,7 +5310,6 @@ export interface DescribeAvailablePatchesRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>Linux</b>
    *          </p>

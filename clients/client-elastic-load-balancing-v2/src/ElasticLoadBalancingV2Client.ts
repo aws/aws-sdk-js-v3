@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -204,11 +206,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -313,9 +315,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type ElasticLoadBalancingV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -348,7 +350,6 @@ export interface ElasticLoadBalancingV2ClientResolvedConfig extends ElasticLoadB
 
 /**
  * <fullname>Elastic Load Balancing</fullname>
- *
  *          <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances.
  *       This enables you to increase the availability of your application. The load balancer also
  *       monitors the health of its registered targets and ensures that it routes traffic only to
@@ -357,7 +358,6 @@ export interface ElasticLoadBalancingV2ClientResolvedConfig extends ElasticLoadB
  *       clients to the load balancer. You configure a target group with a protocol and port number for
  *       connections from the load balancer to the targets, and with health check settings to be used
  *       when checking the health status of the targets.</p>
- *
  *          <p>Elastic Load Balancing supports the following types of load balancers: Application Load
  *       Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This
  *       reference covers the following load balancer types:</p>
@@ -374,16 +374,8 @@ export interface ElasticLoadBalancingV2ClientResolvedConfig extends ElasticLoadB
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User
  *       Guide</a>.</p>
- *
- *
- *
- *
- *
- *
- *
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
  */

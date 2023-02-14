@@ -29,9 +29,7 @@ export interface UpdateOutpostCommandInput extends UpdateOutpostInput {}
 export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Updates an Outpost.
- *     </p>
+ * <p> Updates an Outpost. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

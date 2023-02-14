@@ -19,7 +19,7 @@ import {
   DescribeInstanceStatusRequestFilterSensitiveLog,
   DescribeInstanceStatusResult,
   DescribeInstanceStatusResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeInstanceStatusCommand,
   serializeAws_ec2DescribeInstanceStatusCommand,

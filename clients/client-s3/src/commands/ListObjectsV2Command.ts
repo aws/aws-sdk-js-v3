@@ -37,9 +37,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
  *             programmatically</a>
  *          </p>
- *
  *          <p>To use this operation, you must have READ access to the bucket.</p>
- *
  *          <p>To use this action in an Identity and Access Management (IAM) policy, you must
  *          have permissions to perform the <code>s3:ListBucket</code> action. The bucket owner has
  *          this permission by default and can grant this permission to others. For more information
@@ -50,9 +48,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *             revised API for application development. For backward compatibility, Amazon S3 continues to
  *             support the prior version of this API, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.</p>
  *          </important>
- *
  *          <p>To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
- *
  *          <p>The following operations are related to <code>ListObjectsV2</code>:</p>
  *          <ul>
  *             <li>

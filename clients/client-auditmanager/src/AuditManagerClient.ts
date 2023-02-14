@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -360,11 +362,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -469,9 +471,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type AuditManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -506,13 +508,13 @@ export interface AuditManagerClientResolvedConfig extends AuditManagerClientReso
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
- *          <p>Audit Manager is a service that provides automated evidence collection so that
- *          you can continually audit your Amazon Web Services usage. You can use it to assess the
+ *          <p>Audit Manager is a service that provides automated evidence collection so that you
+ *          can continually audit your Amazon Web Services usage. You can use it to assess the
  *          effectiveness of your controls, manage risk, and simplify compliance.</p>
- *          <p>Audit Manager provides prebuilt frameworks that structure and automate
- *          assessments for a given compliance standard. Frameworks include a prebuilt collection of
- *          controls with descriptions and testing procedures. These controls are grouped according to
- *          the requirements of the specified compliance standard or regulation. You can also customize
+ *          <p>Audit Manager provides prebuilt frameworks that structure and automate assessments
+ *          for a given compliance standard. Frameworks include a prebuilt collection of controls with
+ *          descriptions and testing procedures. These controls are grouped according to the
+ *          requirements of the specified compliance standard or regulation. You can also customize
  *          frameworks and controls to support internal audits with specific requirements. </p>
  *          <p>Use the following links to get started with the Audit Manager API:</p>
  *          <ul>
@@ -529,7 +531,7 @@ export interface AuditManagerClientResolvedConfig extends AuditManagerClientReso
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html">Common
- *                   parameters</a>: Parameters that all Query operations can use.</p>
+ *                   parameters</a>: Parameters that all operations can use.</p>
  *             </li>
  *             <li>
  *                <p>

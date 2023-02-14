@@ -33,8 +33,8 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
  * 			The KSK must be deactivated before you can delete it regardless of whether the hosted
  * 			zone is enabled for DNSSEC signing.</p>
- * 		       <p>You can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html">DeactivateKeySigningKey</a> to deactivate the key before you delete it.</p>
- * 		       <p>Use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html">GetDNSSEC</a> to verify that the KSK is in an <code>INACTIVE</code>
+ *          <p>You can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html">DeactivateKeySigningKey</a> to deactivate the key before you delete it.</p>
+ *          <p>Use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html">GetDNSSEC</a> to verify that the KSK is in an <code>INACTIVE</code>
  * 			status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

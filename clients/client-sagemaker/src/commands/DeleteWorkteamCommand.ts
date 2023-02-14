@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorkteamRequest,
-  DeleteWorkteamRequestFilterSensitiveLog,
-  DeleteWorkteamResponse,
-  DeleteWorkteamResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteWorkteamRequest, DeleteWorkteamRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteWorkteamResponse, DeleteWorkteamResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1DeleteWorkteamCommand,
   serializeAws_json1_1DeleteWorkteamCommand,

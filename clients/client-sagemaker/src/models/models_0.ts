@@ -364,6 +364,7 @@ export enum ProductionVariantInstanceType {
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
   ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE = "ml.p4de.24xlarge",
   ML_P4D_24XLARGE = "ml.p4d.24xlarge",
   ML_R5D_12XLARGE = "ml.r5d.12xlarge",
   ML_R5D_24XLARGE = "ml.r5d.24xlarge",
@@ -578,6 +579,41 @@ export interface MetricDefinition {
   Regex: string | undefined;
 }
 
+export enum TrainingRepositoryAccessMode {
+  PLATFORM = "Platform",
+  VPC = "Vpc",
+}
+
+/**
+ * <p>An object containing authentication information for a private Docker registry.</p>
+ */
+export interface TrainingRepositoryAuthConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function used to give SageMaker access
+   *             credentials to your private Docker registry.</p>
+   */
+  TrainingRepositoryCredentialsProviderArn: string | undefined;
+}
+
+/**
+ * <p>The configuration to use an image from a private Docker registry for a training
+ *             job.</p>
+ */
+export interface TrainingImageConfig {
+  /**
+   * <p>The method that your training job will use to gain access to the images in your
+   *             private Docker registry. For access to an image in a private Docker registry, set to
+   *                 <code>Vpc</code>.</p>
+   */
+  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | string | undefined;
+
+  /**
+   * <p>An object containing authentication information for a private Docker registry
+   *             containing your training images.</p>
+   */
+  TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig;
+}
+
 export enum TrainingInputMode {
   FASTFILE = "FastFile",
   FILE = "File",
@@ -716,6 +752,11 @@ export interface AlgorithmSpecification {
    *                 Runs Your Training Image</a> for additional information.</p>
    */
   ContainerArguments?: string[];
+
+  /**
+   * <p>The configuration to use an image from a private Docker registry for a training job.</p>
+   */
+  TrainingImageConfig?: TrainingImageConfig;
 }
 
 export enum AlgorithmStatus {
@@ -3856,6 +3897,82 @@ export enum AuthMode {
   SSO = "SSO",
 }
 
+export enum AutoMLAlgorithm {
+  CATBOOST = "catboost",
+  EXTRA_TREES = "extra-trees",
+  FASTAI = "fastai",
+  LIGHTGBM = "lightgbm",
+  LINEAR_LEARNER = "linear-learner",
+  MLP = "mlp",
+  NN_TORCH = "nn-torch",
+  RANDOMFOREST = "randomforest",
+  XGBOOST = "xgboost",
+}
+
+/**
+ * <p>The collection of algorithms run on a dataset for training the model candidates of an Autopilot job.</p>
+ */
+export interface AutoMLAlgorithmConfig {
+  /**
+   * <p>The selection of algorithms run on a dataset
+   *          to train the model candidates of an Autopilot job. </p>
+   *          <note>
+   *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
+   *          <code>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a>
+   *                </code>
+   *          (<code>ENSEMBLING</code> or <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm.
+   *       </p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>In <code>ENSEMBLING</code> mode:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>"catboost"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"extra-trees"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"fastai"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"lightgbm"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"linear-learner"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"nn-torch"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"randomforest"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"xgboost"</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>In <code>HYPERPARAMETER_TUNING</code> mode:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>"linear-learner"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"mlp"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"xgboost"</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  AutoMLAlgorithms: (AutoMLAlgorithm | string)[] | undefined;
+}
+
 /**
  * <p>The location of artifacts for an AutoML candidate job.</p>
  */
@@ -4015,6 +4132,11 @@ export interface FinalAutoMLJobObjectiveMetric {
    * <p>The value of the metric with the best result.</p>
    */
   Value: number | undefined;
+
+  /**
+   * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot candidate metrics</a>.</p>
+   */
+  StandardMetricName?: AutoMLMetricEnum | string;
 }
 
 /**
@@ -4107,7 +4229,7 @@ export interface AutoMLCandidate {
 }
 
 /**
- * <p>Stores the config information for how a candidate is generated (optional).</p>
+ * <p>Stores the configuration information for how a candidate is generated (optional).</p>
  */
 export interface AutoMLCandidateGenerationConfig {
   /**
@@ -4124,22 +4246,49 @@ export interface AutoMLCandidateGenerationConfig {
    *          <note>
    *             <p>These column keys may not include the target column.</p>
    *          </note>
-   *          <p>In ensembling mode, Autopilot will only support the following data types:
-   *             <code>numeric</code>, <code>categorical</code>, <code>text</code> and
-   *             <code>datetime</code>. In HPO mode, Autopilot can support <code>numeric</code>,
-   *             <code>categorical</code>, <code>text</code>, <code>datetime</code> and
-   *             <code>sequence</code>.</p>
+   *          <p>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
+   *             <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
+   *          Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
+   *             <code>datetime</code>, and <code>sequence</code>.</p>
    *          <p>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
    *             <code>col2</code>,..) should be a subset of the column names in the input data. </p>
    *          <p>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are
    *          provided, then the column keys should be a subset of the column names provided in
    *             <code>FeatureAttributeNames</code>. </p>
    *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
-   *             <code>["col1", "col2", ...]</code> is case sensitive and should be a list of strings
+   *             <code>["col1", "col2", ...]</code> are case sensitive and should be a list of strings
    *          containing unique values that are a subset of the column names in the input data. The list
    *          of columns provided must not include the target column.</p>
    */
   FeatureSpecificationS3Uri?: string;
+
+  /**
+   * <p>Stores the configuration information for the selection of algorithms
+   *          used to train the model candidates.</p>
+   *          <p>The list of available algorithms to choose from depends on the training mode set in
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
+   *                <code>AutoMLJobConfig.Mode</code>
+   *             </a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code> attribute must be set and one
+   *             only.</p>
+   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is empty,
+   *                <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms for the given training mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is not provided, <code>AutoMLCandidateGenerationConfig</code>
+   *                uses the full set of algorithms for the given training mode.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For the list of all algorithms per training mode, see .</p>
+   *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
+   */
+  AlgorithmsConfig?: AutoMLAlgorithmConfig[];
 }
 
 export enum AutoMLChannelType {
@@ -4291,7 +4440,7 @@ export interface AutoMLJobCompletionCriteria {
    *          <p>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and its
    *          processing is ended gracefully. The AutoML job identifies the best model whose training was
    *          completed and marks it as the best-performing model. Any unfinished steps of the job, such
-   *          as automatic one-click Autopilot model deployment, will not be completed. </p>
+   *          as automatic one-click Autopilot model deployment, are not completed. </p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
 }
@@ -4382,9 +4531,9 @@ export interface AutoMLJobConfig {
    *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>ENSEMBLING</code> mode.</p>
    *          <p>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to train
-   *          the best version of a model. HPO will automatically select an algorithm for the type of
-   *          problem you want to solve. Then HPO finds the best hyperparameters according to your
-   *          objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *          the best version of a model. HPO automatically selects an algorithm for the type of problem
+   *          you want to solve. Then HPO finds the best hyperparameters according to your objective
+   *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
   Mode?: AutoMLMode | string;
@@ -4402,7 +4551,7 @@ export interface AutoMLJobObjective {
    *          <dl>
    *             <dt>Accuracy</dt>
    *             <dd>
-   *                <p> The ratio of the number of correctly classified items to the total number of
+   *                <p>The ratio of the number of correctly classified items to the total number of
    *                   (correctly and incorrectly) classified items. It is used for both binary and
    *                   multiclass classification. Accuracy measures how close the predicted class values
    *                   are to the actual values. Values for accuracy metrics vary between zero (0) and
@@ -4520,7 +4669,7 @@ export interface AutoMLJobObjective {
    *                <p>Recall is important when testing for cancer because it's used to find all of
    *                   the true positives. A false positive (FP) reflects a positive prediction that is
    *                   actually negative in the data. It is often insufficient to measure only recall,
-   *                   because predicting every output as a true positive will yield a perfect recall
+   *                   because predicting every output as a true positive yield a perfect recall
    *                   score.</p>
    *             </dd>
    *             <dt>RecallMacro</dt>
@@ -4531,7 +4680,7 @@ export interface AutoMLJobObjective {
    *                   model's ability to predict true positives (TP) in a dataset. Whereas, a true
    *                   positive reflects a positive prediction that is also an actual positive value in
    *                   the data. It is often insufficient to measure only recall, because predicting
-   *                   every output as a true positive will yield a perfect recall score.</p>
+   *                   every output as a true positive yields a perfect recall score.</p>
    *             </dd>
    *             <dt>RMSE</dt>
    *             <dd>
@@ -5000,6 +5149,16 @@ export interface BatchTransformInput {
    *                 Quality Monitoring Jobs</a>.</p>
    */
   EndTimeOffset?: string;
+}
+
+/**
+ * <p>A structure that keeps track of which training jobs launched by your hyperparameter tuning job are not improving model performance as evaluated against an objective function.</p>
+ */
+export interface BestObjectiveNotImproving {
+  /**
+   * <p>The number of training jobs that have failed to improve model performance by 1% or greater over prior training jobs as evaluated against an objective function.</p>
+   */
+  MaxNumberOfTrainingJobsNotImproving?: number;
 }
 
 /**
@@ -6048,6 +6207,11 @@ export interface CompilationJobSummary {
   CompilationJobStatus: CompilationJobStatus | string | undefined;
 }
 
+export enum CompleteOnConvergence {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+}
+
 export enum ConditionOutcome {
   FALSE = "False",
   TRUE = "True",
@@ -6225,7 +6389,7 @@ export interface ContainerDefinition {
    *          </note>
    *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
    *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
-   *             is activated in your IAM user account by default. If you previously deactivated
+   *             is activated in your Amazon Web Services account by default. If you previously deactivated
    *                 Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS
    *             for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
    *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
@@ -6399,6 +6563,16 @@ export interface ContinuousParameterRangeSpecification {
    * <p>The maximum floating-point value allowed.</p>
    */
   MaxValue: string | undefined;
+}
+
+/**
+ * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence, defined as a lack of significant improvement (1% or less) against an objective metric.</p>
+ */
+export interface ConvergenceDetected {
+  /**
+   * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
+   */
+  CompleteOnConvergence?: CompleteOnConvergence | string;
 }
 
 /**
@@ -6942,8 +7116,8 @@ export enum ProblemType {
 
 export interface CreateAutoMLJobRequest {
   /**
-   * <p>Identifies an Autopilot job. The name must be unique to your account and is
-   *          case-insensitive.</p>
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
    */
   AutoMLJobName: string | undefined;
 
@@ -9264,7 +9438,7 @@ export interface ProductionVariant {
 
   /**
    * <p>The size, in GB, of the ML storage volume attached to individual inference instance
-   *             associated with the production variant. Currenly only Amazon EBS gp2 storage volumes are
+   *             associated with the production variant. Currently only Amazon EBS gp2 storage volumes are
    *             supported.</p>
    */
   VolumeSizeInGB?: number;
@@ -9281,215 +9455,6 @@ export interface ProductionVariant {
    *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
    */
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
-}
-
-export interface CreateEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a> request. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
-   *             to host at this endpoint.</p>
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfig;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
-   *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
-   *             hosts the endpoint.</p>
-   *          <p>The KmsKeyId can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN:
-   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name: <code>alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name ARN:
-   *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
-   *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
-   *                 Policies in Amazon Web Services KMS </a>
-   *          </p>
-   *          <note>
-   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
-   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
-   *                 You can't request a <code>KmsKeyId</code> when using an instance type with local
-   *                 storage. If any of the models that you specify in the
-   *                     <code>ProductionVariants</code> parameter use nitro-based instances with local
-   *                 storage, do not specify a value for the <code>KmsKeyId</code> parameter. If you
-   *                 specify a value for <code>KmsKeyId</code> when using any nitro-based instances with
-   *                 local storage, the call to <code>CreateEndpointConfig</code> fails.</p>
-   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
-   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
-   *                     Instance Store Volumes</a>.</p>
-   *          </note>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies configuration for how an endpoint performs asynchronous inference. This is a
-   *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-
-  /**
-   * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
-   */
-  ExplainerConfig?: ExplainerConfig;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
-   *             to host at this endpoint in shadow mode with production traffic replicated from the
-   *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
-   *             specify one variant for <code>ProductionVariants</code> and one variant for
-   *             <code>ShadowProductionVariants</code>.</p>
-   */
-  ShadowProductionVariants?: ProductionVariant[];
-}
-
-export interface CreateEndpointConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
-   */
-  EndpointConfigArn: string | undefined;
-}
-
-export interface CreateExperimentRequest {
-  /**
-   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
-   *       case-sensitive.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't
-   *       specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
-   *       displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
-   *       to search on the tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export enum FeatureType {
-  FRACTIONAL = "Fractional",
-  INTEGRAL = "Integral",
-  STRING = "String",
-}
-
-/**
- * <p>A list of features. You must include <code>FeatureName</code> and
- *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
- *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
- */
-export interface FeatureDefinition {
-  /**
-   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
-   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
-   *             <code>api_invocation_time</code>.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
-   */
-  FeatureType?: FeatureType | string;
-}
-
-/**
- * <p>The meta data of the Glue table which serves as data catalog for the
- *             <code>OfflineStore</code>. </p>
- */
-export interface DataCatalogConfig {
-  /**
-   * <p>The name of the Glue table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The name of the Glue table catalog.</p>
-   */
-  Catalog: string | undefined;
-
-  /**
-   * <p>The name of the Glue table database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
- */
-export interface S3StorageConfig {
-  /**
-   * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
-   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
-   *          written into the <code>OfflineStore</code> S3 location.</p>
-   *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
-   *             <code>CreateFeatureGroup</code> must have below permissions to the
-   *          <code>KmsKeyId</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:GenerateDataKey"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The S3 path where offline records are written.</p>
-   */
-  ResolvedOutputS3Uri?: string;
 }
 
 /**
@@ -9582,6 +9547,20 @@ export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
  * @internal
  */
 export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingRepositoryAuthConfigFilterSensitiveLog = (obj: TrainingRepositoryAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingImageConfigFilterSensitiveLog = (obj: TrainingImageConfig): any => ({
   ...obj,
 });
 
@@ -9875,6 +9854,13 @@ export const AthenaDatasetDefinitionFilterSensitiveLog = (obj: AthenaDatasetDefi
 /**
  * @internal
  */
+export const AutoMLAlgorithmConfigFilterSensitiveLog = (obj: AutoMLAlgorithmConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CandidateArtifactLocationsFilterSensitiveLog = (obj: CandidateArtifactLocations): any => ({
   ...obj,
 });
@@ -10107,6 +10093,13 @@ export const MonitoringDatasetFormatFilterSensitiveLog = (obj: MonitoringDataset
  * @internal
  */
 export const BatchTransformInputFilterSensitiveLog = (obj: BatchTransformInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BestObjectiveNotImprovingFilterSensitiveLog = (obj: BestObjectiveNotImproving): any => ({
   ...obj,
 });
 
@@ -10384,6 +10377,13 @@ export const ContinuousParameterRangeFilterSensitiveLog = (obj: ContinuousParame
 export const ContinuousParameterRangeSpecificationFilterSensitiveLog = (
   obj: ContinuousParameterRangeSpecification
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConvergenceDetectedFilterSensitiveLog = (obj: ConvergenceDetected): any => ({
   ...obj,
 });
 
@@ -10920,54 +10920,5 @@ export const ProductionVariantServerlessConfigFilterSensitiveLog = (obj: Product
  * @internal
  */
 export const ProductionVariantFilterSensitiveLog = (obj: ProductionVariant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointConfigInputFilterSensitiveLog = (obj: CreateEndpointConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointConfigOutputFilterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureDefinitionFilterSensitiveLog = (obj: FeatureDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
   ...obj,
 });

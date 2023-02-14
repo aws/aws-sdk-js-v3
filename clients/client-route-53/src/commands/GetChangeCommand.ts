@@ -29,18 +29,18 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
 /**
  * <p>Returns the current status of a change batch request. The status is one of the
  * 			following values:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PENDING</code> indicates that the changes in this request have not
  * 					propagated to all Amazon Route 53 DNS servers. This is the initial status of all
  * 					change batch requests.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53
  * 					DNS servers. </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

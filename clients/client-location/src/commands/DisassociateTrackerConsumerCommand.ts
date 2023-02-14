@@ -32,10 +32,10 @@ export interface DisassociateTrackerConsumerCommandOutput
 
 /**
  * <p>Removes the association between a tracker resource and a geofence collection.</p>
- *         <note>
+ *          <note>
  *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
  *                 positions will no longer be automatically evaluated against geofences.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

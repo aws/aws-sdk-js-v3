@@ -31,7 +31,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
 /**
  * <p>Use this request to opt in a phone number that is opted out, which enables you to
  *             resume sending SMS messages to the number.</p>
- *         <p>You can opt in a phone number only once every 30 days.</p>
+ *          <p>You can opt in a phone number only once every 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

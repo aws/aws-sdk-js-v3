@@ -29,7 +29,7 @@ export interface CreateStandbyWorkspacesCommandInput extends CreateStandbyWorksp
 export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Standby WorkSpace in a secondary region.</p>
+ * <p>Creates a standby WorkSpace in a secondary Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

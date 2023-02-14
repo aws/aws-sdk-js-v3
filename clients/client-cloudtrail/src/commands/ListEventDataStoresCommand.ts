@@ -29,7 +29,8 @@ export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequ
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all event data stores in the account, in the current region.</p>
+ * <p>Returns information about all event data stores in the account, in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

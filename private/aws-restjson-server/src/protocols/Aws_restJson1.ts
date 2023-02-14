@@ -52,6 +52,7 @@ import {
   FooEnum,
   FooError,
   GreetingStruct,
+  IntegerEnum,
   InvalidGreeting,
   MyUnion,
   NestedPayload,
@@ -78,6 +79,7 @@ import {
   ConstantQueryStringServerInput,
   ConstantQueryStringServerOutput,
 } from "../server/operations/ConstantQueryString";
+import { DatetimeOffsetsServerInput, DatetimeOffsetsServerOutput } from "../server/operations/DatetimeOffsets";
 import { DocumentTypeServerInput, DocumentTypeServerOutput } from "../server/operations/DocumentType";
 import {
   DocumentTypeAsPayloadServerInput,
@@ -148,6 +150,7 @@ import {
 } from "../server/operations/InputAndOutputWithHeaders";
 import { JsonBlobsServerInput, JsonBlobsServerOutput } from "../server/operations/JsonBlobs";
 import { JsonEnumsServerInput, JsonEnumsServerOutput } from "../server/operations/JsonEnums";
+import { JsonIntEnumsServerInput, JsonIntEnumsServerOutput } from "../server/operations/JsonIntEnums";
 import { JsonListsServerInput, JsonListsServerOutput } from "../server/operations/JsonLists";
 import { JsonMapsServerInput, JsonMapsServerOutput } from "../server/operations/JsonMaps";
 import { JsonTimestampsServerInput, JsonTimestampsServerOutput } from "../server/operations/JsonTimestamps";
@@ -503,6 +506,25 @@ export const deserializeAllQueryStringTypesRequest = async (
         : [query["EnumList"] as string];
       contents.queryEnumList = queryValue.map((_entry) => _entry.trim() as any);
     }
+    if (query["IntegerEnum"] !== undefined) {
+      let queryValue: string;
+      if (Array.isArray(query["IntegerEnum"])) {
+        if (query["IntegerEnum"].length === 1) {
+          queryValue = query["IntegerEnum"][0];
+        } else {
+          throw new __SerializationException();
+        }
+      } else {
+        queryValue = query["IntegerEnum"] as string;
+      }
+      contents.queryIntegerEnum = __strictParseInt32(queryValue);
+    }
+    if (query["IntegerEnumList"] !== undefined) {
+      const queryValue = Array.isArray(query["IntegerEnumList"])
+        ? (query["IntegerEnumList"] as string[])
+        : [query["IntegerEnumList"] as string];
+      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+    }
     const parsedQuery: Record<string, string[]> = {};
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
@@ -595,6 +617,31 @@ export const deserializeConstantQueryStringRequest = async (
   if (parsedPath?.groups !== undefined) {
     contents.hello = decodeURIComponent(parsedPath.groups.hello);
   }
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeDatetimeOffsetsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
   await collectBody(output.body, context);
   return contents;
 };
@@ -1295,6 +1342,17 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
       () => void 0 !== output.headers["x-enumlist"],
       () => (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
+    headerIntegerEnum: [
+      () => void 0 !== output.headers["x-integerenum"],
+      () => __strictParseInt32(output.headers["x-integerenum"]),
+    ],
+    headerIntegerEnumList: [
+      () => void 0 !== output.headers["x-integerenumlist"],
+      () =>
+        (output.headers["x-integerenumlist"] || "")
+          .split(",")
+          .map((_entry) => __strictParseInt32(_entry.trim()) as any),
+    ],
   });
   await collectBody(output.body, context);
   return contents;
@@ -1371,6 +1429,49 @@ export const deserializeJsonEnumsRequest = async (
   return contents;
 };
 
+export const deserializeJsonIntEnumsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<JsonIntEnumsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.integerEnum1 != null) {
+    contents.integerEnum1 = __expectInt32(data.integerEnum1);
+  }
+  if (data.integerEnum2 != null) {
+    contents.integerEnum2 = __expectInt32(data.integerEnum2);
+  }
+  if (data.integerEnum3 != null) {
+    contents.integerEnum3 = __expectInt32(data.integerEnum3);
+  }
+  if (data.integerEnumList != null) {
+    contents.integerEnumList = deserializeAws_restJson1IntegerEnumList(data.integerEnumList, context);
+  }
+  if (data.integerEnumMap != null) {
+    contents.integerEnumMap = deserializeAws_restJson1IntegerEnumMap(data.integerEnumMap, context);
+  }
+  if (data.integerEnumSet != null) {
+    contents.integerEnumSet = deserializeAws_restJson1IntegerEnumSet(data.integerEnumSet, context);
+  }
+  return contents;
+};
+
 export const deserializeJsonListsRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -1398,6 +1499,9 @@ export const deserializeJsonListsRequest = async (
   }
   if (data.enumList != null) {
     contents.enumList = deserializeAws_restJson1FooEnumList(data.enumList, context);
+  }
+  if (data.intEnumList != null) {
+    contents.intEnumList = deserializeAws_restJson1IntegerEnumList(data.intEnumList, context);
   }
   if (data.integerList != null) {
     contents.integerList = deserializeAws_restJson1IntegerList(data.integerList, context);
@@ -1503,11 +1607,20 @@ export const deserializeJsonTimestampsRequest = async (
   if (data.dateTime != null) {
     contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
   }
+  if (data.dateTimeOnTarget != null) {
+    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTime(data.dateTimeOnTarget));
+  }
   if (data.epochSeconds != null) {
     contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
   }
+  if (data.epochSecondsOnTarget != null) {
+    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSecondsOnTarget)));
+  }
   if (data.httpDate != null) {
     contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data.httpDate));
+  }
+  if (data.httpDateOnTarget != null) {
+    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data.httpDateOnTarget));
   }
   if (data.normal != null) {
     contents.normal = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.normal)));
@@ -3482,6 +3595,45 @@ export const serializeConstantQueryStringResponse = async (
   });
 };
 
+export const serializeDatetimeOffsetsResponse = async (
+  input: DatetimeOffsetsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
+  });
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeDocumentTypeResponse = async (
   input: DocumentTypeServerOutput,
   ctx: ServerSerdeContext
@@ -4373,6 +4525,14 @@ export const serializeInputAndOutputWithHeadersResponse = async (
       () => isSerializableHeaderValue(input.headerEnumList),
       () => (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
     ],
+    "x-integerenum": [
+      () => isSerializableHeaderValue(input.headerIntegerEnum),
+      () => input.headerIntegerEnum!.toString(),
+    ],
+    "x-integerenumlist": [
+      () => isSerializableHeaderValue(input.headerIntegerEnumList),
+      () => (input.headerIntegerEnumList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    ],
   });
   let body: any;
   body = "{}";
@@ -4477,6 +4637,56 @@ export const serializeJsonEnumsResponse = async (
   });
 };
 
+export const serializeJsonIntEnumsResponse = async (
+  input: JsonIntEnumsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.integerEnum1 != null && { integerEnum1: input.integerEnum1 }),
+    ...(input.integerEnum2 != null && { integerEnum2: input.integerEnum2 }),
+    ...(input.integerEnum3 != null && { integerEnum3: input.integerEnum3 }),
+    ...(input.integerEnumList != null && {
+      integerEnumList: serializeAws_restJson1IntegerEnumList(input.integerEnumList, context),
+    }),
+    ...(input.integerEnumMap != null && {
+      integerEnumMap: serializeAws_restJson1IntegerEnumMap(input.integerEnumMap, context),
+    }),
+    ...(input.integerEnumSet != null && {
+      integerEnumSet: serializeAws_restJson1IntegerEnumSet(input.integerEnumSet, context),
+    }),
+  });
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeJsonListsResponse = async (
   input: JsonListsServerOutput,
   ctx: ServerSerdeContext
@@ -4498,6 +4708,9 @@ export const serializeJsonListsResponse = async (
   body = JSON.stringify({
     ...(input.booleanList != null && { booleanList: serializeAws_restJson1BooleanList(input.booleanList, context) }),
     ...(input.enumList != null && { enumList: serializeAws_restJson1FooEnumList(input.enumList, context) }),
+    ...(input.intEnumList != null && {
+      intEnumList: serializeAws_restJson1IntegerEnumList(input.intEnumList, context),
+    }),
     ...(input.integerList != null && { integerList: serializeAws_restJson1IntegerList(input.integerList, context) }),
     ...(input.nestedStringList != null && {
       nestedStringList: serializeAws_restJson1NestedStringList(input.nestedStringList, context),
@@ -4618,8 +4831,15 @@ export const serializeJsonTimestampsResponse = async (
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.dateTimeOnTarget != null && {
+      dateTimeOnTarget: input.dateTimeOnTarget.toISOString().split(".")[0] + "Z",
+    }),
     ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
+    ...(input.epochSecondsOnTarget != null && {
+      epochSecondsOnTarget: Math.round(input.epochSecondsOnTarget.getTime() / 1000),
+    }),
     ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
+    ...(input.httpDateOnTarget != null && { httpDateOnTarget: __dateToUtcString(input.httpDateOnTarget) }),
     ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
   if (
@@ -7065,6 +7285,35 @@ const serializeAws_restJson1GreetingStruct = (input: GreetingStruct, context: __
   };
 };
 
+const serializeAws_restJson1IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1IntegerEnumMap = (
+  input: Record<string, IntegerEnum | number>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1IntegerList = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7463,6 +7712,43 @@ const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeCon
   return {
     hi: __expectString(output.hi),
   } as any;
+};
+
+const deserializeAws_restJson1IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.shared#IntegerEnumList" must be non-null.'
+      );
+    }
+    return __expectInt32(entry) as any;
+  });
+  return retVal;
+};
+
+const deserializeAws_restJson1IntegerEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IntegerEnum | number> => {
+  return Object.entries(output).reduce((acc: Record<string, IntegerEnum | number>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectInt32(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.shared#IntegerEnumSet" must be non-null.'
+      );
+    }
+    return __expectInt32(entry) as any;
+  });
+  return retVal;
 };
 
 const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContext): number[] => {

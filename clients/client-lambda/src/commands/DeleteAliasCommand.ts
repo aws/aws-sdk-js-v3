@@ -24,7 +24,7 @@ export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

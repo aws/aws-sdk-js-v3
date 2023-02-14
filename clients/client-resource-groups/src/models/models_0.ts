@@ -3,6 +3,38 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ResourceGroupsServiceException as __BaseException } from "./ResourceGroupsServiceException";
 
+export enum GroupLifecycleEventsDesiredStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+export enum GroupLifecycleEventsStatus {
+  ACTIVE = "ACTIVE",
+  ERROR = "ERROR",
+  INACTIVE = "INACTIVE",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>The Resource Groups settings for this Amazon Web Services account.</p>
+ */
+export interface AccountSettings {
+  /**
+   * <p>The desired target status of the group lifecycle events feature. If</p>
+   */
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+
+  /**
+   * <p>The current status of the group lifecycle events feature.</p>
+   */
+  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus | string;
+
+  /**
+   * <p>The text of any error message occurs during an attempt to turn group lifecycle events on or off.</p>
+   */
+  GroupLifecycleEventsStatusMessage?: string;
+}
+
 /**
  * <p>The request includes one or more parameters that violate validation rules.</p>
  */
@@ -73,127 +105,92 @@ export enum QueryType {
 }
 
 /**
- * <p>The query that is used to define a resource group or a search for resources. A query
- *             specifies both a query type and a query string as a JSON object. See the examples
- *             section for example JSON strings.</p>
- *         <p>The examples that follow are shown as standard JSON strings. If you include such a
- *             string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the
- *             string into a single line. For example, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
- *                 strings</a> in the <i>AWS CLI User Guide</i>.</p>
- *         <p>
- *             <b>Example 1</b>
+ * <p>The query you can use to define a resource group or a search for resources. A
+ *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+ *                 <code>Query</code> string as JSON string objects. See the examples section for
+ *             example JSON strings. For more information about creating a resource group with a
+ *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+ *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
  *          </p>
- *         <p>The following generic example shows a resource query JSON string that includes only
- *             resources that meet the following criteria:</p>
- *         <ul>
- *             <li>
- *                 <p>The resource type must be either <code>resource_type1</code> or
- *                         <code>resource_type2</code>.</p>
- *             </li>
- *             <li>
- *                 <p>The resource must have a tag <code>Key1</code> with a value of either
- *                         <code>ValueA</code> or <code>ValueB</code>.</p>
- *             </li>
- *             <li>
- *                 <p>The resource must have a tag <code>Key2</code> with a value of either
- *                         <code>ValueC</code> or <code>ValueD</code>.</p>
- *             </li>
- *          </ul>
- *         <p>
- *             <code>{
- *     "Type": "TAG_FILTERS_1_0",
- *     "Query": {
- *         "ResourceTypeFilters": [ "resource_type1", "resource_type2"],
- *         "TagFilters": [
- *             {
- *                 "Key": "Key1",
- *                 "Values": ["ValueA","ValueB"]
- *             },
- *             {
- *                 "Key":"Key2",
- *                 "Values":["ValueC","ValueD"]
- *             }
- *         ]
- *     }
- * }</code>
+ *          <p>When you combine all of the elements together into a single string, any double quotes
+ *             that are embedded inside another double quote pair must be escaped by preceding the
+ *             embedded double quote with a backslash character (\). For example, a complete
+ *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+ *             parameter example:</p>
+ *          <p>
+ *             <code>--resource-query
+ *                 '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[{\"Key\":\"Stage\",\"Values\":[\"Test\"]}]}"}'</code>
  *          </p>
- *         <p>This has the equivalent "shortcut" syntax of the following:</p>
- *         <p>
- *             <code>{
- *     "Type": "TAG_FILTERS_1_0",
- *     "Query": {
- *         "ResourceTypeFilters": [ "resource_type1", "resource_type2"],
- *         "TagFilters": [
- *             { "Key1": ["ValueA","ValueB"] },
- *             { "Key2": ["ValueC","ValueD"]
- *             }
- *         ]
- *     }
- * }</code>
- *          </p>
- *         <p>
- *             <b>Example 2</b>
- *          </p>
- *         <p>The following example shows a resource query JSON string that includes only Amazon EC2
- *             instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p>
- *         <p>
- *             <code>{
- *     "Type": "TAG_FILTERS_1_0",
- *     "Query": "{
- *         "ResourceTypeFilters": "AWS::EC2::Instance",
- *         "TagFilters": { "Stage": "Test" }
- *     }
- * }</code>
- *          </p>
- *         <p>
- *             <b>Example 3</b>
- *          </p>
- *         <p>The following example shows a resource query JSON string that includes resource of any
- *             supported type as long as it is tagged <code>Stage</code> with a value of
- *                 <code>Prod</code>.</p>
- *         <p>
- *             <code>{
- *     "Type": "TAG_FILTERS_1_0",
- *     "Query": {
- *         "ResourceTypeFilters": "AWS::AllSupported",
- *         "TagFilters": { "Stage": "Prod" }
- *     }
- * }</code>
- *          </p>
- *         <p>
- *             <b>Example 4</b>
- *          </p>
- *         <p>The following example shows a resource query JSON string that includes only Amazon EC2
- *             instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p>
- *         <p>
- *             <code>{
- *     "Type": "CLOUDFORMATION_STACK_1_0",
- *     "Query": {
- *         "ResourceTypeFilters": [ "AWS::EC2::Instance", "AWS::S3::Bucket" ],
- *         "StackIdentifier": "arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE"
- *     }
- * }</code>
+ *          <p>In the preceding example, all of the double quote characters in the value part of the
+ *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+ *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+ *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+ *          <p>For the complete list of resource types that you can use in the array value for
+ *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+ *                 you can use with Resource Groups and Tag Editor</a> in the
+ *                 <i>Resource Groups User Guide</i>. For example:</p>
+ *          <p>
+ *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
  *          </p>
  */
 export interface ResourceQuery {
   /**
-   * <p>The type of the query. You can use the following values:</p>
-   *         <ul>
+   * <p>The type of the query to perform. This can have one of two values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <i>
    *                      <code>CLOUDFORMATION_STACK_1_0:</code>
-   *                   </i>Specifies that the
-   *                         <code>Query</code> contains an ARN for a CloudFormation stack.</p>
+   *                   </i> Specifies that you
+   *                     want the group to contain the members of an CloudFormation stack. The <code>Query</code>
+   *                     contains a <code>StackIdentifier</code> element with an ARN for a CloudFormation
+   *                     stack.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <i>
    *                      <code>TAG_FILTERS_1_0:</code>
-   *                   </i>Specifies that the
-   *                         <code>Query</code> parameter contains a JSON string that represents a
-   *                     collection of simple tag filters for resource types and tags. The JSON string
-   *                     uses a syntax similar to the <code>
+   *                   </i> Specifies that you want the
+   *                     group to include resource that have tags that match the query. </p>
+   *             </li>
+   *          </ul>
+   */
+  Type: QueryType | string | undefined;
+
+  /**
+   * <p>The query that defines a group or a search. The contents depends on the value of the
+   *                 <code>Type</code> element.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceTypeFilters</code> – Applies to all
+   *                         <code>ResourceQuery</code> objects of either <code>Type</code>. This element
+   *                     contains one of the following two items:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The value <code>AWS::AllSupported</code>. This causes the
+   *                             ResourceQuery to match resources of any resource type that also match
+   *                             the query.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A list (a JSON array) of resource type identifiers that limit the
+   *                             query to only resources of the specified types. For the complete list of
+   *                             resource types that you can use in the array value for
+   *                                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources you can use with Resource Groups and Tag
+   *                                 Editor</a> in the <i>Resource Groups User Guide</i>.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>Example: <code>"ResourceTypeFilters": ["AWS::AllSupported"]</code> or
+   *                         <code>"ResourceTypeFilters": ["AWS::EC2::Instance",
+   *                         "AWS::S3::Bucket"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TagFilters</code> – applicable only if <code>Type</code> =
+   *                         <code>TAG_FILTERS_1_0</code>. The <code>Query</code> contains a JSON string
+   *                     that represents a collection of simple tag filters. The JSON string uses a
+   *                     syntax similar to the <code>
    *                      <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a>
    *                   </code> operation, but uses only the <code>
    *                      <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters"> ResourceTypeFilters</a>
@@ -204,52 +201,58 @@ export interface ResourceQuery {
    *                     tag key, are returned in your query. If you specify more than one value for a
    *                     tag key, a resource matches the filter if it has a tag key value that matches
    *                         <i>any</i> of the specified values.</p>
-   *                 <p>For example, consider the following sample query for resources that have two
+   *                <p>For example, consider the following sample query for resources that have two
    *                     tags, <code>Stage</code> and <code>Version</code>, with two values each:</p>
-   *                 <p>
+   *                <p>
    *                   <code>[{"Stage":["Test","Deploy"]},{"Version":["1","2"]}]</code>
    *                </p>
-   *                 <p>The results of this query could include the following.</p>
-   *                 <ul>
+   *                <p>The results of this resource query could include the following.</p>
+   *                <ul>
    *                   <li>
-   *                         <p>An EC2 instance that has the following two tags:
+   *                      <p>An Amazon EC2 instance that has the following two tags:
    *                                 <code>{"Stage":"Deploy"}</code>, and
    *                             <code>{"Version":"2"}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>An S3 bucket that has the following two tags:
+   *                      <p>An S3 bucket that has the following two tags:
    *                                 <code>{"Stage":"Test"}</code>, and
    *                             <code>{"Version":"1"}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
-   *                 <p>The query would not include the following items in the results, however. </p>
-   *                 <ul>
+   *                <p>The resource query results would <i>not</i> include the
+   *                     following items in the results, however. </p>
+   *                <ul>
    *                   <li>
-   *                         <p>An EC2 instance that has only the following tag:
+   *                      <p>An Amazon EC2 instance that has only the following tag:
    *                                 <code>{"Stage":"Deploy"}</code>.</p>
-   *                         <p>The instance does not have <b>all</b> of the
+   *                      <p>The instance does not have <b>all</b> of the
    *                             tag keys specified in the filter, so it is excluded from the
    *                             results.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>An RDS database that has the following two tags:
+   *                      <p>An RDS database that has the following two tags:
    *                                 <code>{"Stage":"Archived"}</code> and
    *                             <code>{"Version":"4"}</code>
    *                      </p>
-   *                         <p>The database has all of the tag keys, but none of those keys has an
+   *                      <p>The database has all of the tag keys, but none of those keys has an
    *                             associated value that matches at least one of the specified values in
    *                             the filter.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
+   *                <p>Example: <code>"TagFilters": [ { "Key": "Stage", "Values": [ "Gamma", "Beta" ]
+   *                         }</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StackIdentifier</code> – applicable only if <code>Type</code> =
+   *                         <code>CLOUDFORMATION_STACK_1_0</code>. The value of this parameter is the
+   *                     Amazon Resource Name (ARN) of the CloudFormation stack whose resources you want included
+   *                     in the group.</p>
    *             </li>
    *          </ul>
-   */
-  Type: QueryType | string | undefined;
-
-  /**
-   * <p>The query that defines a group or a search.</p>
    */
   Query: string | undefined;
 }
@@ -260,7 +263,7 @@ export interface CreateGroupInput {
    *             can't change the name of a resource group after you create it. A resource group name can
    *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
    *             with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name
-   *             must be unique within each AWS Region in your AWS account.</p>
+   *             must be unique within each Amazon Web Services Region in your Amazon Web Services account.</p>
    */
   Name: string | undefined;
 
@@ -271,13 +274,13 @@ export interface CreateGroupInput {
   Description?: string;
 
   /**
-   * <p>The resource query that determines which AWS resources are members of this group.
+   * <p>The resource query that determines which Amazon Web Services resources are members of this group.
    *             For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>A resource group can contain either a <code>ResourceQuery</code> or a
    *                     <code>Configuration</code>, but not both.</p>
-   *         </note>
+   *          </note>
    */
   ResourceQuery?: ResourceQuery;
 
@@ -287,34 +290,33 @@ export interface CreateGroupInput {
   Tags?: Record<string, string>;
 
   /**
-   * <p>A configuration associates the resource group with an AWS service and specifies how
+   * <p>A configuration associates the resource group with an Amazon Web Services service and specifies how
    *             the service can interact with the resources in the group. A configuration is an array of
    *                 <a>GroupConfigurationItem</a> elements. For details about the syntax of
-   *             service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
-   *                 groups</a>.</p>
-   *         <note>
+   *             service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
+   *          <note>
    *             <p>A resource group can contain either a <code>Configuration</code> or a
    *                     <code>ResourceQuery</code>, but not both.</p>
-   *         </note>
+   *          </note>
    */
   Configuration?: GroupConfigurationItem[];
 }
 
 /**
- * <p>A resource group that contains AWS resources. You can assign resources to the group
+ * <p>A resource group that contains Amazon Web Services resources. You can assign resources to the group
  *             by associating either of the following elements with the group:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a>ResourceQuery</a> - Use a resource query to specify a set of tag
- *                     keys and values. All resources in the same AWS Region and AWS account that
+ *                     keys and values. All resources in the same Amazon Web Services Region and Amazon Web Services account that
  *                     have those keys with the same values are included in the group. You can add a
  *                     resource query when you create the group, or later by using the <a>PutGroupConfiguration</a> operation.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a>GroupConfiguration</a> - Use a service configuration to
- *                     associate the group with an AWS service. The configuration specifies which
+ *                     associate the group with an Amazon Web Services service. The configuration specifies which
  *                     resource types can be included in the group.</p>
  *             </li>
  *          </ul>
@@ -344,7 +346,7 @@ export enum GroupConfigurationStatus {
 
 /**
  * <p>A service configuration associated with a resource group. The configuration options
- *             are determined by the AWS service that defines the <code>Type</code>, and specifies
+ *             are determined by the Amazon Web Services service that defines the <code>Type</code>, and specifies
  *             which resources can be included in the group. You can add a service configuration when
  *             you create the group by using <a>CreateGroup</a>, or later by using the <a>PutGroupConfiguration</a> operation. For details about group service
  *             configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
@@ -393,8 +395,7 @@ export interface CreateGroupOutput {
 
   /**
    * <p>The service configuration associated with the resource group. For details about the
-   *             syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
-   *                 groups</a>.</p>
+   *             syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
 }
@@ -526,6 +527,13 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+export interface GetAccountSettingsOutput {
+  /**
+   * <p>The current settings for the optional features in Resource Groups.</p>
+   */
+  AccountSettings?: AccountSettings;
+}
+
 export interface GetGroupInput {
   /**
    * @deprecated
@@ -542,23 +550,26 @@ export interface GetGroupInput {
 
 export interface GetGroupOutput {
   /**
-   * <p>A full description of the resource group.</p>
+   * <p>A structure that contains the metadata details for the specified resource group. Use
+   *                 <a>GetGroupQuery</a> and <a>GetGroupConfiguration</a> to get
+   *             those additional details of the resource group.</p>
    */
   Group?: Group;
 }
 
 export interface GetGroupConfigurationInput {
   /**
-   * <p>The name or the ARN of the resource group.</p>
+   * <p>The name or the ARN of the resource group for which you want to retrive the service
+   *             configuration.</p>
    */
   Group?: string;
 }
 
 export interface GetGroupConfigurationOutput {
   /**
-   * <p>The service configuration associated with the specified group. For details about the
-   *             service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
-   *                 groups</a>.</p>
+   * <p>A structure that describes the service configuration attached with the specified
+   *             group. For details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
+   *                 Resource Groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
 }
@@ -578,7 +589,7 @@ export interface GetGroupQueryInput {
 }
 
 /**
- * <p>A mapping of a query attached to a resource group that determines the AWS resources
+ * <p>A mapping of a query attached to a resource group that determines the Amazon Web Services resources
  *             that are members of the group.</p>
  */
 export interface GroupQuery {
@@ -589,7 +600,7 @@ export interface GroupQuery {
   GroupName: string | undefined;
 
   /**
-   * <p>The resource query that determines which AWS resources are members of the associated
+   * <p>The resource query that determines which Amazon Web Services resources are members of the associated
    *             resource group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
@@ -630,7 +641,7 @@ export interface GroupResourcesInput {
   Group: string | undefined;
 
   /**
-   * <p>The list of ARNs for resources to be added to the group. </p>
+   * <p>The list of ARNs of the resources to be added to the group. </p>
    */
   ResourceArns: string[] | undefined;
 }
@@ -669,24 +680,24 @@ export interface PendingResource {
 
 export interface GroupResourcesOutput {
   /**
-   * <p>A list of ARNs of resources that were successfully added to the group by this
-   *             operation.</p>
+   * <p>A list of ARNs of the resources that this operation successfully added to the
+   *             group.</p>
    */
   Succeeded?: string[];
 
   /**
-   * <p>A list of ARNs of any resources that failed to be added to the group by this
-   *             operation.</p>
+   * <p>A list of ARNs of any resources that this operation failed to add to the group.</p>
    */
   Failed?: FailedResource[];
 
   /**
-   * <p>A list of ARNs of any resources that are still in the process of being added to the
-   *             group by this operation. These pending additions continue asynchronously. You can check
-   *             the status of pending additions by using the <code>
+   * <p>A list of ARNs of any resources that this operation is still in the process adding to
+   *             the group. These pending additions continue asynchronously. You can check the status of
+   *             pending additions by using the <code>
    *                <a>ListGroupResources</a>
-   *             </code> operation, and checking the <code>Resources</code> array in the response
-   *             and the <code>Status</code> field of each object in that array. </p>
+   *             </code>
+   *             operation, and checking the <code>Resources</code> array in the response and the
+   *                 <code>Status</code> field of each object in that array. </p>
    */
   Pending?: PendingResource[];
 }
@@ -723,7 +734,7 @@ export interface ListGroupResourcesInput {
    *                             <code>Group</code> request field instead.</b>
    *                </i>
    *             </p>
-   *         </important>
+   *          </important>
    */
   GroupName?: string;
 
@@ -736,32 +747,32 @@ export interface ListGroupResourcesInput {
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
    *             to a <code>ListGroupResources</code> operation. Filters the results to include only
    *             those of the specified resource types.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-type</code> - Filter resources by their type. Specify up to
    *                     five resource types in the format <code>AWS::ServiceCode::ResourceType</code>.
    *                     For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.
    *                 </p>
    *             </li>
    *          </ul>
-   *         <p>When you specify a <code>resource-type</code> filter for
-   *                 <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource types
+   *          <p>When you specify a <code>resource-type</code> filter for
+   *                 <code>ListGroupResources</code>, Resource Groups validates your filter resource types
    *             against the types that are defined in the query associated with the group. For example,
    *             if a group contains only S3 buckets because its query specifies only that resource type,
-   *             but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups
-   *             does not filter for EC2 instances. In this case, a <code>ListGroupResources</code>
-   *             request returns a <code>BadRequestException</code> error with a message similar to the
+   *             but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups does not
+   *             filter for EC2 instances. In this case, a <code>ListGroupResources</code> request
+   *             returns a <code>BadRequestException</code> error with a message similar to the
    *             following:</p>
-   *         <p>
+   *          <p>
    *             <code>The resource types specified as filters in the request are not
    *             valid.</code>
    *          </p>
-   *         <p>The error includes a list of resource types that failed the validation because they
+   *          <p>The error includes a list of resource types that failed the validation because they
    *             are not part of the query associated with the group. This validation doesn't occur when
    *             the group query specifies <code>AWS::AllSupported</code>, because a group based on such
    *             a query can contain any of the allowed resource types for the query type (tag-based or
-   *             AWS CloudFormation stack-based queries).</p>
+   *             Amazon CloudFront stack-based queries).</p>
    */
   Filters?: ResourceFilter[];
 
@@ -789,28 +800,28 @@ export interface ListGroupResourcesInput {
 export enum QueryErrorCode {
   CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
   CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
+  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
 }
 
 /**
  * <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
- *                 <code>SearchResources</code> operations on CloudFormation stack-based queries. The error
- *             occurs if the CloudFormation stack on which the query is based either does not exist, or has a
+ *                 <code>SearchResources</code> operations on CloudFront stack-based queries. The error
+ *             occurs if the CloudFront stack on which the query is based either does not exist, or has a
  *             status that renders the stack inactive. A <code>QueryError</code> occurrence does not
- *             necessarily mean that AWS Resource Groups could not complete the operation, but the resulting
+ *             necessarily mean that Resource Groups could not complete the operation, but the resulting
  *             group might have no member resources.</p>
  */
 export interface QueryError {
   /**
-   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   * <p>Specifies the error code that was raised.</p>
    */
   ErrorCode?: QueryErrorCode | string;
 
   /**
    * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
-   *             the specified CloudFormation stack does not exist (or no longer exists). For
+   *             the specified CloudFront stack does not exist (or no longer exists). For
    *                 <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
-   *             CloudFormation stack has a status that is not (or no longer) active, such as
+   *             CloudFront stack has a status that is not (or no longer) active, such as
    *                 <code>CREATE_FAILED</code>.</p>
    */
   Message?: string;
@@ -862,10 +873,10 @@ export interface ListGroupResourcesItem {
   /**
    * <p>A structure that contains the status of this resource's membership in the
    *             group.</p>
-   *         <note>
+   *          <note>
    *             <p>This field is present in the response only if the group is of type
    *                     <code>AWS::EC2::HostManagement</code>.</p>
-   *         </note>
+   *          </note>
    */
   Status?: ResourceStatus;
 }
@@ -888,7 +899,7 @@ export interface ListGroupResourcesOutput {
    *                 instead.</i>
    *                </b>
    *             </p>
-   *         </important>
+   *          </important>
    */
   ResourceIdentifiers?: ResourceIdentifier[];
 
@@ -957,9 +968,9 @@ export interface ListGroupsInput {
   /**
    * <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to
    *             a <code>ListGroups</code> operation.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-type</code> - Filter the results to include only those of the
    *                     specified resource types. Specify up to five resource types in the format
    *                             <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i>
@@ -968,21 +979,21 @@ export interface ListGroupsInput {
    *                     <code>AWS::S3::Bucket</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>configuration-type</code> - Filter the results to include only those
    *                     groups that have the specified configuration types attached. The current
    *                     supported values are:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
-   *                         <code>AWS:EC2::CapacityReservationPool</code>
+   *                      <p>
+   *                         <code>AWS::EC2::CapacityReservationPool</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
-   *                         <code>AWS:EC2::HostManagement</code>
+   *                      <p>
+   *                         <code>AWS::EC2::HostManagement</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -1043,7 +1054,7 @@ export interface ListGroupsOutput {
    *                     instead.</b>
    *                </i>
    *             </p>
-   *         </important>
+   *          </important>
    */
   Groups?: Group[];
 
@@ -1065,14 +1076,14 @@ export interface PutGroupConfigurationInput {
 
   /**
    * <p>The new configuration to associate with the specified group. A configuration
-   *             associates the resource group with an AWS service and specifies how the service can
+   *             associates the resource group with an Amazon Web Services service and specifies how the service can
    *             interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p>
-   *         <p>For information about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
-   *                 resource groups</a>.</p>
-   *         <note>
+   *          <p>For information about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
+   *                 Resource Groups</a>.</p>
+   *          <note>
    *             <p>A resource group can contain either a <code>Configuration</code> or a
    *                     <code>ResourceQuery</code>, but not both.</p>
-   *         </note>
+   *          </note>
    */
   Configuration?: GroupConfigurationItem[];
 }
@@ -1124,9 +1135,20 @@ export interface SearchResourcesOutput {
 
   /**
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
-   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
-   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   *                 <code>ErrorCode</code> and <code>Message</code> structures.</p>
+   *          <p>Possible values for <code>ErrorCode</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUDFORMATION_STACK_INACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   QueryErrors?: QueryError[];
 }
@@ -1217,6 +1239,20 @@ export interface UntagOutput {
   Keys?: string[];
 }
 
+export interface UpdateAccountSettingsInput {
+  /**
+   * <p>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group lifecycle events</a> on or off.</p>
+   */
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+}
+
+export interface UpdateAccountSettingsOutput {
+  /**
+   * <p>A structure that displays the status of the optional features in the account.</p>
+   */
+  AccountSettings?: AccountSettings;
+}
+
 export interface UpdateGroupInput {
   /**
    * @deprecated
@@ -1258,12 +1294,12 @@ export interface UpdateGroupQueryInput {
   Group?: string;
 
   /**
-   * <p>The resource query to determine which AWS resources are members of this resource
+   * <p>The resource query to determine which Amazon Web Services resources are members of this resource
    *             group.</p>
-   *         <note>
+   *          <note>
    *             <p>A resource group can contain either a <code>Configuration</code> or a
    *                     <code>ResourceQuery</code>, but not both.</p>
-   *         </note>
+   *          </note>
    */
   ResourceQuery: ResourceQuery | undefined;
 }
@@ -1274,6 +1310,13 @@ export interface UpdateGroupQueryOutput {
    */
   GroupQuery?: GroupQuery;
 }
+
+/**
+ * @internal
+ */
+export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -1335,6 +1378,13 @@ export const DeleteGroupInputFilterSensitiveLog = (obj: DeleteGroupInput): any =
  * @internal
  */
 export const DeleteGroupOutputFilterSensitiveLog = (obj: DeleteGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSettingsOutputFilterSensitiveLog = (obj: GetAccountSettingsOutput): any => ({
   ...obj,
 });
 
@@ -1573,6 +1623,20 @@ export const UntagInputFilterSensitiveLog = (obj: UntagInput): any => ({
  * @internal
  */
 export const UntagOutputFilterSensitiveLog = (obj: UntagOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsInputFilterSensitiveLog = (obj: UpdateAccountSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsOutputFilterSensitiveLog = (obj: UpdateAccountSettingsOutput): any => ({
   ...obj,
 });
 

@@ -56,6 +56,14 @@ tasks.create<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
 }
 
+configure<software.amazon.smithy.gradle.SmithyExtension> {
+    val clientNameProp: String? by project
+    if (!(clientNameProp?.isEmpty() ?: true)) {
+        smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
+        outputDirectory = file("build-single/" + clientNameProp)
+    }
+}
+
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
@@ -63,6 +71,7 @@ tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
         val modelsDirProp: String by project
+        val clientNameProp: String? by project
         val models = project.file(modelsDirProp);
 
         fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
@@ -108,7 +117,11 @@ tasks.register("generate-smithy-build") {
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
         }
 
-        file("smithy-build.json").writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
+        val buildFile = if (!(clientNameProp?.isEmpty() ?: true))
+            "smithy-build-" + clientNameProp + ".json"
+            else "smithy-build.json"
+
+        file(buildFile).writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
                 .withMember("version", "1.0")
                 .withMember("projections", projectionsBuilder.build())
                 .build()))

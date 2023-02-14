@@ -31,7 +31,7 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
 /**
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
  * 			successful or you specify a thing that doesn't exist.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -6,7 +6,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -173,13 +173,13 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectedAt != null) {
-    contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTime(data.connectedAt));
+    contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.connectedAt));
   }
   if (data.identity != null) {
     contents.Identity = deserializeAws_restJson1Identity(data.identity, context);
   }
   if (data.lastActiveAt != null) {
-    contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTime(data.lastActiveAt));
+    contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastActiveAt));
   }
   return contents;
 };

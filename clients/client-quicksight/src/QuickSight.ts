@@ -730,7 +730,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates an analysis in Amazon QuickSight.</p>
+   * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
    */
   public createAnalysis(
     args: CreateAnalysisCommandInput,
@@ -762,7 +762,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a dashboard from a template. To first create a template, see the
+   * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
    *         <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
    *             </code>
@@ -1101,8 +1101,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting
-   * 			template to create a dashboard.</p>
+   * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
+   * 			template to create additional dashboards, templates, or analyses.</p>
    *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
    * 			required to create an analysis and that you can use to create s dashboard. A template adds
    * 			a layer of abstraction by using placeholders to replace the dataset associated with the
@@ -3737,7 +3737,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates an Amazon QuickSight user, whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. </p>
+   * <p>Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Amazon QuickSight API, Amazon QuickSight generates a registration URL. The user accesses this registration URL to create their account. Amazon QuickSight doesn't send a registration email to users who are registered from the Amazon QuickSight API. If you want new users to receive a registration email, then add those users in the Amazon QuickSight console. For more information on registering a new user in the Amazon QuickSight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access Amazon QuickSight</a>.</p>
    */
   public registerUser(
     args: RegisterUserCommandInput,

@@ -837,8 +837,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot.</p>
    */
   public associateBot(
     args: AssociateBotCommandInput,
@@ -973,7 +973,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
    */
   public associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -1153,8 +1154,8 @@ export class Connect extends ConnectClient {
    *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
    *     Guide</i>. </p>
    *          <important>
-   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
-   *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call
+   *     the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
    *     operation.</p>
    *          </important>
    */
@@ -1494,8 +1495,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -2868,8 +2869,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot. </p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot. </p>
    */
   public disassociateBot(
     args: DisassociateBotCommandInput,
@@ -2936,8 +2937,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Remove the Lambda function from the dropdown options available in the relevant flow
-   *    blocks.</p>
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant
+   *    flow blocks.</p>
    */
   public disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
@@ -2970,7 +2971,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    bot.</p>
    */
   public disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -3144,7 +3146,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
    *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
    *     Event Stream</a>.</p>
    */
@@ -3482,9 +3484,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. Use this API to returns both Amazon Lex V1 and V2
-   *    bots.</p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -3850,8 +3850,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To
-   *    return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
+   *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
    *    </p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
@@ -6190,8 +6190,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;

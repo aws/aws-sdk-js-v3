@@ -2,6 +2,7 @@
 export * from "./AllQueryStringTypesCommand";
 export * from "./ConstantAndVariableQueryStringCommand";
 export * from "./ConstantQueryStringCommand";
+export * from "./DatetimeOffsetsCommand";
 export * from "./DocumentTypeAsPayloadCommand";
 export * from "./DocumentTypeCommand";
 export * from "./EmptyInputAndEmptyOutputCommand";
@@ -27,6 +28,7 @@ export * from "./IgnoreQueryParamsInResponseCommand";
 export * from "./InputAndOutputWithHeadersCommand";
 export * from "./JsonBlobsCommand";
 export * from "./JsonEnumsCommand";
+export * from "./JsonIntEnumsCommand";
 export * from "./JsonListsCommand";
 export * from "./JsonMapsCommand";
 export * from "./JsonTimestampsCommand";

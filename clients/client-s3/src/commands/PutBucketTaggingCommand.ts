@@ -34,7 +34,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation
  *             and Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
  *                Tags</a>.</p>
- *
  *          <note>
  *             <p>
  *             When this operation sets the tags for a bucket, it will overwrite any current tags the
@@ -44,7 +43,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *             <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default
  *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
- *
  *          <p>
  *             <code>PutBucketTagging</code> has the following special errors:</p>
  *          <ul>
@@ -89,8 +87,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
  *          <p>The following operations are related to <code>PutBucketTagging</code>:</p>
  *          <ul>
  *             <li>

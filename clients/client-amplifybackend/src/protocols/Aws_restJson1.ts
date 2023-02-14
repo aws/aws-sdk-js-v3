@@ -2049,6 +2049,9 @@ export const deserializeAws_restJson1GetBackendAPIModelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.modelIntrospectionSchema != null) {
+    contents.ModelIntrospectionSchema = __expectString(data.modelIntrospectionSchema);
+  }
   if (data.models != null) {
     contents.Models = __expectString(data.models);
   }

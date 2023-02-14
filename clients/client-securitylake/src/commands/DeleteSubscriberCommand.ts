@@ -29,7 +29,9 @@ export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified subscription permissions to Security Lake. Deletes the specified subscription permissions from the specified organization. </p>
+ * <p>Deletes the subscription permission for accounts that are already enabled in
+ *          Amazon Security Lake. You can delete a subscriber and remove access to data in the current Amazon Web Services
+ *          Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

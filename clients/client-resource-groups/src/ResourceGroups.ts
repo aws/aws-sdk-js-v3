@@ -3,6 +3,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import {
+  GetAccountSettingsCommand,
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetGroupConfigurationCommand,
@@ -43,6 +48,11 @@ import {
   UngroupResourcesCommandOutput,
 } from "./commands/UngroupResourcesCommand";
 import { UntagCommand, UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
+import {
+  UpdateAccountSettingsCommand,
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateGroupQueryCommand,
@@ -52,57 +62,55 @@ import {
 import { ResourceGroupsClient } from "./ResourceGroupsClient";
 
 /**
- * <fullname>AWS Resource Groups</fullname>
- *
- *         <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service
- *             databases, and Amazon S3 buckets into groups using criteria that you define as tags. A
+ * <p>Resource Groups lets you organize Amazon Web Services resources such as Amazon Elastic Compute Cloud instances, Amazon Relational Database Service
+ *             databases, and Amazon Simple Storage Service buckets into groups using criteria that you define as tags. A
  *             resource group is a collection of resources that match the resource types specified in a
  *             query, and share one or more tags or portions of tags. You can create a group of
  *             resources based on their roles in your cloud infrastructure, lifecycle stages, regions,
  *             application layers, or virtually any criteria. Resource Groups enable you to automate management
- *             tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in
- *             AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in
- *             AWS Systems Manager that shows AWS Config compliance and other monitoring data about member
+ *             tasks, such as those in Amazon Web Services Systems Manager Automation documents, on tag-related resources in
+ *             Amazon Web Services Systems Manager. Groups of tagged resources also let you quickly view a custom console in
+ *             Amazon Web Services Systems Manager that shows Config compliance and other monitoring data about member
  *             resources.</p>
- *         <p>To create a resource group, build a resource query, and specify tags that identify the
+ *          <p>To create a resource group, build a resource query, and specify tags that identify the
  *             criteria that members of the group have in common. Tags are key-value pairs.</p>
- *         <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User Guide</a>.</p>
- *         <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of
+ *          <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">Resource Groups User Guide</a>.</p>
+ *          <p>Resource Groups uses a REST-compliant API that you can use to perform the following types of
  *             operations.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and
+ *                <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and
  *                     resource query entities</p>
  *             </li>
  *             <li>
- *                 <p>Applying, editing, and removing tags from resource groups</p>
+ *                <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                 <p>Resolving resource group member ARNs so they can be returned as search
+ *                <p>Resolving resource group member ARNs so they can be returned as search
  *                     results</p>
  *             </li>
  *             <li>
- *                 <p>Getting data about resources that are members of a group</p>
+ *                <p>Getting data about resources that are members of a group</p>
  *             </li>
  *             <li>
- *                 <p>Searching AWS resources based on a resource query</p>
+ *                <p>Searching Amazon Web Services resources based on a resource query</p>
  *             </li>
  *          </ul>
  */
 export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Creates a resource group with the specified name and description. You can optionally
-   *             include a resource query, or a service configuration. For more information about
-   *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. For more
-   *             information about service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
-   *                 groups</a>.</p>
-   *         <p>
+   *             include either a resource query or a service configuration. For more information about
+   *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>. For more information
+   *             about service-linked groups and service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:CreateGroup</code>
    *                </p>
    *             </li>
@@ -134,13 +142,13 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Deletes the specified resource group. Deleting a resource group does not delete any
    *             resources that are members of the group; it only deletes the group structure.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:DeleteGroup</code>
    *                </p>
    *             </li>
@@ -170,14 +178,46 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
+   * <p>Retrieves the current status of optional features in Resource Groups.</p>
+   */
+  public getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingsCommandOutput>;
+  public getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  public getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  public getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): Promise<GetAccountSettingsCommandOutput> | void {
+    const command = new GetAccountSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specified resource group.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:GetGroup</code>
    *                </p>
    *             </li>
@@ -207,16 +247,15 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Returns the service configuration associated with the specified resource group. For
-   *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
-   *                 groups</a>.</p>
-   *         <p>
+   * <p>Retrieves the service configuration associated with the specified resource group. For
+   *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:GetGroupConfiguration</code>
    *                </p>
    *             </li>
@@ -255,13 +294,13 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Retrieves the resource query associated with the specified resource group. For more
    *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:GetGroupQuery</code>
    *                </p>
    *             </li>
@@ -299,13 +338,13 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of tags that are associated with a resource group, specified by an
    *             ARN.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:GetTags</code>
    *                </p>
    *             </li>
@@ -336,13 +375,31 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Adds the specified resources to the specified group.</p>
-   *         <p>
+   *          <important>
+   *             <p>You can use this operation with only resource groups that are configured with the
+   *                 following types:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::EC2::HostManagement</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::EC2::CapacityReservationPool</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *             <p>Other resource group type and resource types aren't currently supported by this
+   *                 operation.</p>
+   *          </important>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:GroupResources</code>
    *                </p>
    *             </li>
@@ -380,28 +437,28 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of ARNs of the resources that are members of a specified resource
    *             group.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:ListGroupResources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cloudformation:DescribeStacks</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cloudformation:ListStackResources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag:GetResources</code>
    *                </p>
    *             </li>
@@ -437,14 +494,14 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Returns a list of existing resource groups in your account.</p>
-   *         <p>
+   * <p>Returns a list of existing Resource Groups in your account.</p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:ListGroups</code>
    *                </p>
    *             </li>
@@ -477,13 +534,13 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
    *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
    *             check the status of the update.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:PutGroupConfiguration</code>
    *                </p>
    *             </li>
@@ -519,31 +576,31 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Returns a list of AWS resource identifiers that matches the specified query. The
-   *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
-   *             operation.</p>
-   *         <p>
+   * <p>Returns a list of Amazon Web Services resource identifiers that matches the specified query. The
+   *             query uses the same format as a resource query in a <a>CreateGroup</a> or
+   *                 <a>UpdateGroupQuery</a> operation.</p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:SearchResources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cloudformation:DescribeStacks</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cloudformation:ListStackResources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag:GetResources</code>
    *                </p>
    *             </li>
@@ -581,19 +638,19 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
    *             group are not changed if they are not specified in the request parameters.</p>
-   *         <important>
+   *          <important>
    *             <p>Do not store personally identifiable information (PII) or other confidential or
    *                 sensitive information in tags. We use tags to provide you with billing and
    *                 administration services. Tags are not intended to be used for private or sensitive
    *                 data.</p>
-   *         </important>
-   *         <p>
+   *          </important>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:Tag</code>
    *                </p>
    *             </li>
@@ -623,14 +680,17 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Removes the specified resources from the specified group.</p>
-   *         <p>
+   * <p>Removes the specified resources from the specified group. This operation works only
+   *             with static groups that you populated using the <a>GroupResources</a>
+   *             operation. It doesn't work with any resource groups that are automatically populated by
+   *             tag-based or CloudFormation stack-based queries.</p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:UngroupResources</code>
    *                </p>
    *             </li>
@@ -667,13 +727,13 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Deletes tags from a specified resource group.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:Untag</code>
    *                </p>
    *             </li>
@@ -703,15 +763,51 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
+   * <p>Turns on or turns off optional features in Resource Groups.</p>
+   *          <p>The preceding example shows that the request to turn on group lifecycle events is
+   *                 <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a>
+   *             operation to check for completion by looking for <code>GroupLifecycleEventsStatus</code>
+   *             to change to <code>ACTIVE</code>.</p>
+   */
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  public updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): Promise<UpdateAccountSettingsCommandOutput> | void {
+    const command = new UpdateAccountSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the description for an existing group. You cannot update the name of a
    *             resource group.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:UpdateGroup</code>
    *                </p>
    *             </li>
@@ -743,13 +839,13 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Updates the resource query of a group. For more information about resource queries,
    *             see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
-   *         <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-groups:UpdateGroupQuery</code>
    *                </p>
    *             </li>

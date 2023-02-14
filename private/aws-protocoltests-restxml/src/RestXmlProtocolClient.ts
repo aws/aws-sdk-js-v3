@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -59,6 +61,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -177,6 +180,7 @@ import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./command
 import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "./commands/XmlEmptyMapsCommand";
 import { XmlEmptyStringsCommandInput, XmlEmptyStringsCommandOutput } from "./commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
@@ -190,6 +194,7 @@ export type ServiceInputTypes =
   | BodyWithXmlNameCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelHeaderOperationCommandInput
@@ -233,6 +238,7 @@ export type ServiceInputTypes =
   | XmlEmptyMapsCommandInput
   | XmlEmptyStringsCommandInput
   | XmlEnumsCommandInput
+  | XmlIntEnumsCommandInput
   | XmlListsCommandInput
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
@@ -245,6 +251,7 @@ export type ServiceOutputTypes =
   | BodyWithXmlNameCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelHeaderOperationCommandOutput
@@ -288,6 +295,7 @@ export type ServiceOutputTypes =
   | XmlEmptyMapsCommandOutput
   | XmlEmptyStringsCommandOutput
   | XmlEnumsCommandOutput
+  | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput
@@ -302,11 +310,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -406,9 +414,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

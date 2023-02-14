@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -105,6 +110,7 @@ import {
   XmlEmptyMapsCommandOutput,
 } from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand, XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommand, XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import {
@@ -128,6 +134,35 @@ import { QueryProtocolClient } from "./QueryProtocolClient";
  * A query service that sends query requests and XML responses.
  */
 export class QueryProtocol extends QueryProtocolClient {
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * The example tests how requests and responses are serialized when there's
    * no request or response members.
@@ -858,6 +893,32 @@ export class QueryProtocol extends QueryProtocolClient {
     cb?: (err: any, data?: XmlEnumsCommandOutput) => void
   ): Promise<XmlEnumsCommandOutput> | void {
     const command = new XmlEnumsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes enums as top level properties, in lists, sets, and maps.
+   */
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlIntEnumsCommandOutput>;
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, cb: (err: any, data?: XmlIntEnumsCommandOutput) => void): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlIntEnumsCommandOutput) => void),
+    cb?: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): Promise<XmlIntEnumsCommandOutput> | void {
+    const command = new XmlIntEnumsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

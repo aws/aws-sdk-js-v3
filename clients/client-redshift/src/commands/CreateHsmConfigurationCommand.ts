@@ -33,7 +33,7 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  *             After creating the HSM configuration, you can specify it as a parameter when creating a
  *             cluster. The cluster will then store its encryption keys in the HSM.</p>
- *         <p>In addition to creating an HSM configuration, you must also create an HSM client
+ *          <p>In addition to creating an HSM configuration, you must also create an HSM client
  *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
  *             in the Amazon Redshift Cluster Management Guide.</p>
  * @example

@@ -2,13 +2,14 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -89,6 +90,8 @@ import {
   ParametricMonitoringConfiguration,
   ParametricS3MonitoringConfiguration,
   ResourceNotFoundException,
+  RetryPolicyConfiguration,
+  RetryPolicyExecution,
   S3MonitoringConfiguration,
   SparkSqlJobDriver,
   SparkSubmitJobDriver,
@@ -607,6 +610,9 @@ export const serializeAws_restJson1StartJobRunCommand = async (
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
+    ...(input.retryPolicyConfiguration != null && {
+      retryPolicyConfiguration: serializeAws_restJson1RetryPolicyConfiguration(input.retryPolicyConfiguration, context),
+    }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -734,7 +740,7 @@ export const deserializeAws_restJson1CreateJobTemplateCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.id != null) {
     contents.id = __expectString(data.id);
@@ -1815,6 +1821,15 @@ const serializeAws_restJson1ParametricS3MonitoringConfiguration = (
   };
 };
 
+const serializeAws_restJson1RetryPolicyConfiguration = (
+  input: RetryPolicyConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxAttempts != null && { maxAttempts: input.maxAttempts }),
+  };
+};
+
 const serializeAws_restJson1S3MonitoringConfiguration = (
   input: S3MonitoringConfiguration,
   context: __SerdeContext
@@ -1991,7 +2006,8 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
       output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
     id: __expectString(output.id),
@@ -2053,15 +2069,25 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
       output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
-    finishedAt: output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.finishedAt)) : undefined,
+    finishedAt:
+      output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.finishedAt)) : undefined,
     id: __expectString(output.id),
     jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
     name: __expectString(output.name),
     releaseLabel: __expectString(output.releaseLabel),
+    retryPolicyConfiguration:
+      output.retryPolicyConfiguration != null
+        ? deserializeAws_restJson1RetryPolicyConfiguration(output.retryPolicyConfiguration, context)
+        : undefined,
+    retryPolicyExecution:
+      output.retryPolicyExecution != null
+        ? deserializeAws_restJson1RetryPolicyExecution(output.retryPolicyExecution, context)
+        : undefined,
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -2084,7 +2110,8 @@ const deserializeAws_restJson1JobRuns = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     decryptionError: __expectString(output.decryptionError),
     id: __expectString(output.id),
@@ -2199,6 +2226,21 @@ const deserializeAws_restJson1ParametricS3MonitoringConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1RetryPolicyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RetryPolicyConfiguration => {
+  return {
+    maxAttempts: __expectInt32(output.maxAttempts),
+  } as any;
+};
+
+const deserializeAws_restJson1RetryPolicyExecution = (output: any, context: __SerdeContext): RetryPolicyExecution => {
+  return {
+    currentAttemptCount: __expectInt32(output.currentAttemptCount),
+  } as any;
+};
+
 const deserializeAws_restJson1S3MonitoringConfiguration = (
   output: any,
   context: __SerdeContext
@@ -2294,7 +2336,8 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
       output.containerProvider != null
         ? deserializeAws_restJson1ContainerProvider(output.containerProvider, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     state: __expectString(output.state),

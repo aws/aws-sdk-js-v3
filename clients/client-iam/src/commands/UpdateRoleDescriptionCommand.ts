@@ -30,7 +30,7 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
 
 /**
  * <p>Use <a>UpdateRole</a> instead.</p>
- *         <p>Modifies only the description of a role. This operation performs the same function as
+ *          <p>Modifies only the description of a role. This operation performs the same function as
  *             the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

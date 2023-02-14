@@ -115,6 +115,7 @@ import {
   ElasticsearchDataSourceConfig,
   ErrorDetail,
   EvaluateCodeErrorDetail,
+  EventBridgeDataSourceConfig,
   FunctionConfiguration,
   GraphqlApi,
   GraphQLSchemaException,
@@ -240,6 +241,9 @@ export const serializeAws_restJson1CreateDataSourceCommand = async (
     }),
     ...(input.elasticsearchConfig != null && {
       elasticsearchConfig: serializeAws_restJson1ElasticsearchDataSourceConfig(input.elasticsearchConfig, context),
+    }),
+    ...(input.eventBridgeConfig != null && {
+      eventBridgeConfig: serializeAws_restJson1EventBridgeDataSourceConfig(input.eventBridgeConfig, context),
     }),
     ...(input.httpConfig != null && {
       httpConfig: serializeAws_restJson1HttpDataSourceConfig(input.httpConfig, context),
@@ -1322,6 +1326,9 @@ export const serializeAws_restJson1UpdateDataSourceCommand = async (
     }),
     ...(input.elasticsearchConfig != null && {
       elasticsearchConfig: serializeAws_restJson1ElasticsearchDataSourceConfig(input.elasticsearchConfig, context),
+    }),
+    ...(input.eventBridgeConfig != null && {
+      eventBridgeConfig: serializeAws_restJson1EventBridgeDataSourceConfig(input.eventBridgeConfig, context),
     }),
     ...(input.httpConfig != null && {
       httpConfig: serializeAws_restJson1HttpDataSourceConfig(input.httpConfig, context),
@@ -4468,6 +4475,15 @@ const serializeAws_restJson1ElasticsearchDataSourceConfig = (
   };
 };
 
+const serializeAws_restJson1EventBridgeDataSourceConfig = (
+  input: EventBridgeDataSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.eventBusArn != null && { eventBusArn: input.eventBusArn }),
+  };
+};
+
 const serializeAws_restJson1FunctionsIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4774,6 +4790,10 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
       output.elasticsearchConfig != null
         ? deserializeAws_restJson1ElasticsearchDataSourceConfig(output.elasticsearchConfig, context)
         : undefined,
+    eventBridgeConfig:
+      output.eventBridgeConfig != null
+        ? deserializeAws_restJson1EventBridgeDataSourceConfig(output.eventBridgeConfig, context)
+        : undefined,
     httpConfig:
       output.httpConfig != null ? deserializeAws_restJson1HttpDataSourceConfig(output.httpConfig, context) : undefined,
     lambdaConfig:
@@ -4875,6 +4895,15 @@ const deserializeAws_restJson1EvaluateCodeErrorDetail = (
   return {
     codeErrors: output.codeErrors != null ? deserializeAws_restJson1CodeErrors(output.codeErrors, context) : undefined,
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_restJson1EventBridgeDataSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeDataSourceConfig => {
+  return {
+    eventBusArn: __expectString(output.eventBusArn),
   } as any;
 };
 

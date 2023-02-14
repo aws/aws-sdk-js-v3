@@ -29,12 +29,12 @@ export interface CreateCustomLogSourceCommandInput extends CreateCustomLogSource
 export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a third-party custom source in Amazon Security Lake, from the Region where you want to
- *          create a custom source. Security Lake can collect logs and events from third-party custom
- *          sources. After creating the appropriate API roles, use this API to add a custom source name
- *          in Security Lake. This operation creates a partition in the Security Lake S3 bucket as the target
- *          location for log files from the custom source, an associated Glue table, and
- *          an Glue crawler.</p>
+ * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
+ *          where you want to create a custom source. Security Lake can collect logs and events from
+ *          third-party custom sources. After creating the appropriate IAM role to
+ *          invoke Glue crawler, use this API to add a custom source name in Security Lake. This
+ *          operation creates a partition in the Amazon S3 bucket for Security Lake as the target
+ *          location for log files from the custom source in addition to an associated Glue table and an Glue crawler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

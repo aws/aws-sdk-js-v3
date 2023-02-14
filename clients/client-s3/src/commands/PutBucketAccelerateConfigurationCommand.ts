@@ -30,13 +30,11 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
 /**
  * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
- *
  *          <p> To use this operation, you must have permission to perform the
  *             <code>s3:PutAccelerateConfiguration</code> action. The bucket owner has this permission
  *          by default. The bucket owner can grant this permission to others. For more information
  *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
  *             Access Permissions to Your Amazon S3 Resources</a>.</p>
- *
  *          <p> The Transfer Acceleration state of a bucket can be set to one of the following two
  *          values:</p>
  *          <ul>
@@ -47,19 +45,13 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *                <p> Suspended – Disables accelerated data transfers to the bucket.</p>
  *             </li>
  *          </ul>
- *
- *
  *          <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a> action returns the transfer acceleration
  *          state of a bucket.</p>
- *
  *          <p>After setting the Transfer Acceleration state of a bucket to Enabled, it might take up
  *          to thirty minutes before the data transfer rates to the bucket increase.</p>
- *
  *          <p> The name of the bucket used for Transfer Acceleration must be DNS-compliant and must
  *          not contain periods (".").</p>
- *
  *          <p> For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
- *
  *          <p>The following operations are related to
  *          <code>PutBucketAccelerateConfiguration</code>:</p>
  *          <ul>

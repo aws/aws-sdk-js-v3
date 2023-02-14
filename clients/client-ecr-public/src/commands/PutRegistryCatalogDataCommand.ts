@@ -29,7 +29,7 @@ export interface PutRegistryCatalogDataCommandInput extends PutRegistryCatalogDa
 export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogDataResponse, __MetadataBearer {}
 
 /**
- * <p>Create or updates the catalog data for a public registry.</p>
+ * <p>Create or update the catalog data for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

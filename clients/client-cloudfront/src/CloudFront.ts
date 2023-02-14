@@ -1020,9 +1020,9 @@ export class CloudFront extends CloudFrontClient {
    * <p>Creates a new origin access control in CloudFront. After you create an origin access
    * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
    * 			authenticated (signed) requests to the origin.</p>
-   *          <p>For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket
-   * 			so that viewers (users) can access the content in the bucket only through CloudFront.</p>
-   *          <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting access to an Amazon S3 origin</a> in the
+   *          <p>This makes it possible to block public access to the origin, allowing viewers (users) to
+   * 			access the origin's content only through CloudFront.</p>
+   *          <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html">Restricting access to an Amazon Web Services origin</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createOriginAccessControl(
@@ -1182,13 +1182,16 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Creates a response headers policy.</p>
-   *          <p>A response headers policy contains information about a set of HTTP response headers
-   * 			and their values. To create a response headers policy, you provide some metadata about
-   * 			the policy, and a set of configurations that specify the response headers.</p>
-   *          <p>After you create a response headers policy, you can use its ID to attach it to one or
-   * 			more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior,
-   * 			CloudFront adds the headers in the policy to HTTP responses that it sends for requests that
-   * 			match the cache behavior.</p>
+   *          <p>A response headers policy contains information about a set of HTTP headers. To create a
+   * 			response headers policy, you provide some metadata about the policy and a set of
+   * 			configurations that specify the headers.</p>
+   *          <p>After you create a response headers policy, you can use its ID to attach it to one or more
+   * 			cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the
+   * 			response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to
+   * 			requests that match the cache behavior. CloudFront adds or removes response headers according
+   * 			to the configuration of the response headers policy.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Adding or removing HTTP headers in CloudFront responses</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createResponseHeadersPolicy(
     args: CreateResponseHeadersPolicyCommandInput,

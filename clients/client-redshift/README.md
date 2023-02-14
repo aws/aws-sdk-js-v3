@@ -29,7 +29,6 @@ patches and upgrades to the Amazon Redshift engine. You can focus on using your 
 acquire new insights for your business and customers.</p>
 <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading
 the <a href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p>
-
 <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
 build, query, and maintain the databases that make up your data warehouse. </p>
 

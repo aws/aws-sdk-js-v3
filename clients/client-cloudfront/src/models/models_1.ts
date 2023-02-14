@@ -58,6 +58,46 @@ import {
   ViewerCertificate,
 } from "./models_0";
 
+export interface CreateResponseHeadersPolicyResult {
+  /**
+   * <p>Contains a response headers policy.</p>
+   */
+  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+
+  /**
+   * <p>The URL of the response headers policy.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The version identifier for the current version of the response headers policy.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>A response headers policy with this name already exists. You must provide a unique
+ * 			name. To modify an existing response headers policy, use
+ * 				<code>UpdateResponseHeadersPolicy</code>.</p>
+ */
+export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
+  readonly name: "ResponseHeadersPolicyAlreadyExists" = "ResponseHeadersPolicyAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResponseHeadersPolicyAlreadyExists, __BaseException>) {
+    super({
+      name: "ResponseHeadersPolicyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResponseHeadersPolicyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 /**
  * <p>The length of the <code>Content-Security-Policy</code> header value in the response
  * 			headers policy exceeds the maximum.</p>
@@ -102,6 +142,30 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyCustomHeadersInResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers
+ * 			policy exceeds the maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException {
+  readonly name: "TooManyRemoveHeadersInResponseHeadersPolicy" = "TooManyRemoveHeadersInResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRemoveHeadersInResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "TooManyRemoveHeadersInResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRemoveHeadersInResponseHeadersPolicy.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2950,8 +3014,7 @@ export interface OriginAccessControlSummary {
   SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
-   * <p>The type of origin that this origin access control is for. The only valid value is
-   * 				<code>s3</code>.</p>
+   * <p>The type of origin that this origin access control is for.</p>
    */
   OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
 }
@@ -4136,6 +4199,13 @@ export interface UpdateStreamingDistributionResult {
    */
   ETag?: string;
 }
+
+/**
+ * @internal
+ */
+export const CreateResponseHeadersPolicyResultFilterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

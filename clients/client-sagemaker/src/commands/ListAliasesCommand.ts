@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListAliasesRequest, ListAliasesRequestFilterSensitiveLog } from "../models/models_2";
+import { ListAliasesResponse, ListAliasesResponseFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1ListAliasesCommand,
   serializeAws_json1_1ListAliasesCommand,

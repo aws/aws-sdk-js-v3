@@ -3,6 +3,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
   AwsCredentialIdentity,
+  ChecksumConstructor,
   Endpoint,
   HandlerExecutionContext,
   HashConstructor,
@@ -24,7 +25,7 @@ interface PreviouslyResolved {
   credentials: MemoizedProvider<AwsCredentialIdentity>;
   endpoint?: Provider<Endpoint>;
   region: Provider<string>;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   signingEscapePath: boolean;
   regionInfoProvider?: RegionInfoProvider;
 }

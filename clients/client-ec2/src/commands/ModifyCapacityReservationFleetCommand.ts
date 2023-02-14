@@ -19,7 +19,7 @@ import {
   ModifyCapacityReservationFleetRequestFilterSensitiveLog,
   ModifyCapacityReservationFleetResult,
   ModifyCapacityReservationFleetResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyCapacityReservationFleetCommand,
   serializeAws_ec2ModifyCapacityReservationFleetCommand,

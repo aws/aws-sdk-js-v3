@@ -33,7 +33,8 @@ export interface UpdateWorkgroupCommandInput extends UpdateWorkgroupRequest {}
 export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a workgroup with the specified configuration settings.</p>
+ * <p>Updates a workgroup with the specified configuration settings. You can't update multiple parameters in one request. For example,
+ *       you can update <code>baseCapacity</code> or <code>port</code> in a single request, but you can't update both in the same request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

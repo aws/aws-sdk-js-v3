@@ -10,7 +10,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   map as __map,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -7882,7 +7882,7 @@ const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext):
     contents.Status = __expectString(output["Status"]);
   }
   if (output["SubmittedAt"] !== undefined) {
-    contents.SubmittedAt = __expectNonNull(__parseRfc3339DateTime(output["SubmittedAt"]));
+    contents.SubmittedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SubmittedAt"]));
   }
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
@@ -8519,10 +8519,10 @@ const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContex
     contents.StatusMessage = __expectString(output["StatusMessage"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
   }
   if (output["LastModifiedDate"] !== undefined) {
-    contents.LastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedDate"]));
+    contents.LastModifiedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedDate"]));
   }
   return contents;
 };
@@ -8748,7 +8748,7 @@ const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CheckedTime"] !== undefined) {
-    contents.CheckedTime = __expectNonNull(__parseRfc3339DateTime(output["CheckedTime"]));
+    contents.CheckedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CheckedTime"]));
   }
   return contents;
 };
@@ -8985,7 +8985,7 @@ const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
 };
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

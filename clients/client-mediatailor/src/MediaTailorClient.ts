@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -47,6 +49,10 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "./commands/ConfigureLogsForChannelCommand";
 import {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
@@ -132,6 +138,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "./commands/UpdateLiveSourceCommand";
+import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "./commands/UpdateProgramCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -146,6 +153,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | ConfigureLogsForChannelCommandInput
   | ConfigureLogsForPlaybackConfigurationCommandInput
   | CreateChannelCommandInput
   | CreateLiveSourceCommandInput
@@ -186,10 +194,12 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateChannelCommandInput
   | UpdateLiveSourceCommandInput
+  | UpdateProgramCommandInput
   | UpdateSourceLocationCommandInput
   | UpdateVodSourceCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsForChannelCommandOutput
   | ConfigureLogsForPlaybackConfigurationCommandOutput
   | CreateChannelCommandOutput
   | CreateLiveSourceCommandOutput
@@ -230,6 +240,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput
   | UpdateLiveSourceCommandOutput
+  | UpdateProgramCommandOutput
   | UpdateSourceLocationCommandOutput
   | UpdateVodSourceCommandOutput;
 
@@ -240,11 +251,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -349,9 +360,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type MediaTailorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

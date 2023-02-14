@@ -31,7 +31,8 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Registers an organization’s member account as the CloudTrail delegated administrator.</p>
+ * <p>Registers an organization’s member account as the CloudTrail delegated
+ *          administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

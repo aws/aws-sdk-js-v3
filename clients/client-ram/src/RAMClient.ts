@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -192,11 +194,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -301,9 +303,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type RAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -342,16 +344,15 @@ export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
  *             accounts. If you use Organizations to manage your accounts, then you share your resources
  *             with your organization or organizational units (OUs). For supported resource types, you
  *             can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
- *
- *         <p>To learn more about RAM, see the following resources:</p>
- *         <ul>
+ *          <p>To learn more about RAM, see the following resources:</p>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
+ *                <p>
+ *                   <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/ram/latest/userguide/">Resource Access Manager User
  *                         Guide</a>
  *                </p>

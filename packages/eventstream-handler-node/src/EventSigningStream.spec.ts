@@ -1,6 +1,6 @@
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Message, MessageHeaders } from "@aws-sdk/types";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { EventSigningStream } from "./EventSigningStream";
 

@@ -223,7 +223,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode."
+        "smithy.api#documentation": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode."
       }
     },
     "com.amazonaws.mediaconvert#AacSpecification": {
@@ -521,7 +521,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin64000Max640000",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values.  Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid bitrates for coding mode 1/1: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3/2 with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.",
+            "smithy.api#documentation": "Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values. Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid bitrates for coding mode 1/1: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3/2 with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.",
             "smithy.api#jsonName": "bitrate"
           }
         },
@@ -916,11 +916,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#AssociateCertificateResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#AudioChannelTag": {
       "type": "enum",
@@ -1017,7 +1023,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS)."
+        "smithy.api#documentation": "You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout. For example, if this track is the left surround channel, choose Left surround (LS)."
       }
     },
     "com.amazonaws.mediaconvert#AudioChannelTaggingSettings": {
@@ -1026,7 +1032,7 @@
         "ChannelTag": {
           "target": "com.amazonaws.mediaconvert#AudioChannelTag",
           "traits": {
-            "smithy.api#documentation": "You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).",
+            "smithy.api#documentation": "You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout. For example, if this track is the left surround channel, choose Left surround (LS).",
             "smithy.api#jsonName": "channelTag"
           }
         }
@@ -1115,7 +1121,7 @@
         "AacSettings": {
           "target": "com.amazonaws.mediaconvert#AacSettings",
           "traits": {
-            "smithy.api#documentation": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.",
+            "smithy.api#documentation": "Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.",
             "smithy.api#jsonName": "aacSettings"
           }
         },
@@ -1490,6 +1496,14 @@
             "smithy.api#documentation": "When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.",
             "smithy.api#jsonName": "targetLkfs"
           }
+        },
+        "TruePeakLimiterThreshold": {
+          "target": "com.amazonaws.mediaconvert#__doubleMinNegative20Max0",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -20. Leave blank to use the default value 0.",
+            "smithy.api#jsonName": "truePeakLimiterThreshold"
+          }
         }
       },
       "traits": {
@@ -1521,7 +1535,7 @@
           }
         },
         "ExternalAudioFileInput": {
-          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPWWEEBBMMMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaA",
+          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPWWEEBBMMMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCFFLLAAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaA",
           "traits": {
             "smithy.api#documentation": "Specifies audio data from an external file source.",
             "smithy.api#jsonName": "externalAudioFileInput"
@@ -1596,7 +1610,7 @@
         "AudioSelectorNames": {
           "target": "com.amazonaws.mediaconvert#__listOf__stringMin1",
           "traits": {
-            "smithy.api#documentation": "Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., \"Audio Selector 1\"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.",
+            "smithy.api#documentation": "Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., \"Audio Selector 1\"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.",
             "smithy.api#jsonName": "audioSelectorNames"
           }
         }
@@ -1937,7 +1951,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -1945,7 +1959,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -2213,7 +2227,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max1001",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -2221,7 +2235,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin24Max60000",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -2894,11 +2908,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#CancelJobResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#CaptionDescription": {
       "type": "structure",
@@ -3224,7 +3244,7 @@
         "SourceType": {
           "target": "com.amazonaws.mediaconvert#CaptionSourceType",
           "traits": {
-            "smithy.api#documentation": "Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.",
+            "smithy.api#documentation": "Use Source (SourceType) to identify the format of your input captions. The service cannot auto-detect caption format.",
             "smithy.api#jsonName": "sourceType"
           }
         },
@@ -3343,7 +3363,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format."
+        "smithy.api#documentation": "Use Source (SourceType) to identify the format of your input captions. The service cannot auto-detect caption format."
       }
     },
     "com.amazonaws.mediaconvert#ChannelMapping": {
@@ -3359,6 +3379,46 @@
       },
       "traits": {
         "smithy.api#documentation": "Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both."
+      }
+    },
+    "com.amazonaws.mediaconvert#ClipLimits": {
+      "type": "structure",
+      "members": {
+        "MaximumRGBTolerance": {
+          "target": "com.amazonaws.mediaconvert#__integerMin90Max105",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "Specify the Maximum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the upper tolerance that you specify. Enter an integer from 90 to 105 as an offset percentage to the maximum possible value. Leave blank to use the default value 100. When you specify a value for Maximum RGB tolerance, you must set Sample range conversion to Limited range clip.",
+            "smithy.api#jsonName": "maximumRGBTolerance"
+          }
+        },
+        "MaximumYUV": {
+          "target": "com.amazonaws.mediaconvert#__integerMin920Max1023",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "Specify the Maximum YUV color sample limit. MediaConvert conforms any pixels in your input above the value that you specify to typical limited range bounds. Enter an integer from 920 to 1023. Leave blank to use the default value 940. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Maximum YUV, you must set Sample range conversion to Limited range clip.",
+            "smithy.api#jsonName": "maximumYUV"
+          }
+        },
+        "MinimumRGBTolerance": {
+          "target": "com.amazonaws.mediaconvert#__integerMinNegative5Max10",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "Specify the Minimum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the lower tolerance that you specify. Enter an integer from -5 to 10 as an offset percentage to the minimum possible value. Leave blank to use the default value 0. When you specify a value for Minimum RGB tolerance, you must set Sample range conversion to Limited range clip.",
+            "smithy.api#jsonName": "minimumRGBTolerance"
+          }
+        },
+        "MinimumYUV": {
+          "target": "com.amazonaws.mediaconvert#__integerMin0Max128",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "Specify the Minimum YUV color sample limit. MediaConvert conforms any pixels in your input below the value that you specify to typical limited range bounds. Enter an integer from 0 to 128. Leave blank to use the default value 64. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Minumum YUV, you must set Sample range conversion to Limited range clip.",
+            "smithy.api#jsonName": "minimumYUV"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip."
       }
     },
     "com.amazonaws.mediaconvert#CmafAdditionalManifest": {
@@ -3524,6 +3584,13 @@
             "smithy.api#jsonName": "codecSpecification"
           }
         },
+        "DashManifestStyle": {
+          "target": "com.amazonaws.mediaconvert#DashManifestStyle",
+          "traits": {
+            "smithy.api#documentation": "Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.",
+            "smithy.api#jsonName": "dashManifestStyle"
+          }
+        },
         "Destination": {
           "target": "com.amazonaws.mediaconvert#__stringPatternS3",
           "traits": {
@@ -3607,7 +3674,7 @@
         "MpdProfile": {
           "target": "com.amazonaws.mediaconvert#CmafMpdProfile",
           "traits": {
-            "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).",
+            "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).",
             "smithy.api#jsonName": "mpdProfile"
           }
         },
@@ -3725,7 +3792,7 @@
         "IntervalCadence": {
           "target": "com.amazonaws.mediaconvert#CmafIntervalCadence",
           "traits": {
-            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
+            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
             "smithy.api#jsonName": "intervalCadence"
           }
         },
@@ -3733,7 +3800,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin2Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.",
+            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.",
             "smithy.api#jsonName": "thumbnailHeight"
           }
         },
@@ -3741,7 +3808,7 @@
           "target": "com.amazonaws.mediaconvert#__doubleMin0Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
+            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
             "smithy.api#jsonName": "thumbnailInterval"
           }
         },
@@ -3749,7 +3816,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin8Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.",
+            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.",
             "smithy.api#jsonName": "thumbnailWidth"
           }
         },
@@ -3765,7 +3832,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max512",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.",
+            "smithy.api#documentation": "Number of thumbnails in each row of a tile image. Set a value between 1 and 512.",
             "smithy.api#jsonName": "tileWidth"
           }
         }
@@ -3811,7 +3878,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
+        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
       }
     },
     "com.amazonaws.mediaconvert#CmafKeyProviderType": {
@@ -3911,7 +3978,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE)."
+        "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE)."
       }
     },
     "com.amazonaws.mediaconvert#CmafPtsOffsetHandlingForBFrames": {
@@ -4217,7 +4284,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled."
+        "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough."
       }
     },
     "com.amazonaws.mediaconvert#CmfcScte35Esam": {
@@ -4315,7 +4382,7 @@
         "ManifestMetadataSignaling": {
           "target": "com.amazonaws.mediaconvert#CmfcManifestMetadataSignaling",
           "traits": {
-            "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled.",
+            "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough.",
             "smithy.api#jsonName": "manifestMetadataSignaling"
           }
         },
@@ -4417,6 +4484,13 @@
             "smithy.api#jsonName": "brightness"
           }
         },
+        "ClipLimits": {
+          "target": "com.amazonaws.mediaconvert#ClipLimits",
+          "traits": {
+            "smithy.api#documentation": "Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.",
+            "smithy.api#jsonName": "clipLimits"
+          }
+        },
         "ColorSpaceConversion": {
           "target": "com.amazonaws.mediaconvert#ColorSpaceConversion",
           "traits": {
@@ -4450,7 +4524,7 @@
         "SampleRangeConversion": {
           "target": "com.amazonaws.mediaconvert#SampleRangeConversion",
           "traits": {
-            "smithy.api#documentation": "Specify the video color sample range for this output. To create a full range output, you must start with a full range YUV input and keep the default value, None (NONE). To create a limited range output from a full range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB inputs, your output is always limited range, regardless of your choice here. When you create a limited range output from a full range input, MediaConvert limits the active pixel values in a way that depends on the output's bit depth: 8-bit outputs contain only values from 16 through 235 and 10-bit outputs contain only values from 64 through 940. With this conversion, MediaConvert also changes the output metadata to note the limited range.",
+            "smithy.api#documentation": "Specify how MediaConvert limits the color sample range for this output. To create a limited range output from a full range input: Choose Limited range squeeze. For full range inputs, MediaConvert performs a linear offset to color samples equally across all pixels and frames. Color samples in 10-bit outputs are limited to 64 through 940, and 8-bit outputs are limited to 16 through 235. Note: For limited range inputs, values for color samples are passed through to your output unchanged. MediaConvert does not limit the sample range. To correct pixels in your input that are out of range or out of gamut: Choose Limited range clip. Use for broadcast applications. MediaConvert conforms any pixels outside of the values that you specify under Minimum YUV and Maximum YUV to limited range bounds. MediaConvert also corrects any YUV values that, when converted to RGB, would be outside the bounds you specify under Minimum RGB tolerance and Maximum RGB tolerance. With either limited range conversion, MediaConvert writes the sample range metadata in the output.",
             "smithy.api#jsonName": "sampleRangeConversion"
           }
         },
@@ -4807,7 +4881,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "The action to take on copy and redistribution control XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions."
+        "smithy.api#documentation": "The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions."
       }
     },
     "com.amazonaws.mediaconvert#CreateJob": {
@@ -4867,7 +4941,7 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.mediaconvert#__string",
           "traits": {
-            "smithy.api#documentation": "Optional. Idempotency token for CreateJob operation.",
+            "smithy.api#documentation": "Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.",
             "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "clientRequestToken"
           }
@@ -4945,6 +5019,9 @@
             "smithy.api#jsonName": "userMetadata"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#CreateJobResponse": {
@@ -4957,6 +5034,9 @@
             "smithy.api#jsonName": "job"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#CreateJobTemplate": {
@@ -5072,6 +5152,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#CreateJobTemplateResponse": {
@@ -5084,6 +5167,9 @@
             "smithy.api#jsonName": "jobTemplate"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#CreatePreset": {
@@ -5163,6 +5249,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#CreatePresetResponse": {
@@ -5175,6 +5264,9 @@
             "smithy.api#jsonName": "preset"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#CreateQueue": {
@@ -5260,6 +5352,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#CreateQueueResponse": {
@@ -5272,6 +5367,9 @@
             "smithy.api#jsonName": "queue"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#DashAdditionalManifest": {
@@ -5309,7 +5407,7 @@
         "SpekeKeyProvider": {
           "target": "com.amazonaws.mediaconvert#SpekeKeyProvider",
           "traits": {
-            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
+            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
             "smithy.api#jsonName": "spekeKeyProvider"
           }
         }
@@ -5360,6 +5458,13 @@
           "traits": {
             "smithy.api#documentation": "A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.",
             "smithy.api#jsonName": "baseUrl"
+          }
+        },
+        "DashManifestStyle": {
+          "target": "com.amazonaws.mediaconvert#DashManifestStyle",
+          "traits": {
+            "smithy.api#documentation": "Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.",
+            "smithy.api#jsonName": "dashManifestStyle"
           }
         },
         "Destination": {
@@ -5438,7 +5543,7 @@
         "MpdProfile": {
           "target": "com.amazonaws.mediaconvert#DashIsoMpdProfile",
           "traits": {
-            "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).",
+            "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).",
             "smithy.api#jsonName": "mpdProfile"
           }
         },
@@ -5548,7 +5653,7 @@
         "IntervalCadence": {
           "target": "com.amazonaws.mediaconvert#DashIsoIntervalCadence",
           "traits": {
-            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
+            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
             "smithy.api#jsonName": "intervalCadence"
           }
         },
@@ -5556,7 +5661,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.",
+            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.",
             "smithy.api#jsonName": "thumbnailHeight"
           }
         },
@@ -5564,7 +5669,7 @@
           "target": "com.amazonaws.mediaconvert#__doubleMin0Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
+            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
             "smithy.api#jsonName": "thumbnailInterval"
           }
         },
@@ -5572,7 +5677,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin8Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.",
+            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.",
             "smithy.api#jsonName": "thumbnailWidth"
           }
         },
@@ -5588,7 +5693,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max512",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.",
+            "smithy.api#documentation": "Number of thumbnails in each row of a tile image. Set a value between 1 and 512.",
             "smithy.api#jsonName": "tileWidth"
           }
         }
@@ -5614,7 +5719,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
+        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
       }
     },
     "com.amazonaws.mediaconvert#DashIsoMpdManifestBandwidthType": {
@@ -5654,7 +5759,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE)."
+        "smithy.api#documentation": "Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE)."
       }
     },
     "com.amazonaws.mediaconvert#DashIsoPlaybackDeviceCompatibility": {
@@ -5777,6 +5882,32 @@
         "smithy.api#documentation": "When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element."
       }
     },
+    "com.amazonaws.mediaconvert#DashManifestStyle": {
+      "type": "enum",
+      "members": {
+        "BASIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BASIC"
+          }
+        },
+        "COMPACT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPACT"
+          }
+        },
+        "DISTINCT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISTINCT"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct."
+      }
+    },
     "com.amazonaws.mediaconvert#DecryptionMode": {
       "type": "enum",
       "members": {
@@ -5848,7 +5979,7 @@
         "Control": {
           "target": "com.amazonaws.mediaconvert#DeinterlacerControl",
           "traits": {
-            "smithy.api#documentation": "- When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video.",
+            "smithy.api#documentation": "- When set to NORMAL (default), the deinterlacer does not convert frames that are tagged in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is a good chance that the metadata has tagged frames as progressive when they are not progressive. Do not turn on otherwise; processing frames that are already progressive into progressive will probably result in lower quality video.",
             "smithy.api#jsonName": "control"
           }
         },
@@ -5881,7 +6012,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "- When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video."
+        "smithy.api#documentation": "- When set to NORMAL (default), the deinterlacer does not convert frames that are tagged in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is a good chance that the metadata has tagged frames as progressive when they are not progressive. Do not turn on otherwise; processing frames that are already progressive into progressive will probably result in lower quality video."
       }
     },
     "com.amazonaws.mediaconvert#DeinterlacerMode": {
@@ -5958,11 +6089,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#DeleteJobTemplateResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#DeletePolicy": {
       "type": "operation",
@@ -6003,11 +6140,17 @@
     },
     "com.amazonaws.mediaconvert#DeletePolicyRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.mediaconvert#DeletePolicyResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#DeletePreset": {
       "type": "operation",
@@ -6057,11 +6200,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#DeletePresetResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#DeleteQueue": {
       "type": "operation",
@@ -6111,11 +6260,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#DeleteQueueResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#DescribeEndpoints": {
       "type": "operation",
@@ -6207,7 +6362,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "DescribeEndpointsRequest"
+        "smithy.api#documentation": "DescribeEndpointsRequest",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#DescribeEndpointsResponse": {
@@ -6227,6 +6383,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#DestinationSettings": {
@@ -6292,11 +6451,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#DisassociateCertificateResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#DolbyVision": {
       "type": "structure",
@@ -6331,7 +6496,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Create Dolby Vision Profile 5 or Profile 8.1  compatible video output."
+        "smithy.api#documentation": "Create Dolby Vision Profile 5 or Profile 8.1 compatible video output."
       }
     },
     "com.amazonaws.mediaconvert#DolbyVisionLevel6Metadata": {
@@ -6481,7 +6646,7 @@
         "OutputSdt": {
           "target": "com.amazonaws.mediaconvert#OutputSdt",
           "traits": {
-            "smithy.api#documentation": "Selects method of inserting SDT information into output stream.  \"Follow input SDT\" copies SDT information from input stream to  output stream. \"Follow input SDT if present\" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT  Manually\" means user will enter the SDT information. \"No SDT\" means output  stream will not contain SDT information.",
+            "smithy.api#documentation": "Selects method of inserting SDT information into output stream. \"Follow input SDT\" copies SDT information from input stream to output stream. \"Follow input SDT if present\" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT Manually\" means user will enter the SDT information. \"No SDT\" means output stream will not contain SDT information.",
             "smithy.api#jsonName": "outputSdt"
           }
         },
@@ -7184,7 +7349,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel),  and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings."
+        "smithy.api#documentation": "Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel), and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings."
       }
     },
     "com.amazonaws.mediaconvert#Eac3AtmosDynamicRangeCompressionLine": {
@@ -7368,7 +7533,7 @@
         "DownmixControl": {
           "target": "com.amazonaws.mediaconvert#Eac3AtmosDownmixControl",
           "traits": {
-            "smithy.api#documentation": "Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel),  and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.",
+            "smithy.api#documentation": "Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel), and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.",
             "smithy.api#jsonName": "downmixControl"
           }
         },
@@ -7831,7 +7996,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin32000Max3024000",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values.  Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 96000. Maximum: 3024000. Valid bitrates for coding mode 3/2: Default: 384000. Minimum: 192000. Maximum: 3024000.",
+            "smithy.api#documentation": "Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values. Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 96000. Maximum: 3024000. Valid bitrates for coding mode 3/2: Default: 384000. Minimum: 192000. Maximum: 3024000.",
             "smithy.api#jsonName": "bitrate"
           }
         },
@@ -8266,14 +8431,14 @@
         "CopyProtectionAction": {
           "target": "com.amazonaws.mediaconvert#CopyProtectionAction",
           "traits": {
-            "smithy.api#documentation": "The action to take on copy and redistribution control XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.",
+            "smithy.api#documentation": "The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.",
             "smithy.api#jsonName": "copyProtectionAction"
           }
         },
         "VchipAction": {
           "target": "com.amazonaws.mediaconvert#VchipAction",
           "traits": {
-            "smithy.api#documentation": "The action to take on content advisory XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.",
+            "smithy.api#documentation": "The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.",
             "smithy.api#jsonName": "vchipAction"
           }
         }
@@ -8577,6 +8742,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#GetJobResponse": {
@@ -8589,6 +8757,9 @@
             "smithy.api#jsonName": "job"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#GetJobTemplate": {
@@ -8639,6 +8810,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#GetJobTemplateResponse": {
@@ -8651,6 +8825,9 @@
             "smithy.api#jsonName": "jobTemplate"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#GetPolicy": {
@@ -8692,7 +8869,10 @@
     },
     "com.amazonaws.mediaconvert#GetPolicyRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.mediaconvert#GetPolicyResponse": {
       "type": "structure",
@@ -8704,6 +8884,9 @@
             "smithy.api#jsonName": "policy"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#GetPreset": {
@@ -8754,6 +8937,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#GetPresetResponse": {
@@ -8766,6 +8952,9 @@
             "smithy.api#jsonName": "preset"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#GetQueue": {
@@ -8816,6 +9005,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#GetQueueResponse": {
@@ -8828,6 +9020,9 @@
             "smithy.api#jsonName": "queue"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#H264AdaptiveQuantization": {
@@ -9498,7 +9693,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -9506,7 +9701,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -10372,7 +10567,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content"
+        "smithy.api#documentation": "Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on content"
       }
     },
     "com.amazonaws.mediaconvert#H265ScanTypeConversionMode": {
@@ -10492,7 +10687,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -10500,7 +10695,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -10644,7 +10839,7 @@
         "SampleAdaptiveOffsetFilterMode": {
           "target": "com.amazonaws.mediaconvert#H265SampleAdaptiveOffsetFilterMode",
           "traits": {
-            "smithy.api#documentation": "Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content",
+            "smithy.api#documentation": "Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on content",
             "smithy.api#jsonName": "sampleAdaptiveOffsetFilterMode"
           }
         },
@@ -10687,7 +10882,7 @@
         "Telecine": {
           "target": "com.amazonaws.mediaconvert#H265Telecine",
           "traits": {
-            "smithy.api#documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.",
+            "smithy.api#documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.",
             "smithy.api#jsonName": "telecine"
           }
         },
@@ -10794,7 +10989,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i."
+        "smithy.api#documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i."
       }
     },
     "com.amazonaws.mediaconvert#H265TemporalAdaptiveQuantization": {
@@ -10936,7 +11131,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin0Max65535",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.",
+            "smithy.api#documentation": "Maximum light level among all samples in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.",
             "smithy.api#jsonName": "maxContentLightLevel"
           }
         },
@@ -11336,7 +11531,7 @@
         "SpekeKeyProvider": {
           "target": "com.amazonaws.mediaconvert#SpekeKeyProvider",
           "traits": {
-            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
+            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
             "smithy.api#jsonName": "spekeKeyProvider"
           }
         },
@@ -11669,7 +11864,7 @@
         "IntervalCadence": {
           "target": "com.amazonaws.mediaconvert#HlsIntervalCadence",
           "traits": {
-            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
+            "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.",
             "smithy.api#jsonName": "intervalCadence"
           }
         },
@@ -11677,7 +11872,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin2Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.",
+            "smithy.api#documentation": "Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.",
             "smithy.api#jsonName": "thumbnailHeight"
           }
         },
@@ -11685,7 +11880,7 @@
           "target": "com.amazonaws.mediaconvert#__doubleMin0Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
+            "smithy.api#documentation": "Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.",
             "smithy.api#jsonName": "thumbnailInterval"
           }
         },
@@ -11693,7 +11888,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin8Max4096",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.",
+            "smithy.api#documentation": "Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.",
             "smithy.api#jsonName": "thumbnailWidth"
           }
         },
@@ -11709,7 +11904,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max512",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.",
+            "smithy.api#documentation": "Number of thumbnails in each row of a tile image. Set a value between 1 and 512.",
             "smithy.api#jsonName": "tileWidth"
           }
         }
@@ -11755,7 +11950,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
+        "smithy.api#documentation": "The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval."
       }
     },
     "com.amazonaws.mediaconvert#HlsKeyProviderType": {
@@ -12256,7 +12451,7 @@
         "DenoiseFilter": {
           "target": "com.amazonaws.mediaconvert#InputDenoiseFilter",
           "traits": {
-            "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.",
+            "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.",
             "smithy.api#jsonName": "denoiseFilter"
           }
         },
@@ -12268,7 +12463,7 @@
           }
         },
         "FileInput": {
-          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSSHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSS",
+          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCFFLLAAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSSHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSS",
           "traits": {
             "smithy.api#documentation": "Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, \"s3://bucket/vf/cpl.xml\". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.",
             "smithy.api#jsonName": "fileInput"
@@ -12282,10 +12477,10 @@
           }
         },
         "FilterStrength": {
-          "target": "com.amazonaws.mediaconvert#__integerMinNegative5Max5",
+          "target": "com.amazonaws.mediaconvert#__integerMin0Max5",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.",
+            "smithy.api#documentation": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.",
             "smithy.api#jsonName": "filterStrength"
           }
         },
@@ -12467,7 +12662,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs."
+        "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs."
       }
     },
     "com.amazonaws.mediaconvert#InputFilterEnable": {
@@ -12661,7 +12856,7 @@
         "DenoiseFilter": {
           "target": "com.amazonaws.mediaconvert#InputDenoiseFilter",
           "traits": {
-            "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.",
+            "smithy.api#documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.",
             "smithy.api#jsonName": "denoiseFilter"
           }
         },
@@ -12680,10 +12875,10 @@
           }
         },
         "FilterStrength": {
-          "target": "com.amazonaws.mediaconvert#__integerMinNegative5Max5",
+          "target": "com.amazonaws.mediaconvert#__integerMin0Max5",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.",
+            "smithy.api#documentation": "Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.",
             "smithy.api#jsonName": "filterStrength"
           }
         },
@@ -13159,7 +13354,7 @@
         "AvailBlanking": {
           "target": "com.amazonaws.mediaconvert#AvailBlanking",
           "traits": {
-            "smithy.api#documentation": "Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.",
+            "smithy.api#documentation": "Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.",
             "smithy.api#jsonName": "availBlanking"
           }
         },
@@ -13208,7 +13403,7 @@
         "NielsenNonLinearWatermark": {
           "target": "com.amazonaws.mediaconvert#NielsenNonLinearWatermarkSettings",
           "traits": {
-            "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]",
+            "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]",
             "smithy.api#jsonName": "nielsenNonLinearWatermark"
           }
         },
@@ -13418,7 +13613,7 @@
         "AvailBlanking": {
           "target": "com.amazonaws.mediaconvert#AvailBlanking",
           "traits": {
-            "smithy.api#documentation": "Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.",
+            "smithy.api#documentation": "Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.",
             "smithy.api#jsonName": "availBlanking"
           }
         },
@@ -13439,7 +13634,7 @@
         "Inputs": {
           "target": "com.amazonaws.mediaconvert#__listOfInputTemplate",
           "traits": {
-            "smithy.api#documentation": "Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template.  Using the API, you can include multiple inputs when referencing a job template.",
+            "smithy.api#documentation": "Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template. Using the API, you can include multiple inputs when referencing a job template.",
             "smithy.api#jsonName": "inputs"
           }
         },
@@ -13467,7 +13662,7 @@
         "NielsenNonLinearWatermark": {
           "target": "com.amazonaws.mediaconvert#NielsenNonLinearWatermarkSettings",
           "traits": {
-            "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]",
+            "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]",
             "smithy.api#jsonName": "nielsenNonLinearWatermark"
           }
         },
@@ -14840,6 +15035,9 @@
             "smithy.api#httpQuery": "order"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#ListJobTemplatesResponse": {
@@ -14859,6 +15057,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#ListJobs": {
@@ -14943,6 +15144,9 @@
             "smithy.api#httpQuery": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#ListJobsResponse": {
@@ -14962,6 +15166,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#ListPresets": {
@@ -15046,6 +15253,9 @@
             "smithy.api#httpQuery": "order"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#ListPresetsResponse": {
@@ -15065,6 +15275,9 @@
             "smithy.api#jsonName": "presets"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#ListQueues": {
@@ -15142,6 +15355,9 @@
             "smithy.api#httpQuery": "order"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#ListQueuesResponse": {
@@ -15161,6 +15377,9 @@
             "smithy.api#jsonName": "queues"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#ListTagsForResource": {
@@ -15211,6 +15430,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#ListTagsForResourceResponse": {
@@ -15223,6 +15445,9 @@
             "smithy.api#jsonName": "resourceTags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#M2tsAudioBufferModel": {
@@ -15282,7 +15507,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions."
+        "smithy.api#documentation": "Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions."
       }
     },
     "com.amazonaws.mediaconvert#M2tsDataPtsControl": {
@@ -15608,7 +15833,7 @@
         "BufferModel": {
           "target": "com.amazonaws.mediaconvert#M2tsBufferModel",
           "traits": {
-            "smithy.api#documentation": "Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.",
+            "smithy.api#documentation": "Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.",
             "smithy.api#jsonName": "bufferModel"
           }
         },
@@ -16225,7 +16450,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -16274,15 +16499,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -16396,12 +16612,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://mediaconvert-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://mediaconvert-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -16450,6 +16672,31 @@
                           "conditions": [],
                           "type": "tree",
                           "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://mediaconvert.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
                             {
                               "conditions": [],
                               "endpoint": {
@@ -16506,12 +16753,18 @@
                       "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://mediaconvert.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://mediaconvert.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -16546,6 +16799,25 @@
                       "type": "endpoint"
                     },
                     {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-west-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://mediaconvert.us-gov-west-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
                       "conditions": [],
                       "endpoint": {
                         "url": "https://mediaconvert.{Region}.{PartitionResult#dnsSuffix}",
@@ -16563,562 +16835,16 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-south-1.api.aws"
+                  "url": "https://mediaconvert.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-south-1"
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
+                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-south-1"
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-south-1"
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-south-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-west-3"
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-west-3"
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-west-3"
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-3"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-northeast-2"
+                "UseFIPS": false
               }
             },
             {
@@ -17129,204 +16855,22 @@
                 }
               },
               "params": {
+                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-northeast-2"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-northeast-1.api.aws"
+                  "url": "https://mediaconvert.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-northeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
+                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-northeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-northeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-northeast-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
+                "UseFIPS": false
               }
             },
             {
@@ -17337,48 +16881,9 @@
                 }
               },
               "params": {
+                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-southeast-2"
+                "UseFIPS": false
               }
             },
             {
@@ -17389,96 +16894,113 @@
                 }
               },
               "params": {
+                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-2"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://mediaconvert.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-iso-east-1"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://mediaconvert-fips.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-iso-east-1"
+                "UseFIPS": true
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.us-east-1.api.aws"
+                  "url": "https://mediaconvert.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
+                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-east-1"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert.us-east-1.api.aws"
+                  "url": "https://mediaconvert.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-east-1"
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -17489,48 +17011,22 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-east-1"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.us-east-2.api.aws"
+                  "url": "https://mediaconvert-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
+                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-east-2"
+                "UseFIPS": true
               }
             },
             {
@@ -17541,48 +17037,100 @@
                 }
               },
               "params": {
+                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-east-2"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://mediaconvert-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "cn-northwest-1"
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://mediaconvert-fips.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
+                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "cn-northwest-1"
+                "UseFIPS": true
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://mediaconvert.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://mediaconvert.us-west-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "cn-northwest-1"
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -17593,20 +17141,165 @@
                 }
               },
               "params": {
+                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "cn-northwest-1"
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-isob-east-1"
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mediaconvert.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -17617,20 +17310,9 @@
                 }
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-isob-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-isob-east-1"
+                "UseFIPS": true
               }
             },
             {
@@ -17641,9 +17323,9 @@
                 }
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-isob-east-1"
+                "UseFIPS": false
               }
             },
             {
@@ -17654,9 +17336,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -17666,9 +17348,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -17678,9 +17360,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -18285,7 +17967,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files."
+        "smithy.api#documentation": "Use this setting only in DASH output groups that include sidecar TTML or IMSC captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files."
       }
     },
     "com.amazonaws.mediaconvert#MpdKlvMetadata": {
@@ -18325,7 +18007,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled."
+        "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough."
       }
     },
     "com.amazonaws.mediaconvert#MpdScte35Esam": {
@@ -18388,7 +18070,7 @@
         "CaptionContainerType": {
           "target": "com.amazonaws.mediaconvert#MpdCaptionContainerType",
           "traits": {
-            "smithy.api#documentation": "Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.",
+            "smithy.api#documentation": "Use this setting only in DASH output groups that include sidecar TTML or IMSC captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.",
             "smithy.api#jsonName": "captionContainerType"
           }
         },
@@ -18402,7 +18084,7 @@
         "ManifestMetadataSignaling": {
           "target": "com.amazonaws.mediaconvert#MpdManifestMetadataSignaling",
           "traits": {
-            "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled.",
+            "smithy.api#documentation": "To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be \"urn:scte:scte35:2013:bin\". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough.",
             "smithy.api#jsonName": "manifestMetadataSignaling"
           }
         },
@@ -18902,7 +18584,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max1001",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -18910,7 +18592,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin24Max60000",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -19075,7 +18757,7 @@
         "Syntax": {
           "target": "com.amazonaws.mediaconvert#Mpeg2Syntax",
           "traits": {
-            "smithy.api#documentation": "Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to D10 (D_10).",
+            "smithy.api#documentation": "Specify whether this output's video uses the D10 syntax. Keep the default value to not use the syntax. Related settings: When you choose D10 (D_10) for your MXF profile (profile), you must also set this value to D10 (D_10).",
             "smithy.api#jsonName": "syntax"
           }
         },
@@ -19155,7 +18837,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to D10 (D_10)."
+        "smithy.api#documentation": "Specify whether this output's video uses the D10 syntax. Keep the default value to not use the syntax. Related settings: When you choose D10 (D_10) for your MXF profile (profile), you must also set this value to D10 (D_10)."
       }
     },
     "com.amazonaws.mediaconvert#Mpeg2Telecine": {
@@ -19252,7 +18934,7 @@
         "SpekeKeyProvider": {
           "target": "com.amazonaws.mediaconvert#SpekeKeyProvider",
           "traits": {
-            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
+            "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.",
             "smithy.api#jsonName": "spekeKeyProvider"
           }
         }
@@ -19589,7 +19271,7 @@
         "AdiFilename": {
           "target": "com.amazonaws.mediaconvert#__stringPatternS3",
           "traits": {
-            "smithy.api#documentation": "Optional. Use this setting when you want the service to include an ADI file in the Nielsen  metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it  here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).",
+            "smithy.api#documentation": "Optional. Use this setting when you want the service to include an ADI file in the Nielsen metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).",
             "smithy.api#jsonName": "adiFilename"
           }
         },
@@ -19639,7 +19321,7 @@
         "SourceWatermarkStatus": {
           "target": "com.amazonaws.mediaconvert#NielsenSourceWatermarkStatusType",
           "traits": {
-            "smithy.api#documentation": "Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.",
+            "smithy.api#documentation": "Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already have non-linear Nielsen watermarks.",
             "smithy.api#jsonName": "sourceWatermarkStatus"
           }
         },
@@ -19659,7 +19341,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]"
+        "smithy.api#documentation": "Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]"
       }
     },
     "com.amazonaws.mediaconvert#NielsenSourceWatermarkStatusType": {
@@ -19679,7 +19361,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks."
+        "smithy.api#documentation": "Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already have non-linear Nielsen watermarks."
       }
     },
     "com.amazonaws.mediaconvert#NielsenUniqueTicPerAudioTrackType": {
@@ -20292,7 +19974,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Selects method of inserting SDT information into output stream.  \"Follow input SDT\" copies SDT information from input stream to  output stream. \"Follow input SDT if present\" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT  Manually\" means user will enter the SDT information. \"No SDT\" means output  stream will not contain SDT information."
+        "smithy.api#documentation": "Selects method of inserting SDT information into output stream. \"Follow input SDT\" copies SDT information from input stream to output stream. \"Follow input SDT if present\" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT Manually\" means user will enter the SDT information. \"No SDT\" means output stream will not contain SDT information."
       }
     },
     "com.amazonaws.mediaconvert#OutputSettings": {
@@ -20745,7 +20427,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -20753,7 +20435,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -20901,6 +20583,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#PutPolicyResponse": {
@@ -20913,6 +20598,9 @@
             "smithy.api#jsonName": "policy"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#Queue": {
@@ -21410,7 +21098,7 @@
         "EncryptionType": {
           "target": "com.amazonaws.mediaconvert#S3ServerSideEncryptionType",
           "traits": {
-            "smithy.api#documentation": "Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting  KMS ARN (kmsKeyArn).",
+            "smithy.api#documentation": "Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).",
             "smithy.api#jsonName": "encryptionType"
           }
         },
@@ -21482,7 +21170,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting  KMS ARN (kmsKeyArn)."
+        "smithy.api#documentation": "Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn)."
       }
     },
     "com.amazonaws.mediaconvert#SampleRangeConversion": {
@@ -21499,10 +21187,16 @@
           "traits": {
             "smithy.api#enumValue": "NONE"
           }
+        },
+        "LIMITED_RANGE_CLIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LIMITED_RANGE_CLIP"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify the video color sample range for this output. To create a full range output, you must start with a full range YUV input and keep the default value, None (NONE). To create a limited range output from a full range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB inputs, your output is always limited range, regardless of your choice here. When you create a limited range output from a full range input, MediaConvert limits the active pixel values in a way that depends on the output's bit depth: 8-bit outputs contain only values from 16 through 235 and 10-bit outputs contain only values from 64 through 940. With this conversion, MediaConvert also changes the output metadata to note the limited range."
+        "smithy.api#documentation": "Specify how MediaConvert limits the color sample range for this output. To create a limited range output from a full range input: Choose Limited range squeeze. For full range inputs, MediaConvert performs a linear offset to color samples equally across all pixels and frames. Color samples in 10-bit outputs are limited to 64 through 940, and 8-bit outputs are limited to 16 through 235. Note: For limited range inputs, values for color samples are passed through to your output unchanged. MediaConvert does not limit the sample range. To correct pixels in your input that are out of range or out of gamut: Choose Limited range clip. Use for broadcast applications. MediaConvert conforms any pixels outside of the values that you specify under Minimum YUV and Maximum YUV to limited range bounds. MediaConvert also corrects any YUV values that, when converted to RGB, would be outside the bounds you specify under Minimum RGB tolerance and Maximum RGB tolerance. With either limited range conversion, MediaConvert writes the sample range metadata in the output."
       }
     },
     "com.amazonaws.mediaconvert#ScalingBehavior": {
@@ -21631,7 +21325,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead."
+        "smithy.api#documentation": "If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead."
       }
     },
     "com.amazonaws.mediaconvert#SpekeKeyProviderCmaf": {
@@ -21902,11 +21596,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#TeletextDestinationSettings": {
       "type": "structure",
@@ -22081,7 +21781,7 @@
         "Anchor": {
           "target": "com.amazonaws.mediaconvert#__stringPattern010920405090509092",
           "traits": {
-            "smithy.api#documentation": "If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED)  the  first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the  first frame is the timecode value on the first input frame of the input.",
+            "smithy.api#documentation": "If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED) the first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the first frame is the timecode value on the first input frame of the input.",
             "smithy.api#jsonName": "anchor"
           }
         },
@@ -22102,7 +21802,7 @@
         "TimestampOffset": {
           "target": "com.amazonaws.mediaconvert#__stringPattern0940191020191209301",
           "traits": {
-            "smithy.api#documentation": "Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\".  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.",
+            "smithy.api#documentation": "Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.",
             "smithy.api#jsonName": "timestampOffset"
           }
         }
@@ -22340,11 +22040,17 @@
             "smithy.api#jsonName": "tagKeys"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.mediaconvert#UpdateJobTemplate": {
       "type": "operation",
@@ -22451,6 +22157,9 @@
             "smithy.api#jsonName": "statusUpdateInterval"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#UpdateJobTemplateResponse": {
@@ -22463,6 +22172,9 @@
             "smithy.api#jsonName": "jobTemplate"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#UpdatePreset": {
@@ -22534,6 +22246,9 @@
             "smithy.api#jsonName": "settings"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#UpdatePresetResponse": {
@@ -22546,6 +22261,9 @@
             "smithy.api#jsonName": "preset"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#UpdateQueue": {
@@ -22617,6 +22335,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mediaconvert#UpdateQueueResponse": {
@@ -22629,6 +22350,9 @@
             "smithy.api#jsonName": "queue"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mediaconvert#Vc3Class": {
@@ -22764,7 +22488,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max1001",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -22772,7 +22496,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin24Max60000",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -22873,7 +22597,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "The action to take on content advisory XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions."
+        "smithy.api#documentation": "The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions."
       }
     },
     "com.amazonaws.mediaconvert#VideoCodec": {
@@ -22970,7 +22694,7 @@
         "Codec": {
           "target": "com.amazonaws.mediaconvert#VideoCodec",
           "traits": {
-            "smithy.api#documentation": "Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.",
+            "smithy.api#documentation": "Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.",
             "smithy.api#jsonName": "codec"
           }
         },
@@ -23091,7 +22815,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin0Max15",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all  frames of this video output.",
+            "smithy.api#documentation": "Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.",
             "smithy.api#jsonName": "fixedAfd"
           }
         },
@@ -23508,7 +23232,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -23516,7 +23240,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -23715,7 +23439,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateDenominator"
           }
         },
@@ -23723,7 +23447,7 @@
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
+            "smithy.api#documentation": "When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.",
             "smithy.api#jsonName": "framerateNumerator"
           }
         },
@@ -24834,6 +24558,12 @@
         "smithy.api#default": 0
       }
     },
+    "com.amazonaws.mediaconvert#__doubleMinNegative20Max0": {
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
     "com.amazonaws.mediaconvert#__doubleMinNegative59Max0": {
       "type": "double",
       "traits": {
@@ -25077,6 +24807,16 @@
         "smithy.api#range": {
           "min": 0,
           "max": 47185920
+        }
+      }
+    },
+    "com.amazonaws.mediaconvert#__integerMin0Max5": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 5
         }
       }
     },
@@ -25710,6 +25450,26 @@
         }
       }
     },
+    "com.amazonaws.mediaconvert#__integerMin90Max105": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 90,
+          "max": 105
+        }
+      }
+    },
+    "com.amazonaws.mediaconvert#__integerMin920Max1023": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 920,
+          "max": 1023
+        }
+      }
+    },
     "com.amazonaws.mediaconvert#__integerMin96Max600": {
       "type": "integer",
       "traits": {
@@ -25790,13 +25550,13 @@
         }
       }
     },
-    "com.amazonaws.mediaconvert#__integerMinNegative5Max5": {
+    "com.amazonaws.mediaconvert#__integerMinNegative5Max10": {
       "type": "integer",
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
           "min": -5,
-          "max": 5
+          "max": 10
         }
       }
     },
@@ -26411,16 +26171,16 @@
         "smithy.api#pattern": "^s3:\\/\\/.*\\/(ASSETMAP.xml)?$"
       }
     },
-    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSSHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSS": {
+    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCFFLLAAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSSHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAAATTMMOOSS": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA]|[aA][tT][mM][oO][sS]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA]|[aA][tT][mM][oO][sS])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
+        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[fF][lL][aA][cC]|[fF][lL][aA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA]|[aA][tT][mM][oO][sS]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[fF][lL][aA][cC]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA]|[aA][tT][mM][oO][sS])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
       }
     },
-    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPWWEEBBMMMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaA": {
+    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPWWEEBBMMMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCFFLLAAAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVaAFFLLAACCAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEAATTMMOOSSOOGGGGaA": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[wW][eE][bB][mM]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[aA][aA][cC]|[aA][iI][fF][fF]|[mM][pP]2|[aA][cC]3|[eE][cC]3|[dD][tT][sS][eE]|[aA][tT][mM][oO][sS]|[oO][gG][gGaA]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[aA][aA][cC]|[aA][iI][fF][fF]|[mM][pP]2|[aA][cC]3|[eE][cC]3|[dD][tT][sS][eE]|[aA][tT][mM][oO][sS]|[oO][gG][gGaA])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
+        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[wW][eE][bB][mM]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[fF][lL][aA][cC]|[fF][lL][aA]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[aA][aA][cC]|[aA][iI][fF][fF]|[mM][pP]2|[aA][cC]3|[eE][cC]3|[dD][tT][sS][eE]|[aA][tT][mM][oO][sS]|[oO][gG][gGaA]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vVaA]|[fF][lL][aA][cC]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[aA][aA][cC]|[aA][iI][fF][fF]|[mM][pP]2|[aA][cC]3|[eE][cC]3|[dD][tT][sS][eE]|[aA][tT][mM][oO][sS]|[oO][gG][gGaA])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
       }
     },
     "com.amazonaws.mediaconvert#__stringPatternSNManifestConfirmConditionNotificationNS": {

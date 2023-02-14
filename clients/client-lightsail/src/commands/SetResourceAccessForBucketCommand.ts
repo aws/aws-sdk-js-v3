@@ -31,7 +31,6 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
 /**
  * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
  *       bucket.</p>
- *
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
  *         Amazon Web Services Region.</p>
  * @example

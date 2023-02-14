@@ -856,6 +856,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     AbsoluteTime: __expectString(output.AbsoluteTime),
     Attachments:
       output.Attachments != null ? deserializeAws_restJson1Attachments(output.Attachments, context) : undefined,
+    ContactId: __expectString(output.ContactId),
     Content: __expectString(output.Content),
     ContentType: __expectString(output.ContentType),
     DisplayName: __expectString(output.DisplayName),
@@ -866,6 +867,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
         : undefined,
     ParticipantId: __expectString(output.ParticipantId),
     ParticipantRole: __expectString(output.ParticipantRole),
+    RelatedContactId: __expectString(output.RelatedContactId),
     Type: __expectString(output.Type),
   } as any;
 };

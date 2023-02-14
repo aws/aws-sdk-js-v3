@@ -2,9 +2,6 @@
 import {
   ApplianceModeSupportValue,
   CarrierGateway,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
-  CoipCidr,
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
@@ -26,10 +23,14 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  ClientVpnEndpointStatus,
+  ClientVpnRouteStatus,
+  CoipCidr,
   CoipPool,
   GatewayType,
   Ipam,
   IpamPool,
+  IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
@@ -37,12 +38,476 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  SnapshotState,
+  RouteTableAssociation,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a virtual private gateway propagating route.</p>
+ */
+export interface PropagatingVgw {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  GatewayId?: string;
+}
+
+export enum RouteOrigin {
+  CreateRoute = "CreateRoute",
+  CreateRouteTable = "CreateRouteTable",
+  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
+}
+
+export enum RouteState {
+  active = "active",
+  blackhole = "blackhole",
+}
+
+/**
+ * <p>Describes a route in a route table.</p>
+ */
+export interface Route {
+  /**
+   * <p>The IPv4 CIDR block used for the destination match.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The prefix of the Amazon Web Service.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>The ID of the egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of a gateway attached to your VPC.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of Amazon Web Services account that owns the instance.</p>
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>Describes how the route was created.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
+   *             </li>
+   *          </ul>
+   */
+  Origin?: RouteOrigin | string;
+
+  /**
+   * <p>The state of the route. The <code>blackhole</code> state indicates that the
+   * 				route's target isn't available (for example, the specified gateway isn't attached to the
+   * 				VPC, or the specified NAT instance has been terminated).</p>
+   */
+  State?: RouteState | string;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+}
+
+/**
+ * <p>Describes a route table.</p>
+ */
+export interface RouteTable {
+  /**
+   * <p>The associations between the route table and one or more subnets or a gateway.</p>
+   */
+  Associations?: RouteTableAssociation[];
+
+  /**
+   * <p>Any virtual private gateway (VGW) propagating routes.</p>
+   */
+  PropagatingVgws?: PropagatingVgw[];
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>The routes in the route table.</p>
+   */
+  Routes?: Route[];
+
+  /**
+   * <p>Any tags assigned to the route table.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
+   */
+  OwnerId?: string;
+}
+
+export interface CreateRouteTableResult {
+  /**
+   * <p>Information about the route table.</p>
+   */
+  RouteTable?: RouteTable;
+}
+
+export interface CreateSecurityGroupRequest {
+  /**
+   * <p>A description for the security group. This is informational only.</p>
+   *          <p>Constraints: Up to 255 characters in length</p>
+   *          <p>Constraints for EC2-Classic: ASCII characters</p>
+   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The name of the security group.</p>
+   *          <p>Constraints: Up to 255 characters in length. Cannot start with
+   *             <code>sg-</code>.</p>
+   *          <p>Constraints for EC2-Classic: ASCII characters</p>
+   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The tags to assign to the security group.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateSecurityGroupResult {
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The tags assigned to the security group.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateSnapshotRequest {
+  /**
+   * <p>A description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local
+   *   	snapshot.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot
+   *   				is created in the same Region as the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot in the
+   *   				Region, omit this parameter. The snapshot is created in the Region for the
+   *   				Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot on an
+   *   			Outpost, specify the ARN of the destination Outpost. The snapshot must be created on
+   *   			the same Outpost as the volume.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the Amazon EBS volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the snapshot during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum SnapshotState {
+  completed = "completed",
+  error = "error",
+  pending = "pending",
+  recoverable = "recoverable",
+  recovering = "recovering",
+}
+
+export enum StorageTier {
+  archive = "archive",
+  standard = "standard",
+}
+
+/**
+ * <p>Describes a snapshot.</p>
+ */
+export interface Snapshot {
+  /**
+   * <p>The data encryption key identifier for the snapshot. This value is a unique identifier
+   *       that corresponds to the data encryption key that was used to encrypt the original volume or
+   *       snapshot copy. Because data encryption keys are inherited by volumes created from snapshots,
+   *       and vice versa, if snapshots share the same data encryption key identifier, then they belong
+   *       to the same volume/snapshot lineage. This parameter is only returned by <a>DescribeSnapshots</a>.</p>
+   */
+  DataEncryptionKeyId?: string;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
+   *       volume encryption key for the parent volume.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The progress of the snapshot, as a percentage.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
+   *       created.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The time stamp when the snapshot was initiated.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The snapshot state.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
+   *       (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error
+   *       state details to help you diagnose why the error occurred. This parameter is only returned by
+   *       <a>DescribeSnapshots</a>.</p>
+   */
+  StateMessage?: string;
+
+  /**
+   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
+   *       purpose.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
+   *       the user-configured Amazon Web Services account alias set using the IAM console.</p>
+   */
+  OwnerAlias?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Any tags assigned to the snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
+   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
+   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
+   *       it must be restored before it can be used.</p>
+   */
+  StorageTier?: StorageTier | string;
+
+  /**
+   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
+   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
+   */
+  RestoreExpiryTime?: Date;
+}
+
+export enum CopyTagsFromSource {
+  volume = "volume",
+}
+
+/**
+ * <p>The instance details to specify which volumes should be snapshotted.</p>
+ */
+export interface InstanceSpecification {
+  /**
+   * <p>The instance to specify which volumes should be snapshotted.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Excludes the root volume from being snapshotted.</p>
+   */
+  ExcludeBootVolume?: boolean;
+
+  /**
+   * <p>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set.
+   *       If you specify the ID of the root volume, the request fails. To exclude the root volume,
+   *       use <b>ExcludeBootVolume</b>.</p>
+   *          <p>You can specify up to 40 volume IDs per request.</p>
+   */
+  ExcludeDataVolumeIds?: string[];
+}
+
+export interface CreateSnapshotsRequest {
+  /**
+   * <p> A description propagated to every snapshot specified by the instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The instance to specify which volumes should be included in the snapshots.</p>
+   */
+  InstanceSpecification: InstanceSpecification | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local
+   *   		snapshots.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To create snapshots from an instance in a Region, omit this parameter. The
+   *   				snapshots are created in the same Region as the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
+   *   				in the Region, omit this parameter. The snapshots are created in the Region
+   *   				for the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
+   *   				on an Outpost, specify the ARN of the destination Outpost. The snapshots must
+   *   				be created on the same Outpost as the instance.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
+   *   		Create multi-volume local snapshots from instances on an Outpost</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Tags to apply to every snapshot specified by the instance.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Copies the tags from the specified volume to corresponding snapshot.</p>
+   */
+  CopyTagsFromSource?: CopyTagsFromSource | string;
+}
 
 /**
  * <p>Information about a snapshot.</p>
@@ -2798,6 +3263,9 @@ export interface CreateVolumeRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p>
+   *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Default: <code>gp2</code>
@@ -3052,9 +3520,6 @@ export enum VpcEndpointType {
   Interface = "Interface",
 }
 
-/**
- * <p>Contains the parameters for CreateVpcEndpoint.</p>
- */
 export interface CreateVpcEndpointRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3070,13 +3535,12 @@ export interface CreateVpcEndpointRequest {
   VpcEndpointType?: VpcEndpointType | string;
 
   /**
-   * <p>The ID of the VPC in which the endpoint will be used.</p>
+   * <p>The ID of the VPC for the endpoint.</p>
    */
   VpcId: string | undefined;
 
   /**
-   * <p>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a> request, or get the name from the service
-   *             provider.</p>
+   * <p>The service name.</p>
    */
   ServiceName: string | undefined;
 
@@ -3088,19 +3552,20 @@ export interface CreateVpcEndpointRequest {
   PolicyDocument?: string;
 
   /**
-   * <p>(Gateway endpoint) One or more route table IDs.</p>
+   * <p>(Gateway endpoint) The route table IDs.</p>
    */
   RouteTableIds?: string[];
 
   /**
-   * <p>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create an endpoint
-   *             network interface. For a Gateway Load Balancer endpoint, you can specify one subnet only.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint
+   *             network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
    */
   SubnetIds?: string[];
 
   /**
-   * <p>(Interface endpoint) The ID of one or more security groups to associate with the
-   *             endpoint network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to associate with the
+   *             endpoint network interface. If this parameter is not specified, we use the default
+   *             security group for the VPC.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -3245,7 +3710,7 @@ export interface VpcEndpoint {
   PolicyDocument?: string;
 
   /**
-   * <p>(Gateway endpoint) One or more route tables associated with the endpoint.</p>
+   * <p>(Gateway endpoint) The IDs of the route tables associated with the endpoint.</p>
    */
   RouteTableIds?: string[];
 
@@ -3281,7 +3746,7 @@ export interface VpcEndpoint {
   RequesterManaged?: boolean;
 
   /**
-   * <p>(Interface endpoint) One or more network interfaces for the endpoint.</p>
+   * <p>(Interface endpoint) The network interfaces for the endpoint.</p>
    */
   NetworkInterfaceIds?: string[];
 
@@ -3296,7 +3761,7 @@ export interface VpcEndpoint {
   CreationTimestamp?: Date;
 
   /**
-   * <p>Any tags assigned to the endpoint.</p>
+   * <p>The tags assigned to the endpoint.</p>
    */
   Tags?: Tag[];
 
@@ -3311,9 +3776,6 @@ export interface VpcEndpoint {
   LastError?: LastError;
 }
 
-/**
- * <p>Contains the output of CreateVpcEndpoint.</p>
- */
 export interface CreateVpcEndpointResult {
   /**
    * <p>Information about the endpoint.</p>
@@ -3351,7 +3813,7 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
   ConnectionNotificationArn: string | undefined;
 
   /**
-   * <p>One or more endpoint events for which to receive notifications. Valid values are
+   * <p>The endpoint events for which to receive notifications. Valid values are
    *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
    *                 <code>Reject</code>.</p>
    */
@@ -3449,13 +3911,12 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
   PrivateDnsName?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
-   *             service.</p>
+   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers.</p>
    */
   NetworkLoadBalancerArns?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers.</p>
    */
   GatewayLoadBalancerArns?: string[];
 
@@ -3620,7 +4081,7 @@ export interface ServiceConfiguration {
   PayerResponsibility?: PayerResponsibility | string;
 
   /**
-   * <p>Any tags assigned to the service.</p>
+   * <p>The tags assigned to the service.</p>
    */
   Tags?: Tag[];
 }
@@ -3662,7 +4123,7 @@ export interface CreateVpcPeeringConnectionRequest {
    * <p>The ID of the requester VPC. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcId?: string;
+  VpcId: string | undefined;
 
   /**
    * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
@@ -5129,6 +5590,27 @@ export interface DeleteIpamPoolResult {
   IpamPool?: IpamPool;
 }
 
+export interface DeleteIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IPAM resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+}
+
+export interface DeleteIpamResourceDiscoveryResult {
+  /**
+   * <p>The IPAM resource discovery.</p>
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery;
+}
+
 export interface DeleteIpamScopeRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5315,7 +5797,7 @@ export interface DeleteLocalGatewayRouteRequest {
   /**
    * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
    */
-  DestinationCidrBlock: string | undefined;
+  DestinationCidrBlock?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -5328,6 +5810,14 @@ export interface DeleteLocalGatewayRouteRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>
+   *          Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use
+   *          <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
 }
 
 export interface DeleteLocalGatewayRouteResult {
@@ -5941,197 +6431,75 @@ export interface DeleteTrafficMirrorSessionResult {
   TrafficMirrorSessionId?: string;
 }
 
-export interface DeleteTrafficMirrorTargetRequest {
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId: string | undefined;
+/**
+ * @internal
+ */
+export const PropagatingVgwFilterSensitiveLog = (obj: PropagatingVgw): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const RouteFilterSensitiveLog = (obj: Route): any => ({
+  ...obj,
+});
 
-export interface DeleteTrafficMirrorTargetResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId?: string;
-}
+/**
+ * @internal
+ */
+export const RouteTableFilterSensitiveLog = (obj: RouteTable): any => ({
+  ...obj,
+});
 
-export interface DeleteTransitGatewayRequest {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId: string | undefined;
+/**
+ * @internal
+ */
+export const CreateRouteTableResultFilterSensitiveLog = (obj: CreateRouteTableResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateSecurityGroupRequestFilterSensitiveLog = (obj: CreateSecurityGroupRequest): any => ({
+  ...obj,
+});
 
-export interface DeleteTransitGatewayResult {
-  /**
-   * <p>Information about the deleted transit gateway.</p>
-   */
-  TransitGateway?: TransitGateway;
-}
+/**
+ * @internal
+ */
+export const CreateSecurityGroupResultFilterSensitiveLog = (obj: CreateSecurityGroupResult): any => ({
+  ...obj,
+});
 
-export interface DeleteTransitGatewayConnectRequest {
-  /**
-   * <p>The ID of the Connect attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
+/**
+ * @internal
+ */
+export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
 
-export interface DeleteTransitGatewayConnectResult {
-  /**
-   * <p>Information about the deleted Connect attachment.</p>
-   */
-  TransitGatewayConnect?: TransitGatewayConnect;
-}
+/**
+ * @internal
+ */
+export const InstanceSpecificationFilterSensitiveLog = (obj: InstanceSpecification): any => ({
+  ...obj,
+});
 
-export interface DeleteTransitGatewayConnectPeerRequest {
-  /**
-   * <p>The ID of the Connect peer.</p>
-   */
-  TransitGatewayConnectPeerId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayConnectPeerResult {
-  /**
-   * <p>Information about the deleted Connect peer.</p>
-   */
-  TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
-}
-
-export interface DeleteTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the deleted transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain;
-}
-
-export interface DeleteTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayPeeringAttachmentResult {
-  /**
-   * <p>The transit gateway peering attachment.</p>
-   */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
-}
-
-export interface DeleteTransitGatewayPolicyTableRequest {
-  /**
-   * <p>The transit gateway policy table to delete.</p>
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayPolicyTableResult {
-  /**
-   * <p>Provides details about the deleted transit gateway policy table.</p>
-   */
-  TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
-}
-
-export interface DeleteTransitGatewayPrefixListReferenceRequest {
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayPrefixListReferenceResult {
-  /**
-   * <p>Information about the deleted prefix list reference.</p>
-   */
-  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
-}
-
-export interface DeleteTransitGatewayRouteRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateSnapshotsRequestFilterSensitiveLog = (obj: CreateSnapshotsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7458,6 +7826,20 @@ export const DeleteIpamPoolResultFilterSensitiveLog = (obj: DeleteIpamPoolResult
 /**
  * @internal
  */
+export const DeleteIpamResourceDiscoveryRequestFilterSensitiveLog = (obj: DeleteIpamResourceDiscoveryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIpamResourceDiscoveryResultFilterSensitiveLog = (obj: DeleteIpamResourceDiscoveryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteIpamScopeRequestFilterSensitiveLog = (obj: DeleteIpamScopeRequest): any => ({
   ...obj,
 });
@@ -7900,144 +8282,5 @@ export const DeleteTrafficMirrorSessionRequestFilterSensitiveLog = (obj: DeleteT
  * @internal
  */
 export const DeleteTrafficMirrorSessionResultFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorTargetRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorTargetResultFilterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayResultFilterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayConnectRequestFilterSensitiveLog = (obj: DeleteTransitGatewayConnectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayConnectResultFilterSensitiveLog = (obj: DeleteTransitGatewayConnectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayConnectPeerRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayConnectPeerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayConnectPeerResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayConnectPeerResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayMulticastDomainRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayMulticastDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayMulticastDomainResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayMulticastDomainResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPeeringAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPeeringAttachmentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPolicyTableRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPolicyTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPolicyTableResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPolicyTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPrefixListReferenceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayPrefixListReferenceResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
   ...obj,
 });

@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -2637,7 +2637,7 @@ const deserializeAws_restJson1Accessor = (output: any, context: __SerdeContext):
     Arn: __expectString(output.Arn),
     BillingToken: __expectString(output.BillingToken),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
@@ -2648,7 +2648,7 @@ const deserializeAws_restJson1AccessorSummary = (output: any, context: __SerdeCo
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
@@ -2682,9 +2682,11 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     ExpirationDate:
-      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
+      output.ExpirationDate != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
+        : undefined,
     InvitationId: __expectString(output.InvitationId),
     NetworkSummary:
       output.NetworkSummary != null
@@ -2741,7 +2743,7 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     FrameworkAttributes:
       output.FrameworkAttributes != null
@@ -2804,7 +2806,7 @@ const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     IsOwned: __expectBoolean(output.IsOwned),
@@ -2829,7 +2831,7 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkAttributes:
@@ -2881,7 +2883,7 @@ const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeCon
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkVersion: __expectString(output.FrameworkVersion),
@@ -2908,7 +2910,7 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     FrameworkAttributes:
       output.FrameworkAttributes != null
         ? deserializeAws_restJson1NodeFrameworkAttributes(output.FrameworkAttributes, context)
@@ -2986,7 +2988,7 @@ const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContex
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     InstanceType: __expectString(output.InstanceType),
     Status: __expectString(output.Status),
@@ -3020,10 +3022,12 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
     Actions: output.Actions != null ? deserializeAws_restJson1ProposalActions(output.Actions, context) : undefined,
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
-      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
+      output.ExpirationDate != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
+        : undefined,
     NetworkId: __expectString(output.NetworkId),
     NoVoteCount: __expectInt32(output.NoVoteCount),
     OutstandingVoteCount: __expectInt32(output.OutstandingVoteCount),
@@ -3048,10 +3052,12 @@ const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeCo
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
-      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
+      output.ExpirationDate != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
+        : undefined,
     ProposalId: __expectString(output.ProposalId),
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),

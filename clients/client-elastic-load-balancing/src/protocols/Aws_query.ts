@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   throwDefaultError,
@@ -4237,7 +4237,7 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
     );
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
   }
   if (output["Scheme"] !== undefined) {
     contents.Scheme = __expectString(output["Scheme"]);
@@ -4775,7 +4775,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

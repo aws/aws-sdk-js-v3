@@ -30,9 +30,7 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
 
 /**
  * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
- *
  *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
- *
  *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example

@@ -5,8 +5,14 @@ import {
   ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
+  AppDetails,
+  AppImageConfigDetails,
+  AppImageConfigSortKey,
   AppSecurityGroupManagement,
+  AppSortKey,
   AppSpecification,
+  ArtifactSummary,
+  AssociationEdgeType,
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStatus,
@@ -31,9 +37,7 @@ import {
   ContainerDefinition,
   ContextSummary,
   DefaultSpaceSettings,
-  DeploymentConfig,
   EdgeOutputConfig,
-  FeatureDefinition,
   InferenceSpecification,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -88,7 +92,6 @@ import {
   UiTemplate,
 } from "./models_1";
 import {
-  DesiredWeightAndCapacity,
   Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
@@ -180,6 +183,255 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListAliasesResponse {
+  /**
+   * <p>A list of SageMaker image version aliases.</p>
+   */
+  SageMakerImageVersionAliases?: string[];
+
+  /**
+   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAppImageConfigsRequest {
+  /**
+   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
+   *         10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
+   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: AppImageConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export interface ListAppImageConfigsResponse {
+  /**
+   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of AppImageConfigs and their properties.</p>
+   */
+  AppImageConfigs?: AppImageConfigDetails[];
+}
+
+export interface ListAppsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   */
+  SortBy?: AppSortKey | string;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   */
+  DomainIdEquals?: string;
+
+  /**
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  UserProfileNameEquals?: string;
+
+  /**
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  SpaceNameEquals?: string;
+}
+
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   */
+  Apps?: AppDetails[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export enum SortArtifactsBy {
+  CREATION_TIME = "CreationTime",
+}
+
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   */
+  ArtifactType?: string;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortArtifactsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
+   *         the call returns a token for getting the next set of artifacts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   */
+  ArtifactSummaries?: ArtifactSummary[];
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export enum SortAssociationsBy {
+  CREATION_TIME = "CreationTime",
+  DESTINATION_ARN = "DestinationArn",
+  DESTINATION_TYPE = "DestinationType",
+  SOURCE_ARN = "SourceArn",
+  SOURCE_TYPE = "SourceType",
+}
+
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   */
+  DestinationArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   */
+  DestinationType?: string;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   */
+  AssociationType?: AssociationEdgeType | string;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortAssociationsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
+   *         the call returns a token for getting the next set of associations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListAssociationsResponse {
   /**
@@ -8241,164 +8493,68 @@ export interface UpdateDomainRequest {
   /**
    * <p>The entity that creates and manages the required security groups for inter-app
    *             communication in <code>VPCOnly</code> mode. Required when
-   *             <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *             <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 }
 
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   */
-  DomainArn?: string;
-}
-
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>Specifies a production variant property type for an Endpoint.</p>
- *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
- *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
- *             existing variant properties of the endpoint.</p>
+ * @internal
  */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
-   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
-   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
-   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
-   *             </li>
-   *          </ul>
-   */
-  VariantPropertyType: VariantPropertyType | string | undefined;
-}
+export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
+  ...obj,
+});
 
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   */
-  EndpointName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAppImageConfigsResponseFilterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
-   *             retain the variant properties of an endpoint when updating it, set
-   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
-   *             properties specified in a new <code>EndpointConfig</code> call when updating an
-   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
-   *             is <code>false</code>.</p>
-   */
-  RetainAllVariantProperties?: boolean;
+/**
+ * @internal
+ */
+export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
-   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
-   *             of type <a>VariantProperty</a> to override with the values provided by
-   *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
-   *         </p>
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[];
+/**
+ * @internal
+ */
+export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment
-   *             strategy and rollback configurations.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
+/**
+ * @internal
+ */
+export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Specifies whether to reuse the last deployment configuration. The default value is
-   *             false (the configuration is not reused).</p>
-   */
-  RetainDeploymentConfig?: boolean;
-}
-
-export interface UpdateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * <p>The name of an existing SageMaker endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>An object that provides new capacity and weight values for a variant.</p>
-   */
-  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export interface UpdateExperimentRequest {
-  /**
-   * <p>The name of the experiment to update.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-}
-
-export interface UpdateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export interface UpdateFeatureGroupRequest {
-  /**
-   * <p>The name of the feature group that you're updating.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When
-   *          you get an HTTP 200 response, you've made a valid request. It takes some time after you've
-   *          made a valid request for Feature Store to update the feature group.</p>
-   */
-  FeatureAdditions?: FeatureDefinition[];
-}
+/**
+ * @internal
+ */
+export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10169,72 +10325,5 @@ export const UpdateDevicesRequestFilterSensitiveLog = (obj: UpdateDevicesRequest
  * @internal
  */
 export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantPropertyFilterSensitiveLog = (obj: VariantProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointInputFilterSensitiveLog = (obj: UpdateEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointOutputFilterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureGroupRequestFilterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
   ...obj,
 });

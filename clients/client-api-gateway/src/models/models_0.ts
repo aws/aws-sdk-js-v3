@@ -622,7 +622,7 @@ export interface CreateDeploymentRequest {
   cacheClusterEnabled?: boolean;
 
   /**
-   * <p>Specifies the cache cluster size for the Stage resource specified in the input, if a cache cluster is enabled.</p>
+   * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
@@ -835,7 +835,11 @@ export interface DocumentationVersion {
   description?: string;
 }
 
-export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
+export enum EndpointType {
+  EDGE = "EDGE",
+  PRIVATE = "PRIVATE",
+  REGIONAL = "REGIONAL",
+}
 
 /**
  * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has. </p>
@@ -873,7 +877,10 @@ export interface MutualTlsAuthenticationInput {
   truststoreVersion?: string;
 }
 
-export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
+export enum SecurityPolicy {
+  TLS_1_0 = "TLS_1_0",
+  TLS_1_2 = "TLS_1_2",
+}
 
 /**
  * <p>A request to create a new domain name.</p>
@@ -1247,7 +1254,6 @@ export interface IntegrationResponse {
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
@@ -1287,8 +1293,7 @@ export enum IntegrationType {
 export interface Integration {
   /**
    * <p>Specifies an API method integration type. The valid value is one of the following:</p>
-   *
-   *         <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>
+   *          <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>
    */
   type?: IntegrationType | string;
 
@@ -1364,7 +1369,6 @@ export interface Integration {
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
@@ -1709,7 +1713,7 @@ export interface CreateStageRequest {
   cacheClusterEnabled?: boolean;
 
   /**
-   * <p>The stage's cache cluster size.</p>
+   * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
@@ -1840,7 +1844,7 @@ export interface Stage {
   cacheClusterEnabled?: boolean;
 
   /**
-   * <p>The size of the cache cluster for the stage, if enabled.</p>
+   * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
@@ -2163,7 +2167,7 @@ export interface DeleteBasePathMappingRequest {
 
   /**
    * <p>The base path name of the BasePathMapping resource to delete.</p>
-   *         <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
+   *          <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    */
   basePath: string | undefined;
 }
@@ -3881,11 +3885,11 @@ export interface ImportRestApiRequest {
 
   /**
    * <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p>
-   *         <p> To exclude DocumentationParts from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p>
+   *          <p> To exclude DocumentationParts from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p>
    *          <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p>
-   *         <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
-   *         <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p>
-   *         <p>The AWS CLI command to set the regional endpoint on the imported API is:</p>
+   *          <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
+   *          <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p>
+   *          <p>The AWS CLI command to set the regional endpoint on the imported API is:</p>
    */
   parameters?: Record<string, string>;
 
@@ -4017,7 +4021,6 @@ export interface PutIntegrationRequest {
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
@@ -4075,7 +4078,6 @@ export interface PutIntegrationResponseRequest {
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
@@ -4408,7 +4410,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
+export enum Op {
+  add = "add",
+  copy = "copy",
+  move = "move",
+  remove = "remove",
+  replace = "replace",
+  test = "test",
+}
 
 /**
  * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
@@ -4506,7 +4515,7 @@ export interface UpdateBasePathMappingRequest {
 
   /**
    * <p>The base path of the BasePathMapping resource to change.</p>
-   *         <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
+   *          <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    */
   basePath: string | undefined;
 

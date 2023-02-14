@@ -1,3 +1,4 @@
+import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
 import { HttpRequest, SourceData } from "@aws-sdk/types";
 
 import {
@@ -49,6 +50,8 @@ const sha256 = function (secret: SourceData) {
 const mockS3Client = {
   config: {
     endpoint: async () => endpoint,
+    endpointProvider: defaultEndpointResolver,
+    forcePathStyle: true,
     systemClockOffset: 0,
     base64Encoder: jest.fn().mockReturnValue("mock_base64_encoded"),
     utf8Decoder: jest.fn().mockReturnValue(Buffer.from("mock_utf8_decoded")),
@@ -78,7 +81,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key,
     });
-    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/bucket"),
+    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/foo/bucket"),
       expect(fields).toEqual({
         bucket: Bucket,
         key: Key,

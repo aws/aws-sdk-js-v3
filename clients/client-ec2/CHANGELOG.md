@@ -3,6 +3,172 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.269.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.268.0...v3.269.0) (2023-02-10)
+
+
+### Features
+
+* **client-ec2:** Adds support for waiters that automatically poll for an imported snapshot until it reaches the completed state. ([f4a09f3](https://github.com/aws/aws-sdk-js-v3/commit/f4a09f3ecaf92fd97252a5aaff706c056f7278bb))
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for EC2. ([3ff7382](https://github.com/aws/aws-sdk-js-v3/commit/3ff7382c23805549032fe911ea4fd3a52cba3ce3))
+
+
+
+
+
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+
+### Features
+
+* **client-ec2:** This launch allows customers to associate up to 8 IP addresses to their NAT Gateways to increase the limit on concurrent connections to a single destination by eight times from 55K to 440K. ([02a5e1a](https://github.com/aws/aws-sdk-js-v3/commit/02a5e1a84c3db2e8599b374e46e98756ca1dbb5e))
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Bug Fixes
+
+* **codegen:** safe access for error code location ([#4367](https://github.com/aws/aws-sdk-js-v3/issues/4367)) ([8991512](https://github.com/aws/aws-sdk-js-v3/commit/899151267fe593bb3cf18917a09108b93cf96fa2))
+
+
+### Features
+
+* **client-ec2:** We add Prefix Lists as a new route destination option for LocalGatewayRoutes. This will allow customers to create routes to Prefix Lists. Prefix List routes will allow customers to group individual CIDR routes with the same target into a single route. ([52a9d0c](https://github.com/aws/aws-sdk-js-v3/commit/52a9d0c3609b4c47bf405e49422887c748970926))
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+
+### Features
+
+* **client-ec2:** This release adds new functionality that allows customers to provision IPv6 CIDR blocks through Amazon VPC IP Address Manager (IPAM) as well as allowing customers to utilize IPAM Resource Discovery APIs. ([8973fbd](https://github.com/aws/aws-sdk-js-v3/commit/8973fbd8b97ea952c3ab2ef7feebdbecd83d3b41))
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.255.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.254.0...v3.255.0) (2023-01-20)
+
+
+### Features
+
+* **client-ec2:** C6in, M6in, M6idn, R6in and R6idn instances are powered by 3rd Generation Intel Xeon Scalable processors (code named Ice Lake) with an all-core turbo frequency of 3.5 GHz. ([2b55e36](https://github.com/aws/aws-sdk-js-v3/commit/2b55e365809f2194fdac6809c5c06609205204fd))
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+* **client-ec2:** Adds SSM Parameter Resource Aliasing support to EC2 Launch Templates. Launch Templates can now store parameter aliases in place of AMI Resource IDs. CreateLaunchTemplateVersion and DescribeLaunchTemplateVersions now support a convenience flag, ResolveAlias, to return the resolved parameter value. ([a165989](https://github.com/aws/aws-sdk-js-v3/commit/a16598929907a89e0c293678c2f2e1c3d7faf865))
+
+
+
+
+
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.251.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.250.0...v3.251.0) (2023-01-13)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for EC2. ([975395f](https://github.com/aws/aws-sdk-js-v3/commit/975395f139e53dd47ac063d0ad950031ddcb6cba))
+
+
+
+
+
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
 # [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
