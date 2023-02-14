@@ -75,6 +75,34 @@ export class HostEntry implements DnsCacheEntry {
   }
 
   /**
+   * Removes expired records from good records (except 1 in case of DNS outages).
+   * In the case that good records are empty, should attempt to promote 1
+   * non-expired failed address to the good records.
+   * Uses {@link processRecordsAddressType} for each {@link HostAddressType}
+   * @see https://github.com/awslabs/aws-c-io/blob/f2ff573c191e1c4ea0248af5c08161356be3bc78/source/host_resolver.c#L475
+   */
+  public processRecords(): void {
+    this.processRecordsAddressType(this.aRecords, this.failedARecords);
+    this.processRecordsAddressType(this.aaaaRecords, this.failedAaaaRecords);
+  }
+
+  /**
+   * Moves the address from good records to failed records
+   * @param address address to move to failed records
+   */
+  public failAddressInRecords(address: HostAddress): void {
+    const successRecords = this.getGoodRecords(address);
+    const failedRecords = this.getFailedRecords(address);
+
+    for (const hostAddressEntry of successRecords) {
+      if (hostAddressEntry.address === address.address) {
+        successRecords.remove(hostAddressEntry);
+        failedRecords.append(hostAddressEntry);
+      }
+    }
+  }
+
+  /**
    * Find the corresponding {@link HostAddressEntry} for a {@link HostAddress} in
    * a {@link HostEntry}'s records, or return undefined.
    * @param address address to search for
@@ -94,18 +122,6 @@ export class HostEntry implements DnsCacheEntry {
       }
     }
     return undefined;
-  }
-
-  /**
-   * Removes expired records from good records (except 1 in case of DNS outages).
-   * In the case that good records are empty, should attempt to promote 1
-   * non-expired failed address to the good records.
-   * Uses {@link processRecordsAddressType} for each {@link HostAddressType}
-   * @see https://github.com/awslabs/aws-c-io/blob/f2ff573c191e1c4ea0248af5c08161356be3bc78/source/host_resolver.c#L475
-   */
-  public processRecords(): void {
-    this.processRecordsAddressType(this.aRecords, this.failedARecords);
-    this.processRecordsAddressType(this.aaaaRecords, this.failedAaaaRecords);
   }
 
   /**
@@ -141,22 +157,6 @@ export class HostEntry implements DnsCacheEntry {
         // Promote
         failedRecords.cycle(successRecords);
         break;
-      }
-    }
-  }
-
-  /**
-   * Moves the address from good records to failed records
-   * @param address address to move to failed records
-   */
-  public failAddressInRecords(address: HostAddress): void {
-    const successRecords = this.getGoodRecords(address);
-    const failedRecords = this.getFailedRecords(address);
-
-    for (const hostAddressEntry of successRecords) {
-      if (hostAddressEntry.address === address.address) {
-        successRecords.remove(hostAddressEntry);
-        failedRecords.append(hostAddressEntry);
       }
     }
   }
