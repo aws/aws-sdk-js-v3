@@ -68,7 +68,7 @@ export class NodeDnsLookupHostResolver implements IHostResolver {
    * @returns DnsCache implementation
    * @internal
    */
-  private static DEFAULT_CACHE_PROVIDER = () => new HostEntryTable();
+  private static createDefaultCacheProvider = () => new HostEntryTable();
 
   /**
    * Default Node.js dns.lookup() function
@@ -94,11 +94,14 @@ export class NodeDnsLookupHostResolver implements IHostResolver {
    */
   private nodeDnsLookup: NodeDnsLookupFn;
 
-  constructor(config?: NodeDnsLookupHostResolverConfig) {
-    this.ttlMs = config?.ttlMs !== undefined ? config.ttlMs : NodeDnsLookupHostResolver.DEFAULT_TTL_MS;
-    this.cache = config?.cache !== undefined ? config.cache : NodeDnsLookupHostResolver.DEFAULT_CACHE_PROVIDER();
-    this.nodeDnsLookup =
-      config?.nodeDnsLookup !== undefined ? config.nodeDnsLookup : NodeDnsLookupHostResolver.DEFAULT_NODE_DNS_LOOKUP;
+  public constructor({
+    ttlMs = NodeDnsLookupHostResolver.DEFAULT_TTL_MS,
+    cache = NodeDnsLookupHostResolver.createDefaultCacheProvider(),
+    nodeDnsLookup = NodeDnsLookupHostResolver.DEFAULT_NODE_DNS_LOOKUP,
+  }: NodeDnsLookupHostResolverConfig = {}) {
+    this.ttlMs = ttlMs;
+    this.cache = cache;
+    this.nodeDnsLookup = nodeDnsLookup;
   }
 
   /**
