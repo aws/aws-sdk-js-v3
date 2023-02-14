@@ -165,19 +165,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -188,12 +179,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -217,6 +202,21 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * Value for how many times a request will be made at most in case of retry.
+   */
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * The function that provides necessary utilities for generating and parsing event stream
