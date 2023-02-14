@@ -7,6 +7,7 @@ import {
   DynamicRoutingValue,
   InstanceEventWindowState,
   Ipv6SupportValue,
+  RouteTableAssociationState,
   Tag,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
@@ -38,12 +39,46 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  RouteTableAssociation,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes an association between a route table and a subnet or gateway.</p>
+ */
+export interface RouteTableAssociation {
+  /**
+   * <p>Indicates whether this is the main route table.</p>
+   */
+  Main?: boolean;
+
+  /**
+   * <p>The ID of the association.</p>
+   */
+  RouteTableAssociationId?: string;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>The ID of the subnet. A subnet ID is not returned for an implicit association.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  AssociationState?: RouteTableAssociationState;
+}
 
 /**
  * <p>Describes a virtual private gateway propagating route.</p>
@@ -6424,12 +6459,12 @@ export interface DeleteTrafficMirrorSessionRequest {
   DryRun?: boolean;
 }
 
-export interface DeleteTrafficMirrorSessionResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId?: string;
-}
+/**
+ * @internal
+ */
+export const RouteTableAssociationFilterSensitiveLog = (obj: RouteTableAssociation): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8275,12 +8310,5 @@ export const DeleteTrafficMirrorFilterRuleResultFilterSensitiveLog = (
  * @internal
  */
 export const DeleteTrafficMirrorSessionRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorSessionResultFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
   ...obj,
 });

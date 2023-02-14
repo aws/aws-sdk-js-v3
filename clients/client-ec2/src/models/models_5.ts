@@ -88,9 +88,24 @@ import {
   ArchitectureType,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
   VolumeStatusEvent,
+  VolumeStatusName,
 } from "./models_4";
+
+/**
+ * <p>Describes a volume status.</p>
+ */
+export interface VolumeStatusDetails {
+  /**
+   * <p>The name of the volume status.</p>
+   */
+  Name?: VolumeStatusName | string;
+
+  /**
+   * <p>The intended status of the volume status.</p>
+   */
+  Status?: string;
+}
 
 export enum VolumeStatusInfoStatus {
   impaired = "impaired",
@@ -6794,10 +6809,12 @@ export interface ModifyAddressAttributeResult {
   Address?: AddressAttribute;
 }
 
-export enum ModifyAvailabilityZoneOptInStatus {
-  not_opted_in = "not-opted-in",
-  opted_in = "opted-in",
-}
+/**
+ * @internal
+ */
+export const VolumeStatusDetailsFilterSensitiveLog = (obj: VolumeStatusDetails): any => ({
+  ...obj,
+});
 
 /**
  * @internal

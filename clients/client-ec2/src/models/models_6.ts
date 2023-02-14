@@ -20,6 +20,7 @@ import {
   DnsSupportValue,
   EnaSrdSpecification,
   EndDateType,
+  HostMaintenance,
   HostRecovery,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -28,7 +29,6 @@ import {
   Ipv6SupportValue,
   PortRange,
   RouteTableAssociationState,
-  SelfServicePortal,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
@@ -63,6 +63,7 @@ import {
   Placement,
   RequestIpamResourceTag,
   RuleAction,
+  SelfServicePortal,
   ShutdownBehavior,
   SpotInstanceType,
   TargetCapacitySpecificationRequest,
@@ -148,10 +149,14 @@ import {
 import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
-  ModifyAvailabilityZoneOptInStatus,
   Purchase,
   UnlimitedSupportedInstanceFamily,
 } from "./models_5";
+
+export enum ModifyAvailabilityZoneOptInStatus {
+  not_opted_in = "not-opted-in",
+  opted_in = "opted-in",
+}
 
 export interface ModifyAvailabilityZoneGroupRequest {
   /**
@@ -669,6 +674,13 @@ export interface ModifyHostsRequest {
    *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
   InstanceFamily?: string;
+
+  /**
+   * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
+   *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  HostMaintenance?: HostMaintenance | string;
 }
 
 export interface ModifyHostsResult {
@@ -7532,23 +7544,6 @@ export interface TerminateInstancesResult {
   TerminatingInstances?: InstanceStateChange[];
 }
 
-export interface UnassignIpv6AddressesRequest {
-  /**
-   * <p>The IPv6 addresses to unassign from the network interface.</p>
-   */
-  Ipv6Addresses?: string[];
-
-  /**
-   * <p>The IPv6 prefixes to unassign from the network interface.</p>
-   */
-  Ipv6Prefixes?: string[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
 /**
  * @internal
  */
@@ -9752,12 +9747,5 @@ export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstan
  * @internal
  */
 export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignIpv6AddressesRequestFilterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
   ...obj,
 });

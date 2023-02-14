@@ -2264,6 +2264,11 @@ export enum AutoPlacement {
   on = "on",
 }
 
+export enum HostMaintenance {
+  off = "off",
+  on = "on",
+}
+
 export enum HostRecovery {
   off = "off",
   on = "on",
@@ -2335,6 +2340,15 @@ export interface AllocateHostsRequest {
    *             the Dedicated Host.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
+   *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>on</code>
+   *          </p>
+   */
+  HostMaintenance?: HostMaintenance | string;
 }
 
 /**
@@ -7345,11 +7359,6 @@ export interface ConnectionLogOptions {
    * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
    */
   CloudwatchLogStream?: string;
-}
-
-export enum SelfServicePortal {
-  disabled = "disabled",
-  enabled = "enabled",
 }
 
 /**
