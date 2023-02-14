@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* **protocol-http:** export field types ([#4432](https://github.com/aws/aws-sdk-js-v3/issues/4432)) ([b8320f4](https://github.com/aws/aws-sdk-js-v3/commit/b8320f4efaab6d306b3fbe36399e11de6bb7d280))
+
+
+
+
+
 # [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
 
 **Note:** Version bump only for package @aws-sdk/protocol-http

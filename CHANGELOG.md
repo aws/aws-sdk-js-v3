@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* **protocol-http:** export field types ([#4432](https://github.com/aws/aws-sdk-js-v3/issues/4432)) ([b8320f4](https://github.com/aws/aws-sdk-js-v3/commit/b8320f4efaab6d306b3fbe36399e11de6bb7d280))
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig now offers the option to set a version label on hosted configuration versions. Version labels allow you to identify specific hosted configuration versions based on an alternate versioning scheme that you define. ([1ffdf34](https://github.com/aws/aws-sdk-js-v3/commit/1ffdf3435a0a0141d161fbe2941d14fb45b132fa))
+* **client-datasync:** With this launch, we are giving customers the ability to use older SMB protocol versions, enabling them to use DataSync to copy data to and from their legacy storage arrays. ([125850c](https://github.com/aws/aws-sdk-js-v3/commit/125850c8e87c9027849b9edce499f84cc34a145c))
+* **client-ec2:** With this release customers can turn host maintenance on or off when allocating or modifying a supported dedicated host. Host maintenance is turned on by default for supported hosts. ([62c8b91](https://github.com/aws/aws-sdk-js-v3/commit/62c8b91bc9598ed13801c2643c8b077aca297a6e))
+
+
+
+
+
 # [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
 
 

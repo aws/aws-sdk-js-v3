@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-config-provider",
-  "version": "3.267.0",
+  "version": "3.271.0",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
