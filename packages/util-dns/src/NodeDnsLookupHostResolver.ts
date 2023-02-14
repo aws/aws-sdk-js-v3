@@ -153,30 +153,6 @@ export class NodeDnsLookupHostResolver implements IHostResolver {
   }
 
   /**
-   * Node.js resolveAddress() using the dns.lookup() APIs.
-   * @see https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
-   * @param args arguments with host name query addresses for
-   * @returns promise with a list of {@link HostAddress}
-   */
-  private async nodeDnsLookupResolveAddress(args: HostResolverArguments): Promise<HostAddress[]> {
-    const addresses: HostAddress[] = [];
-    const ipEntries = await this.nodeDnsLookup(args.hostName, DNS_LOOKUP_OPTIONS);
-    for (const { address, family } of ipEntries) {
-      const addressType: HostAddressType | undefined = NODE_DNS_FAMILY_TO_HOST_ADDRESS_TYPE[family];
-      if (addressType === undefined) {
-        throw new Error(`dns.lookup() Node DNS family \`${family}\` is not supported`);
-      }
-      addresses.push({
-        addressType,
-        address,
-        hostName: args.hostName,
-        service: args.service,
-      });
-    }
-    return addresses;
-  }
-
-  /**
    * Reports a failure on a {@link HostAddress} so that the cache can
    * accomodate the failure and likely not return the address until it recovers.
    * @param addr host address to report a failure on
@@ -201,5 +177,29 @@ export class NodeDnsLookupHostResolver implements IHostResolver {
     } else {
       this.cache.clear();
     }
+  }
+
+  /**
+   * Node.js resolveAddress() using the dns.lookup() APIs.
+   * @see https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
+   * @param args arguments with host name query addresses for
+   * @returns promise with a list of {@link HostAddress}
+   */
+  private async nodeDnsLookupResolveAddress(args: HostResolverArguments): Promise<HostAddress[]> {
+    const addresses: HostAddress[] = [];
+    const ipEntries = await this.nodeDnsLookup(args.hostName, DNS_LOOKUP_OPTIONS);
+    for (const { address, family } of ipEntries) {
+      const addressType: HostAddressType | undefined = NODE_DNS_FAMILY_TO_HOST_ADDRESS_TYPE[family];
+      if (addressType === undefined) {
+        throw new Error(`dns.lookup() Node DNS family \`${family}\` is not supported`);
+      }
+      addresses.push({
+        addressType,
+        address,
+        hostName: args.hostName,
+        service: args.service,
+      });
+    }
+    return addresses;
   }
 }
