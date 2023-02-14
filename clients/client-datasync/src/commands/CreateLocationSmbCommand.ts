@@ -29,8 +29,7 @@ export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest 
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
- *       written to.</p>
+ * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
