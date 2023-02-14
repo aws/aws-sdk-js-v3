@@ -1,13 +1,13 @@
 import { HostAddress, HostAddressType } from "@aws-sdk/types";
 
 import { DnsCacheEntry, DnsCacheHostAddressEntry } from "../DnsCache";
-import { LinkedList, LinkedListNode } from "./LinkedList";
+import { HostAddressEntryCollection } from "./HostAddressEntryCollection";
 
 /**
  * Interface used in {@link HostEntry} records
  * @internal
  */
-export interface HostAddressEntry extends DnsCacheHostAddressEntry, LinkedListNode<HostAddressEntry> {}
+export interface HostAddressEntry extends DnsCacheHostAddressEntry {}
 
 /**
  * {@link DnsCacheEntry} implementation that uses {@link LinkedList} for
@@ -18,29 +18,29 @@ export class HostEntry implements DnsCacheEntry {
   /**
    * {@link LinkedList} of good IPv6 records for an address
    */
-  aaaaRecords: LinkedList<HostAddressEntry>;
+  aaaaRecords: HostAddressEntryCollection;
   /**
    * {@link LinkedList} of good IPv4 records for an address
    */
-  aRecords: LinkedList<HostAddressEntry>;
+  aRecords: HostAddressEntryCollection;
   /**
    * {@link LinkedList} of failed IPv6 records for an address
    */
-  failedAaaaRecords: LinkedList<HostAddressEntry>;
+  failedAaaaRecords: HostAddressEntryCollection;
   /**
    * {@link LinkedList} of failed IPv4 records for an address
    */
-  failedARecords: LinkedList<HostAddressEntry>;
+  failedARecords: HostAddressEntryCollection;
   /**
    * Timestamp for when to next process the entry
    */
   nextTimestampToUpdateMs: number;
 
   constructor(nextTimestampToProcessMs: number) {
-    this.aaaaRecords = new LinkedList<HostAddressEntry>();
-    this.aRecords = new LinkedList<HostAddressEntry>();
-    this.failedAaaaRecords = new LinkedList<HostAddressEntry>();
-    this.failedARecords = new LinkedList<HostAddressEntry>();
+    this.aaaaRecords = new HostAddressEntryCollection();
+    this.aRecords = new HostAddressEntryCollection();
+    this.failedAaaaRecords = new HostAddressEntryCollection();
+    this.failedARecords = new HostAddressEntryCollection();
     this.nextTimestampToUpdateMs = nextTimestampToProcessMs;
   }
 
@@ -55,6 +55,7 @@ export class HostEntry implements DnsCacheEntry {
    */
   public updateRecords(addresses: HostAddress[], expirationTtlMs: number) {
     this.nextTimestampToUpdateMs = expirationTtlMs;
+    const addressesToAppend: HostAddress[] = [];
     for (const freshAddress of addresses) {
       const hostAddressEntry = this.findAddress(freshAddress);
       // If address already exists, update the expiration TTL
@@ -63,12 +64,17 @@ export class HostEntry implements DnsCacheEntry {
         continue;
       }
       // If address doesn't exist, add the address to the good records
-      const successRecords = this.getGoodRecords(freshAddress);
+      addressesToAppend.push(freshAddress);
+    }
+    for (const addressToAppend of addressesToAppend) {
+      const hostAddressEntry = this.findAddress(addressToAppend);
+      if (hostAddressEntry !== undefined) {
+        continue;
+      }
+      const successRecords = this.getGoodRecords(addressToAppend);
       successRecords.append(
-        Object.assign(freshAddress, {
+        Object.assign(addressToAppend, {
           expirationTtlMs,
-          prev: undefined,
-          next: undefined,
         })
       );
     }
@@ -94,11 +100,15 @@ export class HostEntry implements DnsCacheEntry {
     const successRecords = this.getGoodRecords(address);
     const failedRecords = this.getFailedRecords(address);
 
+    const recordsToRemove: HostAddressEntry[] = [];
     for (const hostAddressEntry of successRecords) {
       if (hostAddressEntry.address === address.address) {
-        successRecords.remove(hostAddressEntry);
+        recordsToRemove.push(hostAddressEntry);
         failedRecords.append(hostAddressEntry);
       }
+    }
+    for (const recordToRemove of recordsToRemove) {
+      successRecords.remove(recordToRemove);
     }
   }
 
@@ -132,41 +142,54 @@ export class HostEntry implements DnsCacheEntry {
    * @param failedRecords bad records in cache to update
    */
   private processRecordsAddressType(
-    successRecords: LinkedList<HostAddressEntry>,
-    failedRecords: LinkedList<HostAddressEntry>
+    successRecords: HostAddressEntryCollection,
+    failedRecords: HostAddressEntryCollection
   ) {
     // Remove expired addresses
+    const successRecordsToRemove: HostAddressEntry[] = [];
+    let successIndex = 0;
     for (const hostAddressEntry of successRecords) {
-      // Leave 1 address so we can keep trying in DNS outages
-      if (successRecords.length === 1) {
+      if (successIndex === successRecords.length - 1) {
         break;
       }
-      // Remove expired address
       if (Date.now() >= hostAddressEntry.expirationTtlMs) {
-        successRecords.remove(hostAddressEntry);
+        successRecordsToRemove.push(hostAddressEntry);
       }
+      successIndex++;
     }
+    for (const recordToRemove of successRecordsToRemove) {
+      successRecords.remove(recordToRemove);
+    }
+    const failedRecordsToRemove: HostAddressEntry[] = [];
+    let failedIndex = 0;
     for (const hostAddressEntry of failedRecords) {
-      // Leave 1 address so we can keep trying in DNS outages
-      if (failedRecords.length === 1) {
+      if (failedIndex === failedRecords.length - 1) {
         break;
       }
-      // Remove expired address
       if (Date.now() >= hostAddressEntry.expirationTtlMs) {
-        failedRecords.remove(hostAddressEntry);
+        failedRecordsToRemove.push(hostAddressEntry);
       }
+      failedIndex++;
+    }
+    for (const recordToRemove of failedRecordsToRemove) {
+      failedRecords.remove(recordToRemove);
     }
 
     // If success records are empty, try promoting one failed record
     if (successRecords.length === 0) {
+      let hostAddressEntryToPromote: HostAddressEntry | undefined = undefined;
       for (const hostAddressEntry of failedRecords) {
         // If failed record is expired, don't promote
         if (Date.now() >= hostAddressEntry.expirationTtlMs) {
           continue;
         }
-        // Promote
-        failedRecords.cycle(successRecords);
+        // Promote the current hostEntry
+        hostAddressEntryToPromote = hostAddressEntry;
         break;
+      }
+      if (hostAddressEntryToPromote !== undefined) {
+        failedRecords.remove(hostAddressEntryToPromote);
+        successRecords.append(hostAddressEntryToPromote);
       }
     }
   }
@@ -176,7 +199,7 @@ export class HostEntry implements DnsCacheEntry {
    * @param address address used to get the {@link HostAddressType}
    * @returns good records for an address
    */
-  private getGoodRecords(address: HostAddress): LinkedList<HostAddressEntry> {
+  private getGoodRecords(address: HostAddress): HostAddressEntryCollection {
     return address.addressType === HostAddressType.AAAA ? this.aaaaRecords : this.aRecords;
   }
 
@@ -185,7 +208,7 @@ export class HostEntry implements DnsCacheEntry {
    * @param address address used to get the {@link HostAddressType}
    * @returns failed records for an address
    */
-  private getFailedRecords(address: HostAddress): LinkedList<HostAddressEntry> {
+  private getFailedRecords(address: HostAddress): HostAddressEntryCollection {
     return address.addressType === HostAddressType.AAAA ? this.failedAaaaRecords : this.failedARecords;
   }
 }

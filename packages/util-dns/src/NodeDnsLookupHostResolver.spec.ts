@@ -267,7 +267,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
         args = TEST_HOST_RESOLVER_ARGUMENTS,
         expectedCacheSize = 1,
         expectedIpV4Address,
-        expectedIpV6Address: expecteIpV6Address,
+        expectedIpV6Address,
         expectedNextIpV4Address,
         expectedNextIpV6Address,
         expectedIpV4Size,
@@ -288,10 +288,10 @@ describe(NodeDnsLookupHostResolver.name, () => {
       expect(hostAddressIpV4.addressType).toBe(expectedIpV4Address.addressType);
       expect(hostAddressIpV4.addressType === HostAddressType.A).toBe(true);
       // IPv6
-      expect(hostAddressIpV6.hostName).toBe(expecteIpV6Address.hostName);
-      expect(hostAddressIpV6.service).toBe(expecteIpV6Address.service);
-      expect(hostAddressIpV6.address).toBe(expecteIpV6Address.address);
-      expect(hostAddressIpV6.addressType).toBe(expecteIpV6Address.addressType);
+      expect(hostAddressIpV6.hostName).toBe(expectedIpV6Address.hostName);
+      expect(hostAddressIpV6.service).toBe(expectedIpV6Address.service);
+      expect(hostAddressIpV6.address).toBe(expectedIpV6Address.address);
+      expect(hostAddressIpV6.addressType).toBe(expectedIpV6Address.addressType);
       expect(hostAddressIpV6.addressType === HostAddressType.AAAA).toBe(true);
 
       // Assert cache
@@ -300,12 +300,16 @@ describe(NodeDnsLookupHostResolver.name, () => {
       expect(hostEntryResolveAddress).toBeDefined();
       // Next IPv4
       expect(hostEntryResolveAddress?.aRecords.length === expectedIpV4Size);
-      expect(hostEntryResolveAddress?.aRecords.head?.address).toBe(expectedNextIpV4Address.address);
-      expect(hostEntryResolveAddress?.aRecords.tail?.address).toBe(expectedIpV4Address.address);
+      expect(hostEntryResolveAddress?.aRecords.data[0].address).toBe(expectedNextIpV4Address.address);
+      expect(hostEntryResolveAddress?.aRecords.data[hostEntryResolveAddress?.aRecords.data.length - 1].address).toBe(
+        expectedIpV4Address.address
+      );
       // Next IPv6
       expect(hostEntryResolveAddress?.aaaaRecords.length === expectedIpV6Size);
-      expect(hostEntryResolveAddress?.aaaaRecords.head?.address).toBe(expectedNextIpV6Address.address);
-      expect(hostEntryResolveAddress?.aaaaRecords.tail?.address).toBe(expecteIpV6Address.address);
+      expect(hostEntryResolveAddress?.aaaaRecords.data[0].address).toBe(expectedNextIpV6Address.address);
+      expect(
+        hostEntryResolveAddress?.aaaaRecords.data[hostEntryResolveAddress?.aaaaRecords.data.length - 1].address
+      ).toBe(expectedIpV6Address.address);
       // Failed IPv4
       expect(hostEntryResolveAddress?.failedARecords.length === expectedFailedIpV4Size);
       // Failed IPv6
@@ -632,7 +636,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
       expect(hostEntryPostReportFailure.aaaaRecords.length === 0);
       expect(hostEntryPostReportFailure.failedARecords.length === 0);
       expect(hostEntryPostReportFailure.failedAaaaRecords.length === 1);
-      expect(hostEntryPostReportFailure.failedAaaaRecords.head).toMatchObject(TEST_AAAA_HOST_ADDRESS_0);
+      expect(hostEntryPostReportFailure.failedAaaaRecords.data[0]).toMatchObject(TEST_AAAA_HOST_ADDRESS_0);
     });
   });
 
