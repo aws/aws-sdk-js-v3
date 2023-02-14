@@ -146,6 +146,16 @@ export class HostEntry implements DnsCacheEntry {
         successRecords.remove(hostAddressEntry);
       }
     }
+    for (const hostAddressEntry of failedRecords) {
+      // Leave 1 address so we can keep trying in DNS outages
+      if (failedRecords.length === 1) {
+        break;
+      }
+      // Remove expired address
+      if (Date.now() >= hostAddressEntry.expirationTtlMs) {
+        failedRecords.remove(hostAddressEntry);
+      }
+    }
 
     // If success records are empty, try promoting one failed record
     if (successRecords.length === 0) {

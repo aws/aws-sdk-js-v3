@@ -96,6 +96,20 @@ describe(HostEntry.name, () => {
       expect(hostEntry.failedAaaaRecords.length).toEqual(0);
     });
 
+    it("removes expired records from failed records except 1 failed record", () => {
+      hostEntry.updateRecords(addresses, expirationTtlMs);
+      hostEntry.failAddressInRecords(HOST_ADDRESS_A_0);
+      hostEntry.failAddressInRecords(HOST_ADDRESS_A_1);
+      hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_0);
+      hostEntry.failAddressInRecords(HOST_ADDRESS_AAAA_1);
+      jest.advanceTimersByTime(EXPIRATION_OFFSET_MS);
+      hostEntry.processRecords();
+      expect(hostEntry.aRecords.length).toEqual(0);
+      expect(hostEntry.failedARecords.length).toEqual(1);
+      expect(hostEntry.aaaaRecords.length).toEqual(0);
+      expect(hostEntry.failedAaaaRecords.length).toEqual(1);
+    });
+
     it("promotes a failed address if there are no good addresses and not expired", () => {
       hostEntry.updateRecords(addresses, expirationTtlMs);
       hostEntry.failAddressInRecords(HOST_ADDRESS_A_0);
@@ -118,9 +132,9 @@ describe(HostEntry.name, () => {
       jest.advanceTimersByTime(EXPIRATION_OFFSET_MS);
       hostEntry.processRecords();
       expect(hostEntry.aRecords.length).toEqual(0);
-      expect(hostEntry.failedARecords.length).toEqual(2);
+      expect(hostEntry.failedARecords.length).toEqual(1);
       expect(hostEntry.aaaaRecords.length).toEqual(0);
-      expect(hostEntry.failedAaaaRecords.length).toEqual(2);
+      expect(hostEntry.failedAaaaRecords.length).toEqual(1);
     });
   });
 
