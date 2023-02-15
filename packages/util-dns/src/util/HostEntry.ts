@@ -81,7 +81,7 @@ export class HostEntry implements DnsCacheEntry {
   }
 
   /**
-   * Removes expired records from good records (except 1 in case of DNS outages).
+   * Removes expired records from records (except 1 in case of DNS outages).
    * In the case that good records are empty, should attempt to promote 1
    * non-expired failed address to the good records.
    * Uses {@link processRecordsAddressType} for each {@link HostAddressType}
@@ -135,7 +135,7 @@ export class HostEntry implements DnsCacheEntry {
   }
 
   /**
-   * Removes expired records from good records (except 1 in case of DNS outages).
+   * Removes expired records from records (except 1 in case of DNS outages).
    * In the case that good records are empty, should attempt to promote 1
    * non-expired failed address to the good records.
    * @param successRecords good records in cache to update

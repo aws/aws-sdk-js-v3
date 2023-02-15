@@ -68,7 +68,7 @@ export interface DnsCacheEntry {
    */
   updateRecords(addresses: HostAddress[], expirationTtlMs: number): void;
   /**
-   * Removes expired records from good records (except 1 in case of DNS outages).
+   * Removes expired records from records (except 1 in case of DNS outages).
    * In the case that good records are empty, should attempt to promote 1
    * non-expired failed address to the good records.
    */
