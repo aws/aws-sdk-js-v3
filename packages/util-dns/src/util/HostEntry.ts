@@ -149,6 +149,7 @@ export class HostEntry implements DnsCacheEntry {
     const successRecordsToRemove: HostAddressEntry[] = [];
     let successIndex = 0;
     for (const hostAddressEntry of successRecords) {
+      // Leave 1 address so we can keep trying in DNS outages
       if (successIndex === successRecords.length - 1) {
         break;
       }
@@ -163,6 +164,7 @@ export class HostEntry implements DnsCacheEntry {
     const failedRecordsToRemove: HostAddressEntry[] = [];
     let failedIndex = 0;
     for (const hostAddressEntry of failedRecords) {
+      // Leave 1 address so we can keep trying in DNS outages
       if (failedIndex === failedRecords.length - 1) {
         break;
       }
