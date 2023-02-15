@@ -2,6 +2,7 @@ import { DnsCacheEntryCollection } from "../DnsCache";
 import { HostAddressEntry } from "./HostEntry";
 
 /**
+ * Collection using an Array as the underlying data structure
  * @internal
  */
 export class HostAddressEntryCollection implements DnsCacheEntryCollection {
@@ -26,10 +27,19 @@ export class HostAddressEntryCollection implements DnsCacheEntryCollection {
     return entry;
   }
 
+  /**
+   * Adds entry to the end of the collection.
+   * @param entry entry to add
+   */
   public append(entry: HostAddressEntry): void {
     this.data.push(entry);
   }
 
+  /**
+   * Removes an entry from the collection
+   * @param entry entry to remove
+   * @returns the removed entry
+   */
   public remove(entry: HostAddressEntry): HostAddressEntry {
     if (this.length === 0) {
       throw new Error("Cannot remove from an empty collection");
