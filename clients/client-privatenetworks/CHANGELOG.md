@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+
+### Features
+
+* **client-privatenetworks:** This release introduces a new StartNetworkResourceUpdate API, which enables return/replacement of hardware from a NetworkSite. ([804b9bc](https://github.com/aws/aws-sdk-js-v3/commit/804b9bca58baf06576651b2ab56dbf3d32c6f30e))
+
+
+
+
+
 # [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-privatenetworks

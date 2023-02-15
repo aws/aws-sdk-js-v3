@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+
+### Features
+
+* **client-frauddetector:** This release introduces Lists feature which allows customers to reference a set of values in Fraud Detector's rules. With Lists, customers can dynamically manage these attributes in real time. Lists can be created/deleted and its contents can be modified using the Fraud Detector API. ([6186c03](https://github.com/aws/aws-sdk-js-v3/commit/6186c03f8ccb4656663134f96514184d7b8bf9d6))
+
+
+
+
+
 # [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-frauddetector

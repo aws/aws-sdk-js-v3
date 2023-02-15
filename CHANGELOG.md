@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+
+### Features
+
+* **client-cloudtrail:** This release adds an InsufficientEncryptionPolicyException type to the StartImport endpoint ([4253089](https://github.com/aws/aws-sdk-js-v3/commit/42530890ad3272056bdaa344b1ce71fa85d7ac06))
+* **client-frauddetector:** This release introduces Lists feature which allows customers to reference a set of values in Fraud Detector's rules. With Lists, customers can dynamically manage these attributes in real time. Lists can be created/deleted and its contents can be modified using the Fraud Detector API. ([6186c03](https://github.com/aws/aws-sdk-js-v3/commit/6186c03f8ccb4656663134f96514184d7b8bf9d6))
+* **client-glue:** Fix DirectJDBCSource not showing up in CLI code gen ([bedba23](https://github.com/aws/aws-sdk-js-v3/commit/bedba236f008e74f97b7e8c2f96f12eabc24c374))
+* **client-privatenetworks:** This release introduces a new StartNetworkResourceUpdate API, which enables return/replacement of hardware from a NetworkSite. ([804b9bc](https://github.com/aws/aws-sdk-js-v3/commit/804b9bca58baf06576651b2ab56dbf3d32c6f30e))
+* **client-wafv2:** For protected CloudFront distributions, you can now use the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group to block new login attempts from clients that have recently submitted too many failed login attempts. ([dc28d4e](https://github.com/aws/aws-sdk-js-v3/commit/dc28d4e5fc995fbf328df04e9ec3bdc2418930af))
+* **clients:** update client endpoints as of 2023-02-15 ([2e05ae8](https://github.com/aws/aws-sdk-js-v3/commit/2e05ae8d556cfb84b8f3bc1e7e84be15f9541ffd))
+
+
+
+
+
 # [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
 
 
