@@ -36,6 +36,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateListCommand, CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelVersionCommand,
@@ -90,6 +91,7 @@ import {
   DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
 import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteListCommand, DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelVersionCommand,
@@ -174,6 +176,16 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import {
+  GetListElementsCommand,
+  GetListElementsCommandInput,
+  GetListElementsCommandOutput,
+} from "./commands/GetListElementsCommand";
+import {
+  GetListsMetadataCommand,
+  GetListsMetadataCommandInput,
+  GetListsMetadataCommandOutput,
+} from "./commands/GetListsMetadataCommand";
 import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelVersionCommand,
@@ -247,6 +259,7 @@ import {
   UpdateEventLabelCommandInput,
   UpdateEventLabelCommandOutput,
 } from "./commands/UpdateEventLabelCommand";
+import { UpdateListCommand, UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
 import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
   UpdateModelVersionCommand,
@@ -501,6 +514,36 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: CreateDetectorVersionCommandOutput) => void
   ): Promise<CreateDetectorVersionCommandOutput> | void {
     const command = new CreateDetectorVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Creates a list.
+   *         </p>
+   *          <p>List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector.
+   *             For more information, see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html">Lists</a>.</p>
+   */
+  public createList(args: CreateListCommandInput, options?: __HttpHandlerOptions): Promise<CreateListCommandOutput>;
+  public createList(args: CreateListCommandInput, cb: (err: any, data?: CreateListCommandOutput) => void): void;
+  public createList(
+    args: CreateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateListCommandOutput) => void
+  ): void;
+  public createList(
+    args: CreateListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListCommandOutput) => void),
+    cb?: (err: any, data?: CreateListCommandOutput) => void
+  ): Promise<CreateListCommandOutput> | void {
+    const command = new CreateListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -937,6 +980,35 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: DeleteLabelCommandOutput) => void
   ): Promise<DeleteLabelCommandOutput> | void {
     const command = new DeleteLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Deletes the list, provided it is not used in a rule.
+   *         </p>
+   *          <p> When you delete a list, Amazon Fraud Detector permanently deletes that list and the elements in the list.</p>
+   */
+  public deleteList(args: DeleteListCommandInput, options?: __HttpHandlerOptions): Promise<DeleteListCommandOutput>;
+  public deleteList(args: DeleteListCommandInput, cb: (err: any, data?: DeleteListCommandOutput) => void): void;
+  public deleteList(
+    args: DeleteListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteListCommandOutput) => void
+  ): void;
+  public deleteList(
+    args: DeleteListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteListCommandOutput) => void
+  ): Promise<DeleteListCommandOutput> | void {
+    const command = new DeleteListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1601,6 +1673,74 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>
+   *             Gets all the elements in the specified list.
+   *         </p>
+   */
+  public getListElements(
+    args: GetListElementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListElementsCommandOutput>;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetListElementsCommandOutput) => void),
+    cb?: (err: any, data?: GetListElementsCommandOutput) => void
+  ): Promise<GetListElementsCommandOutput> | void {
+    const command = new GetListElementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *            Gets the metadata of either all the lists under the account or the specified list.
+   *         </p>
+   */
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListsMetadataCommandOutput>;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetListsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): Promise<GetListsMetadataCommandOutput> | void {
+    const command = new GetListsMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
    *          <p>This is a paginated API. If you
    *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
@@ -2240,6 +2380,34 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: UpdateEventLabelCommandOutput) => void
   ): Promise<UpdateEventLabelCommandOutput> | void {
     const command = new UpdateEventLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Updates a list.
+   *         </p>
+   */
+  public updateList(args: UpdateListCommandInput, options?: __HttpHandlerOptions): Promise<UpdateListCommandOutput>;
+  public updateList(args: UpdateListCommandInput, cb: (err: any, data?: UpdateListCommandOutput) => void): void;
+  public updateList(
+    args: UpdateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateListCommandOutput) => void
+  ): void;
+  public updateList(
+    args: UpdateListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateListCommandOutput) => void),
+    cb?: (err: any, data?: UpdateListCommandOutput) => void
+  ): Promise<UpdateListCommandOutput> | void {
+    const command = new UpdateListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

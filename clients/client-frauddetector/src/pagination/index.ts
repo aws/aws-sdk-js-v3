@@ -14,11 +14,13 @@ export * from "./GetExternalModelsPaginator";
 
 export * from "./GetLabelsPaginator";
 
-export * from "./GetModelsPaginator";
+export * from "./GetListElementsPaginator";
 
-export * from "./GetOutcomesPaginator";
+export * from "./GetListsMetadataPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetModelsPaginator";
+export * from "./GetOutcomesPaginator";
 export * from "./GetRulesPaginator";
 export * from "./GetVariablesPaginator";
 export * from "./ListEventPredictionsPaginator";
