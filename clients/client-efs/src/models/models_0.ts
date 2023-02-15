@@ -193,7 +193,7 @@ export interface AccessPointDescription {
   RootDirectory?: RootDirectory;
 
   /**
-   * <p>Identified the Amazon Web Services account that owns the access point resource.</p>
+   * <p>Identifies the Amazon Web Services account that owns the access point resource.</p>
    */
   OwnerId?: string;
 
@@ -791,8 +791,7 @@ export interface FileSystemSize {
  */
 export interface FileSystemDescription {
   /**
-   * <p>The Amazon Web Services account that created the file system. If the file system was created by an IAM
-   *       user, the parent account to which the user belongs is the owner.</p>
+   * <p>The Amazon Web Services account that created the file system.</p>
    */
   OwnerId: string | undefined;
 
