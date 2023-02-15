@@ -90,6 +90,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PingCommand, PingCommandInput, PingCommandOutput } from "./commands/PingCommand";
+import {
+  StartNetworkResourceUpdateCommand,
+  StartNetworkResourceUpdateCommandInput,
+  StartNetworkResourceUpdateCommandOutput,
+} from "./commands/StartNetworkResourceUpdateCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -214,7 +219,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   /**
    * <p>Configures the specified network resource.
    *         </p>
-   *         <p>
+   *          <p>
    *             Use this action to specify the geographic
    *             position of the hardware. You must provide Certified Professional Installer (CPI)
    *             credentials in the request so that we can obtain spectrum grants. For more information,
@@ -568,8 +573,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
    * <p>Lists device identifiers. Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order,
    *             the status of device identifiers, or the ARN of the traffic group.</p>
-   *
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listDeviceIdentifiers(
@@ -605,7 +609,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
    * <p>Lists network resources.  Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order or
    *             the status of network resources.</p>
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listNetworkResources(
@@ -704,7 +708,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
    * <p>Lists orders.  Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or
    *             the status of the order.</p>
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
@@ -778,6 +782,43 @@ export class PrivateNetworks extends PrivateNetworksClient {
     cb?: (err: any, data?: PingCommandOutput) => void
   ): Promise<PingCommandOutput> | void {
     const command = new PingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an update of the specified network resource.</p>
+   *          <p>After you submit a request to replace or return a network resource, the status
+   *            of the network resource is <code>CREATING_SHIPPING_LABEL</code>. The shipping label
+   *             is available when the status of the network resource is <code>PENDING_RETURN</code>.
+   *             After the network resource is successfully returned, its status is <code>DELETED</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return a radio unit</a>.</p>
+   */
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkResourceUpdateCommandOutput>;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    cb: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): void;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): void;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNetworkResourceUpdateCommandOutput) => void),
+    cb?: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): Promise<StartNetworkResourceUpdateCommandOutput> | void {
+    const command = new StartNetworkResourceUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

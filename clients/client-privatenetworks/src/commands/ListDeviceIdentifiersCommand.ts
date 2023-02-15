@@ -32,8 +32,7 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * <p>Lists device identifiers. Add filters to your request to return a more
  *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order,
  *             the status of device identifiers, or the ARN of the traffic group.</p>
- *
- *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+ *          <p>If you specify multiple filters, filters are joined with an OR, and the request
  * returns results that match all of the specified filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

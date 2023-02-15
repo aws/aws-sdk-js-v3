@@ -97,6 +97,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PingCommandInput, PingCommandOutput } from "./commands/PingCommand";
+import {
+  StartNetworkResourceUpdateCommandInput,
+  StartNetworkResourceUpdateCommandOutput,
+} from "./commands/StartNetworkResourceUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateNetworkSiteCommandInput, UpdateNetworkSiteCommandOutput } from "./commands/UpdateNetworkSiteCommand";
@@ -134,6 +138,7 @@ export type ServiceInputTypes =
   | ListOrdersCommandInput
   | ListTagsForResourceCommandInput
   | PingCommandInput
+  | StartNetworkResourceUpdateCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateNetworkSiteCommandInput
@@ -161,6 +166,7 @@ export type ServiceOutputTypes =
   | ListOrdersCommandOutput
   | ListTagsForResourceCommandOutput
   | PingCommandOutput
+  | StartNetworkResourceUpdateCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateNetworkSiteCommandOutput

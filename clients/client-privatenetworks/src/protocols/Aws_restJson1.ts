@@ -69,6 +69,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PingCommandInput, PingCommandOutput } from "../commands/PingCommand";
+import {
+  StartNetworkResourceUpdateCommandInput,
+  StartNetworkResourceUpdateCommandOutput,
+} from "../commands/StartNetworkResourceUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateNetworkSiteCommandInput, UpdateNetworkSiteCommandOutput } from "../commands/UpdateNetworkSiteCommand";
@@ -95,6 +99,7 @@ import {
   OrderFilterKeys,
   Position,
   ResourceNotFoundException,
+  ReturnInformation,
   SitePlan,
   ThrottlingException,
   TrackingInformation,
@@ -657,6 +662,36 @@ export const serializeAws_restJson1PingCommand = async (
   });
 };
 
+export const serializeAws_restJson1StartNetworkResourceUpdateCommand = async (
+  input: StartNetworkResourceUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-resources/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.networkResourceArn != null && { networkResourceArn: input.networkResourceArn }),
+    ...(input.returnReason != null && { returnReason: input.returnReason }),
+    ...(input.shippingAddress != null && {
+      shippingAddress: serializeAws_restJson1Address(input.shippingAddress, context),
+    }),
+    ...(input.updateType != null && { updateType: input.updateType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -1126,6 +1161,9 @@ const deserializeAws_restJson1DeleteNetworkCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.privatenetworks#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.privatenetworks#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1173,6 +1211,9 @@ const deserializeAws_restJson1DeleteNetworkSiteCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.privatenetworks#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.privatenetworks#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1787,6 +1828,53 @@ const deserializeAws_restJson1PingCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1StartNetworkResourceUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNetworkResourceUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartNetworkResourceUpdateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.networkResource != null) {
+    contents.networkResource = deserializeAws_restJson1NetworkResource(data.networkResource, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartNetworkResourceUpdateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNetworkResourceUpdateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.privatenetworks#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.privatenetworks#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.privatenetworks#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2386,6 +2474,10 @@ const deserializeAws_restJson1NetworkResource = (output: any, context: __SerdeCo
     networkSiteArn: __expectString(output.networkSiteArn),
     orderArn: __expectString(output.orderArn),
     position: output.position != null ? deserializeAws_restJson1Position(output.position, context) : undefined,
+    returnInformation:
+      output.returnInformation != null
+        ? deserializeAws_restJson1ReturnInformation(output.returnInformation, context)
+        : undefined,
     serialNumber: __expectString(output.serialNumber),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -2509,6 +2601,16 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
     elevationUnit: __expectString(output.elevationUnit),
     latitude: __limitedParseDouble(output.latitude),
     longitude: __limitedParseDouble(output.longitude),
+  } as any;
+};
+
+const deserializeAws_restJson1ReturnInformation = (output: any, context: __SerdeContext): ReturnInformation => {
+  return {
+    replacementOrderArn: __expectString(output.replacementOrderArn),
+    returnReason: __expectString(output.returnReason),
+    shippingAddress:
+      output.shippingAddress != null ? deserializeAws_restJson1Address(output.shippingAddress, context) : undefined,
+    shippingLabel: __expectString(output.shippingLabel),
   } as any;
 };
 
