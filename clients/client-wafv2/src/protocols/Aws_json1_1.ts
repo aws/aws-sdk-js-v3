@@ -149,6 +149,7 @@ import {
   AndStatement,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
+  AWSManagedRulesATPRuleSet,
   AWSManagedRulesBotControlRuleSet,
   BlockAction,
   Body,
@@ -296,6 +297,12 @@ import {
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
   ReleaseSummary,
+  RequestInspection,
+  ResponseInspection,
+  ResponseInspectionBodyContains,
+  ResponseInspectionHeader,
+  ResponseInspectionJson,
+  ResponseInspectionStatusCode,
   Rule,
   RuleAction,
   RuleActionOverride,
@@ -3870,6 +3877,21 @@ const serializeAws_json1_1AssociateWebACLRequest = (input: AssociateWebACLReques
   };
 };
 
+const serializeAws_json1_1AWSManagedRulesATPRuleSet = (
+  input: AWSManagedRulesATPRuleSet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoginPath != null && { LoginPath: input.LoginPath }),
+    ...(input.RequestInspection != null && {
+      RequestInspection: serializeAws_json1_1RequestInspection(input.RequestInspection, context),
+    }),
+    ...(input.ResponseInspection != null && {
+      ResponseInspection: serializeAws_json1_1ResponseInspection(input.ResponseInspection, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
   input: AWSManagedRulesBotControlRuleSet,
   context: __SerdeContext
@@ -4672,6 +4694,12 @@ const serializeAws_json1_1LoggingFilter = (input: LoggingFilter, context: __Serd
 
 const serializeAws_json1_1ManagedRuleGroupConfig = (input: ManagedRuleGroupConfig, context: __SerdeContext): any => {
   return {
+    ...(input.AWSManagedRulesATPRuleSet != null && {
+      AWSManagedRulesATPRuleSet: serializeAws_json1_1AWSManagedRulesATPRuleSet(
+        input.AWSManagedRulesATPRuleSet,
+        context
+      ),
+    }),
     ...(input.AWSManagedRulesBotControlRuleSet != null && {
       AWSManagedRulesBotControlRuleSet: serializeAws_json1_1AWSManagedRulesBotControlRuleSet(
         input.AWSManagedRulesBotControlRuleSet,
@@ -4849,6 +4877,162 @@ const serializeAws_json1_1RegularExpressionList = (input: Regex[], context: __Se
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_1Regex(entry, context);
+    });
+};
+
+const serializeAws_json1_1RequestInspection = (input: RequestInspection, context: __SerdeContext): any => {
+  return {
+    ...(input.PasswordField != null && {
+      PasswordField: serializeAws_json1_1PasswordField(input.PasswordField, context),
+    }),
+    ...(input.PayloadType != null && { PayloadType: input.PayloadType }),
+    ...(input.UsernameField != null && {
+      UsernameField: serializeAws_json1_1UsernameField(input.UsernameField, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspection = (input: ResponseInspection, context: __SerdeContext): any => {
+  return {
+    ...(input.BodyContains != null && {
+      BodyContains: serializeAws_json1_1ResponseInspectionBodyContains(input.BodyContains, context),
+    }),
+    ...(input.Header != null && { Header: serializeAws_json1_1ResponseInspectionHeader(input.Header, context) }),
+    ...(input.Json != null && { Json: serializeAws_json1_1ResponseInspectionJson(input.Json, context) }),
+    ...(input.StatusCode != null && {
+      StatusCode: serializeAws_json1_1ResponseInspectionStatusCode(input.StatusCode, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContains = (
+  input: ResponseInspectionBodyContains,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureStrings != null && {
+      FailureStrings: serializeAws_json1_1ResponseInspectionBodyContainsFailureStrings(input.FailureStrings, context),
+    }),
+    ...(input.SuccessStrings != null && {
+      SuccessStrings: serializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings(input.SuccessStrings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContainsFailureStrings = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionHeader = (
+  input: ResponseInspectionHeader,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureValues != null && {
+      FailureValues: serializeAws_json1_1ResponseInspectionHeaderFailureValues(input.FailureValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SuccessValues != null && {
+      SuccessValues: serializeAws_json1_1ResponseInspectionHeaderSuccessValues(input.SuccessValues, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionHeaderFailureValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionHeaderSuccessValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionJson = (input: ResponseInspectionJson, context: __SerdeContext): any => {
+  return {
+    ...(input.FailureValues != null && {
+      FailureValues: serializeAws_json1_1ResponseInspectionJsonFailureValues(input.FailureValues, context),
+    }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.SuccessValues != null && {
+      SuccessValues: serializeAws_json1_1ResponseInspectionJsonSuccessValues(input.SuccessValues, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionJsonFailureValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionJsonSuccessValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCode = (
+  input: ResponseInspectionStatusCode,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureCodes != null && {
+      FailureCodes: serializeAws_json1_1ResponseInspectionStatusCodeFailureCodes(input.FailureCodes, context),
+    }),
+    ...(input.SuccessCodes != null && {
+      SuccessCodes: serializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes(input.SuccessCodes, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCodeFailureCodes = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
     });
 };
 
@@ -5249,6 +5433,23 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   context: __SerdeContext
 ): AssociateWebACLResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1AWSManagedRulesATPRuleSet = (
+  output: any,
+  context: __SerdeContext
+): AWSManagedRulesATPRuleSet => {
+  return {
+    LoginPath: __expectString(output.LoginPath),
+    RequestInspection:
+      output.RequestInspection != null
+        ? deserializeAws_json1_1RequestInspection(output.RequestInspection, context)
+        : undefined,
+    ResponseInspection:
+      output.ResponseInspection != null
+        ? deserializeAws_json1_1ResponseInspection(output.ResponseInspection, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
@@ -6225,6 +6426,10 @@ const deserializeAws_json1_1LoggingFilter = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ManagedRuleGroupConfig = (output: any, context: __SerdeContext): ManagedRuleGroupConfig => {
   return {
+    AWSManagedRulesATPRuleSet:
+      output.AWSManagedRulesATPRuleSet != null
+        ? deserializeAws_json1_1AWSManagedRulesATPRuleSet(output.AWSManagedRulesATPRuleSet, context)
+        : undefined,
     AWSManagedRulesBotControlRuleSet:
       output.AWSManagedRulesBotControlRuleSet != null
         ? deserializeAws_json1_1AWSManagedRulesBotControlRuleSet(output.AWSManagedRulesBotControlRuleSet, context)
@@ -6622,6 +6827,16 @@ const deserializeAws_json1_1ReleaseSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1RequestInspection = (output: any, context: __SerdeContext): RequestInspection => {
+  return {
+    PasswordField:
+      output.PasswordField != null ? deserializeAws_json1_1PasswordField(output.PasswordField, context) : undefined,
+    PayloadType: __expectString(output.PayloadType),
+    UsernameField:
+      output.UsernameField != null ? deserializeAws_json1_1UsernameField(output.UsernameField, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6630,6 +6845,198 @@ const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspection = (output: any, context: __SerdeContext): ResponseInspection => {
+  return {
+    BodyContains:
+      output.BodyContains != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContains(output.BodyContains, context)
+        : undefined,
+    Header: output.Header != null ? deserializeAws_json1_1ResponseInspectionHeader(output.Header, context) : undefined,
+    Json: output.Json != null ? deserializeAws_json1_1ResponseInspectionJson(output.Json, context) : undefined,
+    StatusCode:
+      output.StatusCode != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCode(output.StatusCode, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContains = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionBodyContains => {
+  return {
+    FailureStrings:
+      output.FailureStrings != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContainsFailureStrings(output.FailureStrings, context)
+        : undefined,
+    SuccessStrings:
+      output.SuccessStrings != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings(output.SuccessStrings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContainsFailureStrings = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeader = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionHeader => {
+  return {
+    FailureValues:
+      output.FailureValues != null
+        ? deserializeAws_json1_1ResponseInspectionHeaderFailureValues(output.FailureValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    SuccessValues:
+      output.SuccessValues != null
+        ? deserializeAws_json1_1ResponseInspectionHeaderSuccessValues(output.SuccessValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeaderFailureValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeaderSuccessValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionJson = (output: any, context: __SerdeContext): ResponseInspectionJson => {
+  return {
+    FailureValues:
+      output.FailureValues != null
+        ? deserializeAws_json1_1ResponseInspectionJsonFailureValues(output.FailureValues, context)
+        : undefined,
+    Identifier: __expectString(output.Identifier),
+    SuccessValues:
+      output.SuccessValues != null
+        ? deserializeAws_json1_1ResponseInspectionJsonSuccessValues(output.SuccessValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionJsonFailureValues = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionJsonSuccessValues = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCode = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionStatusCode => {
+  return {
+    FailureCodes:
+      output.FailureCodes != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCodeFailureCodes(output.FailureCodes, context)
+        : undefined,
+    SuccessCodes:
+      output.SuccessCodes != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes(output.SuccessCodes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCodeFailureCodes = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
     });
   return retVal;
 };

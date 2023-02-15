@@ -813,7 +813,7 @@ export interface ByteMatchStatement {
   /**
    * <p>A string value that you want WAF to search for. WAF searches only in the part of
    *          web requests that you designate for inspection in <a>FieldToMatch</a>. The
-   *          maximum length of the value is 50 bytes.</p>
+   *          maximum length of the value is 200 bytes.</p>
    *          <p>Valid values depend on the component that you specify for inspection in
    *             <code>FieldToMatch</code>:</p>
    *          <ul>
@@ -834,7 +834,7 @@ export interface ByteMatchStatement {
    *             <b>If you're using the WAF API</b>
    *          </p>
    *          <p>Specify a base64-encoded version of the value. The maximum length of the value before
-   *          you base64-encode it is 50 bytes.</p>
+   *          you base64-encode it is 200 bytes.</p>
    *          <p>For example, suppose the value of <code>Type</code> is <code>HEADER</code> and the value
    *          of <code>Data</code> is <code>User-Agent</code>. If you want to search the
    *             <code>User-Agent</code> header for the value <code>BadBot</code>, you base64-encode
@@ -1372,26 +1372,10 @@ export interface ExcludedRule {
   Name: string | undefined;
 }
 
-export enum InspectionLevel {
-  COMMON = "COMMON",
-  TARGETED = "TARGETED",
-}
-
 /**
- * <p>Details for your use of the Bot Control managed rule group, used in <code>ManagedRuleGroupConfig</code>. </p>
- */
-export interface AWSManagedRulesBotControlRuleSet {
-  /**
-   * <p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The
-   *            targeted level includes all common level rules and adds rules with more advanced inspection criteria. For
-   *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>.</p>
-   */
-  InspectionLevel: InspectionLevel | string | undefined;
-}
-
-/**
- * <p>Details about your login page password field, used in a
- *             <code>ManagedRuleGroupConfig</code>. </p>
+ * <p>Details about your login page password field for request inspection, used in the
+ *       <code>AWSManagedRulesATPRuleSet</code>
+ *             <code>RequestInspection</code> configuration.</p>
  */
 export interface PasswordField {
   /**
@@ -1406,8 +1390,9 @@ export enum PayloadType {
 }
 
 /**
- * <p>Details about your login page username field, used in a
- *             <code>ManagedRuleGroupConfig</code>. </p>
+ * <p>Details about your login page username field for request inspection, used in the
+ *       <code>AWSManagedRulesATPRuleSet</code>
+ *             <code>RequestInspection</code> configuration.</p>
  */
 export interface UsernameField {
   /**
@@ -1417,31 +1402,284 @@ export interface UsernameField {
 }
 
 /**
+ * <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.  </p>
+ *          <p>This is part of the <code>AWSManagedRulesATPRuleSet</code> configuration in <code>ManagedRuleGroupConfig</code>.</p>
+ *          <p>In these settings, you specify how your application accepts login attempts
+ *            by providing the request payload type and the names of the fields
+ *            within the request body where the username and password are provided. </p>
+ */
+export interface RequestInspection {
+  /**
+   * <p>The payload type for your login endpoint, either JSON or form encoded.</p>
+   */
+  PayloadType: PayloadType | string | undefined;
+
+  /**
+   * <p>Details about your login page username field. </p>
+   *          <p>How you specify this depends on the payload type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For JSON payloads, specify the field name in JSON
+   *                pointer syntax. For information about the JSON Pointer
+   *                syntax, see the Internet Engineering Task Force (IETF)
+   *                documentation <a href="https://tools.ietf.org/html/rfc6901">JavaScript
+   *                	Object Notation (JSON) Pointer</a>. </p>
+   *                <p>For example, for the JSON payload <code>{ "login": { "username": "THE_USERNAME", "password": "THE_PASSWORD" } }</code>,
+   *                the username field specification is
+   *                <code>/login/username</code> and the password field
+   *                specification is <code>/login/password</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For form encoded payload types, use the HTML form names.</p>
+   *                <p>For example, for an HTML form with input elements
+   *                    named <code>username1</code> and <code>password1</code>,
+   *                    the username field specification is
+   *                    <code>username1</code> and the password field
+   *                    specification is <code>password1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  UsernameField: UsernameField | undefined;
+
+  /**
+   * <p>Details about your login page password field. </p>
+   *          <p>How you specify this depends on the payload type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For JSON payloads, specify the field name in JSON
+   *                pointer syntax. For information about the JSON Pointer
+   *                syntax, see the Internet Engineering Task Force (IETF)
+   *                documentation <a href="https://tools.ietf.org/html/rfc6901">JavaScript
+   *                	Object Notation (JSON) Pointer</a>. </p>
+   *                <p>For example, for the JSON payload <code>{ "login": { "username": "THE_USERNAME", "password": "THE_PASSWORD" } }</code>,
+   *                the username field specification is
+   *                <code>/login/username</code> and the password field
+   *                specification is <code>/login/password</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For form encoded payload types, use the HTML form names.</p>
+   *                <p>For example, for an HTML form with input elements
+   *                    named <code>username1</code> and <code>password1</code>,
+   *                    the username field specification is
+   *                    <code>username1</code> and the password field
+   *                    specification is <code>password1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PasswordField: PasswordField | undefined;
+}
+
+/**
+ * <p>Configures inspection of the response body. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ */
+export interface ResponseInspectionBodyContains {
+  /**
+   * <p>Strings in the body of the response that indicate a successful login attempt. To be counted as a successful login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings. </p>
+   *          <p>JSON example: <code>"SuccessStrings": [ "Login successful", "Welcome to our site!" ]</code>
+   *          </p>
+   */
+  SuccessStrings: string[] | undefined;
+
+  /**
+   * <p>Strings in the body of the response that indicate a failed login attempt. To be counted as a failed login, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings. </p>
+   *          <p>JSON example: <code>"FailureStrings": [ "Login failed" ]</code>
+   *          </p>
+   */
+  FailureStrings: string[] | undefined;
+}
+
+/**
+ * <p>Configures inspection of the response header. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ */
+export interface ResponseInspectionHeader {
+  /**
+   * <p>The name of the header to match against. The name must be an exact match, including case.</p>
+   *          <p>JSON example: <code>"Name": [ "LoginResult" ]</code>
+   *          </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Values in the response header with the specified name that indicate a successful login attempt. To be counted as a successful login, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p>
+   *          <p>JSON example: <code>"SuccessValues": [ "LoginPassed", "Successful login" ]</code>
+   *          </p>
+   */
+  SuccessValues: string[] | undefined;
+
+  /**
+   * <p>Values in the response header with the specified name that indicate a failed login attempt. To be counted as a failed login, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p>
+   *          <p>JSON example: <code>"FailureValues": [ "LoginFailed", "Failed login" ]</code>
+   *          </p>
+   */
+  FailureValues: string[] | undefined;
+}
+
+/**
+ * <p>Configures inspection of the response JSON. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ */
+export interface ResponseInspectionJson {
+  /**
+   * <p>The identifier for the value to match against in the JSON. The identifier must be an exact match, including case.</p>
+   *          <p>JSON example: <code>"Identifier": [ "/login/success" ]</code>
+   *          </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>Values for the specified identifier in the response JSON that indicate a successful login attempt. To be counted as a successful login, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p>
+   *          <p>JSON example: <code>"SuccessValues": [ "True", "Succeeded" ]</code>
+   *          </p>
+   */
+  SuccessValues: string[] | undefined;
+
+  /**
+   * <p>Values for the specified identifier in the response JSON that indicate a failed login attempt. To be counted as a failed login, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p>
+   *          <p>JSON example: <code>"FailureValues": [ "False", "Failed" ]</code>
+   *          </p>
+   */
+  FailureValues: string[] | undefined;
+}
+
+/**
+ * <p>Configures inspection of the response status code. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ */
+export interface ResponseInspectionStatusCode {
+  /**
+   * <p>Status codes in the response that indicate a successful login attempt. To be counted as a successful login, the response status code must match one of these. Each code must be unique among the success and failure status codes. </p>
+   *          <p>JSON example: <code>"SuccessCodes": [ 200, 201 ]</code>
+   *          </p>
+   */
+  SuccessCodes: number[] | undefined;
+
+  /**
+   * <p>Status codes in the response that indicate a failed login attempt. To be counted as a failed login, the response status code must match one of these. Each code must be unique among the success and failure status codes. </p>
+   *          <p>JSON example: <code>"FailureCodes": [ 400, 404 ]</code>
+   *          </p>
+   */
+  FailureCodes: number[] | undefined;
+}
+
+/**
+ * <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p>
+ *          <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels
+ *                and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time. </p>
+ *          <note>
+ *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <p>This is part of the <code>AWSManagedRulesATPRuleSet</code> configuration in <code>ManagedRuleGroupConfig</code>.</p>
+ *          <p>Enable login response inspection by configuring exactly one component of the response to inspect. You can't configure more than one. If you don't configure any of the response inspection options, response inspection is disabled. </p>
+ */
+export interface ResponseInspection {
+  /**
+   * <p>Configures inspection of the response status code. </p>
+   */
+  StatusCode?: ResponseInspectionStatusCode;
+
+  /**
+   * <p>Configures inspection of the response header. </p>
+   */
+  Header?: ResponseInspectionHeader;
+
+  /**
+   * <p>Configures inspection of the response body.  </p>
+   */
+  BodyContains?: ResponseInspectionBodyContains;
+
+  /**
+   * <p>Configures inspection of the response JSON. </p>
+   */
+  Json?: ResponseInspectionJson;
+}
+
+/**
+ * <p>Details for your use of the account takeover prevention managed rule group, <code>AWSManagedRulesATPRuleSet</code>. This configuration is used in <code>ManagedRuleGroupConfig</code>. </p>
+ */
+export interface AWSManagedRulesATPRuleSet {
+  /**
+   * <p>The path of the login endpoint for your application. For example, for the URL
+   *             <code>https://example.com/web/login</code>, you would provide the path
+   *             <code>/web/login</code>.</p>
+   *          <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
+   */
+  LoginPath: string | undefined;
+
+  /**
+   * <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.  </p>
+   */
+  RequestInspection?: RequestInspection;
+
+  /**
+   * <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p>
+   *          <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels
+   *                and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time. </p>
+   *          <note>
+   *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+   *          </note>
+   */
+  ResponseInspection?: ResponseInspection;
+}
+
+export enum InspectionLevel {
+  COMMON = "COMMON",
+  TARGETED = "TARGETED",
+}
+
+/**
+ * <p>Details for your use of the Bot Control managed rule group, <code>AWSManagedRulesBotControlRuleSet</code>. This configuration is used in <code>ManagedRuleGroupConfig</code>. </p>
+ */
+export interface AWSManagedRulesBotControlRuleSet {
+  /**
+   * <p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The
+   *            targeted level includes all common level rules and adds rules with more advanced inspection criteria. For
+   *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>.</p>
+   */
+  InspectionLevel: InspectionLevel | string | undefined;
+}
+
+/**
  * <p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>
+ *          <p>Use the <code>AWSManagedRulesATPRuleSet</code> configuration object for the account takeover prevention managed rule group, to provide information such as the sign-in page of your application and the type of content to accept or reject from the client. </p>
  *          <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the
  *        protection level that you want the Bot Control rule group to use. </p>
  *          <p>For example specifications, see the examples section of <a>CreateWebACL</a>.</p>
  */
 export interface ManagedRuleGroupConfig {
   /**
-   * <p>The path of the login endpoint for your application. For example, for the URL
-   *             <code>https://example.com/web/login</code>, you would provide the path
-   *             <code>/web/login</code>.</p>
+   * @deprecated
+   *
+   * <note>
+   *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>. </p>
+   *          </note>
    */
   LoginPath?: string;
 
   /**
-   * <p>The payload type for your login endpoint, either JSON or form encoded.</p>
+   * @deprecated
+   *
+   * <note>
+   *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>
+   *                <code>RequestInspection</code>. </p>
+   *          </note>
    */
   PayloadType?: PayloadType | string;
 
   /**
-   * <p>Details about your login page username field. </p>
+   * @deprecated
+   *
+   * <note>
+   *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>
+   *                <code>RequestInspection</code>. </p>
+   *          </note>
    */
   UsernameField?: UsernameField;
 
   /**
-   * <p>Details about your login page password field. </p>
+   * @deprecated
+   *
+   * <note>
+   *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>
+   *                <code>RequestInspection</code>. </p>
+   *          </note>
    */
   PasswordField?: PasswordField;
 
@@ -1453,6 +1691,17 @@ export interface ManagedRuleGroupConfig {
    *                in the <i>WAF Developer Guide</i>.</p>
    */
   AWSManagedRulesBotControlRuleSet?: AWSManagedRulesBotControlRuleSet;
+
+  /**
+   * <p>Additional configuration for using the account takeover prevention (ATP) managed rule group, <code>AWSManagedRulesATPRuleSet</code>.
+   *        Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide
+   *        the information about how your distribution responds to login requests. This configuration replaces the individual configuration fields in <code>ManagedRuleGroupConfig</code> and provides additional feature configuration. </p>
+   *          <p>For information
+   *        about using the ATP managed rule group, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html">WAF Fraud Control account takeover prevention (ATP) rule group</a>
+   *                and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html">WAF Fraud Control account takeover prevention (ATP)</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
+   */
+  AWSManagedRulesATPRuleSet?: AWSManagedRulesATPRuleSet;
 }
 
 /**
@@ -1899,6 +2148,7 @@ export class WAFInvalidOperationException extends __BaseException {
 export enum ParameterExceptionField {
   AND_STATEMENT = "AND_STATEMENT",
   ASSOCIABLE_RESOURCE = "ASSOCIABLE_RESOURCE",
+  ATP_RULE_SET_RESPONSE_INSPECTION = "ATP_RULE_SET_RESPONSE_INSPECTION",
   BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT",
   CHALLENGE_CONFIG = "CHALLENGE_CONFIG",
@@ -5276,7 +5526,7 @@ export interface Statement {
    *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
    *          <ul>
    *             <li>
-   *                <p>An IP match statement with an IP set that specified the address 192.0.2.44.</p>
+   *                <p>An IP match statement with an IP set that specifies the address 192.0.2.44.</p>
    *             </li>
    *             <li>
    *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
@@ -5368,6 +5618,7 @@ export interface ManagedRuleGroupStatement {
 
   /**
    * <p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>
+   *          <p>Use the <code>AWSManagedRulesATPRuleSet</code> configuration object for the account takeover prevention managed rule group, to provide information such as the sign-in page of your application and the type of content to accept or reject from the client. </p>
    *          <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the
    *        protection level that you want the Bot Control rule group to use. </p>
    */
@@ -5397,7 +5648,7 @@ export interface NotStatement {
  *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
  *          <ul>
  *             <li>
- *                <p>An IP match statement with an IP set that specified the address 192.0.2.44.</p>
+ *                <p>An IP match statement with an IP set that specifies the address 192.0.2.44.</p>
  *             </li>
  *             <li>
  *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
@@ -6388,13 +6639,6 @@ export const ExcludedRuleFilterSensitiveLog = (obj: ExcludedRule): any => ({
 /**
  * @internal
  */
-export const AWSManagedRulesBotControlRuleSetFilterSensitiveLog = (obj: AWSManagedRulesBotControlRuleSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PasswordFieldFilterSensitiveLog = (obj: PasswordField): any => ({
   ...obj,
 });
@@ -6403,6 +6647,62 @@ export const PasswordFieldFilterSensitiveLog = (obj: PasswordField): any => ({
  * @internal
  */
 export const UsernameFieldFilterSensitiveLog = (obj: UsernameField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestInspectionFilterSensitiveLog = (obj: RequestInspection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseInspectionBodyContainsFilterSensitiveLog = (obj: ResponseInspectionBodyContains): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseInspectionHeaderFilterSensitiveLog = (obj: ResponseInspectionHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseInspectionJsonFilterSensitiveLog = (obj: ResponseInspectionJson): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseInspectionStatusCodeFilterSensitiveLog = (obj: ResponseInspectionStatusCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseInspectionFilterSensitiveLog = (obj: ResponseInspection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AWSManagedRulesATPRuleSetFilterSensitiveLog = (obj: AWSManagedRulesATPRuleSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AWSManagedRulesBotControlRuleSetFilterSensitiveLog = (obj: AWSManagedRulesBotControlRuleSet): any => ({
   ...obj,
 });
 
