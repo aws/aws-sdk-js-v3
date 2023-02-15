@@ -2339,6 +2339,49 @@ export interface CustomCode {
   OutputSchemas?: GlueSchema[];
 }
 
+export enum JDBCConnectionType {
+  mysql = "mysql",
+  oracle = "oracle",
+  postgresql = "postgresql",
+  redshift = "redshift",
+  sqlserver = "sqlserver",
+}
+
+/**
+ * <p>Specifies the direct JDBC source connection.</p>
+ */
+export interface DirectJDBCSource {
+  /**
+   * <p>The name of the JDBC source connection.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The database of the JDBC source connection.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The table of the JDBC source connection.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>The connection name of the JDBC source.</p>
+   */
+  ConnectionName: string | undefined;
+
+  /**
+   * <p>The connection type of the JDBC source.</p>
+   */
+  ConnectionType: JDBCConnectionType | string | undefined;
+
+  /**
+   * <p>The temp directory of the JDBC Redshift source.</p>
+   */
+  RedshiftTmpDir?: string;
+}
+
 /**
  * <p>Specifies an Apache Kafka data store.</p>
  */
@@ -7122,28 +7165,6 @@ export interface CodeGenNode {
   LineNumber?: number;
 }
 
-export enum Language {
-  PYTHON = "PYTHON",
-  SCALA = "SCALA",
-}
-
-export interface CreateScriptRequest {
-  /**
-   * <p>A list of the nodes in the DAG.</p>
-   */
-  DagNodes?: CodeGenNode[];
-
-  /**
-   * <p>A list of the edges in the DAG.</p>
-   */
-  DagEdges?: CodeGenEdge[];
-
-  /**
-   * <p>The programming language of the resulting code from the DAG.</p>
-   */
-  Language?: Language | string;
-}
-
 /**
  * @internal
  */
@@ -7652,6 +7673,13 @@ export const BasicCatalogTargetFilterSensitiveLog = (obj: BasicCatalogTarget): a
  * @internal
  */
 export const CustomCodeFilterSensitiveLog = (obj: CustomCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectJDBCSourceFilterSensitiveLog = (obj: DirectJDBCSource): any => ({
   ...obj,
 });
 
@@ -8768,12 +8796,5 @@ export const CodeGenNodeArgFilterSensitiveLog = (obj: CodeGenNodeArg): any => ({
  * @internal
  */
 export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptRequestFilterSensitiveLog = (obj: CreateScriptRequest): any => ({
   ...obj,
 });

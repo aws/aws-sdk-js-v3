@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ListCrawlsRequest, ListCrawlsRequestFilterSensitiveLog } from "../models/models_1";
-import { ListCrawlsResponse, ListCrawlsResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  ListCrawlsRequest,
+  ListCrawlsRequestFilterSensitiveLog,
+  ListCrawlsResponse,
+  ListCrawlsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListCrawlsCommand,
   serializeAws_json1_1ListCrawlsCommand,

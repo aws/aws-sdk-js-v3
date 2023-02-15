@@ -25,7 +25,6 @@ import {
   EventBatchingCondition,
   GlueTable,
   JobRun,
-  Language,
   Partition,
   PartitionIndex,
   PartitionValueList,
@@ -47,6 +46,28 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export enum Language {
+  PYTHON = "PYTHON",
+  SCALA = "SCALA",
+}
+
+export interface CreateScriptRequest {
+  /**
+   * <p>A list of the nodes in the DAG.</p>
+   */
+  DagNodes?: CodeGenNode[];
+
+  /**
+   * <p>A list of the edges in the DAG.</p>
+   */
+  DagEdges?: CodeGenEdge[];
+
+  /**
+   * <p>The programming language of the resulting code from the DAG.</p>
+   */
+  Language?: Language | string;
+}
 
 export interface CreateScriptResponse {
   /**
@@ -5812,90 +5833,11 @@ export enum FilterOperator {
 }
 
 /**
- * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
+ * @internal
  */
-export interface CrawlsFilter {
-  /**
-   * <p>A key used to filter the crawler runs for a specified crawler. Valid values for each of the field names are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CRAWL_ID</code>: A string representing the UUID identifier for a crawl.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STATE</code>: A string representing the state of the crawl.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>START_TIME</code> and <code>END_TIME</code>: The epoch timestamp in milliseconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DPU_HOUR</code>: The number of data processing unit (DPU) hours used for the crawl.</p>
-   *             </li>
-   *          </ul>
-   */
-  FieldName?: FieldName | string;
-
-  /**
-   * <p>A defined comparator that operates on the value. The available operators are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>GT</code>: Greater than.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GE</code>: Greater than or equal to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LT</code>: Less than.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LE</code>: Less than or equal to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EQ</code>: Equal to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NE</code>: Not equal to.</p>
-   *             </li>
-   *          </ul>
-   */
-  FilterOperator?: FilterOperator | string;
-
-  /**
-   * <p>The value provided for comparison on the crawl field. </p>
-   */
-  FieldValue?: string;
-}
-
-export interface ListCrawlsRequest {
-  /**
-   * <p>The name of the crawler whose runs you want to retrieve.</p>
-   */
-  CrawlerName: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. The default is 20, and maximum is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code> objects.</p>
-   */
-  Filters?: CrawlsFilter[];
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-}
+export const CreateScriptRequestFilterSensitiveLog = (obj: CreateScriptRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7826,19 +7768,5 @@ export const ListCrawlersRequestFilterSensitiveLog = (obj: ListCrawlersRequest):
  * @internal
  */
 export const ListCrawlersResponseFilterSensitiveLog = (obj: ListCrawlersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlsFilterFilterSensitiveLog = (obj: CrawlsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlsRequestFilterSensitiveLog = (obj: ListCrawlsRequest): any => ({
   ...obj,
 });
