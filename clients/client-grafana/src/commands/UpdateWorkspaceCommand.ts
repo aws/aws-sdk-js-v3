@@ -31,9 +31,9 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
 /**
  * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any
  *             optional parameters, the existing values of those parameters are not changed.</p>
- *         <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
+ *          <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
  *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
- *         <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
+ *          <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
  *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
