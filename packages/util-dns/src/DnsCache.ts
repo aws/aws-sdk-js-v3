@@ -30,7 +30,7 @@ export interface DnsCache {
   /**
    * Gets the size of the cache
    */
-  get size(): number;
+  size: number;
 }
 
 /**
@@ -88,7 +88,7 @@ export interface DnsCacheEntryCollection {
   /**
    * Get length / size of the collection
    */
-  get length(): number;
+  length: number;
   /**
    * Moves a {@link DnsCacheHostAddressEntry} from the beginning of the
    * collection to the end of itself, and returns the host address entry

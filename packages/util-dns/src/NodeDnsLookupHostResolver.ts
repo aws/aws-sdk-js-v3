@@ -80,7 +80,7 @@ export class NodeDnsLookupHostResolver implements IHostResolver {
    * TTL in ms
    * @internal
    */
-  private ttlMs;
+  private ttlMs: number;
 
   /**
    * {@link DnsCache} which maps {@link HostAddress.hostName} to {@link DnsCacheEntry}
