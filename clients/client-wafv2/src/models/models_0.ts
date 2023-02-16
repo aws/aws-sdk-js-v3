@@ -1471,6 +1471,12 @@ export interface RequestInspection {
 
 /**
  * <p>Configures inspection of the response body. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ *          <note>
+ *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <note>
+ *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
+ *          </note>
  */
 export interface ResponseInspectionBodyContains {
   /**
@@ -1490,6 +1496,12 @@ export interface ResponseInspectionBodyContains {
 
 /**
  * <p>Configures inspection of the response header. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ *          <note>
+ *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <note>
+ *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
+ *          </note>
  */
 export interface ResponseInspectionHeader {
   /**
@@ -1516,6 +1528,12 @@ export interface ResponseInspectionHeader {
 
 /**
  * <p>Configures inspection of the response JSON. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ *          <note>
+ *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <note>
+ *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
+ *          </note>
  */
 export interface ResponseInspectionJson {
   /**
@@ -1542,6 +1560,12 @@ export interface ResponseInspectionJson {
 
 /**
  * <p>Configures inspection of the response status code. This is part of the <code>ResponseInspection</code> configuration for <code>AWSManagedRulesATPRuleSet</code>. </p>
+ *          <note>
+ *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <note>
+ *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
+ *          </note>
  */
 export interface ResponseInspectionStatusCode {
   /**
@@ -1565,6 +1589,9 @@ export interface ResponseInspectionStatusCode {
  *                and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time. </p>
  *          <note>
  *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+ *          </note>
+ *          <note>
+ *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
  *          </note>
  *          <p>This is part of the <code>AWSManagedRulesATPRuleSet</code> configuration in <code>ManagedRuleGroupConfig</code>.</p>
  *          <p>Enable login response inspection by configuring exactly one component of the response to inspect. You can't configure more than one. If you don't configure any of the response inspection options, response inspection is disabled. </p>
@@ -1614,6 +1641,9 @@ export interface AWSManagedRulesATPRuleSet {
    *                and mitigates requests from client sessions and IP addresses that submit too many failed login attempts in a short amount of time. </p>
    *          <note>
    *             <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
+   *          </note>
+   *          <note>
+   *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
    *          </note>
    */
   ResponseInspection?: ResponseInspection;
@@ -1695,7 +1725,11 @@ export interface ManagedRuleGroupConfig {
   /**
    * <p>Additional configuration for using the account takeover prevention (ATP) managed rule group, <code>AWSManagedRulesATPRuleSet</code>.
    *        Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide
-   *        the information about how your distribution responds to login requests. This configuration replaces the individual configuration fields in <code>ManagedRuleGroupConfig</code> and provides additional feature configuration. </p>
+   *            the information about how your distribution responds to login requests. </p>
+   *          <note>
+   *             <p>For regional web ACLs in Region US East (N. Virginia) us-east-1, it's possible to configure response inspection through the APIs, but ATP response inspection will not be enabled. You can only use the response inspection capabilities of the ATP managed rule group in web ACLs that protect CloudFront distributions.</p>
+   *          </note>
+   *          <p>This configuration replaces the individual configuration fields in <code>ManagedRuleGroupConfig</code> and provides additional feature configuration. </p>
    *          <p>For information
    *        about using the ATP managed rule group, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html">WAF Fraud Control account takeover prevention (ATP) rule group</a>
    *                and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html">WAF Fraud Control account takeover prevention (ATP)</a>
