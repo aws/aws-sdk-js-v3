@@ -95,6 +95,10 @@
   "react-native": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
+  "typedoc": {
+    "entryPoint": "src/index.ts",
+    "readmeFile": "README.md"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-scheduler",
   "repository": {
     "type": "git",
