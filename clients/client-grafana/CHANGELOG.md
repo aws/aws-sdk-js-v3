@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.273.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.272.0...v3.273.0) (2023-02-16)
+
+
+### Features
+
+* **client-grafana:** With this release Amazon Managed Grafana now supports inbound Network Access Control that helps you to restrict user access to your Grafana workspaces ([1f69ee1](https://github.com/aws/aws-sdk-js-v3/commit/1f69ee158b75ae1c77d65b96c7e38b39ed1b8d68))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-grafana

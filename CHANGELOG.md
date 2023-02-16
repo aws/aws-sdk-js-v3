@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.273.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.272.0...v3.273.0) (2023-02-16)
+
+
+### Features
+
+* **client-emr:** This release provides customers the ability to define a timeout period for procuring capacity during a resize operation for Instance Fleet clusters. Customers can specify this timeout using the ResizeSpecifications parameter supported by RunJobFlow, ModifyInstanceFleet and AddInstanceFleet APIs. ([90e21ca](https://github.com/aws/aws-sdk-js-v3/commit/90e21cab23fd35f9b0db438a457b280692af7bc7))
+* **client-grafana:** With this release Amazon Managed Grafana now supports inbound Network Access Control that helps you to restrict user access to your Grafana workspaces ([1f69ee1](https://github.com/aws/aws-sdk-js-v3/commit/1f69ee158b75ae1c77d65b96c7e38b39ed1b8d68))
+* **clients:** update client endpoints as of 2023-02-16 ([9a4c154](https://github.com/aws/aws-sdk-js-v3/commit/9a4c1542cbd45d607f0190e35b6373cf08317ca9))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 
