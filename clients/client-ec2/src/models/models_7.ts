@@ -2,6 +2,23 @@
 import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
 import { InstanceMonitoring } from "./models_6";
 
+export interface UnassignIpv6AddressesRequest {
+  /**
+   * <p>The IPv6 addresses to unassign from the network interface.</p>
+   */
+  Ipv6Addresses?: string[];
+
+  /**
+   * <p>The IPv6 prefixes to unassign from the network interface.</p>
+   */
+  Ipv6Prefixes?: string[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+}
+
 export interface UnassignIpv6AddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -216,6 +233,13 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const UnassignIpv6AddressesRequestFilterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

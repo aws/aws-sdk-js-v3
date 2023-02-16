@@ -10,6 +10,7 @@ import {
   BatchState,
   CurrencyCodeValues,
   Explanation,
+  IamInstanceProfile,
   IamInstanceProfileSpecification,
   IpamResourceDiscoveryAssociation,
   IpPermission,
@@ -60,10 +61,13 @@ import {
   NetworkInterface,
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
+  Placement,
   PlacementGroup,
+  PlatformValues,
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
   SpotInstanceType,
+  StateReason,
   Subnet,
   TargetCapacityUnitType,
   Tenancy,
@@ -91,16 +95,348 @@ import {
   Volume,
 } from "./models_2";
 import {
+  ArchitectureValues,
   AttributeBooleanValue,
+  BootModeValues,
+  CapacityReservationSpecificationResponse,
+  CpuOptions,
+  DeviceType,
+  ElasticGpuAssociation,
+  ElasticInferenceAcceleratorAssociation,
+  EnclaveOptions,
   EventInformation,
   Filter,
+  HibernationOptions,
+  HypervisorType,
   IdFormat,
-  Instance,
+  InstanceBlockDeviceMapping,
+  InstanceLifecycleType,
+  InstanceMaintenanceOptions,
+  InstanceMetadataOptionsResponse,
+  InstanceNetworkInterface,
   InstanceState,
+  LicenseConfiguration,
+  Monitoring,
   PermissionGroup,
+  PrivateDnsNameOptionsResponse,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes an instance.</p>
+ */
+export interface Instance {
+  /**
+   * <p>The AMI launch index, which can be used to find this instance in the launch
+   *             group.</p>
+   */
+  AmiLaunchIndex?: number;
+
+  /**
+   * <p>The ID of the AMI used to launch the instance.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The kernel associated with this instance, if applicable.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair, if this instance was launched with an associated key
+   *             pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The time the instance was launched.</p>
+   */
+  LaunchTime?: Date;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   */
+  Monitoring?: Monitoring;
+
+  /**
+   * <p>The location where the instance launched, if applicable.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
+   */
+  Platform?: PlatformValues | string;
+
+  /**
+   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
+   *             can only be used inside the Amazon EC2 network. This name is not available until the
+   *             instance enters the <code>running</code> state. </p>
+   *          <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
+   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
+   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
+   *             resolve the hostname as appropriate.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The private IPv4 address assigned to the instance.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The product codes attached to this instance, if applicable.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
+   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
+   *             available if you've enabled DNS hostnames for your VPC.</p>
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if
+   *             applicable.</p>
+   *          <p>A Carrier IP address only applies to an instance launched in a subnet associated with
+   *             a Wavelength Zone.</p>
+   */
+  PublicIpAddress?: string;
+
+  /**
+   * <p>The RAM disk associated with this instance, if applicable.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  State?: InstanceState;
+
+  /**
+   * <p>The reason for the most recent state transition. This might be an empty string.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The architecture of the image.</p>
+   */
+  Architecture?: ArchitectureValues | string;
+
+  /**
+   * <p>Any block device mapping entries for the instance.</p>
+   */
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
+
+  /**
+   * <p>The idempotency token you provided when you launched the instance, if
+   *             applicable.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal I/O performance. This optimization isn't available with all instance
+   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   */
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen
+   *             and Nitro hypervisors.</p>
+   */
+  Hypervisor?: HypervisorType | string;
+
+  /**
+   * <p>The IAM instance profile associated with the instance, if
+   *             applicable.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfile;
+
+  /**
+   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
+   */
+  InstanceLifecycle?: InstanceLifecycleType | string;
+
+  /**
+   * <p>The Elastic GPU associated with the instance.</p>
+   */
+  ElasticGpuAssociations?: ElasticGpuAssociation[];
+
+  /**
+   * <p> The elastic inference accelerator associated with the instance.</p>
+   */
+  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
+
+  /**
+   * <p>[EC2-VPC] The network interfaces for the instance.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterface[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
+   *             store volume.</p>
+   */
+  RootDeviceType?: DeviceType | string;
+
+  /**
+   * <p>The security groups for the instance.</p>
+   */
+  SecurityGroups?: GroupIdentifier[];
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * <p>If the request is a Spot Instance request, the ID of the request.</p>
+   */
+  SpotInstanceRequestId?: string;
+
+  /**
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
+   */
+  SriovNetSupport?: string;
+
+  /**
+   * <p>The reason for the most recent state transition.</p>
+   */
+  StateReason?: StateReason;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The virtualization type of the instance.</p>
+   */
+  VirtualizationType?: VirtualizationType | string;
+
+  /**
+   * <p>The CPU options for the instance.</p>
+   */
+  CpuOptions?: CpuOptions;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option.</p>
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for hibernation.</p>
+   */
+  HibernationOptions?: HibernationOptions;
+
+  /**
+   * <p>The license configurations for the instance.</p>
+   */
+  Licenses?: LicenseConfiguration[];
+
+  /**
+   * <p>The metadata options for the instance.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptionsResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
+   *             Enclaves.</p>
+   */
+  EnclaveOptions?: EnclaveOptions;
+
+  /**
+   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   */
+  BootMode?: BootModeValues | string;
+
+  /**
+   * <p>The platform details value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
+   *                 billing information fields</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  PlatformDetails?: string;
+
+  /**
+   * <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
+   *                 billing information fields</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>The time that the usage operation was last updated.</p>
+   */
+  UsageOperationUpdateTime?: Date;
+
+  /**
+   * <p>The options for the instance hostname.</p>
+   */
+  PrivateDnsNameOptions?: PrivateDnsNameOptionsResponse;
+
+  /**
+   * <p>The IPv6 address assigned to the instance.</p>
+   */
+  Ipv6Address?: string;
+
+  /**
+   * <p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   */
+  TpmSupport?: string;
+
+  /**
+   * <p>Provides information on the recovery and maintenance options of your instance.</p>
+   */
+  MaintenanceOptions?: InstanceMaintenanceOptions;
+}
 
 /**
  * <p>Describes a launch request for one or more instances, and includes owner, requester,
@@ -10096,19 +10432,11 @@ export enum VolumeStatusName {
 }
 
 /**
- * <p>Describes a volume status.</p>
+ * @internal
  */
-export interface VolumeStatusDetails {
-  /**
-   * <p>The name of the volume status.</p>
-   */
-  Name?: VolumeStatusName | string;
-
-  /**
-   * <p>The intended status of the volume status.</p>
-   */
-  Status?: string;
-}
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -12116,12 +12444,5 @@ export const VolumeStatusAttachmentStatusFilterSensitiveLog = (obj: VolumeStatus
  * @internal
  */
 export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusDetailsFilterSensitiveLog = (obj: VolumeStatusDetails): any => ({
   ...obj,
 });

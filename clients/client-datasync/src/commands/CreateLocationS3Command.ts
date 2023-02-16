@@ -29,11 +29,8 @@ export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.</p>
- *          <p>For
- *       more information, see
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
- *       in the <i>DataSync User Guide</i>.</p>
+ * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
+ *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

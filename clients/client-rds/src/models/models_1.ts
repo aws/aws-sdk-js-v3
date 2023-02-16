@@ -1401,31 +1401,31 @@ export interface EventSubscriptionsMessage {
 
 export interface DescribeExportTasksMessage {
   /**
-   * <p>The identifier of the snapshot export task to be described.</p>
+   * <p>The identifier of the snapshot or cluster export task to be described.</p>
    */
   ExportTaskIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</p>
    */
   SourceArn?: string;
 
   /**
-   * <p>Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to
+   * <p>Filters specify one or more snapshot or cluster exports to describe. The filters are specified as name-value pairs that define what to
    *             include in the output. Filter names and values are case-sensitive.</p>
    *          <p>Supported filters include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>export-task-identifier</code> - An identifier for the snapshot export task.</p>
+   *                   <code>export-task-identifier</code> - An identifier for the snapshot or cluster export task.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>s3-bucket</code> - The Amazon S3 bucket the snapshot is exported to.</p>
+   *                   <code>s3-bucket</code> - The Amazon S3 bucket the data is exported to.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3</p>
+   *                   <code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1499,7 +1499,7 @@ export interface ExportTasksMessage {
   Marker?: string;
 
   /**
-   * <p>Information about an export of a snapshot to Amazon S3.</p>
+   * <p>Information about an export of a snapshot or cluster to Amazon S3.</p>
    */
   ExportTasks?: ExportTask[];
 }
@@ -3195,8 +3195,8 @@ export enum AuditPolicyState {
 
 export interface ModifyActivityStreamRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the RDS for Oracle DB instance,
-   *             for example, <code>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL Server DB instance.
+   *             For example, <code>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</code>.</p>
    */
   ResourceArn?: string;
 
@@ -7765,9 +7765,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -7797,8 +7797,8 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in
    *             CreateDBInstance.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed. You can also
-   *                 allocate additional memory for future growth.</p>
+   *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also
+   *                 allocate additional storage for future growth.</p>
    *          </note>
    */
   AllocatedStorage?: number;
@@ -7846,8 +7846,8 @@ export interface RestoreDBInstanceFromS3Message {
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
-   *                 You can also allocate additional memory for future growth.</p>
+   *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed.
+   *                 You can also allocate additional storage for future growth.</p>
    *          </note>
    */
   AllocatedStorage?: number;
@@ -8806,8 +8806,8 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed.
-   *                 You can also allocate additional memory for future growth.</p>
+   *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed.
+   *                 You can also allocate additional storage for future growth.</p>
    *          </note>
    */
   AllocatedStorage?: number;
@@ -8902,8 +8902,8 @@ export interface StartActivityStreamRequest {
   ApplyImmediately?: boolean;
 
   /**
-   * <p>Specifies whether the database activity stream includes engine-native audit fields. This option only applies
-   *         to an Oracle DB instance. By default, no engine-native audit fields are included.</p>
+   * <p>Specifies whether the database activity stream includes engine-native audit fields. This option applies
+   *         to an Oracle or Microsoft SQL Server DB instance. By default, no engine-native audit fields are included.</p>
    */
   EngineNativeAuditFieldsIncluded?: boolean;
 }
@@ -9140,29 +9140,29 @@ export class InvalidExportSourceStateFault extends __BaseException {
 
 export interface StartExportTaskMessage {
   /**
-   * <p>A unique identifier for the snapshot export task. This ID isn't an identifier for
-   *             the Amazon S3 bucket where the snapshot is to be exported to.</p>
+   * <p>A unique identifier for the export task. This ID isn't an identifier for
+   *             the Amazon S3 bucket where the data is to be exported.</p>
    */
   ExportTaskIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot or cluster to export to Amazon S3.</p>
    */
   SourceArn: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+   * <p>The name of the Amazon S3 bucket to export the snapshot or cluster data to.</p>
    */
   S3BucketName: string | undefined;
 
   /**
    * <p>The name of the IAM role to use for writing to the Amazon S3 bucket
-   *             when exporting a snapshot.</p>
+   *             when exporting a snapshot or cluster.</p>
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services KMS key to use to encrypt the snapshot exported to Amazon S3. The Amazon Web Services KMS
+   * <p>The ID of the Amazon Web Services KMS key to use to encrypt the data exported to Amazon S3. The Amazon Web Services KMS
    *             key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
    *             The caller of this operation must be authorized to run the following operations.
    *             These can be set in the Amazon Web Services KMS key policy:</p>
@@ -9199,13 +9199,13 @@ export interface StartExportTaskMessage {
   KmsKeyId: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</p>
+   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported data.</p>
    */
   S3Prefix?: string;
 
   /**
-   * <p>The data to be exported from the snapshot.
-   *             If this parameter is not provided, all the snapshot data is exported.
+   * <p>The data to be exported from the snapshot or cluster.
+   *             If this parameter is not provided, all of the data is exported.
    *             Valid values are the following:</p>
    *          <ul>
    *             <li>
@@ -9216,12 +9216,12 @@ export interface StartExportTaskMessage {
    *                <p>
    *                   <code>database.table</code>
    *                   <i>table-name</i> -
-   *                 Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
+   *                     Export a table of the snapshot or cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>database.schema</code>
-   *                   <i>schema-name</i> - Export a database schema of the snapshot.
+   *                   <i>schema-name</i> - Export a database schema of the snapshot or cluster.
    *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
    *             </li>
    *             <li>

@@ -366,6 +366,7 @@ export const serializeAws_restJson1CreateHostedConfigurationVersionCommand = asy
       () => isSerializableHeaderValue(input.LatestVersionNumber),
       () => input.LatestVersionNumber!.toString(),
     ],
+    versionlabel: input.VersionLabel!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
@@ -1198,6 +1199,7 @@ export const serializeAws_restJson1ListHostedConfigurationVersionsCommand = asyn
   const query: any = map({
     max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     next_token: [, input.NextToken!],
+    version_label: [, input.VersionLabel!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2045,6 +2047,7 @@ export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = a
     ],
     Description: [, output.headers["description"]],
     ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["versionlabel"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2953,6 +2956,7 @@ export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = asyn
     ],
     Description: [, output.headers["description"]],
     ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["versionlabel"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -4665,6 +4669,7 @@ const deserializeAws_restJson1HostedConfigurationVersionSummary = (
     ConfigurationProfileId: __expectString(output.ConfigurationProfileId),
     ContentType: __expectString(output.ContentType),
     Description: __expectString(output.Description),
+    VersionLabel: __expectString(output.VersionLabel),
     VersionNumber: __expectInt32(output.VersionNumber),
   } as any;
 };

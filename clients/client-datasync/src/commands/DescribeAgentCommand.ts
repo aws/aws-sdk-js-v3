@@ -29,9 +29,7 @@ export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata such as the name, the network interfaces, and the status (that is,
- *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
- *       Amazon Resource Name (ARN) of the agent in your request. </p>
+ * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

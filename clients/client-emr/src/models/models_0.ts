@@ -17,12 +17,13 @@ export enum InstanceFleetType {
 }
 
 /**
- * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
- *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+ * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+ *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.</p>
+   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+   *          standard.</p>
    */
   VolumeType: string | undefined;
 
@@ -39,7 +40,7 @@ export interface VolumeSpecification {
 
   /**
    * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number
-   *            from 125 - 1000 and is valid only for gp3 volumes.</p>
+   *          from 125 - 1000 and is valid only for gp3 volumes.</p>
    */
   Throughput?: number;
 }
@@ -50,8 +51,8 @@ export interface VolumeSpecification {
  */
 export interface EbsBlockDeviceConfig {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification: VolumeSpecification | undefined;
 
@@ -185,7 +186,7 @@ export enum SpotProvisioningTimeoutAction {
  */
 export interface SpotProvisioningSpecification {
   /**
-   * <p>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+   * <p>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
    *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
    *          maximum value is 1440. The timeout applies only during initial provisioning, when the
    *          cluster is first created.</p>
@@ -232,13 +233,13 @@ export interface SpotProvisioningSpecification {
  *          duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
- *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot Instance allocation
+ *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
  *             strategies are available in Amazon EMR version 5.12.1 and later.</p>
  *          </note>
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot Instances in the fleet, which determines the defined
+   * <p>The launch specification for Spot instances in the fleet, which determines the defined
    *          duration, provisioning timeout behavior, and allocation strategy.</p>
    */
   SpotSpecification?: SpotProvisioningSpecification;
@@ -253,6 +254,55 @@ export interface InstanceFleetProvisioningSpecifications {
    *          </note>
    */
   OnDemandSpecification?: OnDemandProvisioningSpecification;
+}
+
+/**
+ * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+ *          the resize timeout period. </p>
+ */
+export interface OnDemandResizingSpecification {
+  /**
+   * <p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within
+   *          this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value
+   *          is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance
+   *          Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+ *          resize timeout period. </p>
+ */
+export interface SpotResizingSpecification {
+  /**
+   * <p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,
+   *          the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes
+   *          and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows
+   *          on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * <p>The resize specification for On-Demand and Spot Instances in the fleet.</p>
+ */
+export interface InstanceFleetResizingSpecifications {
+  /**
+   * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+   *          resize timeout period. </p>
+   */
+  SpotResizeSpecification?: SpotResizingSpecification;
+
+  /**
+   * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+   *          the resize timeout period. </p>
+   */
+  OnDemandResizeSpecification?: OnDemandResizingSpecification;
 }
 
 export interface AddInstanceFleetOutput {
@@ -2379,9 +2429,11 @@ export interface SimplifiedApplication {
  */
 export interface OSRelease {
   /**
-   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
+   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format
+   *          is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
    *                <i>Amazon Linux 2 Release Notes</i>
-   *             </a>. For example, 2.0.20220218.1.</p>
+   *             </a>. For example,
+   *          2.0.20220218.1.</p>
    */
   Label?: string;
 }
@@ -2407,7 +2459,8 @@ export interface DescribeReleaseLabelOutput {
   /**
    * <p>The list of available Amazon Linux release versions for an Amazon EMR release.
    *          Contains a Label field that is formatted as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html">
-   *                <i>Amazon Linux 2 Release Notes</i>
+   *                <i>Amazon Linux 2 Release
+   *                Notes</i>
    *             </a>. For example, <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">2.0.20220218.1</a>.</p>
    */
   AvailableOSReleases?: OSRelease[];
@@ -2766,8 +2819,8 @@ export interface DescribeStudioOutput {
  */
 export interface EbsBlockDevice {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification?: VolumeSpecification;
 
@@ -2826,7 +2879,7 @@ export interface GetClusterSessionCredentialsInput {
 
 export interface GetClusterSessionCredentialsOutput {
   /**
-   * <p>The credentials that you can use to connect to cluster endpoints that support username-based and password-based authentication.</p>
+   * <p>The credentials that you can use to connect to cluster endpoints that support username and password authentication.</p>
    */
   Credentials?: Credentials;
 
@@ -4000,6 +4053,11 @@ export interface InstanceFleetModifyConfig {
    *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
    */
   TargetSpotCapacity?: number;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 export interface ModifyInstanceFleetInput {
@@ -4630,7 +4688,9 @@ export interface Cluster {
   PlacementGroups?: PlacementGroupConfig[];
 
   /**
-   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.</p>
+   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon
+   *          Linux release was specified, the default Amazon Linux release is shown in the
+   *          response.</p>
    */
   OSReleaseLabel?: string;
 }
@@ -5030,6 +5090,11 @@ export interface InstanceFleet {
    * <p>Describes the launch specification for an instance fleet. </p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
@@ -5103,6 +5168,11 @@ export interface InstanceFleetConfig {
    * <p>The launch specification for the instance fleet.</p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
@@ -5556,7 +5626,8 @@ export interface RunJobFlowInput {
 
   /**
    * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services
-   *          resources on your behalf. If you've created a custom service role path, you must specify it for the service role when you launch your cluster.</p>
+   *          resources on your behalf. If you've created a custom service role path, you must specify it
+   *          for the service role when you launch your cluster.</p>
    */
   ServiceRole?: string;
 
@@ -5654,7 +5725,9 @@ export interface RunJobFlowInput {
   AutoTerminationPolicy?: AutoTerminationPolicy;
 
   /**
-   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If a release is not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.</p>
+   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow
+   *          request. If a release is not specified, Amazon EMR uses the latest validated Amazon
+   *          Linux release for cluster launch.</p>
    */
   OSReleaseLabel?: string;
 }
@@ -5706,6 +5779,29 @@ export const SpotProvisioningSpecificationFilterSensitiveLog = (obj: SpotProvisi
  */
 export const InstanceFleetProvisioningSpecificationsFilterSensitiveLog = (
   obj: InstanceFleetProvisioningSpecifications
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnDemandResizingSpecificationFilterSensitiveLog = (obj: OnDemandResizingSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpotResizingSpecificationFilterSensitiveLog = (obj: SpotResizingSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFleetResizingSpecificationsFilterSensitiveLog = (
+  obj: InstanceFleetResizingSpecifications
 ): any => ({
   ...obj,
 });

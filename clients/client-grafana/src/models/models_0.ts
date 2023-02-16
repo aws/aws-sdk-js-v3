@@ -76,7 +76,7 @@ export interface CreateWorkspaceApiKeyRequest {
 
   /**
    * <p>Specifies the permission level of the key.</p>
-   *         <p> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code>
+   *          <p> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code>
    *          </p>
    */
   keyRole: string | undefined;
@@ -463,6 +463,49 @@ export enum DataSourceType {
   XRAY = "XRAY",
 }
 
+/**
+ * <p>The configuration settings for in-bound network access to your workspace.</p>
+ *          <p>When this is configured, only listed IP addresses and VPC endpoints will be able to
+ *             access your workspace. Standard Grafana authentication and authorization will still be
+ *             required.</p>
+ *          <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints will
+ *             be allowed. Standard Grafana authentication and authorization will still be
+ *             required.</p>
+ */
+export interface NetworkAccessConfiguration {
+  /**
+   * <p>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses.
+   *             The IP addresses specified are allowed to access your workspace. If the list is not
+   *             included in the configuration then no IP addresses will be allowed to access the
+   *             workspace. You create a prefix list using the Amazon VPC console.</p>
+   *          <p>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i>
+   *             </code>.</p>
+   *          <p>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group CIDR blocks using managed
+   *                 prefix lists</a>in the <i>Amazon Virtual Private Cloud User
+   *             Guide</i>.</p>
+   */
+  prefixListIds: string[] | undefined;
+
+  /**
+   * <p>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC
+   *             endpoints to your Amazon Managed Grafana workspace for access from within a VPC. If a
+   *             <code>NetworkAccessConfiguration</code> is specified then only VPC endpoints
+   *             specified here will be allowed to access the workspace.</p>
+   *          <p>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i>
+   *             </code>.</p>
+   *          <p>For more information about creating an interface VPC endpoint, see
+   *             <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface VPC endpoints</a> in the <i>Amazon Managed Grafana
+   *                 User Guide</i>.</p>
+   *          <note>
+   *             <p>The only VPC endpoints that can be specified here are interface VPC endpoints for
+   *                 Grafana workspaces (using the
+   *                 <code>com.amazonaws.[region].grafana-workspace</code> service endpoint). Other VPC
+   *                 endpoints will be ignored.</p>
+   *          </note>
+   */
+  vpceIds: string[] | undefined;
+}
+
 export enum NotificationDestinationType {
   /**
    * AWS Simple Notification Service
@@ -531,17 +574,21 @@ export enum WorkspaceStatus {
 /**
  * <p>The configuration settings for an Amazon VPC that contains data sources
  *             for your Grafana workspace to connect to.</p>
+ *          <note>
+ *             <p>Provided <code>securityGroupIds</code> and <code>subnetIds</code>
+ *             must be part of the same VPC.</p>
+ *          </note>
  */
 export interface VpcConfiguration {
   /**
    * <p>The list of Amazon EC2 security group IDs attached to the Amazon VPC
-   *             for your Grafana workspace to connect.</p>
+   *             for your Grafana workspace to connect. Duplicates not allowed.</p>
    */
   securityGroupIds: string[] | undefined;
 
   /**
    * <p>The list of Amazon EC2 subnet IDs created in the Amazon VPC for
-   *             your Grafana workspace to connect.</p>
+   *             your Grafana workspace to connect. Duplicates not allowed.</p>
    */
   subnetIds: string[] | undefined;
 }
@@ -619,14 +666,14 @@ export interface WorkspaceDescription {
   organizationalUnits?: string[];
 
   /**
-   * <p>If this is <code>Service Managed</code>, Amazon Managed Grafana automatically creates the IAM roles
+   * <p>If this is <code>SERVICE_MANAGED</code>, Amazon Managed Grafana automatically creates the IAM roles
    *             and provisions the permissions that the workspace needs to use Amazon Web Services data sources and notification channels.</p>
-   *         <p>If this is <code>CUSTOMER_MANAGED</code>, you manage those roles and permissions
+   *          <p>If this is <code>CUSTOMER_MANAGED</code>, you manage those roles and permissions
    *             yourself. If you are creating this workspace in a member account of an organization and that account is not a
    *             delegated administrator account, and
    *             you want the workspace to access data sources in other Amazon Web Services accounts in the
    *             organization, you must choose <code>CUSTOMER_MANAGED</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
    *             Amazon Web Services data sources and notification channels</a>
    *          </p>
    */
@@ -687,6 +734,11 @@ export interface WorkspaceDescription {
    *             (Amazon Virtual Private Cloud).</p>
    */
   vpcConfiguration?: VpcConfiguration;
+
+  /**
+   * <p>The configuration settings for network access to your workspace.</p>
+   */
+  networkAccessControl?: NetworkAccessConfiguration;
 }
 
 export interface AssociateLicenseResponse {
@@ -1028,7 +1080,7 @@ export enum Role {
 export interface User {
   /**
    * <p>The ID of the user or group.</p>
-   *         <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code>
+   *          <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code>
    *          </p>
    */
   id: string | undefined;
@@ -1196,11 +1248,11 @@ export interface CreateWorkspaceRequest {
    *             Amazon Web Services data sources and notification channels. In the CLI mode, the permissionType <code>SERVICE_MANAGED</code> will not create the IAM role
    *             for you. The ability for the Amazon Managed Grafana to create the IAM role on behalf of the user is supported only in the
    *             Amazon Managed Grafana AWS console. Use only the <code>CUSTOMER_MANAGED</code> permission type when creating a workspace in the CLI. </p>
-   *         <p>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and
+   *          <p>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and
    *             permissions yourself. If you are creating this workspace in a member account of an
    *             organization that is not a delegated administrator account, and you want the workspace to access data sources in other Amazon Web Services
    *             accounts in the organization, you must choose <code>CUSTOMER_MANAGED</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
    *             Amazon Web Services data sources and notification channels</a>.</p>
    */
   permissionType: PermissionType | string | undefined;
@@ -1216,7 +1268,7 @@ export interface CreateWorkspaceRequest {
    *             workspace. Specifying these data sources here enables Amazon Managed Grafana to create IAM roles and permissions that allow Amazon Managed Grafana to read data from these
    *             sources. You must still add them as data sources in the Grafana console in the
    *             workspace.</p>
-   *         <p>If you don't specify a data source here, you can still add it as a data source in the
+   *          <p>If you don't specify a data source here, you can still add it as a data source in the
    *             workspace console later. However, you will then have to manually configure permissions for
    *             it.</p>
    */
@@ -1224,7 +1276,7 @@ export interface CreateWorkspaceRequest {
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this workspace.</p>
-   *         <p>Pattern: <code>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</code>
+   *          <p>Pattern: <code>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</code>
    *          </p>
    */
   workspaceDescription?: string;
@@ -1277,6 +1329,17 @@ export interface CreateWorkspaceRequest {
    *             about the format and configuration options available, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html">Working in your Grafana workspace</a>.</p>
    */
   configuration?: __LazyJsonString | string;
+
+  /**
+   * <p>Configuration for network access to your workspace.</p>
+   *          <p>When this is configured, only listed IP addresses and VPC endpoints will be able to
+   *             access your workspace. Standard Grafana authentication and authorization will still be
+   *             required.</p>
+   *          <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints will
+   *             be allowed. Standard Grafana authentication and authorization will still be
+   *             required.</p>
+   */
+  networkAccessControl?: NetworkAccessConfiguration;
 }
 
 export interface CreateWorkspaceResponse {
@@ -1417,14 +1480,14 @@ export interface UpdateWorkspaceRequest {
   organizationRoleName?: string;
 
   /**
-   * <p>If you specify <code>Service Managed</code>, Amazon Managed Grafana automatically creates
+   * <p>If you specify <code>SERVICE_MANAGED</code>, Amazon Managed Grafana automatically creates
    *             the IAM roles and provisions the permissions that the workspace needs to use
    *             Amazon Web Services data sources and notification channels.</p>
-   *         <p>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and
+   *          <p>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and
    *             permissions yourself. If you are creating this workspace in a member account of an
    *             organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other Amazon Web Services
    *             accounts in the organization, you must choose <code>CUSTOMER_MANAGED</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
    *             Amazon Web Services data sources and notification channels</a>
    *          </p>
    */
@@ -1441,7 +1504,7 @@ export interface UpdateWorkspaceRequest {
    *             workspace. Specifying these data sources here enables Amazon Managed Grafana to create IAM roles and permissions that allow Amazon Managed Grafana to read data from these
    *             sources. You must still add them as data sources in the Grafana console in the
    *             workspace.</p>
-   *         <p>If you don't specify a data source here, you can still add it as a data source later in
+   *          <p>If you don't specify a data source here, you can still add it as a data source later in
    *             the workspace console. However, you will then have to manually configure permissions for
    *             it.</p>
    */
@@ -1492,10 +1555,31 @@ export interface UpdateWorkspaceRequest {
 
   /**
    * <p>Whether to remove the VPC configuration from the workspace.</p>
-   *         <p>Setting this to <code>true</code> and providing a <code>vpcConfiguration</code> to set
+   *          <p>Setting this to <code>true</code> and providing a <code>vpcConfiguration</code> to set
    *             will return an error.</p>
    */
   removeVpcConfiguration?: boolean;
+
+  /**
+   * <p>The configuration settings for network access to your workspace.</p>
+   *          <p>When this is configured, only listed IP addresses and VPC endpoints will be able to
+   *             access your workspace. Standard Grafana authentication and authorization will still be
+   *             required.</p>
+   *          <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints will
+   *             be allowed. Standard Grafana authentication and authorization will still be
+   *             required.</p>
+   */
+  networkAccessControl?: NetworkAccessConfiguration;
+
+  /**
+   * <p>Whether to remove the network access configuration from the workspace.</p>
+   *          <p>Setting this to <code>true</code> and providing a <code>networkAccessControl</code>
+   *             to set will return an error.</p>
+   *          <p>If you remove this configuration by setting this to <code>true</code>, then all IP
+   *             addresses and VPC endpoints will be allowed. Standard Grafana authentication and
+   *             authorization will still be required.</p>
+   */
+  removeNetworkAccessConfiguration?: boolean;
 }
 
 export interface UpdateWorkspaceResponse {
@@ -1559,6 +1643,13 @@ export const AssociateLicenseRequestFilterSensitiveLog = (obj: AssociateLicenseR
  * @internal
  */
 export const AuthenticationSummaryFilterSensitiveLog = (obj: AuthenticationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkAccessConfigurationFilterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
   ...obj,
 });
 

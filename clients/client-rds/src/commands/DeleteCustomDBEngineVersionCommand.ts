@@ -48,8 +48,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
  *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">
- *             Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting a
+ *                 CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

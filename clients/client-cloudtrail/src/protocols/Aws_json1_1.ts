@@ -3228,6 +3228,9 @@ const deserializeAws_json1_1StartImportCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InvalidEventDataStoreCategoryException":
     case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
       throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);

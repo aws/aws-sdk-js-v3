@@ -28,8 +28,6 @@ import {
   Protocol,
   ReservedInstancesListing,
   ResourceType,
-  RouteTableAssociationState,
-  SelfServicePortal,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -38,6 +36,11 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export enum SelfServicePortal {
+  disabled = "disabled",
+  enabled = "enabled",
+}
 
 export enum TransportProtocol {
   tcp = "tcp",
@@ -8813,41 +8816,6 @@ export interface CreateRouteTableRequest {
 }
 
 /**
- * <p>Describes an association between a route table and a subnet or gateway.</p>
- */
-export interface RouteTableAssociation {
-  /**
-   * <p>Indicates whether this is the main route table.</p>
-   */
-  Main?: boolean;
-
-  /**
-   * <p>The ID of the association.</p>
-   */
-  RouteTableAssociationId?: string;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId?: string;
-
-  /**
-   * <p>The ID of the subnet. A subnet ID is not returned for an implicit association.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the internet gateway or virtual private gateway.</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The state of the association.</p>
-   */
-  AssociationState?: RouteTableAssociationState;
-}
-
-/**
  * @internal
  */
 export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
@@ -10541,12 +10509,5 @@ export const CreateRouteResultFilterSensitiveLog = (obj: CreateRouteResult): any
  * @internal
  */
 export const CreateRouteTableRequestFilterSensitiveLog = (obj: CreateRouteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteTableAssociationFilterSensitiveLog = (obj: RouteTableAssociation): any => ({
   ...obj,
 });

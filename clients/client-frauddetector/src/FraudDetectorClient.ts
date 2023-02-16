@@ -74,6 +74,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "./commands/CreateModelVersionCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
@@ -103,6 +104,7 @@ import {
   DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
 import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteModelVersionCommandInput, DeleteModelVersionCommandOutput } from "./commands/DeleteModelVersionCommand";
 import { DeleteOutcomeCommandInput, DeleteOutcomeCommandOutput } from "./commands/DeleteOutcomeCommand";
@@ -138,6 +140,8 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import { GetListElementsCommandInput, GetListElementsCommandOutput } from "./commands/GetListElementsCommand";
+import { GetListsMetadataCommandInput, GetListsMetadataCommandOutput } from "./commands/GetListsMetadataCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "./commands/GetModelVersionCommand";
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
@@ -177,6 +181,7 @@ import {
   UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand";
 import { UpdateEventLabelCommandInput, UpdateEventLabelCommandOutput } from "./commands/UpdateEventLabelCommand";
+import { UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
 import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import { UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput } from "./commands/UpdateModelVersionCommand";
 import {
@@ -202,6 +207,7 @@ export type ServiceInputTypes =
   | CreateBatchImportJobCommandInput
   | CreateBatchPredictionJobCommandInput
   | CreateDetectorVersionCommandInput
+  | CreateListCommandInput
   | CreateModelCommandInput
   | CreateModelVersionCommandInput
   | CreateRuleCommandInput
@@ -216,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteEventsByEventTypeCommandInput
   | DeleteExternalModelCommandInput
   | DeleteLabelCommandInput
+  | DeleteListCommandInput
   | DeleteModelCommandInput
   | DeleteModelVersionCommandInput
   | DeleteOutcomeCommandInput
@@ -236,6 +243,8 @@ export type ServiceInputTypes =
   | GetExternalModelsCommandInput
   | GetKMSEncryptionKeyCommandInput
   | GetLabelsCommandInput
+  | GetListElementsCommandInput
+  | GetListsMetadataCommandInput
   | GetModelVersionCommandInput
   | GetModelsCommandInput
   | GetOutcomesCommandInput
@@ -257,6 +266,7 @@ export type ServiceInputTypes =
   | UpdateDetectorVersionMetadataCommandInput
   | UpdateDetectorVersionStatusCommandInput
   | UpdateEventLabelCommandInput
+  | UpdateListCommandInput
   | UpdateModelCommandInput
   | UpdateModelVersionCommandInput
   | UpdateModelVersionStatusCommandInput
@@ -272,6 +282,7 @@ export type ServiceOutputTypes =
   | CreateBatchImportJobCommandOutput
   | CreateBatchPredictionJobCommandOutput
   | CreateDetectorVersionCommandOutput
+  | CreateListCommandOutput
   | CreateModelCommandOutput
   | CreateModelVersionCommandOutput
   | CreateRuleCommandOutput
@@ -286,6 +297,7 @@ export type ServiceOutputTypes =
   | DeleteEventsByEventTypeCommandOutput
   | DeleteExternalModelCommandOutput
   | DeleteLabelCommandOutput
+  | DeleteListCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelVersionCommandOutput
   | DeleteOutcomeCommandOutput
@@ -306,6 +318,8 @@ export type ServiceOutputTypes =
   | GetExternalModelsCommandOutput
   | GetKMSEncryptionKeyCommandOutput
   | GetLabelsCommandOutput
+  | GetListElementsCommandOutput
+  | GetListsMetadataCommandOutput
   | GetModelVersionCommandOutput
   | GetModelsCommandOutput
   | GetOutcomesCommandOutput
@@ -327,6 +341,7 @@ export type ServiceOutputTypes =
   | UpdateDetectorVersionMetadataCommandOutput
   | UpdateDetectorVersionStatusCommandOutput
   | UpdateEventLabelCommandOutput
+  | UpdateListCommandOutput
   | UpdateModelCommandOutput
   | UpdateModelVersionCommandOutput
   | UpdateModelVersionStatusCommandOutput
@@ -402,6 +417,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
    * Enables IPv6/IPv4 dualstack endpoint.
    */
   useDualstackEndpoint?: boolean | __Provider<boolean>;
@@ -410,12 +431,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests

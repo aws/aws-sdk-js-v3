@@ -78,6 +78,7 @@ import {
   DataSourceType,
   IdpMetadata,
   InternalServerException,
+  NetworkAccessConfiguration,
   NotificationDestinationType,
   PermissionEntry,
   ResourceNotFoundException,
@@ -136,6 +137,9 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.configuration != null && { configuration: __LazyJsonString.fromObject(input.configuration) }),
+    ...(input.networkAccessControl != null && {
+      networkAccessControl: serializeAws_restJson1NetworkAccessConfiguration(input.networkAccessControl, context),
+    }),
     ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
     ...(input.permissionType != null && { permissionType: input.permissionType }),
     ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
@@ -498,8 +502,14 @@ export const serializeAws_restJson1UpdateWorkspaceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
+    ...(input.networkAccessControl != null && {
+      networkAccessControl: serializeAws_restJson1NetworkAccessConfiguration(input.networkAccessControl, context),
+    }),
     ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
     ...(input.permissionType != null && { permissionType: input.permissionType }),
+    ...(input.removeNetworkAccessConfiguration != null && {
+      removeNetworkAccessConfiguration: input.removeNetworkAccessConfiguration,
+    }),
     ...(input.removeVpcConfiguration != null && { removeVpcConfiguration: input.removeVpcConfiguration }),
     ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
     ...(input.vpcConfiguration != null && {
@@ -1775,6 +1785,18 @@ const serializeAws_restJson1IdpMetadata = (input: IdpMetadata, context: __SerdeC
   });
 };
 
+const serializeAws_restJson1NetworkAccessConfiguration = (
+  input: NetworkAccessConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.prefixListIds != null && {
+      prefixListIds: serializeAws_restJson1PrefixListIds(input.prefixListIds, context),
+    }),
+    ...(input.vpceIds != null && { vpceIds: serializeAws_restJson1VpceIds(input.vpceIds, context) }),
+  };
+};
+
 const serializeAws_restJson1NotificationDestinationsList = (
   input: (NotificationDestinationType | string)[],
   context: __SerdeContext
@@ -1787,6 +1809,14 @@ const serializeAws_restJson1NotificationDestinationsList = (
 };
 
 const serializeAws_restJson1OrganizationalUnitList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1PrefixListIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1889,6 +1919,14 @@ const serializeAws_restJson1VpcConfiguration = (input: VpcConfiguration, context
   };
 };
 
+const serializeAws_restJson1VpceIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1AllowedOrganizations = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -1978,6 +2016,17 @@ const deserializeAws_restJson1IdpMetadata = (output: any, context: __SerdeContex
   return { $unknown: Object.entries(output)[0] };
 };
 
+const deserializeAws_restJson1NetworkAccessConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NetworkAccessConfiguration => {
+  return {
+    prefixListIds:
+      output.prefixListIds != null ? deserializeAws_restJson1PrefixListIds(output.prefixListIds, context) : undefined,
+    vpceIds: output.vpceIds != null ? deserializeAws_restJson1VpceIds(output.vpceIds, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1NotificationDestinationsList = (
   output: any,
   context: __SerdeContext
@@ -2020,6 +2069,18 @@ const deserializeAws_restJson1PermissionEntryList = (output: any, context: __Ser
         return null as any;
       }
       return deserializeAws_restJson1PermissionEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PrefixListIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -2188,6 +2249,18 @@ const deserializeAws_restJson1VpcConfiguration = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1VpceIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
   return {
     accountAccessType: __expectString(output.accountAccessType),
@@ -2216,6 +2289,10 @@ const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __Se
     modified:
       output.modified != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified))) : undefined,
     name: __expectString(output.name),
+    networkAccessControl:
+      output.networkAccessControl != null
+        ? deserializeAws_restJson1NetworkAccessConfiguration(output.networkAccessControl, context)
+        : undefined,
     notificationDestinations:
       output.notificationDestinations != null
         ? deserializeAws_restJson1NotificationDestinationsList(output.notificationDestinations, context)

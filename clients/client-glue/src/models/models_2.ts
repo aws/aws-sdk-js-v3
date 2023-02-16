@@ -21,6 +21,7 @@ import {
   DatabaseInput,
   DataQualityTargetTable,
   DataSource,
+  DirectJDBCSource,
   DirectKafkaSource,
   DirectKinesisSource,
   DropDuplicates,
@@ -97,6 +98,8 @@ import {
   ColumnStatistics,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
+  FieldName,
+  FilterOperator,
   JobBookmarkEntry,
   RegistryStatus,
   ResourceShareType,
@@ -109,6 +112,92 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
+ */
+export interface CrawlsFilter {
+  /**
+   * <p>A key used to filter the crawler runs for a specified crawler. Valid values for each of the field names are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CRAWL_ID</code>: A string representing the UUID identifier for a crawl.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATE</code>: A string representing the state of the crawl.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>START_TIME</code> and <code>END_TIME</code>: The epoch timestamp in milliseconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DPU_HOUR</code>: The number of data processing unit (DPU) hours used for the crawl.</p>
+   *             </li>
+   *          </ul>
+   */
+  FieldName?: FieldName | string;
+
+  /**
+   * <p>A defined comparator that operates on the value. The available operators are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code>: Greater than.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GE</code>: Greater than or equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code>: Less than.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LE</code>: Less than or equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code>: Equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NE</code>: Not equal to.</p>
+   *             </li>
+   *          </ul>
+   */
+  FilterOperator?: FilterOperator | string;
+
+  /**
+   * <p>The value provided for comparison on the crawl field. </p>
+   */
+  FieldValue?: string;
+}
+
+export interface ListCrawlsRequest {
+  /**
+   * <p>The name of the crawler whose runs you want to retrieve.</p>
+   */
+  CrawlerName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. The default is 20, and maximum is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code> objects.</p>
+   */
+  Filters?: CrawlsFilter[];
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
 
 export enum CrawlerHistoryState {
   COMPLETED = "COMPLETED",
@@ -3548,6 +3637,11 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
    */
   S3HudiDirectTarget?: S3HudiDirectTarget;
+
+  /**
+   * <p>Specifies the direct JDBC source connection.</p>
+   */
+  DirectJDBCSource?: DirectJDBCSource;
 }
 
 export interface CreateJobRequest {
@@ -4087,6 +4181,20 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const CrawlsFilterFilterSensitiveLog = (obj: CrawlsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlsRequestFilterSensitiveLog = (obj: ListCrawlsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

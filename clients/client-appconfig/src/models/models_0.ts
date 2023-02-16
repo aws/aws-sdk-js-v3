@@ -925,6 +925,11 @@ export interface CreateHostedConfigurationVersionRequest {
    *          the latest hosted configuration version.</p>
    */
   LatestVersionNumber?: number;
+
+  /**
+   * <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, "v2.2.0".</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface HostedConfigurationVersion {
@@ -958,6 +963,11 @@ export interface HostedConfigurationVersion {
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 export enum BytesMeasure {
@@ -1865,6 +1875,11 @@ export interface HostedConfigurationVersionSummary {
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface HostedConfigurationVersions {
@@ -1901,6 +1916,11 @@ export interface ListHostedConfigurationVersionsRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface ListTagsForResourceRequest {
@@ -1941,7 +1961,7 @@ export interface StartDeploymentRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>The configuration version to deploy.</p>
+   * <p>The configuration version to deploy. If deploying an AppConfig hosted configuration version, you can specify either the version number or version label.</p>
    */
   ConfigurationVersion: string | undefined;
 

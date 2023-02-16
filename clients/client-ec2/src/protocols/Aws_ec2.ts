@@ -2479,7 +2479,6 @@ import {
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
-  RouteTableAssociation,
   SpotOptionsRequest,
   StateReason,
   StorageLocation,
@@ -2660,7 +2659,6 @@ import {
   DeleteTrafficMirrorFilterRuleRequest,
   DeleteTrafficMirrorFilterRuleResult,
   DeleteTrafficMirrorSessionRequest,
-  DeleteTrafficMirrorSessionResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2687,6 +2685,7 @@ import {
   ResponseError,
   Route,
   RouteTable,
+  RouteTableAssociation,
   S3ObjectTag,
   SecurityGroupIdentifier,
   ServiceConfiguration,
@@ -2764,6 +2763,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteTrafficMirrorSessionResult,
   DeleteTrafficMirrorTargetRequest,
   DeleteTrafficMirrorTargetResult,
   DeleteTransitGatewayConnectPeerRequest,
@@ -2963,7 +2963,6 @@ import {
   ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  Instance,
   InstanceAttribute,
   InstanceBlockDeviceMapping,
   InstanceCapacity,
@@ -3182,6 +3181,7 @@ import {
   HistoryRecord,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
+  Instance,
   InstanceNetworkInterfaceSpecification,
   InstanceStatus,
   InstanceStatusDetails,
@@ -3264,7 +3264,6 @@ import {
   VolumeModification,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
   VolumeStatusEvent,
 } from "../models/models_4";
 import {
@@ -3550,6 +3549,7 @@ import {
   UserBucket,
   UserData,
   VolumeDetail,
+  VolumeStatusDetails,
   VolumeStatusInfo,
   VolumeStatusItem,
   VpcClassicLink,
@@ -3840,7 +3840,6 @@ import {
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
-  UnassignIpv6AddressesRequest,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
@@ -3850,6 +3849,7 @@ import {
 } from "../models/models_6";
 import {
   SecurityGroupRuleDescription,
+  UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateNatGatewayAddressRequest,
@@ -34167,6 +34167,9 @@ const serializeAws_ec2AllocateHostsRequest = (input: AllocateHostsRequest, conte
   if (input.OutpostArn != null) {
     entries["OutpostArn"] = input.OutpostArn;
   }
+  if (input.HostMaintenance != null) {
+    entries["HostMaintenance"] = input.HostMaintenance;
+  }
   return entries;
 };
 
@@ -51114,6 +51117,9 @@ const serializeAws_ec2ModifyHostsRequest = (input: ModifyHostsRequest, context: 
   }
   if (input.InstanceFamily != null) {
     entries["InstanceFamily"] = input.InstanceFamily;
+  }
+  if (input.HostMaintenance != null) {
+    entries["HostMaintenance"] = input.HostMaintenance;
   }
   return entries;
 };
@@ -71899,6 +71905,7 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     AvailabilityZoneId: undefined,
     MemberOfServiceLinkedResourceGroup: undefined,
     OutpostArn: undefined,
+    HostMaintenance: undefined,
   };
   if (output["autoPlacement"] !== undefined) {
     contents.AutoPlacement = __expectString(output["autoPlacement"]);
@@ -71960,6 +71967,9 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
   }
   if (output["outpostArn"] !== undefined) {
     contents.OutpostArn = __expectString(output["outpostArn"]);
+  }
+  if (output["hostMaintenance"] !== undefined) {
+    contents.HostMaintenance = __expectString(output["hostMaintenance"]);
   }
   return contents;
 };

@@ -9,24 +9,22 @@ export enum AgentStatus {
 }
 
 /**
- * <p>Represents a single entry in a list of agents. <code>AgentListEntry</code> returns an
- *       array that contains a list of agents when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a>
- *       operation is
- *       called.</p>
+ * <p>Represents a single entry in a list (or array) of DataSync agents when
+ *       you call the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a> operation.</p>
  */
 export interface AgentListEntry {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of a DataSync agent.</p>
    */
   AgentArn?: string;
 
   /**
-   * <p>The name of the agent.</p>
+   * <p>The name of an agent.</p>
    */
   Name?: string;
 
   /**
-   * <p>The status of the agent.</p>
+   * <p>The status of an agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html">DataSync agent statuses</a>.</p>
    */
   Status?: AgentStatus | string;
 }
@@ -359,17 +357,52 @@ export interface FsxProtocolNfs {
 
 export enum SmbVersion {
   AUTOMATIC = "AUTOMATIC",
+  SMB1 = "SMB1",
   SMB2 = "SMB2",
+  SMB2_0 = "SMB2_0",
   SMB3 = "SMB3",
 }
 
 /**
- * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+ * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
  */
 export interface SmbMountOptions {
   /**
-   * <p>Specifies the SMB version that you want DataSync to use when mounting your SMB share. If you
-   *       don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses a version based on negotiation with the SMB server.</p>
+   * <p>By default, DataSync automatically chooses an SMB protocol version based on
+   *       negotiation with your SMB file server. You also can configure DataSync to use a
+   *       specific SMB version, but we recommend doing this only if DataSync has trouble
+   *       negotiating with the SMB file server automatically.</p>
+   *          <p>These are the following options for configuring the SMB version:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate a
+   *           protocol version that they mutually support. (DataSync supports SMB versions 1.0
+   *           and later.)</p>
+   *                <p>This is the recommended option. If you instead choose a specific version that your
+   *           file server doesn't support, you may get an <code>Operation Not Supported</code>
+   *           error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</p>
+   *                <note>
+   *                   <p>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating an Amazon FSx for NetApp ONTAP location</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
    */
   Version?: SmbVersion | string;
 }
@@ -384,7 +417,7 @@ export interface FsxProtocolSmb {
   Domain?: string;
 
   /**
-   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    */
   MountOptions?: SmbMountOptions;
 
@@ -476,14 +509,16 @@ export interface CreateLocationFsxOntapRequest {
   SecurityGroupArns: string[] | undefined;
 
   /**
-   * <p>Specifies the ARN of the storage virtual machine (SVM) on your file system where you're
-   *       copying data to or from.</p>
+   * <p>Specifies the ARN of the storage virtual machine (SVM) in your file system where you want
+   *       to copy data to or from.</p>
    */
   StorageVirtualMachineArn: string | undefined;
 
   /**
-   * <p>Specifies the junction path (also known as a mount point) in the SVM volume where you're
-   *       copying data to or from (for example, <code>/vol1</code>).</p>
+   * <p>Specifies a path to the file share in the SVM where you'll copy your data.</p>
+   *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
+   *       shares), or share name (for SMB file shares). For example, your mount path might be
+   *         <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
    *          <note>
    *             <p>Don't specify a junction path in the SVM's root volume. For more
    *         information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP
@@ -1019,68 +1054,60 @@ export interface CreateLocationS3Response {
  */
 export interface CreateLocationSmbRequest {
   /**
-   * <p>The subdirectory in the SMB file system that is used to read data from the SMB source
-   *       location or write data to the SMB destination. The SMB path should be a path that's
-   *       exported by the SMB server, or a subdirectory of that path. The path should be such that it
-   *       can be mounted by other SMB clients in your network.</p>
-   *          <note>
-   *             <p>
-   *                <code>Subdirectory</code> must be specified with forward slashes. For example,
-   *           <code>/path/to/folder</code>.</p>
-   *          </note>
-   *          <p>To transfer all the data in the folder you specified, DataSync needs to have permissions
-   *       to mount the SMB share, as well as to access all the data in that share. To ensure this,
-   *       either ensure that the user/password specified belongs to the user who can mount the share,
-   *       and who has the appropriate permissions for all of the files and directories that you want
-   *       DataSync to access, or use credentials of a member of the Backup Operators group to mount
-   *       the share. Doing either enables the agent to access the data. For the agent to access
-   *       directories, you must additionally enable all execute access.</p>
+   * <p>Specifies the name of the share exported by your SMB file server where DataSync
+   *       will read or write data. You can include a subdirectory in the share path (for example,
+   *         <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
+   *       also mount this path.</p>
+   *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
+   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Subdirectory: string | undefined;
 
   /**
-   * <p>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name
-   *       of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB
-   *       server in a network.</p>
+   * <p>Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that
+   *       your DataSync agent will mount.</p>
    *          <note>
-   *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p>
+   *             <p>You can't specify an IP version 6 (IPv6) address.</p>
    *          </note>
    */
   ServerHostname: string | undefined;
 
   /**
-   * <p>The user who can mount the share, has the permissions to access files and folders in the
-   *       SMB share.</p>
-   *          <p>For information about choosing a user name that ensures sufficient permissions to files,
-   *       folders, and metadata, see the <a href="create-smb-location.html#SMBuser">User setting</a> for SMB locations.</p>
+   * <p>Specifies the user name that can mount your SMB file server and has permission to access
+   *       the files and folders involved in your transfer.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer,
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   User: string | undefined;
 
   /**
-   * <p>The name of the Windows domain that the SMB server belongs to.</p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Domain?: string;
 
   /**
-   * <p>The password of the user who can mount the share, has the permissions to access files and
-   *       folders in the SMB share.</p>
+   * <p>Specifies the password of the user who can mount your SMB file server and has permission
+   *       to access the files and folders involved in your transfer.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Password: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
-   *       location. </p>
+   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB
+   *       file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    */
   AgentArns: string[] | undefined;
 
   /**
-   * <p>The mount options used by DataSync to access the SMB server.</p>
+   * <p>Specifies the version of the SMB protocol that DataSync uses to access your SMB
+   *       file server.</p>
    */
   MountOptions?: SmbMountOptions;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The value
-   *       can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We
+   *       recommend creating at least a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
 }
@@ -1090,8 +1117,7 @@ export interface CreateLocationSmbRequest {
  */
 export interface CreateLocationSmbResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
-   *       created.</p>
+   * <p>The ARN of the SMB location that you created.</p>
    */
   LocationArn?: string;
 }
@@ -1237,7 +1263,7 @@ export interface Options {
    *       those changes. </p>
    *          <p>Some storage classes have specific behaviors that can affect your Amazon S3
    *       storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with Amazon S3 storage classes in DataSync </a>.</p>
+   *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    */
   OverwriteMode?: OverwriteMode | string;
 
@@ -1313,7 +1339,7 @@ export interface Options {
    *       should be preserved. This option can affect your Amazon S3 storage cost. If your task
    *       deletes objects, you might incur minimum storage duration charges for certain storage classes.
    *       For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with Amazon S3 storage classes in DataSync </a>.</p>
+   *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    *          <p>Default value: <code>PRESERVE</code>
    *          </p>
    *          <p>
@@ -1321,6 +1347,10 @@ export interface Options {
    *          <p>
    *             <code>REMOVE</code>: Delete destination files that aren’t present in the
    *       source.</p>
+   *          <note>
+   *             <p>If you set this parameter to <code>REMOVE</code>, you can't set
+   *           <code>TransferMode</code> to <code>ALL</code>. When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.</p>
+   *          </note>
    */
   PreserveDeletedFiles?: PreserveDeletedFiles | string;
 
@@ -1578,7 +1608,7 @@ export interface DeleteTaskResponse {}
  */
 export interface DescribeAgentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent to describe.</p>
    */
   AgentArn: string | undefined;
 }
@@ -1626,7 +1656,7 @@ export interface PrivateLinkConfig {
  */
 export interface DescribeAgentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * <p>The ARN of the agent.</p>
    */
   AgentArn?: string;
 
@@ -2448,13 +2478,14 @@ export interface DescribeTaskExecutionResponse {
  */
 export interface ListAgentsRequest {
   /**
-   * <p>The maximum number of agents to list.</p>
+   * <p>Specifies the maximum number of DataSync agents to list in a response. By
+   *       default, a response shows a maximum of 100 agents.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>An opaque string that indicates the position at which to begin the next list of
-   *       agents.</p>
+   * <p>Specifies an opaque string that indicates the position to begin the next list of
+   *       results in the response.</p>
    */
   NextToken?: string;
 }
@@ -2464,13 +2495,14 @@ export interface ListAgentsRequest {
  */
 export interface ListAgentsResponse {
   /**
-   * <p>A list of agents in your account.</p>
+   * <p>A list of DataSync agents in your Amazon Web Services account in the Amazon Web Services Region specified in the request. The list is ordered by the agents' Amazon
+   *       Resource Names (ARNs).</p>
    */
   Agents?: AgentListEntry[];
 
   /**
-   * <p>An opaque string that indicates the position at which to begin returning the next list
-   *       of agents.</p>
+   * <p>The opaque string that indicates the position to begin the next list of results in the
+   *       response.</p>
    */
   NextToken?: string;
 }
@@ -3116,7 +3148,7 @@ export interface UpdateLocationSmbRequest {
   AgentArns?: string[];
 
   /**
-   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    */
   MountOptions?: SmbMountOptions;
 }

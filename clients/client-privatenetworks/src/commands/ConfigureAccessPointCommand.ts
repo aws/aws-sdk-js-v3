@@ -31,7 +31,7 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
 /**
  * <p>Configures the specified network resource.
  *         </p>
- *         <p>
+ *          <p>
  *             Use this action to specify the geographic
  *             position of the hardware. You must provide Certified Professional Installer (CPI)
  *             credentials in the request so that we can obtain spectrum grants. For more information,

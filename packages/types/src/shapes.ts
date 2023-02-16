@@ -56,5 +56,16 @@ export interface SmithyException {
 
 /**
  * @deprecated
+ * @see https://aws.amazon.com/blogs/developer/service-error-handling-modular-aws-sdk-js/
+ *
+ * This type should not be used in your application.
+ * Users of the AWS SDK for JavaScript v3 service clients should prefer to
+ * use the specific Exception classes corresponding to each operation.
+ * These can be found as code in the deserializer for the operation's Command class,
+ * or as declarations in the service model file in codegen/sdk-codegen/aws-models.
+ *
+ * If no exceptions are enumerated by a particular Command operation,
+ * the base exception for the service should be used. Each client exports
+ * a base ServiceException prefixed with the service name.
  */
 export type SdkError = Error & Partial<SmithyException> & Partial<MetadataBearer>;

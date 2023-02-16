@@ -547,7 +547,6 @@ import {
   CreateRegistryResponse,
   CreateSchemaInput,
   CreateSchemaResponse,
-  CreateScriptRequest,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -561,6 +560,7 @@ import {
   Datatype,
   DeltaTarget,
   DevEndpoint,
+  DirectJDBCSource,
   DirectKafkaSource,
   DirectKinesisSource,
   DirectSchemaChangePolicy,
@@ -716,7 +716,7 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
-  CrawlsFilter,
+  CreateScriptRequest,
   CreateScriptResponse,
   CreateSecurityConfigurationRequest,
   CreateSecurityConfigurationResponse,
@@ -938,7 +938,6 @@ import {
   ListBlueprintsResponse,
   ListCrawlersRequest,
   ListCrawlersResponse,
-  ListCrawlsRequest,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
@@ -984,6 +983,7 @@ import {
   CrawlerHistory,
   CrawlerNotRunningException,
   CrawlerStoppingException,
+  CrawlsFilter,
   CreateJobRequest,
   DataQualityResultDescription,
   DataQualityResultFilterCriteria,
@@ -1000,6 +1000,7 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListCrawlsRequest,
   ListCrawlsResponse,
   ListCustomEntityTypesRequest,
   ListCustomEntityTypesResponse,
@@ -15146,6 +15147,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
       CatalogTarget: serializeAws_json1_1BasicCatalogTarget(input.CatalogTarget, context),
     }),
     ...(input.CustomCode != null && { CustomCode: serializeAws_json1_1CustomCode(input.CustomCode, context) }),
+    ...(input.DirectJDBCSource != null && {
+      DirectJDBCSource: serializeAws_json1_1DirectJDBCSource(input.DirectJDBCSource, context),
+    }),
     ...(input.DirectKafkaSource != null && {
       DirectKafkaSource: serializeAws_json1_1DirectKafkaSource(input.DirectKafkaSource, context),
     }),
@@ -16392,6 +16396,17 @@ const serializeAws_json1_1DevEndpointNames = (input: string[], context: __SerdeC
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1DirectJDBCSource = (input: DirectJDBCSource, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionType != null && { ConnectionType: input.ConnectionType }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RedshiftTmpDir != null && { RedshiftTmpDir: input.RedshiftTmpDir }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
 };
 
 const serializeAws_json1_1DirectKafkaSource = (input: DirectKafkaSource, context: __SerdeContext): any => {
@@ -20574,6 +20589,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
         ? deserializeAws_json1_1BasicCatalogTarget(output.CatalogTarget, context)
         : undefined,
     CustomCode: output.CustomCode != null ? deserializeAws_json1_1CustomCode(output.CustomCode, context) : undefined,
+    DirectJDBCSource:
+      output.DirectJDBCSource != null
+        ? deserializeAws_json1_1DirectJDBCSource(output.DirectJDBCSource, context)
+        : undefined,
     DirectKafkaSource:
       output.DirectKafkaSource != null
         ? deserializeAws_json1_1DirectKafkaSource(output.DirectKafkaSource, context)
@@ -22206,6 +22225,17 @@ const deserializeAws_json1_1DevEndpointNames = (output: any, context: __SerdeCon
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1DirectJDBCSource = (output: any, context: __SerdeContext): DirectJDBCSource => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionType: __expectString(output.ConnectionType),
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    RedshiftTmpDir: __expectString(output.RedshiftTmpDir),
+    Table: __expectString(output.Table),
+  } as any;
 };
 
 const deserializeAws_json1_1DirectKafkaSource = (output: any, context: __SerdeContext): DirectKafkaSource => {

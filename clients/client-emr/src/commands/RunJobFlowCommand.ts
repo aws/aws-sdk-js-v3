@@ -43,7 +43,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
  *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
  *          various ways, including using the SSH shell to connect to the master node and submitting
- *          queries directly to the software running on the master node, such as Hive and Hadoop.</p>
+ *          queries directly to the software running on the master node, such as Hive and
+ *          Hadoop.</p>
  *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
  *          <note>
  *             <p>The instance fleets configuration is available only in Amazon EMR versions

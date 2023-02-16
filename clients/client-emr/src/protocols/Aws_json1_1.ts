@@ -245,6 +245,7 @@ import {
   InstanceFleetConfig,
   InstanceFleetModifyConfig,
   InstanceFleetProvisioningSpecifications,
+  InstanceFleetResizingSpecifications,
   InstanceFleetStateChangeReason,
   InstanceFleetStatus,
   InstanceFleetTimeline,
@@ -305,6 +306,7 @@ import {
   NotebookExecutionSummary,
   OnDemandCapacityReservationOptions,
   OnDemandProvisioningSpecification,
+  OnDemandResizingSpecification,
   OSRelease,
   PlacementGroupConfig,
   PlacementType,
@@ -342,6 +344,7 @@ import {
   SimpleScalingPolicyConfiguration,
   SimplifiedApplication,
   SpotProvisioningSpecification,
+  SpotResizingSpecification,
   StartNotebookExecutionInput,
   StartNotebookExecutionOutput,
   Step,
@@ -3716,6 +3719,12 @@ const serializeAws_json1_1InstanceFleetConfig = (input: InstanceFleetConfig, con
       ),
     }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResizeSpecifications != null && {
+      ResizeSpecifications: serializeAws_json1_1InstanceFleetResizingSpecifications(
+        input.ResizeSpecifications,
+        context
+      ),
+    }),
     ...(input.TargetOnDemandCapacity != null && { TargetOnDemandCapacity: input.TargetOnDemandCapacity }),
     ...(input.TargetSpotCapacity != null && { TargetSpotCapacity: input.TargetSpotCapacity }),
   };
@@ -3735,6 +3744,12 @@ const serializeAws_json1_1InstanceFleetModifyConfig = (
 ): any => {
   return {
     ...(input.InstanceFleetId != null && { InstanceFleetId: input.InstanceFleetId }),
+    ...(input.ResizeSpecifications != null && {
+      ResizeSpecifications: serializeAws_json1_1InstanceFleetResizingSpecifications(
+        input.ResizeSpecifications,
+        context
+      ),
+    }),
     ...(input.TargetOnDemandCapacity != null && { TargetOnDemandCapacity: input.TargetOnDemandCapacity }),
     ...(input.TargetSpotCapacity != null && { TargetSpotCapacity: input.TargetSpotCapacity }),
   };
@@ -3753,6 +3768,23 @@ const serializeAws_json1_1InstanceFleetProvisioningSpecifications = (
     }),
     ...(input.SpotSpecification != null && {
       SpotSpecification: serializeAws_json1_1SpotProvisioningSpecification(input.SpotSpecification, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1InstanceFleetResizingSpecifications = (
+  input: InstanceFleetResizingSpecifications,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OnDemandResizeSpecification != null && {
+      OnDemandResizeSpecification: serializeAws_json1_1OnDemandResizingSpecification(
+        input.OnDemandResizeSpecification,
+        context
+      ),
+    }),
+    ...(input.SpotResizeSpecification != null && {
+      SpotResizeSpecification: serializeAws_json1_1SpotResizingSpecification(input.SpotResizeSpecification, context),
     }),
   };
 };
@@ -4159,6 +4191,15 @@ const serializeAws_json1_1OnDemandProvisioningSpecification = (
   };
 };
 
+const serializeAws_json1_1OnDemandResizingSpecification = (
+  input: OnDemandResizingSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TimeoutDurationMinutes != null && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
+  };
+};
+
 const serializeAws_json1_1PlacementGroupConfig = (input: PlacementGroupConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceRole != null && { InstanceRole: input.InstanceRole }),
@@ -4456,6 +4497,15 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
     ...(input.AllocationStrategy != null && { AllocationStrategy: input.AllocationStrategy }),
     ...(input.BlockDurationMinutes != null && { BlockDurationMinutes: input.BlockDurationMinutes }),
     ...(input.TimeoutAction != null && { TimeoutAction: input.TimeoutAction }),
+    ...(input.TimeoutDurationMinutes != null && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
+  };
+};
+
+const serializeAws_json1_1SpotResizingSpecification = (
+  input: SpotResizingSpecification,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.TimeoutDurationMinutes != null && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
   };
 };
@@ -5324,6 +5374,10 @@ const deserializeAws_json1_1InstanceFleet = (output: any, context: __SerdeContex
     Name: __expectString(output.Name),
     ProvisionedOnDemandCapacity: __expectInt32(output.ProvisionedOnDemandCapacity),
     ProvisionedSpotCapacity: __expectInt32(output.ProvisionedSpotCapacity),
+    ResizeSpecifications:
+      output.ResizeSpecifications != null
+        ? deserializeAws_json1_1InstanceFleetResizingSpecifications(output.ResizeSpecifications, context)
+        : undefined,
     Status: output.Status != null ? deserializeAws_json1_1InstanceFleetStatus(output.Status, context) : undefined,
     TargetOnDemandCapacity: __expectInt32(output.TargetOnDemandCapacity),
     TargetSpotCapacity: __expectInt32(output.TargetSpotCapacity),
@@ -5354,6 +5408,22 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
     SpotSpecification:
       output.SpotSpecification != null
         ? deserializeAws_json1_1SpotProvisioningSpecification(output.SpotSpecification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceFleetResizingSpecifications = (
+  output: any,
+  context: __SerdeContext
+): InstanceFleetResizingSpecifications => {
+  return {
+    OnDemandResizeSpecification:
+      output.OnDemandResizeSpecification != null
+        ? deserializeAws_json1_1OnDemandResizingSpecification(output.OnDemandResizeSpecification, context)
+        : undefined,
+    SpotResizeSpecification:
+      output.SpotResizeSpecification != null
+        ? deserializeAws_json1_1SpotResizingSpecification(output.SpotResizeSpecification, context)
         : undefined,
   } as any;
 };
@@ -6007,6 +6077,15 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
   } as any;
 };
 
+const deserializeAws_json1_1OnDemandResizingSpecification = (
+  output: any,
+  context: __SerdeContext
+): OnDemandResizingSpecification => {
+  return {
+    TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
+  } as any;
+};
+
 const deserializeAws_json1_1OSRelease = (output: any, context: __SerdeContext): OSRelease => {
   return {
     Label: __expectString(output.Label),
@@ -6327,6 +6406,15 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
     AllocationStrategy: __expectString(output.AllocationStrategy),
     BlockDurationMinutes: __expectInt32(output.BlockDurationMinutes),
     TimeoutAction: __expectString(output.TimeoutAction),
+    TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
+  } as any;
+};
+
+const deserializeAws_json1_1SpotResizingSpecification = (
+  output: any,
+  context: __SerdeContext
+): SpotResizingSpecification => {
+  return {
     TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
   } as any;
 };

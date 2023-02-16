@@ -577,8 +577,37 @@ export enum HealthStatus {
   UNHEALTHY = "UNHEALTHY",
 }
 
+/**
+ * <p>Information about a request to return a network resource.</p>
+ */
+export interface ReturnInformation {
+  /**
+   * <p>The shipping address.</p>
+   */
+  shippingAddress?: Address;
+
+  /**
+   * <p>The reason for the return. If the return request did not include a
+   *            reason for the return, this value is null.</p>
+   */
+  returnReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replacement order.</p>
+   */
+  replacementOrderArn?: string;
+
+  /**
+   * <p>The URL of the shipping label. The shipping label is available for download
+   *             only if the status of the network resource is <code>PENDING_RETURN</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return a radio unit</a>.</p>
+   */
+  shippingLabel?: string;
+}
+
 export enum NetworkResourceStatus {
   AVAILABLE = "AVAILABLE",
+  CREATING_SHIPPING_LABEL = "CREATING_SHIPPING_LABEL",
   DELETED = "DELETED",
   DELETING = "DELETING",
   PENDING = "PENDING",
@@ -671,6 +700,11 @@ export interface NetworkResource {
    * <p>The creation time of the network resource.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>Information about a request to return the network resource.</p>
+   */
+  returnInformation?: ReturnInformation;
 }
 
 export interface ConfigureAccessPointResponse {
@@ -1021,21 +1055,21 @@ export interface GetOrderResponse {
 export interface ListDeviceIdentifiersRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ORDER</code> - The Amazon Resource Name (ARN) of the order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>ACTIVE</code> | <code>INACTIVE</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TRAFFIC_GROUP</code> - The Amazon Resource Name (ARN) of the traffic group.</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1077,19 +1111,19 @@ export enum NetworkResourceFilterKeys {
 export interface ListNetworkResourcesRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ORDER</code> - The Amazon Resource Name (ARN) of the order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>DELETED</code>
    *                     | <code>DELETING</code> | <code>PENDING</code> | <code>PENDING_RETURN</code>
    *                     | <code>PROVISIONING</code> | <code>SHIPPED</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1130,14 +1164,14 @@ export enum NetworkFilterKeys {
 export interface ListNetworksRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>CREATED</code>
    *                     | <code>DELETED</code> | <code>DEPROVISIONING</code> | <code>PROVISIONING</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1174,14 +1208,14 @@ export interface ListNetworkSitesRequest {
   /**
    * <p>The filters. Add filters to your request to return a more
    *             specific list of results. Use filters to match the status of the network sites.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>CREATED</code>
    *                     | <code>DELETED</code> | <code>DEPROVISIONING</code> | <code>PROVISIONING</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1238,18 +1272,18 @@ export interface ListOrdersRequest {
 
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NETWORK_SITE</code> - The Amazon Resource Name (ARN) of the network site.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>ACKNOWLEDGING</code> | <code>ACKNOWLEDGED</code>
    *                     | <code>UNACKNOWLEDGED</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1311,6 +1345,56 @@ export interface PingResponse {
    * <p>Information about the health of the service.</p>
    */
   status?: string;
+}
+
+export enum UpdateType {
+  REPLACE = "REPLACE",
+  RETURN = "RETURN",
+}
+
+export interface StartNetworkResourceUpdateRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   */
+  networkResourceArn: string | undefined;
+
+  /**
+   * <p>The update type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REPLACE</code> - Submits a request to replace a defective
+   *                    radio unit. We provide a shipping label that you can use for the
+   *                    return process and we ship a replacement radio unit to you.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RETURN</code> - Submits a request to replace a radio unit
+   *                    that you no longer need. We provide a shipping label that you can
+   *                     use for the return process.</p>
+   *             </li>
+   *          </ul>
+   */
+  updateType: UpdateType | string | undefined;
+
+  /**
+   * <p>The shipping address. If you don't provide a shipping address when replacing or
+   *             returning a network resource, we use the address from the original order for the
+   *             network resource.</p>
+   */
+  shippingAddress?: Address;
+
+  /**
+   * <p>The reason for the return. Providing a reason for a return is optional.</p>
+   */
+  returnReason?: string;
+}
+
+export interface StartNetworkResourceUpdateResponse {
+  /**
+   * <p>The network resource.</p>
+   */
+  networkResource?: NetworkResource;
 }
 
 export interface TagResourceRequest {
@@ -1537,8 +1621,17 @@ export const ConfigureAccessPointRequestFilterSensitiveLog = (obj: ConfigureAcce
 /**
  * @internal
  */
+export const ReturnInformationFilterSensitiveLog = (obj: ReturnInformation): any => ({
+  ...obj,
+  ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
+});
+
+/**
+ * @internal
+ */
 export const NetworkResourceFilterSensitiveLog = (obj: NetworkResource): any => ({
   ...obj,
+  ...(obj.returnInformation && { returnInformation: ReturnInformationFilterSensitiveLog(obj.returnInformation) }),
 });
 
 /**
@@ -1546,6 +1639,7 @@ export const NetworkResourceFilterSensitiveLog = (obj: NetworkResource): any => 
  */
 export const ConfigureAccessPointResponseFilterSensitiveLog = (obj: ConfigureAccessPointResponse): any => ({
   ...obj,
+  ...(obj.accessPoint && { accessPoint: NetworkResourceFilterSensitiveLog(obj.accessPoint) }),
 });
 
 /**
@@ -1673,6 +1767,7 @@ export const GetNetworkResourceRequestFilterSensitiveLog = (obj: GetNetworkResou
  */
 export const GetNetworkResourceResponseFilterSensitiveLog = (obj: GetNetworkResourceResponse): any => ({
   ...obj,
+  ...(obj.networkResource && { networkResource: NetworkResourceFilterSensitiveLog(obj.networkResource) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
@@ -1736,6 +1831,9 @@ export const ListNetworkResourcesRequestFilterSensitiveLog = (obj: ListNetworkRe
  */
 export const ListNetworkResourcesResponseFilterSensitiveLog = (obj: ListNetworkResourcesResponse): any => ({
   ...obj,
+  ...(obj.networkResources && {
+    networkResources: obj.networkResources.map((item) => NetworkResourceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -1801,6 +1899,22 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
  */
 export const PingResponseFilterSensitiveLog = (obj: PingResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkResourceUpdateRequestFilterSensitiveLog = (obj: StartNetworkResourceUpdateRequest): any => ({
+  ...obj,
+  ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkResourceUpdateResponseFilterSensitiveLog = (obj: StartNetworkResourceUpdateResponse): any => ({
+  ...obj,
+  ...(obj.networkResource && { networkResource: NetworkResourceFilterSensitiveLog(obj.networkResource) }),
 });
 
 /**

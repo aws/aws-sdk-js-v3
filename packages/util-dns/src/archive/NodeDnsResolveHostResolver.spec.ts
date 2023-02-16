@@ -62,11 +62,9 @@ describe(NodeDnsResolveHostResolver.name, () => {
     const CURRENT_TEST_HOST_RESOLVER_ARGUMENTS: HostResolverArguments = {
       ...TEST_HOST_RESOLVER_ARGUMENTS,
     };
-    try {
-      await TEST_HOST_RESOLVER.resolveAddress(CURRENT_TEST_HOST_RESOLVER_ARGUMENTS);
-    } catch (error) {
-      expect(error.message).toEqual(`queryA ENOTFOUND ${TEST_HOST_NAME}`);
-    }
+    await expect(TEST_HOST_RESOLVER.resolveAddress(CURRENT_TEST_HOST_RESOLVER_ARGUMENTS)).rejects.toThrowError(
+      "queryA ENOTFOUND TEST_HOST_NAME"
+    );
   });
 
   test("resolveAddress() should return a list of IPv4 and IPv6 addresses for a valid host name", async () => {
@@ -91,26 +89,18 @@ describe(NodeDnsResolveHostResolver.name, () => {
   });
 
   test("reportFailureOnAddress() should throw a not implemented error", async () => {
-    try {
-      await TEST_HOST_RESOLVER.reportFailureOnAddress(TEST_HOST_ADDRESS);
-    } catch (error) {
-      expect(error.message).toEqual("reportFailureOnAddress(addr) is not implemented");
-    }
+    expect(() => TEST_HOST_RESOLVER.reportFailureOnAddress(TEST_HOST_ADDRESS)).toThrowError(
+      "reportFailureOnAddress(addr) is not implemented"
+    );
   });
 
   test("purgeCache() should throw a not implemented error", async () => {
-    try {
-      await TEST_HOST_RESOLVER.purgeCache();
-    } catch (error) {
-      expect(error.message).toEqual("purgeCache(args?) is not implemented");
-    }
+    expect(() => TEST_HOST_RESOLVER.purgeCache()).toThrowError("purgeCache(args?) is not implemented");
   });
 
   test("purgeCache(args) should throw a not implemented error", async () => {
-    try {
-      await TEST_HOST_RESOLVER.purgeCache(TEST_HOST_RESOLVER_ARGUMENTS);
-    } catch (error) {
-      expect(error.message).toEqual("purgeCache(args?) is not implemented");
-    }
+    expect(() => TEST_HOST_RESOLVER.purgeCache(TEST_HOST_RESOLVER_ARGUMENTS)).toThrowError(
+      "purgeCache(args?) is not implemented"
+    );
   });
 });

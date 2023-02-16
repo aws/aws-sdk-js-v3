@@ -137,7 +137,7 @@ export class Grafana extends GrafanaClient {
    * <p>Creates a <i>workspace</i>. In a workspace, you can create Grafana
    *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to
    *             build, package, or deploy any hardware to run the Grafana server.</p>
-   *         <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead,
+   *          <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead,
    *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.</p>
    */
   public createWorkspace(
@@ -504,7 +504,7 @@ export class Grafana extends GrafanaClient {
   /**
    * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana resource.
    *             Currently, the only resource that can be tagged is workspaces. </p>
-   *         <p>If you specify a new tag key for the resource, this tag is appended to the list of tags associated
+   *          <p>If you specify a new tag key for the resource, this tag is appended to the list of tags associated
    *             with the resource.  If you specify a tag key that is already associated with the resource, the new tag
    *             value that you specify replaces the previous value for that tag.</p>
    */
@@ -599,9 +599,9 @@ export class Grafana extends GrafanaClient {
   /**
    * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any
    *             optional parameters, the existing values of those parameters are not changed.</p>
-   *         <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
+   *          <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
    *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
-   *         <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
+   *          <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
    *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
    */
   public updateWorkspace(

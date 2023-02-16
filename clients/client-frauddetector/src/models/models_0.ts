@@ -96,6 +96,55 @@ export interface AggregatedVariablesImportanceMetrics {
   logOddsMetrics?: AggregatedLogOddsMetric[];
 }
 
+/**
+ * <p>
+ *             The metadata of a list.
+ *         </p>
+ */
+export interface AllowDenyList {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The description of the list.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             The variable type of the list.
+   *         </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>
+   *             The time the list was created.
+   *         </p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>
+   *             The time the list was last updated.
+   *         </p>
+   */
+  updatedTime?: string;
+
+  /**
+   * <p>
+   *             The ARN of the list.
+   *         </p>
+   */
+  arn?: string;
+}
+
 export enum AsyncJobStatus {
   CANCELED = "CANCELED",
   CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
@@ -676,6 +725,46 @@ export interface CreateDetectorVersionResult {
   status?: DetectorVersionStatus | string;
 }
 
+export interface CreateListRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The names of the elements, if providing.  You can also create an empty list and add elements later using the <a href="https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html">UpdateList</a> API.
+   *         </p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The variable type of the list. You can only assign the variable type with String data type.  For more information, see
+   *             <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
+   *         </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>
+   *             The description of the list.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             A collection of the key and value pairs.
+   *         </p>
+   */
+  tags?: Tag[];
+}
+
+export interface CreateListResult {}
+
 export interface CreateModelRequest {
   /**
    * <p>The model ID.</p>
@@ -1085,6 +1174,17 @@ export interface DeleteLabelRequest {
 }
 
 export interface DeleteLabelResult {}
+
+export interface DeleteListRequest {
+  /**
+   * <p>
+   *             The name of the list to delete.
+   *         </p>
+   */
+  name: string | undefined;
+}
+
+export interface DeleteListResult {}
 
 export interface DeleteModelRequest {
   /**
@@ -3113,6 +3213,84 @@ export interface GetLabelsResult {
   nextToken?: string;
 }
 
+export interface GetListElementsRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The next token for the subsequent request.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *             The maximum number of objects to return for the request.
+   *         </p>
+   */
+  maxResults?: number;
+}
+
+export interface GetListElementsResult {
+  /**
+   * <p>
+   *             The list elements.
+   *         </p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The next page token.
+   *         </p>
+   */
+  nextToken?: string;
+}
+
+export interface GetListsMetadataRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             The next token for the subsequent request.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *             The maximum number of objects to return for the request.
+   *         </p>
+   */
+  maxResults?: number;
+}
+
+export interface GetListsMetadataResult {
+  /**
+   * <p>
+   *             The metadata of the specified list or all lists under the account.
+   *         </p>
+   */
+  lists?: AllowDenyList[];
+
+  /**
+   * <p>
+   *             The next page token.
+   *         </p>
+   */
+  nextToken?: string;
+}
+
 export interface GetModelsRequest {
   /**
    * <p>The model ID.</p>
@@ -4006,6 +4184,66 @@ export interface UpdateEventLabelRequest {
 
 export interface UpdateEventLabelResult {}
 
+export enum ListUpdateMode {
+  APPEND = "APPEND",
+  REMOVE = "REMOVE",
+  REPLACE = "REPLACE",
+}
+
+export interface UpdateListRequest {
+  /**
+   * <p>
+   *             The name of the list to update.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             One or more list elements to add or replace. If you are providing the elements, make sure to specify the <code>updateMode</code> to use.
+   *         </p>
+   *          <p>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code> and provide an empty list (0 elements).</p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The new description.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             The update mode (type).
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>APPEND</code> if you are adding elements to the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>REPLACE</code> if you replacing existing elements in the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>REMOVE</code> if you are removing elements from the list.</p>
+   *             </li>
+   *          </ul>
+   */
+  updateMode?: ListUpdateMode | string;
+
+  /**
+   * <p>
+   *             The variable type you want to assign to the list.
+   *         </p>
+   *          <note>
+   *             <p>You cannot update a variable type of a list that already has a variable type assigned to it. You can assign a variable type to a list only if the list does not already have a variable type.</p>
+   *          </note>
+   */
+  variableType?: string;
+}
+
+export interface UpdateListResult {}
+
 export interface UpdateModelRequest {
   /**
    * <p>The model ID.</p>
@@ -4214,6 +4452,13 @@ export const AggregatedVariablesImportanceMetricsFilterSensitiveLog = (
 /**
  * @internal
  */
+export const AllowDenyListFilterSensitiveLog = (obj: AllowDenyList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ATIMetricDataPointFilterSensitiveLog = (obj: ATIMetricDataPoint): any => ({
   ...obj,
 });
@@ -4376,6 +4621,21 @@ export const CreateDetectorVersionRequestFilterSensitiveLog = (obj: CreateDetect
  * @internal
  */
 export const CreateDetectorVersionResultFilterSensitiveLog = (obj: CreateDetectorVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListRequestFilterSensitiveLog = (obj: CreateListRequest): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateListResultFilterSensitiveLog = (obj: CreateListResult): any => ({
   ...obj,
 });
 
@@ -4608,6 +4868,20 @@ export const DeleteLabelRequestFilterSensitiveLog = (obj: DeleteLabelRequest): a
  * @internal
  */
 export const DeleteLabelResultFilterSensitiveLog = (obj: DeleteLabelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListRequestFilterSensitiveLog = (obj: DeleteListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListResultFilterSensitiveLog = (obj: DeleteListResult): any => ({
   ...obj,
 });
 
@@ -5220,6 +5494,35 @@ export const GetLabelsResultFilterSensitiveLog = (obj: GetLabelsResult): any => 
 /**
  * @internal
  */
+export const GetListElementsRequestFilterSensitiveLog = (obj: GetListElementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetListElementsResultFilterSensitiveLog = (obj: GetListElementsResult): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetListsMetadataRequestFilterSensitiveLog = (obj: GetListsMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetListsMetadataResultFilterSensitiveLog = (obj: GetListsMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetModelsRequestFilterSensitiveLog = (obj: GetModelsRequest): any => ({
   ...obj,
 });
@@ -5558,6 +5861,21 @@ export const UpdateEventLabelRequestFilterSensitiveLog = (obj: UpdateEventLabelR
  * @internal
  */
 export const UpdateEventLabelResultFilterSensitiveLog = (obj: UpdateEventLabelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateListRequestFilterSensitiveLog = (obj: UpdateListRequest): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateListResultFilterSensitiveLog = (obj: UpdateListResult): any => ({
   ...obj,
 });
 

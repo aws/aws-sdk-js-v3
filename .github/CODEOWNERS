@@ -31,6 +31,7 @@
 /packages/util-body-length-node/ @aws/aws-sdk-js-team @aws/smithy
 /packages/util-defaults-mode-browser/ @aws/aws-sdk-js-team @aws/smithy
 /packages/util-defaults-mode-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-dns/ @aws/aws-sdk-js-team @aws/smithy
 /packages/util-endpoints/ @aws/aws-sdk-js-team @aws/smithy
 /packages/util-middleware/ @aws/aws-sdk-js-team @aws/smithy
 /packages/util-retry/ @aws/aws-sdk-js-team @aws/smithy

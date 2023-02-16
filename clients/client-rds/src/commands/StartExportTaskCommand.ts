@@ -25,9 +25,18 @@ export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
 export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * <p>Starts an export of a snapshot to Amazon S3.
+ * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
- *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <p>You can't export snapshot data from RDS Custom DB instances.</p>
+ *          <p>You can't export cluster data from Multi-AZ DB clusters.</p>
+ *          <p>For more information on exporting DB snapshot data, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot
+ *             data to Amazon S3</a> in the <i>Amazon RDS User Guide</i>
+ *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-export-snapshot.html">Exporting DB
+ *             cluster snapshot data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *          <p>For more information on exporting DB cluster data, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/export-cluster-data.html">Exporting DB
+ *             cluster data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

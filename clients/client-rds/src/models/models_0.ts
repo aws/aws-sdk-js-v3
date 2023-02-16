@@ -1087,7 +1087,7 @@ export interface DBClusterBacktrack {
 
 export interface CancelExportTaskMessage {
   /**
-   * <p>The identifier of the snapshot export task to cancel.</p>
+   * <p>The identifier of the snapshot or cluster export task to cancel.</p>
    */
   ExportTaskIdentifier: string | undefined;
 }
@@ -1098,23 +1098,23 @@ export enum ExportSourceType {
 }
 
 /**
- * <p>Contains the details of a snapshot export to Amazon S3.</p>
+ * <p>Contains the details of a snapshot or cluster export to Amazon S3.</p>
  *          <p>This data type is used as a response element in the <code>DescribeExportTasks</code> action.</p>
  */
 export interface ExportTask {
   /**
-   * <p>A unique identifier for the snapshot export task. This ID isn't an identifier for
-   *             the Amazon S3 bucket where the snapshot is exported to.</p>
+   * <p>A unique identifier for the snapshot or cluster export task. This ID isn't an identifier for
+   *             the Amazon S3 bucket where the data is exported.</p>
    */
   ExportTaskIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</p>
    */
   SourceArn?: string;
 
   /**
-   * <p>The data exported from the snapshot. Valid values are the following:</p>
+   * <p>The data exported from the snapshot or cluster. Valid values are the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1124,12 +1124,12 @@ export interface ExportTask {
    *                <p>
    *                   <code>database.table</code>
    *                   <i>table-name</i> -
-   *                 Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
+   *                     Export a table of the snapshot or cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>database.schema</code>
-   *                   <i>schema-name</i> - Export a database schema of the snapshot.
+   *                   <i>schema-name</i> - Export a database schema of the snapshot or cluster.
    *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
    *             </li>
    *             <li>
@@ -1148,44 +1148,76 @@ export interface ExportTask {
   SnapshotTime?: Date;
 
   /**
-   * <p>The time that the snapshot export task started.</p>
+   * <p>The time that the snapshot or cluster export task started.</p>
    */
   TaskStartTime?: Date;
 
   /**
-   * <p>The time that the snapshot export task completed.</p>
+   * <p>The time that the snapshot or cluster export task ended.</p>
    */
   TaskEndTime?: Date;
 
   /**
-   * <p>The Amazon S3 bucket that the snapshot is exported to.</p>
+   * <p>The Amazon S3 bucket that the snapshot or cluster is exported to.</p>
    */
   S3Bucket?: string;
 
   /**
-   * <p>The Amazon S3 bucket prefix that is the file name and path of the exported snapshot.</p>
+   * <p>The Amazon S3 bucket prefix that is the file name and path of the exported data.</p>
    */
   S3Prefix?: string;
 
   /**
-   * <p>The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot.</p>
+   * <p>The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot or cluster.</p>
    */
   IamRoleArn?: string;
 
   /**
-   * <p>The key identifier of the Amazon Web Services KMS key that is used to encrypt the snapshot when it's exported to
-   *             Amazon S3. The KMS key identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
+   * <p>The key identifier of the Amazon Web Services KMS key that is used to encrypt the data when it's exported to Amazon S3.
+   *             The KMS key identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the export
    *             must have encryption and decryption permissions to use this KMS key.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The progress status of the export task.</p>
+   * <p>The progress status of the export task. The status can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
   /**
-   * <p>The progress of the snapshot export task as a percentage.</p>
+   * <p>The progress of the snapshot or cluster export task as a percentage.</p>
    */
   PercentProgress?: number;
 
@@ -1200,7 +1232,7 @@ export interface ExportTask {
   FailureCause?: string;
 
   /**
-   * <p>A warning about the snapshot export task.</p>
+   * <p>A warning about the snapshot or cluster export task.</p>
    */
   WarningMessage?: string;
 
@@ -3849,7 +3881,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
    *             cluster is created as a read replica.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for: Aurora DB clusters and RDS for PostgreSQL Multi-AZ DB clusters</p>
    */
   ReplicationSourceIdentifier?: string;
 
@@ -8573,8 +8605,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    * <p>The amount of storage (in gibibytes) to allocate initially for the read replica.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
    *          <note>
-   *             <p>Be sure to allocate enough memory for your read replica so that the create operation can succeed.
-   *                 You can also allocate additional memory for future growth.</p>
+   *             <p>Be sure to allocate enough storage for your read replica so that the create operation can succeed.
+   *                 You can also allocate additional storage for future growth.</p>
    *          </note>
    */
   AllocatedStorage?: number;
@@ -10085,7 +10117,9 @@ export interface DeleteBlueGreenDeploymentRequest {
   BlueGreenDeploymentIdentifier: string | undefined;
 
   /**
-   * <p>A value that indicates whether to delete the resources in the green environment.</p>
+   * <p>A value that indicates whether to delete the resources in the green environment. You
+   *             can't specify this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a>
+   *             is <code>SWITCHOVER_COMPLETED</code>.</p>
    */
   DeleteTarget?: boolean;
 }

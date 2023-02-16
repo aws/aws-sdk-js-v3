@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.273.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.272.0...v3.273.0) (2023-02-16)
+
+
+### Features
+
+* **client-emr:** This release provides customers the ability to define a timeout period for procuring capacity during a resize operation for Instance Fleet clusters. Customers can specify this timeout using the ResizeSpecifications parameter supported by RunJobFlow, ModifyInstanceFleet and AddInstanceFleet APIs. ([90e21ca](https://github.com/aws/aws-sdk-js-v3/commit/90e21cab23fd35f9b0db438a457b280692af7bc7))
+* **client-grafana:** With this release Amazon Managed Grafana now supports inbound Network Access Control that helps you to restrict user access to your Grafana workspaces ([1f69ee1](https://github.com/aws/aws-sdk-js-v3/commit/1f69ee158b75ae1c77d65b96c7e38b39ed1b8d68))
+* **clients:** update client endpoints as of 2023-02-16 ([9a4c154](https://github.com/aws/aws-sdk-js-v3/commit/9a4c1542cbd45d607f0190e35b6373cf08317ca9))
+
+
+
+
+
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+
+### Features
+
+* **client-cloudtrail:** This release adds an InsufficientEncryptionPolicyException type to the StartImport endpoint ([4253089](https://github.com/aws/aws-sdk-js-v3/commit/42530890ad3272056bdaa344b1ce71fa85d7ac06))
+* **client-frauddetector:** This release introduces Lists feature which allows customers to reference a set of values in Fraud Detector's rules. With Lists, customers can dynamically manage these attributes in real time. Lists can be created/deleted and its contents can be modified using the Fraud Detector API. ([6186c03](https://github.com/aws/aws-sdk-js-v3/commit/6186c03f8ccb4656663134f96514184d7b8bf9d6))
+* **client-glue:** Fix DirectJDBCSource not showing up in CLI code gen ([bedba23](https://github.com/aws/aws-sdk-js-v3/commit/bedba236f008e74f97b7e8c2f96f12eabc24c374))
+* **client-privatenetworks:** This release introduces a new StartNetworkResourceUpdate API, which enables return/replacement of hardware from a NetworkSite. ([804b9bc](https://github.com/aws/aws-sdk-js-v3/commit/804b9bca58baf06576651b2ab56dbf3d32c6f30e))
+* **client-wafv2:** For protected CloudFront distributions, you can now use the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group to block new login attempts from clients that have recently submitted too many failed login attempts. ([dc28d4e](https://github.com/aws/aws-sdk-js-v3/commit/dc28d4e5fc995fbf328df04e9ec3bdc2418930af))
+* **clients:** update client endpoints as of 2023-02-15 ([2e05ae8](https://github.com/aws/aws-sdk-js-v3/commit/2e05ae8d556cfb84b8f3bc1e7e84be15f9541ffd))
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* **protocol-http:** export field types ([#4432](https://github.com/aws/aws-sdk-js-v3/issues/4432)) ([b8320f4](https://github.com/aws/aws-sdk-js-v3/commit/b8320f4efaab6d306b3fbe36399e11de6bb7d280))
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig now offers the option to set a version label on hosted configuration versions. Version labels allow you to identify specific hosted configuration versions based on an alternate versioning scheme that you define. ([1ffdf34](https://github.com/aws/aws-sdk-js-v3/commit/1ffdf3435a0a0141d161fbe2941d14fb45b132fa))
+* **client-datasync:** With this launch, we are giving customers the ability to use older SMB protocol versions, enabling them to use DataSync to copy data to and from their legacy storage arrays. ([125850c](https://github.com/aws/aws-sdk-js-v3/commit/125850c8e87c9027849b9edce499f84cc34a145c))
+* **client-ec2:** With this release customers can turn host maintenance on or off when allocating or modifying a supported dedicated host. Host maintenance is turned on by default for supported hosts. ([62c8b91](https://github.com/aws/aws-sdk-js-v3/commit/62c8b91bc9598ed13801c2643c8b077aca297a6e))
+
+
+
+
+
 # [3.270.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.269.0...v3.270.0) (2023-02-13)
 
 
