@@ -61,3 +61,7 @@ codegen/*/.settings/
 codegen/*/bin
 
 benchmark/size/raw
+
+docs/
+clientDocs/
+**/docs/

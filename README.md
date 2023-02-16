@@ -511,27 +511,28 @@ For a full middleware stack deep dive please check out our [blog post](https://a
 
 ## Release Cadence
 
-Our releases usually happen once per weekday. Each release increments the 
+Our releases usually happen once per weekday. Each release increments the
 minor version, e.g. 3.200.0 -> 3.201.0.
 
 ## Stability of Modular Packages
 
-|Package name|containing folder|API controlled by|stability|
-|---|---|---|---|
-|@aws-sdk/client-* Commands|clients|AWS service teams|public/stable|
-|@aws-sdk/client-* Clients|clients|AWS SDK JS team|public/stable|
-|@aws-sdk/lib-*|lib|AWS SDK JS team|public/stable|
-|@aws-sdk/*-signer|packages|AWS SDK JS team|public/stable|
-|@aws-sdk/middleware-stack|packages|AWS SDK JS team|public/stable|
-|remaining @aws-sdk/*|packages|AWS SDK JS team|internal|
+| Package name                | containing folder | API controlled by | stability     |
+| --------------------------- | ----------------- | ----------------- | ------------- |
+| @aws-sdk/client-\* Commands | clients           | AWS service teams | public/stable |
+| @aws-sdk/client-\* Clients  | clients           | AWS SDK JS team   | public/stable |
+| @aws-sdk/lib-\*             | lib               | AWS SDK JS team   | public/stable |
+| @aws-sdk/\*-signer          | packages          | AWS SDK JS team   | public/stable |
+| @aws-sdk/middleware-stack   | packages          | AWS SDK JS team   | public/stable |
+| remaining @aws-sdk/\*       | packages          | AWS SDK JS team   | internal      |
 
 Additional notes:
+
 - internal does not mean a package or interface is constantly changing
-or being actively worked on. It means it is subject to change without any
-notice period. The changes are included in the release notes.
+  or being actively worked on. It means it is subject to change without any
+  notice period. The changes are included in the release notes.
 - public interfaces such as client configuration are also subject to change
- in exceptional cases. We will try to undergo a deprecation period with 
- an advance notice.
+  in exceptional cases. We will try to undergo a deprecation period with
+  an advance notice.
 
 ## Known Issues
 

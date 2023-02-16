@@ -7,4 +7,4 @@ export interface Identity {
 
 export interface IdentityProvider<IdentityT extends Identity> {
   (identityProperties?: Record<string, any>): Promise<IdentityT>;
-};
+}

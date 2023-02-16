@@ -25,4 +25,5 @@ export interface RemoteProviderInit extends _RemoteProviderInit {}
  * });
  * ```
  */
-export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider => _fromContainerMetadata(init);
+export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider =>
+  _fromContainerMetadata(init);
