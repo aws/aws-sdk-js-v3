@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.274.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.273.0...v3.274.0) (2023-02-17)
+
+
+### Features
+
+* **client-apprunner:** This release supports removing MaxSize limit for AutoScalingConfiguration. ([a44b1a7](https://github.com/aws/aws-sdk-js-v3/commit/a44b1a7a3b4f0ff82b3990e9b265873644e75743))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-apprunner

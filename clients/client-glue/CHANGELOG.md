@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.274.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.273.0...v3.274.0) (2023-02-17)
+
+
+### Features
+
+* **client-glue:** Release of Delta Lake Data Lake Format for Glue Studio Service ([bc35b7a](https://github.com/aws/aws-sdk-js-v3/commit/bc35b7a1e5bb077afc514b98fa13ea02da88b313))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 

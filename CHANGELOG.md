@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.274.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.273.0...v3.274.0) (2023-02-17)
+
+
+### Bug Fixes
+
+* **util-dns:** fix types downlevel compatibility ([#4442](https://github.com/aws/aws-sdk-js-v3/issues/4442)) ([672d33b](https://github.com/aws/aws-sdk-js-v3/commit/672d33bc1762a843705c6d8bbf340683e4d987ed))
+* **xhr-http-handler:** read response body is incomplete ([#4422](https://github.com/aws/aws-sdk-js-v3/issues/4422)) ([f562bc8](https://github.com/aws/aws-sdk-js-v3/commit/f562bc8b1423e308cb1cc550bc70d24217abb16b))
+
+
+### Features
+
+* **client-apprunner:** This release supports removing MaxSize limit for AutoScalingConfiguration. ([a44b1a7](https://github.com/aws/aws-sdk-js-v3/commit/a44b1a7a3b4f0ff82b3990e9b265873644e75743))
+* **client-glue:** Release of Delta Lake Data Lake Format for Glue Studio Service ([bc35b7a](https://github.com/aws/aws-sdk-js-v3/commit/bc35b7a1e5bb077afc514b98fa13ea02da88b313))
+* **clients:** update client endpoints as of 2023-02-17 ([a77e1bc](https://github.com/aws/aws-sdk-js-v3/commit/a77e1bc7eb542756548fe9fda556d079a5b50cc9))
+* **util-dns:** implement caching for NodeDnsLookupHostResolver ([#4433](https://github.com/aws/aws-sdk-js-v3/issues/4433)) ([3826c07](https://github.com/aws/aws-sdk-js-v3/commit/3826c075f83c21001099ffde9ebd0c685f8a8d90))
+
+
+
+
+
 # [3.273.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.272.0...v3.273.0) (2023-02-16)
 
 
