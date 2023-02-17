@@ -2,64 +2,61 @@
 // These params are established in /tests/e2e.
 
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
-import { STS } from "@aws-sdk/client-sts";
 const FormData = require("form-data");
 
-import { createReadStream, rmSync, writeFileSync } from "fs";
+import { createReadStream, existsSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 
 import { createPresignedPost } from "./createPresignedPost";
 
+const region = process.env.AWS_SMOKE_TEST_REGION ?? "";
+const Bucket = process.env.AWS_SMOKE_TEST_BUCKET ?? "";
+if (!Bucket) {
+  throw new Error("process.env.AWS_SMOKE_TEST_BUCKET is not set.");
+}
+if (!region) {
+  throw new Error("process.env.AWS_SMOKE_TEST_REGION is not set.");
+}
+
 describe(createPresignedPost.name, () => {
   it("should allow custom endpoints to be modified by endpoint resolution options", async () => {
-    const region = "test-region";
-    const Bucket = "test-bucket";
     const Key = "test-key";
     {
       const client = new S3({
         region,
         forcePathStyle: true,
-        endpoint: `https://s3-fips.dualstack.${region}.amazonaws.com`,
+        endpoint: `https://s3.dualstack.${region}.amazonaws.com`,
       });
       const { url } = await createPresignedPost(client, { Bucket, Key });
-      expect(url).toBe(`https://s3-fips.dualstack.${region}.amazonaws.com/${Bucket}`);
+      expect(url).toBe(`https://s3.dualstack.${region}.amazonaws.com/${Bucket}`);
     }
     {
-      const client = new S3({ region, endpoint: `https://s3-fips.dualstack.${region}.amazonaws.com` });
+      const client = new S3({ region, endpoint: `https://s3.dualstack.${region}.amazonaws.com` });
       const { url } = await createPresignedPost(client, { Bucket, Key });
-      expect(url).toBe(`https://${Bucket}.s3-fips.dualstack.${region}.amazonaws.com/`);
+      expect(url).toBe(`https://${Bucket}.s3.dualstack.${region}.amazonaws.com/`);
     }
   });
 
   describe("test with real bucket", () => {
-    let region: string;
-    let Bucket: string;
     let Key: string;
     let client: S3;
     let contents: string;
     let fileLocation: string;
 
     beforeAll(async () => {
-      region = process.env.AWS_SMOKE_TEST_REGION ?? "";
-      if (!region) {
-        throw new Error("process.env.AWS_SMOKE_TEST_REGION is not set.");
-      }
-      Bucket = process.env.AWS_SMOKE_TEST_BUCKET ?? "";
-      if (!Bucket) {
-        throw new Error("process.env.AWS_SMOKE_TEST_BUCKET is not set.");
-      }
-
       Key = `aws-sdk-js-integration-test-s3-presigned-post-${Date.now()}.txt`;
       contents = "Hello, world!";
       fileLocation = join(__dirname, Key);
       client = new S3({ region, endpoint: `https://s3.dualstack.${region}.amazonaws.com` });
 
-      await client.createBucket({ Bucket });
+      await client.headBucket({ Bucket });
       writeFileSync(fileLocation, contents, "utf-8");
     });
 
     afterAll(async () => {
-      rmSync(fileLocation);
+      if (existsSync(fileLocation)) {
+        rmSync(fileLocation);
+      }
     });
 
     beforeEach(async () => {
