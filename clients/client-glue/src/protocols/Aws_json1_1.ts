@@ -496,6 +496,7 @@ import {
   CancelMLTaskRunResponse,
   CancelStatementRequest,
   CancelStatementResponse,
+  CatalogDeltaSource,
   CatalogHudiSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
@@ -504,9 +505,6 @@ import {
   CatalogTarget,
   CheckSchemaVersionValidityInput,
   CheckSchemaVersionValidityResponse,
-  CodeGenEdge,
-  CodeGenNode,
-  CodeGenNodeArg,
   Column,
   ConcurrentModificationException,
   Condition,
@@ -546,7 +544,6 @@ import {
   CreateRegistryInput,
   CreateRegistryResponse,
   CreateSchemaInput,
-  CreateSchemaResponse,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -648,10 +645,14 @@ import {
   RenameField,
   ResourceNotReadyException,
   ResourceNumberLimitExceededException,
+  S3CatalogDeltaSource,
   S3CatalogHudiSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
+  S3DeltaCatalogTarget,
+  S3DeltaDirectTarget,
+  S3DeltaSource,
   S3DirectSourceAdditionalOptions,
   S3DirectTarget,
   S3GlueParquetTarget,
@@ -704,6 +705,9 @@ import {
   CatalogImportStatus,
   Classifier,
   CloudWatchEncryption,
+  CodeGenEdge,
+  CodeGenNode,
+  CodeGenNodeArg,
   ColumnError,
   ColumnImportance,
   ColumnRowFilter,
@@ -716,6 +720,7 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateSchemaResponse,
   CreateScriptRequest,
   CreateScriptResponse,
   CreateSecurityConfigurationRequest,
@@ -934,10 +939,6 @@ import {
   JsonClassifier,
   KeySchemaElement,
   LabelingSetGenerationTaskRunProperties,
-  ListBlueprintsRequest,
-  ListBlueprintsResponse,
-  ListCrawlersRequest,
-  ListCrawlersResponse,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
@@ -1000,6 +1001,10 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListBlueprintsRequest,
+  ListBlueprintsResponse,
+  ListCrawlersRequest,
+  ListCrawlersResponse,
   ListCrawlsRequest,
   ListCrawlsResponse,
   ListCustomEntityTypesRequest,
@@ -14991,6 +14996,20 @@ const serializeAws_json1_1CancelStatementRequest = (input: CancelStatementReques
   };
 };
 
+const serializeAws_json1_1CatalogDeltaSource = (input: CatalogDeltaSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalDeltaOptions != null && {
+      AdditionalDeltaOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalDeltaOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1CatalogEntries = (input: CatalogEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -15131,6 +15150,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
     ...(input.AthenaConnectorSource != null && {
       AthenaConnectorSource: serializeAws_json1_1AthenaConnectorSource(input.AthenaConnectorSource, context),
     }),
+    ...(input.CatalogDeltaSource != null && {
+      CatalogDeltaSource: serializeAws_json1_1CatalogDeltaSource(input.CatalogDeltaSource, context),
+    }),
     ...(input.CatalogHudiSource != null && {
       CatalogHudiSource: serializeAws_json1_1CatalogHudiSource(input.CatalogHudiSource, context),
     }),
@@ -15231,6 +15253,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
       RelationalCatalogSource: serializeAws_json1_1RelationalCatalogSource(input.RelationalCatalogSource, context),
     }),
     ...(input.RenameField != null && { RenameField: serializeAws_json1_1RenameField(input.RenameField, context) }),
+    ...(input.S3CatalogDeltaSource != null && {
+      S3CatalogDeltaSource: serializeAws_json1_1S3CatalogDeltaSource(input.S3CatalogDeltaSource, context),
+    }),
     ...(input.S3CatalogHudiSource != null && {
       S3CatalogHudiSource: serializeAws_json1_1S3CatalogHudiSource(input.S3CatalogHudiSource, context),
     }),
@@ -15241,6 +15266,15 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
       S3CatalogTarget: serializeAws_json1_1S3CatalogTarget(input.S3CatalogTarget, context),
     }),
     ...(input.S3CsvSource != null && { S3CsvSource: serializeAws_json1_1S3CsvSource(input.S3CsvSource, context) }),
+    ...(input.S3DeltaCatalogTarget != null && {
+      S3DeltaCatalogTarget: serializeAws_json1_1S3DeltaCatalogTarget(input.S3DeltaCatalogTarget, context),
+    }),
+    ...(input.S3DeltaDirectTarget != null && {
+      S3DeltaDirectTarget: serializeAws_json1_1S3DeltaDirectTarget(input.S3DeltaDirectTarget, context),
+    }),
+    ...(input.S3DeltaSource != null && {
+      S3DeltaSource: serializeAws_json1_1S3DeltaSource(input.S3DeltaSource, context),
+    }),
     ...(input.S3DirectTarget != null && {
       S3DirectTarget: serializeAws_json1_1S3DirectTarget(input.S3DirectTarget, context),
     }),
@@ -18523,6 +18557,20 @@ const serializeAws_json1_1RunStatementRequest = (input: RunStatementRequest, con
   };
 };
 
+const serializeAws_json1_1S3CatalogDeltaSource = (input: S3CatalogDeltaSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalDeltaOptions != null && {
+      AdditionalDeltaOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalDeltaOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1S3CatalogHudiSource = (input: S3CatalogHudiSource, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalHudiOptions != null && {
@@ -18591,6 +18639,59 @@ const serializeAws_json1_1S3CsvSource = (input: S3CsvSource, context: __SerdeCon
     ...(input.SkipFirst != null && { SkipFirst: input.SkipFirst }),
     ...(input.WithHeader != null && { WithHeader: input.WithHeader }),
     ...(input.WriteHeader != null && { WriteHeader: input.WriteHeader }),
+  };
+};
+
+const serializeAws_json1_1S3DeltaCatalogTarget = (input: S3DeltaCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.Inputs != null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PartitionKeys != null && {
+      PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+    }),
+    ...(input.SchemaChangePolicy != null && {
+      SchemaChangePolicy: serializeAws_json1_1CatalogSchemaChangePolicy(input.SchemaChangePolicy, context),
+    }),
+    ...(input.Table != null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1S3DeltaDirectTarget = (input: S3DeltaDirectTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Compression != null && { Compression: input.Compression }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.Inputs != null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PartitionKeys != null && {
+      PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+    }),
+    ...(input.Path != null && { Path: input.Path }),
+    ...(input.SchemaChangePolicy != null && {
+      SchemaChangePolicy: serializeAws_json1_1DirectSchemaChangePolicy(input.SchemaChangePolicy, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1S3DeltaSource = (input: S3DeltaSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalDeltaOptions != null && {
+      AdditionalDeltaOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalDeltaOptions, context),
+    }),
+    ...(input.AdditionalOptions != null && {
+      AdditionalOptions: serializeAws_json1_1S3DirectSourceAdditionalOptions(input.AdditionalOptions, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OutputSchemas != null && {
+      OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
+    }),
+    ...(input.Paths != null && { Paths: serializeAws_json1_1EnclosedInStringProperties(input.Paths, context) }),
   };
 };
 
@@ -20393,6 +20494,20 @@ const deserializeAws_json1_1CancelStatementResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1CatalogDeltaSource = (output: any, context: __SerdeContext): CatalogDeltaSource => {
+  return {
+    AdditionalDeltaOptions:
+      output.AdditionalDeltaOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalDeltaOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1CatalogHudiSource = (output: any, context: __SerdeContext): CatalogHudiSource => {
   return {
     AdditionalHudiOptions:
@@ -20570,6 +20685,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
       output.AthenaConnectorSource != null
         ? deserializeAws_json1_1AthenaConnectorSource(output.AthenaConnectorSource, context)
         : undefined,
+    CatalogDeltaSource:
+      output.CatalogDeltaSource != null
+        ? deserializeAws_json1_1CatalogDeltaSource(output.CatalogDeltaSource, context)
+        : undefined,
     CatalogHudiSource:
       output.CatalogHudiSource != null
         ? deserializeAws_json1_1CatalogHudiSource(output.CatalogHudiSource, context)
@@ -20685,6 +20804,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
         : undefined,
     RenameField:
       output.RenameField != null ? deserializeAws_json1_1RenameField(output.RenameField, context) : undefined,
+    S3CatalogDeltaSource:
+      output.S3CatalogDeltaSource != null
+        ? deserializeAws_json1_1S3CatalogDeltaSource(output.S3CatalogDeltaSource, context)
+        : undefined,
     S3CatalogHudiSource:
       output.S3CatalogHudiSource != null
         ? deserializeAws_json1_1S3CatalogHudiSource(output.S3CatalogHudiSource, context)
@@ -20699,6 +20822,16 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
         : undefined,
     S3CsvSource:
       output.S3CsvSource != null ? deserializeAws_json1_1S3CsvSource(output.S3CsvSource, context) : undefined,
+    S3DeltaCatalogTarget:
+      output.S3DeltaCatalogTarget != null
+        ? deserializeAws_json1_1S3DeltaCatalogTarget(output.S3DeltaCatalogTarget, context)
+        : undefined,
+    S3DeltaDirectTarget:
+      output.S3DeltaDirectTarget != null
+        ? deserializeAws_json1_1S3DeltaDirectTarget(output.S3DeltaDirectTarget, context)
+        : undefined,
+    S3DeltaSource:
+      output.S3DeltaSource != null ? deserializeAws_json1_1S3DeltaSource(output.S3DeltaSource, context) : undefined,
     S3DirectTarget:
       output.S3DirectTarget != null ? deserializeAws_json1_1S3DirectTarget(output.S3DirectTarget, context) : undefined,
     S3GlueParquetTarget:
@@ -25209,6 +25342,20 @@ const deserializeAws_json1_1RunStatementResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1S3CatalogDeltaSource = (output: any, context: __SerdeContext): S3CatalogDeltaSource => {
+  return {
+    AdditionalDeltaOptions:
+      output.AdditionalDeltaOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalDeltaOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1S3CatalogHudiSource = (output: any, context: __SerdeContext): S3CatalogHudiSource => {
   return {
     AdditionalHudiOptions:
@@ -25281,6 +25428,66 @@ const deserializeAws_json1_1S3CsvSource = (output: any, context: __SerdeContext)
     SkipFirst: __expectBoolean(output.SkipFirst),
     WithHeader: __expectBoolean(output.WithHeader),
     WriteHeader: __expectBoolean(output.WriteHeader),
+  } as any;
+};
+
+const deserializeAws_json1_1S3DeltaCatalogTarget = (output: any, context: __SerdeContext): S3DeltaCatalogTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Inputs: output.Inputs != null ? deserializeAws_json1_1OneInput(output.Inputs, context) : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys != null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    SchemaChangePolicy:
+      output.SchemaChangePolicy != null
+        ? deserializeAws_json1_1CatalogSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1S3DeltaDirectTarget = (output: any, context: __SerdeContext): S3DeltaDirectTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Compression: __expectString(output.Compression),
+    Format: __expectString(output.Format),
+    Inputs: output.Inputs != null ? deserializeAws_json1_1OneInput(output.Inputs, context) : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys != null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    Path: __expectString(output.Path),
+    SchemaChangePolicy:
+      output.SchemaChangePolicy != null
+        ? deserializeAws_json1_1DirectSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3DeltaSource = (output: any, context: __SerdeContext): S3DeltaSource => {
+  return {
+    AdditionalDeltaOptions:
+      output.AdditionalDeltaOptions != null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalDeltaOptions, context)
+        : undefined,
+    AdditionalOptions:
+      output.AdditionalOptions != null
+        ? deserializeAws_json1_1S3DirectSourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
+    Paths: output.Paths != null ? deserializeAws_json1_1EnclosedInStringProperties(output.Paths, context) : undefined,
   } as any;
 };
 

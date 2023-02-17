@@ -6,9 +6,6 @@ import {
   Action,
   AuditContext,
   Blueprint,
-  CodeGenEdge,
-  CodeGenNode,
-  CodeGenNodeArg,
   Column,
   Compatibility,
   ConnectionsList,
@@ -33,8 +30,6 @@ import {
   PrincipalPermissions,
   RegistryId,
   SchemaId,
-  SchemaStatus,
-  SchemaVersionStatus,
   StorageDescriptor,
   TaskStatusType,
   TransformEncryption,
@@ -46,6 +41,156 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export enum SchemaStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETING = "DELETING",
+  PENDING = "PENDING",
+}
+
+export enum SchemaVersionStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETING = "DELETING",
+  FAILURE = "FAILURE",
+  PENDING = "PENDING",
+}
+
+export interface CreateSchemaResponse {
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>A description of the schema if specified when created.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   */
+  DataFormat?: DataFormat | string;
+
+  /**
+   * <p>The schema compatibility mode.</p>
+   */
+  Compatibility?: Compatibility | string;
+
+  /**
+   * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
+   */
+  SchemaCheckpoint?: number;
+
+  /**
+   * <p>The latest version of the schema associated with the returned schema definition.</p>
+   */
+  LatestSchemaVersion?: number;
+
+  /**
+   * <p>The next version of the schema associated with the returned schema definition.</p>
+   */
+  NextSchemaVersion?: number;
+
+  /**
+   * <p>The status of the schema. </p>
+   */
+  SchemaStatus?: SchemaStatus | string;
+
+  /**
+   * <p>The tags for the schema.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The unique identifier of the first schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The status of the first schema version created.</p>
+   */
+  SchemaVersionStatus?: SchemaVersionStatus | string;
+}
+
+/**
+ * <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
+ */
+export interface CodeGenEdge {
+  /**
+   * <p>The ID of the node at which the edge starts.</p>
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The ID of the node at which the edge ends.</p>
+   */
+  Target: string | undefined;
+
+  /**
+   * <p>The target of the edge.</p>
+   */
+  TargetParameter?: string;
+}
+
+/**
+ * <p>An argument or property of a node.</p>
+ */
+export interface CodeGenNodeArg {
+  /**
+   * <p>The name of the argument or property.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the argument or property.</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>True if the value is used as a parameter.</p>
+   */
+  Param?: boolean;
+}
+
+/**
+ * <p>Represents a node in a directed acyclic graph (DAG)</p>
+ */
+export interface CodeGenNode {
+  /**
+   * <p>A node identifier that is unique within the node's graph.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of node that this is.</p>
+   */
+  NodeType: string | undefined;
+
+  /**
+   * <p>Properties of the node, in the form of name-value pairs.</p>
+   */
+  Args: CodeGenNodeArg[] | undefined;
+
+  /**
+   * <p>The line number of the node.</p>
+   */
+  LineNumber?: number;
+}
 
 export enum Language {
   PYTHON = "PYTHON",
@@ -421,7 +566,7 @@ export interface TableInput {
   Description?: string;
 
   /**
-   * <p>The table owner.</p>
+   * <p>The table owner. Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
    */
   Owner?: string;
 
@@ -459,17 +604,33 @@ export interface TableInput {
   PartitionKeys?: Column[];
 
   /**
-   * <p>If the table is a view, the original text of the view; otherwise <code>null</code>.</p>
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
+   *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
    */
   ViewOriginalText?: string;
 
   /**
-   * <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
    */
   ViewExpandedText?: string;
 
   /**
-   * <p>The type of this table (<code>EXTERNAL_TABLE</code>, <code>VIRTUAL_VIEW</code>, etc.).</p>
+   * <p>The type of this table.
+   *       Glue will create tables with the <code>EXTERNAL_TABLE</code> type.
+   *       Other services, such as Athena, may create tables with additional table types.
+   *     </p>
+   *          <p>Glue related table types:</p>
+   *          <dl>
+   *             <dt>EXTERNAL_TABLE</dt>
+   *             <dd>
+   *                <p>Hive compatible attribute - indicates a non-Hive managed table.</p>
+   *             </dd>
+   *             <dt>GOVERNED</dt>
+   *             <dd>
+   *                <p>Used by Lake Formation.
+   *             The Glue Data Catalog understands <code>GOVERNED</code>.</p>
+   *             </dd>
+   *          </dl>
    */
   TableType?: string;
 
@@ -2238,7 +2399,7 @@ export interface Connection {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KAFKA_SASL_MECHANISM</code> - <code>"SCRAM-SHA-512"</code> or <code>"GSSAPI"</code>. These are the two supported <a href="https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">SASL Mechanisms</a>.</p>
+   *                   <code>KAFKA_SASL_MECHANISM</code> - <code>"SCRAM-SHA-512"</code>, <code>"GSSAPI"</code>, or <code>"AWS_MSK_IAM"</code>. These are the supported <a href="https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">SASL Mechanisms</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2548,7 +2709,7 @@ export interface Database {
   CreateTime?: Date;
 
   /**
-   * <p>Creates a set of default permissions on the table for principals. </p>
+   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
    */
   CreateTableDefaultPermissions?: PrincipalPermissions[];
 
@@ -5172,17 +5333,33 @@ export interface Table {
   PartitionKeys?: Column[];
 
   /**
-   * <p>If the table is a view, the original text of the view; otherwise <code>null</code>.</p>
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
+   *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
    */
   ViewOriginalText?: string;
 
   /**
-   * <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
+   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
    */
   ViewExpandedText?: string;
 
   /**
-   * <p>The type of this table (<code>EXTERNAL_TABLE</code>, <code>VIRTUAL_VIEW</code>, etc.).</p>
+   * <p>The type of this table.
+   *       Glue will create tables with the <code>EXTERNAL_TABLE</code> type.
+   *       Other services, such as Athena, may create tables with additional table types.
+   *     </p>
+   *          <p>Glue related table types:</p>
+   *          <dl>
+   *             <dt>EXTERNAL_TABLE</dt>
+   *             <dd>
+   *                <p>Hive compatible attribute - indicates a non-Hive managed table.</p>
+   *             </dd>
+   *             <dt>GOVERNED</dt>
+   *             <dd>
+   *                <p>Used by Lake Formation.
+   *             The Glue Data Catalog understands <code>GOVERNED</code>.</p>
+   *             </dd>
+   *          </dl>
    */
   TableType?: string;
 
@@ -5433,25 +5610,52 @@ export enum PermissionType {
 }
 
 export interface GetUnfilteredPartitionMetadataRequest {
-  CatalogId: string | undefined;
-  DatabaseName: string | undefined;
-  TableName: string | undefined;
-  PartitionValues: string[] | undefined;
   /**
-   * <p>A structure containing information for audit.</p>
+   * <p>The catalog ID where the partition resides.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>(Required) Specifies the name of a database that contains the partition.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>(Required) Specifies the name of a table that contains the partition.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>(Required) A list of partition key values.</p>
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * <p>A structure containing Lake Formation audit context information.</p>
    */
   AuditContext?: AuditContext;
 
+  /**
+   * <p>(Required) A list of supported permission types. </p>
+   */
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
 export interface GetUnfilteredPartitionMetadataResponse {
   /**
-   * <p>Represents a slice of table data.</p>
+   * <p>A Partition object containing the partition metadata.</p>
    */
   Partition?: Partition;
 
+  /**
+   * <p>A list of column names that the user has been granted access to.</p>
+   */
   AuthorizedColumns?: string[];
+
+  /**
+   * <p>A Boolean value that indicates whether the partition location is registered
+   *           with Lake Formation.</p>
+   */
   IsRegisteredWithLakeFormation?: boolean;
 }
 
@@ -5474,66 +5678,248 @@ export class PermissionTypeMismatchException extends __BaseException {
 }
 
 export interface GetUnfilteredPartitionsMetadataRequest {
-  CatalogId: string | undefined;
-  DatabaseName: string | undefined;
-  TableName: string | undefined;
-  Expression?: string;
   /**
-   * <p>A structure containing information for audit.</p>
+   * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
+   *           the AWS account ID is used by default. </p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table that contains the partition.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>An expression that filters the partitions to be returned.</p>
+   *          <p>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause. The
+   *       SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a> parses the expression. </p>
+   *          <p>
+   *             <i>Operators</i>: The following are the operators that you can use in the
+   *         <code>Expression</code> API call:</p>
+   *          <dl>
+   *             <dt>=</dt>
+   *             <dd>
+   *                <p>Checks whether the values of the two operands are equal; if yes, then the condition becomes
+   *             true.</p>
+   *                <p>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </p>
+   *                <p>(a = b) is not true.</p>
+   *             </dd>
+   *             <dt>< ></dt>
+   *             <dd>
+   *                <p>Checks whether the values of two operands are equal; if the values are not equal,
+   *             then the condition becomes true.</p>
+   *                <p>Example: (a < > b) is true.</p>
+   *             </dd>
+   *             <dt>></dt>
+   *             <dd>
+   *                <p>Checks whether the value of the left operand is greater than the value of the right
+   *             operand; if yes, then the condition becomes true.</p>
+   *                <p>Example: (a > b) is not true.</p>
+   *             </dd>
+   *             <dt><</dt>
+   *             <dd>
+   *                <p>Checks whether the value of the left operand is less than the value of the right
+   *             operand; if yes, then the condition becomes true.</p>
+   *                <p>Example: (a < b) is true.</p>
+   *             </dd>
+   *             <dt>>=</dt>
+   *             <dd>
+   *                <p>Checks whether the value of the left operand is greater than or equal to the value
+   *             of the right operand; if yes, then the condition becomes true.</p>
+   *                <p>Example: (a >= b) is not true.</p>
+   *             </dd>
+   *             <dt><=</dt>
+   *             <dd>
+   *                <p>Checks whether the value of the left operand is less than or equal to the value of
+   *             the right operand; if yes, then the condition becomes true.</p>
+   *                <p>Example: (a <= b) is true.</p>
+   *             </dd>
+   *             <dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt>
+   *             <dd>
+   *                <p>Logical operators.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>
+   *             <i>Supported Partition Key Types</i>: The following are the supported
+   *       partition keys.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>string</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>date</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>timestamp</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>int</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bigint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>long</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tinyint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>smallint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>decimal</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If an type is encountered that is not valid, an exception is thrown. </p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>A structure containing Lake Formation audit context information.</p>
    */
   AuditContext?: AuditContext;
 
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
-  NextToken?: string;
   /**
-   * <p>Defines a non-overlapping region of a table's partitions, allowing
-   *       multiple requests to be run in parallel.</p>
+   * <p>A list of supported permission types. </p>
+   */
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve
+   *       these partitions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The segment of the table's partitions to scan in this request.</p>
    */
   Segment?: Segment;
 
+  /**
+   * <p>The maximum number of partitions to return in a single response.</p>
+   */
   MaxResults?: number;
 }
 
+/**
+ * <p>A partition that contains unfiltered metadata.</p>
+ */
 export interface UnfilteredPartition {
   /**
-   * <p>Represents a slice of table data.</p>
+   * <p>The partition object.</p>
    */
   Partition?: Partition;
 
+  /**
+   * <p>The list of columns the user has permissions to access.</p>
+   */
   AuthorizedColumns?: string[];
+
+  /**
+   * <p>A Boolean value indicating that the partition location is registered with Lake Formation.</p>
+   */
   IsRegisteredWithLakeFormation?: boolean;
 }
 
 export interface GetUnfilteredPartitionsMetadataResponse {
+  /**
+   * <p>A list of requested partitions.</p>
+   */
   UnfilteredPartitions?: UnfilteredPartition[];
+
+  /**
+   * <p>A continuation token, if the returned list of partitions does not include the last
+   *       one.</p>
+   */
   NextToken?: string;
 }
 
 export interface GetUnfilteredTableMetadataRequest {
-  CatalogId: string | undefined;
-  DatabaseName: string | undefined;
-  Name: string | undefined;
   /**
-   * <p>A structure containing information for audit.</p>
+   * <p>The catalog ID where the table resides.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>(Required) Specifies the name of a database that contains the table.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>(Required) Specifies the name of a table for which you are requesting metadata.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A structure containing Lake Formation audit context information.</p>
    */
   AuditContext?: AuditContext;
 
+  /**
+   * <p>(Required) A list of supported permission types. </p>
+   */
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * <p>A filter that uses both column-level and row-level filtering.</p>
+ */
 export interface ColumnRowFilter {
+  /**
+   * <p>A string containing the name of the column.</p>
+   */
   ColumnName?: string;
+
+  /**
+   * <p>A string containing the row-level filter expression.</p>
+   */
   RowFilterExpression?: string;
 }
 
 export interface GetUnfilteredTableMetadataResponse {
   /**
-   * <p>Represents a collection of related data organized in columns and rows.</p>
+   * <p>A Table object containing the table metadata.</p>
    */
   Table?: Table;
 
+  /**
+   * <p>A list of column names that the user has been granted access to.</p>
+   */
   AuthorizedColumns?: string[];
+
+  /**
+   * <p>A Boolean value that indicates whether the partition location is registered
+   *           with Lake Formation.</p>
+   */
   IsRegisteredWithLakeFormation?: boolean;
+
+  /**
+   * <p>A list of column row filters.</p>
+   */
   CellFilters?: ColumnRowFilter[];
 }
 
@@ -5756,81 +6142,33 @@ export interface ImportCatalogToGlueRequest {
 
 export interface ImportCatalogToGlueResponse {}
 
-export interface ListBlueprintsRequest {
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum size of a list to return.</p>
-   */
-  MaxResults?: number;
+/**
+ * @internal
+ */
+export const CodeGenEdgeFilterSensitiveLog = (obj: CodeGenEdge): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Filters the list by an Amazon Web Services resource tag.</p>
-   */
-  Tags?: Record<string, string>;
-}
+/**
+ * @internal
+ */
+export const CodeGenNodeArgFilterSensitiveLog = (obj: CodeGenNodeArg): any => ({
+  ...obj,
+});
 
-export interface ListBlueprintsResponse {
-  /**
-   * <p>List of names of blueprints in the account.</p>
-   */
-  Blueprints?: string[];
-
-  /**
-   * <p>A continuation token, if not all blueprint names have been returned.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCrawlersRequest {
-  /**
-   * <p>The maximum size of a list to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Specifies to return only these tagged resources.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-export interface ListCrawlersResponse {
-  /**
-   * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
-   */
-  CrawlerNames?: string[];
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   */
-  NextToken?: string;
-}
-
-export enum FieldName {
-  CRAWL_ID = "CRAWL_ID",
-  DPU_HOUR = "DPU_HOUR",
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-  STATE = "STATE",
-}
-
-export enum FilterOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+/**
+ * @internal
+ */
+export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7740,33 +8078,5 @@ export const ImportCatalogToGlueRequestFilterSensitiveLog = (obj: ImportCatalogT
  * @internal
  */
 export const ImportCatalogToGlueResponseFilterSensitiveLog = (obj: ImportCatalogToGlueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBlueprintsRequestFilterSensitiveLog = (obj: ListBlueprintsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBlueprintsResponseFilterSensitiveLog = (obj: ListBlueprintsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlersRequestFilterSensitiveLog = (obj: ListCrawlersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlersResponseFilterSensitiveLog = (obj: ListCrawlersResponse): any => ({
   ...obj,
 });

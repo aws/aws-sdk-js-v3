@@ -19,7 +19,7 @@ import {
   ListBlueprintsRequestFilterSensitiveLog,
   ListBlueprintsResponse,
   ListBlueprintsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListBlueprintsCommand,
   serializeAws_json1_1ListBlueprintsCommand,
