@@ -112,7 +112,7 @@
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
     "ts-jest": "28.0.5",
-    "ts-loader": "^7.0.5",
+    "ts-loader": "^9.4.2",
     "ts-mocha": "10.0.0",
     "ts-node": "10.8.1",
     "turbo": "^1.6.3",
