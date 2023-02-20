@@ -29,7 +29,7 @@ export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __MetadataBearer {}
 
 /**
- * <p> Updates Audit Manager settings for the current user account. </p>
+ * <p> Updates Audit Manager settings for the current account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

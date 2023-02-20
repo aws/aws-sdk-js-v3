@@ -4933,6 +4933,9 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
