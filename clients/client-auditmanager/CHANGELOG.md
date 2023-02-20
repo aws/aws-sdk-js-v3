@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.275.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.274.0...v3.275.0) (2023-02-20)
+
+
+### Features
+
+* **client-auditmanager:** This release introduces a ServiceQuotaExceededException to the UpdateAssessmentFrameworkShare API operation. ([aaa9c82](https://github.com/aws/aws-sdk-js-v3/commit/aaa9c82a9b93d69a5d0de2691e38846d84c45829))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-auditmanager
