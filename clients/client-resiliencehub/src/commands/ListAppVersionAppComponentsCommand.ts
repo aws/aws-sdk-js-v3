@@ -14,42 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  ListAppComponentRecommendationsRequest,
-  ListAppComponentRecommendationsRequestFilterSensitiveLog,
-  ListAppComponentRecommendationsResponse,
-  ListAppComponentRecommendationsResponseFilterSensitiveLog,
+  ListAppVersionAppComponentsRequest,
+  ListAppVersionAppComponentsRequestFilterSensitiveLog,
+  ListAppVersionAppComponentsResponse,
+  ListAppVersionAppComponentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAppComponentRecommendationsCommand,
-  serializeAws_restJson1ListAppComponentRecommendationsCommand,
+  deserializeAws_restJson1ListAppVersionAppComponentsCommand,
+  serializeAws_restJson1ListAppVersionAppComponentsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
-export interface ListAppComponentRecommendationsCommandInput extends ListAppComponentRecommendationsRequest {}
-export interface ListAppComponentRecommendationsCommandOutput
-  extends ListAppComponentRecommendationsResponse,
+export interface ListAppVersionAppComponentsCommandInput extends ListAppVersionAppComponentsRequest {}
+export interface ListAppVersionAppComponentsCommandOutput
+  extends ListAppVersionAppComponentsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists the recommendations for an AWS Resilience Hub Application Component.</p>
+ * <p>Lists all the Application Components in the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppComponentRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppComponentRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppVersionAppComponentsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
+ * // const { ResiliencehubClient, ListAppVersionAppComponentsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const command = new ListAppComponentRecommendationsCommand(input);
+ * const command = new ListAppVersionAppComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListAppComponentRecommendationsCommandInput} for command's `input` shape.
- * @see {@link ListAppComponentRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link ListAppVersionAppComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListAppVersionAppComponentsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  */
-export class ListAppComponentRecommendationsCommand extends $Command<
-  ListAppComponentRecommendationsCommandInput,
-  ListAppComponentRecommendationsCommandOutput,
+export class ListAppVersionAppComponentsCommand extends $Command<
+  ListAppVersionAppComponentsCommandInput,
+  ListAppVersionAppComponentsCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +64,7 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListAppComponentRecommendationsCommandInput) {
+  constructor(readonly input: ListAppVersionAppComponentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +77,23 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResiliencehubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAppComponentRecommendationsCommandInput, ListAppComponentRecommendationsCommandOutput> {
+  ): Handler<ListAppVersionAppComponentsCommandInput, ListAppVersionAppComponentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAppComponentRecommendationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAppVersionAppComponentsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ResiliencehubClient";
-    const commandName = "ListAppComponentRecommendationsCommand";
+    const commandName = "ListAppVersionAppComponentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppComponentRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppComponentRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListAppVersionAppComponentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppVersionAppComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +103,15 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAppComponentRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppComponentRecommendationsCommand(input, context);
+  private serialize(input: ListAppVersionAppComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAppVersionAppComponentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListAppComponentRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListAppComponentRecommendationsCommand(output, context);
+  ): Promise<ListAppVersionAppComponentsCommandOutput> {
+    return deserializeAws_restJson1ListAppVersionAppComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

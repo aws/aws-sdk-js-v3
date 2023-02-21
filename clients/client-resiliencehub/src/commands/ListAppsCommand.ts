@@ -29,7 +29,16 @@ export interface ListAppsCommandInput extends ListAppsRequest {}
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your Resilience Hub applications.</p>
+ * <p>Lists your AWS Resilience Hub applications.</p>
+ *          <note>
+ *             <p>You can filter applications using only one filter at a time or without using any filter.
+ *         If you try to filter applications using multiple filters, you will get the following
+ *         error:</p>
+ *             <p>
+ *                <code>An error occurred (ValidationException) when calling the ListApps operation: Only
+ *           one filter is supported for this operation.</code>
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

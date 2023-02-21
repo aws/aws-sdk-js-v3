@@ -31,7 +31,7 @@ export interface ListAppComponentCompliancesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the compliances for an AWS Resilience Hub component.</p>
+ * <p>Lists the compliances for an AWS Resilience Hub Application Component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

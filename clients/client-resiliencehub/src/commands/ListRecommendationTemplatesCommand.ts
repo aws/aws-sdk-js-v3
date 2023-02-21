@@ -31,7 +31,7 @@ export interface ListRecommendationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the recommendation templates for the Resilience Hub applications.</p>
+ * <p>Lists the recommendation templates for the AWS Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

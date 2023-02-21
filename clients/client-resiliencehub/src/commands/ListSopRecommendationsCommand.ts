@@ -29,7 +29,7 @@ export interface ListSopRecommendationsCommandInput extends ListSopRecommendatio
 export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
+ * <p>Lists the standard operating procedure (SOP) recommendations for the AWS Resilience Hub
  *       applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

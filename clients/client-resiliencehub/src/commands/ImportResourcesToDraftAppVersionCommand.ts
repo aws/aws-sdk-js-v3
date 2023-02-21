@@ -31,8 +31,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Imports resources from sources such as a CloudFormation stack, resource-groups, or application
- *       registry app to a draft application version.</p>
+ * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+ *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,7 @@ export interface ListAppVersionResourcesCommandInput extends ListAppVersionResou
 export interface ListAppVersionResourcesCommandOutput extends ListAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the resources in an application version.</p>
+ * <p>Lists all the resources in an AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

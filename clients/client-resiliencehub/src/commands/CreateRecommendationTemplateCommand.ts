@@ -31,7 +31,7 @@ export interface CreateRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new recommendation template.</p>
+ * <p>Creates a new recommendation template for the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
