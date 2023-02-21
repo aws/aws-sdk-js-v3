@@ -15,9 +15,10 @@ export type PartitionsInfo = {
     regionRegex: string;
     regions: Record<
       string,
-      {
-        description: string;
-      }
+      | {
+          description?: string;
+        }
+      | undefined
     >;
   }>;
 };
@@ -89,3 +90,9 @@ export const setPartitionInfo = (partitionsInfo: PartitionsInfo) => {
 export const useDefaultPartitionInfo = () => {
   setPartitionInfo(partitionsInfo);
 };
+
+/**
+ * @internal
+ * @returns whether the default partitions data are selected.
+ */
+export const isUsingDefaultPartitionInfo = () => selectedPartitionsInfo === partitionsInfo;

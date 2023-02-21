@@ -1,14 +1,20 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentPair } from "@aws-sdk/types";
+import { setPartitionInfo, useDefaultPartitionInfo } from "@aws-sdk/util-endpoints";
 
 import { USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
 import { userAgentMiddleware } from "./user-agent-middleware";
 
 describe("userAgentMiddleware", () => {
   const mockNextHandler = jest.fn();
+  const mockInternalNextHandler = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    useDefaultPartitionInfo();
   });
 
   describe("should collect user agent pair from default, custom-supplied, and handler context", () => {
@@ -69,6 +75,21 @@ describe("userAgentMiddleware", () => {
             await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
             expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
               expect.stringContaining(expected)
+            );
+          });
+
+          it(`should include internal metadata, user agent ${ua} to md/internal ${expected}`, async () => {
+            const middleware = userAgentMiddleware({
+              defaultUserAgentProvider: async () => [ua],
+              runtime,
+            });
+
+            // internal variant
+            setPartitionInfo({} as any);
+            const handler = middleware(mockInternalNextHandler, {});
+            await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+            expect(mockInternalNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
+              expect.stringContaining("md/internal " + expected)
             );
           });
         }

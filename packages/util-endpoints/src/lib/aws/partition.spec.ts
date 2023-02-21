@@ -104,10 +104,16 @@ describe("partition", () => {
       supportsDualStack: true,
       supportsFIPS: true,
     });
+
     useDefaultPartitionInfo();
-    expect(() => partition(testRegion)).toThrow(
-      "Provided region was not found in the partition array or regex," +
-        " and default partition with id 'aws' doesn't exist."
-    );
+    // result is matched by regex, but customization is no longer present.
+    expect(partition(testRegion)).toEqual({
+      description: void 0,
+      dnsSuffix: "amazonaws.com",
+      dualStackDnsSuffix: "api.aws",
+      name: "aws",
+      supportsDualStack: true,
+      supportsFIPS: true,
+    });
   });
 });
